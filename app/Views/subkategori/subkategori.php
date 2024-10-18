@@ -71,8 +71,9 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form method="post" action="<?= base_url('/subkategori/updateSubkategori/' . esc($subcategory['id'])) ?>" enctype="multipart/form-data">
-                                                        <div class="modal-body">
+                                                    <form method="post" action="<?= base_url('/admin/subkategori/updateSubkategori/' . esc($subcategory['id'])) ?>" enctype="multipart/form-data">
+                                                    <?= csrf_field() ?> 
+                                                    <div class="modal-body">
                                                             <div class="form-group">
                                                                 <label for="name">Subkategori</label>
                                                                 <input type="text" class="form-control" name="name" value="<?= esc($subcategory['subcategory_name']) ?>" placeholder="Subkategori Name">
@@ -123,8 +124,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="<?= base_url('/subkategori/saveSubkategori') ?>" enctype="multipart/form-data">
-                <div class="modal-body">
+            <form method="post" action="<?= base_url('/admin/subkategori/saveSubkategori') ?>" enctype="multipart/form-data">
+            <?= csrf_field() ?> 
+            <div class="modal-body">
                     <div class="form-group">
                         <label for="category_id">Category</label>
                         <select class="form-control" name="category_id">
@@ -173,7 +175,7 @@
   // Use event delegation to ensure the modal works for all rows
 $(document).on('click', '.btn-delete', function() {
     var subcategoryId = $(this).data('subcategory-id'); // Get the subcategory ID from the button
-    var deleteUrl = '/subkategori/deleteSubkategori/' + subcategoryId; // Create the delete URL
+    var deleteUrl = '/admin/subkategori/deleteSubkategori/' + subcategoryId; // Create the delete URL
 
     // Update the confirmation delete button's link
     $('#confirmDeleteBtn').attr('href', deleteUrl);

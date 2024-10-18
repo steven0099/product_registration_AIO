@@ -103,8 +103,9 @@
         <div class="modal-content">
           <span class="close">&times;</span>
           <h3>Tambah Garansi Kompresor</h3>
-          <form method="post" action="<?= base_url('/garansi_kompresor/saveGaransiKompresor') ?>" enctype="multipart/form-data">
-            <div class="form-group">
+          <form method="post" action="<?= base_url('/admin/garansi_kompresor/saveGaransiKompresor') ?>" enctype="multipart/form-data">
+          <?= csrf_field() ?> 
+          <div class="form-group">
               <label for="value">Garansi Kompresor</label>
               <input type="text" class="form-control" name="value" placeholder="Garansi Kompresor" required>
             </div>
@@ -119,7 +120,8 @@
           <span class="close">&times;</span>
           <h3>Edit Garansi Kompresor</h3>
           <form id="editForm" method="post" action="" enctype="multipart/form-data">
-            <div class="form-group">
+          <?= csrf_field() ?> 
+          <div class="form-group">
               <label for="value">Garansi Kompresor</label>
               <input type="text" id="editValue" class="form-control" name="value" placeholder="Enter Compressor Warranty" required>
             </div>
@@ -135,7 +137,8 @@
           <h3>Konfirmasi</h3>
           <p>Hapus Garansi Kompresor Ini?</p>
           <form id="deleteForm" method="post" action="">
-            <button type="submit" class="btn btn-danger">Hapus</button>
+          <?= csrf_field() ?> 
+          <button type="submit" class="btn btn-danger">Hapus</button>
             <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Batal</button>
           </form>
         </div>
@@ -171,7 +174,7 @@
             var value = this.getAttribute('data-value');
 
             // Set the form action and input value dynamically
-            document.getElementById('editForm').action = '/garansi_kompresor/updateGaransiKompresor/' + id;
+            document.getElementById('editForm').action = '/admin/garansi_kompresor/updateGaransiKompresor/' + id;
             document.getElementById('editValue').value = value;
 
             editModal.style.display = "block";
@@ -192,7 +195,7 @@
             var id = this.getAttribute('data-id');
 
             // Set the form action dynamically
-            document.getElementById('deleteForm').action = '/garansi_kompresor/deleteGaransiKompresor/' + id;
+            document.getElementById('deleteForm').action = '/admin/garansi_kompresor/deleteGaransiKompresor/' + id;
 
             deleteModal.style.display = "block";
           });

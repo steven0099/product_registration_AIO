@@ -25,8 +25,11 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'cors'          => Cors::class,
+        'role' => \App\Filters\RoleFilter::class,
+        'auth' => \App\Filters\AuthFilter::class,
     ];
 
+    
     /**
      * List of filter aliases that are always
      * applied before and after every request.
@@ -58,5 +61,5 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = ['role' => ['before' => ['superadmin/*', 'admin/*', 'user/*']],  ];
 }

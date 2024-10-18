@@ -24,8 +24,14 @@ class ProductController extends BaseController
 
     public function index()
     {
+        // Check if the user has the required role (admin or superadmin)
+        if (session()->get('role') !== 'admin' && session()->get('role') !== 'superadmin') {
+            return redirect()->to('/no-access'); // Redirect if unauthorized
+        }
+    
+        // Authorized users (admins and superadmins) proceed with fetching the data
         $product_model = new ProductModel();
-
+    
         // Fetch products with joins to related tables (brands, categories, etc.)
         $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
             ->join('brands', 'brands.id = products.brand_id')
@@ -35,14 +41,19 @@ class ProductController extends BaseController
             ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
             ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
             ->findAll();
-
-        return view('product/list_product', $data); // Pass data to the view
+    
+        // Pass data to the view
+        return view('product/list_product', $data);
     }
 
     public function approved()
     {
+        if (session()->get('role') !== 'superadmin') {
+            return redirect()->to('/no-access');
+        } // Close the if statement properly here
+    
         $product_model = new ProductModel();
-
+    
         // Fetch products with joins to related tables (brands, categories, etc.)
         $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
             ->join('brands', 'brands.id = products.brand_id')
@@ -50,16 +61,20 @@ class ProductController extends BaseController
             ->join('subcategories', 'subcategories.id = products.subcategory_id')
             ->join('capacities', 'capacities.id = products.capacity_id')
             ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
-            ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
+            ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id') // Add condition to fetch only approved products
             ->findAll();
-
-        return view('product/approved_product', $data); // Pass data to the view
+    
+        return view('product/approved_product', $data); // Ensure the view path is correct
     }
-
+    
     public function rejected()
     {
+        if (session()->get('role') !== 'superadmin') {
+            return redirect()->to('/no-access');
+        } // Close the if statement properly here
+    
         $product_model = new ProductModel();
-
+    
         // Fetch products with joins to related tables (brands, categories, etc.)
         $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
             ->join('brands', 'brands.id = products.brand_id')
@@ -69,9 +84,10 @@ class ProductController extends BaseController
             ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
             ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
             ->findAll();
-
-        return view('product/rejected_product', $data); // Pass data to the view
+    
+        return view('product/rejected_product', $data); // Ensure the view path is correct
     }
+    
 
     public function getSubcategories($categoryId)
     {

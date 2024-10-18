@@ -104,7 +104,7 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h3>Tambah Kapasitas</h3>
-        <form method="post" action="<?= base_url('/kapasitas/saveKapasitas') ?>" enctype="multipart/form-data">
+        <form method="post" action="<?= base_url('/admin/kapasitas/saveKapasitas') ?>" enctype="multipart/form-data">
           <div class="form-group">
             <label for="value">Kapasitas</label>
             <input type="text" class="form-control" name="value" placeholder="Kapasitas">
@@ -172,7 +172,7 @@
           var value = this.getAttribute('data-value');
           
           // Set the form action and input value dynamically
-          document.getElementById('editForm').action = '/kapasitas/updateKapasitas/' + id;
+          document.getElementById('editForm').action = '/admin/kapasitas/updateKapasitas/' + id;
           document.getElementById('editValue').value = value;
 
           editModal.style.display = "block";
@@ -199,7 +199,7 @@
           var id = this.getAttribute('data-id');
 
           // Set the form action dynamically
-          document.getElementById('deleteForm').action = '/kapasitas/deleteKapasitas/' + id;
+          document.getElementById('deleteForm').action = '/admin/kapasitas/deleteKapasitas/' + id;
 
           deleteModal.style.display = "block";
         });

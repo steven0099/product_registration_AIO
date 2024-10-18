@@ -97,7 +97,7 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h3>Tambah Garansi Sparepart</h3>
-        <form method="post" action="<?= base_url('/garansi_sparepart/saveGaransiSparepart') ?>" enctype="multipart/form-data">
+        <form method="post" action="<?= base_url('/admin/garansi_sparepart/saveGaransiSparepart') ?>" enctype="multipart/form-data">
           <div class="form-group">
             <label for="value">Garansi Sparepart</label>
             <input type="text" class="form-control" name="value" placeholder="Garansi Sparepart">
@@ -165,7 +165,7 @@
           var value = this.getAttribute('data-value');
           
           // Set the form action and input value dynamically
-          document.getElementById('editForm').action = '/garansi_sparepart/updateGaransiSparepart/' + id;
+          document.getElementById('editForm').action = '/admin/garansi_sparepart/updateGaransiSparepart/' + id;
           document.getElementById('editValue').value = value;
 
           editModal.style.display = "block";
@@ -192,7 +192,7 @@
           var id = this.getAttribute('data-id');
 
           // Set the form action dynamically
-          document.getElementById('deleteForm').action = '/garansi_sparepart/deleteGaransiSparepart/' + id;
+          document.getElementById('deleteForm').action = '/admin/garansi_sparepart/deleteGaransiSparepart/' + id;
 
           deleteModal.style.display = "block";
         });

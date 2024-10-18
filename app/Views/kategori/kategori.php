@@ -93,8 +93,9 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h3>Tambah Kategori</h3>
-        <form method="post" action="<?= base_url('/kategori/saveKategori') ?>" enctype="multipart/form-data">
-          <div class="form-group">
+        <form method="post" action="<?= base_url('/admin/kategori/saveKategori') ?>" enctype="multipart/form-data">
+        <?= csrf_field() ?>  
+        <div class="form-group">
             <label for="name">Kategori</label>
             <input type="text" class="form-control" name="name" placeholder="Kategori">
           </div>
@@ -109,6 +110,7 @@
         <span class="close">&times;</span>
         <h3>Edit Kategori</h3>
         <form id="editForm" method="post" action="" enctype="multipart/form-data">
+        <?= csrf_field() ?> 
           <div class="form-group">
             <label for="name">Kategori</label>
             <input type="text" id="editValue" class="form-control" name="name" placeholder="Kategori" required>
@@ -125,6 +127,7 @@
         <h3>Konfirmasi</h3>
         <p>Hapus Kategori Ini?</p>
         <form id="deleteForm" method="post" action="">
+        <?= csrf_field() ?> 
           <button type="submit" class="btn btn-danger">Hapus</button>
           <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Batal</button>
         </form>
@@ -160,7 +163,7 @@
           var name = this.getAttribute('data-value');
           
           // Set the form action and input name dynamically
-          document.getElementById('editForm').action = '/kategori/updateKategori/' + id;
+          document.getElementById('editForm').action = '/admin/kategori/updateKategori/' + id;
           document.getElementById('editValue').value = name;
 
           editModal.style.display = "block";
@@ -188,7 +191,7 @@ document.querySelectorAll('.btn-delete').forEach(function(button) {
     var id = this.getAttribute('data-id');
 
     // Set the form action dynamically
-    document.getElementById('deleteForm').action = '/kategori/deleteKategori/' + id;
+    document.getElementById('deleteForm').action = '/admin/kategori/deleteKategori/' + id;
 
     deleteModal.style.display = "block";
   });

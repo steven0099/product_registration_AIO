@@ -33,7 +33,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="<?= base_url('/user/saveUser') ?>" enctype="multipart/form-data">
+              <form method="post" action="<?= base_url('/superadmin/user/saveUser') ?>" enctype="multipart/form-data">
               <?= csrf_field() ?>  
               <div class="card-body">
               <div class="form-group">

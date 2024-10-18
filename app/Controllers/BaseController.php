@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\UserModel;
 
 helper('url');
 /**
@@ -22,6 +23,7 @@ helper('url');
  */
 abstract class BaseController extends Controller
 {
+    
     /**
      * Instance of the main Request object.
      *
@@ -55,6 +57,28 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->session = session();
     }
 
+    protected $user;
+
+    public function __construct()
+    {
+        // Fetch the logged-in user's data if logged in
+        $userModel = new UserModel();
+        $userId = session()->get('id'); // Assuming 'user_id' is stored in the session
+        if ($userId) {
+            $this->user = $userModel->find($userId);
+        }
+    }
+
+    // Pass data globally to all views
+    public function renderView($view, $data = [])
+    {
+        // Make user data available globally
+        $data['user'] = $this->user;
+        echo view('partials/headbar', $data);
+        echo view($view, $data);
+    }
 }
+
