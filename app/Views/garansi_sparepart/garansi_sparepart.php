@@ -98,7 +98,8 @@
         <span class="close">&times;</span>
         <h3>Tambah Garansi Sparepart</h3>
         <form method="post" action="<?= base_url('/admin/garansi_sparepart/saveGaransiSparepart') ?>" enctype="multipart/form-data">
-          <div class="form-group">
+        <?= csrf_field() ?>
+        <div class="form-group">
             <label for="value">Garansi Sparepart</label>
             <input type="text" class="form-control" name="value" placeholder="Garansi Sparepart">
           </div>
@@ -113,6 +114,7 @@
         <span class="close">&times;</span>
         <h3>Edit Garansi Sparepart</h3>
         <form id="editForm" method="post" action="" enctype="multipart/form-data">
+        <?= csrf_field() ?> 
           <div class="form-group">
             <label for="value">Garansi Sparepart</label>
             <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart" required>
@@ -129,6 +131,7 @@
         <h3>Konfirmasi</h3>
         <p>Hapus Garansi Sparepart Ini?</p>
         <form id="deleteForm" method="post" action="">
+        <?= csrf_field() ?> 
           <button type="submit" class="btn btn-danger">Hapus</button>
           <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Batal</button>
         </form>

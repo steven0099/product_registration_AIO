@@ -57,7 +57,6 @@
             <button type="submit" class="submit-btn">Selanjutnya</button>
         </form>
 
-        <p class="form-note">*Keunggulan Produk Harap Diisi Semua</p>
     </div>
 </body>
 </html>

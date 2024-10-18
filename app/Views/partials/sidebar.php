@@ -32,7 +32,7 @@
             </a>
           <?php endif; ?>
         </li>
-        
+
         <!-- Manage Data Section -->
         <li class="nav-item <?= (uri_string() == 'brand' || uri_string() == 'kategori' || uri_string() == 'subkategori' || uri_string() == 'kapasitas' || uri_string() == 'garansi_kompresor' || uri_string() == 'garansi_sparepart') ? 'menu-open' : '' ?>" style="width: 90%">
           <a href="#" class="nav-link <?= (uri_string() == 'brand' || uri_string() == 'kategori' || uri_string() == 'subkategori' || uri_string() == 'kapasitas' || uri_string() == 'garansi_kompresor' || uri_string() == 'garansi_sparepart') ? 'active' : '' ?>">
@@ -80,18 +80,29 @@
         </li>
 
         <!-- Manage Products Section -->
-        <li class="nav-item <?= (uri_string() == 'product' || uri_string() == 'product/approved'|| uri_string() == 'product/rejected') ? 'menu-open' : '' ?>" style="width: 90%">
+        <li class="nav-item 
+        <?= (uri_string() == 'product' || uri_string() == 'product/approved'|| uri_string() == 'product/rejected') ? 'menu-open' : '' ?>" style="width: 90%">
           <a href="#" class="nav-link <?= (uri_string() == 'product' || uri_string() == 'product/approved' || uri_string() == 'product/rejected') ? 'active' : '' ?>">
             <i class="nav-icon fas fa-boxes"></i>
             <p>Kelola Produk<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="/admin/product" class="nav-link <?= (uri_string() == 'product') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Antrian Persetujuan Produk</p>
-              </a>
-            </li>
+        <li class="nav-item">
+          <?php if (session()->get('role') == 'superadmin'): ?>
+            <!-- Link to Superadmin Dashboard -->
+            <a href="/superadmin/product" class="nav-link <?= (uri_string() == 'superadmin/product') ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Konfirmasi Antrian Produk</p>
+            </a>
+          <?php else: ?>
+            <!-- Link to Admin Dashboard -->
+            <a href="/admin/product" class="nav-link <?= (uri_string() == 'admin/product') ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Antrian Produk</p>
+            </a>
+          <?php endif; ?>
+        </li>
+        
             
             <?php if (session()->get('role') == 'superadmin'): ?>
             <!-- These links are visible only to superadmin -->

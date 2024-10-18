@@ -10,19 +10,6 @@ $routes->get('/', 'AuthController::login', ['as' => 'login']);
 $routes->post('login/auth', 'AuthController::authenticate');
 $routes->get('logout', 'AuthController::logout');
 
-// Superadmin routes
-$routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) {
-    $routes->get('dashboard', 'SuperadminController::dashboard');
-    $routes->get('users', 'UsersController::index');
-    // Other superadmin routes
-});
-
-// Admin routes
-$routes->group('admin', ['filter' => 'role:admin'], function($routes) {
-    $routes->get('dashboard', 'AdminController::dashboard');
-    // Other admin routes
-});
-
 // User routes (non-admin users)
 $routes->group('user', ['filter' => 'role:user'], function($routes) {
     $routes->get('products/step1', 'UsersController::step1');
@@ -56,6 +43,8 @@ $routes->group('reset', ['filter' => 'auth'], function ($routes) {
 // Routes for Superadmins
 $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) {
     $routes->get('dashboard', 'SuperadminController::dashboard');
+
+    $routes->get('product', 'SuperadminController::product');
     
     // User management routes for superadmin
     $routes->get('user', 'Superadmin\UserController::index'); // This should match your directory structure
@@ -76,6 +65,8 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     
     // Admin Dashboard
     $routes->get('dashboard', 'AdminController::dashboard');
+
+    $routes->get('product', 'AdminController::product');
 
     // Brand Management
     $routes->get('brand', 'Admin\BrandController::index');
