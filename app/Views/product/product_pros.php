@@ -30,7 +30,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= base_url('product/register_step3') ?>" method="post">
+        <form action="<?= base_url('product/save-step3') ?>" method="post">
             <?= csrf_field() ?>
             
             <div class="form-group">
@@ -52,6 +52,10 @@
 
             <div class="form-group">
                 <input type="text" id="advantage5" name="advantage5" placeholder="Masukan Keunggulan Produk" >
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="advantage6" name="advantage6" placeholder="Masukan Keunggulan Produk" >
             </div>
 
             <button type="submit" class="submit-btn">Selanjutnya</button>

@@ -33,6 +33,9 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('step3', 'ProductController::step3');
     $routes->post('save-step3', 'ProductController::saveStep3');
 
+    $routes->get('step4', 'ProductController::step4');
+    $routes->post('save-step4', 'ProductController::saveStep4');
+
     $routes->get('success', 'ProductController::success');
 });
 

@@ -64,7 +64,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="card-title">List of Brands</h3>
+              <h3 class="card-title">Daftar Merek</h3>
               <button id="createBrandBtn" class="btn btn-primary ml-auto">+ Tambah Merek</button>
             </div>
             <div class="card-body">

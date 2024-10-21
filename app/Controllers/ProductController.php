@@ -194,41 +194,88 @@ class ProductController extends BaseController
         return view('product/product_pros');  // Load the form for product advantages
     }
 
-    public function saveStep3()
-    {
-        $rules = [
-            'advantage1' => 'required|string',
-            'advantage2' => 'string',
-            'advantage3' => 'string',
-            'advantage4' => 'string',
-            'advantage5' => 'string',
-        ];
-
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }
-
-        // Get the product ID from the session
-        $productId = session()->get('step1')['product_id'];
-
-        // Save step 3 data in the ProsModel
-        $prosModel = new ProsModel();
-        $prosData = [
-            'product_id' => $productId,  // Associate the product ID with the pros
+    public function saveStep3() {
+        // Get the submitted data from the request
+        $advantages = [
             'advantage1' => $this->request->getPost('advantage1'),
             'advantage2' => $this->request->getPost('advantage2'),
             'advantage3' => $this->request->getPost('advantage3'),
             'advantage4' => $this->request->getPost('advantage4'),
             'advantage5' => $this->request->getPost('advantage5'),
+            'advantage6' => $this->request->getPost('advantage6')
+        ];
+    
+        // Validate the inputs (optional validation logic here)
+    
+        // Save the data to the session
+        session()->set('advantages', $advantages);
+    
+        // Redirect to the next step (step 4 - product uploads)
+        return redirect()->to(base_url('product/product_uploads'));
+    }    
+
+    public function step4()
+    {
+        $advantages = session()->get('advantages');
+    
+        if (!$advantages) {
+            // If data from step 3 does not exist, redirect back to step 3
+            return redirect()->to(base_url('product/product_pros'))->with('errors', ['Complete the previous step first.']);
+        }
+    
+        // Pass the session data to the view
+        return view('product/product_uploads', ['advantages' => $advantages]);; // View untuk foto produk
+    }
+
+    public function saveGambar()
+    {
+        $gambarModel = new GambarModel();
+
+        // Proses upload file gambar
+        $fotoProduk = $this->request->getFile('gambar_utama');
+        $gambarBarang = $this->request->getFile('gambar_samping_kiri');
+        $gambarProduk = $this->request->getFile('gambar_samping_kanan');
+        $videoBarang = $this->request->getFile('video_produk');
+
+        // Inisialisasi variabel untuk menyimpan nama file
+        $fotoName = null;
+        $gambarBarangName = null;
+        $gambarProdukName = null;
+        $videoBarangName = null;
+
+        // Cek apakah file `foto_produk` ada dan valid
+        if ($fotoProduk && $fotoProduk->isValid() && !$fotoProduk->hasMoved()) {
+            $fotoName = $fotoProduk->getRandomName();
+            $fotoProduk->move('uploads', $fotoName);
+        }
+
+        // Cek apakah file `gambar_barang` ada dan valid
+        if ($gambarBarang && $gambarBarang->isValid() && !$gambarBarang->hasMoved()) {
+            $gambarBarangName = $gambarBarang->getRandomName();
+            $gambarBarang->move('uploads', $gambarBarangName);
+        }
+
+        // Cek apakah file `gambar_produk` ada dan valid
+        if ($gambarProduk && $gambarProduk->isValid() && !$gambarProduk->hasMoved()) {
+            $gambarProdukName = $gambarProduk->getRandomName();
+            $gambarProduk->move('uploads', $gambarProdukName);
+        }
+
+        // Cek apakah file `video_barang` ada dan valid
+        if ($videoBarang && $videoBarang->isValid() && !$videoBarang->hasMoved()) {
+            $videoBarangName = $videoBarang->getRandomName();
+            $videoBarang->move('uploads', $videoBarangName);
+        }
+
+        // Simpan data gambar ke database
+        $data = [
+            'gambar_utama' => $fotoName,
+            'gambar_samping_kiri' => $gambarBarangName,
+            'gambar_samping_kanan' => $gambarProdukName,
+            'video_produk' => $videoBarangName,
         ];
 
-        $prosModel->save($prosData);
-
-        // Clear session data
-        session()->remove('product_id');
-
-        // Redirect to a success page
-        return redirect()->to('/success')->with('message', 'Product successfully registered');
+        $gambarModel->insert($data);
     }
 
     public function deleteProduct($id)

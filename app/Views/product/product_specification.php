@@ -54,37 +54,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="save-step2" method="post">
         <?= csrf_field() ?>
             <div class="form-group">
-                <label for="product_dimensions">Product Dimensions (X*Y*Z cm)</label>
-                <input type="number" name="produk_p" placeholder="Length (cm)" required>
-                <input type="number" name="produk_l" placeholder="Width (cm)" required>
-                <input type="number" name="produk_t" placeholder="Height (cm)" required>
+                <label for="product_dimensions">Dimensi Produk (P x L x T cm)</label>
+                <input type="number" name="produk_p" placeholder="Panjang (cm)" required>
+                <input type="number" name="produk_l" placeholder="Lebar (cm)" required>
+                <input type="number" name="produk_t" placeholder="Tinggi (cm)" required>
             </div>
 
             <div class="form-group">
-                <label for="package_dimensions">Package Dimensions (X*Y*Z cm)</label>
-                <input type="number" name="kemasan_p" placeholder="Length (cm)" required>
-                <input type="number" name="kemasan_l" placeholder="Width (cm)" required>
-                <input type="number" name="kemasan_t" placeholder="Height (cm)" required>
+                <label for="package_dimensions">Dimensi Kemasan (P x L x T cm)</label>
+                <input type="number" name="kemasan_p" placeholder="Panjang (cm)" required>
+                <input type="number" name="kemasan_l" placeholder="Lebar (cm)" required>
+                <input type="number" name="kemasan_t" placeholder="Tinggi (cm)" required>
             </div>
 
             <div class="form-group">
-                <label for="berat">Product Weight (kg)</label>
-                <input type="number" name="berat" placeholder="Product Weight (kg)" required>
+                <label for="berat">Berat Produk (kg)</label>
+                <input type="number" name="berat" placeholder="Berat Produk (kg)" required>
             </div>
 
             <div class="form-group">
-                <label for="daya">Power Usage (watt)</label>
-                <input type="number" name="daya" placeholder="Power Usage (watt)" required>
+                <label for="daya">Konsumsi Daya (watt)</label>
+                <input type="number" name="daya" placeholder="Konsumsi Daya (watt)" required>
             </div>
 
             <div class="form-group">
-                <label for="pembuat">Manufacturer (country)</label>
-                <input type="text" name="pembuat" placeholder="Manufacturer" required>
+                <label for="pembuat">Negara Pembuat</label>
+                <input type="text" name="pembuat" placeholder="Negara Pembuat" required>
             </div>
 
             <div class="form-group">
-                <label for="refrigant">Tipe Refrigant</label>
-                <input type="text" name="refrigant" placeholder="Refrigant" required>
+                <label for="refrigant">Tipe Refrigrant</label>
+                <input type="text" name="refrigant" placeholder="Refrigrant" required>
             </div>
 
             <div class="form-group">
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
 
-            <button type="submit" class="submit-btn">Next</button>
+            <button type="submit" class="submit-btn">Selanjutnya</button>
         </form>
     </div>
 </body>
