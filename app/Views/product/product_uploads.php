@@ -23,16 +23,6 @@
             <span>Konfirmasi Produk</span>
         </div>
 
-        <!-- Display advantages stored in session (from step 3) -->
-        <?php if (isset($advantages)): ?>
-            <h3>Keunggulan Produk dari Step 3</h3>
-            <ul>
-                <?php foreach ($advantages as $adv): ?>
-                    <li><?= esc($adv) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
-
         <!-- Fetching Data from Previous Steps -->
         <?php
         // Retrieve data from previous steps (this assumes you have stored the data in session or database)

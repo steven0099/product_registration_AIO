@@ -211,7 +211,7 @@ class ProductController extends BaseController
         session()->set('advantages', $advantages);
     
         // Redirect to the next step (step 4 - product uploads)
-        return redirect()->to(base_url('product/product_uploads'));
+        return redirect()->to(base_url('product/step4'));
     }    
 
     public function step4()
