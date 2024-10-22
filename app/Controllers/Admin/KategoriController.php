@@ -63,7 +63,7 @@ class KategoriController extends BaseController
             return redirect()->back()->with('error', 'Failed to update Kategori.');
         }
 
-        return redirect()->to('/kategori')->with('success', 'Kategori updated successfully.');
+        return redirect()->to('/admin/kategori')->with('success', 'Kategori updated successfully.');
     }
 
     public function deleteKategori($id)

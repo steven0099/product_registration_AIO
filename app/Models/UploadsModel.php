@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class GambarModel extends Model
+class UploadsModel extends Model
 {
     protected $table = 'product_uploads';
     protected $primaryKey = 'id';

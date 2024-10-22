@@ -36,6 +36,8 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('step4', 'ProductController::step4');
     $routes->post('save-step4', 'ProductController::saveStep4');
 
+    $routes->get('confirm', 'ProductController::confirm');
+
     $routes->get('success', 'ProductController::success');
 });
 
@@ -123,6 +125,13 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
 
 // Public Routes (no authentication required)
 $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1');
+$routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
+$routes->get('get-ukuran-tv', 'ProductController::getUkuranTv');
+$routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
+$routes->get('get-garansi-motor', 'ProductController::getGaransiMotor');
+$routes->get('get-garansi-panel', 'ProductController::getGaransiPanel');
+$routes->get('get-garansi-semua-service', 'ProductController::getGaransiSemuaService');
+
 $routes->get('no-access', 'AuthController::NoAccess');
 
 // List of products (viewable by admin and superadmin)

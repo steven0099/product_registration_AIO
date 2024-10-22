@@ -33,8 +33,8 @@
         <form action="<?= base_url('product/save-step3') ?>" method="post">
             <?= csrf_field() ?>
             
+            <label style="margin-bottom: 20px"> Keunggulan Produk </label>
             <div class="form-group">
-                <label for="advantage1">Keunggulan Produk</label>
                 <input type="text" id="advantage1" name="advantage1" placeholder="Masukan Keunggulan Produk" required>
             </div>
 

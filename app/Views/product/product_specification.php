@@ -53,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <!-- Step 2 Form -->
         <form action="save-step2" method="post">
         <?= csrf_field() ?>
-            <div class="form-group">
+            <div class="form-group-s">
                 <label for="product_dimensions">Dimensi Produk (P x L x T cm)</label>
                 <input type="number" name="produk_p" placeholder="Panjang (cm)" required>
                 <input type="number" name="produk_l" placeholder="Lebar (cm)" required>
                 <input type="number" name="produk_t" placeholder="Tinggi (cm)" required>
             </div>
 
-            <div class="form-group">
+            <div class="form-group-s">
                 <label for="package_dimensions">Dimensi Kemasan (P x L x T cm)</label>
                 <input type="number" name="kemasan_p" placeholder="Panjang (cm)" required>
                 <input type="number" name="kemasan_l" placeholder="Lebar (cm)" required>

@@ -2,10 +2,8 @@
 // Check if the session is not already started
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Set session data
-    // Store data in session
-$session = \Config\Services::session();
-$session->set('step1', $_POST);
-
+    $session = \Config\Services::session();
+    $session->set('step1', $_POST);
 }
 
 ?>
@@ -21,10 +19,10 @@ $session->set('step1', $_POST);
 <body>
     <div class="container">
         <div class="form-header">
-        <img src="<?= base_url('images/logo.png') ?>" alt="AIO Logo" class="logo">
+            <img src="<?= base_url('images/logo.png') ?>" alt="AIO Logo" class="logo">
             <h2>Form Registrasi Produk</h2>
         </div>
-        <div class="progress-bar">
+        <div class="progress-bar" style="width:90%">
             <span class="active">General Data</span>
             <span>Spesifikasi Produk</span>
             <span>Keunggulan Produk</span>
@@ -43,117 +41,237 @@ $session->set('step1', $_POST);
         <?php endif; ?>
 
         <form action="save-step1" method="post">
-    <?= csrf_field() ?>
+            <?= csrf_field() ?>
 
-    <!-- Brand Dropdown -->
-    <div class="form-group">
-        <label for="brand">Merek</label>
-        <select id="brand" name="brand_id" required>
-            <option value="" disabled selected>Masukan Merek</option>
-            <?php foreach ($brands as $brand): ?>
-                <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Brand Dropdown -->
+            <div class="form-group">
+                <label for="brand">Merek</label>
+                <select id="brand" name="brand_id" required>
+                    <option value="" disabled selected>Masukan Merek</option>
+                    <?php foreach ($brands as $brand): ?>
+                        <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <!-- Category Dropdown -->
-        <div class="form-group">
-        <label for="category">Kategori</label>
-        <select id="category" name="category_id" required>
-            <option value="" disabled selected>Masukan Kategori</option>
-            <?php foreach ($categories as $category): ?>
-                <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Category Dropdown -->
+            <div class="form-group">
+                <label for="category">Kategori</label>
+                <select id="category" name="category_id" required>
+                    <option value="" disabled selected>Masukan Kategori</option>
+                    <?php foreach ($categories as $category): ?>
+                        <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-    <!-- subCategory Dropdown -->
-    <div class="form-group">
-        <label for="subcategory">Subkategori</label>
-        <select id="subcategory" name="subcategory_id" required>
-            <option value="" disabled selected>Masukan Subkategori</option>
-            <?php foreach ($subcategories as $subcategory): ?>
-                <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Subcategory Dropdown -->
+            <div class="form-group">
+                <label for="subcategory">Subkategori</label>
+                <select id="subcategory" name="subcategory_id" required>
+                    <option value="" disabled selected>Masukan Subkategori</option>
+                    <?php foreach ($subcategories as $subcategory): ?>
+                        <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-    <div class="form-group">
-        <label for="product_type">Tipe Produk</label>
-        <input type="text" id="product_type" name="product_type" placeholder="Masukan Tipe Produk" required>
-    </div>
+            <div class="form-group">
+                <label for="product_type">Tipe Produk</label>
+                <input type="text" id="product_type" name="product_type" placeholder="Masukan Tipe Produk" required>
+            </div>
 
-        <!-- capacity Dropdown -->
-        <div class="form-group">
-        <label for="capacity">Kapasitas</label>
-        <select id="capacity" name="capacity_id" required>
-            <option value="" disabled selected>Masukan Kapasitas</option>
-            <?php foreach ($capacities as $capacity): ?>
-                <option value="<?= $capacity['id'] ?>"><?= esc($capacity['value']) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Capacity / Ukuran -->
+            <div class="form-group" id="capacity-group" style="display:none;">
+                <label id="capacity-label">Kapasitas</label>
+                <select id="capacity" name="capacity_value" required>
+                    <option value="" disabled selected>Select Kapasitas</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
 
-        <!-- compressor_warranty Dropdown -->
-        <div class="form-group">
-        <label for="compressor_warranty">Garansi Kompresor</label>
-        <select id="compressor_warranty" name="compressor_warranty_id" required>
-            <option value="" disabled selected>Masukan Garansi Kompresor</option>
-            <?php foreach ($compressor_warranties as $compressor_warranty): ?>
-                <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Garansi Kompresor / Garansi Panel -->
+            <div class="form-group" id="warranty-compressor-group">
+                <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor (Tahun)</label>
+                <select id="compressor_warranty" name="compressor_warranty_id" required>
+                    <option value="" disabled selected>Masukan Garansi Kompresor</option>
+                    <?php foreach ($compressor_warranties as $compressor_warranty): ?>
+                        <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-    <div class="form-group">
-        <label for="color">Warna</label>
-        <input type="text" id="color" name="color" placeholder="Masukan Warna" required>
-    </div>
+            <div class="form-group">
+                <label for="color">Warna</label>
+                <input type="text" id="color" name="color" placeholder="Masukan Warna" required>
+            </div>
 
-    <!-- sparepart_warranty Dropdown -->
-    <div class="form-group">
-        <label for="sparepart_warranty">Garansi Sparepart</label>
-        <select id="sparepart_warranty" name="sparepart_warranty_id" required>
-            <option value="" disabled selected>Masukan Garansi Sparepart</option>
-            <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                <option value="<?= $sparepart_warranty['id'] ?>"><?= esc($sparepart_warranty['value']) ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Garansi Sparepart -->
+            <div class="form-group" id="warranty-sparepart-group">
+                <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart (Tahun)</label>
+                <select id="sparepart_warranty" name="sparepart_warranty_id" required>
+                    <option value="" disabled selected>Masukan Garansi Sparepart</option>
+                    <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
+                        <option value="<?= $sparepart_warranty['id'] ?>"><?= esc($sparepart_warranty['value']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-    <!-- Similar logic for other fields like subsubcategory, capacity, warranties -->
-
-    <button type="submit" class="submit-btn">Selanjutnya</button>
-</form>
+            <button type="submit" class="submit-btn">Selanjutnya</button>
+        </form>
         <p class="form-note">*Harap diisi dengan benar</p>
     </div>
+
     <script>
-    document.getElementById('category').addEventListener('change', function() {
-        const categoryId = this.value;
-        const subcategoryDropdown = document.getElementById('subcategory');
+        document.getElementById('category').addEventListener('change', function() {
+            const categoryId = this.value;
+            const subcategoryDropdown = document.getElementById('subcategory');
 
-        // Clear the current options
-        subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
+            // Clear the current options
+            subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
 
-        // Fetch subcategories via AJAX
-        fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
-            .then(response => response.json())
-            .then(data => {
-                subcategoryDropdown.innerHTML = '<option value="" disabled selected>Select Subcategory</option>';
+            // Fetch subcategories via AJAX
+            fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    subcategoryDropdown.innerHTML = '<option value="" disabled selected>Select Subcategory</option>';
 
-                if (data.length > 0) {
-                    data.forEach(subcategory => {
-                        subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
-                    });
-                } else {
-                    subcategoryDropdown.innerHTML = '<option value="" disabled selected>No Subcategories Available</option>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching subcategories:', error);
-            });
+                    if (data.length > 0) {
+                        data.forEach(subcategory => {
+                            subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
+                        });
+                    } else {
+                        subcategoryDropdown.innerHTML = '<option value="" disabled selected>No Subcategories Available</option>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching subcategories:', error);
+                });
+        });
+
+        document.getElementById('subcategory').addEventListener('change', function() {
+    const subcategoryId = this.value;
+    const categoryId = document.getElementById('category').value;
+
+    // Update form fields based on selected category and subcategory
+    updateFormFields(categoryId, subcategoryId);
+
+    // Fetch capacities or ukuran based on selected subcategory
+    if (categoryId === '9') { // TV
+        fetchUkuranTvOptions(subcategoryId); // Fetch Ukuran TV options
+    } else {
+        fetchCapacities(subcategoryId); // Fetch capacities based on subcategory
+    }
+});
+
+        // Function to update form fields based on the selected category
+        function updateFormFields(categoryId, subcategoryId) {
+            const capacityGroup = document.getElementById('capacity-group');
+            const capacityDropdown = document.getElementById('capacity')
+            const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
+            const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
+
+            capacityGroup.style.display = 'none'; // Hide capacity initially
+
+            switch (categoryId) {
+                case '3': // AC
+                case '4': // KULKAS
+                case '5': // FREEZER
+                case '7': // SHOWCASE
+                    showCapacityField(true, 'Kapasitas'); // Show dropdown for capacity
+                    compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+                    sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+                    fetchCapacities(subcategoryId); // Fetch capacities
+                    break;
+
+                case '9': // TV
+                    showCapacityField(true, 'Ukuran'); // Show dropdown for "Ukuran"
+                    compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)'; // Change to Garansi Panel
+                    fetchUkuranTvOptions(subcategoryId); // Fetch Ukuran TV options
+                    break;
+
+                case '6': // MESIN CUCI
+                    showCapacityField(true, 'Kapasitas'); // Show dropdown for capacity
+                    compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)'; // Change to Garansi Motor
+                    fetchGaransiMotorOptions(); // Fetch Garansi Motor options
+                    break;
+
+                default:
+                    hideCapacityField(); // Hide capacity field if category doesn't need it
+                    break;
+            }
+        }
+
+        // Function to show capacity field with dropdown
+        function showCapacityField(isDropdown = true, label = 'Kapasitas') {
+            const capacityGroup = document.getElementById('capacity-group');
+            capacityGroup.style.display = 'block'; // Show capacity group
+
+            if (isDropdown) {
+                capacityGroup.innerHTML = `
+                    <label id="capacity-label">${label}</label>
+                    <select id="capacity" name="capacity_value" required>
+                        <option value="" disabled selected>Select ${label}</option>
+                        <!-- Capacity options will be loaded dynamically -->
+                    </select>`;
+            } else {
+                capacityGroup.innerHTML = `
+                    <label id="capacity-label">${label}</label>
+                    <input type="text" id="capacity" name="capacity_value" placeholder="Masukan ${label}" required>`;
+            }
+        }
+
+        // Function to hide capacity field
+        function hideCapacityField() {
+            const capacityGroup = document.getElementById('capacity-group');
+            capacityGroup.style.display = 'none';
+        }
+
+// Function to fetch Ukuran TV options via AJAX
+function fetchUkuranTvOptions(subcategoryId) {
+    fetch(`<?= base_url('get-ukuran-tv') ?>/${subcategoryId}`)
+    .then(response => {
+        console.log(response); // Log the response object
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); // Log the data returned
+        // rest of your code...
+    })
+    .catch(error => {
+        console.error('Error fetching ukuran TV options:', error);
     });
-</script>
+}
 
+// Function to fetch capacities via AJAX
+function fetchCapacities(subcategoryId) {
+    fetch(`<?= base_url('get-capacities') ?>/${subcategoryId}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const capacityDropdown = document.getElementById('capacity');
+        capacityDropdown.innerHTML = '<option value="" disabled selected>Select Kapasitas</option>';
+        
+        if (Array.isArray(data)) {
+            data.forEach(capacity => {
+                capacityDropdown.innerHTML += `<option value="${capacity.id}">${capacity.value}</option>`;
+            });
+        } else {
+            console.error('Data format is not as expected:', data);
+            alert('Failed to load capacity options. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching capacities:', error);
+        alert('An error occurred while fetching capacities. Please try again later.');
+    });
+
+}
+
+    </script>
 </body>
 </html>

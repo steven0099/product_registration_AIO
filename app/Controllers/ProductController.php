@@ -10,7 +10,10 @@ use App\Models\CapacityModel;
 use App\Models\CompressorwarrantyModel;
 use App\Models\SparepartwarrantyModel;
 use App\Models\SpecificationModel;  // Add Specification model for step 2
-use App\Models\ProsModel;  // Add Pros model for step 3
+use App\Models\ProsModel;
+use App\Models\UploadsModel;  // Add Pros model for step 3
+use App\Models\ConfirmationModel; 
+use App\Models\UkuranModel; 
 
 class ProductController extends BaseController
 {
@@ -20,6 +23,7 @@ class ProductController extends BaseController
     {
         // Instantiate the product model in the constructor
         $this->productModel = new ProductModel();
+        $this->confirmationModel = new ConfirmationModel();
     }
 
     public function index()
@@ -40,6 +44,7 @@ class ProductController extends BaseController
             ->join('capacities', 'capacities.id = products.capacity_id')
             ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
             ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
+            ->where('products.status', 'confirmed')
             ->findAll();
     
         // Pass data to the view
@@ -50,32 +55,10 @@ class ProductController extends BaseController
     {
         if (session()->get('role') !== 'superadmin') {
             return redirect()->to('/no-access');
-        } // Close the if statement properly here
+        }
     
         $product_model = new ProductModel();
     
-        // Fetch products with joins to related tables (brands, categories, etc.)
-        $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
-            ->join('brands', 'brands.id = products.brand_id')
-            ->join('categories', 'categories.id = products.category_id')
-            ->join('subcategories', 'subcategories.id = products.subcategory_id')
-            ->join('capacities', 'capacities.id = products.capacity_id')
-            ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
-            ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id') // Add condition to fetch only approved products
-            ->findAll();
-    
-        return view('product/approved_product', $data); // Ensure the view path is correct
-    }
-    
-    public function rejected()
-    {
-        if (session()->get('role') !== 'superadmin') {
-            return redirect()->to('/no-access');
-        } // Close the if statement properly here
-    
-        $product_model = new ProductModel();
-    
-        // Fetch products with joins to related tables (brands, categories, etc.)
         $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
             ->join('brands', 'brands.id = products.brand_id')
             ->join('categories', 'categories.id = products.category_id')
@@ -83,11 +66,32 @@ class ProductController extends BaseController
             ->join('capacities', 'capacities.id = products.capacity_id')
             ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
             ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
+            ->where('products.status', 'approved')  // Ensure 'approved' filter
             ->findAll();
     
-        return view('product/rejected_product', $data); // Ensure the view path is correct
+        return view('product/approved_product', $data);
     }
     
+    public function rejected()
+    {
+        if (session()->get('role') !== 'superadmin') {
+            return redirect()->to('/no-access');
+        }
+    
+        $product_model = new ProductModel();
+    
+        $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
+            ->join('brands', 'brands.id = products.brand_id')
+            ->join('categories', 'categories.id = products.category_id')
+            ->join('subcategories', 'subcategories.id = products.subcategory_id')
+            ->join('capacities', 'capacities.id = products.capacity_id')
+            ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
+            ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
+            ->where('products.status', 'rejected')  // Ensure 'rejected' filter
+            ->findAll();
+    
+        return view('product/rejected_product', $data);
+    }    
 
     public function getSubcategories($categoryId)
     {
@@ -99,9 +103,73 @@ class ProductController extends BaseController
         // Return as JSON
         return $this->response->setJSON($subcategories);
     }
-    
 
-    public function step1()  // Step 1: General Data
+    public function getUkuranTvBySubcategory($subcategoryId)
+    {
+        $ukuranTvModel = new UkuranTvModel();
+        $data = $ukuranTvModel->getSizesBySubcategory($subcategoryId);
+
+        return $this->response->setJSON($data);
+    }
+
+     public function getUkuranTv($subcategoryId)
+     {
+         $this->ukuranModel = new \App\Models\UkuranModel();
+         $ukuranTvOptions = $this->ukuranModel->getUkuranTvBySubcategory($subcategoryId);
+
+         return $this->response->setJSON($ukuranTvOptions);
+     }
+
+     public function getGaransiPanel()
+     {
+         $garansiPanelModel = new GaransiPanelModel();
+         $data = $garansiPanelModel->findAll();
+         return $this->response->setJSON($data);
+     }
+     // Fetch Garansi Motor data
+     public function getGaransiMotor()
+     {
+         $garansiMotorModel = new GaransiMotorModel();
+         $data = $garansiMotorModel->findAll();
+         return $this->response->setJSON($data);
+     }
+ 
+     // Fetch Garansi Semua Service data
+     public function getGaransiSemuaService()
+     {
+         $garansiSemuaServiceModel = new GaransiSemuaServiceModel();
+         $data = $garansiSemuaServiceModel->findAll();
+         return $this->response->setJSON($data);
+     }
+
+     public function getCapacitiesBySubcategory($subcategoryId)
+     {
+         $capacityModel = new CapacityModel();
+ 
+         // Fetch capacities based on subcategory_id
+         $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
+ 
+         // Return capacities in JSON format
+         return $this->response->setJSON($capacities);
+     }
+ 
+     
+      // Fetch Ukuran TV data
+      public function getCapacities($subcategoryId) {
+        log_message('info', 'getCapacities called with ID: ' . $subcategoryId);
+    
+        try {
+            $kapasitasModel = new KapasitasModel();
+            $capacities = $kapasitasModel->where('subcategory_id', $subcategoryId)->findAll();
+    
+            return $this->response->setJSON($capacities);
+        } catch (\Exception $e) {
+            log_message('error', 'Error in getCapacities: ' . $e->getMessage());
+            return $this->response->setJSON(['error' => 'An error occurred: ' . $e->getMessage()])->setStatusCode(500);
+        }
+    }
+
+    public function step1()
     {
         $brandModel = new BrandModel();
         $categoryModel = new CategoryModel();
@@ -110,7 +178,6 @@ class ProductController extends BaseController
         $compressorwarrantyModel = new CompressorwarrantyModel();
         $sparepartwarrantyModel = new SparepartwarrantyModel();
 
-        // Load brand, category, etc., data for the form
         $data['brands'] = $brandModel->findAll();
         $data['categories'] = $categoryModel->findAll();
         $data['subcategories'] = $subcategoryModel->findAll();
@@ -123,159 +190,189 @@ class ProductController extends BaseController
 
     public function saveStep1()
     {
-        // Save the step 1 data to session or database
         $step1Data = $this->request->getPost();
-        session()->set('step1', $step1Data);
-        print_r($step1Data);
-        
-        // Create the product in Step 1 and get the new product ID
-        $product_id = $this->productModel->insert($step1Data);  // Ensure $step1Data has valid product data
 
-        // Store the product_id in the session
-        $_SESSION['step1']['product_id'] = $product_id;  // Save the product ID for future steps
+        // Create the product and get the product ID
+        $productId = $this->productModel->insert($step1Data);
+
+        // Save product ID and step 1 data to session
+        session()->set('product_id', $productId);
+        session()->set('step1', $step1Data);
 
         // Redirect to Step 2
-        return redirect()->to('product/step2');
+        return redirect()->to('/product/step2');
     }
 
-    public function step2()  // Step 2: Product Specifications
+    // Step 2: Product Specifications
+    public function step2()
     {
-        return view('product/product_specification');  // Load the form for product specifications
+        return view('product/product_specification');
     }
 
     public function saveStep2()
     {
         $rules = [
             'produk_p' => 'required|decimal',
-            'produk_l' => 'required|decimal',
-            'produk_t' => 'required|decimal',
-            'kemasan_p' => 'required|decimal',
-            'kemasan_l' => 'required|decimal',
-            'kemasan_t' => 'required|decimal',
-            'berat' => 'required|decimal',
-            'daya' => 'required|decimal',
-            'pembuat' => 'required|string',
-            'refrigant' => 'required|string',
-            'cspf' => 'required|decimal',
+            // add validation rules for other fields
         ];
 
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Get the product ID from the session
-        $productId = session()->get('step1')['product_id'];
+        // Save step 2 data in the session
+        $step2Data = $this->request->getPost();
+        session()->set('step2', $step2Data);
 
-        // Save step 2 data in the SpecificationModel
-        $specificationModel = new SpecificationModel();
-        $specificationData = [
-            'product_id' => $productId,  // Associate the product ID with the specifications
-            'produk_p' => $this->request->getPost('produk_p'),
-            'produk_l' => $this->request->getPost('produk_l'),
-            'produk_t' => $this->request->getPost('produk_t'),
-            'kemasan_p' => $this->request->getPost('kemasan_p'),
-            'kemasan_l' => $this->request->getPost('kemasan_l'),
-            'kemasan_t' => $this->request->getPost('kemasan_t'),
-            'berat' => $this->request->getPost('berat'),
-            'daya' => $this->request->getPost('daya'),
-            'pembuat' => $this->request->getPost('pembuat'),
-            'refrigant' => $this->request->getPost('refrigant'),
-            'cspf' => $this->request->getPost('cspf'),
-        ];
-
-        $specificationModel->save($specificationData);
-
-        // Proceed to step 3
         return redirect()->to('/product/step3');
     }
 
-    public function step3()  // Step 3: Product Advantages
+    // Step 3: Product Advantages
+    public function step3()
     {
-        return view('product/product_pros');  // Load the form for product advantages
+        return view('product/product_pros');
     }
 
-    public function saveStep3() {
-        // Get the submitted data from the request
-        $advantages = [
-            'advantage1' => $this->request->getPost('advantage1'),
-            'advantage2' => $this->request->getPost('advantage2'),
-            'advantage3' => $this->request->getPost('advantage3'),
-            'advantage4' => $this->request->getPost('advantage4'),
-            'advantage5' => $this->request->getPost('advantage5'),
-            'advantage6' => $this->request->getPost('advantage6')
-        ];
-    
-        // Validate the inputs (optional validation logic here)
-    
-        // Save the data to the session
-        session()->set('advantages', $advantages);
-    
-        // Redirect to the next step (step 4 - product uploads)
-        return redirect()->to(base_url('product/step4'));
-    }    
+    public function saveStep3()
+    {
+        $advantages = $this->request->getPost();
+        session()->set('step3', $advantages);
 
+        return redirect()->to('/product/step4');
+    }
+
+    // Step 4: Upload Images
     public function step4()
     {
-        $advantages = session()->get('advantages');
-    
-        if (!$advantages) {
-            // If data from step 3 does not exist, redirect back to step 3
-            return redirect()->to(base_url('product/product_pros'))->with('errors', ['Complete the previous step first.']);
-        }
-    
-        // Pass the session data to the view
-        return view('product/product_uploads', ['advantages' => $advantages]);; // View untuk foto produk
+        return view('product/product_uploads');
     }
 
-    public function saveGambar()
+    public function saveStep4()
     {
-        $gambarModel = new GambarModel();
-
-        // Proses upload file gambar
-        $fotoProduk = $this->request->getFile('gambar_utama');
-        $gambarBarang = $this->request->getFile('gambar_samping_kiri');
-        $gambarProduk = $this->request->getFile('gambar_samping_kanan');
-        $videoBarang = $this->request->getFile('video_produk');
-
-        // Inisialisasi variabel untuk menyimpan nama file
-        $fotoName = null;
-        $gambarBarangName = null;
-        $gambarProdukName = null;
-        $videoBarangName = null;
-
-        // Cek apakah file `foto_produk` ada dan valid
-        if ($fotoProduk && $fotoProduk->isValid() && !$fotoProduk->hasMoved()) {
-            $fotoName = $fotoProduk->getRandomName();
-            $fotoProduk->move('uploads', $fotoName);
+        // Define the directory for uploads
+        $uploadPath = WRITEPATH . 'uploads/';
+    
+        // Initialize variables for file names
+        $gambarUtamaName = null;
+        $gambarSampingKiriName = null;
+        $gambarSampingKananName = null;
+        $videoProdukName = null;
+    
+        // Handle Gambar Utama
+        $gambarUtama = $this->request->getFile('gambar_utama');
+        if ($gambarUtama && $gambarUtama->isValid()) {
+            $gambarUtamaName = $gambarUtama->getRandomName();
+            $gambarUtama->move($uploadPath, $gambarUtamaName);
         }
-
-        // Cek apakah file `gambar_barang` ada dan valid
-        if ($gambarBarang && $gambarBarang->isValid() && !$gambarBarang->hasMoved()) {
-            $gambarBarangName = $gambarBarang->getRandomName();
-            $gambarBarang->move('uploads', $gambarBarangName);
+    
+        // Handle Gambar Samping Kiri
+        $gambarSampingKiri = $this->request->getFile('gambar_samping_kiri');
+        if ($gambarSampingKiri && $gambarSampingKiri->isValid()) {
+            $gambarSampingKiriName = $gambarSampingKiri->getRandomName();
+            $gambarSampingKiri->move($uploadPath, $gambarSampingKiriName);
         }
-
-        // Cek apakah file `gambar_produk` ada dan valid
-        if ($gambarProduk && $gambarProduk->isValid() && !$gambarProduk->hasMoved()) {
-            $gambarProdukName = $gambarProduk->getRandomName();
-            $gambarProduk->move('uploads', $gambarProdukName);
+    
+        // Handle Gambar Samping Kanan
+        $gambarSampingKanan = $this->request->getFile('gambar_samping_kanan');
+        if ($gambarSampingKanan && $gambarSampingKanan->isValid()) {
+            $gambarSampingKananName = $gambarSampingKanan->getRandomName();
+            $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
         }
-
-        // Cek apakah file `video_barang` ada dan valid
-        if ($videoBarang && $videoBarang->isValid() && !$videoBarang->hasMoved()) {
-            $videoBarangName = $videoBarang->getRandomName();
-            $videoBarang->move('uploads', $videoBarangName);
+    
+        // Handle Video Produk
+        $videoProduk = $this->request->getFile('video_produk');
+        if ($videoProduk && $videoProduk->isValid()) {
+            $videoProdukName = $videoProduk->getRandomName();
+            $videoProduk->move($uploadPath, $videoProdukName);
         }
+    
+        // Save the file paths into the session for step 4
+        $step4Data = [
+            'gambar_utama' => $gambarUtamaName,
+            'gambar_samping_kiri' => $gambarSampingKiriName,
+            'gambar_samping_kanan' => $gambarSampingKananName,
+            'video_produk' => $videoProdukName,
+        ];
+    
+        // Store the step 4 data in the session
+        session()->set('step4', $step4Data);
+    
+        // Redirect to the confirmation page
+        return redirect()->to('/product/confirm');
+    }
+    
+    public function saveProductSubmission($data)
+{
+    // Use the product model to save the submission data
+    $this->productModel->insert($data);
+}
 
-        // Simpan data gambar ke database
-        $data = [
-            'gambar_utama' => $fotoName,
-            'gambar_samping_kiri' => $gambarBarangName,
-            'gambar_samping_kanan' => $gambarProdukName,
-            'video_produk' => $videoBarangName,
+    // Final Step: Confirmation
+    public function confirm()
+    {
+        $productId = session()->get('product_id');
+    
+        if (!$productId) {
+            return redirect()->to('/product/step1');  // Redirect to step 1 if no product ID
+        }
+    
+        $productData = $this->productModel->getProductData($productId);
+        // Fetch step data from the session
+        $step1 = session()->get('step1') ?? [];
+        $step2 = session()->get('step2') ?? [];
+        $step3 = session()->get('step3') ?? [];
+        $step4 = session()->get('step4') ?? [];
+    
+        // Combine all the step data
+        $finalData = array_merge($productData, $step1, $step2, $step3, $step4);
+    
+        // Get the logged-in user's name from the session
+        $submittedBy = session()->get('name');  // Assuming the session contains 'name'
+        $finalData['submitted_by'] = $submittedBy;
+        // Prepare the data for insertion
+        $dataToInsert = [
+            'product_id' => $productId,
+            'brand' => $finalData['brand'],
+            'category' => $finalData['category'],
+            'subcategory' => $finalData['subcategory'],
+            'product_type' => $finalData['product_type'],
+            'color' => $finalData['color'],
+            'capacity' => $finalData['capacity_id'],
+            'daya' => $finalData['daya'],
+            'product_dimensions' => $finalData['produk_p'] . ' x ' . $finalData['produk_l'] . ' x ' . $finalData['produk_t'],
+            'packaging_dimensions' => $finalData['kemasan_p'] . ' x ' . $finalData['kemasan_l'] . ' x ' . $finalData['kemasan_t'],
+            'berat' => $finalData['berat'],
+            'refrigant' => $finalData['refrigant'],
+            'compressor_warranty' => $finalData['compressor_warranty_id'],
+            'sparepart_warranty' => $finalData['sparepart_warranty_id'],
+            'cspf' => $finalData['cspf'],
+            'gambar_utama' => $finalData['gambar_utama'],
+            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'],
+            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'],
+            'video_produk' => $finalData['video_produk'],
+            'status' => 'pending',  // Set status as 'pending'
+            'submitted_by' => $finalData['submitted_by'],
         ];
 
-        $gambarModel->insert($data);
+        $this->confirmationModel->insert($dataToInsert);
+        // Insert into the product_submissions table
+        //$this->productModel->insert($dataToInsert);
+        //$ProductId = $this->productModel->InsertID();
+        //$finalData =
+       // $this->table('products')
+          //          ->join('brands', 'brand.id = products.brand_id')
+           //         ->join('categories', 'category.id = categories.category_id')
+             //       ->where('products.id', $ProductId)
+               //     ->first();
+        // Redirect to a confirmation page or admin page
+        return view('/product/product_confirmation', ['data' => $finalData]);
+    }    
+
+    // Cancel and clear session
+    public function cancel()
+    {
+        session()->remove(['product_id', 'step1', 'step2', 'step3', 'step4']);
+        return redirect()->to('/product/step1');
     }
 
     public function deleteProduct($id)
@@ -284,4 +381,33 @@ class ProductController extends BaseController
         $productModel->delete($id);
         return redirect()->to('/product');
     }
+
+    public function finalizeProductSubmission()
+{
+    // Fetch data from session
+    $productsData = session()->get('finalData');
+    
+    // Fetch the current logged-in user's name or ID
+    $submittedBy = session()->get('name'); // Assuming session holds the logged-in user's name
+    
+    // Get the current date
+    $currentDate = date('Y-m-d');
+    
+    // Prepare the data to insert into the final products table
+    $dataToInsert = [
+        'brand' => $productsData['brand'],
+        'product_type' => $productsData['product_type'],
+        'submitted_by' => $submittedBy,
+        'confirmed_at' => $currentDate,
+        'other_data' => $productsData['other_data'], // All other product fields
+        'status' => 'confirmed', // You can track the status in the table
+    ];
+    
+    // Insert into the products table
+    $this->productModel->insert($dataToInsert);
+    
+    // Redirect to success page or admin dashboard
+    return redirect()->to('/')->with('success', 'Product has been successfully confirmed.');
+}
+
 }

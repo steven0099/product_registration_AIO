@@ -70,7 +70,7 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Garansi Sparepart</th>
+                    <th>Garansi Sparepart (Tahun)</th>
                     <th>Opsi</th>
                   </tr>
                   </thead>
@@ -100,8 +100,8 @@
         <form method="post" action="<?= base_url('/admin/garansi_sparepart/saveGaransiSparepart') ?>" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <div class="form-group">
-            <label for="value">Garansi Sparepart</label>
-            <input type="text" class="form-control" name="value" placeholder="Garansi Sparepart">
+            <label for="value">Garansi Sparepart (Tahun)</label>
+            <input type="text" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -116,8 +116,8 @@
         <form id="editForm" method="post" action="" enctype="multipart/form-data">
         <?= csrf_field() ?> 
           <div class="form-group">
-            <label for="value">Garansi Sparepart</label>
-            <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart" required>
+            <label for="value">Garansi Sparepart (Tahun)</label>
+            <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)" required>
           </div>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>

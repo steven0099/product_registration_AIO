@@ -70,7 +70,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Garansi Kompresor</th>
+                      <th>Garansi Kompresor (Tahun)</th>
                       <th>Opsi</th>
                     </tr>
                   </thead>
@@ -106,8 +106,8 @@
           <form method="post" action="<?= base_url('/admin/garansi_kompresor/saveGaransiKompresor') ?>" enctype="multipart/form-data">
           <?= csrf_field() ?> 
           <div class="form-group">
-              <label for="value">Garansi Kompresor</label>
-              <input type="text" class="form-control" name="value" placeholder="Garansi Kompresor" required>
+              <label for="value">Garansi Kompresor (Tahun)</label>
+              <input type="text" class="form-control" name="value" placeholder="Garansi Kompresor (Tahun)" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>
@@ -122,8 +122,8 @@
           <form id="editForm" method="post" action="" enctype="multipart/form-data">
           <?= csrf_field() ?> 
           <div class="form-group">
-              <label for="value">Garansi Kompresor</label>
-              <input type="text" id="editValue" class="form-control" name="value" placeholder="Enter Compressor Warranty" required>
+              <label for="value">Garansi Kompresor (Tahun)</label>
+              <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Kompresor (Tahun)" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Registration Form - Step 4</title>
+    <title>Form Registrasi Produk - Step 4</title>
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 </head>
 <body>
     <div class="container">
         <!-- Header Section -->
         <div class="form-header">
-            <img src="<?= base_url('images/logo.png') ?>" alt="AIO Logo" class="logo">
+            <img src="/images/logo.png" alt="AIO Logo" class="logo">
             <h2>Form Registrasi Produk</h2>
         </div>
 
@@ -23,36 +23,31 @@
             <span>Konfirmasi Produk</span>
         </div>
 
-        <!-- Fetching Data from Previous Steps -->
-        <?php
-        // Retrieve data from previous steps (this assumes you have stored the data in session or database)
-        $generalData = session()->get('generalData');
-        $dimensions = session()->get('dimensions');
-        $advantages = session()->get('advantages');
-        ?>
-
-        <!-- Step 4: Upload Product Photos -->
-        <form action="<?= base_url('/product/save-step4') ?>" method="post" enctype="multipart/form-data">
-            <?= csrf_field() ?>
-
+        <!-- Form Upload -->
+        <form action="save-step4" method="post" enctype="multipart/form-data">
+        <?= csrf_field() ?>
             <div class="form-group">
-                <label for="gambar_utama">Gambar Utama: <span>(jpg, jpeg, png, max: 2MB)</span></label>
-                <input type="file" name="gambar_utama" id="gambar_utama" required>
+                <label for="gambar_utama">Gambar Utama</label>
+                <input type="file" id="gambar_utama" name="gambar_utama" required>
+                <div class="upload-icon">⬆</div>
             </div>
 
             <div class="form-group">
-                <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri: <span>(jpg, jpeg, png, max: 2MB)</span></label>
-                <input type="file" name="gambar_samping_kiri" id="gambar_samping_kiri" required>
+                <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
+                <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" required>
+                <div class="upload-icon">⬆</div>
             </div>
 
             <div class="form-group">
-                <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan: <span>(jpg, jpeg, png, max: 2MB)</span></label>
-                <input type="file" name="gambar_samping_kanan" id="gambar_samping_kanan" required>
+                <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
+                <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" required>
+                <div class="upload-icon">⬆</div>
             </div>
 
             <div class="form-group">
-                <label for="video_produk">Video Produk: <span>(mp4, max: 10MB)</span></label>
-                <input type="file" name="video_produk" id="video_produk" accept="video/mp4" required>
+                <label for="video_produk">Video Produk</label>
+                <input type="file" id="video_produk" name="video_produk" accept="video/mp4" required>
+                <div class="upload-icon">⬆</div>
             </div>
 
             <!-- Submit Button -->

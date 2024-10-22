@@ -71,6 +71,7 @@
                 <thead>
                 <tr>
                   <th>#</th>
+                  <th>Subkategori</th>
                   <th>Kapasitas</th>
                   <th>Opsi</th>
                 </tr>
@@ -80,6 +81,7 @@
                   <?php foreach ($kapasitas as $capacity): ?>
                   <tr>
                     <td><?= $i++; ?></td>
+                    <td><?= esc($capacity['subcategory_name']) ?></td>
                     <td><?= esc($capacity['value']) ?></td>
                     <td>
                       <button data-id="<?= esc($capacity['id']) ?>" data-value="<?= esc($capacity['value']) ?>" class="btn-edit btn btn-primary">
@@ -105,7 +107,16 @@
         <span class="close">&times;</span>
         <h3>Tambah Kapasitas</h3>
         <form method="post" action="<?= base_url('/admin/kapasitas/saveKapasitas') ?>" enctype="multipart/form-data">
-          <div class="form-group">
+        <?= csrf_field() ?>
+        <div class="form-group">
+  <label for="subcategory">Subkategori</label>
+  <select name="subcategory_id" class="form-control">
+    <?php foreach($subcategories as $subcategory): ?>
+      <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
+    <?php endforeach; ?>
+  </select>
+</div>
+        <div class="form-group">
             <label for="value">Kapasitas</label>
             <input type="text" class="form-control" name="value" placeholder="Kapasitas">
           </div>
@@ -120,7 +131,17 @@
         <span class="close">&times;</span>
         <h3>Edit Kapasitas</h3>
         <form id="editForm" method="post" action="" enctype="multipart/form-data">
-          <div class="form-group">
+        <?= csrf_field() ?>
+        <div class="form-group">
+  <label for="subcategory">Subcategory</label>
+  <select name="subcategory_id" class="form-control" id="editSubcategory">
+    <?php foreach($subcategories as $subcategory): ?>
+      <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
+    <?php endforeach; ?>
+  </select>
+</div>
+
+        <div class="form-group">
             <label for="value">Kapasitas</label>
             <input type="text" id="editValue" class="form-control" name="value" placeholder="Kapasitas" required>
           </div>
