@@ -14,6 +14,8 @@ use App\Models\ProsModel;
 use App\Models\UploadsModel;  // Add Pros model for step 3
 use App\Models\ConfirmationModel; 
 use App\Models\UkuranModel; 
+use App\Models\GaransiPanelModel;
+use App\Models\GaransiMotorModel;
 
 class ProductController extends BaseController
 {
@@ -104,22 +106,29 @@ class ProductController extends BaseController
         return $this->response->setJSON($subcategories);
     }
 
-    public function getUkuranTvBySubcategory($subcategoryId)
-    {
-        $ukuranTvModel = new UkuranTvModel();
-        $data = $ukuranTvModel->getSizesBySubcategory($subcategoryId);
-
-        return $this->response->setJSON($data);
+    public function getUkuranTv($subcategoryId) {
+        {
+            $ukuranModel = new UkuranModel();
+    
+            // Fetch the data based on the subcategory ID
+            $ukuran = $ukuranModel->where('subcategory_id', $subcategoryId)->findAll();
+    
+            if ($ukuran) {
+                return $this->response->setJSON($ukuran);
+            } else {
+                return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND)
+                                      ->setBody('No data found');
+            }
+        }
     }
 
-     public function getUkuranTv($subcategoryId)
-     {
-         $this->ukuranModel = new \App\Models\UkuranModel();
-         $ukuranTvOptions = $this->ukuranModel->getUkuranTvBySubcategory($subcategoryId);
+    public function getCompressorWarranties()
+    {
+        $model = new CompressorWarrantyModel();
+        $warranties = $model->findAll();
 
-         return $this->response->setJSON($ukuranTvOptions);
-     }
-
+        return $this->response->setJSON($warranties);
+    }
      public function getGaransiPanel()
      {
          $garansiPanelModel = new GaransiPanelModel();
@@ -127,13 +136,21 @@ class ProductController extends BaseController
          return $this->response->setJSON($data);
      }
      // Fetch Garansi Motor data
-     public function getGaransiMotor()
+     public function getPanelWarranties()
      {
-         $garansiMotorModel = new GaransiMotorModel();
-         $data = $garansiMotorModel->findAll();
-         return $this->response->setJSON($data);
+         $model = new GaransiPanelModel();
+         $warranties = $model->findAll();
+ 
+         return $this->response->setJSON($warranties);
      }
  
+     public function getMotorWarranties()
+     {
+         $model = new GaransiMotorModel();
+         $warranties = $model->findAll();
+ 
+         return $this->response->setJSON($warranties);
+     }
      // Fetch Garansi Semua Service data
      public function getGaransiSemuaService()
      {
@@ -142,25 +159,13 @@ class ProductController extends BaseController
          return $this->response->setJSON($data);
      }
 
-     public function getCapacitiesBySubcategory($subcategoryId)
-     {
-         $capacityModel = new CapacityModel();
- 
-         // Fetch capacities based on subcategory_id
-         $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
- 
-         // Return capacities in JSON format
-         return $this->response->setJSON($capacities);
-     }
- 
-     
       // Fetch Ukuran TV data
       public function getCapacities($subcategoryId) {
         log_message('info', 'getCapacities called with ID: ' . $subcategoryId);
     
         try {
-            $kapasitasModel = new KapasitasModel();
-            $capacities = $kapasitasModel->where('subcategory_id', $subcategoryId)->findAll();
+            $capacityModel = new CapacityModel();
+            $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
     
             return $this->response->setJSON($capacities);
         } catch (\Exception $e) {

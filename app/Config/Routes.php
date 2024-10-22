@@ -125,12 +125,17 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
 
 // Public Routes (no authentication required)
 $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1');
+$routes->get('get-capacities', 'ProductController::getCapacities');
 $routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
 $routes->get('get-ukuran-tv', 'ProductController::getUkuranTv');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
 $routes->get('get-garansi-motor', 'ProductController::getGaransiMotor');
 $routes->get('get-garansi-panel', 'ProductController::getGaransiPanel');
 $routes->get('get-garansi-semua-service', 'ProductController::getGaransiSemuaService');
+$routes->get('get-compressor-warranties', 'ProductController::getCompressorWarranties');
+$routes->get('get-panel-warranties', 'ProductController::getPanelWarranties');
+$routes->get('get-motor-warranties', 'ProductController::getMotorWarranties');
+
 
 $routes->get('no-access', 'AuthController::NoAccess');
 

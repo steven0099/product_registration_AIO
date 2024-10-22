@@ -18,7 +18,7 @@ class KapasitasController extends BaseController
     // Dashboard view
     public function index()
     {
-        $data['kapasitas'] = $this->capacityModel->getCapacitiesWithSubategory();
+        $data['kapasitas'] = $this->capacityModel->getCapacitiesBySubcategory();
         $data['subcategories'] = $this->subcategoryModel->findAll();
 
         return view('kapasitas/kapasitas', $data);
@@ -42,8 +42,8 @@ class KapasitasController extends BaseController
 
     public function editKapasitas($id)
     {
-        $kapasitasModel = new CapacityModel();
-        $data['capacity'] = $kapasitasModel->find($id);
+        $capacityModel = new CapacityModel();
+        $data['capacity'] = $capacityModel->find($id);
         $data['title'] = "Edit Kapasitas";
 
         if (!$data['capacity']) {

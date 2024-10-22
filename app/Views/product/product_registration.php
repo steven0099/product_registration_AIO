@@ -169,6 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             const capacityGroup = document.getElementById('capacity-group');
             const capacityDropdown = document.getElementById('capacity')
             const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
+            const compressorWarrantyDropdown = document.getElementById('compressor_warranty');
             const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
 
             capacityGroup.style.display = 'none'; // Hide capacity initially
@@ -182,12 +183,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
                     sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
                     fetchCapacities(subcategoryId); // Fetch capacities
+                    fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
                     break;
 
                 case '9': // TV
                     showCapacityField(true, 'Ukuran'); // Show dropdown for "Ukuran"
                     compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)'; // Change to Garansi Panel
                     fetchUkuranTvOptions(subcategoryId); // Fetch Ukuran TV options
+                    fetchPanelWarrantyOptions(); // Fetch Garansi Panel options
                     break;
 
                 case '6': // MESIN CUCI
@@ -198,14 +201,78 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 default:
                     hideCapacityField(); // Hide capacity field if category doesn't need it
+                    fetchCompressorWarrantyOptions(); // Set default to Garansi Kompresor
                     break;
             }
         }
 
+        function fetchCompressorWarrantyOptions() {
+    fetch('<?= base_url('get-compressor-warranties') ?>')
+    .then(response => response.json())
+    .then(data => {
+        const warrantyDropdown = document.getElementById('compressor_warranty');
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Kompresor</option>';
+        
+        if (Array.isArray(data)) {
+            data.forEach(warranty => {
+                warrantyDropdown.innerHTML += `<option value="${warranty.id}">${warranty.value}</option>`;
+            });
+        } else {
+            alert('Failed to load Garansi Kompresor options. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching compressor warranties:', error);
+        alert('An error occurred while fetching warranties. Please try again later.');
+    });
+}
+
+function fetchPanelWarrantyOptions() {
+    fetch('<?= base_url('get-panel-warranties') ?>')
+    .then(response => response.json())
+    .then(data => {
+        const warrantyDropdown = document.getElementById('compressor_warranty');
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Panel</option>';
+        
+        if (Array.isArray(data)) {
+            data.forEach(warranty => {
+                warrantyDropdown.innerHTML += `<option value="${warranty.id}">${warranty.value}</option>`;
+            });
+        } else {
+            alert('Failed to load Garansi Panel options. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching panel warranties:', error);
+        alert('An error occurred while fetching warranties. Please try again later.');
+    });
+}
+
+function fetchGaransiMotorOptions() {
+    fetch('<?= base_url('get-motor-warranties') ?>')
+    .then(response => response.json())
+    .then(data => {
+        const warrantyDropdown = document.getElementById('compressor_warranty');
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Motor</option>';
+        
+        if (Array.isArray(data)) {
+            data.forEach(warranty => {
+                warrantyDropdown.innerHTML += `<option value="${warranty.id}">${warranty.value}</option>`;
+            });
+        } else {
+            alert('Failed to load Garansi Motor options. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching motor warranties:', error);
+        alert('An error occurred while fetching warranties. Please try again later.');
+    });
+}
+
         // Function to show capacity field with dropdown
         function showCapacityField(isDropdown = true, label = 'Kapasitas') {
             const capacityGroup = document.getElementById('capacity-group');
-            capacityGroup.style.display = 'block'; // Show capacity group
+            capacityGroup.style.display = 'flex'; // Show capacity group
 
             if (isDropdown) {
                 capacityGroup.innerHTML = `
@@ -228,21 +295,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
 // Function to fetch Ukuran TV options via AJAX
+// Function to fetch Ukuran TV options via AJAX
 function fetchUkuranTvOptions(subcategoryId) {
     fetch(`<?= base_url('get-ukuran-tv') ?>/${subcategoryId}`)
     .then(response => {
-        console.log(response); // Log the response object
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
         return response.json();
     })
     .then(data => {
-        console.log(data); // Log the data returned
-        // rest of your code...
+        const capacityDropdown = document.getElementById('capacity'); // Ensure this is the correct ID
+        capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Ukuran TV</option>';
+        
+        if (Array.isArray(data)) {
+            data.forEach(ukuran => {
+                capacityDropdown.innerHTML += `<option value="${ukuran.id}">${ukuran.size}</option>`;
+            });
+        } else {
+            console.error('Data format is not as expected:', data);
+            alert('Failed to load size options. Please try again.');
+        }
     })
     .catch(error => {
-        console.error('Error fetching ukuran TV options:', error);
+        console.error('Error fetching capacities:', error);
+        alert('An error occurred while fetching capacities. Please try again later.');
     });
 }
-
 // Function to fetch capacities via AJAX
 function fetchCapacities(subcategoryId) {
     fetch(`<?= base_url('get-capacities') ?>/${subcategoryId}`)
