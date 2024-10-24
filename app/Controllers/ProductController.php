@@ -16,6 +16,8 @@ use App\Models\ConfirmationModel;
 use App\Models\UkuranModel; 
 use App\Models\GaransiPanelModel;
 use App\Models\GaransiMotorModel;
+use App\Models\GaransiSemuaServiceModel;
+use App\Models\GaransiElemenPanasModel;
 
 class ProductController extends BaseController
 {
@@ -151,12 +153,20 @@ class ProductController extends BaseController
  
          return $this->response->setJSON($warranties);
      }
+
+     public function getHeatWarranties()
+     {
+         $model = new GaransiElemenPanasModel();
+         $warranties = $model->findAll();
+ 
+         return $this->response->setJSON($warranties);
+     }
      // Fetch Garansi Semua Service data
      public function getGaransiSemuaService()
      {
-         $garansiSemuaServiceModel = new GaransiSemuaServiceModel();
-         $data = $garansiSemuaServiceModel->findAll();
-         return $this->response->setJSON($data);
+         $model = new GaransiSemuaServiceModel();
+         $warranties = $model->findAll();
+         return $this->response->setJSON($warranties);
      }
 
       // Fetch Ukuran TV data
@@ -182,31 +192,116 @@ class ProductController extends BaseController
         $capacityModel = new CapacityModel();
         $compressorwarrantyModel = new CompressorwarrantyModel();
         $sparepartwarrantyModel = new SparepartwarrantyModel();
-
+        $garansiEPModel = new GaransiElemenPanasModel();
+        $garansimotorModel = new GaransiMotorModel();
+        $garansipanelModel = new GaransiPanelModel();
+        $garansiserviceModel = new GaransiSemuaServiceModel();
+        $ukuranModel = new UkuranModel();
+        
         $data['brands'] = $brandModel->findAll();
         $data['categories'] = $categoryModel->findAll();
         $data['subcategories'] = $subcategoryModel->findAll();
         $data['capacities'] = $capacityModel->findAll();
         $data['compressor_warranties'] = $compressorwarrantyModel->findAll();
         $data['sparepart_warranties'] = $sparepartwarrantyModel->findAll();
+        $data['garansi_elemen_panas'] = $garansiEPModel->findAll();
+        $data['garansi_motor'] = $garansimotorModel->findAll();
+        $data['garansi_panel'] = $garansipanelModel->findAll();
+        $data['garansi_semua_service'] = $garansiserviceModel->findAll();
+        $data['ukuran'] = $ukuranModel->findAll();
 
         return view('product/product_registration', $data);
     }
 
     public function saveStep1()
     {
+        // Get all POST data
         $step1Data = $this->request->getPost();
-
-        // Create the product and get the product ID
-        $productId = $this->productModel->insert($step1Data);
-
-        // Save product ID and step 1 data to session
+        dd($step1Data);
+    
+        // Basic validation rules
+        $validationRules = [
+            'brand_id' => 'required',
+            'category_id' => 'required',
+            'subcategory_id' => 'required',
+            'product_type' => 'required',
+            'color' => 'required',
+        ];
+    
+        // Additional rules for dynamic fields based on category and subcategory
+        $category = $step1Data['category_id'];
+        $subcategory = $step1Data['subcategory_id'];
+    
+        // Validation rules based on category and subcategory
+        if ($category == '9') { // TV
+            $validationRules['garansi_panel_id'] = 'required';  // Correct field name
+            $validationRules['sparepart_warranty_id'] = 'required'; // Ensure this is present
+            $validationRules['ukuran_size'] = 'required'; // Adjusted field name
+        } elseif (in_array($category, ['3', '4', '5', '7'])) {
+            $validationRules['compressor_warranty_id'] = 'required';  // Corrected field name
+            $validationRules['sparepart_warranty_id'] = 'required';
+            $validationRules['capacity_id'] = 'required';        
+        } elseif ($category == '6') {
+            $validationRules['garansi_motor_id'] = 'required'; // Ensure this matches your form
+            $validationRules['sparepart_warranty_id'] = 'required';
+            $validationRules['capacity'] = 'required';
+        } elseif ($subcategory == '31') {
+            $validationRules['garansi_semua_service'] = 'required';
+            $validationRules['ukuran'] = 'required';
+        } elseif (in_array($subcategory, ['35', '36'])) {
+            // Only validate if these fields should be visible
+            if (isset($step1Data['kapasitas_air_panas']) && $step1Data['kapasitas_air_panas'] !== '') {
+                $validationRules['kapasitas_air_panas'] = 'required';
+            }
+            if (isset($step1Data['kapasitas_air_dingin']) && $step1Data['kapasitas_air_dingin'] !== '') {
+                $validationRules['kapasitas_air_dingin'] = 'required';
+            }
+            $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
+        } elseif ($subcategory == '37') {
+            $validationRules['sparepart_warranty_id'] = 'required';
+            $validationRules['capacity'] = 'required';
+            $validationRules['garansi_elemen_panas'] = 'required';
+        }
+    
+        // Apply validation
+        if (!$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+    
+        // If validation passes, save the product data
+        $productData = [
+            'brand_id' => $step1Data['brand_id'], // Corrected from 'brand'
+            'category_id' => $step1Data['category_id'], // Corrected from 'category'
+            'subcategory_id' => $step1Data['subcategory_id'], // Corrected from 'subcategory'
+            'tipe_produk' => $step1Data['product_type'], // Corrected from 'tipe_produk'
+            'warna' => $step1Data['color'], // Corrected from 'warna'
+            
+            // Dynamic fields based on conditions
+            'garansi_panel_id' => ($category == '9') ? $step1Data['garansi_panel_id'] : null,
+            'compressor_warranty_id' => in_array($category, ['3', '4', '5', '7', '9']) ? $step1Data['compressor_warranty_id'] : null,
+            'capacity_id' => in_array($category, ['3', '4', '5', '7']) ? $step1Data['capacity_id'] : null,
+            'garansi_motor_id' => ($category == '6') ? $step1Data['garansi_motor_id'] : null,
+            'garansi_semua_service_id' => ($subcategory == '31') ? $step1Data['garansi_semua_service_id'] : null,
+    
+            // Only include air capacities if they are intended to be filled
+            'kapasitas_air_panas' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
+            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
+    
+            // Extra dynamic warranties or other fields
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || $subcategory == '37') ? $step1Data['sparepart_warranty_id'] : null,
+            'garansi_elemen_panas_id' => ($subcategory == '37') ? $step1Data['garansi_elemen_panas'] : null,
+        ];
+    
+        // Insert the data into the database
+        $productId = $this->productModel->insert($productData);
+    
+        // Store product ID and step1 data in session for future steps
         session()->set('product_id', $productId);
         session()->set('step1', $step1Data);
-
-        // Redirect to Step 2
+    
+        // Redirect to step 2
         return redirect()->to('/product/step2');
-    }
+    }    
 
     // Step 2: Product Specifications
     public function step2()

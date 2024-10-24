@@ -75,52 +75,59 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
 
     // Brand Management
     $routes->get('brand', 'Admin\BrandController::index');
-    $routes->get('brand/addBrand', 'Admin\BrandController::addBrand');
     $routes->post('brand/saveBrand', 'Admin\BrandController::saveBrand');
-    $routes->get('brand/editBrand/(:num)', 'Admin\BrandController::editBrand/$1');
     $routes->post('brand/updateBrand/(:num)', 'Admin\BrandController::updateBrand/$1');
     $routes->get('brand/deleteBrand/(:num)', 'Admin\BrandController::deleteBrand/$1');
 
     // Kategori Management
     $routes->get('kategori', 'Admin\KategoriController::index');
-    $routes->get('kategori/addKategori', 'Admin\KategoriController::addKategori');
     $routes->post('kategori/saveKategori', 'Admin\KategoriController::saveKategori');
-    $routes->get('kategori/editKategori/(:num)', 'Admin\KategoriController::editKategori/$1');
     $routes->post('kategori/updateKategori/(:num)', 'Admin\KategoriController::updateKategori/$1');
     $routes->post('kategori/deleteKategori/(:num)', 'Admin\KategoriController::deleteKategori/$1');
 
     // Subkategori Management
     $routes->get('subkategori', 'Admin\SubkategoriController::index');
-    $routes->get('subkategori/addSubkategori', 'Admin\SubkategoriController::addSubkategori');
     $routes->post('subkategori/saveSubkategori', 'Admin\SubkategoriController::saveSubkategori');
-    $routes->get('subkategori/editSubkategori/(:num)', 'Admin\SubkategoriController::editSubkategori/$1');
     $routes->post('subkategori/updateSubkategori/(:num)', 'Admin\SubkategoriController::updateSubkategori/$1');
     $routes->get('subkategori/deleteSubkategori/(:num)', 'Admin\SubkategoriController::deleteSubkategori/$1');
 
     // Kapasitas Management
     $routes->get('kapasitas', 'Admin\KapasitasController::index');
-    $routes->get('kapasitas/addKapasitas', 'Admin\KapasitasController::addKapasitas');
     $routes->post('kapasitas/saveKapasitas', 'Admin\KapasitasController::saveKapasitas');
-    $routes->get('kapasitas/editKapasitas/(:num)', 'Admin\KapasitasController::editKapasitas/$1');
     $routes->post('kapasitas/updateKapasitas/(:num)', 'Admin\KapasitasController::updateKapasitas/$1');
     $routes->post('kapasitas/deleteKapasitas/(:num)', 'Admin\KapasitasController::deleteKapasitas/$1');
 
     // Garansi Kompresor Management
     $routes->get('garansi_kompresor', 'Admin\GaransiKompresorController::index');
-    $routes->get('garansi_kompresor/addGaransiKompresor', 'Admin\GaransiKompresorController::addGaransiKompresor');
     $routes->post('garansi_kompresor/saveGaransiKompresor', 'Admin\GaransiKompresorController::saveGaransiKompresor');
-    $routes->get('garansi_kompresor/editGaransiKompresor/(:num)', 'Admin\GaransiKompresorController::editGaransiKompresor/$1');
     $routes->post('garansi_kompresor/updateGaransiKompresor/(:num)', 'Admin\GaransiKompresorController::updateGaransiKompresor/$1');
     $routes->post('garansi_kompresor/deleteGaransiKompresor/(:num)', 'Admin\GaransiKompresorController::deleteGaransiKompresor/$1');
 
     // Garansi Sparepart Management
     $routes->get('garansi_sparepart', 'Admin\GaransiSparepartController::index');
-    $routes->get('garansi_sparepart/addGaransiSparepart', 'Admin\GaransiSparepartController::addGaransiSparepart');
     $routes->post('garansi_sparepart/saveGaransiSparepart', 'Admin\GaransiSparepartController::saveGaransiSparepart');
-    $routes->get('garansi_sparepart/editGaransiSparepart/(:num)', 'Admin\GaransiSparepartController::editGaransiSparepart/$1');
     $routes->post('garansi_sparepart/updateGaransiSparepart/(:num)', 'Admin\GaransiSparepartController::updateGaransiSparepart/$1');
     $routes->post('garansi_sparepart/deleteGaransiSparepart/(:num)', 'Admin\GaransiSparepartController::deleteGaransiSparepart/$1');
 
+    $routes->get('ukuran', 'Admin\UkuranController::index');
+    $routes->post('ukuran/saveUkuran', 'Admin\UkuranController::saveUkuran');
+    $routes->post('ukuran/updateUkuran/(:num)', 'Admin\UkuranController::updateUkuran/$1');
+    $routes->post('ukuran/deleteUkuran/(:num)', 'Admin\UkuranController::deleteUkuran/$1');
+
+    $routes->get('garansi_motor', 'Admin\GaransiMotorController::index');
+    $routes->post('garansi_motor/saveGaransiMotor', 'Admin\GaransiMotorController::saveGaransiMotor');
+    $routes->post('garansi_motor/updateGaransiMotor/(:num)', 'Admin\GaransiMotorController::updateGaransiMotor/$1');
+    $routes->post('garansi_motor/deleteGaransiMotor/(:num)', 'Admin\GaransiMotorController::deleteGaransiMotor/$1');
+
+    $routes->get('garansi_service', 'Admin\GaransiServiceController::index');
+    $routes->post('garansi_service/saveGaransiService', 'Admin\GaransiServiceController::saveGaransiService');
+    $routes->post('garansi_service/updateGaransiService/(:num)', 'Admin\GaransiServiceController::updateGaransiService/$1');
+    $routes->post('garansi_service/deleteGaransiService/(:num)', 'Admin\GaransiServiceController::deleteGaransiService/$1');
+
+    $routes->get('garansi_elemen_panas', 'Admin\GaransiElemenPanasController::index');
+    $routes->post('garansi_elemen_panas/saveGaransiElemenPanas', 'Admin\GaransiElemenPanasController::saveGaransiElemenPanas');
+    $routes->post('garansi_elemen_panas/updateGaransiElemenPanas/(:num)', 'Admin\GaransiElemenPanasController::updateGaransiElemenPanas/$1');
+    $routes->post('garansi_elemen_panas/deleteGaransiElemenPanas/(:num)', 'Admin\GaransiElemenPanasController::deleteGaransiElemenPanas/$1');
 });
 
 // Public Routes (no authentication required)
@@ -131,9 +138,10 @@ $routes->get('get-ukuran-tv', 'ProductController::getUkuranTv');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
 $routes->get('get-garansi-motor', 'ProductController::getGaransiMotor');
 $routes->get('get-garansi-panel', 'ProductController::getGaransiPanel');
-$routes->get('get-garansi-semua-service', 'ProductController::getGaransiSemuaService');
+$routes->get('get-garansi-service', 'ProductController::getGaransiSemuaService');
 $routes->get('get-compressor-warranties', 'ProductController::getCompressorWarranties');
 $routes->get('get-panel-warranties', 'ProductController::getPanelWarranties');
+$routes->get('get-heat-warranties', 'ProductController::getHeatWarranties');
 $routes->get('get-motor-warranties', 'ProductController::getMotorWarranties');
 
 

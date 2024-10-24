@@ -17,12 +17,6 @@ class BrandController extends BaseController
         return view('brand/brand', $data);
     }
 
-    public function addBrand()
-    {
-        $data['title'] = "Add Brand";
-        return view('brand/add_brand',$data);
-    }
-
     public function saveBrand()
     {
     $brandModel = new BrandModel();
@@ -36,19 +30,6 @@ class BrandController extends BaseController
     }
 
     return redirect()->to('/admin/brand')->with('success', 'Brand added successfully.');
-    }
-
-    public function editBrand($id)
-    {
-        $brandModel = new BrandModel();
-        $data['merk'] = $brandModel->find($id);
-        $data['title'] = "Edit Brand";
-
-        if (!$data['merk']) {
-            return redirect()->to('/brand')->with('error', 'Brand  not found.');
-        }
-
-        return view('brand/edit_Brand', $data);
     }
 
     public function updateBrand($id)

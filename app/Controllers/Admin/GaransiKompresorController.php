@@ -17,12 +17,6 @@ class GaransiKompresorController extends BaseController
         return view('garansi_kompresor/garansi_kompresor', $data);
     }
 
-    public function addGaransiKompresor()
-    {
-        $data['title'] = "Add GaransiKompresor";
-        return view('garansi_kompresor/add_garansi_kompresor',$data);
-    }
-
     public function saveGaransiKompresor()
     {
     $garansikompresorModel = new CompressorwarrantyModel();
@@ -35,19 +29,6 @@ class GaransiKompresorController extends BaseController
     }
 
     return redirect()->to('/admin/garansi_kompresor')->with('success', 'Compressor Warranty added successfully.');
-    }
-
-    public function editGaransiKompresor($id)
-    {
-        $garansikompresorModel = new CompressorwarrantyModel();
-        $data['compressorwarranty'] = $garansikompresorModel->find($id);
-        $data['title'] = "Edit Garansi Kompresor";
-
-        if (!$data['compressorwarranty']) {
-            return redirect()->to('/admin/garansi_kompresor')->with('error', 'Garansi Kompresor  not found.');
-        }
-
-        return view('garansi_kompresor/edit_garansi_kompresor', $data);
     }
 
     public function updateGaransiKompresor($id)

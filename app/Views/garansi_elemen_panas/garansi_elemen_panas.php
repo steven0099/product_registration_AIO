@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="background" style="padding: 20px; background-color: #f0f0f5;">
-  <title>Kelola Garansi Kompresor</title>
+  <title>Kelola Garansi Elemen Panas</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -61,8 +61,8 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Daftar Garansi Kompresor</h3>
-                <button id="createCompressorWarrantyBtn" class="btn btn-primary ml-auto">+ Tambah Garansi Kompresor</button>
+                <h3 class="card-title">Daftar Garansi Elemen Panas</h3>
+                <button id="createheatWarrantyBtn" class="btn btn-primary ml-auto">+ Tambah Garansi Elemen Panas</button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -70,21 +70,21 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Garansi Kompresor (Tahun)</th>
+                      <th>Garansi Elemen Panas (Tahun)</th>
                       <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($garansi_kompresor as $compressorwarranty): ?>
+                    <?php foreach ($garansi_elemen_panas as $heatwarranty): ?>
                       <tr>
                         <td><?= $i++; ?></td>
-                        <td><?= esc($compressorwarranty['value']) ?></td>
+                        <td><?= esc($heatwarranty['value']) ?></td>
                         <td>
-                          <button data-id="<?= esc($compressorwarranty['id']) ?>" data-value="<?= esc($compressorwarranty['value']) ?>" class="btn-edit btn btn-primary">
+                          <button data-id="<?= esc($heatwarranty['id']) ?>" data-value="<?= esc($heatwarranty['value']) ?>" class="btn-edit btn btn-primary">
                             <i class="fas fa-pencil-alt"></i>
                           </button>
-                          <button data-id="<?= esc($compressorwarranty['id']) ?>" class="btn-delete btn btn-danger">
+                          <button data-id="<?= esc($heatwarranty['id']) ?>" class="btn-delete btn btn-danger">
                             <i class="fas fa-trash"></i>
                           </button>
                         </td>
@@ -98,32 +98,32 @@
         </div>
       </div>
 
-      <!-- Modal for Adding Compressor Warranty -->
+      <!-- Modal for Adding motor Warranty -->
       <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <h3>Tambah Garansi Kompresor</h3>
-          <form method="post" action="<?= base_url('/admin/garansi_kompresor/saveGaransiKompresor') ?>" enctype="multipart/form-data">
+          <h3>Tambah Garansi Elemen Panas</h3>
+          <form method="post" action="<?= base_url('/admin/garansi_elemen_panas/saveGaransiElemenPanas') ?>" enctype="multipart/form-data">
           <?= csrf_field() ?> 
           <div class="form-group">
-              <label for="value">Garansi Kompresor (Tahun)</label>
-              <input type="text" class="form-control" name="value" placeholder="Garansi Kompresor (Tahun)" required>
+              <label for="value">Garansi Elemen Panas (Tahun)</label>
+              <input type="text" class="form-control" name="value" placeholder="Garansi Elemen Panas (Tahun)" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>
         </div>
       </div>
 
-      <!-- Modal for Editing Compressor Warranty -->
+      <!-- Modal for Editing motor Warranty -->
       <div id="editModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <h3>Edit Garansi Kompresor</h3>
+          <h3>Edit Garansi Elemen Panas</h3>
           <form id="editForm" method="post" action="" enctype="multipart/form-data">
           <?= csrf_field() ?> 
           <div class="form-group">
-              <label for="value">Garansi Kompresor (Tahun)</label>
-              <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Kompresor (Tahun)" required>
+              <label for="value">Garansi Elemen Panas (Tahun)</label>
+              <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Elemen Panas (Tahun)" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>
@@ -135,7 +135,7 @@
         <div class="modal-content">
           <span class="close">&times;</span>
           <h3>Konfirmasi</h3>
-          <p>Hapus Garansi Kompresor Ini?</p>
+          <p>Hapus Garansi Elemen Panas Ini?</p>
           <form id="deleteForm" method="post" action="">
           <?= csrf_field() ?> 
           <button type="submit" class="btn btn-danger">Hapus</button>
@@ -145,9 +145,9 @@
       </div>
 
       <script>
-        // Modal for Adding Compressor Warranty
+        // Modal for Adding motor Warranty
         var addModal = document.getElementById("myModal");
-        var addBtn = document.getElementById("createCompressorWarrantyBtn");
+        var addBtn = document.getElementById("createheatWarrantyBtn");
         var closeAddModal = document.getElementsByClassName("close")[0];
 
         addBtn.onclick = function() {
@@ -164,7 +164,7 @@
           }
         }
 
-        // Modal for Editing Compressor Warranty
+        // Modal for Editing motor Warranty
         var editModal = document.getElementById("editModal");
         var closeEditModal = document.getElementsByClassName("close")[1];
 
@@ -174,7 +174,7 @@
             var value = this.getAttribute('data-value');
 
             // Set the form action and input value dynamically
-            document.getElementById('editForm').action = '/admin/garansi_kompresor/updateGaransiKompresor/' + id;
+            document.getElementById('editForm').action = '/admin/garansi_elemen_panas/updateGaransiElemenPanas/' + id;
             document.getElementById('editValue').value = value;
 
             editModal.style.display = "block";
@@ -185,7 +185,7 @@
           editModal.style.display = "none";
         }
 
-        // Modal for Deleting Compressor Warranty
+        // Modal for Deleting motor Warranty
         var deleteModal = document.getElementById("deleteModal");
         var closeDeleteModal = document.getElementsByClassName("close")[2];
         var cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
@@ -195,7 +195,7 @@
             var id = this.getAttribute('data-id');
 
             // Set the form action dynamically
-            document.getElementById('deleteForm').action = '/admin/garansi_kompresor/deleteGaransiKompresor/' + id;
+            document.getElementById('deleteForm').action = '/admin/garansi_elemen_panas/deleteGaransiElemenPanas/' + id;
 
             deleteModal.style.display = "block";
           });

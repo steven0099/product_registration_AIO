@@ -34,48 +34,82 @@
         </li>
 
         <!-- Manage Data Section -->
-        <li class="nav-item <?= (uri_string() == 'brand' || uri_string() == 'kategori' || uri_string() == 'subkategori' || uri_string() == 'kapasitas' || uri_string() == 'garansi_kompresor' || uri_string() == 'garansi_sparepart') ? 'menu-open' : '' ?>" style="width: 90%">
-          <a href="#" class="nav-link <?= (uri_string() == 'brand' || uri_string() == 'kategori' || uri_string() == 'subkategori' || uri_string() == 'kapasitas' || uri_string() == 'garansi_kompresor' || uri_string() == 'garansi_sparepart') ? 'active' : '' ?>">
+        <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 90%">
+          <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Kelola Data<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/brand" class="nav-link <?= (uri_string() == 'brand') ? 'active' : '' ?>">
+              <a href="/admin/brand" class="nav-link <?= (uri_string() == 'admin/brand') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Merek</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/kategori" class="nav-link <?= (uri_string() == 'kategori') ? 'active' : '' ?>">
+              <a href="/admin/kategori" class="nav-link <?= (uri_string() == 'admin/kategori') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Kategori</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/subkategori" class="nav-link <?= (uri_string() == 'subkategori') ? 'active' : '' ?>">
+              <a href="/admin/subkategori" class="nav-link <?= (uri_string() == 'admin/subkategori') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Subkategori</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/kapasitas" class="nav-link <?= (uri_string() == 'kapasitas') ? 'active' : '' ?>">
+              <a href="/admin/kapasitas" class="nav-link <?= (uri_string() == 'admin/kapasitas') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Kapasitas</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/garansi_kompresor" class="nav-link <?= (uri_string() == 'garansi_kompresor') ? 'active' : '' ?>">
+              <a href="/admin/ukuran" class="nav-link <?= (uri_string() == 'admin/ukuran') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ukuran</p>
+              </a>
+            </li>
+            <li class="nav-item <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service' || uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>">
+            <a href="#" class="nav-link <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Garansi
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/admin/garansi_kompresor" class="nav-link <?= (uri_string() == 'admin/garansi_kompresor') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Garansi Kompresor</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/garansi_sparepart" class="nav-link <?= (uri_string() == 'garansi_sparepart') ? 'active' : '' ?>">
+              <a href="/admin/garansi_sparepart" class="nav-link <?= (uri_string() == 'admin/garansi_sparepart') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Garansi Sparepart</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="/admin/garansi_motor" class="nav-link <?= (uri_string() == 'admin/garansi_motor') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Garansi Motor</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/garansi_service" class="nav-link <?= (uri_string() == 'admin/garansi_service') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Garansi Service</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/garansi_elemen_panas" class="nav-link <?= (uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Garansi Elemen Panas</p>
+              </a>
+            </li>
+          </ul>
           </ul>
         </li>
 
@@ -139,7 +173,7 @@
             <li class="nav-item">
               <a href="/reset/reset-password" class="nav-link <?= (uri_string() == 'superadmin/user/reset') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Lupa Password</p>
+                <p>Ganti Password</p>
               </a>
             </li>
           </ul>

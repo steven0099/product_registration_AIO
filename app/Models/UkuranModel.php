@@ -14,4 +14,11 @@ class UkuranModel extends Model
     {
         return $this->where('subcategory_id', $subcategoryId)->findAll();
     }
+
+    public function getUkuranWithSubcategory()
+    {
+        return $this->select('ukuran_tv.*, ukuran_tv.size as ukuran_size, subcategories.name as subcategory_name')
+                    ->join('subcategories', 'subcategories.id = ukuran_tv.subcategory_id')
+                    ->findAll();
+    }
 }

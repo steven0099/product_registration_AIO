@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h3 class="card-title">Daftar Subkategori</h3>
-                            <button class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addSubcategoryModal">+ Create Subcategory</button>
+                            <button class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addSubcategoryModal">+ Tambah Subkategori</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

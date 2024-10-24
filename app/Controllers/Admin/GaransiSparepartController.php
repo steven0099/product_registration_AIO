@@ -17,12 +17,6 @@ class GaransiSparepartController extends BaseController
         return view('garansi_sparepart/garansi_sparepart', $data);
     }
 
-    public function addGaransiSparepart()
-    {
-        $data['title'] = "Add GaransiSparepart";
-        return view('garansi_sparepart/add_garansi_sparepart',$data);
-    }
-
     public function saveGaransiSparepart()
     {
     $garansisparepartModel = new SparepartwarrantyModel();
@@ -35,19 +29,6 @@ class GaransiSparepartController extends BaseController
     }
 
     return redirect()->to('/admin/garansi_sparepart')->with('success', 'Sparepart Warranty added successfully.');
-    }
-
-    public function editGaransiSparepart($id)
-    {
-        $garansisparepartModel = new SparepartwarrantyModel();
-        $data['sparepartwarranty'] = $garansisparepartModel->find($id);
-        $data['title'] = "Edit Garansi Sparepart";
-
-        if (!$data['sparepartwarranty']) {
-            return redirect()->to('/admin/garansi_sparepart')->with('error', 'Garansi Sparepart  not found.');
-        }
-
-        return view('garansi_sparepart/edit_garansi_sparepart', $data);
     }
 
     public function updateGaransiSparepart($id)

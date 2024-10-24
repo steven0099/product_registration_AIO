@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kelola Kapasitas</title>
+  <title>Kelola Ukuran</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -62,8 +62,8 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="card-title">Daftar Kapasitas</h3>
-              <button id="createCapacityBtn" class="btn btn-primary ml-auto">+ Tambah Kapasitas</button>
+              <h3 class="card-title">Daftar Ukuran</h3>
+              <button id="createSizeBtn" class="btn btn-primary ml-auto">+ Tambah Ukuran</button>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -72,22 +72,22 @@
                 <tr>
                   <th>#</th>
                   <th>Subkategori</th>
-                  <th>Kapasitas</th>
+                  <th>Ukuran</th>
                   <th>Opsi</th>
                 </tr>
                 </thead>
                 <tbody>
                   <?php $i = 1; ?>
-                  <?php foreach ($kapasitas as $capacity): ?>
+                  <?php foreach ($ukuran as $size): ?>
                   <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= esc($capacity['subcategory_name']) ?></td>
-                    <td><?= esc($capacity['capacity_value']) ?></td>
+                    <td><?= esc($size['subcategory_name']) ?></td>
+                    <td><?= esc($size['ukuran_size']) ?></td>
                     <td>
-                      <button data-id="<?= esc($capacity['id']) ?>" data-value="<?= esc($capacity['value']) ?>" class="btn-edit btn btn-primary">
+                      <button data-id="<?= esc($size['id']) ?>" data-value="<?= esc($size['size']) ?>" class="btn-edit btn btn-primary">
                         <i class="fas fa-pencil-alt"></i>
                       </button>
-                      <button data-id="<?= esc($capacity['id']) ?>" class="btn-delete btn btn-danger">
+                      <button data-id="<?= esc($size['id']) ?>" class="btn-delete btn btn-danger">
                         <i class="fas fa-trash"></i>
                       </button>
                     </td>
@@ -105,8 +105,8 @@
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Tambah Kapasitas</h3>
-        <form method="post" action="<?= base_url('/admin/kapasitas/saveKapasitas') ?>" enctype="multipart/form-data">
+        <h3>Tambah Ukuran</h3>
+        <form method="post" action="<?= base_url('/admin/ukuran/saveUkuran') ?>" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <div class="form-group">
   <label for="subcategory">Subkategori</label>
@@ -117,8 +117,8 @@
   </select>
 </div>
         <div class="form-group">
-            <label for="value">Kapasitas</label>
-            <input type="text" class="form-control" name="value" placeholder="Kapasitas">
+            <label for="size">Ukuran</label>
+            <input type="text" class="form-control" name="size" placeholder="Ukuran">
           </div>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
@@ -129,7 +129,7 @@
     <div id="editModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Edit Kapasitas</h3>
+        <h3>Edit Ukuran</h3>
         <form id="editForm" method="post" action="" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <div class="form-group">
@@ -142,8 +142,8 @@
 </div>
 
         <div class="form-group">
-            <label for="value">Kapasitas</label>
-            <input type="text" id="editValue" class="form-control" name="value" placeholder="Kapasitas" required>
+            <label for="size">Ukuran</label>
+            <input type="text" id="editSize" class="form-control" name="size" placeholder="Ukuran" required>
           </div>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
@@ -155,7 +155,7 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h3>Konfirmasi</h3>
-        <p>Hapus Kapasitas Ini?</p>
+        <p>Hapus Ukuran Ini?</p>
         <form id="deleteForm" method="post" action="">
         <?= csrf_field() ?> 
           <button type="submit" class="btn btn-danger">Hapus</button>
@@ -167,7 +167,7 @@
     <script>
       // Modal for Adding Capacity
       var addModal = document.getElementById("myModal");
-      var addBtn = document.getElementById("createCapacityBtn");
+      var addBtn = document.getElementById("createSizeBtn");
       var closeAddModal = document.getElementsByClassName("close")[0];
 
       addBtn.onclick = function() {
@@ -191,11 +191,11 @@
       document.querySelectorAll('.btn-edit').forEach(function(button) {
         button.addEventListener('click', function() {
           var id = this.getAttribute('data-id');
-          var value = this.getAttribute('data-value');
+          var size = this.getAttribute('data-size');
           
           // Set the form action and input value dynamically
-          document.getElementById('editForm').action = '/admin/kapasitas/updateKapasitas/' + id;
-          document.getElementById('editValue').value = value;
+          document.getElementById('editForm').action = '/admin/ukuran/updateUkuran/' + id;
+          document.getElementById('editSize').value = value;
 
           editModal.style.display = "block";
         });
@@ -221,7 +221,7 @@
           var id = this.getAttribute('data-id');
 
           // Set the form action dynamically
-          document.getElementById('deleteForm').action = '/admin/kapasitas/deleteKapasitas/' + id;
+          document.getElementById('deleteForm').action = '/admin/ukuran/deleteUkuran/' + id;
 
           deleteModal.style.display = "block";
         });

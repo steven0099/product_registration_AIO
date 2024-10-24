@@ -112,10 +112,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <select id="sparepart_warranty" name="sparepart_warranty_id" required>
                     <option value="" disabled selected>Masukan Garansi Sparepart</option>
                     <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                        <option value="<?= $sparepart_warranty['id'] ?>"><?= esc($sparepart_warranty['value']) ?></option>
+                        <option value=""><?= esc($sparepart_warranty['value']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
+
+            <div class="form-group" id="kapasitas-air-dingin" style="display:none;">
+    <label for="kapasitas_air_dingin">Kapasitas Air Dingin</label>
+    <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" placeholder="Kapasitas Air Dingin (L)">
+</div>
+
+<div class="form-group" id="kapasitas-air-panas" style="display:none;">
+    <label for="kapasitas_air_panas">Kapasitas Air Panas</label>
+    <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" placeholder="Kapasitas Air Panas (L)">
+</div>
 
             <button type="submit" class="submit-btn">Selanjutnya</button>
         </form>
@@ -152,15 +162,92 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         document.getElementById('subcategory').addEventListener('change', function() {
     const subcategoryId = this.value;
     const categoryId = document.getElementById('category').value;
+    const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
+    const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
 
-    // Update form fields based on selected category and subcategory
-    updateFormFields(categoryId, subcategoryId);
+    // Update compressor warranty field based on category
+    if (categoryId === '9') { // Category is for Garansi Panel
+        compressorWarrantyLabel.innerText = 'Garansi Panel';
+        document.getElementById('compressor_warranty').setAttribute('name', 'garansi_panel_id'); // Change name to garansi_panel_id
+    } else {
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name back to compressor_warranty_id
+    }
 
-    // Fetch capacities or ukuran based on selected subcategory
-    if (categoryId === '9') { // TV
+    // Change capacity to ukuran_size if category is TV
+    if (categoryId === '9') { // Assuming '9' corresponds to TV category
+        document.getElementById('capacity').setAttribute('name', 'ukuran_size'); // Change name to ukuran_size
+    } else {
+        document.getElementById('capacity').setAttribute('name', 'capacity_value'); // Change back if not TV
+    }
+
+    // Check if the category is "TV" to fetch options for Ukuran TV
+    if (categoryId === '9') {
         fetchUkuranTvOptions(subcategoryId); // Fetch Ukuran TV options
     } else {
         fetchCapacities(subcategoryId); // Fetch capacities based on subcategory
+    }
+
+    if (subcategoryId == '31') { // Speaker
+        // Hide Garansi Sparepart field
+        document.getElementById('warranty-sparepart-group').style.display = 'none';
+        showCapacityField(true, 'Ukuran'); // Show dropdown for "Ukuran"
+        // Show dropdown for Ukuran (fetch from subcategory table)
+        fetchUkuranTvOptions(subcategoryId);
+
+        // Change "Garansi Kompresor" to "Garansi Semua Service"
+        compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
+        fetchGaransiSemuaServiceOptions();
+    } else {
+        // Reset visibility and labels for other subcategories
+        document.getElementById('warranty-sparepart-group').style.display = 'flex';
+    }
+
+    if (subcategoryId == '32') { // KIPAS ANGIN
+        // Hide Garansi Sparepart field
+        document.getElementById('warranty-sparepart-group').style.display = 'none';
+        showCapacityField(true, 'Ukuran'); // Show dropdown for "Ukuran"
+        // Show dropdown for Ukuran (fetch from subcategory table)
+        fetchUkuranTvOptions(subcategoryId);
+
+        // Change "Garansi Kompresor" to "Garansi Semua Service"
+        compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+        fetchGaransiMotorOptions();
+    } else {
+        // Reset visibility and labels for other subcategories
+        document.getElementById('warranty-sparepart-group').style.display = 'flex';
+    }
+
+    if (subcategoryId == 35 || subcategoryId == 36) {
+        // Hide "kapasitas" and "garansi sparepart"
+        document.getElementById('capacity-group').style.display = 'none';
+        document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+        // Show "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'flex';
+        document.getElementById('kapasitas-air-panas').style.display = 'flex';
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
+    } else {
+        // Show "kapasitas" and "garansi sparepart" for other subcategories
+        document.getElementById('capacity-group').style.display = 'flex';
+        document.getElementById('warranty-sparepart-group').style.display = 'flex';
+
+        // Hide "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'none';
+        document.getElementById('kapasitas-air-panas').style.display = 'none';
+    }
+
+    if (subcategoryId == '37') { // KIPAS ANGIN
+        // Hide Garansi Sparepart field
+        showCapacityField(true, 'Kapasitas'); // Show dropdown for "Ukuran"
+        // Show dropdown for Ukuran (fetch from subcategory table)
+        fetchCapacities(subcategoryId);
+
+        // Change "Garansi Kompresor" to "Garansi Semua Service"
+        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+        sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
+        fetchGaransiElemenPanasOptions();
     }
 });
 
@@ -203,15 +290,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     hideCapacityField(); // Hide capacity field if category doesn't need it
                     fetchCompressorWarrantyOptions(); // Set default to Garansi Kompresor
                     break;
-            }
+            }     
         }
+
+function fetchGaransiSemuaServiceOptions() {
+    const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
+    compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
+
+    fetch('<?= base_url('get-garansi-service') ?>')
+    .then(response => response.json())
+    .then(data => {
+        const warrantyDropdown = document.getElementById('compressor_warranty');
+        <?php foreach ($garansi_semua_service as $garansi_service): ?>
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Semua Service</option>';
+        <?php endforeach ?>
+        if (Array.isArray(data)) {
+            data.forEach(service => {
+                warrantyDropdown.innerHTML += `<option value="${service.id}">${service.value}</option>`;
+            });
+        } else {
+            alert('Failed to load Garansi Semua Service options. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching Garansi Semua Service options:', error);
+        alert('An error occurred while fetching warranties. Please try again later.');
+    });
+}
 
         function fetchCompressorWarrantyOptions() {
     fetch('<?= base_url('get-compressor-warranties') ?>')
     .then(response => response.json())
     .then(data => {
         const warrantyDropdown = document.getElementById('compressor_warranty');
-        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Kompresor</option>';
+        warrantyDropdown.innerHTML = '<option value="<?= $compressor_warranty['id'] ?>" disabled selected>Select Garansi Kompresor</option>';
         
         if (Array.isArray(data)) {
             data.forEach(warranty => {
@@ -232,8 +344,9 @@ function fetchPanelWarrantyOptions() {
     .then(response => response.json())
     .then(data => {
         const warrantyDropdown = document.getElementById('compressor_warranty');
-        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Panel</option>';
-        
+        <?php foreach ($garansi_panel as $garansipanel): ?>
+        warrantyDropdown.innerHTML = '<option value="<?= $garansipanel['id'] ?>" disabled selected>Select Garansi Panel</option>';
+        <?php endforeach ?>
         if (Array.isArray(data)) {
             data.forEach(warranty => {
                 warrantyDropdown.innerHTML += `<option value="${warranty.id}">${warranty.value}</option>`;
@@ -265,6 +378,27 @@ function fetchGaransiMotorOptions() {
     })
     .catch(error => {
         console.error('Error fetching motor warranties:', error);
+        alert('An error occurred while fetching warranties. Please try again later.');
+    });
+}
+
+function fetchGaransiElemenPanasOptions() {
+    fetch('<?= base_url('get-heat-warranties') ?>')
+    .then(response => response.json())
+    .then(data => {
+        const warrantyDropdown = document.getElementById('compressor_warranty');
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Elemen Panas</option>';
+        
+        if (Array.isArray(data)) {
+            data.forEach(heat => {
+                warrantyDropdown.innerHTML += `<option value="${heat.id}">${heat.value}</option>`;
+            });
+        } else {
+            alert('Failed to load Garansi Elemen Panas options. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching Elemen Panas warranties:', error);
         alert('An error occurred while fetching warranties. Please try again later.');
     });
 }
@@ -306,7 +440,7 @@ function fetchUkuranTvOptions(subcategoryId) {
     })
     .then(data => {
         const capacityDropdown = document.getElementById('capacity'); // Ensure this is the correct ID
-        capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Ukuran TV</option>';
+        capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Ukuran</option>';
         
         if (Array.isArray(data)) {
             data.forEach(ukuran => {

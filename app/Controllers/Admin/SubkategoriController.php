@@ -18,15 +18,6 @@ class SubkategoriController extends BaseController
     
         return view('subkategori/subkategori', $data); // Pass the data to the view
     }
-    
-
-    public function addSubKategori()
-    {
-        $categoryModel = new CategoryModel();
-        $data['categories'] = $categoryModel->getCategories(); // Fetch categories
-
-        return view('/subkategori/add_subkategori', $data); // Pass categories to the view
-    }
 
     public function saveSubkategori()
     {
@@ -49,23 +40,6 @@ class SubkategoriController extends BaseController
         return redirect()->to('/admin/subkategori')->with('success', 'Subcategory added successfully.');
     }
     
-
-    public function editSubkategori($id)
-    {
-        $subcategoryModel = new SubcategoryModel();
-        $categoryModel = new CategoryModel(); // Add the CategoryModel
-
-        $data['subcategory'] = $subcategoryModel->find($id);
-        $data['categories'] = $categoryModel->getCategories(); // Fetch categories for the dropdown
-        $data['title'] = "Edit Subkategori";
-
-        if (!$data['subcategory']) {
-            return redirect()->to('/admin/subkategori')->with('error', 'Subkategori not found.');
-        }
-
-        return view('subkategori/edit_Subkategori', $data);
-    }
-
     public function updateSubkategori($id)
     {
         $subcategoryModel = new SubcategoryModel();

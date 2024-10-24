@@ -17,12 +17,6 @@ class KategoriController extends BaseController
         return view('kategori/kategori', $data);
     }
 
-    public function addKategori()
-    {
-        $data['title'] = "Add Category";
-        return view('kategori/add_kategori',$data);
-    }
-
     public function saveKategori()
     {
     $kategoriModel = new CategoryModel();
@@ -35,19 +29,6 @@ class KategoriController extends BaseController
     }
 
     return redirect()->to('/admin/kategori')->with('success', 'Category added successfully.');
-    }
-
-    public function editKategori($id)
-    {
-        $kategoriModel = new CategoryModel();
-        $data['category'] = $kategoriModel->find($id);
-        $data['title'] = "Edit Kategori";
-
-        if (!$data['category']) {
-            return redirect()->to('/kategori')->with('error', 'Kategori  not found.');
-        }
-
-        return view('kategori/edit_Kategori', $data);
     }
 
     public function updateKategori($id)

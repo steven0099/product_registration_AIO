@@ -28,7 +28,7 @@
          </a>
          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a href="/reset/reset-password" class="dropdown-item">
-               <i class="fas fa-key mr-2"></i> Lupa Password
+               <i class="fas fa-key mr-2"></i> Ganti Password
             </a>
             <div class="dropdown-divider"></div>
             <a href="/logout" class="dropdown-item">

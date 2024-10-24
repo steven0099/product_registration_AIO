@@ -39,11 +39,11 @@
             </div>
 
             <div class="form-group">
-                <input type="text" id="advantage2" name="advantage2" placeholder="Masukan Keunggulan Produk" >
+                <input type="text" id="advantage2" name="advantage2" placeholder="Masukan Keunggulan Produk" required>
             </div>
 
             <div class="form-group">
-                <input type="text" id="advantage3" name="advantage3" placeholder="Masukan Keunggulan Produk" >
+                <input type="text" id="advantage3" name="advantage3" placeholder="Masukan Keunggulan Produk" required>
             </div>
 
             <div class="form-group">
@@ -60,6 +60,7 @@
 
             <button type="submit" class="submit-btn">Selanjutnya</button>
         </form>
+        <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
 
     </div>
 </body>
