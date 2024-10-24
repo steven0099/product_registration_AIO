@@ -82,9 +82,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" name="pembuat" placeholder="Negara Pembuat" required>
             </div>
 
+            <!-- refigrant Dropdown -->
             <div class="form-group">
-                <label for="refigrant">Tipe Refrigrant</label>
-                <input type="text" name="refigrant" placeholder="Refrigrant" required>
+                <label for="refrigrant">Tipe Refrigrant</label>
+                <select id="refigrant" name="refigrant_id" required>
+                    <option value="" disabled selected>Tipe Refrigrant</option>
+                    <?php foreach ($refrigrant as $refigrants): ?>
+                        <option value="<?= $refigrants['id'] ?>"><?= esc($refigrants['type']) ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
 
             <div class="form-group">

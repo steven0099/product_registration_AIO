@@ -5,9 +5,9 @@
 <!-- Theme style -->
 <link rel="stylesheet" href="<?= base_url('dist/css/adminlte.min.css') ?>">
 <!-- Sidebar -->
-<div class="sidebar" style="width: 250px; height: 100vh; position: fixed; top: 0; left: 0; padding: 20px; overflow-y: auto; z-index: 999">
+<div class="sidebar" style="width: 250px; padding: 20px; z-index: 999">
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">    
+  <aside class="main-sidebar sidebar-light-primary elevation-4" style="max-height: 100vh; overflow-y: auto;">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="../../images/logo-aio.png" alt="AIO Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -34,8 +34,8 @@
         </li>
 
         <!-- Manage Data Section -->
-        <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 90%">
-          <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
+        <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 90%">
+          <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Kelola Data<i class="right fas fa-angle-left"></i></p>
           </a>
@@ -68,6 +68,12 @@
               <a href="/admin/ukuran" class="nav-link <?= (uri_string() == 'admin/ukuran') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Ukuran</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/refrigrant" class="nav-link <?= (uri_string() == 'admin/refrigrant') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Tipe Refrigrant</p>
               </a>
             </li>
             <li class="nav-item <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service' || uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>">

@@ -114,6 +114,11 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->post('ukuran/updateUkuran/(:num)', 'Admin\UkuranController::updateUkuran/$1');
     $routes->post('ukuran/deleteUkuran/(:num)', 'Admin\UkuranController::deleteUkuran/$1');
 
+    $routes->get('refrigrant', 'Admin\RefrigrantController::index');
+    $routes->post('refrigrant/saveRefrigrant', 'Admin\RefrigrantController::saveRefrigrant');
+    $routes->post('refrigrant/updateRefrigrant/(:num)', 'Admin\RefrigrantController::updateRefrigrant/$1');
+    $routes->post('refrigrant/deleteRefrigrant/(:num)', 'Admin\RefrigrantController::deleteRefrigrant/$1');
+
     $routes->get('garansi_motor', 'Admin\GaransiMotorController::index');
     $routes->post('garansi_motor/saveGaransiMotor', 'Admin\GaransiMotorController::saveGaransiMotor');
     $routes->post('garansi_motor/updateGaransiMotor/(:num)', 'Admin\GaransiMotorController::updateGaransiMotor/$1');

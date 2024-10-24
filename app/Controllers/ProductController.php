@@ -18,6 +18,7 @@ use App\Models\GaransiPanelModel;
 use App\Models\GaransiMotorModel;
 use App\Models\GaransiSemuaServiceModel;
 use App\Models\GaransiElemenPanasModel;
+use App\Models\RefrigrantModel;
 
 class ProductController extends BaseController
 {
@@ -309,7 +310,10 @@ class ProductController extends BaseController
     // Step 2: Product Specifications
     public function step2()
     {
-        return view('product/product_specification');
+        $refrigrantModel = new RefrigrantModel();
+
+        $data['refrigrant'] = $refrigrantModel->findAll();
+        return view('product/product_specification', $data);
     }
 
     public function saveStep2()
