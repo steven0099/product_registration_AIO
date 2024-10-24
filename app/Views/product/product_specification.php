@@ -83,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="refrigant">Tipe Refrigrant</label>
-                <input type="text" name="refrigant" placeholder="Refrigrant" required>
+                <label for="refigrant">Tipe Refrigrant</label>
+                <input type="text" name="refigrant" placeholder="Refrigrant" required>
             </div>
 
             <div class="form-group">

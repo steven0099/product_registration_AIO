@@ -80,7 +80,7 @@
         </tr>
         <tr>
             <td>Tipe Refrigerant</td>
-            <td><?= esc($data['refrigant']) ?></td>
+            <td><?= esc($data['refigrant']) ?></td>
         </tr>
         <tr>
             <td>CSPF Rating</td>

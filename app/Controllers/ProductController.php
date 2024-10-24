@@ -217,7 +217,6 @@ class ProductController extends BaseController
     {
         // Get all POST data
         $step1Data = $this->request->getPost();
-        dd($step1Data);
     
         // Basic validation rules
         $validationRules = [
@@ -236,7 +235,7 @@ class ProductController extends BaseController
         if ($category == '9') { // TV
             $validationRules['garansi_panel_id'] = 'required';  // Correct field name
             $validationRules['sparepart_warranty_id'] = 'required'; // Ensure this is present
-            $validationRules['ukuran_size'] = 'required'; // Adjusted field name
+            $validationRules['ukuran_id'] = 'required'; // Adjusted field name
         } elseif (in_array($category, ['3', '4', '5', '7'])) {
             $validationRules['compressor_warranty_id'] = 'required';  // Corrected field name
             $validationRules['sparepart_warranty_id'] = 'required';
@@ -244,10 +243,13 @@ class ProductController extends BaseController
         } elseif ($category == '6') {
             $validationRules['garansi_motor_id'] = 'required'; // Ensure this matches your form
             $validationRules['sparepart_warranty_id'] = 'required';
-            $validationRules['capacity'] = 'required';
+            $validationRules['capacity_id'] = 'required';
         } elseif ($subcategory == '31') {
-            $validationRules['garansi_semua_service'] = 'required';
-            $validationRules['ukuran'] = 'required';
+            $validationRules['garansi_semua_service_id'] = 'required';
+            $validationRules['ukuran_id'] = 'required';
+        } elseif ($subcategory == '32') {
+            $validationRules['garansi_motor_id'] = 'required';
+            $validationRules['ukuran_id'] = 'required';
         } elseif (in_array($subcategory, ['35', '36'])) {
             // Only validate if these fields should be visible
             if (isset($step1Data['kapasitas_air_panas']) && $step1Data['kapasitas_air_panas'] !== '') {
@@ -259,7 +261,7 @@ class ProductController extends BaseController
             $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
         } elseif ($subcategory == '37') {
             $validationRules['sparepart_warranty_id'] = 'required';
-            $validationRules['capacity'] = 'required';
+            $validationRules['capacity_id'] = 'required';
             $validationRules['garansi_elemen_panas'] = 'required';
         }
     
@@ -273,14 +275,14 @@ class ProductController extends BaseController
             'brand_id' => $step1Data['brand_id'], // Corrected from 'brand'
             'category_id' => $step1Data['category_id'], // Corrected from 'category'
             'subcategory_id' => $step1Data['subcategory_id'], // Corrected from 'subcategory'
-            'tipe_produk' => $step1Data['product_type'], // Corrected from 'tipe_produk'
-            'warna' => $step1Data['color'], // Corrected from 'warna'
+            'product_type' => $step1Data['product_type'], // Corrected from 'tipe_produk'
+            'color' => $step1Data['color'], // Corrected from 'warna'
             
             // Dynamic fields based on conditions
+            'ukuran_id' => ($category == '9' || in_array($subcategory, ['31', '32'])) ? $step1Data['ukuran_id'] : null, 
             'garansi_panel_id' => ($category == '9') ? $step1Data['garansi_panel_id'] : null,
-            'compressor_warranty_id' => in_array($category, ['3', '4', '5', '7', '9']) ? $step1Data['compressor_warranty_id'] : null,
             'capacity_id' => in_array($category, ['3', '4', '5', '7']) ? $step1Data['capacity_id'] : null,
-            'garansi_motor_id' => ($category == '6') ? $step1Data['garansi_motor_id'] : null,
+            'garansi_motor_id' => ($category == '6' || $subcategory == '32') ? $step1Data['garansi_motor_id'] : null,
             'garansi_semua_service_id' => ($subcategory == '31') ? $step1Data['garansi_semua_service_id'] : null,
     
             // Only include air capacities if they are intended to be filled
@@ -288,8 +290,9 @@ class ProductController extends BaseController
             'kapasitas_air_dingin' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
     
             // Extra dynamic warranties or other fields
-            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || $subcategory == '37') ? $step1Data['sparepart_warranty_id'] : null,
-            'garansi_elemen_panas_id' => ($subcategory == '37') ? $step1Data['garansi_elemen_panas'] : null,
+            'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36'])) ? $step1Data['compressor_warranty_id'] : null,
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['37', '38'])) ? $step1Data['sparepart_warranty_id'] : null,
+            'garansi_elemen_panas_id' => (in_array($subcategory, ['37', '38'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
     
         // Insert the data into the database
@@ -442,7 +445,7 @@ class ProductController extends BaseController
             'product_dimensions' => $finalData['produk_p'] . ' x ' . $finalData['produk_l'] . ' x ' . $finalData['produk_t'],
             'packaging_dimensions' => $finalData['kemasan_p'] . ' x ' . $finalData['kemasan_l'] . ' x ' . $finalData['kemasan_t'],
             'berat' => $finalData['berat'],
-            'refrigant' => $finalData['refrigant'],
+            'refigrant' => $finalData['refigrant'],
             'compressor_warranty' => $finalData['compressor_warranty_id'],
             'sparepart_warranty' => $finalData['sparepart_warranty_id'],
             'cspf' => $finalData['cspf'],
