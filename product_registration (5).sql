@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2024 at 08:49 AM
+-- Generation Time: Oct 24, 2024 at 04:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -102,9 +102,6 @@ CREATE TABLE `capacities` (
 --
 
 INSERT INTO `capacities` (`id`, `subcategory_id`, `value`) VALUES
-(31, 31, 'Kecil'),
-(32, 31, 'Sedang'),
-(33, 31, 'Besar'),
 (34, 32, '7 INC'),
 (35, 32, '8 INC'),
 (36, 32, '9 INC'),
@@ -124,11 +121,14 @@ INSERT INTO `capacities` (`id`, `subcategory_id`, `value`) VALUES
 (50, 24, '6,5 Kg'),
 (51, 24, '7 Kg'),
 (52, 24, '7,5 Kg'),
-(53, 24, '50 L'),
+(53, 24, '8 Kg'),
 (54, 9, '0,5 PK'),
 (55, 9, '0,75 PK'),
 (56, 9, '1 PK'),
-(57, 9, '1,5 PK');
+(57, 9, '1,5 PK'),
+(58, 4, '60 L'),
+(59, 4, '128 L'),
+(60, 4, '133 L');
 
 -- --------------------------------------------------------
 
@@ -174,6 +174,27 @@ INSERT INTO `compressor_warranties` (`id`, `value`) VALUES
 (4, '1'),
 (5, '2'),
 (6, '3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `garansi_elemen_panas`
+--
+
+CREATE TABLE `garansi_elemen_panas` (
+  `id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `garansi_elemen_panas`
+--
+
+INSERT INTO `garansi_elemen_panas` (`id`, `value`) VALUES
+(1, '<1'),
+(2, '1'),
+(3, '2'),
+(4, '3');
 
 -- --------------------------------------------------------
 
@@ -249,32 +270,19 @@ CREATE TABLE `products` (
   `brand_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `subcategory_id` int(11) NOT NULL,
-  `capacity_id` int(11) NOT NULL,
-  `compressor_warranty_id` int(11) NOT NULL,
-  `sparepart_warranty_id` int(11) NOT NULL,
+  `capacity_id` int(11) DEFAULT NULL,
+  `compressor_warranty_id` int(11) DEFAULT NULL,
+  `sparepart_warranty_id` int(11) DEFAULT NULL,
+  `garansi_elemen_panas_id` int(11) DEFAULT NULL,
+  `garansi_motor_id` int(11) UNSIGNED DEFAULT NULL,
+  `garansi_panel_id` int(11) UNSIGNED DEFAULT NULL,
+  `garansi_semua_service_id` int(11) UNSIGNED DEFAULT NULL,
+  `ukuran_id` int(11) UNSIGNED DEFAULT NULL,
   `product_type` varchar(255) NOT NULL,
   `color` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`id`, `brand_id`, `category_id`, `subcategory_id`, `capacity_id`, `compressor_warranty_id`, `sparepart_warranty_id`, `product_type`, `color`, `created_at`, `updated_at`) VALUES
-(15, 15, 3, 6, 1, 1, 6, 'a', 'merah', '2024-10-20 21:07:39', '2024-10-20 21:07:39'),
-(16, 17, 4, 4, 1, 1, 6, 'ab', 'merah', '2024-10-20 21:10:51', '2024-10-20 21:10:51'),
-(17, 1, 3, 6, 1, 1, 1, 'a', 'merah', '2024-10-20 22:57:11', '2024-10-20 22:57:11'),
-(18, 1, 3, 6, 1, 1, 6, 'a', 'merah', '2024-10-20 23:52:18', '2024-10-20 23:52:18'),
-(19, 14, 4, 4, 1, 1, 1, 'a', 'merah', '2024-10-21 00:28:03', '2024-10-21 00:32:13'),
-(20, 15, 3, 6, 1, 1, 6, 'a', 'merah', '2024-10-21 00:35:33', '2024-10-21 00:36:22'),
-(21, 14, 4, 4, 1, 1, 1, 'a', 'merah', '2024-10-21 00:44:09', '2024-10-21 00:44:09'),
-(22, 20, 3, 6, 1, 1, 6, 'a', 'merah', '2024-10-21 00:59:45', '2024-10-21 00:59:45'),
-(23, 11, 3, 6, 1, 1, 1, 'ab', 'merah', '2024-10-21 02:10:02', '2024-10-21 02:10:02'),
-(24, 17, 3, 6, 1, 1, 1, 'a', 'merah', '2024-10-21 06:57:56', '2024-10-21 06:57:56'),
-(25, 12, 3, 6, 1, 1, 1, 'a', 'merah', '2024-10-21 07:05:01', '2024-10-21 07:05:01'),
-(26, 14, 5, 9, 1, 1, 1, 'a', 'merah', '2024-10-21 07:58:36', '2024-10-21 07:58:36');
 
 -- --------------------------------------------------------
 
@@ -294,13 +302,6 @@ CREATE TABLE `product_advantages` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `product_advantages`
---
-
-INSERT INTO `product_advantages` (`id`, `product_id`, `advantage1`, `advantage2`, `advantage3`, `advantage4`, `advantage5`, `advantage6`, `created_at`, `updated_at`) VALUES
-(1, 16, '-', '', '', '', '', '', '2024-10-21 04:11:12', '2024-10-21 04:11:12');
 
 -- --------------------------------------------------------
 
@@ -325,16 +326,6 @@ CREATE TABLE `product_specifications` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `product_specifications`
---
-
-INSERT INTO `product_specifications` (`id`, `product_id`, `produk_p`, `produk_l`, `produk_t`, `kemasan_p`, `kemasan_l`, `kemasan_t`, `berat`, `daya`, `pembuat`, `refrigant`, `cspf`, `created_at`, `updated_at`) VALUES
-(8, 15, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 'uk', '', 0, '2024-10-21 04:08:00', '2024-10-21 04:08:00'),
-(9, 16, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 'uk', '', 0, '2024-10-21 04:11:08', '2024-10-21 04:11:08'),
-(10, 17, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 'uk', '', 0, '2024-10-21 05:57:26', '2024-10-21 05:57:26'),
-(11, 18, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 'uk', '', 0, '2024-10-21 06:57:25', '2024-10-21 06:57:25');
 
 -- --------------------------------------------------------
 
@@ -463,7 +454,9 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`) VALUES
 (33, 10, 'MAGIC COM'),
 (34, 10, 'RICE COOKER'),
 (35, 10, 'DISPENSER GALON ATAS'),
-(36, 10, 'DISPENSER GALON BAWAH');
+(36, 10, 'DISPENSER GALON BAWAH'),
+(37, 10, 'WATER HEATER'),
+(38, 10, 'COFFEE MAKER');
 
 -- --------------------------------------------------------
 
@@ -485,7 +478,14 @@ INSERT INTO `ukuran_tv` (`id`, `subcategory_id`, `size`) VALUES
 (1, 15, '24 INC'),
 (2, 15, '27 INC'),
 (3, 15, '32 INC'),
-(4, 15, '40 INC');
+(4, 15, '40 INC'),
+(5, 31, 'Kecil'),
+(6, 31, 'Sedang'),
+(7, 31, 'Besar'),
+(8, 32, '7 INC'),
+(9, 32, '8 INC'),
+(10, 32, '9 INC'),
+(11, 32, '10 INC');
 
 -- --------------------------------------------------------
 
@@ -551,6 +551,12 @@ ALTER TABLE `compressor_warranties`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `garansi_elemen_panas`
+--
+ALTER TABLE `garansi_elemen_panas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `garansi_motor`
 --
 ALTER TABLE `garansi_motor`
@@ -576,9 +582,14 @@ ALTER TABLE `products`
   ADD KEY `brand_id` (`brand_id`),
   ADD KEY `category_id` (`category_id`),
   ADD KEY `subcategory_id` (`subcategory_id`),
-  ADD KEY `capacity_id` (`capacity_id`),
-  ADD KEY `compressor_warranty_id` (`compressor_warranty_id`),
-  ADD KEY `sparepart_warranty_id` (`sparepart_warranty_id`);
+  ADD KEY `products_ibfk_4` (`capacity_id`),
+  ADD KEY `products_ibfk_5` (`compressor_warranty_id`),
+  ADD KEY `products_ibfk_6` (`sparepart_warranty_id`),
+  ADD KEY `products_ibfk_7` (`garansi_elemen_panas_id`),
+  ADD KEY `products_ibfk_8` (`garansi_motor_id`),
+  ADD KEY `products_ibfk_9` (`garansi_panel_id`),
+  ADD KEY `products_ibfk_10` (`garansi_semua_service_id`),
+  ADD KEY `products_ibfk_11` (`ukuran_id`);
 
 --
 -- Indexes for table `product_advantages`
@@ -652,7 +663,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `capacities`
 --
 ALTER TABLE `capacities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -667,6 +678,12 @@ ALTER TABLE `compressor_warranties`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `garansi_elemen_panas`
+--
+ALTER TABLE `garansi_elemen_panas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `garansi_motor`
 --
 ALTER TABLE `garansi_motor`
@@ -676,7 +693,7 @@ ALTER TABLE `garansi_motor`
 -- AUTO_INCREMENT for table `garansi_panel`
 --
 ALTER TABLE `garansi_panel`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `garansi_semua_service`
@@ -688,7 +705,7 @@ ALTER TABLE `garansi_semua_service`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `product_advantages`
@@ -709,6 +726,12 @@ ALTER TABLE `product_submissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `product_uploads`
+--
+ALTER TABLE `product_uploads`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `sparepart_warranties`
 --
 ALTER TABLE `sparepart_warranties`
@@ -718,13 +741,13 @@ ALTER TABLE `sparepart_warranties`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `ukuran_tv`
 --
 ALTER TABLE `ukuran_tv`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -747,10 +770,16 @@ ALTER TABLE `capacities`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
+  ADD CONSTRAINT `products_ibfk_10` FOREIGN KEY (`garansi_semua_service_id`) REFERENCES `garansi_semua_service` (`id`),
+  ADD CONSTRAINT `products_ibfk_11` FOREIGN KEY (`ukuran_id`) REFERENCES `ukuran_tv` (`id`),
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
   ADD CONSTRAINT `products_ibfk_3` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`),
+  ADD CONSTRAINT `products_ibfk_4` FOREIGN KEY (`capacity_id`) REFERENCES `capacities` (`id`),
   ADD CONSTRAINT `products_ibfk_5` FOREIGN KEY (`compressor_warranty_id`) REFERENCES `compressor_warranties` (`id`),
-  ADD CONSTRAINT `products_ibfk_6` FOREIGN KEY (`sparepart_warranty_id`) REFERENCES `sparepart_warranties` (`id`);
+  ADD CONSTRAINT `products_ibfk_6` FOREIGN KEY (`sparepart_warranty_id`) REFERENCES `sparepart_warranties` (`id`),
+  ADD CONSTRAINT `products_ibfk_7` FOREIGN KEY (`garansi_elemen_panas_id`) REFERENCES `garansi_elemen_panas` (`id`),
+  ADD CONSTRAINT `products_ibfk_8` FOREIGN KEY (`garansi_motor_id`) REFERENCES `garansi_motor` (`id`),
+  ADD CONSTRAINT `products_ibfk_9` FOREIGN KEY (`garansi_panel_id`) REFERENCES `garansi_panel` (`id`);
 
 --
 -- Constraints for table `product_advantages`
