@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2024 at 11:58 AM
+-- Generation Time: Oct 25, 2024 at 05:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -273,6 +273,21 @@ CREATE TABLE `products` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `brand_id`, `category_id`, `subcategory_id`, `capacity_id`, `compressor_warranty_id`, `sparepart_warranty_id`, `garansi_elemen_panas_id`, `garansi_motor_id`, `garansi_panel_id`, `garansi_semua_service_id`, `ukuran_id`, `product_type`, `color`, `kapasitas_air_panas`, `kapasitas_air_dingin`, `created_at`, `updated_at`) VALUES
+(52, 9, 9, 15, NULL, NULL, 1, NULL, NULL, 1, NULL, 1, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 10:34:26', '2024-10-24 10:34:26'),
+(53, 16, 5, 9, 57, 4, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 11:21:25', '2024-10-24 11:21:25'),
+(54, 16, 9, 15, NULL, NULL, 1, NULL, NULL, 1, NULL, 1, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 11:28:32', '2024-10-24 11:28:32'),
+(55, 12, 6, 24, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 11:30:40', '2024-10-24 11:30:40'),
+(56, 12, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 11:31:00', '2024-10-24 11:31:00'),
+(57, 10, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 19:52:29', '2024-10-24 19:52:29'),
+(58, 10, 9, 16, NULL, NULL, 1, NULL, NULL, 1, NULL, 12, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 19:56:25', '2024-10-24 19:56:25'),
+(59, 10, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 20:05:31', '2024-10-24 20:05:31'),
+(60, 9, 10, 31, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 20:11:44', '2024-10-24 20:11:44');
+
 -- --------------------------------------------------------
 
 --
@@ -304,11 +319,17 @@ CREATE TABLE `product_specifications` (
   `produk_p` decimal(10,2) DEFAULT NULL,
   `produk_l` decimal(10,2) DEFAULT NULL,
   `produk_t` decimal(10,2) DEFAULT NULL,
+  `pstand_p` decimal(10,2) DEFAULT NULL,
+  `pstand_l` decimal(10,2) DEFAULT NULL,
+  `pstand_t` decimal(10,2) DEFAULT NULL,
   `kemasan_p` decimal(10,2) DEFAULT NULL,
   `kemasan_l` decimal(10,2) DEFAULT NULL,
   `kemasan_t` decimal(10,2) DEFAULT NULL,
+  `resolusi_x` int(11) DEFAULT NULL,
+  `resolusi_y` int(11) DEFAULT NULL,
   `berat` decimal(10,2) DEFAULT NULL,
   `daya` decimal(10,2) DEFAULT NULL,
+  `cooling_capacity` int(11) DEFAULT NULL,
   `pembuat` varchar(255) DEFAULT NULL,
   `refrigrant_id` varchar(255) DEFAULT NULL,
   `cspf` decimal(11,0) DEFAULT NULL,
@@ -331,20 +352,39 @@ CREATE TABLE `product_submissions` (
   `product_type` varchar(255) DEFAULT NULL,
   `color` varchar(100) DEFAULT NULL,
   `capacity` varchar(100) DEFAULT NULL,
+  `garansi_elemen_panas` varchar(255) DEFAULT NULL,
+  `garansi_motor` varchar(255) DEFAULT NULL,
+  `garansi_panel` varchar(255) DEFAULT NULL,
+  `garansi_semua_service` varchar(255) DEFAULT NULL,
+  `ukuran` varchar(255) DEFAULT NULL,
+  `kapasitas_air_panas` varchar(255) DEFAULT NULL,
+  `kapasitas_air_dingin` varchar(255) DEFAULT NULL,
   `daya` decimal(10,2) DEFAULT NULL,
   `product_dimensions` varchar(100) DEFAULT NULL,
   `packaging_dimensions` varchar(100) DEFAULT NULL,
   `berat` decimal(10,2) DEFAULT NULL,
   `pembuat` varchar(255) NOT NULL,
   `refrigant` varchar(100) DEFAULT NULL,
+  `pstand_dimensions` varchar(255) DEFAULT NULL,
+  `panel_resolution` varchar(255) DEFAULT NULL,
+  `cooling_capacity` varchar(255) DEFAULT NULL,
   `compressor_warranty` varchar(100) DEFAULT NULL,
   `sparepart_warranty` varchar(100) DEFAULT NULL,
   `cspf` decimal(10,2) DEFAULT NULL,
-  `gambar_utama` varchar(255) NOT NULL,
+  `advantage1` varchar(255) NOT NULL,
+  `advantage2` varchar(255) NOT NULL,
+  `advantage3` varchar(255) NOT NULL,
+  `advantage4` varchar(255) NOT NULL,
+  `advantage5` varchar(255) NOT NULL,
+  `advantage6` varchar(255) NOT NULL,
+  `gambar_depan` varchar(255) NOT NULL,
+  `gambar_belakang` varchar(255) NOT NULL,
+  `gambar_atas` varchar(255) NOT NULL,
+  `gambar_bawah` varchar(255) NOT NULL,
   `gambar_samping_kiri` varchar(255) NOT NULL,
   `gambar_samping_kanan` varchar(255) NOT NULL,
   `video_produk` varchar(255) NOT NULL,
-  `status` enum('pending','approved','rejected') DEFAULT 'pending',
+  `status` enum('pending','confirmed','approved','rejected') DEFAULT 'pending',
   `submitted_by` varchar(255) DEFAULT NULL,
   `confirmed_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `submitted_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -359,7 +399,10 @@ CREATE TABLE `product_submissions` (
 
 CREATE TABLE `product_uploads` (
   `id` int(11) UNSIGNED NOT NULL,
-  `gambar_utama` varchar(255) NOT NULL,
+  `gambar_depan` varchar(255) NOT NULL,
+  `gambar_belakang` varchar(255) NOT NULL,
+  `gambar_atas` varchar(255) NOT NULL,
+  `gambar_bawah` varchar(255) NOT NULL,
   `gambar_samping_kiri` varchar(255) NOT NULL,
   `gambar_samping_kanan` varchar(255) NOT NULL,
   `video_produk` varchar(255) NOT NULL
@@ -483,7 +526,8 @@ INSERT INTO `ukuran_tv` (`id`, `subcategory_id`, `size`) VALUES
 (8, 32, '7 INC'),
 (9, 32, '8 INC'),
 (10, 32, '9 INC'),
-(11, 32, '10 INC');
+(11, 32, '10 INC'),
+(12, 16, '40 INC');
 
 -- --------------------------------------------------------
 
@@ -697,7 +741,7 @@ ALTER TABLE `garansi_semua_service`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `product_advantages`
@@ -745,7 +789,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `ukuran_tv`
 --
 ALTER TABLE `ukuran_tv`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
