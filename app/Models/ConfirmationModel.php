@@ -13,7 +13,9 @@ class ConfirmationModel extends Model
         'product_id', 'brand', 'category', 'subcategory', 'product_type', 'color',
         'capacity', 'daya', 'product_dimensions', 'packaging_dimensions', 'berat', 'pembuat',
         'refrigerant_type', 'compressor_warranty', 'sparepart_warranty', 'cspf_rating',
-        'gambar_utama', 'gambar_samping_kiri', 'gambar_samping_kanan', 'video_produk',
+        'gambar_depan', 'gambar_belakang', 'gambar_atas', 'gambar_bawah',
+        'gambar_samping_kiri', 'gambar_samping_kanan', 'video_produk', 'advantage1',
+        'advantage2', 'advantage3','advantage4', 'advantage5', 'advantage6', 
         'status', 'submitted_by', 'confirmed_at'
     ];
 

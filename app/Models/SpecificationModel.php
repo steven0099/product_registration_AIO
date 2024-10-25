@@ -10,8 +10,9 @@ class SpecificationModel extends Model
     protected $primaryKey = 'id'; // Primary key of the products table
     protected $allowedFields = [
         'product_id', 'produk_p', 'produk_l', 'produk_t', 
-        'kemasan_p', 'kemasan_l', 'kemasan_t', 'berat',
-        'daya', 'pembuat', 'refrigrant_id', 'cspf', 'cooling_capacity',
+        'kemasan_p', 'kemasan_l', 'kemasan_t',  'pstand_p', 'pstand_l',
+        'pstand_t', 'berat', 'daya', 'pembuat', 'refrigrant_id',
+        'cspf', 'cooling_capacity', 'resolusi_x', 'resolusi_y',
         'created_at', 'updated_at'
     ];
 

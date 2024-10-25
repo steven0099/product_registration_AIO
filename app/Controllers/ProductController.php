@@ -318,21 +318,51 @@ class ProductController extends BaseController
 
     public function saveStep2()
     {
+        // Get category_id from the session (set in step 1)
+        $category_id = session()->get('step1')['category_id'];
+    
+        // Start with the required fields for all categories
         $rules = [
             'produk_p' => 'required|decimal',
-            // add validation rules for other fields
+            'produk_l' => 'required|decimal',
+            'produk_t' => 'required|decimal',
+            'kemasan_p' => 'required|decimal',
+            'kemasan_l' => 'required|decimal',
+            'kemasan_t' => 'required|decimal',
+            'berat' => 'required|decimal',
+            'daya' => 'required|decimal',
+            'pembuat' => 'required|string',
         ];
-
+    
+        // Add conditional validation rules based on category_id
+        if ($category_id == 9) { // Example: For category ID 9
+            $rules['pstand_p'] = 'required|decimal'; // product with stand
+            $rules['pstand_l'] = 'required|decimal';
+            $rules['pstand_t'] = 'required|decimal';
+            $rules['resolusi_x'] = 'required|decimal'; // panel resolution
+            $rules['resolusi_y'] = 'required|decimal';
+        }
+    
+        if ($category_id == 3) { // Example: For category ID 3
+            $rules['cooling_capacity'] = 'required|decimal';
+            $rules['refigrant_id'] = 'required|integer'; // refrigerant type
+            $rules['cspf'] = 'required|decimal|min:1|max:5';
+        }
+    
+        // Add other categories with their specific validation rules here...
+    
+        // Validate based on the dynamically built rules
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-
-        // Save step 2 data in the session
+    
+        // If validation passes, save step 2 data in the session
         $step2Data = $this->request->getPost();
         session()->set('step2', $step2Data);
-
+    
+        // Redirect to step 3
         return redirect()->to('/product/step3');
-    }
+    }    
 
     // Step 3: Product Advantages
     public function step3()
@@ -358,18 +388,42 @@ class ProductController extends BaseController
     {
         // Define the directory for uploads
         $uploadPath = WRITEPATH . 'uploads/';
-    
+        
         // Initialize variables for file names
-        $gambarUtamaName = null;
+        $gambarDepanName = null;
+        $gambarBelakangName = null;
+        $gambarAtasName = null;
+        $gambarBawahName = null;
         $gambarSampingKiriName = null;
         $gambarSampingKananName = null;
-        $videoProdukName = null;
+        $videoProdukLink = null;
     
-        // Handle Gambar Utama
-        $gambarUtama = $this->request->getFile('gambar_utama');
-        if ($gambarUtama && $gambarUtama->isValid()) {
-            $gambarUtamaName = $gambarUtama->getRandomName();
-            $gambarUtama->move($uploadPath, $gambarUtamaName);
+        // Handle Gambar Tampak Depan
+        $gambarDepan = $this->request->getFile('gambar_depan');
+        if ($gambarDepan && $gambarDepan->isValid()) {
+            $gambarDepanName = $gambarDepan->getRandomName();
+            $gambarDepan->move($uploadPath, $gambarDepanName);
+        }
+    
+        // Handle Gambar Tampak Belakang
+        $gambarBelakang = $this->request->getFile('gambar_belakang');
+        if ($gambarBelakang && $gambarBelakang->isValid()) {
+            $gambarBelakangName = $gambarBelakang->getRandomName();
+            $gambarBelakang->move($uploadPath, $gambarBelakangName);
+        }
+    
+        // Handle Gambar Tampak Atas
+        $gambarAtas = $this->request->getFile('gambar_atas');
+        if ($gambarAtas && $gambarAtas->isValid()) {
+            $gambarAtasName = $gambarAtas->getRandomName();
+            $gambarAtas->move($uploadPath, $gambarAtasName);
+        }
+    
+        // Handle Gambar Tampak Bawah
+        $gambarBawah = $this->request->getFile('gambar_bawah');
+        if ($gambarBawah && $gambarBawah->isValid()) {
+            $gambarBawahName = $gambarBawah->getRandomName();
+            $gambarBawah->move($uploadPath, $gambarBawahName);
         }
     
         // Handle Gambar Samping Kiri
@@ -386,33 +440,41 @@ class ProductController extends BaseController
             $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
         }
     
-        // Handle Video Produk
-        $videoProduk = $this->request->getFile('video_produk');
-        if ($videoProduk && $videoProduk->isValid()) {
-            $videoProdukName = $videoProduk->getRandomName();
-            $videoProduk->move($uploadPath, $videoProdukName);
+        // Handle Video Produk (YouTube link)
+        $videoProduk = $this->request->getPost('video_produk'); // Change this to getPost as we're dealing with links
+        if ($videoProduk && $this->isValidYouTubeUrl($videoProduk)) {
+            $videoProdukLink = $videoProduk; // Store the valid YouTube link
+        } else {
+            // Handle the case where the link is invalid
+            return redirect()->back()->with('error', 'Invalid YouTube link provided.');
         }
     
         // Save the file paths into the session for step 4
         $step4Data = [
-            'gambar_utama' => $gambarUtamaName,
+            'gambar_depan' => $gambarDepanName,
+            'gambar_belakang' => $gambarBelakangName,
+            'gambar_atas' => $gambarAtasName,
+            'gambar_bawah' => $gambarBawahName,
             'gambar_samping_kiri' => $gambarSampingKiriName,
             'gambar_samping_kanan' => $gambarSampingKananName,
-            'video_produk' => $videoProdukName,
+            'video_produk' => $videoProdukLink,
         ];
     
         // Store the step 4 data in the session
         session()->set('step4', $step4Data);
+        dd($step4Data);
     
         // Redirect to the confirmation page
         return redirect()->to('/product/confirm');
     }
     
-    public function saveProductSubmission($data)
-{
-    // Use the product model to save the submission data
-    $this->productModel->insert($data);
-}
+    // Function to validate YouTube URLs
+    private function isValidYouTubeUrl($url)
+    {
+        $pattern = '/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/';
+        return preg_match($pattern, $url);
+    }
+    
 
     // Final Step: Confirmation
     public function confirm()

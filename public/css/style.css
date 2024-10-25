@@ -66,6 +66,7 @@ form {
     display: flex;
     flex-direction: column; /* Stack label and input vertically */
     width: 100%;
+    align-items: left;
     margin-bottom: 20px;
 }
 
@@ -95,6 +96,18 @@ form {
     font-size: 16px;
     appearance: none;
     box-sizing: border-box; /* Ensure padding and border are included in width */  
+}
+
+.form-group-s {
+    margin-bottom: 15px;
+}
+
+.form-group-s label {
+    margin-bottom: 5px;
+}
+
+.form-group-s input {
+    margin-bottom: 10px;
 }
 
 .form-group select {

@@ -11,7 +11,10 @@ class UploadsModel extends Model
     
     // Sesuaikan dengan field pada tabel gambar
     protected $allowedFields = [
-        'gambar_utama',
+        'gambar_depan',
+        'gambar_belakang',
+        'gambar_atas',
+        'gambar_bawah',
         'gambar_samping_kiri',
         'gambar_samping_kanan',
         'video_produk',

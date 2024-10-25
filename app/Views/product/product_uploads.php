@@ -23,36 +23,48 @@
             <span>Konfirmasi Produk</span>
         </div>
 
-        <!-- Form Upload -->
-        <form action="save-step4" method="post" enctype="multipart/form-data">
-        <?= csrf_field() ?>
-            <div class="form-group">
-                <label for="gambar_utama">Gambar Utama</label>
-                <input type="file" id="gambar_utama" name="gambar_utama" required>
-                <div class="upload-icon">⬆</div>
-            </div>
+<!-- Form Upload -->
+<form action="save-step4" method="post" enctype="multipart/form-data">
+    <?= csrf_field() ?>
+    <div class="form-group">
+        <label for="gambar_depan">Gambar Tampak Depan</label>
+        <input type="file" id="gambar_depan" name="gambar_depan" required>
+    </div>
 
-            <div class="form-group">
-                <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" required>
-                <div class="upload-icon">⬆</div>
-            </div>
+    <div class="form-group">
+        <label for="gambar_belakang">Gambar Tampak Belakang</label>
+        <input type="file" id="gambar_belakang" name="gambar_belakang" required>
+    </div>
 
-            <div class="form-group">
-                <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-                <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" required>
-                <div class="upload-icon">⬆</div>
-            </div>
+    <div class="form-group">
+        <label for="gambar_atas">Gambar Tampak Atas</label>
+        <input type="file" id="gambar_atas" name="gambar_atas" required>
+    </div>
 
-            <div class="form-group">
-                <label for="video_produk">Video Produk</label>
-                <input type="file" id="video_produk" name="video_produk" accept="video/mp4" required>
-                <div class="upload-icon">⬆</div>
-            </div>
+    <div class="form-group">
+        <label for="gambar_bawah">Gambar Tampak Bawah</label>
+        <input type="file" id="gambar_bawah" name="gambar_bawah" required>
+    </div>
 
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">Selanjutnya</button>
-        </form>
+    <div class="form-group">
+        <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
+        <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" required>
+    </div>
+
+    <div class="form-group">
+        <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
+        <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" required>
+    </div>
+
+    <div class="form-group">
+        <label for="video_produk">Video Produk (YouTube Link)</label>
+        <input type="text" id="video_produk" name="video_produk" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" required pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">Selanjutnya</button>
+</form>
+
     </div>
 </body>
 </html>

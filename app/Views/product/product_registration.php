@@ -93,13 +93,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <!-- Garansi Kompresor / Garansi Panel -->
             <div class="form-group" id="warranty-compressor-group">
-                <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor (Tahun)</label>
-                <select id="compressor_warranty" name="compressor_warranty_id" required>
+                <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor</label>
+                <div style="display: flex; align-items: center;">
+                <select id="compressor_warranty" name="compressor_warranty_id" style="flex-grow: 1;" required>
                     <option value="" disabled selected>Masukan Garansi Kompresor</option>
                     <?php foreach ($compressor_warranties as $compressor_warranty): ?>
                         <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?></option>
                     <?php endforeach; ?>
                 </select>
+                <span style="margin-left: 10px;">Tahun</span>
+                </div>
             </div>
 
             <div class="form-group">
@@ -109,23 +112,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <!-- Garansi Sparepart -->
             <div class="form-group" id="warranty-sparepart-group">
-                <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart (Tahun)</label>
-                <select id="sparepart_warranty" name="sparepart_warranty_id" required>
-                    <option value="" disabled selected>Masukan Garansi Sparepart</option>
-                    <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                        <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+    <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart</label>
+    <div style="display: flex; align-items: center;">
+        <select id="sparepart_warranty" name="sparepart_warranty_id" style="flex-grow: 1;" required>
+            <option value="" disabled selected>Masukan Garansi Sparepart</option>
+            <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
+                <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?></option>
+            <?php endforeach; ?>
+        </select>
+        <span style="margin-left: 10px;">Tahun</span>
+    </div>
+</div>
 
             <div class="form-group" id="kapasitas-air-dingin" style="display:none;">
     <label for="kapasitas_air_dingin">Kapasitas Air Dingin</label>
-    <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" placeholder="Kapasitas Air Dingin (L)">
+    <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" placeholder="Kapasitas Air Dingin">
 </div>
 
 <div class="form-group" id="kapasitas-air-panas" style="display:none;">
     <label for="kapasitas_air_panas">Kapasitas Air Panas</label>
-    <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" placeholder="Kapasitas Air Panas (L)">
+    <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" placeholder="Kapasitas Air Panas">
 </div>
 
             <button type="submit" class="submit-btn">Selanjutnya</button>
@@ -169,32 +175,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Update compressor warranty field based on category
     if (categoryId === '9') { // Category is for Garansi Panel
-        compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Panel';
         document.getElementById('warranty-sparepart-group').style.display = 'flex';
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_panel_id'); // Change name to garansi_panel_id
     } else if (categoryId === '6') {
-        compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Motor';
         document.getElementById('warranty-sparepart-group').style.display = 'flex';
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name to garansi_motor_id
     } else if (subcategoryId == '31') { // Check for subcategory id 31
-        compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Semua Service';
         document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
     } else if (subcategoryId == '32') { // Check for subcategory id 31
-        compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Motor';
         document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name for Garansi Semua Service
     } else if (subcategoryId == '35' || subcategoryId == '36') { // Check for subcategory id 31
-        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor';
         document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name for Garansi Semua Service
     } else if (subcategoryId == '37' || subcategoryId == '38') { // Check for subcategory id 31
-        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
-        sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas';
+        sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service';
         document.getElementById('warranty-sparepart-group').style.display = 'flex'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
     } else {
-        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor';
         document.getElementById('warranty-sparepart-group').style.display = 'flex'; // Ensure the group is visible
         document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name back to compressor_warranty_id
     }
@@ -252,7 +258,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Show "kapasitas air dingin" and "kapasitas air panas"
         document.getElementById('kapasitas-air-dingin').style.display = 'flex';
         document.getElementById('kapasitas-air-panas').style.display = 'flex';
-        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor';
         fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
     } else {
         // Show "kapasitas" and "garansi sparepart" for other subcategories
@@ -285,22 +291,22 @@ document.getElementById('product_type').addEventListener('input', function() {
                 case '5': // FREEZER
                 case '7': // SHOWCASE
                     showCapacityField(true, 'Kapasitas'); // Show dropdown for capacity
-                    compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
-                    sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+                    compressorWarrantyLabel.innerText = 'Garansi Kompresor';
+                    sparepartWarrantyLabel.innerText = 'Garansi Sparepart';
                     fetchCapacities(subcategoryId); // Fetch capacities
                     fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
                     break;
 
                 case '9': // TV
                     showCapacityField(true, 'Ukuran'); // Show dropdown for "Ukuran"
-                    compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)'; // Change to Garansi Panel
+                    compressorWarrantyLabel.innerText = 'Garansi Panel'; // Change to Garansi Panel
                     fetchUkuranTvOptions(subcategoryId); // Fetch Ukuran TV options
                     fetchPanelWarrantyOptions(); // Fetch Garansi Panel options
                     break;
 
                 case '6': // MESIN CUCI
                     showCapacityField(true, 'Kapasitas'); // Show dropdown for capacity
-                    compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)'; // Change to Garansi Motor
+                    compressorWarrantyLabel.innerText = 'Garansi Motor'; // Change to Garansi Motor
                     fetchGaransiMotorOptions(); // Fetch Garansi Motor options
                     break;
 
@@ -326,7 +332,7 @@ document.getElementById('product_type').addEventListener('input', function() {
 
 function fetchGaransiSemuaServiceOptions() {
     const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
-    compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
+    compressorWarrantyLabel.innerText = 'Garansi Semua Service';
 
     fetch('<?= base_url('get-garansi-service') ?>')
     .then(response => response.json())
