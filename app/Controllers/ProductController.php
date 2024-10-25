@@ -28,6 +28,18 @@ class ProductController extends BaseController
     {
         // Instantiate the product model in the constructor
         $this->productModel = new ProductModel();
+        $this->brandModel = new BrandModel();
+        $this->categoryModel = new CategoryModel();
+        $this->capacityModel = new CapacityModel();
+        $this->ukuranModel = new UkuranModel();
+        $this->subcategoryModel = new SubcategoryModel();
+        $this->compressorwarrantyModel = new CompressorWarrantyModel();
+        $this->sparepartwarrantyModel = new SparepartWarrantyModel();
+        $this->garansipanasModel = new GaransiElemenPanasModel();
+        $this->garansimotorModel = new GaransiMotorModel();
+        $this->garansipanelModel = new GaransiPanelModel();
+        $this->garansiserviceModel = new GaransiSemuaServiceModel();
+        $this->refrigrantModel = new RefrigrantModel();
         $this->confirmationModel = new ConfirmationModel();
     }
 
@@ -219,6 +231,10 @@ class ProductController extends BaseController
         // Get all POST data
         $step1Data = $this->request->getPost();
     
+            // Convert 'color' and 'product_type' to uppercase
+    $step1Data['color'] = strtoupper($step1Data['color']);
+    $step1Data['product_type'] = strtoupper($step1Data['product_type']);
+    
         // Basic validation rules
         $validationRules = [
             'brand_id' => 'required',
@@ -321,6 +337,14 @@ class ProductController extends BaseController
         // Get category_id from the session (set in step 1)
         $category_id = session()->get('step1')['category_id'];
     
+        // Get all POST data
+        $step2Data = $this->request->getPost();
+    
+        // Convert 'pembuat' to uppercase
+        if (isset($step2Data['pembuat'])) {
+            $step2Data['pembuat'] = strtoupper($step2Data['pembuat']);
+        }
+    
         // Start with the required fields for all categories
         $rules = [
             'produk_p' => 'required|decimal',
@@ -349,15 +373,12 @@ class ProductController extends BaseController
             $rules['cspf'] = 'required|decimal|min:1|max:5';
         }
     
-        // Add other categories with their specific validation rules here...
-    
         // Validate based on the dynamically built rules
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
     
         // If validation passes, save step 2 data in the session
-        $step2Data = $this->request->getPost();
         session()->set('step2', $step2Data);
     
         // Redirect to step 3
@@ -387,7 +408,7 @@ class ProductController extends BaseController
     public function saveStep4()
     {
         // Define the directory for uploads
-        $uploadPath = WRITEPATH . 'uploads/';
+        $uploadPath = FCPATH . 'uploads/';
         
         // Initialize variables for file names
         $gambarDepanName = null;
@@ -462,7 +483,6 @@ class ProductController extends BaseController
     
         // Store the step 4 data in the session
         session()->set('step4', $step4Data);
-        dd($step4Data);
     
         // Redirect to the confirmation page
         return redirect()->to('/product/confirm');
@@ -476,7 +496,6 @@ class ProductController extends BaseController
     }
     
 
-    // Final Step: Confirmation
     public function confirm()
     {
         $productId = session()->get('product_id');
@@ -485,64 +504,169 @@ class ProductController extends BaseController
             return redirect()->to('/product/step1');  // Redirect to step 1 if no product ID
         }
     
-        $productData = $this->productModel->getProductData($productId);
-        // Fetch step data from the session
+        // Fetch product data, ensure it's an array
+        $productData = $this->productModel->getProductData($productId) ?? [];
+    
+        // Fetch step data from the session, ensure they are arrays
         $step1 = session()->get('step1') ?? [];
         $step2 = session()->get('step2') ?? [];
         $step3 = session()->get('step3') ?? [];
         $step4 = session()->get('step4') ?? [];
     
-        // Combine all the step data
+        // Combine all step data
         $finalData = array_merge($productData, $step1, $step2, $step3, $step4);
     
-        // Get the logged-in user's name from the session
-        $submittedBy = session()->get('name');  // Assuming the session contains 'name'
+        // Get the logged-in user's name
+        $submittedBy = session()->get('name');
         $finalData['submitted_by'] = $submittedBy;
-        // Prepare the data for insertion
+    
+        // Fetch category, subcategory, and warranty names by their IDs
+
+        if (isset($finalData['brand_id'])) {
+            $brand = $this->brandModel->find($finalData['brand_id']);
+            $finalData['brand_name'] = $brand ? $brand['name'] : 'Unknown Brand';
+        }
+
+        if (isset($finalData['category_id'])) {
+            $category = $this->categoryModel->find($finalData['category_id']);
+            $finalData['category_name'] = $category ? $category['name'] : 'Unknown Category';
+        }
+    
+        if (isset($finalData['subcategory_id'])) {
+            $subcategory = $this->subcategoryModel->find($finalData['subcategory_id']);
+            $finalData['subcategory_name'] = $subcategory ? $subcategory['name'] : 'Unknown Subcategory';
+        }
+    
+        if (isset($finalData['capacity_id'])) {
+            $capacity = $this->capacityModel->find($finalData['capacity_id']);
+            $finalData['capacity_value'] = $capacity ? $capacity['value'] : 'Unknown';
+        }
+
+        if (isset($finalData['ukuran_id'])) {
+            $ukuran = $this->ukuranModel->find($finalData['ukuran_id']);
+            $finalData['ukuran_size'] = $ukuran ? $ukuran['size'] : 'Unknown';
+        }
+
+        if (isset($finalData['refrigrant_id'])) {
+            $refrigrant = $this->refrigrantModel->find($finalData['refrigrant_id']);
+            $finalData['refrigrant_type'] = $refrigrant ? $refrigrant['type'] : 'Unknown';
+        }
+
+        if (isset($finalData['compressor_warranty_id'])) {
+            $compressorWarranty = $this->compressorwarrantyModel->find($finalData['compressor_warranty_id']);
+            $finalData['compressor_warranty_value'] = $compressorWarranty ? $compressorWarranty['value'] : 'No Warranty';
+        }
+
+        if (isset($finalData['sparepart_warranty_id'])) {
+            $sparepartWarranty = $this->sparepartwarrantyModel->find($finalData['sparepart_warranty_id']);
+            $finalData['sparepart_warranty_value'] = $sparepartWarranty ? $sparepartWarranty['value'] : 'Unknown';
+        }
+
+        if (isset($finalData['garansi_elemen_panas_id'])) {
+            $garansipanas = $this->garansipanasModel->find($finalData['garansi_elemen_panas_id']);
+            $finalData['garansi_elemen_panas_value'] = $garansipanas ? $garansipanas['value'] : 'Unknown';
+        }
+
+        if (isset($finalData['garansi_motor_id'])) {
+            $garansimotor = $this->garansimotorModel->find($finalData['garansi_motor_id']);
+            $finalData['garansi_motor_value'] = $garansimotor ? $garansimotor['value'] : 'Unknown';
+        }
+
+        if (isset($finalData['garansi_panel_id'])) {
+            $garansipanel = $this->garansipanelModel->find($finalData['garansi_panel_id']);
+            $finalData['garansi_panel_value'] = $garansipanel ? $garansipanel['value'] : 'Unknown';
+        }
+
+        if (isset($finalData['garansi_semua_service_id'])) {
+            $garansiservice = $this->garansiserviceModel->find($finalData['garansi_semua_service_id']);
+            $finalData['garansi_semua_service_value'] = $garansiservice ? $garansiservice['value'] : 'Unknown';
+        }
+
+
+        // Repeat for other foreign keys like 'sparepart_warranty_id', 'garansi_panel', etc.
+    
+        // Group dimensions and panel resolution
+        if (isset($finalData['produk_p'], $finalData['produk_l'], $finalData['produk_t'])) {
+            $finalData['product_dimensions'] = $finalData['produk_p'] . ' x ' . $finalData['produk_l'] . ' x ' . $finalData['produk_t'] . ' cm';
+        }
+    
+        if (isset($finalData['kemasan_p'], $finalData['kemasan_l'], $finalData['kemasan_t'])) {
+            $finalData['packaging_dimensions'] = $finalData['kemasan_p'] . ' x ' . $finalData['kemasan_l'] . ' x ' . $finalData['kemasan_t'] . ' cm';
+        }
+    
+        if (isset($finalData['pstand_p'], $finalData['pstand_l'], $finalData['pstand_t'])) {
+            $finalData['pstand_dimension'] = $finalData['pstand_p'] . ' x ' . $finalData['pstand_l'] . ' x ' . $finalData['pstand_t'] . ' cm';
+        }
+    
+        if (isset($finalData['resolusi_x'], $finalData['resolusi_y'])) {
+            $finalData['panel_resolution'] = $finalData['resolusi_x'] . ' x ' . $finalData['resolusi_y'];
+        }
+    
+        // Filter out null or empty values from the final data
+        $finalData = array_filter($finalData, function($value) {
+            return !is_null($value) && $value !== '';  // Keep only non-null, non-empty values
+        });
+    
+        // Prepare data for insertion, only including keys with non-null values
         $dataToInsert = [
             'product_id' => $productId,
-            'brand' => $finalData['brand'],
-            'category' => $finalData['category'],
-            'subcategory' => $finalData['subcategory'],
-            'product_type' => $finalData['product_type'],
-            'color' => $finalData['color'],
-            'capacity' => $finalData['capacity_id'],
-            'daya' => $finalData['daya'],
-            'product_dimensions' => $finalData['produk_p'] . ' x ' . $finalData['produk_l'] . ' x ' . $finalData['produk_t'],
-            'packaging_dimensions' => $finalData['kemasan_p'] . ' x ' . $finalData['kemasan_l'] . ' x ' . $finalData['kemasan_t'],
-            'berat' => $finalData['berat'],
-            'refigrant' => $finalData['refigrant'],
-            'compressor_warranty' => $finalData['compressor_warranty_id'],
-            'sparepart_warranty' => $finalData['sparepart_warranty_id'],
-            'cspf' => $finalData['cspf'],
-            'gambar_utama' => $finalData['gambar_utama'],
-            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'],
-            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'],
-            'video_produk' => $finalData['video_produk'],
-            'status' => 'pending',  // Set status as 'pending'
+            'status' => 'pending',
             'submitted_by' => $finalData['submitted_by'],
+            'brand' => $finalData['brand_name'],
+            'category' => $finalData['category_name'],  // Use names instead of IDs
+            'subcategory' => $finalData['subcategory_name'],  // Use names instead of IDs
+            'capacity' => $finalData['capacity_value'] ?? '',
+            'ukuran' => $finalData['ukuran_size'] ?? '',
+            'refrigrant' => $finalData['refrigrant_type'] ?? '',
+            'compressor_warranty' => $finalData['compressor_warranty_value'] ?? '',  // Default value if not set
+            'sparepart_warranty' => $finalData['sparepart_warranty_value'] ?? '',
+            'garansi_elemen_panas' => $finalData['garansi_elemen_panas_value'] ?? '',
+            'garansi_motor' => $finalData['garansi_motor_value'] ?? '',
+            'garansi_panel' => $finalData['garansi_paneel_value'] ?? '',
+            'garansi_semua_service' => $finalData['garansi_semua_service_value'] ?? '',
+            'kapasitas_air_panas' => $finalData['kapasitas_air_panas'] ?? '',
+            'kapasitas_air_dingin' => $finalData['kapasitas_air_dingin'] ?? '',
+            'product_dimensions' => $finalData['product_dimensions'],
+            'packaging_dimensions' => $finalData['packaging_dimensions'],
+            'pstand_dimension' => $finalData['pstand_dimension'] ?? '',
+            'panel_resolution' => $finalData['panel_resolution'] ?? '',
+            // Add other fields as needed
         ];
-
+        // Define all fields that may exist
+        $fields = [
+            'brand', 'category', 'subcategory', 'product_type', 'color', 'capacity', 'ukuran',
+            'compressor_warranty_id', 'sparepart_warranty_id', 'garansi_elemen_panas', 'garansi_motor',
+            'garansi_panel', 'garansi_semua_service', 'produk_p', 'produk_l', 'produk_t', 'kemasan_p',
+            'kemasan_l', 'kemasan_t', 'pstand_p', 'pstand_l', 'pstand_t', 'resolution_x', 'resolution_y',
+            'daya', 'berat', 'refigrant', 'cspf', 'pembuat', 'cooling_capacity', 'advantage1',
+            'advantage2', 'advantage3', 'advantage4', 'advantage5', 'advantage6', 'gambar_depan',
+            'gambar_belakang', 'gambar_atas', 'gambar_bawah', 'gambar_samping_kiri', 'gambar_samping_kanan',
+            'video_produk', 'kapasitas_air_panas', 'kapasitas_air_dingin',
+        ];
+    
+        // Add each field only if it exists in $finalData
+        foreach ($fields as $field) {
+            if (isset($finalData[$field])) {
+                $dataToInsert[$field] = $finalData[$field];
+            }
+        }
+    
+        // Insert the final data into the confirmation model
         $this->confirmationModel->insert($dataToInsert);
-        // Insert into the product_submissions table
-        //$this->productModel->insert($dataToInsert);
-        //$ProductId = $this->productModel->InsertID();
-        //$finalData =
-       // $this->table('products')
-          //          ->join('brands', 'brand.id = products.brand_id')
-           //         ->join('categories', 'category.id = categories.category_id')
-             //       ->where('products.id', $ProductId)
-               //     ->first();
-        // Redirect to a confirmation page or admin page
+        session()->set('confirm', $finalData);
+
+        // Return the confirmation view with the filtered final data
         return view('/product/product_confirmation', ['data' => $finalData]);
-    }    
+    }
+    
 
     // Cancel and clear session
     public function cancel()
     {
-        session()->remove(['product_id', 'step1', 'step2', 'step3', 'step4']);
+        // Redirect to step 1 without losing the step 1 data
         return redirect()->to('/product/step1');
     }
+    
 
     public function deleteProduct($id)
     {
@@ -552,31 +676,34 @@ class ProductController extends BaseController
     }
 
     public function finalizeProductSubmission()
-{
-    // Fetch data from session
-    $productsData = session()->get('finalData');
-    
-    // Fetch the current logged-in user's name or ID
-    $submittedBy = session()->get('name'); // Assuming session holds the logged-in user's name
-    
-    // Get the current date
-    $currentDate = date('Y-m-d');
-    
-    // Prepare the data to insert into the final products table
-    $dataToInsert = [
-        'brand' => $productsData['brand'],
-        'product_type' => $productsData['product_type'],
-        'submitted_by' => $submittedBy,
-        'confirmed_at' => $currentDate,
-        'other_data' => $productsData['other_data'], // All other product fields
-        'status' => 'confirmed', // You can track the status in the table
-    ];
-    
-    // Insert into the products table
-    $this->productModel->insert($dataToInsert);
-    
-    // Redirect to success page or admin dashboard
-    return redirect()->to('/')->with('success', 'Product has been successfully confirmed.');
-}
+    {
+        // Fetch data from session
+        $productsData = session()->get('confirm');
+        
+        // Fetch the current logged-in user's name or ID
+        $submittedBy = session()->get('name'); // Assuming session holds the logged-in user's username
+        
+        // Get the current date
+        $currentDate = date('Y-m-d H:i:s'); // Use standard format for the date
+        
+        // Prepare the data to update the confirmation table
+        $dataToUpdate = [
+            'status' => 'confirmed', // Change the status to confirmed
+            'confirmed_at' => $currentDate, // Set the confirmation date
+        ];
+        
+        // Assuming the confirmation ID is available in the session or passed as hidden input
+        $productId = [
+            'product_id' => $productsData['id'] // Adjust as necessary
+        ];
 
+        // Update the confirmation model using the ID
+        $this->confirmationModel->where('product_id',$productsData['id'])->update($dataToUpdate);
+    
+        // Optionally, you might want to add a session flash message for user feedback
+        session()->setFlashdata('success', 'Product has been successfully confirmed.');
+    
+        // Instead of redirecting to a thank you page, stay on the current page
+        return redirect()->to('/product/confirm'); // Redirect back to the confirmation page
+    }    
 }

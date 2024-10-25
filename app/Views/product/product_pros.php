@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Registration Form - Step 3</title>
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-</head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize fields by disabling all but the first advantage field
+            const advantageFields = Array.from(document.querySelectorAll('[id^="advantage"]'));
+            advantageFields.forEach((field, index) => {
+                if (index !== 0) field.disabled = true;
+                field.addEventListener("input", function() {
+                    if (field.value.trim() !== "" && index < advantageFields.length - 1) {
+                        advantageFields[index + 1].disabled = false;
+                    } else if (field.value.trim() === "") {
+                        // Disable following fields if the current field is cleared
+                        for (let i = index + 1; i < advantageFields.length; i++) {
+                            advantageFields[i].disabled = true;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 <body>
     <div class="container">
         <div class="form-header">

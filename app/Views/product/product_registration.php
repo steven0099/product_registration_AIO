@@ -125,13 +125,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
             <div class="form-group" id="kapasitas-air-dingin" style="display:none;">
-    <label for="kapasitas_air_dingin">Kapasitas Air Dingin</label>
-    <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" placeholder="Kapasitas Air Dingin">
+            <div style="display: flex; align-items: center;">
+    <label for="kapasitas_air_dingin" style="margin-right: 10px;">Kapasitas Air Dingin</label>
+    <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" style="flex-grow: 1;"  placeholder="Kapasitas Air Dingin">
+    <span style="margin-left: 10px;">Liter</span>
+</div>
 </div>
 
 <div class="form-group" id="kapasitas-air-panas" style="display:none;">
-    <label for="kapasitas_air_panas">Kapasitas Air Panas</label>
-    <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" placeholder="Kapasitas Air Panas">
+<div style="display: flex; align-items: center;">
+    <label for="kapasitas_air_panas" style="margin-right: 10px;">Kapasitas Air Panas</label>
+    <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" style="flex-grow: 1;" placeholder="Kapasitas Air Panas">
+    <span style="margin-left: 10px;">Liter</span>
+</div>
 </div>
 
             <button type="submit" class="submit-btn">Selanjutnya</button>

@@ -11,12 +11,12 @@ class ConfirmationModel extends Model
 
     protected $allowedFields = [
         'product_id', 'brand', 'category', 'subcategory', 'product_type', 'color',
-        'capacity', 'daya', 'product_dimensions', 'packaging_dimensions', 'berat', 'pembuat',
+        'capacity', 'ukuran', 'daya', 'panel_resolution', 'product_dimensions', 'packaging_dimensions', 'berat', 'pembuat',
         'refrigerant_type', 'compressor_warranty', 'sparepart_warranty', 'cspf_rating',
         'gambar_depan', 'gambar_belakang', 'gambar_atas', 'gambar_bawah',
         'gambar_samping_kiri', 'gambar_samping_kanan', 'video_produk', 'advantage1',
         'advantage2', 'advantage3','advantage4', 'advantage5', 'advantage6', 
-        'status', 'submitted_by', 'confirmed_at'
+        'status', 'submitted_by', 'confirmed_at', 'kapasitas_air_panas', 'kapasitas_air_dingin'
     ];
 
     // Optionally, you can define any validation rules here

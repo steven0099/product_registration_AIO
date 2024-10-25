@@ -22,5 +22,4 @@ class SpecificationModel extends Model
         ->join('product_specifications', 'product_specifications.refrigrant_id = refrigrant_type.id')
         ->FindAll();
     }
-
 }

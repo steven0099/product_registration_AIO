@@ -37,6 +37,7 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->post('save-step4', 'ProductController::saveStep4');
 
     $routes->get('confirm', 'ProductController::confirm');
+    $routes->post('confirmSubmission', 'ProductController::finalizeProductSubmission');
 
     $routes->get('success', 'ProductController::success');
 });
