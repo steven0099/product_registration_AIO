@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2024 at 04:49 AM
+-- Generation Time: Oct 24, 2024 at 11:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `product_registration`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `accounts`
---
-
-CREATE TABLE `accounts` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -128,7 +114,8 @@ INSERT INTO `capacities` (`id`, `subcategory_id`, `value`) VALUES
 (57, 9, '1,5 PK'),
 (58, 4, '60 L'),
 (59, 4, '128 L'),
-(60, 4, '133 L');
+(60, 4, '133 L'),
+(61, 38, '1.3 L');
 
 -- --------------------------------------------------------
 
@@ -280,6 +267,8 @@ CREATE TABLE `products` (
   `ukuran_id` int(11) UNSIGNED DEFAULT NULL,
   `product_type` varchar(255) NOT NULL,
   `color` varchar(255) NOT NULL,
+  `kapasitas_air_panas` varchar(255) DEFAULT NULL,
+  `kapasitas_air_dingin` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -321,8 +310,8 @@ CREATE TABLE `product_specifications` (
   `berat` decimal(10,2) DEFAULT NULL,
   `daya` decimal(10,2) DEFAULT NULL,
   `pembuat` varchar(255) DEFAULT NULL,
-  `refrigant` varchar(255) NOT NULL,
-  `cspf` decimal(11,0) NOT NULL,
+  `refrigrant_id` varchar(255) DEFAULT NULL,
+  `cspf` decimal(11,0) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -362,17 +351,6 @@ CREATE TABLE `product_submissions` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `product_submissions`
---
-
-INSERT INTO `product_submissions` (`id`, `product_id`, `brand`, `category`, `subcategory`, `product_type`, `color`, `capacity`, `daya`, `product_dimensions`, `packaging_dimensions`, `berat`, `pembuat`, `refrigant`, `compressor_warranty`, `sparepart_warranty`, `cspf`, `gambar_utama`, `gambar_samping_kiri`, `gambar_samping_kanan`, `video_produk`, `status`, `submitted_by`, `confirmed_at`, `submitted_at`, `updated_at`) VALUES
-(1, 25, 'CHANGHONG', 'KULKAS', '2 Pintu', 'a', 'merah', '1', 10.00, '10 x 10 x 10', '10 x 10 x 10', 10.00, '', NULL, '1', '1', NULL, '1729522036_1dbd9d84c63162c806f6.jpg', '1729522036_4fa0d9fe53ec2733eab5.jpg', '1729522036_8a1c40f9854146e1a355.jpg', '1729522036_4776a10910a8f3263f00.mp4', 'pending', 'superadmin', '2024-10-21 15:29:32', '2024-10-21 14:57:26', '2024-10-21 14:57:26'),
-(2, 26, 'COSMOS', 'AC', 'SPLIT STANDARD', 'a', 'merah', '1', 10.00, '10 x 10 x 10', '10 x 10 x 10', 10.00, '', NULL, '1', '1', NULL, '1729522772_ae513370f1bc5048d516.jpg', '1729522772_056cfcef8913fb4da7c8.jpg', '1729522772_4d1c8612f7586789230c.jpg', '1729522772_791584dbb83f10bfe37d.mp4', 'pending', 'cipto', '2024-10-21 15:29:32', '2024-10-21 14:59:32', '2024-10-21 14:59:32'),
-(3, 26, 'COSMOS', 'AC', 'SPLIT STANDARD', 'a', 'merah', '1', 10.00, '10 x 10 x 10', '10 x 10 x 10', 10.00, '', NULL, '1', '1', NULL, '1729522772_ae513370f1bc5048d516.jpg', '1729522772_056cfcef8913fb4da7c8.jpg', '1729522772_4d1c8612f7586789230c.jpg', '1729522772_791584dbb83f10bfe37d.mp4', 'pending', 'superadmin', '2024-10-21 15:29:32', '2024-10-21 15:05:44', '2024-10-21 15:05:44'),
-(4, 26, 'COSMOS', 'AC', 'SPLIT STANDARD', 'a', 'merah', '1', 10.00, '10 x 10 x 10', '10 x 10 x 10', 10.00, '', NULL, '1', '1', NULL, '1729522772_ae513370f1bc5048d516.jpg', '1729522772_056cfcef8913fb4da7c8.jpg', '1729522772_4d1c8612f7586789230c.jpg', '1729522772_791584dbb83f10bfe37d.mp4', 'pending', 'superadmin', '2024-10-21 15:29:32', '2024-10-21 15:05:51', '2024-10-21 15:05:51'),
-(5, 26, 'COSMOS', 'AC', 'SPLIT STANDARD', 'a', 'merah', '1', 10.00, '10 x 10 x 10', '10 x 10 x 10', 10.00, '', NULL, '1', '1', NULL, '1729522772_ae513370f1bc5048d516.jpg', '1729522772_056cfcef8913fb4da7c8.jpg', '1729522772_4d1c8612f7586789230c.jpg', '1729522772_791584dbb83f10bfe37d.mp4', 'pending', 'superadmin', '2024-10-21 15:29:32', '2024-10-21 15:06:20', '2024-10-21 15:06:20');
-
 -- --------------------------------------------------------
 
 --
@@ -386,6 +364,26 @@ CREATE TABLE `product_uploads` (
   `gambar_samping_kanan` varchar(255) NOT NULL,
   `video_produk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `refrigrant_type`
+--
+
+CREATE TABLE `refrigrant_type` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `refrigrant_type`
+--
+
+INSERT INTO `refrigrant_type` (`id`, `type`) VALUES
+(1, 'R-22'),
+(2, 'R-32'),
+(3, 'R-410 A');
 
 -- --------------------------------------------------------
 
@@ -520,12 +518,6 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `brand`, `ph
 --
 
 --
--- Indexes for table `accounts`
---
-ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `brands`
 --
 ALTER TABLE `brands`
@@ -618,6 +610,12 @@ ALTER TABLE `product_uploads`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `refrigrant_type`
+--
+ALTER TABLE `refrigrant_type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sparepart_warranties`
 --
 ALTER TABLE `sparepart_warranties`
@@ -648,12 +646,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `accounts`
---
-ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
@@ -663,7 +655,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `capacities`
 --
 ALTER TABLE `capacities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -705,7 +697,7 @@ ALTER TABLE `garansi_semua_service`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `product_advantages`
@@ -723,13 +715,19 @@ ALTER TABLE `product_specifications`
 -- AUTO_INCREMENT for table `product_submissions`
 --
 ALTER TABLE `product_submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product_uploads`
 --
 ALTER TABLE `product_uploads`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `refrigrant_type`
+--
+ALTER TABLE `refrigrant_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sparepart_warranties`
