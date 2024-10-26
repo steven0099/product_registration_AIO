@@ -39,7 +39,7 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('confirm', 'ProductController::confirm');
     $routes->post('confirmSubmission', 'ProductController::finalizeProductSubmission');
 
-    $routes->get('success', 'ProductController::success');
+    $routes->get('thank_you', 'ProductController::thank_you');
 });
 
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {

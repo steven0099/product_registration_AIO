@@ -35,7 +35,7 @@
                 <table id="pending" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>#</th>
+                    <th>No.</th>
                     <th>Merek</th>
                     <th>Tipe Produk</th>
                     <th>Pengaju</th>
@@ -44,13 +44,13 @@
                   </thead>
                   <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($products as $product): ?>
+                <?php foreach ($confirmed_products as $products): ?>
             <tr>
                 <td><?= $i++; ?></td>
-                <td><?= esc($product['brand_name']) ?></td> <!-- Display Brand Name -->
-                <td></td>
-                <td><?= esc($product['category_name']) ?></td> <!-- Display Category Name -->
-                <td><?= esc($product['subcategory_name']) ?></td> <!-- Display Subcategory Name -->
+                <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
+                <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
+                <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
+                <td><?= esc($products['confirmed_at']) ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

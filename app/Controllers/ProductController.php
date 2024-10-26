@@ -51,22 +51,15 @@ class ProductController extends BaseController
         }
     
         // Authorized users (admins and superadmins) proceed with fetching the data
-        $product_model = new ProductModel();
+        $confirmation_model = new ConfirmationModel();
     
-        // Fetch products with joins to related tables (brands, categories, etc.)
-        $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
-            ->join('brands', 'brands.id = products.brand_id')
-            ->join('categories', 'categories.id = products.category_id')
-            ->join('subcategories', 'subcategories.id = products.subcategory_id')
-            ->join('capacities', 'capacities.id = products.capacity_id')
-            ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
-            ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
-            ->where('products.status', 'confirmed')
-            ->findAll();
+        // Fetch only records where status is "confirmed"
+        $confirmedData = $confirmation_model->where('status', 'confirmed')->findAll();
     
-        // Pass data to the view
-        return view('product/list_product', $data);
+        // Pass the confirmed data to the view
+        return view('product/list_product', ['data' => $confirmedData]);
     }
+    
 
     public function approved()
     {
@@ -222,6 +215,8 @@ class ProductController extends BaseController
         $data['garansi_panel'] = $garansipanelModel->findAll();
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
+
+        $data['previousData'] = session()->get('step1');
 
         return view('product/product_registration', $data);
     }
@@ -504,6 +499,9 @@ class ProductController extends BaseController
             return redirect()->to('/product/step1');  // Redirect to step 1 if no product ID
         }
     
+            // Check if a confirmation entry already exists for this product
+    $existingConfirmation = $this->confirmationModel->where('product_id', $productId)->first();
+
         // Fetch product data, ensure it's an array
         $productData = $this->productModel->getProductData($productId) ?? [];
     
@@ -652,8 +650,13 @@ class ProductController extends BaseController
         }
     
         // Insert the final data into the confirmation model
-        $this->confirmationModel->insert($dataToInsert);
-        session()->set('confirm', $finalData);
+        if ($existingConfirmation) {
+            $this->confirmationModel->update($existingConfirmation['id'], $dataToInsert);
+        } else {
+            $this->confirmationModel->insert($dataToInsert);
+        }
+    
+        session()->set('confirm', $dataToInsert);
 
         // Return the confirmation view with the filtered final data
         return view('/product/product_confirmation', ['data' => $finalData]);
@@ -661,7 +664,7 @@ class ProductController extends BaseController
     
 
     // Cancel and clear session
-    public function cancel()
+    public function back()
     {
         // Redirect to step 1 without losing the step 1 data
         return redirect()->to('/product/step1');
@@ -694,16 +697,20 @@ class ProductController extends BaseController
         
         // Assuming the confirmation ID is available in the session or passed as hidden input
         $productId = [
-            'product_id' => $productsData['id'] // Adjust as necessary
+            'product_id' => $productsData['product_id'] // Adjust as necessary
         ];
-
         // Update the confirmation model using the ID
-        $this->confirmationModel->where('product_id',$productsData['id'])->update($dataToUpdate);
+        $this->confirmationModel->where('product_id', $productId)->set($dataToUpdate)->update();
     
         // Optionally, you might want to add a session flash message for user feedback
         session()->setFlashdata('success', 'Product has been successfully confirmed.');
     
         // Instead of redirecting to a thank you page, stay on the current page
-        return redirect()->to('/product/confirm'); // Redirect back to the confirmation page
+        return redirect()->to('/product/thank_you'); // Redirect back to the confirmation page
     }    
+
+    public function thank_you()
+    {
+    return view ('product/thank_you');
+    }
 }

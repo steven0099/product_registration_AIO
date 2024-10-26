@@ -281,47 +281,6 @@ document.getElementById('product_type').addEventListener('input', function() {
     // Replace any instance of '-' or '/' with an empty string and make it uppercase
     this.value = this.value.replace(/[-/]/g, '').toUpperCase();
 });
-        // Function to update form fields based on the selected category
-        function updateFormFields(categoryId, subcategoryId) {
-            const capacityGroup = document.getElementById('capacity-group');
-            const capacityDropdown = document.getElementById('capacity')
-            const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
-            const compressorWarrantyDropdown = document.getElementById('compressor_warranty');
-            const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
-
-            capacityGroup.style.display = 'none'; // Hide capacity initially
-
-            switch (categoryId) {
-                case '3': // AC
-                case '4': // KULKAS
-                case '5': // FREEZER
-                case '7': // SHOWCASE
-                    showCapacityField(true, 'Kapasitas'); // Show dropdown for capacity
-                    compressorWarrantyLabel.innerText = 'Garansi Kompresor';
-                    sparepartWarrantyLabel.innerText = 'Garansi Sparepart';
-                    fetchCapacities(subcategoryId); // Fetch capacities
-                    fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
-                    break;
-
-                case '9': // TV
-                    showCapacityField(true, 'Ukuran'); // Show dropdown for "Ukuran"
-                    compressorWarrantyLabel.innerText = 'Garansi Panel'; // Change to Garansi Panel
-                    fetchUkuranTvOptions(subcategoryId); // Fetch Ukuran TV options
-                    fetchPanelWarrantyOptions(); // Fetch Garansi Panel options
-                    break;
-
-                case '6': // MESIN CUCI
-                    showCapacityField(true, 'Kapasitas'); // Show dropdown for capacity
-                    compressorWarrantyLabel.innerText = 'Garansi Motor'; // Change to Garansi Motor
-                    fetchGaransiMotorOptions(); // Fetch Garansi Motor options
-                    break;
-
-                default:
-                    hideCapacityField(); // Hide capacity field if category doesn't need it
-                    fetchCompressorWarrantyOptions(); // Set default to Garansi Kompresor
-                    break;
-            }     
-        }
 
         document.getElementById('category').addEventListener('change', function() {
     const subcategoryDropdown = document.getElementById('subcategory');
