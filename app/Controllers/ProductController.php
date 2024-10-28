@@ -190,6 +190,18 @@ class ProductController extends BaseController
         }
     }
 
+    public function fetchBrands()
+{
+    // Load the BrandModel
+    $brandModel = new \App\Models\BrandModel();
+
+    // Fetch all brands
+    $brands = $brandModel->findAll();
+
+    // Return brands as JSON
+    return $this->response->setJSON($brands);
+}
+
     public function step1()
     {
         $brandModel = new BrandModel();
@@ -334,7 +346,6 @@ class ProductController extends BaseController
     
         // Get all POST data
         $step2Data = $this->request->getPost();
-    
         // Convert 'pembuat' to uppercase
         if (isset($step2Data['pembuat'])) {
             $step2Data['pembuat'] = strtoupper($step2Data['pembuat']);
@@ -362,10 +373,10 @@ class ProductController extends BaseController
             $rules['resolusi_y'] = 'required|decimal';
         }
     
-        if ($category_id == 3) { // Example: For category ID 3
+        if ($category_id == 5) { // Example: For category ID 3
             $rules['cooling_capacity'] = 'required|decimal';
-            $rules['refigrant_id'] = 'required|integer'; // refrigerant type
-            $rules['cspf'] = 'required|decimal|min:1|max:5';
+            $rules['refrigrant_id'] = 'required|integer'; // refrigerant type
+            $rules['cspf'] = 'required|decimal';
         }
     
         // Validate based on the dynamically built rules
@@ -520,6 +531,8 @@ class ProductController extends BaseController
     
         // Fetch category, subcategory, and warranty names by their IDs
 
+        $finalData['product_id'] = $productId;
+
         if (isset($finalData['brand_id'])) {
             $brand = $this->brandModel->find($finalData['brand_id']);
             $finalData['brand_name'] = $brand ? $brand['name'] : 'Unknown Brand';
@@ -658,11 +671,30 @@ class ProductController extends BaseController
     
         session()->set('confirm', $dataToInsert);
 
-        // Return the confirmation view with the filtered final data
-        return view('/product/product_confirmation', ['data' => $finalData]);
-    }
-    
+            // Fetch brands for the dropdown
+    $brands = $this->brandModel->findAll(); // Adjust based on your method of retrieving brands
 
+        // Return the confirmation view with the filtered final data
+        return view('/product/product_confirmation', [
+            'data' => $finalData,
+            'brands' => $brands, // Include brands in the data passed to the view
+        ]);
+    }    
+
+public function updateField()
+{
+    // Validate input
+    $request = $this->request->getJSON();
+    $fieldName = $request->fieldName;
+    $fieldValue = $request->fieldValue;
+    $productId = $request->productId;
+
+    // Perform your update logic (make sure to validate/sanitize inputs)
+    $this->productModel->update($productId, [$fieldName => $fieldValue]);
+
+    return $this->response->setJSON(['success' => true]);
+}
+    
     // Cancel and clear session
     public function back()
     {

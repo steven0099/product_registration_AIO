@@ -4,7 +4,20 @@
         <img src="<?= base_url('images/logo.png') ?>" class="logo" alt="Logo">
         <h1>Form Registrasi Produk</h1>
     </div>
-
+<style>
+.floating-modal {
+    display: none; /* Keep it hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+</style>
     <div class="progress-bar">
         <span>General Data</span>
         <span>Dimensi Produk</span>
@@ -17,7 +30,16 @@
         <!-- Existing Data -->
         <tr>
             <td>Merek</td>
-            <td><?= esc($data['brand_name']) ?></td>
+            <td id="brand_nameDisplay"><?= esc($data['brand_name']) ?>
+            <button
+    data-field-name="brand"
+    data-field-label="Brand"
+    data-field-value="<?= $data['brand_id'] ?>"
+    class="btn btn-sm btn-primary edit-button">
+    Edit Brand
+</button>
+
+
             <td>Konsumsi Daya</td>
             <td><?= esc($data['daya']) ?> Watt</td>
         </tr>
@@ -77,7 +99,7 @@
         </tr>
         <?php endif; ?>
 
-        <?php if ($data['category_id'] == '3'): ?>
+        <?php if ($data['category_id'] == '5'): ?>
         <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
         <tr>
             <td>Kapasitas Pendinginan</td>
@@ -100,7 +122,7 @@
 
         <?php endif; ?>
 
-        <?php if ($data['category_id'] == '4' || $data['category_id'] == '5' || $data['category_id'] == '7' ): ?>
+        <?php if ($data['category_id'] == '3' || $data['category_id'] == '4' || $data['category_id'] == '7' ): ?>
         <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
         <tr>
             <td>Kapasitas</td>
@@ -211,4 +233,169 @@
 
         <button type="submit" name="confirm" value="selesai" onclick="showThankYouModal(event)">Selesai</button>
     </form>
+    <div class="floating-modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Field</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editFieldForm">
+                    <input type="hidden" id="fieldName">
+                    <input type="hidden" id="productId" value="<?= $data['product_id'] ?>">
+                    
+                    <div class="form-group" id="inputFieldContainer">
+                        <label id="fieldLabel" for="fieldValue">Field</label>
+                        <input type="text" class="form-control" id="fieldValue" style="display:none;">
+                        <select class="form-control" id="fieldDropdown" style="display:none;"></select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveButton" onclick="updateField()">Save</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+// Function to open the edit modal
+function openEditModal(fieldName, fieldLabel, fieldValue) {
+    // Set the field name and label
+    document.getElementById('fieldName').value = fieldName;
+    document.getElementById('fieldLabel').innerText = fieldLabel;
+
+    // Determine if the field should be a dropdown or a text input
+    if (fieldName === 'brand') {
+        // Assuming you want to populate the dropdown dynamically for brands
+        populateBrandDropdown(fieldValue);
+        document.getElementById('fieldDropdown').style.display = 'block';
+        document.getElementById('inputFieldContainer').querySelector('input').style.display = 'none';
+    } else {
+        // For other fields, show the text input
+        document.getElementById('fieldValue').value = fieldValue;
+        document.getElementById('fieldValue').style.display = 'block';
+        document.getElementById('inputFieldContainer').querySelector('select').style.display = 'none';
+    }
+
+    // Show the modal
+    document.getElementById('editModal').style.display = 'flex'; // Change to 'flex' to center it
+}
+
+$(document).ready(function() {
+    // Fetch brands and populate the dropdown
+    $.ajax({
+        url: '/ProductController/fetchBrands', // Update with the correct URL to your controller
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            var $brandDropdown = $('#brandDropdown'); // Update with the actual ID of your dropdown
+
+            // Clear existing options
+            $brandDropdown.empty();
+
+            // Append a default option
+            $brandDropdown.append('<option value="">Select a brand</option>');
+
+            // Populate dropdown with brand names
+            data.forEach(function(brand) {
+                $brandDropdown.append('<option value="' + brand.id + '">' + brand.name + '</option>');
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching brands:', error);
+        }
+    });
+});
+
+function populateBrandDropdown(selectedValue, brands) {
+    const dropdown = document.getElementById('fieldDropdown');
+    dropdown.innerHTML = ''; // Clear existing options
+    brands.forEach(brand => {
+        const option = document.createElement('option');
+        option.value = brand.id;
+        option.textContent = brand.name;
+        if (brand.id == selectedValue) {
+            option.selected = true; // Set the current brand as selected
+        }
+        dropdown.appendChild(option);
+    });
+}
+
+
+// Update the field function
+function updateField() {
+    const fieldName = document.getElementById('fieldName').value;
+    const productId = document.getElementById('productId').value;
+    let fieldValue;
+
+    // Determine whether to get value from input or dropdown
+    if (fieldName === 'brand') {
+        fieldValue = document.getElementById('fieldDropdown').value;
+    } else {
+        fieldValue = document.getElementById('fieldValue').value;
+    }
+};
+    // AJAX request to update the field on the server
+    fetch(`<?= base_url('product/updateField') ?>`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': '<?= csrf_hash() ?>'
+    },
+    body: JSON.stringify({
+        fieldName: fieldName,
+        productId: productId,
+        fieldValue: fieldValue
+    })
+})
+
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        alert('Field updated successfully');
+        // Optionally close the modal here
+        closeEditModal();
+    } else {
+        alert('Failed to update field');
+    }
+})
+.catch(error => console.error('Error updating field:', error));
+
+
+function closeEditModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+// Attach this function to the close button
+document.querySelector('.close').onclick = closeEditModal;
+
+// Event listener for edit buttons
+document.querySelectorAll('.edit-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const fieldName = event.currentTarget.getAttribute('data-field-name');
+        const fieldLabel = event.currentTarget.getAttribute('data-field-label');
+        const fieldValue = event.currentTarget.getAttribute('data-field-value');
+        openEditModal(fieldName, fieldLabel, fieldValue);
+    });
+});
+
+// Function to show the thank you modal
+function showThankYouModal(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Implement your thank you modal logic here
+    // Example: Show a modal thanking the user for their submission
+}
+</script>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</div>
+
