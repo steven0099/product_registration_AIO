@@ -223,7 +223,7 @@ class ProductController extends BaseController
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        return view('product/product_registration', $data);
+        return view('layout/product/main', $data);
     }
 
     public function saveStep1()
@@ -232,9 +232,9 @@ class ProductController extends BaseController
         $step1Data = $this->request->getPost();
     
             // Convert 'color' and 'product_type' to uppercase
-    $step1Data['color'] = strtoupper($step1Data['color']);
-    $step1Data['product_type'] = strtoupper($step1Data['product_type']);
-    
+        $step1Data['color'] = strtoupper($step1Data['color']);
+        $step1Data['product_type'] = strtoupper($step1Data['product_type']);
+
         // Basic validation rules
         $validationRules = [
             'brand_id' => 'required',
@@ -691,15 +691,12 @@ class ProductController extends BaseController
             'status' => 'confirmed', // Change the status to confirmed
             'confirmed_at' => $currentDate, // Set the confirmation date
         ];
-        
-        // Assuming the confirmation ID is available in the session or passed as hidden input
-        $productId = [
-            'product_id' => $productsData['id'] // Adjust as necessary
-        ];
+
+        $productId = $productsData['id'];
 
         // Update the confirmation model using the ID
-        $this->confirmationModel->where('product_id',$productsData['id'])->update($dataToUpdate);
-    
+        $this->confirmationModel->where('product_id', $productId)->set($dataToUpdate)->update();
+
         // Optionally, you might want to add a session flash message for user feedback
         session()->setFlashdata('success', 'Product has been successfully confirmed.');
     
