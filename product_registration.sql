@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2024 at 05:58 AM
+-- Generation Time: Oct 26, 2024 at 11:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -286,7 +286,23 @@ INSERT INTO `products` (`id`, `brand_id`, `category_id`, `subcategory_id`, `capa
 (57, 10, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 19:52:29', '2024-10-24 19:52:29'),
 (58, 10, 9, 16, NULL, NULL, 1, NULL, NULL, 1, NULL, 12, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 19:56:25', '2024-10-24 19:56:25'),
 (59, 10, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 20:05:31', '2024-10-24 20:05:31'),
-(60, 9, 10, 31, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 20:11:44', '2024-10-24 20:11:44');
+(60, 9, 10, 31, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 20:11:44', '2024-10-24 20:11:44'),
+(61, 16, 9, 15, NULL, NULL, 1, NULL, NULL, 1, NULL, 1, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 21:08:45', '2024-10-24 21:08:45'),
+(62, 9, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 23:36:56', '2024-10-24 23:36:56'),
+(63, 1, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'merah', NULL, NULL, '2024-10-24 23:45:18', '2024-10-24 23:45:18'),
+(64, 1, 5, 9, 54, 4, 1, NULL, NULL, NULL, NULL, NULL, 'A', 'merah', NULL, NULL, '2024-10-24 23:49:25', '2024-10-24 23:49:25'),
+(65, 1, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-24 23:59:21', '2024-10-24 23:59:21'),
+(66, 11, 6, 24, NULL, NULL, 6, NULL, 1, NULL, NULL, NULL, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-25 00:20:18', '2024-10-25 00:20:18'),
+(67, 1, 4, 4, 44, 1, 4, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-25 00:23:32', '2024-10-25 00:23:32'),
+(68, 1, 10, 31, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-25 00:26:55', '2024-10-25 00:26:55'),
+(69, 10, 10, 36, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'MERAH', '6', '5', '2024-10-25 00:28:10', '2024-10-25 00:28:10'),
+(70, 9, 10, 36, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'A', 'MERAH', '6', '5', '2024-10-25 00:40:58', '2024-10-25 00:40:58'),
+(71, 10, 10, 36, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'MERAH', '6', '5', '2024-10-25 00:53:11', '2024-10-25 00:53:11'),
+(72, 18, 9, 15, NULL, NULL, 1, NULL, NULL, 1, NULL, 1, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-25 01:44:25', '2024-10-25 01:44:25'),
+(73, 14, 10, 35, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'MERAH', '6', '5', '2024-10-25 02:09:39', '2024-10-25 02:09:39'),
+(74, 14, 5, 9, 54, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-25 02:10:18', '2024-10-25 02:10:18'),
+(75, 14, 9, 15, NULL, NULL, 1, NULL, NULL, 1, NULL, 1, 'ABCD09', 'MERAH', NULL, NULL, '2024-10-25 23:52:35', '2024-10-25 23:52:35'),
+(76, 11, 10, 31, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 'A', 'MERAH', NULL, NULL, '2024-10-26 01:27:31', '2024-10-26 01:27:31');
 
 -- --------------------------------------------------------
 
@@ -364,7 +380,7 @@ CREATE TABLE `product_submissions` (
   `packaging_dimensions` varchar(100) DEFAULT NULL,
   `berat` decimal(10,2) DEFAULT NULL,
   `pembuat` varchar(255) NOT NULL,
-  `refrigant` varchar(100) DEFAULT NULL,
+  `refrigrant` varchar(100) DEFAULT NULL,
   `pstand_dimensions` varchar(255) DEFAULT NULL,
   `panel_resolution` varchar(255) DEFAULT NULL,
   `cooling_capacity` varchar(255) DEFAULT NULL,
@@ -390,6 +406,13 @@ CREATE TABLE `product_submissions` (
   `submitted_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_submissions`
+--
+
+INSERT INTO `product_submissions` (`id`, `product_id`, `brand`, `category`, `subcategory`, `product_type`, `color`, `capacity`, `garansi_elemen_panas`, `garansi_motor`, `garansi_panel`, `garansi_semua_service`, `ukuran`, `kapasitas_air_panas`, `kapasitas_air_dingin`, `daya`, `product_dimensions`, `packaging_dimensions`, `berat`, `pembuat`, `refrigrant`, `pstand_dimensions`, `panel_resolution`, `cooling_capacity`, `compressor_warranty`, `sparepart_warranty`, `cspf`, `advantage1`, `advantage2`, `advantage3`, `advantage4`, `advantage5`, `advantage6`, `gambar_depan`, `gambar_belakang`, `gambar_atas`, `gambar_bawah`, `gambar_samping_kiri`, `gambar_samping_kanan`, `video_produk`, `status`, `submitted_by`, `confirmed_at`, `submitted_at`, `updated_at`) VALUES
+(76, 76, 'BERVIN', 'SMALL APPLIANCES', 'SPEAKER', 'A', 'MERAH', '', NULL, NULL, NULL, NULL, 'Kecil', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', NULL, NULL, ' x ', NULL, '', '', NULL, '1', '2', '3', '', '', '', '1729931363_1ee6203a640b1d46b26f.png', '1729931363_d011157a73a96d5c47d6.png', '1729931363_1e9efc6763dad0674bc5.png', '1729931363_bdcc7e0c43864ed518d0.png', '1729931363_8870b9102d3a98c23577.png', '1729931363_0c3c4182d359fab4c585.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', 'confirmed', 'cipto', '2024-10-26 08:36:57', '2024-10-26 08:29:09', '2024-10-26 08:36:57');
 
 -- --------------------------------------------------------
 
@@ -741,7 +764,7 @@ ALTER TABLE `garansi_semua_service`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `product_advantages`
@@ -759,7 +782,7 @@ ALTER TABLE `product_specifications`
 -- AUTO_INCREMENT for table `product_submissions`
 --
 ALTER TABLE `product_submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `product_uploads`
