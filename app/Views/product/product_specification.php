@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group" id="cooling-capacity-field">
                 <label for="cooling_capacity">Kapasitas Pendinginan</label>
                 <div style="display: flex; align-items: center;">
-                <input type="number" name="cooling_capacity" placeholder="Konsumsi Daya (watt)" style="flex-grow: 1;">
+                <input type="number" name="cooling_capacity" placeholder="Kapasitas Pendinginan (BTU/h)" style="flex-grow: 1;">
                 <span style="margin-left: 10px;">BTU/h</span>
                 </div>
             </div>
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- refigrant Dropdown -->
             <div class="form-group" id="refrigrant-field">
                 <label for="refrigrant">Tipe Refrigrant</label>
-                <select id="refigrant" name="refigrant_id">
+                <select id="refigrant" name="refrigrant_id">
                     <option value="" disabled selected>Tipe Refrigrant</option>
                     <?php foreach ($refrigrant as $refigrants): ?>
                         <option value="<?= $refigrants['id'] ?>"><?= esc($refigrants['type']) ?></option>
@@ -154,6 +154,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit" class="submit-btn">Selanjutnya</button>
         </form>
     </div>
+    <?php if (session()->getFlashdata('errors')): ?>
+            <div class="alert alert-danger">
+                <ul>
+                    <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif; ?>
     <script>
     // Get the category_id from PHP
     var categoryId = <?= $category_id ?>;

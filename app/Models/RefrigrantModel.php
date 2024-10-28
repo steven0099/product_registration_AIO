@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class RefrigrantModel extends Model
 {
     protected $table = 'refrigrant_type';
-    protected $allowedFields = ['code', 'type'];
+    protected $allowedFields = ['type'];
 
 
 public function getRefrigrantData($productId)

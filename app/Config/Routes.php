@@ -39,7 +39,8 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('confirm', 'ProductController::confirm');
     $routes->post('confirmSubmission', 'ProductController::finalizeProductSubmission');
 
-    $routes->get('success', 'ProductController::success');
+    $routes->post('updateField', 'ProductController::updateField');
+    $routes->get('thank_you', 'ProductController::thank_you');
 });
 
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {
@@ -149,6 +150,8 @@ $routes->get('get-compressor-warranties', 'ProductController::getCompressorWarra
 $routes->get('get-panel-warranties', 'ProductController::getPanelWarranties');
 $routes->get('get-heat-warranties', 'ProductController::getHeatWarranties');
 $routes->get('get-motor-warranties', 'ProductController::getMotorWarranties');
+$routes->get('fetch-brands', 'ProductController::fetchBrands');
+
 
 
 $routes->get('no-access', 'AuthController::NoAccess');

@@ -51,22 +51,15 @@ class ProductController extends BaseController
         }
     
         // Authorized users (admins and superadmins) proceed with fetching the data
-        $product_model = new ProductModel();
+        $confirmation_model = new ConfirmationModel();
     
-        // Fetch products with joins to related tables (brands, categories, etc.)
-        $data['products'] = $product_model->select('products.id, products.color, products.product_type, brands.name as brand_name, categories.name as category_name, subcategories.name as subcategory_name, capacities.value as capacity, compressor_warranties.value as compressor_warranty, sparepart_warranties.value as sparepart_warranty')
-            ->join('brands', 'brands.id = products.brand_id')
-            ->join('categories', 'categories.id = products.category_id')
-            ->join('subcategories', 'subcategories.id = products.subcategory_id')
-            ->join('capacities', 'capacities.id = products.capacity_id')
-            ->join('compressor_warranties', 'compressor_warranties.id = products.compressor_warranty_id')
-            ->join('sparepart_warranties', 'sparepart_warranties.id = products.sparepart_warranty_id')
-            ->where('products.status', 'confirmed')
-            ->findAll();
+        // Fetch only records where status is "confirmed"
+        $confirmedData = $confirmation_model->where('status', 'confirmed')->findAll();
     
-        // Pass data to the view
-        return view('product/list_product', $data);
+        // Pass the confirmed data to the view
+        return view('product/list_product', ['data' => $confirmedData]);
     }
+
 
     public function approved()
     {
@@ -197,6 +190,18 @@ class ProductController extends BaseController
         }
     }
 
+    public function fetchBrands()
+{
+    // Load the BrandModel
+    $brandModel = new \App\Models\BrandModel();
+
+    // Fetch all brands
+    $brands = $brandModel->findAll();
+
+    // Return brands as JSON
+    return $this->response->setJSON($brands);
+}
+
     public function step1()
     {
         $brandModel = new BrandModel();
@@ -224,6 +229,9 @@ class ProductController extends BaseController
         $data['ukuran'] = $ukuranModel->findAll();
 
         return view('layout/product/main', $data);
+//        $data['previousData'] = session()->get('step1');
+//
+//        return view('product/product_registration', $data);
     }
 
     public function saveStep1()
@@ -339,7 +347,7 @@ class ProductController extends BaseController
     
         // Get all POST data
         $step2Data = $this->request->getPost();
-    
+
         // Convert 'pembuat' to uppercase
         if (isset($step2Data['pembuat'])) {
             $step2Data['pembuat'] = strtoupper($step2Data['pembuat']);
@@ -367,10 +375,10 @@ class ProductController extends BaseController
             $rules['resolusi_y'] = 'required|decimal';
         }
     
-        if ($category_id == 3) { // Example: For category ID 3
+        if ($category_id == 5) { // Example: For category ID 3
             $rules['cooling_capacity'] = 'required|decimal';
-            $rules['refigrant_id'] = 'required|integer'; // refrigerant type
-            $rules['cspf'] = 'required|decimal|min:1|max:5';
+            $rules['refrigrant_id'] = 'required|integer'; // refrigerant type
+            $rules['cspf'] = 'required|decimal';
         }
     
         // Validate based on the dynamically built rules
@@ -504,6 +512,9 @@ class ProductController extends BaseController
             return redirect()->to('/product/step1');  // Redirect to step 1 if no product ID
         }
     
+            // Check if a confirmation entry already exists for this product
+    $existingConfirmation = $this->confirmationModel->where('product_id', $productId)->first();
+
         // Fetch product data, ensure it's an array
         $productData = $this->productModel->getProductData($productId) ?? [];
     
@@ -521,6 +532,8 @@ class ProductController extends BaseController
         $finalData['submitted_by'] = $submittedBy;
     
         // Fetch category, subcategory, and warranty names by their IDs
+
+        $finalData['product_id'] = $productId;
 
         if (isset($finalData['brand_id'])) {
             $brand = $this->brandModel->find($finalData['brand_id']);
@@ -652,16 +665,40 @@ class ProductController extends BaseController
         }
     
         // Insert the final data into the confirmation model
-        $this->confirmationModel->insert($dataToInsert);
-        session()->set('confirm', $finalData);
+        if ($existingConfirmation) {
+            $this->confirmationModel->update($existingConfirmation['id'], $dataToInsert);
+        } else {
+            $this->confirmationModel->insert($dataToInsert);
+        }
+
+        session()->set('confirm', $dataToInsert);
+
+            // Fetch brands for the dropdown
+    $brands = $this->brandModel->findAll(); // Adjust based on your method of retrieving brands
 
         // Return the confirmation view with the filtered final data
-        return view('/product/product_confirmation', ['data' => $finalData]);
+        return view('/product/product_confirmation', [
+            'data' => $finalData,
+            'brands' => $brands, // Include brands in the data passed to the view
+        ]);
     }
-    
+
+public function updateField()
+{
+    // Validate input
+    $request = $this->request->getJSON();
+    $fieldName = $request->fieldName;
+    $fieldValue = $request->fieldValue;
+    $productId = $request->productId;
+
+    // Perform your update logic (make sure to validate/sanitize inputs)
+    $this->productModel->update($productId, [$fieldName => $fieldValue]);
+
+    return $this->response->setJSON(['success' => true]);
+}
 
     // Cancel and clear session
-    public function cancel()
+    public function back()
     {
         // Redirect to step 1 without losing the step 1 data
         return redirect()->to('/product/step1');
@@ -691,16 +728,23 @@ class ProductController extends BaseController
             'status' => 'confirmed', // Change the status to confirmed
             'confirmed_at' => $currentDate, // Set the confirmation date
         ];
-
-        $productId = $productsData['id'];
-
+        
+        // Assuming the confirmation ID is available in the session or passed as hidden input
+        $productId = [
+            'product_id' => $productsData['product_id'] // Adjust as necessary
+        ];
         // Update the confirmation model using the ID
         $this->confirmationModel->where('product_id', $productId)->set($dataToUpdate)->update();
-
+    
         // Optionally, you might want to add a session flash message for user feedback
         session()->setFlashdata('success', 'Product has been successfully confirmed.');
     
         // Instead of redirecting to a thank you page, stay on the current page
-        return redirect()->to('/product/confirm'); // Redirect back to the confirmation page
+        return redirect()->to('/product/thank_you'); // Redirect back to the confirmation page
     }    
+
+    public function thank_you()
+    {
+    return view ('product/thank_you');
+    }
 }
