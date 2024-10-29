@@ -39,7 +39,8 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('confirm', 'ProductController::confirm');
     $routes->post('confirmSubmission', 'ProductController::finalizeProductSubmission');
 
-    $routes->post('updateField', 'ProductController::updateField');
+    $routes->get('getBrands', 'ProductController::getBrands');
+    $routes->post('updateBrand', 'ProductController::updateBrand');
     $routes->get('thank_you', 'ProductController::thank_you');
 });
 
@@ -139,10 +140,9 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
 
 // Public Routes (no authentication required)
 $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1');
-$routes->get('get-capacities', 'ProductController::getCapacities');
 $routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
-$routes->get('get-ukuran-tv', 'ProductController::getUkuranTv');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
+$routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions');
 $routes->get('get-garansi-motor', 'ProductController::getGaransiMotor');
 $routes->get('get-garansi-panel', 'ProductController::getGaransiPanel');
 $routes->get('get-garansi-service', 'ProductController::getGaransiSemuaService');
@@ -150,7 +150,6 @@ $routes->get('get-compressor-warranties', 'ProductController::getCompressorWarra
 $routes->get('get-panel-warranties', 'ProductController::getPanelWarranties');
 $routes->get('get-heat-warranties', 'ProductController::getHeatWarranties');
 $routes->get('get-motor-warranties', 'ProductController::getMotorWarranties');
-$routes->get('fetch-brands', 'ProductController::fetchBrands');
 
 
 

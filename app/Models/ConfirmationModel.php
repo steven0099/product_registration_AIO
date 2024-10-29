@@ -12,12 +12,11 @@ class ConfirmationModel extends Model
     protected $allowedFields = [
         'product_id', 'brand', 'category', 'subcategory', 'product_type', 'color',
         'capacity', 'ukuran', 'daya', 'panel_resolution', 'product_dimensions', 'packaging_dimensions', 'berat', 'pembuat',
-        'refrigrant', 'compressor_warranty', 'sparepart_warranty', 'cspf_rating',
-        'gambar_depan', 'gambar_belakang', 'gambar_atas', 'gambar_bawah', 'cooling_capacity',
-        'gambar_samping_kiri', 'gambar_samping_kanan', 'video_produk', 'advantage1',
-        'advantage2', 'advantage3','advantage4', 'advantage5', 'advantage6', 
+        'refrigrant', 'compressor_warranty', 'sparepart_warranty', 'cspf_rating', 'pstand_dimensions',
+        'gambar_depan', 'gambar_belakang', 'gambar_atas', 'gambar_bawah', 'cooling_capacity', 'garansi_panel',
+        'gambar_samping_kiri', 'gambar_samping_kanan', 'video_produk', 'advantage1', 'garansi_elemen_panas',
+        'advantage2', 'advantage3','advantage4', 'advantage5', 'advantage6', 'garansi_motor', 'garansi_semua_service',
         'status', 'submitted_by', 'confirmed_at', 'kapasitas_air_panas', 'kapasitas_air_dingin'
     ];
 
-    // Optionally, you can define any validation rules here
 }
