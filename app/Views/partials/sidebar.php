@@ -25,6 +25,14 @@
           <?php endif; ?>
         </li>
 
+        <li class="nav-item">
+            <!-- Link Laporan -->
+            <a href="/admin/reports" class="nav-link <?= (uri_string() == 'admin/reports') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-list-alt"></i>
+              <p>Cetak Laporan</p>
+            </a>
+        </li>
+
         <!-- Manage Data Section -->
         <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 90%">
           <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">

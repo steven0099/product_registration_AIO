@@ -37,22 +37,48 @@ Dashboard
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-check-circle mr-1"></i>
-                            Coming Sooon!
+                            Dashboard
                         </h3>
                     </div><!-- /.card-header -->
                     <div class="card-body">
-                        <div class="tab-content p-0">
-                            <!-- Morris chart - Sales -->
-                            <div class="chart tab-pane active" id="revenue-chart"
-                                 style="position: relative; height: 300px;">
-                                <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                            </div>
-                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                                <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                            </div>
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                    <th>No.</th>
+                    <th>Merek</th>
+                    <th>Tipe Produk</th>
+                    <th>Pengaju</th>
+                    <th>Status</th>
+                    <th>Tanggal</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($all_products as $products): ?>
+            <tr>
+                <td><?= $i++; ?></td>
+                <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
+                <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
+                <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
+                <td><?= esc($products['status']) ?></td>
+                <td>
+                <?php if ($products['status'] === 'confirmed'): ?>
+                    <?= esc($products['confirmed_at']) ?>
+                <?php elseif ($products['status'] === 'rejected'): ?>
+                    <?= esc($products['rejected_at']) ?>
+                <?php elseif ($products['status'] === 'approved'): ?>
+                    <?= esc($products['approved_at']) ?>
+                <?php endif; ?>
+            </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
                         </div>
-                    </div><!-- /.card-body -->
+                    </div>
                 </div>
+            </div>
+        </div>
                 <!-- /.card -->
             </section>
             <!-- /.Left col -->

@@ -63,12 +63,9 @@
                 <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
                 <td><?= esc($products['confirmed_at']) ?></td>
                 <td>
-                    <a href="/product/editProduct/<?= esc($products['product_id']) ?>" class="btn-edit">
-                        <i class="fas fa-pencil-alt"></i> <!-- Pencil icon from Font Awesome -->
-                    </a>
-                    <a href="/product/deleteProduct/<?= esc($products['product_id']) ?>" class="btn-delete">
-                        <i class="fas fa-trash"></i> <!-- Trash icon from Font Awesome -->
-                    </a>
+                <a href="/superadmin/details/<?= esc($products['id']) ?>" class="btn-view">
+                <i class="fas fa-eye"></i>
+                </a>
                 </td>
             </tr>
         <?php endforeach; ?>

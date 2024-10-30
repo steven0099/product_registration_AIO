@@ -125,7 +125,7 @@
         </tr>
         <tr>
         <td>Garansi Sparepart</td>
-        <td><?= esc($data['compressor_warranty_value']) ?> Tahun</td>
+        <td><?= esc($data['sparepart_warranty_value']) ?> Tahun</td>
         </tr>
 
         <?php endif; ?>

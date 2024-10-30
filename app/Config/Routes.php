@@ -53,6 +53,11 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->get('dashboard', 'SuperadminController::dashboard');
 
     $routes->get('product', 'SuperadminController::product');
+
+    $routes->get('details/(:num)', 'ProductController::productDetails/$1');
+    $routes->get('approve/(:num)', 'ProductController::approveProduct/$1');
+    $routes->get('reject/(:num)', 'ProductController::rejectProduct/$1');
+
     
     // User management routes for superadmin
     $routes->get('user', 'Superadmin\UserController::index'); // This should match your directory structure
@@ -75,7 +80,9 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('dashboard', 'AdminController::dashboard');
 
     $routes->get('product', 'AdminController::product');
-
+    $routes->get('reports', 'ProductController::reports');
+    $routes->post('generateReport', 'ProductController::generateReport');
+  
     // Brand Management
     $routes->get('brand', 'Admin\BrandController::index');
     $routes->post('brand/saveBrand', 'Admin\BrandController::saveBrand');
@@ -120,7 +127,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('refrigrant', 'Admin\RefrigrantController::index');
     $routes->post('refrigrant/saveRefrigrant', 'Admin\RefrigrantController::saveRefrigrant');
     $routes->post('refrigrant/updateRefrigrant/(:num)', 'Admin\RefrigrantController::updateRefrigrant/$1');
-    $routes->post('refrigrant/deleteRefrigrant/(:num)', 'Admin\RefrigrantController::deleteRefrigrant/$1');
+    $routes->get('refrigrant/deleteRefrigrant/(:num)', 'Admin\RefrigrantController::deleteRefrigrant/$1');
 
     $routes->get('garansi_motor', 'Admin\GaransiMotorController::index');
     $routes->post('garansi_motor/saveGaransiMotor', 'Admin\GaransiMotorController::saveGaransiMotor');
@@ -143,13 +150,7 @@ $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1
 $routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
 $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions');
-$routes->get('get-garansi-motor', 'ProductController::getGaransiMotor');
-$routes->get('get-garansi-panel', 'ProductController::getGaransiPanel');
-$routes->get('get-garansi-service', 'ProductController::getGaransiSemuaService');
-$routes->get('get-compressor-warranties', 'ProductController::getCompressorWarranties');
-$routes->get('get-panel-warranties', 'ProductController::getPanelWarranties');
-$routes->get('get-heat-warranties', 'ProductController::getHeatWarranties');
-$routes->get('get-motor-warranties', 'ProductController::getMotorWarranties');
+
 
 
 

@@ -58,6 +58,19 @@ form select {
     background-color: #fff;
 }
 
+form input[type="date"] {
+    border: 2px solid #00a0e3; /* Keep this as is for dropdowns */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+}
+
+form input[type="date"]:focus {
+    border-color: #333; /* Change border color on focus */
+}
+
+
 /* Text inputs for "Warna" and "Tipe Produk" */
 form input[type="text"] {
     border: 2px solid #00a0e3; /* Match border with dropdowns */

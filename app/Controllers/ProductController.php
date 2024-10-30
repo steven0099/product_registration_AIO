@@ -19,6 +19,9 @@ use App\Models\GaransiMotorModel;
 use App\Models\GaransiSemuaServiceModel;
 use App\Models\GaransiElemenPanasModel;
 use App\Models\RefrigrantModel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
 class ProductController extends BaseController
 {
@@ -99,6 +102,210 @@ class ProductController extends BaseController
         // Pass data to the view
         return view('product/rejected_product', $data);
     }    
+
+    public function productDetails($productId)
+    {
+        // Fetch product details based on productId
+        $product = $this->confirmationModel->find($productId);
+    
+        if (!$product) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Product with ID $productId not found");
+        }
+    
+        return view('product/details', [
+            'product' => $product
+        ]);
+    }
+
+public function approveProduct($productId)
+{
+    $this->confirmationModel->update($productId, [
+        'status' => 'approved',
+        'approved_at' => date('Y-m-d H:i:s')
+    ]);
+    return redirect()->to('/superadmin/product')->with('message', 'Product approved successfully');
+}
+
+public function rejectProduct($productId)
+{
+    $this->confirmationModel->update($productId, [
+        'status' => 'rejected',
+        'rejected_at' => date('Y-m-d H:i:s')
+    ]);
+    return redirect()->to('/superadmin/product')->with('message', 'Product rejected successfully');
+}
+
+public function reports()
+{
+    return view('reports');
+}
+
+public function generateReport()
+{
+    $db = \Config\Database::connect();
+    $builder = $db->table('product_submissions');
+
+    // Only include approved and rejected products
+    $builder->whereIn('status', ['approved', 'rejected']);
+
+    // Retrieve filters from form submission
+    $status = $this->request->getPost('status');
+    $startDate = $this->request->getPost('start_date');
+    $endDate = $this->request->getPost('end_date');
+
+    // Apply date range filter if set
+    if ($startDate && $endDate) {
+        $start = date('Y-m-d H:i:s', strtotime($startDate));
+        $end = date('Y-m-d H:i:s', strtotime($endDate . ' 23:59:59'));
+        $builder->groupStart()
+                ->where('approved_at >=', $start)
+                ->where('approved_at <=', $end)
+                ->orWhere('rejected_at >=', $start)
+                ->where('rejected_at <=', $end)
+                ->groupEnd();
+    }
+
+    // Apply status filter if not 'all'
+    if ($status !== 'all') {
+        $builder->where('status', $status);
+    }
+
+    $products = $builder->get()->getResultArray();
+
+    // Initialize Spreadsheet
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+    $sheet->setTitle('Product Report');
+
+    // Define ordered headers
+    $headers = [
+        'A' => 'Brand', 'B' => 'Kategori', 'C' => 'Subkategori', 'D' => 'Tipe Produk', 'E' => 'Warna',
+        'F' => 'Garansi Motor', 'G' => 'Garansi Semua Service', 'H' => 'Garansi Elemen Panas',
+        'I' => 'Garansi Panel', 'J' => 'Garansi Kompresor ', 'K' => 'Garansi Sparepart',
+        'L' => 'Capacity', 'M' => 'Ukuran', 'N' => 'Kapasitas Air Panas', 'O' => 'Kapasitas Air Dingin',
+        'P' => 'Dimensi Produk', 'Q' => 'Dimensi Kemasan', 'R' => 'Dimensi Produk Dengan Stand', 'S' => 'Resolusi Panel',
+        'T' => 'Kapasitas Pendinginan', 'U' => 'CSPF', 'V' => 'Tipe Refrigrant', 'W' => 'Keunggulan 1',
+        'X' => 'Keunggulan 2', 'Y' => 'Keunggulan 3', 'Z' => 'Keunggulan 4', 'AA' => 'Keunggulan 5', 'AB' => 'Keunggulan 6',
+        'AC' => 'Gambar Depan', 'AD' => 'Gambar Belakang', 'AE' => 'Gambar Samping Kiri', 
+        'AF' => 'Gambar Samping Kanan', 'AG' => 'Gambar Atas', 'AH' => 'Gambar Bawah',
+        'AI' => 'Link Video Produk', 'AJ' => 'Status', 'AK' => 'Tanggal Disetujui', 'AL' => 'Tanggal Ditolak'
+    ];
+
+    // Set headers
+    foreach ($headers as $col => $header) {
+        $sheet->setCellValue($col . '1', $header);
+    }
+
+    // Populate data rows
+    $row = 2;
+    foreach ($products as $product) {
+        $sheet->setCellValue('A' . $row, $product['brand'])
+              ->setCellValue('B' . $row, $product['category'])
+              ->setCellValue('C' . $row, $product['subcategory'])
+              ->setCellValue('D' . $row, $product['product_type'])
+              ->setCellValue('E' . $row, $product['color'])
+              ->setCellValue('F' . $row, $product['garansi_motor'] ?? '')
+              ->setCellValue('G' . $row, $product['garansi_semua_service'] ?? '')
+              ->setCellValue('H' . $row, $product['garansi_elemen_panas'] ?? '')
+              ->setCellValue('I' . $row, $product['garansi_panel'] ?? '')
+              ->setCellValue('J' . $row, $product['compressor_warranty'] ?? '')
+              ->setCellValue('K' . $row, $product['sparepart_warranty'] ?? '')
+              ->setCellValue('L' . $row, $product['capacity'] ?? '')
+              ->setCellValue('M' . $row, $product['ukuran'] ?? '')
+              ->setCellValue('N' . $row, $product['kapasitas_air_panas'] ?? '')
+              ->setCellValue('O' . $row, $product['kapasitas_air_dingin'] ?? '')
+              ->setCellValue('P' . $row, $product['product_dimensions'] ?? '')
+              ->setCellValue('Q' . $row, $product['packaging_dimensions'] ?? '')
+              ->setCellValue('R' . $row, $product['pstand_dimensions'] ?? '')
+              ->setCellValue('S' . $row, $product['panel_resolution'] ?? '')
+              ->setCellValue('T' . $row, $product['cooling_capacity'] ?? '')
+              ->setCellValue('U' . $row, $product['cspf'] ?? '')
+              ->setCellValue('V' . $row, $product['refrigrant'] ?? '')
+              ->setCellValue('W' . $row, $product['advantage1'] ?? '')
+              ->setCellValue('X' . $row, $product['advantage2'] ?? '')
+              ->setCellValue('Y' . $row, $product['advantage3'] ?? '')
+              ->setCellValue('Z' . $row, $product['advantage4'] ?? '')
+              ->setCellValue('AA' . $row, $product['advantage5'] ?? '')
+              ->setCellValue('AB' . $row, $product['advantage6'] ?? '')
+              ->setCellValue('AC' . $row, 'Gambar Tampak Depan Produk')
+              ->setCellValue('AD' . $row, 'Gambar Tampak Belakang Produk')
+              ->setCellValue('AE' . $row, 'Gambar Tampak Kiri Produk')
+              ->setCellValue('AF' . $row, 'Gambar Tampak Kanan Produk')
+              ->setCellValue('AG' . $row, 'Gambar Tampak Atas Produk')
+              ->setCellValue('AH' . $row, 'Gambar Tampak Bawah Produk');
+
+        // Insert images if they exist
+        $images = [
+            'gambar_depan' => 'AC',
+            'gambar_belakang' => 'AD',
+            'gambar_samping_kiri' => 'AE',
+            'gambar_samping_kanan' => 'AF',
+            'gambar_atas' => 'AG',
+            'gambar_bawah' => 'AH',
+        ];
+
+        // Populate remaining fields
+        $sheet->setCellValue('AI' . $row, $product['video_produk'] ?? '')
+              ->setCellValue('AJ' . $row, ucfirst($product['status']));
+
+        // Conditionally set approved or rejected dates
+        if ($product['status'] === 'approved') {
+            $sheet->setCellValue('AK' . $row, $product['approved_at']);
+        } elseif ($product['status'] === 'rejected') {
+            $sheet->setCellValue('AL' . $row, $product['rejected_at']);
+        }
+        $row++;
+    }
+    // Hide columns that are entirely empty
+    foreach ($headers as $col => $header) {
+        $columnData = $sheet->rangeToArray($col . '2:' . $col . ($row - 1), null, true, true, true);
+        $allEmpty = true;
+        foreach ($columnData as $cell) {
+            if (!empty($cell[$col])) {
+                $allEmpty = false;
+                break;
+            }
+        }
+        if ($allEmpty) {
+            $sheet->getColumnDimension($col)->setVisible(false);
+        }
+    }
+// Apply autoSize to non-image columns only
+foreach (array_keys($headers) as $col) {
+    if (!in_array($col, ['AC', 'AD', 'AE', 'AF', 'AG', 'AH'])) { // Non-image columns
+        $sheet->getColumnDimension($col)->setAutoSize(true);
+    } else {
+        // Set a wider width for image columns
+        $sheet->getColumnDimension($col)->setWidth(30); // or adjust as needed
+    }
+}
+
+// Resize images for better visibility in cells
+foreach ($images as $field => $column) {
+    $imagePath = FCPATH . 'uploads/' . $product[$field];
+    if (file_exists($imagePath)) {
+        $drawing = new Drawing();
+        $drawing->setName($field);
+        $drawing->setDescription($field);
+        $drawing->setPath($imagePath);
+        $drawing->setHeight(80);  // Height can be adjusted
+        $drawing->setWidth(100);  // Width can be adjusted based on the column width
+        $drawing->setCoordinates($column . $row);
+        $drawing->setWorksheet($sheet);
+    }
+}
+
+    // Download as Excel
+    $fileName = "product_report_" . date('Ymd_His') . ".xlsx";
+    $writer = new Xlsx($spreadsheet);
+
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header("Content-Disposition: attachment; filename=\"$fileName\"");
+    header('Cache-Control: max-age=0');
+
+    $writer->save('php://output');
+    exit;
+}
 
     public function getSubcategories($categoryId)
     {
