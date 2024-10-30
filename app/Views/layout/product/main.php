@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -18,51 +19,93 @@
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
 
     <style>
-        input[type="text"], input[type="file"], input[type="video"] {
-            border: 2px solid #00BFFF; /* Warna biru */
-            border-radius: 5px; /* Membuat sudut sedikit melengkung */
-            padding: 10px; /* Menambahkan jarak di dalam input */
-            outline: none; /* Menghilangkan outline default */
-            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5); /* Menambahkan efek bayangan */
+        input[type="text"],
+        input[type="file"],
+        input[type="number"],
+        input[type="video"] {
+            border: 2px solid #00BFFF;
+            /* Warna biru */
+            border-radius: 5px;
+            /* Membuat sudut sedikit melengkung */
+            padding: 10px;
+            /* Menambahkan jarak di dalam input */
+            outline: none;
+            /* Menghilangkan outline default */
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            /* Menambahkan efek bayangan */
         }
 
-        input[type="text"]:focus, input[type="file"]:focus, input[type="video"]:focus {
-            border-color: #1E90FF; /* Warna biru yang lebih tua saat input difokuskan */
-            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7); /* Bayangan yang lebih terang saat difokuskan */
+        input[type="text"]:focus,
+        input[type="file"]:focus,
+        input[type="number"]:focus,
+        input[type="video"]:focus {
+            border-color: #1E90FF;
+            /* Warna biru yang lebih tua saat input difokuskan */
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan yang lebih terang saat difokuskan */
         }
 
         select {
-            border: 2px solid #00BFFF !important; /* Warna biru */
+            border: 2px solid #00BFFF !important;
+            /* Warna biru */
             border-radius: 5px;
             padding: 10px;
-            padding-right: 40px; /* Tambahkan jarak untuk icon custom */
+            padding-right: 40px;
+            /* Tambahkan jarak untuk icon custom */
             outline: none;
-            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5); /* Menambahkan efek bayangan */
-            appearance: none; /* Menghilangkan default arrow */
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            /* Menambahkan efek bayangan */
+            appearance: none;
+            /* Menghilangkan default arrow */
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
-            background-color: white; /* Warna latar belakang */
-            background-size: 20px; /* Ukuran icon */
+            background-color: white;
+            /* Warna latar belakang */
+            background-size: 20px;
+            /* Ukuran icon */
             cursor: pointer;
         }
 
         select:focus {
-            border-color: #1E90FF; /* Warna biru yang lebih tua saat difokuskan */
-            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7); /* Bayangan lebih terang */
+            border-color: #1E90FF;
+            /* Warna biru yang lebih tua saat difokuskan */
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan lebih terang */
         }
 
-        .logo{
+        .logo {
             justify-content: flex-start;
             display: flex;
         }
 
-        .title{
+        .title {
             justify-content: end;
             align-items: center;
             display: flex;
         }
 
+        .divider {
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .unit {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .col-form-label {
+            text-align: right;
+        }
+
+
         @media (max-width: 600px) {
-            .logo, .title {
+
+            .logo,
+            .title {
                 justify-content: center;
             }
         }
@@ -70,315 +113,394 @@
 </head>
 
 <body>
-<div class="image-container set-full-height" style="background-color: #00a9ee">
+    <div class="image-container set-full-height" style="background-color: #00a9ee">
 
-    <!--   Big container   -->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
+        <!--   Big container   -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
 
-                <!--      Wizard container        -->
-                <div class="wizard-container">
-                    <div class="card wizard-card" data-color="red" id="wizard">
-                        <form action="" method="">
+                    <!--      Wizard container        -->
+                    <div class="wizard-container">
+                        <div class="card wizard-card" data-color="red" id="wizard">
+                            <form action="" method="">
 
-                            <div class="wizard-header" style="text-align: center;weight: 7000;">
-                                <div class="row" style=" height: 135px; align-content: center">
-                                    <div class="col-sm-5 col-sm-offset-1 logo">
-                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
-                                    </div>
-                                    <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                <div class="wizard-header" style="text-align: center;weight: 7000;">
+                                    <div class="row" style=" height: 135px; align-content: center">
+                                        <div class="col-sm-5 col-sm-offset-1 logo">
+                                            <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                        </div>
+                                        <div class="col-sm-5 title">
+                                            <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="wizard-navigation">
-                                <div class="progress-with-circle">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                                <div class="wizard-navigation">
+                                    <div class="progress-with-circle">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="#general" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-package"></i>
+                                                </div>
+                                                General Data
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#type" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-package"></i>
+                                                </div>
+                                                Spesifikasi Produk
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#facilities" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-package"></i>
+                                                </div>
+                                                Keunggulan Produk
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#description" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-package"></i>
+                                                </div>
+                                                Foto Produk
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#confirmation" data-toggle="tab">
+                                                <div class="icon-circle">
+                                                    <i class="ti-package"></i>
+                                                </div>
+                                                Konfirmasi Produk
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <ul>
-                                    <li>
-                                        <a href="#general" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="general">
+                                        <div class="row">
+                                            <div class="col-sm-12" style="margin-bottom: 65px;">
                                             </div>
-                                            General Data
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#type" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
-                                            </div
-                                            Dimensi Produk
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#facilities" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
-                                            </div>
-                                            Keunggulan Produk
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#description" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
-                                            </div>
-                                            Foto Produk                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="#confirmation" data-toggle="tab">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
-                                            </div>
-                                            Konfirmasi Produk
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-content">
-                                <div class="tab-pane" id="general">
-                                    <div class="row">
-                                        <div class="col-sm-12"  style="margin-bottom: 65px;">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="b and">Merek</label>
-                                                <select id="brand" name="brand_id" class="form-control" required>
-                                                    <option value="" disabled selected>Masukan Merek</option>
-                                                    <?php foreach ($brands as $brand): ?>
-                                                        <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="category">Kategori</label>
-                                                <select id="category" name="category_id" class="form-control" required>
-                                                    <option value="" disabled selected>Masukan Kategori</option>
-                                                    <?php foreach ($categories as $category): ?>
-                                                        <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="subcategory">Subkategori</label>
-                                                <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
-                                                    <option value="" disabled selected>Select Subcategory</option>
-                                                    <option value="" disabled selected>Masukan Subkategori</option>
-                                                    <?php foreach ($subcategories as $subcategory): ?>
-                                                        <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="product_type">Tipe Produk</label>
-                                                <input type="text" id="product_type" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
-                                            </div>
-                                        </div>
-                                        <div id="capacity-group" class="col-sm-6" style="display:none;">
-                                            <div class="form-group">
-                                                <label id="capacity-label">Kapasitas</label>
-                                                <select id="capacity" name="capacity_value"  class="form-control"required>
-                                                    <option value="" disabled selected>Select Kapasitas</option>
-                                                    <!-- Options will be populated dynamically -->
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group" id="warranty-compressor-group">
-                                                <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor</label>
-                                                <div>
-                                                    <select id="compressor_warranty" name="compressor_warranty_id" class="form-control" style="" required>
-                                                        <option value="" disabled selected>Masukan Garansi Kompresor</option>
-                                                        <?php foreach ($compressor_warranties as $compressor_warranty): ?>
-                                                            <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?> Tahun</option>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="b and">Merek</label>
+                                                    <select id="brand" name="brand_id" class="form-control" required>
+                                                        <option value="" disabled selected>Masukan Merek</option>
+                                                        <?php foreach ($brands as $brand): ?>
+                                                            <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="color">Warna</label>
-                                                <input type="text" id="color" name="color" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group" id="warranty-sparepart-group">
-                                                <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart</label>
-                                                <div style="">
-                                                    <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
-                                                        <option value="" disabled selected>Masukan Garansi Sparepart</option>
-                                                        <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                                                            <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="category">Kategori</label>
+                                                    <select id="category" name="category_id" class="form-control" required>
+                                                        <option value="" disabled selected>Masukan Kategori</option>
+                                                        <?php foreach ($categories as $category): ?>
+                                                            <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
-                                            <div class="form-group">
-                                                <div style="">
-                                                    <label for="kapasitas_air_dingin" style="">Kapasitas Air Dingin</label>
-                                                    <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" style=""  placeholder="Kapasitas Air Dingin">
-                                                    <span style="">Liter</span>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="subcategory">Subkategori</label>
+                                                    <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
+                                                        <option value="" disabled selected>Select Subcategory</option>
+                                                        <option value="" disabled selected>Masukan Subkategori</option>
+                                                        <?php foreach ($subcategories as $subcategory): ?>
+                                                            <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
-                                            <div class="form-group">
-                                                <div style="">
-                                                    <label for="kapasitas_air_panas" style="">Kapasitas Air Panas</label>
-                                                    <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" style="" placeholder="Kapasitas Air Panas">
-                                                    <span style="">Liter</span>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="product_type">Tipe Produk</label>
+                                                    <input type="text" id="product_type" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div id="capacity-group" class="col-sm-6" style="display:none;">
+                                                <div class="form-group">
+                                                    <label id="capacity-label">Kapasitas</label>
+                                                    <select id="capacity" name="capacity_value" class="form-control" required>
+                                                        <option value="" disabled selected>Select Kapasitas</option>
+                                                        <!-- Options will be populated dynamically -->
+                                                    </select>
+                                                </div>
+                                            </div>
 
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="type">
-                                    <h5 class="info-text">What type of location do you have? </h5>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-sm-offset-2">
-                                            <div class="col-sm-4 col-sm-offset-2">
-                                                <div class="choice" data-toggle="wizard-checkbox">
-                                                    <input type="checkbox" name="jobb" value="Design">
-                                                    <div class="card card-checkboxes card-hover-effect">
-                                                        <i class="ti-home"></i>
-                                                        <p>Home</p>
+                                            <div class="col-sm-6">
+                                                <div class="form-group" id="warranty-compressor-group">
+                                                    <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor</label>
+                                                    <div>
+                                                        <select id="compressor_warranty" name="compressor_warranty_id" class="form-control" style="" required>
+                                                            <option value="" disabled selected>Masukan Garansi Kompresor</option>
+                                                            <?php foreach ($compressor_warranties as $compressor_warranty): ?>
+                                                                <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?> Tahun</option>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="color">Warna</label>
+                                                    <input type="text" id="color" name="color" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group" id="warranty-sparepart-group">
+                                                    <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart</label>
+                                                    <div style="">
+                                                        <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
+                                                            <option value="" disabled selected>Masukan Garansi Sparepart</option>
+                                                            <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
+                                                                <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
+                                                <div class="form-group">
+                                                    <div style="">
+                                                        <label for="kapasitas_air_dingin" style="">Kapasitas Air Dingin</label>
+                                                        <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" style="" placeholder="Kapasitas Air Dingin">
+                                                        <span style="">Liter</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
+                                                <div class="form-group">
+                                                    <div style="">
+                                                        <label for="kapasitas_air_panas" style="">Kapasitas Air Panas</label>
+                                                        <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" style="" placeholder="Kapasitas Air Panas">
+                                                        <span style="">Liter</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="type">
+                                        <div class="row">
+                                            <!-- Left Column -->
+                                            <div class="col-sm-6" style="margin-top: 65px;">
+                                                <div class="form-group row">
+                                                    <label for="product_dimensions" id="product-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk (P x L x T)</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="produk_p" placeholder="Panjang (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="produk_l" placeholder="Lebar (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="produk_t" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <label class="unit">cm</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="pstand_p" placeholder="Panjang (cm)" class="form-control">
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="pstand_l" placeholder="Lebar (cm)" class="form-control">
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="pstand_t" placeholder="Tinggi (cm)" class="form-control">
+                                                            <label class="unit">cm</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="package_dimensions" class="col-sm-4 col-form-label">Dimensi Kemasan Produk (P x L x T)</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="kemasan_p" placeholder="Panjang (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="kemasan_l" placeholder="Lebar (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="kemasan_t" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <label class="unit">cm</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="resolusi_x" placeholder="X (cm)" class="form-control">
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="resolusi_y" placeholder="Y (cm)" class="form-control">
+                                                            <label class="unit">Pixel</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="berat" class="col-sm-4 col-form-label">Berat Produk</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="berat" placeholder="Berat Produk (kg)" class="form-control" required>
+                                                            <label class="unit">kg</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Right Column -->
+                                            <div class="col-sm-6" style="margin-top: 65px;">
+                                                <div class="form-group row" id="cspf-field">
+                                                    <label for="cspf" class="col-sm-4 col-form-label">CSPF Rating</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex; align-items: center;">
+                                                            <input type="number" name="cspf" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1">
+                                                            <div id="star-rating" style="margin-left: 10px;">
+                                                                <!-- Five star placeholders -->
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="daya" class="col-sm-4 col-form-label">Konsumsi Daya</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="daya" placeholder="Konsumsi Daya (watt)" class="form-control" required>
+                                                            <label class="unit">watt</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="cooling_capacity" class="col-sm-4 col-form-label">Kapasitas Pendinginan</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="cooling_capacity" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
+                                                            <label class="unit">BTU/h</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="pembuat" class="col-sm-4 col-form-label">Negara Pembuat</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="pembuat" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                                <!-- refigrant Dropdown -->
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="facilities">
+                                        <h5 class="info-text">Beritahu Kami Keunggulan Produk Anda</h5>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" id="advantage1" name="advantage1" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="advantage2" name="advantage2" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="advantage3" name="advantage3" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="advantage4" name="advantage4" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="advantage5" name="advantage5" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="advantage6" name="advantage6" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                </div>
+                                            </div>
+                                            <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="description">
+                                        <div class="row">
+                                            <h5 class="info-text"> Drop us a small description. </h5>
+                                            <div class="col-sm-6 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Place description</label>
+                                                    <textarea class="form-control" placeholder="" rows="9"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <div class="choice" data-toggle="wizard-checkbox">
-                                                    <input type="checkbox" name="jobb" value="Design">
-                                                    <div class="card card-checkboxes card-hover-effect">
-                                                        <i class="ti-package"></i>
-                                                        <p>Apartment</p>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <label>Example</label>
+                                                    <p class="description">"The place is really nice. We use it every sunday when we go fishing. It is so awesome."</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="confirmation">
+                                        <div class="row">
+                                            <h5 class="info-text"> Drop us a small Confirmation. </h5>
+                                            <div class="col-sm-6 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Place description</label>
+                                                    <textarea class="form-control" placeholder="" rows="9"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Example</label>
+                                                    <p class="description">"The place is really nice. We use it every sunday when we go fishing. It is so awesome."</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="facilities">
-                                    <h5 class="info-text">Tell us more about facilities. </h5>
-                                    <div class="row">
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Your place is good for</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- type -</option>
-                                                    <option>Business</option>
-                                                    <option>Vacation </option>
-                                                    <option>Work</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Is air conditioning included ?</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- response -</option>
-                                                    <option>Yes</option>
-                                                    <option>No </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Does your place have wi-fi?</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- response -</option>
-                                                    <option>Yes</option>
-                                                    <option>No </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="form-group">
-                                                <label>Is breakfast included?</label>
-                                                <select class="form-control">
-                                                    <option disabled="" selected="">- response -</option>
-                                                    <option>Yes</option>
-                                                    <option>No </option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
+                                        <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                        <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
                                     </div>
-                                </div>
-                                <div class="tab-pane" id="description">
-                                    <div class="row">
-                                        <h5 class="info-text"> Drop us a small description. </h5>
-                                        <div class="col-sm-6 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Place description</label>
-                                                <textarea class="form-control" placeholder="" rows="9"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Example</label>
-                                                <p class="description">"The place is really nice. We use it every sunday when we go fishing. It is so awesome."</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="confirmation">
-                                    <div class="row">
-                                        <h5 class="info-text"> Drop us a small Confirmation. </h5>
-                                        <div class="col-sm-6 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Place description</label>
-                                                <textarea class="form-control" placeholder="" rows="9"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Example</label>
-                                                <p class="description">"The place is really nice. We use it every sunday when we go fishing. It is so awesome."</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wizard-footer">
-                                <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                                </div>
 
-                                <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                    <div class="pull-left">
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>
-                    </div>
-                </div> <!-- wizard container -->
+                            </form>
+                        </div>
+                    </div> <!-- wizard container -->
+                </div>
+            </div> <!-- row -->
+        </div> <!--  big container -->
+
+        <div class="footer">
+            <div class="container text-center">
+                Copyright &copy; 2024 AIO. All rights reserved.
             </div>
-        </div> <!-- row -->
-    </div> <!--  big container -->
-
-    <div class="footer">
-        <div class="container text-center">
-            Copyright &copy; 2024 AIO. All rights reserved.
         </div>
     </div>
-</div>
 
 </body>
 
@@ -525,6 +647,7 @@
         }
     });
 
+
     document.getElementById('product_type').addEventListener('input', function() {
         // Replace any instance of '-' or '/' with an empty string and make it uppercase
         this.value = this.value.replace(/[-/]/g, '').toUpperCase();
@@ -593,7 +716,7 @@
             .then(data => {
                 const warrantyDropdown = document.getElementById('compressor_warranty');
                 <?php foreach ($garansi_semua_service as $garansi_service): ?>
-                warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Semua Service</option>';
+                    warrantyDropdown.innerHTML = '<option value="" disabled selected>Select Garansi Semua Service</option>';
                 <?php endforeach ?>
                 if (Array.isArray(data)) {
                     data.forEach(service => {
@@ -613,7 +736,7 @@
         const sparepartWarrantyGroup = document.getElementById('warranty-sparepart-group');
         const sparepartWarrantyField = document.getElementById('sparepart_warranty');
 
-        if (subcategoryId == '31' || subcategoryId == '32'|| subcategoryId == '35'|| subcategoryId == '36') { // Subcategories that don't need sparepart warranty
+        if (subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '35' || subcategoryId == '36') { // Subcategories that don't need sparepart warranty
             // Hide the sparepart warranty field
             sparepartWarrantyGroup.style.display = 'none';
             // Remove 'required' attribute since it's hidden and not needed
@@ -630,7 +753,7 @@
         const capacityGroup = document.getElementById('capacity-group');
         const capacityField = document.getElementById('capacity');
 
-        if (subcategoryId == '35'|| subcategoryId == '36') { // Subcategories that don't need sparepart warranty
+        if (subcategoryId == '35' || subcategoryId == '36') { // Subcategories that don't need sparepart warranty
             // Hide the sparepart warranty field
             capacityGroup.style.display = 'none';
             // Remove 'required' attribute since it's hidden and not needed
@@ -819,8 +942,81 @@
 
     }
 
+    //spesifikasi produk section
+    // Get the category_id from PHP
 
 
+    // Select the form groups you want to show/hide
+    var dimensiProdukLabel = document.getElementById('product-dimensions-label');
+    var dimensiPStandLabel = document.getElementById('pstand-dimensions-label');
+    var PanelLabel = document.getElementById('panel-resolution-label');
+    var dimensiProdukStand = document.getElementById('product-stand-field');
+    var resolusiPanel = document.getElementById('panel-resolution-field');
+    var coolingCapacity = document.getElementById('cooling-capacity-field');
+    var cspfRating = document.getElementById('cspf-field');
+    var refrigrantField = document.getElementById('refrigrant-field');
+
+    // Hide or show fields based on category ID
+    if (categoryId == 9) {
+        // Show "dimensi produk dengan stand" and "resolusi panel" for category ID 9
+        dimensiProdukLabel.innerText = 'Dimensi Produk Tanpa Stand (P x L x T cm)';
+        dimensiPStandLabel.innerText = 'Dimensi Produk Dengan Stand (P x L x T cm)';
+        PanelLabel.innerText = 'Resolusi Panel';
+        dimensiProdukStand.style.display = 'flex';
+        resolusiPanel.style.display = 'flex';
+    } else {
+        // Hide these fields for other categories
+        dimensiProdukLabel.innerText = 'Dimensi Produk (P x L x T cm)';
+        dimensiPStandLabel.innerText = '';
+        PanelLabel.innerText = '';
+        dimensiProdukStand.style.display = 'none';
+        resolusiPanel.style.display = 'none';
+    }
+
+    if (categoryId == 5) {
+        // Show "kapasitas pendinginan", "CSPF rating", and "tipe refrigrant" for category ID 3
+        coolingCapacity.style.display = 'flex';
+        cspfRating.style.display = 'flex';
+        refrigrantField.style.display = 'flex';
+    } else {
+        // Hide these fields for other categories
+        coolingCapacity.style.display = 'none';
+        cspfRating.style.display = 'none';
+        refrigrantField.style.display = 'none';
+    }
+
+    // Function to update stars based on the CSPF input value
+    function updateStars(cspf) {
+        const stars = document.querySelectorAll('#star-rating .star');
+        stars.forEach((star, index) => {
+            if (cspf >= (index + 1)) {
+                star.textContent = '★'; // Filled star for all stars up to the value
+            } else {
+                star.textContent = '☆'; // Empty star for remaining stars
+            }
+        });
+    }
+
+    // Add an event listener to the CSPF input field
+    document.getElementById('cspf-input').addEventListener('input', function() {
+        const cspfValue = parseFloat(this.value);
+        if (!isNaN(cspfValue) && cspfValue >= 1 && cspfValue <= 5) {
+            updateStars(Math.floor(cspfValue)); // Round down to nearest integer to light stars accordingly
+        } else {
+            updateStars(0); // Reset stars if input is invalid
+        }
+    });
+
+    // Hide the entire CSPF field when it's not needed
+    function toggleCspfField(isVisible) {
+        const cspfField = document.getElementById('cspf-field');
+        if (isVisible) {
+            cspfField.style.display = 'block';
+        } else {
+            cspfField.style.display = 'none';
+            updateStars(0); // Reset stars when the field is hidden
+        }
+    }
 </script>
 
 

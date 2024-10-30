@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://aio-form.test/';
+    public string $baseURL = 'http://localhost:8080';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -201,9 +201,9 @@ class App extends BaseConfig
     public bool $CSPEnabled = false;
 
     public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
-public $sessionCookieName = 'ci_session';
-public $sessionExpiration = 7200; // Session expiration
-public $sessionSavePath = WRITEPATH . 'sessions'; // Ensure this is correct
+    public $sessionCookieName = 'ci_session';
+    public $sessionExpiration = 7200; // Session expiration
+    public $sessionSavePath = WRITEPATH . 'sessions'; // Ensure this is correct
 
-    
+
 }
