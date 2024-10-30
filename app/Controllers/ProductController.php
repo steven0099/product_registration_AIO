@@ -229,7 +229,8 @@ class ProductController extends BaseController
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        return view('layout/product/step1', $data);
+        //return view('layout/product/step1', $data);
+        return view('product/product_registration', $data);
         //        $data['previousData'] = session()->get('step1');
         //
         //        return view('product/product_registration', $data);
@@ -411,7 +412,7 @@ class ProductController extends BaseController
     // Step 4: Upload Images
     public function step4()
     {
-        return view('product/product_uploads');
+        return view('layout/product/step4');
     }
 
     public function saveStep4()

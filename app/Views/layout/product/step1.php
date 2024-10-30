@@ -331,6 +331,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
+                                    <button type="submit" class="submit-btn">Selanjutnya</button>
                                 </form>
                                 <p class="form-note">*Harap diisi dengan benar</p>
                         </div>
