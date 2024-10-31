@@ -78,12 +78,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="product_type">Tipe Produk</label>
-                <input type="text" id="product_type" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
-            </div>
+            <label for="product_type">Tipe Produk</label>
+            <input type="text" id="product_type" name="product_type" placeholder="Masukan Tipe Produk" style="text-transform: uppercase;" required>
+            <small id="error-message" style="color: red; display: none;">Product type cannot contain '-' or '/'</small>
+        </div>
 
             <!-- Capacity / Ukuran -->
-            <div class="form-group" id="capacity-group" style="display:none;">
+            <div class="form-group" id="capacity-group" style="display:block;">
                 <label id="capacity-label">Kapasitas</label>
                 <select id="capacity" name="capacity_value" required>
                     <option value="" disabled selected>Select Kapasitas</option>
@@ -341,19 +342,14 @@ function handleCategoryChange(categoryId, subcategoryId) {
         fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
     } else {
         // Show "kapasitas" and "garansi sparepart" for other subcategories
-        document.getElementById('capacity-group').style.display = 'flex';
-        document.getElementById('warranty-sparepart-group').style.display = 'flex';
+        document.getElementById('capacity-group').style.display = 'block';
+        document.getElementById('warranty-sparepart-group').style.display = 'block';
 
         // Hide "kapasitas air dingin" and "kapasitas air panas"
         document.getElementById('kapasitas-air-dingin').style.display = 'none';
         document.getElementById('kapasitas-air-panas').style.display = 'none';
     }
 };
-
-document.getElementById('product_type').addEventListener('input', function() {
-    // Replace any instance of '-' or '/' with an empty string and make it uppercase
-    this.value = this.value.replace(/[-/]/g, '').toUpperCase();
-});
 
 function handleSparepartWarranty(subcategoryId) {
         const sparepartWarrantyGroup = document.getElementById('warranty-sparepart-group');
@@ -447,6 +443,16 @@ function fetchOptions(type, subcategoryId) {
         alert(`An error occurred while fetching ${type} options. Please try again later.`);
     });
 }
+
+const productTypeInput = document.getElementById('product_type');
+        const errorMessage = document.getElementById('error-message');
+        const form = document.getElementById('productForm');
+
+        // Replace forbidden characters and enforce uppercase
+        productTypeInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[-/]/g, '').toUpperCase();
+        });
+
 
     </script>
 </body>

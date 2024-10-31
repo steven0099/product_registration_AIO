@@ -195,7 +195,7 @@
           
           // Set the form action and input value dynamically
           document.getElementById('editForm').action = '/admin/ukuran/updateUkuran/' + id;
-          document.getElementById('editSize').value = value;
+          document.getElementById('editSize').value = size;
 
           editModal.style.display = "block";
         });

@@ -120,17 +120,6 @@
         <tr><th>Tanggal Ditolak</th><td><?= esc($product['rejected_at']) ?></td></tr>
         <?php endif; ?>
             </table>
-
-            <?php if ($product['status'] == 'confirmed'): ?>
-            <div class="mt-4">
-                <a href="/superadmin/approve/<?= esc($product['id']) ?>" class="btn btn-success">
-                    Approve Product
-                </a>
-                <a href="/superadmin/reject/<?= esc($product['id']) ?>" class="btn btn-danger">
-                    Reject Product
-                </a>
-            </div>
-            <?php endif; ?>
         </div>
     </section>
 <?= $this->endSection() ?>

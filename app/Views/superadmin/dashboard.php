@@ -27,7 +27,6 @@ Dashboard
 <?= $this->section('content') ?>
 <section class="content">
     <div class="container-fluid">
-
         <!-- Main row -->
         <div class="row">
             <!-- Left col -->
@@ -40,50 +39,98 @@ Dashboard
                             Dashboard
                         </h3>
                     </div><!-- /.card-header -->
-                    <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                    <th>No.</th>
-                    <th>Merek</th>
-                    <th>Tipe Produk</th>
-                    <th>Pengaju</th>
-                    <th>Status</th>
-                    <th>Tanggal</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                <?php $i = 1; ?>
-                <?php foreach ($all_products as $products): ?>
-            <tr>
-                <td><?= $i++; ?></td>
-                <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
-                <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
-                <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
-                <td><?= esc($products['status']) ?></td>
-                <td>
-                <?php if ($products['status'] === 'confirmed'): ?>
-                    <?= esc($products['confirmed_at']) ?>
-                <?php elseif ($products['status'] === 'rejected'): ?>
-                    <?= esc($products['rejected_at']) ?>
-                <?php elseif ($products['status'] === 'approved'): ?>
-                    <?= esc($products['approved_at']) ?>
-                <?php endif; ?>
-            </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+                    <div class="row" style="margin-top: 10px; margin-left: 5px; margin-right:5px">
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3><?= esc($count_all) ?></h3>
+                                    <p>Jumlah Produk Masuk</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3><?= esc($count_confirmed) ?></h3>
+                                    <p>Produk Terkonfirmasi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3><?= esc($count_rejected) ?></h3>
+                                    <p>Produk Ditolak</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3><?= esc($count_approved) ?></h3>
+                                    <p>Produk Diterima</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="card-body">
+                        <table id="spadmTable" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Merek</th>
+                                    <th>Tipe Produk</th>
+                                    <th>Pengaju</th>
+                                    <th>Status</th>
+                                    <th>Tanggal</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1; ?>
+                                <?php foreach ($all_products as $products): ?>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
+                                    <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
+                                    <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
+                                    <td>
+                                        <?php if ($products['status'] === 'confirmed'): ?>
+                                        Menunggu Persetujuan
+                                        <?php elseif ($products['status'] === 'rejected'): ?>
+                                        Ditolak
+                                        <?php elseif ($products['status'] === 'approved'): ?>
+                                        Disetujui
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($products['status'] === 'confirmed'): ?>
+                                        <?= esc($products['confirmed_at']) ?>
+                                        <?php elseif ($products['status'] === 'rejected'): ?>
+                                        <?= esc($products['rejected_at']) ?>
+                                        <?php elseif ($products['status'] === 'approved'): ?>
+                                        <?= esc($products['approved_at']) ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <a href="/superadmin/details/<?= esc($products['id']) ?>" class="btn-view">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </div>
-                <!-- /.card -->
             </section>
-            <!-- /.Left col -->
         </div>
-        <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>
+<?= $this->endSection() ?>
+
+<?= $this->section('js') ?>
+<script>
+$('#spadmTable').DataTable();
+</script>
 <?= $this->endSection() ?>

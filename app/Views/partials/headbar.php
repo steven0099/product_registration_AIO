@@ -44,3 +44,8 @@
       </li>
    </ul>
 </nav>
+
+<!-- jQuery -->
+<script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>

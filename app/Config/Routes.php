@@ -41,6 +41,7 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
 
     $routes->get('getBrands', 'ProductController::getBrands');
     $routes->post('updateBrand', 'ProductController::updateBrand');
+    $routes->post('deleteProduct/(:num)', 'ProductController::deleteProduct/$1');
     $routes->get('thank_you', 'ProductController::thank_you');
 });
 
@@ -70,7 +71,6 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     // Superadmin product approvals/rejections
     $routes->get('product/approved', 'ProductController::approved');
     $routes->get('product/rejected', 'ProductController::rejected');
-    $routes->get('product/deleteProduct/(:num)', 'ProductController::deleteProduct/$1');
 });
 
 // Routes for Admin and Superadmin (Admin Management)
@@ -80,6 +80,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('dashboard', 'AdminController::dashboard');
 
     $routes->get('product', 'AdminController::product');
+    $routes->get('details/(:num)', 'AdminController::productDetails/$1');
     $routes->get('reports', 'ProductController::reports');
     $routes->post('generateReport', 'ProductController::generateReport');
   
@@ -156,9 +157,5 @@ $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions'
 
 $routes->get('no-access', 'AuthController::NoAccess');
 
-// List of products (viewable by admin and superadmin)
-$routes->group('', ['filter' => 'role:admin,superadmin'], function($routes) {
-    $routes->get('product', 'ProductController::index');
-});
 
 

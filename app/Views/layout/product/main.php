@@ -185,7 +185,7 @@
                                                 <input type="text" id="product_type" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
                                             </div>
                                         </div>
-                                        <div id="capacity-group" class="col-sm-6" style="display:none;">
+                                        <div id="capacity-group" class="col-sm-6" style="display:block;">
                                             <div class="form-group">
                                                 <label id="capacity-label">Kapasitas</label>
                                                 <select id="capacity" name="capacity_value"  class="form-control"required>

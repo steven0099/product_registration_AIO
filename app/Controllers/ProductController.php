@@ -183,12 +183,13 @@ public function generateReport()
         'F' => 'Garansi Motor', 'G' => 'Garansi Semua Service', 'H' => 'Garansi Elemen Panas',
         'I' => 'Garansi Panel', 'J' => 'Garansi Kompresor ', 'K' => 'Garansi Sparepart',
         'L' => 'Capacity', 'M' => 'Ukuran', 'N' => 'Kapasitas Air Panas', 'O' => 'Kapasitas Air Dingin',
-        'P' => 'Dimensi Produk', 'Q' => 'Dimensi Kemasan', 'R' => 'Dimensi Produk Dengan Stand', 'S' => 'Resolusi Panel',
-        'T' => 'Kapasitas Pendinginan', 'U' => 'CSPF', 'V' => 'Tipe Refrigrant', 'W' => 'Keunggulan 1',
-        'X' => 'Keunggulan 2', 'Y' => 'Keunggulan 3', 'Z' => 'Keunggulan 4', 'AA' => 'Keunggulan 5', 'AB' => 'Keunggulan 6',
-        'AC' => 'Gambar Depan', 'AD' => 'Gambar Belakang', 'AE' => 'Gambar Samping Kiri', 
-        'AF' => 'Gambar Samping Kanan', 'AG' => 'Gambar Atas', 'AH' => 'Gambar Bawah',
-        'AI' => 'Link Video Produk', 'AJ' => 'Status', 'AK' => 'Tanggal Disetujui', 'AL' => 'Tanggal Ditolak'
+        'P' => 'Dimensi Produk', 'Q' => 'Dimensi Kemasan','R'=> 'Konsumsi Daya', 'S'=> 'Berat Produk',
+        'T' => 'Negara Pembuat','U' => 'Dimensi Produk Dengan Stand', 'V' => 'Resolusi Panel',
+        'W' => 'Kapasitas Pendinginan', 'X' => 'CSPF', 'Y' => 'Tipe Refrigrant', 'Z' => 'Keunggulan 1',
+        'AA' => 'Keunggulan 2', 'AB' => 'Keunggulan 3', 'AC' => 'Keunggulan 4', 'AD' => 'Keunggulan 5', 'AE' => 'Keunggulan 6',
+        'AF' => 'Gambar Depan', 'AG' => 'Gambar Belakang', 'AH' => 'Gambar Samping Kiri', 
+        'AI' => 'Gambar Samping Kanan', 'AJ' => 'Gambar Atas', 'AK' => 'Gambar Bawah',
+        'AL' => 'Link Video Produk', 'AM' => 'Status', 'AN' => 'Tanggal Disetujui', 'AO' => 'Tanggal Ditolak'
     ];
 
     // Set headers
@@ -204,55 +205,54 @@ public function generateReport()
               ->setCellValue('C' . $row, $product['subcategory'])
               ->setCellValue('D' . $row, $product['product_type'])
               ->setCellValue('E' . $row, $product['color'])
-              ->setCellValue('F' . $row, $product['garansi_motor'] ?? '')
-              ->setCellValue('G' . $row, $product['garansi_semua_service'] ?? '')
-              ->setCellValue('H' . $row, $product['garansi_elemen_panas'] ?? '')
-              ->setCellValue('I' . $row, $product['garansi_panel'] ?? '')
-              ->setCellValue('J' . $row, $product['compressor_warranty'] ?? '')
-              ->setCellValue('K' . $row, $product['sparepart_warranty'] ?? '')
+              ->setCellValue('F' . $row, $product['garansi_motor'].'Tahun' ?? '')
+              ->setCellValue('G' . $row, $product['garansi_semua_service'].' Tahun' ?? '')
+              ->setCellValue('H' . $row, $product['garansi_elemen_panas'].' Tahun' ?? '')
+              ->setCellValue('I' . $row, $product['garansi_panel'].' Tahun' ?? '')
+              ->setCellValue('J' . $row, $product['compressor_warranty'].' Tahun' ?? '')
+              ->setCellValue('K' . $row, $product['sparepart_warranty'].' Tahun' ?? '')
               ->setCellValue('L' . $row, $product['capacity'] ?? '')
               ->setCellValue('M' . $row, $product['ukuran'] ?? '')
-              ->setCellValue('N' . $row, $product['kapasitas_air_panas'] ?? '')
-              ->setCellValue('O' . $row, $product['kapasitas_air_dingin'] ?? '')
+              ->setCellValue('N' . $row, $product['kapasitas_air_panas'].' Liter' ?? '')
+              ->setCellValue('O' . $row, $product['kapasitas_air_dingin'].' Liter' ?? '')
               ->setCellValue('P' . $row, $product['product_dimensions'] ?? '')
               ->setCellValue('Q' . $row, $product['packaging_dimensions'] ?? '')
-              ->setCellValue('R' . $row, $product['pstand_dimensions'] ?? '')
-              ->setCellValue('S' . $row, $product['panel_resolution'] ?? '')
-              ->setCellValue('T' . $row, $product['cooling_capacity'] ?? '')
-              ->setCellValue('U' . $row, $product['cspf'] ?? '')
-              ->setCellValue('V' . $row, $product['refrigrant'] ?? '')
-              ->setCellValue('W' . $row, $product['advantage1'] ?? '')
-              ->setCellValue('X' . $row, $product['advantage2'] ?? '')
-              ->setCellValue('Y' . $row, $product['advantage3'] ?? '')
-              ->setCellValue('Z' . $row, $product['advantage4'] ?? '')
-              ->setCellValue('AA' . $row, $product['advantage5'] ?? '')
-              ->setCellValue('AB' . $row, $product['advantage6'] ?? '')
-              ->setCellValue('AC' . $row, 'Gambar Tampak Depan Produk')
-              ->setCellValue('AD' . $row, 'Gambar Tampak Belakang Produk')
-              ->setCellValue('AE' . $row, 'Gambar Tampak Kiri Produk')
-              ->setCellValue('AF' . $row, 'Gambar Tampak Kanan Produk')
-              ->setCellValue('AG' . $row, 'Gambar Tampak Atas Produk')
-              ->setCellValue('AH' . $row, 'Gambar Tampak Bawah Produk');
+              ->setCellValue('R' . $row, $product['daya'].' Watt' ?? '')
+              ->setCellValue('S' . $row, $product['berat'].' Kg' ?? '')
+              ->setCellValue('T' . $row, $product['pembuat'] ?? '')
+              ->setCellValue('U' . $row, $product['pstand_dimensions'] ?? '')
+              ->setCellValue('V' . $row, $product['panel_resolution'].' Pixel' ?? '')
+              ->setCellValue('W' . $row, $product['cooling_capacity'].' BTU/H' ?? '')
+              ->setCellValue('X' . $row, $product['cspf'] ?? '')
+              ->setCellValue('Y' . $row, $product['refrigrant'].'/5' ?? '')
+              ->setCellValue('Z' . $row, $product['advantage1'] ?? '')
+              ->setCellValue('AA' . $row, $product['advantage2'] ?? '')
+              ->setCellValue('AB' . $row, $product['advantage3'] ?? '')
+              ->setCellValue('AC' . $row, $product['advantage4'] ?? '')
+              ->setCellValue('AD' . $row, $product['advantage5'] ?? '')
+              ->setCellValue('AE' . $row, $product['advantage6'] ?? '')
+              ->setCellValue('AF' . $row, 'localhost:8080/uploads/' . $product['gambar_depan'])
+              ->setCellValue('AG' . $row, 'localhost:8080/uploads/' . $product['gambar_belakang'])
+              ->setCellValue('AH' . $row, 'localhost:8080/uploads/' . $product['gambar_samping_kiri'])
+              ->setCellValue('AI' . $row, 'localhost:8080/uploads/' . $product['gambar_samping_kanan'])
+              ->setCellValue('AJ' . $row, 'localhost:8080/uploads/' . $product['gambar_atas'])
+              ->setCellValue('AK' . $row, 'localhost:8080/uploads/' . $product['gambar_bawah']);
 
-        // Insert images if they exist
-        $images = [
-            'gambar_depan' => 'AC',
-            'gambar_belakang' => 'AD',
-            'gambar_samping_kiri' => 'AE',
-            'gambar_samping_kanan' => 'AF',
-            'gambar_atas' => 'AG',
-            'gambar_bawah' => 'AH',
-        ];
 
         // Populate remaining fields
-        $sheet->setCellValue('AI' . $row, $product['video_produk'] ?? '')
-              ->setCellValue('AJ' . $row, ucfirst($product['status']));
+        $sheet->setCellValue('AL' . $row, $product['video_produk'] ?? '');
+              
+        if ($product['status'] === 'approved') {
+            $sheet->setCellValue('AM' . $row, 'Disetujui');
+        } elseif ($product['status'] === 'rejected') {
+            $sheet->setCellValue('AM' . $row, 'Ditolak');
+        }
 
         // Conditionally set approved or rejected dates
         if ($product['status'] === 'approved') {
-            $sheet->setCellValue('AK' . $row, $product['approved_at']);
+            $sheet->setCellValue('AN' . $row, $product['approved_at']);
         } elseif ($product['status'] === 'rejected') {
-            $sheet->setCellValue('AL' . $row, $product['rejected_at']);
+            $sheet->setCellValue('AO' . $row, $product['rejected_at']);
         }
         $row++;
     }
@@ -277,21 +277,6 @@ foreach (array_keys($headers) as $col) {
     } else {
         // Set a wider width for image columns
         $sheet->getColumnDimension($col)->setWidth(30); // or adjust as needed
-    }
-}
-
-// Resize images for better visibility in cells
-foreach ($images as $field => $column) {
-    $imagePath = FCPATH . 'uploads/' . $product[$field];
-    if (file_exists($imagePath)) {
-        $drawing = new Drawing();
-        $drawing->setName($field);
-        $drawing->setDescription($field);
-        $drawing->setPath($imagePath);
-        $drawing->setHeight(80);  // Height can be adjusted
-        $drawing->setWidth(100);  // Width can be adjusted based on the column width
-        $drawing->setCoordinates($column . $row);
-        $drawing->setWorksheet($sheet);
     }
 }
 
@@ -413,7 +398,7 @@ foreach ($images as $field => $column) {
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        return view('layout/product/main', $data);
+        return view('product/product_registration', $data);
 //        $data['previousData'] = session()->get('step1');
 //
 //        return view('product/product_registration', $data);
@@ -426,7 +411,8 @@ foreach ($images as $field => $column) {
     
             // Convert 'color' and 'product_type' to uppercase
         $step1Data['color'] = strtoupper($step1Data['color']);
-        $step1Data['product_type'] = strtoupper($step1Data['product_type']);
+        $step1Data['product_type'] = strtoupper(preg_replace('/[-\/]/', '', $_POST['product_type']));
+
 
         // Basic validation rules
         $validationRules = [
@@ -751,7 +737,7 @@ foreach ($images as $field => $column) {
         // Group dimensions and panel resolution
         $finalData['product_dimensions'] = $this->formatDimensions($finalData, 'produk_p', 'produk_l', 'produk_t');
         $finalData['packaging_dimensions'] = $this->formatDimensions($finalData, 'kemasan_p', 'kemasan_l', 'kemasan_t');
-        $finalData['pstand_dimension'] = $this->formatDimensions($finalData, 'pstand_p', 'pstand_l', 'pstand_t');
+        $finalData['pstand_dimension'] = $this->formatStandDimensions($finalData, 'pstand_p', 'pstand_l', 'pstand_t');
         $finalData['panel_resolution'] = $this->formatResolution($finalData, 'resolusi_x', 'resolusi_y');
     
         // Filter out null or empty values from the final data
@@ -787,7 +773,21 @@ foreach ($images as $field => $column) {
             'packaging_dimensions' => $finalData['packaging_dimensions'] ?? '',
             'pstand_dimensions' => $finalData['pstand_dimension'] ?? '',
             'panel_resolution' => $finalData['panel_resolution'] ?? '',
-            // Add other fields as needed
+            'cooling_capacity' => $finalData['cooling_capacity'] ?? '',
+            'cspf' => $finalData['cspf'] ?? '',
+            'advantage1' => $finalData['advantage1'],
+            'advantage2' => $finalData['advantage2'],
+            'advantage3' => $finalData['advantage3'],
+            'advantage4' => $finalData['advantage4'] ?? '',
+            'advantage5' => $finalData['advantage5'] ?? '',
+            'advantage6' => $finalData['advantage6'] ?? '',
+            'gambar_depan' => $finalData['gambar_depan'],
+            'gambar_belakang' => $finalData['gambar_belakang'],
+            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'],
+            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'],
+            'gambar_atas' => $finalData['gambar_atas'],
+            'gambar_bawah' => $finalData['gambar_bawah'],
+            'video_produk' => $finalData['video_produk'],
         ];
     
         $data = [
@@ -821,19 +821,33 @@ foreach ($images as $field => $column) {
         return $id ? ($model->find($id)[$nameField] ?? $default) : $default;
     }
     
-    private function formatDimensions($data, $lengthKey, $widthKey, $heightKey)
+
+        private function formatDimensions($data, $lengthKey, $widthKey, $heightKey)
     {
         return isset($data[$lengthKey], $data[$widthKey], $data[$heightKey])
             ? "{$data[$lengthKey]} x {$data[$widthKey]} x {$data[$heightKey]} cm"
             : '';
     }
     
-    private function formatResolution($data, $xKey, $yKey)
-    {
-        return isset($data[$xKey], $data[$yKey])
-            ? "{$data[$xKey]} x {$data[$yKey]}"
-            : '';
-    }    
+private function formatStandDimensions($data, $lengthKey, $widthKey, $heightKey)
+{
+    if ('category_id' !== '9') {
+        return null; // Only format if category ID is '9'
+    }
+    return isset($data[$lengthKey], $data[$widthKey], $data[$heightKey])
+        ? "{$data[$lengthKey]} x {$data[$widthKey]} x {$data[$heightKey]} cm"
+        : null;
+}
+
+private function formatResolution($data, $xKey, $yKey)
+{
+    if ('category_id' !== '9') {
+        return null; // Only format if category ID is '9'
+    }
+    return isset($data[$xKey], $data[$yKey])
+        ? "{$data[$xKey]} x {$data[$yKey]}"
+        : null;
+}
     
     // Cancel and clear session
     public function back()
@@ -845,9 +859,9 @@ foreach ($images as $field => $column) {
 
     public function deleteProduct($id)
     {
-        $productModel = new ProductModel();
-        $productModel->delete($id);
-        return redirect()->to('/product');
+        $confirmationModel = new ConfirmationModel();
+        $confirmationModel->delete($id);
+        return redirect()->to('/superadmin/product/rejected');
     }
 
     public function finalizeProductSubmission()

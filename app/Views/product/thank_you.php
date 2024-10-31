@@ -59,19 +59,12 @@
 
 <div class="modal">
     <div class="modal-content">
-        <h1>Thank You!</h1>
-        <p>Your submission has been successfully confirmed.</p>
+        <h1>Terima Kasih</h1>
+        <p>Produk sudah terkonfirmasi dan akan diproses lebih lanjut</p>
         <button class="button" onclick="location.href='/logout'">Log Out</button>
-        <button class="button" onclick="location.href='/product/step1'">Create Another Submission</button>
+        <button class="button" onclick="location.href='/product/step1'">Tambah Produk Lain</button>
     </div>
 </div>
-
-<script>
-    // Optional: Close the modal after 5 seconds
-    setTimeout(function() {
-        window.location.href = '/product/step1'; // Redirect after timeout
-    }, 5000); // Adjust the timeout duration as needed
-</script>
 
 </body>
 </html>
