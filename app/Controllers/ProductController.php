@@ -23,24 +23,38 @@ use App\Models\RefrigrantModel;
 class ProductController extends BaseController
 {
     protected $productModel;  // Define productModel as a property
+    protected $brandModel;
+    protected $categoryModel;
+    protected $capacityModel;
+    protected $ukuranModel;
+    protected $subcategoryModel;
+    protected $compressorwarrantyModel;
+    protected $sparepartwarrantyModel;
+    protected $garansipanasModel;
+    protected $garansimotorModel;
+    protected $refrigrantModel;
+    protected $garansipanelModel;
+    protected $garansiserviceModel;
+    protected $confirmationModel;
+
 
     public function __construct()
     {
         // Instantiate the product model in the constructor
         $this->productModel = new ProductModel();
-        $this->brandModel = new BrandModel();
-        $this->categoryModel = new CategoryModel();
-        $this->capacityModel = new CapacityModel();
-        $this->ukuranModel = new UkuranModel();
-        $this->subcategoryModel = new SubcategoryModel();
-        $this->compressorwarrantyModel = new CompressorWarrantyModel();
-        $this->sparepartwarrantyModel = new SparepartWarrantyModel();
-        $this->garansipanasModel = new GaransiElemenPanasModel();
-        $this->garansimotorModel = new GaransiMotorModel();
-        $this->garansipanelModel = new GaransiPanelModel();
-        $this->garansiserviceModel = new GaransiSemuaServiceModel();
-        $this->refrigrantModel = new RefrigrantModel();
-        $this->confirmationModel = new ConfirmationModel();
+        // $this->brandModel = new BrandModel();
+        // $this->categoryModel = new CategoryModel();
+        // $this->capacityModel = new CapacityModel();
+        // $this->ukuranModel = new UkuranModel();
+        // $this->subcategoryModel = new SubcategoryModel();
+        // $this->compressorwarrantyModel = new CompressorWarrantyModel();
+        // $this->sparepartwarrantyModel = new SparepartWarrantyModel();
+        // $this->garansipanasModel = new GaransiElemenPanasModel();
+        // $this->garansimotorModel = new GaransiMotorModel();
+        // $this->garansipanelModel = new GaransiPanelModel();
+        // $this->garansiserviceModel = new GaransiSemuaServiceModel();
+        // $this->refrigrantModel = new RefrigrantModel();
+        // $this->confirmationModel = new ConfirmationModel();
     }
 
     public function index()
@@ -229,7 +243,9 @@ class ProductController extends BaseController
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        //return view('layout/product/step1', $data);
+        $data['previousData'] = session()->get('step1');
+
+        //return view('layout/product/product_regis_step1', $data);
         return view('product/product_registration', $data);
         //        $data['previousData'] = session()->get('step1');
         //
@@ -325,9 +341,19 @@ class ProductController extends BaseController
         // Insert the data into the database
         $productId = $this->productModel->insert($productData);
 
+
+
         // Store product ID and step1 data in session for future steps
         session()->set('product_id', $productId);
         session()->set('step1', $step1Data);
+
+        // if ($this->request->getMethod() === 'post') {
+        //     $csrf_token = csrf_hash(); // mendapatkan CSRF token saat ini
+        //     log_message('info', 'Current CSRF Token: ' . $csrf_token);
+        //     // Proses data form dan redirect jika sukses
+        //     return redirect()->to('/product/product_regis_step2');
+        // }
+
 
         // Redirect to step 2
         return redirect()->to('/product/step2');
@@ -339,7 +365,7 @@ class ProductController extends BaseController
         $refrigrantModel = new RefrigrantModel();
 
         $data['refrigrant'] = $refrigrantModel->findAll();
-        return view('layout/product/step2', $data);
+        return view('layout/product/product_regis_step2', $data);
     }
 
     public function saveStep2()
@@ -398,7 +424,7 @@ class ProductController extends BaseController
     // Step 3: Product Advantages
     public function step3()
     {
-        return view('layout/product/step3');
+        return view('layout/product/product_regis_step3');
     }
 
     public function saveStep3()
@@ -412,7 +438,7 @@ class ProductController extends BaseController
     // Step 4: Upload Images
     public function step4()
     {
-        return view('layout/product/step4');
+        return view('layout/product/product_regis_step4');
     }
 
     public function saveStep4()
@@ -511,7 +537,7 @@ class ProductController extends BaseController
         $productId = session()->get('product_id');
 
         if (!$productId) {
-            return redirect()->to('/product/step1');  // Redirect to step 1 if no product ID
+            return redirect()->to('layout/product/product_regis_step1');  // Redirect to step 1 if no product ID
         }
 
         // Check if a confirmation entry already exists for this product

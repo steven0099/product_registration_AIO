@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="col-sm-6">
 
                                                     <div class="form-group">
-                                                        <label for="b and">Merek</label>
+                                                        <label for="brand">Merek</label>
                                                         <select id="brand" name="brand_id" class="form-control" required>
                                                             <option value="" disabled selected>Masukan Merek</option>
                                                             <?php foreach ($brands as $brand): ?>
@@ -331,9 +331,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <button type="submit" class="submit-btn">Selanjutnya</button>
+
                                 </form>
-                                <p class="form-note">*Harap diisi dengan benar</p>
+                                <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
                         </div>
                     </div> <!-- wizard container -->
                 </div>
