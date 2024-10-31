@@ -245,8 +245,8 @@ class ProductController extends BaseController
 
         $data['previousData'] = session()->get('step1');
 
-        //return view('layout/product/product_regis_step1', $data);
-        return view('product/product_registration', $data);
+        return view('layout/product/product_regis_step1', $data);
+        //return view('product/product_registration', $data);
         //        $data['previousData'] = session()->get('step1');
         //
         //        return view('product/product_registration', $data);

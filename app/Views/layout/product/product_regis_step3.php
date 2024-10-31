@@ -123,119 +123,119 @@
                     <!--      Wizard container        -->
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="red" id="wizard">
-                            <form action="" method="">
 
-                                <div class="wizard-header" style="text-align: center;weight: 7000;">
-                                    <div class="row" style=" height: 135px; align-content: center">
-                                        <div class="col-sm-5 col-sm-offset-1 logo">
-                                            <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
-                                        </div>
-                                        <div class="col-sm-5 title">
-                                            <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
-                                        </div>
+
+                            <div class="wizard-header" style="text-align: center;weight: 7000;">
+                                <div class="row" style=" height: 135px; align-content: center">
+                                    <div class="col-sm-5 col-sm-offset-1 logo">
+                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                    </div>
+                                    <div class="col-sm-5 title">
+                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
-                                <div class="wizard-navigation">
-                                    <div class="progress-with-circle">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
-                                    </div>
+                            </div>
+                            <div class="wizard-navigation">
+                                <div class="progress-with-circle">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#general" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            General Data
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#type" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Spesifikasi Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#facilities" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Keunggulan Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#description" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Foto Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#confirmation" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Konfirmasi Produk
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <?php if (session()->getFlashdata('errors')): ?>
+                                <div class="alert alert-danger">
                                     <ul>
-                                        <li>
-                                            <a href="#general" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                General Data
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#type" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Spesifikasi Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#facilities" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Keunggulan Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#description" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Foto Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#confirmation" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Konfirmasi Produk
-                                            </a>
-                                        </li>
+                                        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                            <li><?= esc($error) ?></li>
+                                        <?php endforeach ?>
                                     </ul>
                                 </div>
+                            <?php endif; ?>
 
-                                <?php if (session()->getFlashdata('errors')): ?>
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                                                <li><?= esc($error) ?></li>
-                                            <?php endforeach ?>
-                                        </ul>
-                                    </div>
-                                <?php endif; ?>
+                            <form action="<?= base_url('product/save-step3') ?>" method="post">
+                                <?= csrf_field() ?>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="facilities">
+                                        <h5 class="info-text">Beritahu Kami Keunggulan Produk Anda</h5>
+                                        <div class="row" style="margin: 25px;">
 
-                                <form action="<?= base_url('product/save-step3') ?>" method="post">
-                                    <?= csrf_field() ?>
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="facilities">
-                                            <h5 class="info-text">Beritahu Kami Keunggulan Produk Anda</h5>
-                                            <div class="row" style="margin: 25px;">
-
-                                                <div class="form-group">
-                                                    <input type="text" id="advantage1" name="advantage1" placeholder="Masukan Keunggulan Produk" class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" id="advantage2" name="advantage2" placeholder="Masukan Keunggulan Produk" class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" id="advantage3" name="advantage3" placeholder="Masukan Keunggulan Produk" class="form-control" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" id="advantage4" name="advantage4" placeholder="Masukan Keunggulan Produk" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" id="advantage5" name="advantage5" placeholder="Masukan Keunggulan Produk" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" id="advantage6" name="advantage6" placeholder="Masukan Keunggulan Produk" class="form-control">
-                                                </div>
-                                                <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
-
-
+                                            <div class="form-group">
+                                                <input type="text" id="advantage1" name="advantage1" placeholder="Masukan Keunggulan Produk" class="form-control" required>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="wizard-footer">
-                                        <div class="pull-right">
-                                            <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                                        </div>
+                                            <div class="form-group">
+                                                <input type="text" id="advantage2" name="advantage2" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="advantage3" name="advantage3" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="advantage4" name="advantage4" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="advantage5" name="advantage5" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="advantage6" name="advantage6" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                            </div>
+                                            <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
 
-                                        <div class="pull-left">
-                                            <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+
                                         </div>
-                                        <div class="clearfix"></div>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                    </div>
+
+                                    <div class="pull-left">
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

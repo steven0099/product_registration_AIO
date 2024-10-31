@@ -123,144 +123,142 @@
                     <!--      Wizard container        -->
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="red" id="wizard">
-                            <form action="" method="">
-
-                                <div class="wizard-header" style="text-align: center;weight: 7000;">
-                                    <div class="row" style=" height: 135px; align-content: center">
-                                        <div class="col-sm-5 col-sm-offset-1 logo">
-                                            <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
-                                        </div>
-                                        <div class="col-sm-5 title">
-                                            <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
-                                        </div>
+                            <div class="wizard-header" style="text-align: center;weight: 7000;">
+                                <div class="row" style=" height: 135px; align-content: center">
+                                    <div class="col-sm-5 col-sm-offset-1 logo">
+                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                    </div>
+                                    <div class="col-sm-5 title">
+                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
-                                <div class="wizard-navigation">
-                                    <div class="progress-with-circle">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
-                                    </div>
+                            </div>
+                            <div class="wizard-navigation">
+                                <div class="progress-with-circle">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#general" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            General Data
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#type" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Spesifikasi Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#facilities" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Keunggulan Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#description" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Foto Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#confirmation" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Konfirmasi Produk
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <?php if (session()->getFlashdata('errors')): ?>
+                                <div class="alert alert-danger">
                                     <ul>
-                                        <li>
-                                            <a href="#general" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                General Data
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#type" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Spesifikasi Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#facilities" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Keunggulan Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#description" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Foto Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#confirmation" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Konfirmasi Produk
-                                            </a>
-                                        </li>
+                                        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                            <li><?= esc($error) ?></li>
+                                        <?php endforeach ?>
                                     </ul>
                                 </div>
+                            <?php endif; ?>
 
-                                <?php if (session()->getFlashdata('errors')): ?>
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                                                <li><?= esc($error) ?></li>
-                                            <?php endforeach ?>
-                                        </ul>
-                                    </div>
-                                <?php endif; ?>
+                            <form action="save-step4" method="post" enctype="multipart/form-data">
+                                <?= csrf_field() ?>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="description">
 
-                                <form action="save-step4" method="post" enctype="multipart/form-data">
-                                    <?= csrf_field() ?>
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="description">
+                                        <div class="row" style="margin: 25px;">
+                                            <!-- Left Column -->
+                                            <div class="col-sm-6">
 
-                                            <div class="row" style="margin: 25px;">
-                                                <!-- Left Column -->
-                                                <div class="col-sm-6">
-
-                                                    <div class="form-group">
-                                                        <label for="gambar_depan">Gambar Tampak Depan</label>
-                                                        <input type="file" id="gambar_depan" name="gambar_depan" class="form-control" required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-                                                        <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" class="form-control" required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="gambar_atas">Gambar Tampak Atas</label>
-                                                        <input type="file" id="gambar_atas" name="gambar_atas" class="form-control" required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="video_produk">Video Produk (YouTube Link)</label>
-                                                        <input type="text" id="video_produk" name="video_produk" class="form-control" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" required pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
-                                                    </div>
-
+                                                <div class="form-group">
+                                                    <label for="gambar_depan">Gambar Tampak Depan</label>
+                                                    <input type="file" id="gambar_depan" name="gambar_depan" class="form-control" required>
                                                 </div>
 
-                                                <!-- Right Column -->
-                                                <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
+                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" class="form-control" required>
+                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                        <input type="file" id="gambar_belakang" name="gambar_belakang" class="form-control" required>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <label for="gambar_atas">Gambar Tampak Atas</label>
+                                                    <input type="file" id="gambar_atas" name="gambar_atas" class="form-control" required>
+                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                        <input type="file" id="gambar_bawah" name="gambar_bawah" class="form-control" required>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                        <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" class="form-control" required>
-                                                    </div>
-
-
+                                                <div class="form-group">
+                                                    <label for="video_produk">Video Produk (YouTube Link)</label>
+                                                    <input type="text" id="video_produk" name="video_produk" class="form-control" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" required pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
                                                 </div>
 
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="wizard-footer">
-                                        <div class="pull-right">
-                                            <!-- Submit Button -->
-                                            <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                                        </div>
 
-                                        <div class="pull-left">
-                                            <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                            <!-- Right Column -->
+                                            <div class="col-sm-6">
+
+                                                <div class="form-group">
+                                                    <label for="gambar_belakang">Gambar Tampak Belakang</label>
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="gambar_bawah">Gambar Tampak Bawah</label>
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" class="form-control" required>
+                                                </div>
+
+
+                                            </div>
+
                                         </div>
-                                        <div class="clearfix"></div>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
+                                        <!-- Submit Button -->
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                    </div>
+
+                                    <div class="pull-left">
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

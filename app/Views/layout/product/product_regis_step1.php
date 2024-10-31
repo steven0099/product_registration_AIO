@@ -132,208 +132,208 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <!--      Wizard container        -->
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="red" id="wizard">
-                            <form action="" method="">
+                            <!-- <form action="" method=""> -->
 
-                                <div class="wizard-header" style="text-align: center;weight: 7000;">
-                                    <div class="row" style=" height: 135px; align-content: center">
-                                        <div class="col-sm-5 col-sm-offset-1 logo">
-                                            <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
-                                        </div>
-                                        <div class="col-sm-5 title">
-                                            <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
-                                        </div>
+                            <div class="wizard-header" style="text-align: center;weight: 7000;">
+                                <div class="row" style=" height: 135px; align-content: center">
+                                    <div class="col-sm-5 col-sm-offset-1 logo">
+                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                    </div>
+                                    <div class="col-sm-5 title">
+                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
-                                <div class="wizard-navigation">
-                                    <div class="progress-with-circle">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
-                                    </div>
+                            </div>
+                            <div class="wizard-navigation">
+                                <div class="progress-with-circle">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#general" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            General Data
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#type" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Spesifikasi Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#facilities" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Keunggulan Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#description" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Foto Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#confirmation" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Konfirmasi Produk
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <?php if (session()->getFlashdata('errors')): ?>
+                                <div class="alert alert-danger">
                                     <ul>
-                                        <li>
-                                            <a href="#general" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                General Data
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#type" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Spesifikasi Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#facilities" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Keunggulan Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#description" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Foto Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#confirmation" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Konfirmasi Produk
-                                            </a>
-                                        </li>
+                                        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                            <li><?= esc($error) ?></li>
+                                        <?php endforeach ?>
                                     </ul>
                                 </div>
+                            <?php endif; ?>
 
-                                <?php if (session()->getFlashdata('errors')): ?>
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                                                <li><?= esc($error) ?></li>
-                                            <?php endforeach ?>
-                                        </ul>
-                                    </div>
-                                <?php endif; ?>
-
-                                <form action="save-step1" method="post">
-                                    <?= csrf_field() ?>
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="general">
-                                            <div class="row">
-                                                <div class="col-sm-12" style="margin-bottom: 65px;">
-                                                </div>
-                                                <div class="col-sm-6">
-
-                                                    <div class="form-group">
-                                                        <label for="brand">Merek</label>
-                                                        <select id="brand" name="brand_id" class="form-control" required>
-                                                            <option value="" disabled selected>Masukan Merek</option>
-                                                            <?php foreach ($brands as $brand): ?>
-                                                                <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="category">Kategori</label>
-                                                        <select id="category" name="category_id" class="form-control" required>
-                                                            <option value="" disabled selected>Masukan Kategori</option>
-                                                            <?php foreach ($categories as $category): ?>
-                                                                <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="subcategory">Subkategori</label>
-                                                        <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
-                                                            <option value="" disabled selected>Select Subcategory</option>
-                                                            <option value="" disabled selected>Masukan Subkategori</option>
-                                                            <?php foreach ($subcategories as $subcategory): ?>
-                                                                <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="product_type">Tipe Produk</label>
-                                                        <input type="text" id="product_type" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
-                                                    </div>
-                                                </div>
-                                                <div id="capacity-group" class="col-sm-6" style="display:none;">
-                                                    <div class="form-group">
-                                                        <label id="capacity-label">Kapasitas</label>
-                                                        <select id="capacity" name="capacity_value" class="form-control" required>
-                                                            <option value="" disabled selected>Select Kapasitas</option>
-                                                            <!-- Options will be populated dynamically -->
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6">
-                                                    <div class="form-group" id="warranty-compressor-group">
-                                                        <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor</label>
-                                                        <div>
-                                                            <select id="compressor_warranty" name="compressor_warranty_id" class="form-control" style="" required>
-                                                                <option value="" disabled selected>Masukan Garansi Kompresor</option>
-                                                                <?php foreach ($compressor_warranties as $compressor_warranty): ?>
-                                                                    <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?> Tahun</option>
-                                                                <?php endforeach; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="color">Warna</label>
-                                                        <input type="text" id="color" name="color" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6">
-                                                    <div class="form-group" id="warranty-sparepart-group">
-                                                        <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart</label>
-                                                        <div style="">
-                                                            <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
-                                                                <option value="" disabled selected>Masukan Garansi Sparepart</option>
-                                                                <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                                                                    <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
-                                                                <?php endforeach; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
-                                                    <div class="form-group">
-                                                        <div style="">
-                                                            <label for="kapasitas_air_dingin" style="">Kapasitas Air Dingin</label>
-                                                            <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" style="" placeholder="Kapasitas Air Dingin">
-                                                            <span style="">Liter</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
-                                                    <div class="form-group">
-                                                        <div style="">
-                                                            <label for="kapasitas_air_panas" style="">Kapasitas Air Panas</label>
-                                                            <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" style="" placeholder="Kapasitas Air Panas">
-                                                            <span style="">Liter</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                            <form action="save-step1" method="post">
+                                <?= csrf_field() ?>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="general">
+                                        <div class="row">
+                                            <div class="col-sm-12" style="margin-bottom: 65px;">
                                             </div>
-                                        </div>
+                                            <div class="col-sm-6">
 
+                                                <div class="form-group">
+                                                    <label for="brand">Merek</label>
+                                                    <select id="brand" name="brand_id" class="form-control" required>
+                                                        <option value="" disabled selected>Masukan Merek</option>
+                                                        <?php foreach ($brands as $brand): ?>
+                                                            <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="category">Kategori</label>
+                                                    <select id="category" name="category_id" class="form-control" required>
+                                                        <option value="" disabled selected>Masukan Kategori</option>
+                                                        <?php foreach ($categories as $category): ?>
+                                                            <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="subcategory">Subkategori</label>
+                                                    <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
+                                                        <option value="" disabled selected>Select Subcategory</option>
+                                                        <option value="" disabled selected>Masukan Subkategori</option>
+                                                        <?php foreach ($subcategories as $subcategory): ?>
+                                                            <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="product_type">Tipe Produk</label>
+                                                    <input type="text" id="product_type" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
+                                                </div>
+                                            </div>
+                                            <div id="capacity-group" class="col-sm-6" style="display:none;">
+                                                <div class="form-group">
+                                                    <label id="capacity-label">Kapasitas</label>
+                                                    <select id="capacity" name="capacity_value" class="form-control" required>
+                                                        <option value="" disabled selected>Select Kapasitas</option>
+                                                        <!-- Options will be populated dynamically -->
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group" id="warranty-compressor-group">
+                                                    <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor</label>
+                                                    <div>
+                                                        <select id="compressor_warranty" name="compressor_warranty_id" class="form-control" style="" required>
+                                                            <option value="" disabled selected>Masukan Garansi Kompresor</option>
+                                                            <?php foreach ($compressor_warranties as $compressor_warranty): ?>
+                                                                <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?> Tahun</option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="color">Warna</label>
+                                                    <input type="text" id="color" name="color" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group" id="warranty-sparepart-group">
+                                                    <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart</label>
+                                                    <div style="">
+                                                        <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
+                                                            <option value="" disabled selected>Masukan Garansi Sparepart</option>
+                                                            <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
+                                                                <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
+                                                <div class="form-group">
+                                                    <div style="">
+                                                        <label for="kapasitas_air_dingin" style="">Kapasitas Air Dingin</label>
+                                                        <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" style="" placeholder="Kapasitas Air Dingin">
+                                                        <span style="">Liter</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
+                                                <div class="form-group">
+                                                    <div style="">
+                                                        <label for="kapasitas_air_panas" style="">Kapasitas Air Panas</label>
+                                                        <input type="text" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" style="" placeholder="Kapasitas Air Panas">
+                                                        <span style="">Liter</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <div class="wizard-footer">
-                                        <div class="pull-right">
+
+                                </div>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
 
 
-                                            <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                                        </div>
-
-                                        <div class="pull-left">
-                                            <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
-                                        </div>
-                                        <div class="clearfix"></div>
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
                                     </div>
 
-                                </form>
-                                <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
+                                    <div class="pull-left">
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </form>
+                            <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

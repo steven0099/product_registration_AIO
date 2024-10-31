@@ -170,215 +170,215 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <!--      Wizard container        -->
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="red" id="wizard">
-                            <form action="" method="">
 
-                                <div class="wizard-header" style="text-align: center;weight: 7000;">
-                                    <div class="row" style=" height: 135px; align-content: center">
-                                        <div class="col-sm-5 col-sm-offset-1 logo">
-                                            <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
-                                        </div>
-                                        <div class="col-sm-5 title">
-                                            <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
-                                        </div>
+
+                            <div class="wizard-header" style="text-align: center;weight: 7000;">
+                                <div class="row" style=" height: 135px; align-content: center">
+                                    <div class="col-sm-5 col-sm-offset-1 logo">
+                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                    </div>
+                                    <div class="col-sm-5 title">
+                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
-                                <div class="wizard-navigation">
-                                    <div class="progress-with-circle">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="#general" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                General Data
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#type" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Spesifikasi Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#facilities" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Keunggulan Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#description" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Foto Produk
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#confirmation" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-package"></i>
-                                                </div>
-                                                Konfirmasi Produk
-                                            </a>
-                                        </li>
-                                    </ul>
+                            </div>
+                            <div class="wizard-navigation">
+                                <div class="progress-with-circle">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
                                 </div>
-                                <form action="save-step2" method="post">
-                                    <?= csrf_field() ?>
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="type">
-                                            <div class="row">
-                                                <!-- Left Column -->
-                                                <div class="col-sm-6" style="margin-top: 65px;">
-                                                    <div class="form-group row">
-                                                        <label for="product_dimensions" id="product-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk (P x L x T)</label>
-                                                        <div class="col-sm-8">
+                                <ul>
+                                    <li>
+                                        <a href="#general" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            General Data
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#type" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Spesifikasi Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#facilities" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Keunggulan Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#description" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Foto Produk
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#confirmation" data-toggle="tab">
+                                            <div class="icon-circle">
+                                                <i class="ti-package"></i>
+                                            </div>
+                                            Konfirmasi Produk
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form action="save-step2" method="post">
+                                <?= csrf_field() ?>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="type">
+                                        <div class="row">
+                                            <!-- Left Column -->
+                                            <div class="col-sm-6" style="margin-top: 65px;">
+                                                <div class="form-group row">
+                                                    <label for="product_dimensions" id="product-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk (P x L x T)</label>
+                                                    <div class="col-sm-8">
 
-                                                            <div class="form-group-s" style="display: flex">
-                                                                <input type="number" name="produk_p" placeholder="Panjang (cm)" class="form-control" required>
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="produk_l" placeholder="Lebar (cm)" class="form-control" required>
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="produk_t" placeholder="Tinggi (cm)" class="form-control" required>
-                                                                <label class="unit">cm</label>
-                                                            </div>
+                                                        <div class="form-group-s" style="display: flex">
+                                                            <input type="number" name="produk_p" placeholder="Panjang (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="produk_l" placeholder="Lebar (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="produk_t" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <label class="unit">cm</label>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
-                                                        <div class="col-sm-8">
-                                                            <div class="form-group-s" id="product-stand-field" style="display: flex">
-                                                                <input type="number" name="pstand_p" placeholder="Panjang (cm)" class="form-control">
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="pstand_l" placeholder="Lebar (cm)" class="form-control">
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="pstand_t" placeholder="Tinggi (cm)" class="form-control">
-                                                                <label class="unit">cm</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="package_dimensions" class="col-sm-4 col-form-label">Dimensi Kemasan Produk (P x L x T)</label>
-                                                        <div class="col-sm-8">
-                                                            <div style="display: flex;">
-                                                                <input type="number" name="kemasan_p" placeholder="Panjang (cm)" class="form-control" required>
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="kemasan_l" placeholder="Lebar (cm)" class="form-control" required>
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="kemasan_t" placeholder="Tinggi (cm)" class="form-control" required>
-                                                                <label class="unit">cm</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
-                                                        <div class="col-sm-8">
-                                                            <div class="form-group-s" id="panel-resolution-field">
-                                                                <input type="number" name="resolusi_x" placeholder="X (cm)" class="form-control">
-                                                                <label class="divider"> x </label>
-                                                                <input type="number" name="resolusi_y" placeholder="Y (cm)" class="form-control">
-                                                                <label class="unit">Pixel</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="berat" class="col-sm-4 col-form-label">Berat Produk</label>
-                                                        <div class="col-sm-8">
-                                                            <div style="display: flex;">
-                                                                <input type="number" name="berat" placeholder="Berat Produk (kg)" class="form-control" required>
-                                                                <label class="unit">kg</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- refigrant Dropdown -->
-                                                    <div class="form-group row" id="refrigrant-field">
-                                                        <label for="refrigrant" class="col-sm-4 col-form-label">Tipe Refrigrant</label>
-                                                        <div class="col-sm-8">
-                                                            <select id="refigrant" name="refrigrant_id" class="form-control">
-                                                                <option value="" disabled selected>Tipe Refrigrant</option>
-                                                                <?php foreach ($refrigrant as $refigrants): ?>
-                                                                    <option value="<?= $refigrants['id'] ?>"><?= esc($refigrants['type']) ?></option>
-                                                                <?php endforeach; ?>
-                                                            </select>
-                                                        </div>
-
-
                                                     </div>
                                                 </div>
 
-                                                <!-- Right Column -->
-                                                <div class="col-sm-6" style="margin-top: 65px;">
-                                                    <div class="form-group row" id="cspf-field">
-                                                        <label for="cspf" class="col-sm-4 col-form-label">CSPF Rating</label>
-                                                        <div class="col-sm-8">
-                                                            <div style="display: flex; align-items: center;">
-                                                                <input type="number" name="cspf" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1">
-                                                                <div id="star-rating" style="margin-left: 10px;">
-                                                                    <!-- Five star placeholders -->
-                                                                    <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                    <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                    <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                    <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                    <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                </div>
-                                                            </div>
+                                                <div class="form-group row">
+                                                    <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group-s" id="product-stand-field" style="display: flex">
+                                                            <input type="number" name="pstand_p" placeholder="Panjang (cm)" class="form-control">
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="pstand_l" placeholder="Lebar (cm)" class="form-control">
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="pstand_t" placeholder="Tinggi (cm)" class="form-control">
+                                                            <label class="unit">cm</label>
                                                         </div>
                                                     </div>
+                                                </div>
 
-                                                    <div class="form-group row">
-                                                        <label for="daya" class="col-sm-4 col-form-label">Konsumsi Daya</label>
-                                                        <div class="col-sm-8">
-                                                            <div style="display: flex;">
-                                                                <input type="number" name="daya" placeholder="Konsumsi Daya (watt)" class="form-control" required>
-                                                                <label class="unit">watt</label>
-                                                            </div>
+                                                <div class="form-group row">
+                                                    <label for="package_dimensions" class="col-sm-4 col-form-label">Dimensi Kemasan Produk (P x L x T)</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="kemasan_p" placeholder="Panjang (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="kemasan_l" placeholder="Lebar (cm)" class="form-control" required>
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="kemasan_t" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <label class="unit">cm</label>
                                                         </div>
                                                     </div>
+                                                </div>
 
-                                                    <div class="form-group row">
-                                                        <label for="cooling_capacity" class="col-sm-4 col-form-label">Kapasitas Pendinginan</label>
-                                                        <div class="col-sm-8">
-                                                            <div style="display: flex;">
-                                                                <input type="number" name="cooling_capacity" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
-                                                                <label class="unit">BTU/h</label>
-                                                            </div>
+                                                <div class="form-group row">
+                                                    <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group-s" id="panel-resolution-field">
+                                                            <input type="number" name="resolusi_x" placeholder="X (cm)" class="form-control">
+                                                            <label class="divider"> x </label>
+                                                            <input type="number" name="resolusi_y" placeholder="Y (cm)" class="form-control">
+                                                            <label class="unit">Pixel</label>
                                                         </div>
                                                     </div>
+                                                </div>
 
-                                                    <div class="form-group row">
-                                                        <label for="pembuat" class="col-sm-4 col-form-label">Negara Pembuat</label>
-                                                        <div class="col-sm-8">
-                                                            <input type="text" name="pembuat" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
+                                                <div class="form-group row">
+                                                    <label for="berat" class="col-sm-4 col-form-label">Berat Produk</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="berat" placeholder="Berat Produk (kg)" class="form-control" required>
+                                                            <label class="unit">kg</label>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <!-- refigrant Dropdown -->
+                                                <div class="form-group row" id="refrigrant-field">
+                                                    <label for="refrigrant" class="col-sm-4 col-form-label">Tipe Refrigrant</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="refigrant" name="refrigrant_id" class="form-control">
+                                                            <option value="" disabled selected>Tipe Refrigrant</option>
+                                                            <?php foreach ($refrigrant as $refigrants): ?>
+                                                                <option value="<?= $refigrants['id'] ?>"><?= esc($refigrants['type']) ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     </div>
 
 
                                                 </div>
                                             </div>
 
-                                        </div>
-                                        <div class="wizard-footer">
-                                            <div class="pull-right">
-                                                <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                                <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                                            </div>
+                                            <!-- Right Column -->
+                                            <div class="col-sm-6" style="margin-top: 65px;">
+                                                <div class="form-group row" id="cspf-field">
+                                                    <label for="cspf" class="col-sm-4 col-form-label">CSPF Rating</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex; align-items: center;">
+                                                            <input type="number" name="cspf" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1">
+                                                            <div id="star-rating" style="margin-left: 10px;">
+                                                                <!-- Five star placeholders -->
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            <div class="pull-left">
-                                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                                <div class="form-group row">
+                                                    <label for="daya" class="col-sm-4 col-form-label">Konsumsi Daya</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="daya" placeholder="Konsumsi Daya (watt)" class="form-control" required>
+                                                            <label class="unit">watt</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="cooling_capacity" class="col-sm-4 col-form-label">Kapasitas Pendinginan</label>
+                                                    <div class="col-sm-8">
+                                                        <div style="display: flex;">
+                                                            <input type="number" name="cooling_capacity" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
+                                                            <label class="unit">BTU/h</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="pembuat" class="col-sm-4 col-form-label">Negara Pembuat</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="pembuat" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
-                                            <div class="clearfix"></div>
                                         </div>
-                                </form>
+
+                                    </div>
+                                    <div class="wizard-footer">
+                                        <div class="pull-right">
+                                            <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                            </form>
                         </div>
                     </div> <!-- wizard container -->
                 </div>
