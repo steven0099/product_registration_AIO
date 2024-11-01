@@ -424,6 +424,7 @@ class ProductController extends BaseController
     // Step 3: Product Advantages
     public function step3()
     {
+        // dd(session()->get("step3"));
         return view('layout/product/product_regis_step3');
     }
 

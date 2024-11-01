@@ -201,13 +201,13 @@
                                         <div class="row" style="margin: 25px;">
 
                                             <div class="form-group">
-                                                <input type="text" id="advantage1" name="advantage1" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                                <input type="text" id="advantage1" name="advantage1" value="<?= session()->get("step3")["advantage1"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage2" name="advantage2" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                                <input type="text" id="advantage2" name="advantage2" value="<?= session()->get("step3")["advantage2"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage3" name="advantage3" placeholder="Masukan Keunggulan Produk" class="form-control" required>
+                                                <input type="text" id="advantage3" name="advantage3" value="<?= session()->get("step3")["advantage3"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" id="advantage4" name="advantage4" placeholder="Masukan Keunggulan Produk" class="form-control">
@@ -231,7 +231,7 @@
                                     </div>
 
                                     <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -277,7 +277,9 @@
         // Initialize fields by disabling all but the first advantage field
         const advantageFields = Array.from(document.querySelectorAll('[id^="advantage"]'));
         advantageFields.forEach((field, index) => {
-            if (index !== 0) field.disabled = true;
+            if (field.value == "") {
+                if (index !== 0) field.disabled = true;
+            }
             field.addEventListener("input", function() {
                 if (field.value.trim() !== "" && index < advantageFields.length - 1) {
                     advantageFields[index + 1].disabled = false;
@@ -288,7 +290,12 @@
                     }
                 }
             });
+
         });
+    });
+
+    $(document).ready(function() {
+        $('a[href="#facilities"]').tab('show'); // Activate the advantages tab
     });
 </script>
 

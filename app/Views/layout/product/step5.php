@@ -164,7 +164,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#type" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -172,7 +172,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#facilities" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -180,7 +180,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#description" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -215,7 +215,7 @@
                                                 <tr>
                                                     <td>Merek</td>
                                                     <td id="brand_nameDisplay"><?= esc($data['brand_name']) ?>
-                                                        <button data-field-name="brand" data-field-label="Brand" data-field-value="<?= $data['brand_id'] ?>" class="btn btn-sm btn-primary edit-button">Edit Brand</button>
+
                                                     </td>
                                                     <td>Konsumsi Daya</td>
                                                     <td><?= esc($data['daya']) ?> Watt</td>
@@ -324,7 +324,7 @@
                                     <!-- Back Button -->
 
 
-                                    <input type='button' class='btn btn-previous btn-default btn-wd' href="<?= site_url('layout/product/product_regis_step1') ?>" name='previous' value='Previous' />
+                                    <input type='button' class='btn btn-previous btn-default btn-wd' onclick="history.back();" name='previous' value='Previous' />
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -356,6 +356,9 @@
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
 <script>
+    $(document).ready(function() {
+        $('a[href="#confirmation"]').tab('show'); // Activate the confirmations tab
+    });
     // Function to open the edit modal
     function openEditModal(fieldName, fieldLabel, fieldValue) {
         // Set the field name and label

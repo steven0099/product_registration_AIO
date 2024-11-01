@@ -147,7 +147,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#type" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -155,7 +155,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#facilities" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -163,7 +163,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#description" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -194,7 +194,7 @@
                             <form action="save-step4" method="post" enctype="multipart/form-data">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
-                                    <div class="tab-pane" id="description">
+                                    <div class="tab-pane" id="photos">
 
                                         <div class="row" style="margin: 25px;">
                                             <!-- Left Column -->
@@ -254,7 +254,7 @@
                                     </div>
 
                                     <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -295,6 +295,10 @@
 <!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
-
+<script>
+    $(document).ready(function() {
+        $('a[href="#photos"]').tab('show'); // Activate the upload photos tab
+    });
+</script>
 
 </html>

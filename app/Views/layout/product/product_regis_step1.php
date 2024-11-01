@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#type" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#facilities" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#description" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>

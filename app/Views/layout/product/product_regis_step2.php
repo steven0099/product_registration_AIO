@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#type" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#facilities" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#description" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -233,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
 
-                                    <div class="tab-pane" id="type">
+                                    <div class="tab-pane" id="specification">
                                         <div class="row">
                                             <!-- Left Column -->
                                             <div class="col-sm-6" style="margin-top: 65px;">
@@ -366,19 +366,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div class="wizard-footer">
-                                        <div class="pull-right">
-                                            <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                                        </div>
 
-                                        <div class="pull-left">
-                                            <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
-                                        </div>
-                                        <div class="clearfix"></div>
+                                </div>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
                                     </div>
+
+                                    <div class="pull-left">
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </form>
                         </div>
                     </div> <!-- wizard container -->
@@ -417,6 +418,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
 <script>
+    $(document).ready(function() {
+        $('a[href="#specification"]').tab('show'); // Activate the specification tab
+    });
+
     window.onload = function() {
         // Mendapatkan category_id dari PHP
         var categoryId = <?= $category_id ?>;
