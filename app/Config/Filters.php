@@ -39,7 +39,8 @@ class Filters extends BaseConfig
     public $globals = [
         'before' => [
             'csrf' => ['except' => [
-                'get-subcategories', // CSRF exception for this specific route
+                'get-subcategories',
+                'superadmin/updateField', // CSRF exception for this specific route
             ]],
         ],
         'after'  => [

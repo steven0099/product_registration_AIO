@@ -69,7 +69,7 @@
                 <table id="cowarTable" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>No.</th>
                       <th>Garansi Motor (Tahun)</th>
                       <th>Opsi</th>
                     </tr>

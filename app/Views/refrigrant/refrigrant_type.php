@@ -70,7 +70,7 @@
                 <table id="refTable" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>No.</th>
                       <th>Refrigrant</th>
                       <th>Opsi</th>
                     </tr>

@@ -71,6 +71,9 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     // Superadmin product approvals/rejections
     $routes->get('product/approved', 'ProductController::approved');
     $routes->get('product/rejected', 'ProductController::rejected');
+    $routes->get('getOptions', 'ProductController::getOptions');
+    $routes->post('updateColor', 'ProductController::updateColor');
+    $routes->post('updateProductField', 'ProductController::updateProductField');
 });
 
 // Routes for Admin and Superadmin (Admin Management)

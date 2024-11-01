@@ -48,7 +48,7 @@
                     <th>No.</th>
                     <th>Merek</th>
                     <th>Tipe Produk</th>
-                    <th>Pengaju</th>
+                    <th>Diajukan Oleh</th>
                     <th>Tanggal</th>
                     <th>Detail</th>
                   </tr>
@@ -63,8 +63,8 @@
                 <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
                 <td><?= esc($products['confirmed_at']) ?></td>
                 <td>
-                <a href="/admin/details/<?= esc($products['id']) ?>" class="btn-view">
-                <i class="fas fa-eye"></i>
+                <button class="button btn btn-success" onclick="location.href='/admin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
+                </button>
                 </td>
             </tr>
         <?php endforeach; ?>

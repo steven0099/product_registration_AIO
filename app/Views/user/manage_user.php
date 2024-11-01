@@ -46,7 +46,7 @@
                 <table id="user" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>No.</th>
                       <th>Nama</th>
                       <th>Brand</th>
                       <th>No.Telp</th>

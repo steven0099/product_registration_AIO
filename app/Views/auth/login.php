@@ -55,7 +55,7 @@
           />
         </div>
         <div class="col-lg-6">
-          <h2 class="font-alt text-warning mt-4 text-center">Login User <br>Prooduct Registration</h2>
+          <h2 class="font-alt text-warning mt-4 text-center">Login User <br>Product Registration</h2>
           <h6 class="white-color-light text-center"> </h6>
           <form
             id="loginForm"

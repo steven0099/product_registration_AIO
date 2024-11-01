@@ -189,7 +189,8 @@ public function generateReport()
         'AA' => 'Keunggulan 2', 'AB' => 'Keunggulan 3', 'AC' => 'Keunggulan 4', 'AD' => 'Keunggulan 5', 'AE' => 'Keunggulan 6',
         'AF' => 'Gambar Depan', 'AG' => 'Gambar Belakang', 'AH' => 'Gambar Samping Kiri', 
         'AI' => 'Gambar Samping Kanan', 'AJ' => 'Gambar Atas', 'AK' => 'Gambar Bawah',
-        'AL' => 'Link Video Produk', 'AM' => 'Status', 'AN' => 'Tanggal Disetujui', 'AO' => 'Tanggal Ditolak'
+        'AL' => 'Link Video Produk', 'AM' => 'Diajukan Oleh', 'AN' => 'Status', 'AO' => 'Tanggal Disetujui',
+        'AP' => 'Tanggal Ditolak', 'AQ' => 'Tanggal Pengajuan'
     ];
 
     // Set headers
@@ -205,55 +206,57 @@ public function generateReport()
               ->setCellValue('C' . $row, $product['subcategory'])
               ->setCellValue('D' . $row, $product['product_type'])
               ->setCellValue('E' . $row, $product['color'])
-              ->setCellValue('F' . $row, $product['garansi_motor'].'Tahun' ?? '')
-              ->setCellValue('G' . $row, $product['garansi_semua_service'].' Tahun' ?? '')
-              ->setCellValue('H' . $row, $product['garansi_elemen_panas'].' Tahun' ?? '')
-              ->setCellValue('I' . $row, $product['garansi_panel'].' Tahun' ?? '')
-              ->setCellValue('J' . $row, $product['compressor_warranty'].' Tahun' ?? '')
-              ->setCellValue('K' . $row, $product['sparepart_warranty'].' Tahun' ?? '')
+              ->setCellValue('F' . $row, (!empty($product['garansi_motor']) ? $product['garansi_motor'] . ' Tahun' : ''))
+              ->setCellValue('G' . $row, (!empty($product['garansi_semua_service']) ? $product['garansi_semua_service'] . ' Tahun' : ''))
+              ->setCellValue('H' . $row, (!empty($product['garansi_elemen_panas']) ? $product['garansi_elemen_panas'] . ' Tahun' : ''))
+              ->setCellValue('I' . $row, (!empty($product['garansi_panel']) ? $product['garansi_panel'] . ' Tahun' : ''))
+              ->setCellValue('J' . $row, (!empty($product['compressor_warranty']) ? $product['compressor_warranty'] . ' Tahun' : ''))
+              ->setCellValue('K' . $row, (!empty($product['sparepart_warranty']) ? $product['sparepart_warranty'] . ' Tahun' : ''))              
               ->setCellValue('L' . $row, $product['capacity'] ?? '')
               ->setCellValue('M' . $row, $product['ukuran'] ?? '')
-              ->setCellValue('N' . $row, $product['kapasitas_air_panas'].' Liter' ?? '')
-              ->setCellValue('O' . $row, $product['kapasitas_air_dingin'].' Liter' ?? '')
+              ->setCellValue('N' . $row, (!empty($product['kapasitas_air_panas']) ? $product['kapasitas_air_panas'].' Liter' : ''))
+              ->setCellValue('O' . $row, (!empty($product['kapasitas_air_dingin']) ? $product['kapasitas_air_dingin'].' Liter' : ''))
               ->setCellValue('P' . $row, $product['product_dimensions'] ?? '')
               ->setCellValue('Q' . $row, $product['packaging_dimensions'] ?? '')
               ->setCellValue('R' . $row, $product['daya'].' Watt' ?? '')
               ->setCellValue('S' . $row, $product['berat'].' Kg' ?? '')
               ->setCellValue('T' . $row, $product['pembuat'] ?? '')
               ->setCellValue('U' . $row, $product['pstand_dimensions'] ?? '')
-              ->setCellValue('V' . $row, $product['panel_resolution'].' Pixel' ?? '')
-              ->setCellValue('W' . $row, $product['cooling_capacity'].' BTU/H' ?? '')
+              ->setCellValue('V' . $row, (!empty($product['panel_resolution']) ? $product['panel_resolution'].' Pixel' : ''))
+              ->setCellValue('W' . $row, (!empty($product['cooling_capacity']) ? $product['cooling_capacity'].' BTU/H' : ''))
               ->setCellValue('X' . $row, $product['cspf'] ?? '')
-              ->setCellValue('Y' . $row, $product['refrigrant'].'/5' ?? '')
+              ->setCellValue('Y' . $row, (!empty($product['refrigrant']) ? $product['cspf'].'/5' : ''))
               ->setCellValue('Z' . $row, $product['advantage1'] ?? '')
               ->setCellValue('AA' . $row, $product['advantage2'] ?? '')
               ->setCellValue('AB' . $row, $product['advantage3'] ?? '')
               ->setCellValue('AC' . $row, $product['advantage4'] ?? '')
               ->setCellValue('AD' . $row, $product['advantage5'] ?? '')
               ->setCellValue('AE' . $row, $product['advantage6'] ?? '')
-              ->setCellValue('AF' . $row, 'localhost:8080/uploads/' . $product['gambar_depan'])
-              ->setCellValue('AG' . $row, 'localhost:8080/uploads/' . $product['gambar_belakang'])
-              ->setCellValue('AH' . $row, 'localhost:8080/uploads/' . $product['gambar_samping_kiri'])
-              ->setCellValue('AI' . $row, 'localhost:8080/uploads/' . $product['gambar_samping_kanan'])
-              ->setCellValue('AJ' . $row, 'localhost:8080/uploads/' . $product['gambar_atas'])
-              ->setCellValue('AK' . $row, 'localhost:8080/uploads/' . $product['gambar_bawah']);
+              ->setCellValue('AF' . $row, base_url('uploads/' . esc($product['gambar_depan'])))
+              ->setCellValue('AG' . $row, base_url('uploads/' . esc($product['gambar_belakang'])) ?? '')
+              ->setCellValue('AH' . $row, base_url('uploads/' . esc($product['gambar_samping_kiri'])) ?? '')
+              ->setCellValue('AI' . $row, base_url('uploads/' . esc($product['gambar_samping_kanan'])) ?? '')
+              ->setCellValue('AJ' . $row, base_url('uploads/' . esc($product['gambar_atas'])) ?? '')
+              ->setCellValue('AK' . $row, base_url('uploads/' . esc($product['gambar_bawah'])) ?? '');
 
 
         // Populate remaining fields
-        $sheet->setCellValue('AL' . $row, $product['video_produk'] ?? '');
+        $sheet->setCellValue('AL' . $row, $product['video_produk'] ?? '')
+              ->setCellValue('AM' . $row, $product['submitted_by'] ?? '');
               
         if ($product['status'] === 'approved') {
-            $sheet->setCellValue('AM' . $row, 'Disetujui');
+            $sheet->setCellValue('AN' . $row, 'Disetujui');
         } elseif ($product['status'] === 'rejected') {
-            $sheet->setCellValue('AM' . $row, 'Ditolak');
+            $sheet->setCellValue('AN' . $row, 'Ditolak');
         }
 
         // Conditionally set approved or rejected dates
         if ($product['status'] === 'approved') {
-            $sheet->setCellValue('AN' . $row, $product['approved_at']);
+            $sheet->setCellValue('AO' . $row, $product['approved_at']);
         } elseif ($product['status'] === 'rejected') {
-            $sheet->setCellValue('AO' . $row, $product['rejected_at']);
+            $sheet->setCellValue('AP' . $row, $product['rejected_at']);
         }
+        $sheet->setCellValue('AQ' . $row, $product['confirmed_at'] ?? '');
         $row++;
     }
     // Hide columns that are entirely empty
@@ -597,56 +600,56 @@ foreach (array_keys($headers) as $col) {
         $gambarSampingKananName = null;
         $videoProdukLink = null;
     
-        // Handle Gambar Tampak Depan
+        // Handle Gambar Tampak Depan (Required)
         $gambarDepan = $this->request->getFile('gambar_depan');
         if ($gambarDepan && $gambarDepan->isValid()) {
             $gambarDepanName = $gambarDepan->getRandomName();
             $gambarDepan->move($uploadPath, $gambarDepanName);
+        } else {
+            return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
         }
     
-        // Handle Gambar Tampak Belakang
+        // Handle Gambar Tampak Belakang (Optional)
         $gambarBelakang = $this->request->getFile('gambar_belakang');
         if ($gambarBelakang && $gambarBelakang->isValid()) {
             $gambarBelakangName = $gambarBelakang->getRandomName();
             $gambarBelakang->move($uploadPath, $gambarBelakangName);
         }
     
-        // Handle Gambar Tampak Atas
+        // Handle Gambar Tampak Atas (Optional)
         $gambarAtas = $this->request->getFile('gambar_atas');
         if ($gambarAtas && $gambarAtas->isValid()) {
             $gambarAtasName = $gambarAtas->getRandomName();
             $gambarAtas->move($uploadPath, $gambarAtasName);
         }
     
-        // Handle Gambar Tampak Bawah
+        // Handle Gambar Tampak Bawah (Optional)
         $gambarBawah = $this->request->getFile('gambar_bawah');
         if ($gambarBawah && $gambarBawah->isValid()) {
             $gambarBawahName = $gambarBawah->getRandomName();
             $gambarBawah->move($uploadPath, $gambarBawahName);
         }
     
-        // Handle Gambar Samping Kiri
+        // Handle Gambar Samping Kiri (Optional)
         $gambarSampingKiri = $this->request->getFile('gambar_samping_kiri');
         if ($gambarSampingKiri && $gambarSampingKiri->isValid()) {
             $gambarSampingKiriName = $gambarSampingKiri->getRandomName();
             $gambarSampingKiri->move($uploadPath, $gambarSampingKiriName);
         }
     
-        // Handle Gambar Samping Kanan
+        // Handle Gambar Samping Kanan (Optional)
         $gambarSampingKanan = $this->request->getFile('gambar_samping_kanan');
         if ($gambarSampingKanan && $gambarSampingKanan->isValid()) {
             $gambarSampingKananName = $gambarSampingKanan->getRandomName();
             $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
         }
     
-        // Handle Video Produk (YouTube link)
-        $videoProduk = $this->request->getPost('video_produk'); // Change this to getPost as we're dealing with links
-        if ($videoProduk && $this->isValidYouTubeUrl($videoProduk)) {
-            $videoProdukLink = $videoProduk; // Store the valid YouTube link
-        } else {
-            // Handle the case where the link is invalid
+        // Handle Video Produk (YouTube link, optional)
+        $videoProduk = $this->request->getPost('video_produk');
+        if ($videoProduk && !$this->isValidYouTubeUrl($videoProduk)) {
             return redirect()->back()->with('error', 'Invalid YouTube link provided.');
         }
+        $videoProdukLink = $videoProduk;
     
         // Save the file paths into the session for step 4
         $step4Data = [
@@ -672,7 +675,6 @@ foreach (array_keys($headers) as $col) {
         $pattern = '/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/';
         return preg_match($pattern, $url);
     }
-    
 
     public function confirm()
     {
@@ -782,12 +784,12 @@ foreach (array_keys($headers) as $col) {
             'advantage5' => $finalData['advantage5'] ?? '',
             'advantage6' => $finalData['advantage6'] ?? '',
             'gambar_depan' => $finalData['gambar_depan'],
-            'gambar_belakang' => $finalData['gambar_belakang'],
-            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'],
-            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'],
-            'gambar_atas' => $finalData['gambar_atas'],
-            'gambar_bawah' => $finalData['gambar_bawah'],
-            'video_produk' => $finalData['video_produk'],
+            'gambar_belakang' => $finalData['gambar_belakang'] ?? '',
+            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'] ?? '',
+            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'] ?? '',
+            'gambar_atas' => $finalData['gambar_atas'] ?? '',
+            'gambar_bawah' => $finalData['gambar_bawah'] ?? '',
+            'video_produk' => $finalData['video_produk'] ?? '',
         ];
     
         $data = [
@@ -899,4 +901,59 @@ private function formatResolution($data, $xKey, $yKey)
     {
     return view ('product/thank_you');
     }
+
+    public function getOptions()
+    {
+        $field = $this->request->getGet('field');
+        $options = [];
+    
+        switch ($field) {
+            case 'brand':
+                $options = $this->brandModel->findAll(); // Example, assuming you have a Brand model
+                break;
+            case 'category':
+                $options = $this->categoryModel->findAll();
+                break;
+            // Add cases for other fields
+        }
+    
+        return $this->response->setJSON(['options' => $options]);
+    }
+    
+    public function updateProductField()
+    {
+        $productId = $this->request->getPost('product_id');
+        $fieldName = $this->request->getPost('field_name');
+        $fieldValue = $this->request->getPost('field_value');
+    
+        $updateData = [$fieldName => $fieldValue];
+        
+        if ($this->confirmationModel->update($productId, $updateData)) {
+            return $this->response->setJSON([
+                'success' => $success,
+                csrf_token() => csrf_hash()
+        ]);
+        }
+        
+        return $this->response->setJSON(['success' => false]);
+    }    
+
+    public function updateColor()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $color = $this->request->getPost('color'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($color)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['color' => $color])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Color updated successfully.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+    
 }

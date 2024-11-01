@@ -34,8 +34,8 @@
         </li>
 
         <!-- Manage Data Section -->
-        <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 90%">
-          <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant' || uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor'|| uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
+        <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant') ? 'menu-open' : '' ?>" style="width: 99%">
+          <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant') ? 'active' : '' ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Kelola Data<i class="right fas fa-angle-left"></i></p>
           </a>
@@ -79,7 +79,7 @@
           </ul>
         </li>
 
-        <li class="nav-item <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service' || uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>">
+        <li class="nav-item <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service' || uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 99%">
             <a href="#" class="nav-link <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-circle"></i>
               <p>
@@ -122,7 +122,7 @@
 
         <!-- Manage Products Section -->
         <li class="nav-item 
-        <?= (uri_string() == 'product' || uri_string() == 'product/approved'|| uri_string() == 'product/rejected') ? 'menu-open' : '' ?>" style="width: 90%">
+        <?= (uri_string() == 'product' || uri_string() == 'product/approved'|| uri_string() == 'product/rejected') ? 'menu-open' : '' ?>" style="width: 99%">
           <a href="#" class="nav-link <?= (uri_string() == 'product' || uri_string() == 'product/approved' || uri_string() == 'product/rejected') ? 'active' : '' ?>">
             <i class="nav-icon fas fa-boxes"></i>
             <p>Kelola Produk<i class="right fas fa-angle-left"></i></p>
@@ -165,7 +165,7 @@
 
         <!-- Manage User Section, visible only for superadmin -->
         <?php if (session()->get('role') == 'superadmin'): ?>
-        <li class="nav-item <?= (uri_string() == 'superadmin/user' || uri_string() == 'superadmin/user/reset') ? 'menu-open' : '' ?>" style="width: 90%">
+        <li class="nav-item <?= (uri_string() == 'superadmin/user' || uri_string() == 'superadmin/user/reset') ? 'menu-open' : '' ?>" style="width: 99%">
           <a href="#" class="nav-link <?= (uri_string() == 'superadmin/user' || uri_string() == 'superadmin/user/reset') ? 'active' : '' ?>">
             <i class="nav-icon fas fa-user"></i>
             <p>Kelola User<i class="right fas fa-angle-left"></i></p>

@@ -47,7 +47,7 @@ Produk Ditolak
                                     <th>No.</th>
                                     <th>Merek</th>
                                     <th>Tipe Produk</th>
-                                    <th>Pengaju</th>
+                                    <th>Diajukan Oleh</th>
                                     <th>Tanggal</th>
                                     <th>Opsi</th>
                                 </tr>

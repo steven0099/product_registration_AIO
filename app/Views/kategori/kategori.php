@@ -46,7 +46,7 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No.</th>
                                     <th>Category Name</th>
                                     <th>Options</th>
                                 </tr>

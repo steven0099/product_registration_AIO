@@ -61,18 +61,35 @@
             <td>Foto Produk</td>
             <td>
                 <a href="<?= base_url('uploads/' . esc($data['gambar_depan'])) ?>" target="_blank">Gambar Depan</a><br>
-                <a href="<?= base_url('uploads/' . esc($data['gambar_belakang'])) ?>" target="_blank">Gambar Belakang</a><br>
-                <a href="<?= base_url('uploads/' . esc($data['gambar_atas'])) ?>" target="_blank">Gambar Atas</a><br>
-                <a href="<?= base_url('uploads/' . esc($data['gambar_bawah'])) ?>" target="_blank">Gambar Bawah</a><br>
-                <a href="<?= base_url('uploads/' . esc($data['gambar_samping_kiri'])) ?>" target="_blank">Gambar Samping Kiri</a><br>
-                <a href="<?= base_url('uploads/' . esc($data['gambar_samping_kanan'])) ?>" target="_blank">Gambar Samping Kanan</a>
+                <?php if (!empty($data['gambar_belakang'])): ?>
+    <a href="<?= base_url('uploads/' . esc($data['gambar_belakang'])) ?>" target="_blank">Gambar Belakang</a><br>
+<?php endif; ?>
+
+<?php if (!empty($data['gambar_atas'])): ?>
+    <a href="<?= base_url('uploads/' . esc($data['gambar_atas'])) ?>" target="_blank">Gambar Atas</a><br>
+<?php endif; ?>
+
+<?php if (!empty($data['gambar_bawah'])): ?>
+    <a href="<?= base_url('uploads/' . esc($data['gambar_bawah'])) ?>" target="_blank">Gambar Bawah</a><br>
+<?php endif; ?>
+
+<?php if (!empty($data['gambar_samping_kiri'])): ?>
+    <a href="<?= base_url('uploads/' . esc($data['gambar_samping_kiri'])) ?>" target="_blank">Gambar Samping Kiri</a><br>
+<?php endif; ?>
+
+<?php if (!empty($data['gambar_samping_kanan'])): ?>
+    <a href="<?= base_url('uploads/' . esc($data['gambar_samping_kanan'])) ?>" target="_blank">Gambar Samping Kanan</a><br>
+<?php endif; ?>
             </td>
         </tr>
         <tr>
             <td>Warna</td>
             <td><?= esc($data['color']) ?></td>
             <td>Video Produk</td>
-            <td><a href="<?= esc($data['video_produk']) ?>" target="_blank">Video Produk</a></td>
+            <td><?php if (!empty($data['video_produk'])): ?>
+                <a href="<?= esc($data['video_produk'] ?? '')?>" target="_blank">Video Produk</a>
+                <?php endif; ?>
+            </td>
         </tr>
 
         <!-- Conditional Fields -->
