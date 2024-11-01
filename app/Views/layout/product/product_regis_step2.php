@@ -232,6 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <form action="save-step2" method="post">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
+
                                     <div class="tab-pane" id="type">
                                         <div class="row">
                                             <!-- Left Column -->

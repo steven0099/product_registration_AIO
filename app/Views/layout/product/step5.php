@@ -305,23 +305,24 @@
                             <div class="wizard-footer">
                                 <div class="pull-right">
                                     <!-- Confirm Submission Form -->
-                                    <form method="post" action="<?= base_url('product/confirmSubmission') ?>">
+                                    <form action="confirmSubmission" method="post">
                                         <?= csrf_field() ?>
                                         <input type="hidden" name="submitted_by" value="<?= session()->get('name') ?>">
                                         <!-- User name from session -->
                                         <input type="hidden" name="status" value="confirmed">
                                         <input type="hidden" name="confirmed_at" value="<?= date('Y-m-d H:i:s') ?>">
                                         <!-- Use standard format -->
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name="confirm" value="Finish" onclick="showThankYouModal(event)" />
-                                        <!-- <button type="submit" name="confirm" value="selesai" class="btn btn-success" onclick="showThankYouModal(event)">Selesai</button> -->
+                                        <!-- <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name="confirm" value="Finish" onclick="showThankYouModal(event)" /> -->
+                                        <button type="submit" name="confirm" value="selesai" class="btn btn-finish btn-fill btn-danger btn-wd">Finish</button>
                                     </form>
+
                                     <!-- <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
                                     <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' /> -->
                                 </div>
 
                                 <div class="pull-left">
                                     <!-- Back Button -->
-                                    <!-- <a href="<?= site_url('product/step1') ?>" class="btn btn-secondary">Kembali</a> -->
+
 
                                     <input type='button' class='btn btn-previous btn-default btn-wd' href="<?= site_url('layout/product/product_regis_step1') ?>" name='previous' value='Previous' />
                                 </div>
@@ -355,6 +356,127 @@
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
 <script>
+    // Function to open the edit modal
+    function openEditModal(fieldName, fieldLabel, fieldValue) {
+        // Set the field name and label
+        document.getElementById('fieldName').value = fieldName;
+        document.getElementById('fieldLabel').innerText = fieldLabel;
+
+        // Determine if the field should be a dropdown or a text input
+        if (fieldName === 'brand') {
+            // Assuming you want to populate the dropdown dynamically for brands
+            populateBrandDropdown(fieldValue);
+            document.getElementById('fieldDropdown').style.display = 'block';
+            document.getElementById('inputFieldContainer').querySelector('input').style.display = 'none';
+        } else {
+            // For other fields, show the text input
+            document.getElementById('fieldValue').value = fieldValue;
+            document.getElementById('fieldValue').style.display = 'block';
+            document.getElementById('inputFieldContainer').querySelector('select').style.display = 'none';
+        }
+
+        // Show the modal
+        document.getElementById('editModal').style.display = 'flex'; // Change to 'flex' to center it
+    }
+
+    $(document).ready(function() {
+        // Fetch brands and populate the dropdown
+        $.ajax({
+            url: '/ProductController/fetchBrands', // Update with the correct URL to your controller
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var $brandDropdown = $('#brandDropdown'); // Update with the actual ID of your dropdown
+
+                // Clear existing options
+                $brandDropdown.empty();
+
+                // Append a default option
+                $brandDropdown.append('<option value="">Select a brand</option>');
+
+                // Populate dropdown with brand names
+                data.forEach(function(brand) {
+                    $brandDropdown.append('<option value="' + brand.id + '">' + brand.name + '</option>');
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching brands:', error);
+            }
+        });
+    });
+
+    function populateBrandDropdown(selectedValue, brands) {
+        const dropdown = document.getElementById('fieldDropdown');
+        dropdown.innerHTML = ''; // Clear existing options
+        brands.forEach(brand => {
+            const option = document.createElement('option');
+            option.value = brand.id;
+            option.textContent = brand.name;
+            if (brand.id == selectedValue) {
+                option.selected = true; // Set the current brand as selected
+            }
+            dropdown.appendChild(option);
+        });
+    }
+
+
+    // Update the field function
+    function updateField() {
+        const fieldName = document.getElementById('fieldName').value;
+        const productId = document.getElementById('productId').value;
+        let fieldValue;
+
+        // Determine whether to get value from input or dropdown
+        if (fieldName === 'brand') {
+            fieldValue = document.getElementById('fieldDropdown').value;
+        } else {
+            fieldValue = document.getElementById('fieldValue').value;
+        }
+    };
+    // AJAX request to update the field on the server
+    fetch(`<?= base_url('product/updateField') ?>`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': '<?= csrf_hash() ?>'
+            },
+            body: JSON.stringify({
+                fieldName: fieldName,
+                productId: productId,
+                fieldValue: fieldValue
+            })
+        })
+
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Field updated successfully');
+                // Optionally close the modal here
+                closeEditModal();
+            } else {
+                alert('Failed to update field');
+            }
+        })
+        .catch(error => console.error('Error updating field:', error));
+
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    // Attach this function to the close button
+    document.querySelector('.close').onclick = closeEditModal;
+
+    // Event listener for edit buttons
+    document.querySelectorAll('.edit-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const fieldName = event.currentTarget.getAttribute('data-field-name');
+            const fieldLabel = event.currentTarget.getAttribute('data-field-label');
+            const fieldValue = event.currentTarget.getAttribute('data-field-value');
+            openEditModal(fieldName, fieldLabel, fieldValue);
+        });
+    });
+
     // Function to show the thank you modal
     function showThankYouModal(event) {
         event.preventDefault(); // Prevent default form submission
