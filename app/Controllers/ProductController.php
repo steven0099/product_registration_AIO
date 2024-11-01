@@ -42,19 +42,19 @@ class ProductController extends BaseController
     {
         // Instantiate the product model in the constructor
         $this->productModel = new ProductModel();
-        // $this->brandModel = new BrandModel();
-        // $this->categoryModel = new CategoryModel();
-        // $this->capacityModel = new CapacityModel();
-        // $this->ukuranModel = new UkuranModel();
-        // $this->subcategoryModel = new SubcategoryModel();
-        // $this->compressorwarrantyModel = new CompressorWarrantyModel();
-        // $this->sparepartwarrantyModel = new SparepartWarrantyModel();
-        // $this->garansipanasModel = new GaransiElemenPanasModel();
-        // $this->garansimotorModel = new GaransiMotorModel();
-        // $this->garansipanelModel = new GaransiPanelModel();
-        // $this->garansiserviceModel = new GaransiSemuaServiceModel();
-        // $this->refrigrantModel = new RefrigrantModel();
-        // $this->confirmationModel = new ConfirmationModel();
+        $this->brandModel = new BrandModel();
+        $this->categoryModel = new CategoryModel();
+        $this->capacityModel = new CapacityModel();
+        $this->ukuranModel = new UkuranModel();
+        $this->subcategoryModel = new SubcategoryModel();
+        $this->compressorwarrantyModel = new CompressorWarrantyModel();
+        $this->sparepartwarrantyModel = new SparepartWarrantyModel();
+        $this->garansipanasModel = new GaransiElemenPanasModel();
+        $this->garansimotorModel = new GaransiMotorModel();
+        $this->garansipanelModel = new GaransiPanelModel();
+        $this->garansiserviceModel = new GaransiSemuaServiceModel();
+        $this->refrigrantModel = new RefrigrantModel();
+        $this->confirmationModel = new ConfirmationModel();
     }
 
     public function index()
@@ -742,7 +742,7 @@ class ProductController extends BaseController
         $brands = $this->brandModel->findAll(); // Adjust based on your method of retrieving brands
 
         // Return the confirmation view with the filtered final data
-        return view('/product/product_confirmation', [
+        return view('layout/product/step5', [
             'data' => $finalData,
             'brands' => $brands, // Include brands in the data passed to the view
         ]);
