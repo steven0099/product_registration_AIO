@@ -811,6 +811,6 @@ class ProductController extends BaseController
 
     public function thank_you()
     {
-        return view('product/thank_you');
+        return view('layout/product/thankyou');
     }
 }
