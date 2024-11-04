@@ -900,60 +900,280 @@ private function formatResolution($data, $xKey, $yKey)
     public function thank_you()
     {
     return view ('product/thank_you');
-    }
-
-    public function getOptions()
-    {
-        $field = $this->request->getGet('field');
-        $options = [];
-    
-        switch ($field) {
-            case 'brand':
-                $options = $this->brandModel->findAll(); // Example, assuming you have a Brand model
-                break;
-            case 'category':
-                $options = $this->categoryModel->findAll();
-                break;
-            // Add cases for other fields
-        }
-    
-        return $this->response->setJSON(['options' => $options]);
-    }
-    
-    public function updateProductField()
-    {
-        $productId = $this->request->getPost('product_id');
-        $fieldName = $this->request->getPost('field_name');
-        $fieldValue = $this->request->getPost('field_value');
-    
-        $updateData = [$fieldName => $fieldValue];
-        
-        if ($this->confirmationModel->update($productId, $updateData)) {
-            return $this->response->setJSON([
-                'success' => $success,
-                csrf_token() => csrf_hash()
-        ]);
-        }
-        
-        return $this->response->setJSON(['success' => false]);
-    }    
+    }   
 
     public function updateColor()
     {
         $id = $this->request->getPost('id'); // Get the product ID from the form
         $color = $this->request->getPost('color'); // Get the updated color value
-    
+
         // Validation (optional)
         if (empty($id) || empty($color)) {
             return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
         }
-    
+        $color = strtoupper($color);
         // Update the database
         if ($this->confirmationModel->update($id, ['color' => $color])) {
-            return $this->response->setJSON(['success' => true, 'message' => 'Color updated successfully.']);
+            return $this->response->setJSON(['success' => true, 'message' => 'Warna Berhasil Diubah.']);
         } else {
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
         }
     }
+ 
+    public function updatePower()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $power = $this->request->getPost('daya'); // Get the updated color value
     
+        // Validation (optional)
+        if (empty($id) || empty($power)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['daya' => $power])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Konsumsi Daya Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateWeight()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $weight = $this->request->getPost('berat'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($weight)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['berat' => $weight])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Berat Produk Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateColdCap()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $coldcap = $this->request->getPost('kapasitas_air_dingin'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($coldcap)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['kapasitas_air_dingin' => $coldcap])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Dingin Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateHotCap()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $hotcap = $this->request->getPost('kapasitas_air_panas'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($hotcap)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['kapasitas_air_panas' => $hotcap])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Panas Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateCooling()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $cooling = $this->request->getPost('cooling_capacity'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($cooling)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['cooling_capacity' => $cooling])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Pendinginan Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateCspf()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $cspf = $this->request->getPost('cspf'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($cspf)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+
+        if ($cspf > 5 || $cspf < 1) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Rating CSPF Harus Lebih dari 1 dan kurang dari 5.']);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['cspf' => $cspf])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Rating CSPF Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateManufacturer()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $manufacturer = $this->request->getPost('pembuat'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($manufacturer)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+        $manufacturer = strtoupper($manufacturer);
+        // Update the database
+        if ($this->confirmationModel->update($id, ['pembuat' => $manufacturer])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Negara Pembuat Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateProductType()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $producttype = $this->request->getPost('product_type'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($producttype)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+        $producttype = strtoupper(preg_replace('/[-\/]/', '', $producttype));
+        // Update the database
+        if ($this->confirmationModel->update($id, ['product_type' => $producttype])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Tipe Produk Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateProductDimensions()
+{
+    $id = $this->request->getPost('id');
+    $dimensions = $this->request->getPost('product_dimensions');
+
+    // Validate inputs
+    if (empty($id) || empty($dimensions)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['product_dimensions' => $dimensions]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Dimensi Produk Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updatePackagingDimensions()
+{
+    $id = $this->request->getPost('id');
+    $pdimensions = $this->request->getPost('packaging_dimensions');
+
+    // Validate inputs
+    if (empty($id) || empty($pdimensions)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['packaging_dimensions' => $pdimensions]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Dimensi Kemasan Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updateStandDimensions()
+{
+    $id = $this->request->getPost('id');
+    $sdimensions = $this->request->getPost('pstand_dimensions');
+
+    // Validate inputs
+    if (empty($id) || empty($sdimensions)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['pstand_dimensions' => $sdimensions]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Dimensi Produk (Dengan Stand) Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updateResolution()
+{
+    $id = $this->request->getPost('id');
+    $resolution = $this->request->getPost('panel_resolution');
+
+    // Validate inputs
+    if (empty($id) || empty($resolution)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['panel_resolution' => $resolution]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Resolusi Panel Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updateAdvantages() {
+    $id = $this->request->getPost('id');
+    $adv1 = $this->request->getPost('advantage1');
+    $adv2 = $this->request->getPost('advantage2');
+    $adv3 = $this->request->getPost('advantage3');
+    $adv4 = $this->request->getPost('advantage4') ?? '';
+    $adv5 = $this->request->getPost('advantage5') ?? '';
+    $adv6 = $this->request->getPost('advantage6') ?? '';
+
+    // Validate required fields
+    if (empty($id) || empty($adv1) || empty($adv2) || empty($adv3)) {
+        return $this->response->setJSON(['success' => false, 'message' => '3 Keunggulan Pertama Harus Diisi.']);
+    }
+
+    // Prepare data for update
+    $data = [
+        'advantage1' => $adv1,
+        'advantage2' => $adv2,
+        'advantage3' => $adv3,
+        'advantage4' => $adv4,
+        'advantage5' => $adv5,
+        'advantage6' => $adv6
+    ];
+
+    // Update the database
+    if ($this->confirmationModel->update($id, $data)) {
+        return $this->response->setJSON(['success' => true, 'message' => 'Keunggulan Berhasil Diubah.']);
+    } else {
+        return $this->response->setJSON(['success' => false, 'message' => 'Failed to update advantages.']);
+    }
+}
+
 }

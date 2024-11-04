@@ -342,7 +342,6 @@ function handleCategoryChange(categoryId, subcategoryId) {
         document.getElementById('kapasitas-air-dingin').style.display = 'flex';
         document.getElementById('kapasitas-air-panas').style.display = 'flex';
         compressorWarrantyLabel.innerText = 'Garansi Kompresor';
-        fetchCompressorWarrantyOptions(); // Fetch Garansi Kompresor options
     } else {
         // Show "kapasitas" and "garansi sparepart" for other subcategories
         document.getElementById('capacity-group').style.display = 'block';
@@ -351,6 +350,7 @@ function handleCategoryChange(categoryId, subcategoryId) {
         // Hide "kapasitas air dingin" and "kapasitas air panas"
         document.getElementById('kapasitas-air-dingin').style.display = 'none';
         document.getElementById('kapasitas-air-panas').style.display = 'none';
+        fetchWarrantyOptions('garansi_kompresor');
     }
 };
 

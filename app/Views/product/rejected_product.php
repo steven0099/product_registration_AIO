@@ -64,10 +64,6 @@ Produk Ditolak
                                     <td>
                                     <button class="button btn btn-success" onclick="location.href='/superadmin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
                                     </button>
-                                        </button>
-                                        <button data-id="<?= esc($products['id']) ?>" class="btn-delete btn btn-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -80,56 +76,11 @@ Produk Ditolak
 </div>
 </div>
 
-]
-<!-- Modal for Deleting Category -->
-<div id="deleteModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Confirm Deletion</h3>
-        <p>Hapus Produk Ini?</p>
-        <form id="deleteForm" method="post" action="">
-        <?= csrf_field();?>
-            <button type="submit" class="btn btn-danger">Yes, Delete</button>
-            <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Cancel
-            </button>
-        </form>
-    </div>
-</div>
 <?= $this->endSection() ?>
 
 
 <?= $this->section('js') ?>
 <script>
 $('#example2').DataTable();
-
-// Modal for Deleting Category
-var deleteModal = document.getElementById("deleteModal");
-var closeDeleteModal = document.getElementsByClassName("close")[2];
-var cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
-
-document.querySelectorAll('.btn-delete').forEach(function(button) {
-    button.addEventListener('click', function() {
-        var id = this.getAttribute('data-id');
-
-        // Set the form action dynamically
-        document.getElementById('deleteForm').action = '/product/deleteProduct/' + id;
-
-        deleteModal.style.display = "block";
-    });
-});
-
-closeDeleteModal.onclick = function() {
-    deleteModal.style.display = "none";
-}
-
-cancelDeleteBtn.onclick = function() {
-    deleteModal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == deleteModal) {
-        deleteModal.style.display = "none";
-    }
-}
 </script>
 <?= $this->endSection() ?>
