@@ -767,7 +767,7 @@ class ProductController extends BaseController
     public function back()
     {
         // Redirect to step 1 without losing the step 1 data
-        return redirect()->to('/layout/product/product_regis_step1');
+        return redirect()->to('product/step1');
     }
 
 

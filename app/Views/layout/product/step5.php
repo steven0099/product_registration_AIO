@@ -201,7 +201,6 @@
                                 <div class="tab-pane" id="confirmation">
                                     <div class="row">
                                         <h5 class="info-text"> Harap Konfirmasi Kembali Produk Anda. </h5>
-
                                         <table class="table table-striped table-bordered table-hover confirmation-table">
                                             <thead class="thead-dark">
                                                 <tr>
@@ -214,9 +213,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Merek</td>
-                                                    <td id="brand_nameDisplay"><?= esc($data['brand_name']) ?>
-
-                                                    </td>
+                                                    <td id="brand_nameDisplay"><?= esc($data['brand_name']) ?></td>
                                                     <td>Konsumsi Daya</td>
                                                     <td><?= esc($data['daya']) ?> Watt</td>
                                                 </tr>
@@ -226,81 +223,61 @@
                                                     <td>Negara Pembuat</td>
                                                     <td><?= esc($data['pembuat']) ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Sub Kategori</td>
-                                                    <td><?= esc($data['subcategory_name']) ?></td>
-                                                    <td>Keunggulan</td>
-                                                    <td>
-                                                        <?= esc($data['advantage1']) ?><br>
-                                                        <?= esc($data['advantage2']) ?><br>
-                                                        <?= esc($data['advantage3']) ?><br>
-                                                        <?= esc($data['advantage4'] ?? '') ?><br>
-                                                        <?= esc($data['advantage5'] ?? '') ?><br>
-                                                        <?= esc($data['advantage6'] ?? '') ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tipe Produk</td>
-                                                    <td><?= esc($data['product_type']) ?></td>
-                                                    <td>Foto Produk</td>
-                                                    <td>
-                                                        <?php foreach (['gambar_depan', 'gambar_belakang', 'gambar_atas', 'gambar_bawah', 'gambar_samping_kiri', 'gambar_samping_kanan'] as $image): ?>
-                                                            <a href="<?= base_url('uploads/' . esc($data[$image])) ?>" target="_blank"> <?= ucfirst(str_replace('_', ' ', $image)) ?></a><br>
-                                                        <?php endforeach; ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Warna</td>
-                                                    <td><?= esc($data['color']) ?></td>
-                                                    <td>Video Produk</td>
-                                                    <td><a href="<?= esc($data['video_produk']) ?>" target="_blank">Video Produk</a></td>
-                                                </tr>
-
                                                 <!-- Conditional Fields -->
                                                 <?php if ($data['category_id'] == '9'): ?>
                                                     <tr>
                                                         <td>Dimensi Produk dengan Stand</td>
                                                         <td><?= esc($data['pstand_dimension']) ?> cm</td>
-                                                        <td>Ukuran</td>
-                                                        <td><?= esc($data['ukuran_size']) ?></td>
-                                                    </tr>
-                                                    <tr>
                                                         <td>Resolusi Panel</td>
                                                         <td><?= esc($data['panel_resolution']) ?> Pixel</td>
-                                                        <td>Garansi Panel</td>
-                                                        <td><?= esc($data['garansi_panel_value']) ?> Tahun</td>
                                                     </tr>
-
-                                                <?php elseif ($data['category_id'] == '5'): ?>
-                                                    <!-- Additional category-specific rows -->
-
                                                 <?php endif; ?>
-
-                                                <!-- Other Default Fields -->
+                                                <!-- Default Fields -->
                                                 <tr>
                                                     <td>Dimensi Produk</td>
                                                     <td><?= esc($data['produk_p']) ?> x <?= esc($data['produk_l']) ?> x <?= esc($data['produk_t']) ?> cm</td>
-                                                </tr>
-                                                <tr>
                                                     <td>Dimensi Kemasan</td>
                                                     <td><?= esc($data['kemasan_p']) ?> x <?= esc($data['kemasan_l']) ?> x <?= esc($data['kemasan_t']) ?> cm</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Berat Unit</td>
                                                     <td><?= esc($data['berat']) ?> Kg</td>
+                                                    <td>Video Produk</td>
+                                                    <td><a href="<?= esc($data['video_produk']) ?>" target="_blank">Tonton Video Produk</a></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>Foto Produk</td>
+                                                    <td colspan="3">
+                                                        <!-- Front Image -->
+                                                        <div style="display: inline-block; margin-right: 10px; text-align: center;">
+                                                            <img src="<?= base_url('uploads/' . esc($data['gambar_depan'])) ?>" style="width: 100px; height: auto;" alt="Gambar Depan">
+                                                            <div>Gambar Depan</div>
+                                                        </div>
 
+                                                        <!-- Back Image -->
+                                                        <div style="display: inline-block; margin-right: 10px; text-align: center;">
+                                                            <img src="<?= base_url('uploads/' . esc($data['gambar_belakang'])) ?>" style="width: 100px; height: auto;" alt="Gambar Belakang">
+                                                            <div>Gambar Belakang</div>
+                                                        </div>
+
+                                                        <!-- Other Images -->
+                                                        <?php foreach (['gambar_atas', 'gambar_bawah', 'gambar_samping_kiri', 'gambar_samping_kanan'] as $image): ?>
+                                                            <div style="display: inline-block; margin-right: 10px; text-align: center;">
+                                                                <img src="<?= base_url('uploads/' . esc($data[$image])) ?>" style="width: 100px; height: auto;" alt="<?= ucfirst(str_replace('_', ' ', $image)) ?>">
+                                                                <div><?= ucfirst(str_replace('_', ' ', $image)) ?></div>
+                                                            </div>
+                                                        <?php endforeach; ?>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
 
+                                        <!-- Submission Information -->
                                         <p class="font-weight-bold">Submitted by: <?= esc($data['submitted_by']) ?></p>
-
                                         <div class="note text-danger font-italic">*Harap dicek kembali.</div>
 
-
-
-                                    </div>
-                                </div>
+                                    </div> <!-- End of row -->
+                                </div> <!-- End of confirmation tab -->
                             </div>
                             <div class="wizard-footer">
                                 <div class="pull-right">
