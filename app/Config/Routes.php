@@ -45,6 +45,13 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('thank_you', 'ProductController::thank_you');
 });
 
+$routes->group('catalog', ['filter' => 'auth'], function ($routes) {
+$routes->get('', 'CatalogController::catalog');
+$routes->get('filterProducts', 'CatalogController::filterProducts');
+$routes->get('getSubcategories', 'CatalogController::getSubcategories');
+$routes->get('getCapacities', 'CatalogController::getCapacities');
+});
+
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {
     $routes->get('reset-password', 'AuthController::resetPassword');
     $routes->post('reset_password', 'AuthController::updatePassword');

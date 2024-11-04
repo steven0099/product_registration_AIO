@@ -33,6 +33,14 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <!-- Link Laporan -->
+            <a href="/catalog" class="nav-link <?= (uri_string() == 'catalog') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-book"></i>
+              <p>Katalog</p>
+            </a>
+        </li>
+
         <!-- Manage Data Section -->
         <li class="nav-item <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant') ? 'menu-open' : '' ?>" style="width: 99%">
           <a href="#" class="nav-link <?= (uri_string() == 'admin/brand' || uri_string() == 'admin/kategori' || uri_string() == 'admin/subkategori' || uri_string() == 'admin/kapasitas' || uri_string() == 'admin/ukuran' || uri_string() == 'admin/refrigrant') ? 'active' : '' ?>">
