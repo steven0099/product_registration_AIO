@@ -401,7 +401,7 @@ foreach (array_keys($headers) as $col) {
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        return view('product/product_registration', $data);
+        return view('layout/product/product_regis_step1', $data);
 //        $data['previousData'] = session()->get('step1');
 //
 //        return view('product/product_registration', $data);
@@ -511,7 +511,7 @@ foreach (array_keys($headers) as $col) {
         $refrigrantModel = new RefrigrantModel();
 
         $data['refrigrant'] = $refrigrantModel->findAll();
-        return view('product/product_specification', $data);
+        return view('layout/product/product_regis_step2', $data);
     }
 
     public function saveStep2()
@@ -569,7 +569,7 @@ foreach (array_keys($headers) as $col) {
     // Step 3: Product Advantages
     public function step3()
     {
-        return view('product/product_pros');
+        return view('layout/product/product_regis_step3');
     }
 
     public function saveStep3()
@@ -583,7 +583,7 @@ foreach (array_keys($headers) as $col) {
     // Step 4: Upload Images
     public function step4()
     {
-        return view('product/product_uploads');
+        return view('layout/product/product_regis_step4');
     }
 
     public function saveStep4()
@@ -813,7 +813,7 @@ foreach (array_keys($headers) as $col) {
         session()->set('confirm', $dataToInsert);
     
         // Return the confirmation view with the filtered final data
-        return view('/product/product_confirmation', [
+        return view('/layout/product/step5', [
             'data' => $finalData,
         ]);
     }
@@ -894,12 +894,13 @@ private function formatResolution($data, $xKey, $yKey)
         session()->setFlashdata('success', 'Product has been successfully confirmed.');
     
         // Instead of redirecting to a thank you page, stay on the current page
-        return redirect()->to('/product/thank_you'); // Redirect back to the confirmation page
+        return redirect()->to('product/thank_you'); // Redirect back to the confirmation page
     }    
 
     public function thank_you()
     {
-    return view ('product/thank_you');
+    session()->destroy($step1, $step2, $step3, $step4, $confirm);
+    return view ('layout/product/thankyou');
     }   
 
     public function updateColor()
