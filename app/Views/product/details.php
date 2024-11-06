@@ -26,6 +26,8 @@ Rincian Produk
 
 <?= $this->section('content') ?>
 <section class="content">
+<a href="/superadmin/dashboard" style="margin-left:20px">← Kembali Ke Dashboard</i>
+</a>
     <div class="container-fluid">
         <table class="table">
             <tr>
@@ -750,7 +752,6 @@ Rincian Produk
                 </div>
             </div>
         </div>
-
         <?php if ($product['status'] == 'confirmed'): ?>
         <div class="mt-4">
             <a href="/superadmin/approve/<?= esc($product['id']) ?>" class="btn btn-success">

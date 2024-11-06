@@ -26,6 +26,7 @@
 
 <?= $this->section('content') ?>
     <section class="content">
+    <a href="/admin/dashboard" style="margin-left:20px">← Kembali Ke Dashboard</a>
         <div class="container-fluid">
             <table class="table">
                 <tr><th>Brand</th><td><?= esc($product['brand']) ?></td></tr>

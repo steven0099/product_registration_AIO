@@ -237,19 +237,19 @@
                                                 <?php if ($data['category_id'] == '9'): ?>
                                                 <tr>
                                                     <td>Dimensi Produk dengan Stand</td>
-                                                    <td><?= esc($data['pstand_dimension']) ?> cm</td>
+                                                    <td><?= esc($data['pstand_dimension']) ?></td>
                                                     <td>Resolusi Panel</td>
                                                     <td><?= esc($data['panel_resolution']) ?> Pixel</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Garansi Panel</td>
-                                                    <td><?= esc($data['garansi_panel']) ?> Tahun</td>
+                                                    <td><?= esc($data['garansi_panel_value']) ?> Tahun</td>
                                                     <td>Garansi Sparepart</td>
-                                                    <td><?= esc($data['sparepart_warranty']) ?> Tahun</td>
+                                                    <td><?= esc($data['sparepart_warranty_value']) ?> Tahun</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Ukuran</td>
-                                                    <td><?= esc($data['ukuran']) ?></td>
+                                                    <td><?= esc($data['ukuran_size']) ?></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>

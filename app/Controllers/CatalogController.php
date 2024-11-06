@@ -29,21 +29,69 @@ class CatalogController extends BaseController
         $this->confirmationModel = new ConfirmationModel();
     }
 
-public function catalog()
-{
-    $data['isCatalog'] = true; // Set a flag for the catalog page
-    // Get only approved products
-    $data['products'] = $this->confirmationModel->where('status', 'approved')->findAll();
-
-    // Get unique filter options
-    $data['category'] = $this->categoryModel->findAll();
-    $data['categories'] = $this->confirmationModel->distinct()->select('category')->findAll();
-    $data['subcategories'] = $this->confirmationModel->distinct()->select('subcategory')->findAll();
-    $data['capacities'] = $this->confirmationModel->distinct()->select('capacity')->findAll();
-    $data['ukuran'] = $this->confirmationModel->distinct()->select('ukuran')->findAll();
-
-    return view('catalog', $data);
-}
+    public function catalog()
+    {
+        // Get GET parameters
+        $search = $this->request->getGet('search') ?? '';
+        $sort = $this->request->getGet('sort') ?? 'name_asc';
+        $page = $this->request->getGet('page') ?? 1;
+    
+        // Start the query on confirmationModel
+        $query = $this->confirmationModel->where('status', 'approved');
+    
+        // Apply search filter for product_type and brand
+        if ($search) {
+            $query->groupStart()  // Start of the OR condition group
+                ->like('product_type', $search)
+                ->orLike('brand', $search)  // Searching both product_type and brand
+                ->groupEnd();  // End of the OR condition group
+        }
+    
+        // Apply sorting
+        switch ($sort) {
+            case 'name_asc':
+                $query->orderBy('product_type', 'ASC');
+                break;
+            case 'name_desc':
+                $query->orderBy('product_type', 'DESC');
+                break;
+            case 'capacity_asc':
+                $query->orderBy('capacity', 'ASC');
+                break;
+            case 'capacity_desc':
+                $query->orderBy('capacity', 'DESC');
+                break;
+            default:
+                $query->orderBy('id', 'ASC');
+                break;
+        }
+        
+        // Pagination
+        $perPage = 15;
+        $totalProducts = $query->countAllResults(false);  // Get the total count after applying filters
+    
+        $pager = \Config\Services::pager();
+        $products = $query->paginate($perPage, 'default', $page);
+    
+        // Get unique filter options
+        $categories = $this->confirmationModel->distinct()->select('category')->findAll();
+        $subcategories = $this->confirmationModel->distinct()->select('subcategory')->findAll();
+        $capacities = $this->confirmationModel->distinct()->select('capacity')->findAll();
+        $ukuran = $this->confirmationModel->distinct()->select('ukuran')->findAll();
+    
+        // Pass data to the view
+        return view('catalog/catalog', [
+            'products' => $products,
+            'pager' => $pager,
+            'search' => $search,
+            'sort' => $sort,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'capacities' => $capacities,
+            'ukuran' => $ukuran
+        ]);
+    }
+    
 
 public function filterProducts()
 {

@@ -493,7 +493,6 @@ foreach (array_keys($headers) as $col) {
             'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['37', '38'])) ? $step1Data['sparepart_warranty_id'] : null,
             'garansi_elemen_panas_id' => (in_array($subcategory, ['37', '38'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
-    
         // Insert the data into the database
         $productId = $this->productModel->insert($productData);
     
@@ -741,7 +740,6 @@ foreach (array_keys($headers) as $col) {
         $finalData['packaging_dimensions'] = $this->formatDimensions($finalData, 'kemasan_p', 'kemasan_l', 'kemasan_t');
         $finalData['pstand_dimension'] = $this->formatStandDimensions($finalData, 'pstand_p', 'pstand_l', 'pstand_t');
         $finalData['panel_resolution'] = $this->formatResolution($finalData, 'resolusi_x', 'resolusi_y');
-    
         // Filter out null or empty values from the final data
         $finalData = array_filter($finalData, function($value) {
             return !is_null($value) && $value !== '';  // Keep only non-null, non-empty values
@@ -833,7 +831,7 @@ foreach (array_keys($headers) as $col) {
     
 private function formatStandDimensions($data, $lengthKey, $widthKey, $heightKey)
 {
-    if ('category_id' !== '9') {
+    if ($data['category_id'] != '9') {
         return null; // Only format if category ID is '9'
     }
     return isset($data[$lengthKey], $data[$widthKey], $data[$heightKey])
@@ -843,7 +841,7 @@ private function formatStandDimensions($data, $lengthKey, $widthKey, $heightKey)
 
 private function formatResolution($data, $xKey, $yKey)
 {
-    if ('category_id' !== '9') {
+    if ($data['category_id'] != '9') {
         return null; // Only format if category ID is '9'
     }
     return isset($data[$xKey], $data[$yKey])
@@ -899,7 +897,12 @@ private function formatResolution($data, $xKey, $yKey)
 
     public function thank_you()
     {
-    session()->destroy($step1, $step2, $step3, $step4, $confirm);
+        session()->remove('step1');
+        session()->remove('step2');
+        session()->remove('step3');
+        session()->remove('step4');
+        session()->remove('confirm');
+        
     return view ('layout/product/thankyou');
     }   
 

@@ -214,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label for="brand">Merek</label>
                                                     <select id="brand" name="brand_id" class="form-control" required>
-                                                        <option value="" disabled selected>Masukan Merek</option>
+                                                        <option value="<?= session()->get("step1")["brand_id"] ?? '' ?>" disabled selected>Masukan Merek</option>
                                                         <?php foreach ($brands as $brand): ?>
                                                             <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
                                                         <?php endforeach; ?>
@@ -225,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label for="category">Kategori</label>
                                                     <select id="category" name="category_id" class="form-control" required>
-                                                        <option value="" disabled selected>Masukan Kategori</option>
+                                                        <option value="<?= session()->get("step1")["category_id"] ?? '' ?>" disabled selected>Masukan Kategori</option>
                                                         <?php foreach ($categories as $category): ?>
                                                             <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
                                                         <?php endforeach; ?>
@@ -248,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="product_type">Tipe Produk</label>
-                                                    <input type="text" id="product_type" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
+                                                    <input type="text" id="product_type" value="<?= session()->get("step1")["product_type"] ?? '' ?>" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
                                                 </div>
                                             </div>
                                             <div id="capacity-group" class="col-sm-6" style="display:none;">
@@ -277,7 +277,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="color">Warna</label>
-                                                    <input type="text" id="color" name="color" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
+                                                    <input type="text" id="color" name="color" value="<?= session()->get("step1")["color"] ?? '' ?>" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
                                                 </div>
                                             </div>
 

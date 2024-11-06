@@ -40,7 +40,7 @@ form label {
     font-weight: bold;
 }
 
-form input, form select {
+form input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -50,12 +50,31 @@ form input, form select {
 }
 
 /* Dropdown specific styles */
-form select {
-    border: 2px solid #00a0e3; /* Keep this as is for dropdowns */
-    -webkit-appearance: none;
-    -moz-appearance: none;
+form         select {
+    border: 2px solid #00BFFF !important;
+    /* Warna biru */
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 40px;
+    /* Tambahkan jarak untuk icon custom */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+    /* Menambahkan efek bayangan */
     appearance: none;
-    background-color: #fff;
+    /* Menghilangkan default arrow */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
+    background-color: white;
+    /* Warna latar belakang */
+    background-size: 20px;
+    /* Ukuran icon */
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #1E90FF;
+    /* Warna biru yang lebih tua saat difokuskan */
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+    /* Bayangan lebih terang */
 }
 
 form input[type="date"] {
@@ -115,15 +134,31 @@ form button:hover {
 }
 
 /* Custom dropdown styles */
-form select {
-    border: 2px solid #00a0e3; /* Border color */
-    -webkit-appearance: none; /* Remove default arrow */
-    -moz-appearance: none; /* Remove default arrow */
-    appearance: none; /* Remove default arrow */
-    background-color: #fff; /* Background color */
-    padding: 10px 40px 10px 10px; /* Padding to accommodate arrow */
-    position: relative; /* Enable positioning of pseudo-elements */
-    font-size: 16px; /* Match font size */
+form         select {
+    border: 2px solid #00BFFF !important;
+    /* Warna biru */
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 40px;
+    /* Tambahkan jarak untuk icon custom */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+    /* Menambahkan efek bayangan */
+    appearance: none;
+    /* Menghilangkan default arrow */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
+    background-color: white;
+    /* Warna latar belakang */
+    background-size: 20px;
+    /* Ukuran icon */
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #1E90FF;
+    /* Warna biru yang lebih tua saat difokuskan */
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+    /* Bayangan lebih terang */
 }
 
 /* Arrow styling using the pseudo-element */
@@ -139,12 +174,6 @@ form select::after {
     border-right-color: transparent; /* Hide the right side */
     border-top-color: #00a0e3; /* Color of the arrow */
     pointer-events: none; /* Ignore pointer events */
-}
-
-/* Optional: Style adjustments on focus */
-form select:focus {
-    outline: none; /* Remove outline */
-    border-color: #333; /* Change border color on focus */
 }
 
 /* Progress bar container */
@@ -190,3 +219,227 @@ form select:focus {
     background-color: #00a0e3; /* Change the line color for the active step */
 }
 
+/* Comparison Bar Styling */
+.comparison-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 500px; /* Adjust width as needed */
+    max-height: 600px; /* Limit height */
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+.comparison-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.comparison-content {
+    padding: 10px;
+}
+
+.comparison-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comparison-item img {
+    width: 150px; /* Adjust image size */
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.comparison-widget button {
+    background: none;
+    border: none;
+    border-radius: 4px;
+    margin-left:auto;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#sortContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between elements */
+}
+
+#sortBy, #sortOrder {
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#sortButton {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sortButton:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust the width of the search bar and sort dropdown */
+#searchAndSortForm .form-control {
+    width: 100%; /* Make it responsive to the container */
+    max-width: 250px; /* Limit the width of the search bar and select box */
+    margin-right: 10px;
+    margin-top:10px;
+}
+
+/* Style the button */
+#searchAndSortForm button {
+    padding: 8px 16px; /* Adjust button padding */
+    font-size: 14px; /* Adjust button font size */
+    height: 36px; /* Adjust button height */
+    width: auto;
+}
+
+/* Ensure the search and sort form aligns well */
+#searchAndSortForm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; /* Space between search, select, and button */
+}
+
+/* For smaller screens, make the input fields and button take full width */
+@media (max-width: 768px) {
+    #searchAndSortForm .form-control,
+    #searchAndSortForm button {
+        width: 100%;
+    }
+
+    #searchAndSortForm {
+        flex-direction: column; /* Stack elements vertically on small screens */
+    }
+}
+
+.pagination {
+    margin-top: 20px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a,
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination .active a {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Filter container styling */
+.filter-section {
+    margin-bottom: 15px;
+}
+
+/* Button styling for collapsible section titles */
+.filter-title {
+    background-color: #b3b3b3;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Styling for the filter content */
+.filter-content {
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+/* Hide content initially */
+.filter-content {
+    display: none;
+}
+
+/* Display content when active */
+.filter-content.show {
+    display: block;
+}
+
+/* Styling for individual options */
+.filter-content label {
+    display: block;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.filter-content label input {
+    margin-right: 8px;
+}
+
+
+.filter-btn {
+    width: 100%;
+    text-align: left;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.filter-options {
+    padding-left: 10px;
+    margin-top: 5px;
+    border-left: 1px solid #ddd;
+}
+
+.filter-options button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.filter-options button:hover {
+    text-decoration: underline;
+}
