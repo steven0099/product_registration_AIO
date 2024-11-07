@@ -1,0 +1,97 @@
+                //view adjustment
+                <th>Brand</th>
+                <td>
+                    <?= esc($product['brand']) ?></td>
+                    <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('brand', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
+
+    //controller function                
+    public function getOptions()
+    {
+        $field = $this->request->getGet('field');
+        $options = [];
+    
+        switch ($field) {
+            case 'brand':
+                $options = $this->brandModel->findAll(); // Example, assuming you have a Brand model
+                break;
+            case 'category':
+                $options = $this->categoryModel->findAll();
+                break;
+            // Add cases for other fields
+        }
+    
+        return $this->response->setJSON(['options' => $options]);
+    }
+    
+
+    public function getOptions()
+    {
+        $field = $this->request->getGet('field');
+        $options = [];
+    
+        switch ($field) {
+            case 'brand':
+                $options = $this->brandModel->findAll(); // Example, assuming you have a Brand model
+                break;
+            case 'category':
+                $options = $this->categoryModel->findAll();
+                break;
+            // Add cases for other fields
+        }
+    
+        return $this->response->setJSON(['options' => $options]);
+    }
+
+        public function updateProductField()
+    {
+        $productId = $this->request->getPost('product_id');
+        $fieldName = $this->request->getPost('field_name');
+        $fieldValue = $this->request->getPost('field_value');
+    
+        $updateData = [$fieldName => $fieldValue];
+        
+        if ($this->confirmationModel->update($productId, $updateData)) {
+            return $this->response->setJSON([
+                'success' => $success,
+                csrf_token() => csrf_hash()
+        ]);
+        }
+        
+        return $this->response->setJSON(['success' => false]);
+    } 
+
+// routes
+    $routes->get('getOptions', 'ProductController::getOptions');
+    $routes->post('updateProductField', 'ProductController::updateProductField');
+
+// js scripts
+function openEditModal(field, productId) {
+    // Set product ID and field name in the modal's hidden inputs
+    document.getElementById('productId').value = productId;
+    document.getElementById('fieldName').value = field;
+    document.getElementById('modalFieldLabel').innerText = field.charAt(0).toUpperCase() + field.slice(1);
+
+    // Clear previous options
+    document.getElementById('fieldValue').innerHTML = '';
+
+    // Fetch options for the field using AJAX
+    fetch(`/superadmin/getOptions?field=${field}`)
+        .then(response => response.json())
+        .then(data => {
+            data.options.forEach(option => {
+                let optionElement = document.createElement('option');
+                optionElement.value = option.name;
+                optionElement.text = option.name;
+                document.getElementById('fieldValue').appendChild(optionElement);
+            });
+            // Open the modal after loading options
+            new bootstrap.Modal(document.getElementById('editModal')).show();
+        })
+        .catch(error => console.error('Error fetching options:', error));
+}
+
