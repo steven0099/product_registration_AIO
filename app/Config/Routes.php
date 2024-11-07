@@ -182,3 +182,5 @@ $routes->post('katalog/filter', 'Katalog::filter');
 $routes->get('/catalog/detail/(:num)', 'CatalogController::detail/$1');
 
 $routes->get('no-access', 'AuthController::NoAccess');
+
+$routes->get('/product-detail', 'ProductController::index');

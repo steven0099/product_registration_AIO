@@ -8,23 +8,25 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .product-detail-container {
-            max-width: 750px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px;
         }
 
         .carousel-item {
-            width: 1000px;
+            width: 350px;
+            height: auto;
         }
 
         .thumbnail-images img {
-            width: 750px;
+            width: 350px;
+            height: auto;
         }
 
         .product-image {
             width: 150%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             object-fit: cover;
             margin-bottom: 20px;
@@ -86,40 +88,110 @@
                 <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kiri'] ?? '')) ?>" data-bs-target="#productCarousel" data-bs-slide-to="1" alt="Thumbnail kanan">
                 <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'] ?? '')) ?>" data-bs-target="#productCarousel" data-bs-slide-to="2" alt="Thumbnail kiri">
             </div>
-        </div>
-        <div class="col-md-6 product-detail-info">
-            <p><strong>Kategori:</strong> <?= esc($product['category']) ?></p>
-            <p><strong>Sub Kategori:</strong> <?= esc($product['subcategory']) ?></p>
-            <p><strong>Tipe Produk:</strong> <?= esc($product['product_type']) ?></p>
-            <p><strong>Kapasitas:</strong> <?= esc($product['capacity']) ?> PK</p>
-            <p><strong>Konsumsi Daya:</strong> <?= esc($product['daya']) ?> W</p>
-            <p><strong>Kapasitas Pendinginan:</strong> <?= esc($product['cooling_capacity'] ?? '') ?> BTU/h</p>
-            <p><strong>Dimensi Produk:</strong> <?= esc($product['product_dimensions']) ?> cm</p>
-            <p><strong>Dimensi Kemasan:</strong> <?= esc($product['packaging_dimensions']) ?> cm</p>
-            <p><strong>Berat Unit:</strong> <?= esc($product['berat']) ?> kg</p>
-            <p><strong>Tipe Refrigerant:</strong> <?= esc($product['refrigrant_type'] ?? '') ?></p>
-        </div>
-    </div>
 
-    <div class="text-center mt-4">
-        <?php if (!empty($nextProduct)): ?>
-            <a href="<?= base_url('product/detail/' . $nextProduct['id']) ?>" class="btn btn-primary">Next</a>
-        <?php else: ?>
-            <p class="text-muted">Tidak ada produk berikutnya</p>
-        <?php endif; ?>
-    </div>
-    </div>
+            <div class="text-center mt-4">
+                <?php if (!empty($nextProduct)): ?>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Menambahkan class 'active' pada thumbnail yang diklik
-        document.querySelectorAll('.thumbnail-images img').forEach((thumbnail) => {
-            thumbnail.addEventListener('click', (e) => {
-                document.querySelectorAll('.thumbnail-images img').forEach((img) => img.classList.remove('active'));
-                e.target.classList.add('active');
+
+                <?php else: ?>
+
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Menambahkan class 'active' pada thumbnail yang diklik
+            document.querySelectorAll('.thumbnail-images img').forEach((thumbnail) => {
+                thumbnail.addEventListener('click', (e) => {
+                    document.querySelectorAll('.thumbnail-images img').forEach((img) => img.classList.remove('active'));
+                    e.target.classList.add('active');
+                });
             });
-        });
-    </script>
+        </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <style>
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 style="text-align: center;">Product Detail</h2>
+    <table>
+        <tr>
+            <td><strong>Kategori:</strong></td>
+            <td><?= $product['category']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Sub Kategori:</strong></td>
+            <td><?= $product['subcategory']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Tipe Produk:</strong></td>
+            <td><?= $product['product_type']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Kapasitas:</strong></td>
+            <td><?= $product['capacity']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Konsumsi Daya:</strong></td>
+            <td><?= $product['daya']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Kapasitas Pendinginan:</strong></td>
+            <td><?= $product['cooling_capacity']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Dimensi Produk:</strong></td>
+            <td><?= $product['product_dimensions']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Dimensi Kemasan:</strong></td>
+            <td><?= $product['packaging_dimensions']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Berat Unit:</strong></td>
+            <td><?= $product['berat']; ?></td>
+        </tr>
+        <tr>
+            <td><strong>Tipe Refrigerant:</strong></td>
+            <td><?= $product['refrigrant']; ?></td>
+        </tr>
+    </table>
+
+    <div class="button-container">
+        <button type="submit" class="btn btn-primary">Selanjutnya
+    </div>
+
 </body>
 
 </html>

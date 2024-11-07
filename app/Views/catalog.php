@@ -71,7 +71,7 @@ Digital Catalog
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <a href="<button type=" submit" class="btn btn-primary">Filter</button>
 
         </form>
     </div>
