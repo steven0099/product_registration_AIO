@@ -252,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group row">
                                                     <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
                                                     <div class="col-sm-8">
-                                                        <div class="form-group-s" style="display: flex;">
+                                                        <div class="form-group-s" id="product-stand-field" style="display: flex;">
                                                             <!-- Input dimensi produk stand -->
                                                             <input type="number" name="pstand_p" placeholder="Panjang (cm)" class="form-control">
                                                             <label class="divider"> x </label>
@@ -282,7 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group row">
                                                     <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
                                                     <div class="col-sm-8">
-                                                        <div class="form-group-s" style="display: flex;">
+                                                        <div class="form-group-s" id="panel-resolution-field" style="display: flex;">
                                                             <!-- Input resolusi panel -->
                                                             <input type="number" name="resolusi_x" placeholder="X (cm)" class="form-control">
                                                             <label class="divider"> x </label>
