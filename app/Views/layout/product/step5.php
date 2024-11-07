@@ -101,6 +101,16 @@
             text-align: right;
         }
 
+
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
+
         .floating-modal {
             display: none;
             /* Keep it hidden by default */
@@ -156,7 +166,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -164,7 +174,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#specification" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -172,7 +182,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -180,7 +190,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#photos" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
