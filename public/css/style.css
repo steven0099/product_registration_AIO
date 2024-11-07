@@ -222,16 +222,17 @@ form select::after {
 /* Comparison Bar Styling */
 .comparison-widget {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 500px; /* Adjust width as needed */
-    max-height: 600px; /* Limit height */
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
+    top: 100px;
+    width: auto;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    overflow-y: auto; /* Scroll if content overflows */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    cursor: move;
+    overflow-x: auto;  /* Allow horizontal scrolling if items overflow */
+    max-width: 1080px;  /* Prevent the widget from being too tall */
 }
 
 .comparison-header {
@@ -247,13 +248,25 @@ form select::after {
 }
 
 .comparison-content {
-    padding: 10px;
+    display: flex;                /* Flexbox to display items in a row */
+    flex-wrap: nowrap;            /* Prevent wrapping of items */
+    gap: 10px;                    /* Space between items */
+    overflow-x: auto;             /* Enable horizontal scroll if items overflow */
+    justify-content: flex-start; /* Align items to the start of the container */
 }
 
 .comparison-item {
+    width: 180px;                /* Adjust width of each item */
+    height: 200px;               /* Adjust height of each item */
+    background-color: #f5f5f5;   /* Background color for each item */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;            /* Prevent overflow of content */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: space-between;
 }
 
 .comparison-item img {
@@ -420,6 +433,7 @@ form select::after {
     border: 1px solid #ddd;
     padding: 10px;
     cursor: pointer;
+    color:#000;
     margin-bottom: 5px;
 }
 

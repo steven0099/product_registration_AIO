@@ -35,61 +35,52 @@ Digital Catalog
 <?= $this->section('content') ?>
 <div class="container">
     <div class="card">
-    <div class="row">
-    <!-- Sidebar for Filters -->
-    <div class="col-md-3">
-        <!-- Sidebar Filters -->
-        <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 20px;">
-            <h4>Filter Produk</h4>
-            <form id="filterForm" action="" method="GET">
-                <!-- Category Filter as a Button -->
-                <div>
-                    <button type="button" onclick="toggleFilter('categoryFilter')" class="filter-btn">Kategori Produk</button>
-                    <div id="categoryFilter" class="filter-options" style="display: none;">
-                        <?php foreach ($categories as $category): ?>
-                        <button type="button" onclick="selectFilterOption('category', '<?= esc($category['category']) ?>')">
-                            <?= esc($category['category']) ?>
-                        </button>
-                        <?php endforeach; ?>
-                    </div>
-                    <input type="hidden" name="category" id="selectedCategory">
-                </div>
-
-                <!-- Subcategory Filter as a Button -->
-                <div>
-                    <button type="button" onclick="toggleFilter('subcategoryFilter')" class="filter-btn">Sub Kategori Produk</button>
-                    <div id="subcategoryFilter" class="filter-options" style="display: none;">
-                        <?php foreach ($subcategories as $subcategory): ?>
-                        <button type="button" onclick="selectFilterOption('subcategory', '<?= esc($subcategory['subcategory']) ?>')">
-                            <?= esc($subcategory['subcategory']) ?>
-                        </button>
-                        <?php endforeach; ?>
-                    </div>
-                    <input type="hidden" name="subcategory" id="selectedSubcategory">
-                </div>
-
-                <!-- Capacity Filter as a Button -->
-                <div>
-                    <button type="button" onclick="toggleFilter('capacityFilter')" class="filter-btn">Ukuran / Kapasitas</button>
-                    <div id="capacityFilter" class="filter-options" style="display: none;">
-                        <?php foreach ($capacities as $capacity): ?>
-                        <button type="button" onclick="selectFilterOption('capacity', '<?= esc($capacity['capacity']) ?>')">
-                            <?= esc($capacity['capacity']) ?>
-                        </button>
-                        <?php endforeach; ?>
-                        <?php foreach ($ukuran as $size): ?>
-                        <button type="button" onclick="selectFilterOption('capacity', '<?= esc($size['ukuran']) ?>')">
-                            <?= esc($size['ukuran']) ?>
-                        </button>
-                        <?php endforeach; ?>
-                    </div>
-                    <input type="hidden" name="capacity" id="selectedCapacity">
-                </div>
-            </form>
-        </div>
+        <div class="row">
+            <!-- Sidebar for Filters -->
+            <div class="col-md-3">
+                <!-- Sidebar Filters -->
+                <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 20px;">
+                    <h4>Filter Produk</h4>
+<form id="filterForm" action="" method="GET">
+    <!-- Category Filter -->
+    <div>
+        <label for="category">Kategori Produk</label>
+        <select id="category" style="width:220px" name="category" autocomplete="off" class="form-control">
+            <option value="">Semua Kategori</option>
+            <?php foreach ($categories as $category): ?>
+                <option value="<?= esc($category['category']) ?>"><?= esc($category['category']) ?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
-</div>
 
+    <!-- Subcategory Filter -->
+    <div id="subcategoryContainer" style="display: none;">
+        <label for="subcategory">Sub Kategori Produk</label>
+        <select id="subcategory" name="subcategory" style="width:220px" class="form-control">
+            <option value="">Semua Subkategori</option>
+            <?php foreach ($subcategories as $subcategory): ?>
+                <option value="<?= esc($subcategory['subcategory']) ?>"><?= esc($subcategory['subcategory']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <!-- Capacity Filter -->
+    <div id="capacityContainer" style="display: none;">
+        <label for="capacity">Ukuran / Kapasitas</label>
+        <select id="capacity" name="capacity" style="width:220px" class="form-control">
+            <option value="">Semua</option>
+            <?php foreach ($capacities as $capacity): ?>
+                <option value="<?= esc($capacity['capacity']) ?>"><?= esc($capacity['capacity']) ?></option>
+            <?php endforeach; ?>
+            <?php foreach ($ukuran as $size): ?>
+                <option value="<?= esc($size['ukuran']) ?>"><?= esc($size['ukuran']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</form>
+
+                </div>
+            </div>
 
             <!-- Main Product Grid (Right side) -->
             <div class="col-md-9">
@@ -162,126 +153,109 @@ Digital Catalog
 <?= $this->section('js') ?>
 <script>
 $(document).ready(function() {
-    // Bind the click event to elements with the class `.toggle-filter-button`
-    $('.filter-btn').on('click', function() {
-        const filterId = $(this).data('filter-id');
-        toggleFilter(filterId);
+    // Trigger filtering on any change in dropdowns
+    $('#category, #subcategory, #capacity, #sort').on('change', function() {
+        filterProducts();
     });
-});
 
-// Toggle filter visibility
-function toggleFilter(filterId) {
-    const filterContent = document.getElementById(filterId);
-    if (filterContent) {
-        filterContent.style.display = (filterContent.style.display === 'none' || filterContent.style.display === '') ? 'block' : 'none';
+    $('#search').on('input', function() {
+        filterProducts();
+    });
+
+    function filterProducts() {
+        const category = $('#category').val();
+        const subcategory = $('#subcategory').val();
+        const capacity = $('#capacity').val();
+        const search = $('#search').val();
+        const sort = $('#sort').val();
+
+        // Show loading indicator
+        $('#productGrid').html('<div class="loader">Loading...</div>');
+
+        $.ajax({
+            url: "<?= base_url('catalog/filterProducts') ?>",
+            type: "GET",
+            data: {
+                category: category,
+                subcategory: subcategory,
+                capacity: capacity,
+                search: search,
+                sort: sort
+            },
+            success: function(response) {
+                $('#productGrid').html(response); // Replace product grid content
+            },
+            error: function() {
+                alert("Failed to filter products.");
+                $('#productGrid').html('');
+            }
+        });
     }
-}
 
-// Function to trigger filtering whenever a dropdown changes
-function filterProducts() {
-    const category = $('#category').val();
-    const subcategory = $('#subcategory').val();
-    const capacity = $('#capacity').val();
-    const search = $('#search').val();
-    const sort = $('#sort').val();
+    // Populate subcategories and capacities based on selected category
+    $('#category').on('change', function() {
+        const category = $(this).val();
 
-    // Show loading indicator
-    $('#productGrid').html('<div class="loader">Loading...</div>');
+        $('#subcategory').val('').trigger('change');
+        $('#capacity').val('').trigger('change');
+        $('#subcategory').empty().append('<option value="">Semua Subkategori</option>');
+        $('#capacity').empty().append('<option value="">Semua</option>');
+        $('#capacityContainer').hide();
 
-    $.ajax({
-        url: "<?= base_url('catalog/filterProducts') ?>",
-        type: "GET",
-        data: {
-            category: category,
-            subcategory: subcategory,
-            capacity: capacity,
-            search: search,
-            sort: sort
-        },
-        success: function(response) {
-            $('#productGrid').html(response); // Replace product grid content
-        },
-        error: function() {
-            alert("Failed to filter products.");
-            $('#productGrid').html('');
-        }
-    });
-}
-
-// Trigger filtering on dropdown change without additional button
-$('#category, #subcategory, #capacity, #sort').on('change', function() {
-    filterProducts();
-});
-
-$('#search').on('input', function() {
-    filterProducts();
-});
-
-// Populate subcategories and capacities based on selected category
-$('#category').on('change', function() {
-    const category = $(this).val();
-
-    $('#subcategory').val('').trigger('change');
-    $('#capacity').val('').trigger('change');
-    $('#subcategory').empty().append('<option value="">Semua Subkategori</option>');
-    $('#capacity').empty().append('<option value="">Semua</option>');
-    $('#capacityContainer').hide();
-
-    $.ajax({
-        url: "<?= base_url('catalog/getSubcategories') ?>",
-        type: "GET",
-        data: { category: category },
-        success: function(response) {
-            if (Array.isArray(response)) {
-                response.forEach(subcategory => {
-                    $('#subcategory').append(
-                        `<option value="${subcategory.subcategory_name}">${subcategory.subcategory_name}</option>`
-                    );
-                });
-                $('#subcategoryContainer').show();
-                filterProducts(); // Trigger filtering when category changes
-            } else {
-                console.error("Unexpected response:", response);
+        $.ajax({
+            url: "<?= base_url('catalog/getSubcategories') ?>",
+            type: "GET",
+            data: { category: category },
+            success: function(response) {
+                if (Array.isArray(response)) {
+                    $('#subcategory').append('');
+                    response.forEach(subcategory => {
+                        $('#subcategory').append(
+                            `<option value="${subcategory.subcategory_name}">${subcategory.subcategory_name}</option>`
+                        );
+                    });
+                    $('#subcategoryContainer').show();
+                } else {
+                    console.error("Unexpected response:", response);
+                }
+            },
+            error: function() {
+                alert("Failed to fetch subcategories.");
             }
-        },
-        error: function() {
-            alert("Failed to fetch subcategories.");
-        }
+        });
     });
-});
 
-// Populate capacities based on selected subcategory
-$('#subcategory').on('change', function() {
-    const subcategory = $(this).val();
+    // Populate capacities based on selected subcategory
+    $('#subcategory').on('change', function() {
+        const subcategory = $(this).val();
 
-    $('#capacity').val('').trigger('change');
+        $('#capacity').val('').trigger('change');
 
-    $.ajax({
-        url: "<?= base_url('catalog/getCapacities') ?>",
-        type: "GET",
-        data: { subcategory: subcategory },
-        success: function(response) {
-            $('#capacity').empty().append('<option value="">Semua</option>');
+        $.ajax({
+            url: "<?= base_url('catalog/getCapacities') ?>",
+            type: "GET",
+            data: { subcategory: subcategory },
+            success: function(response) {
+                $('#capacity').empty().append('<option value="">Semua</option>');
 
-            if (response.showCapacity) {
-                response.capacities.forEach(item => {
-                    const displayValue = item.value || item.size;
-                    $('#capacity').append(
-                        `<option value="${displayValue}">${displayValue}</option>`
-                    );
-                });
-                $('#capacityContainer').show();
-            } else {
-                $('#capacityContainer').hide();
+                if (response.showCapacity) {
+                    response.capacities.forEach(item => {
+                        const displayValue = item.value || item.size;
+                        $('#capacity').append(
+                            `<option value="${displayValue}">${displayValue}</option>`
+                        );
+                    });
+                    $('#capacityContainer').show();
+                } else {
+                    $('#capacityContainer').hide();
+                }
+            },
+            error: function() {
+                alert("Failed to load capacities.");
             }
-            filterProducts(); // Trigger filtering when subcategory changes
-        },
-        error: function() {
-            alert("Failed to load capacities.");
-        }
+        });
     });
 });
-
 
 // Variables to track selected comparison category and subcategory (for "SMALL APPLIANCES")
 let comparisonCategory = null;
@@ -384,5 +358,48 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
         }
     });
 });
+
+// Function to make the comparison widget draggable
+function makeWidgetMovable(widgetId) {
+    var widget = document.getElementById(widgetId);
+    var isDragging = false;
+    var offsetX, offsetY;
+
+    widget.addEventListener('mousedown', function (e) {
+        // Start dragging
+        isDragging = true;
+        offsetX = e.clientX - widget.getBoundingClientRect().left;
+        offsetY = e.clientY - widget.getBoundingClientRect().top;
+
+        // Change the cursor to indicate dragging
+        widget.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mousemove', function (e) {
+        if (isDragging) {
+            // Move the widget as the mouse moves
+            var x = e.clientX - offsetX;
+            var y = e.clientY - offsetY;
+
+            widget.style.left = x + 'px';
+            widget.style.top = y + 'px';
+        }
+    });
+
+    window.addEventListener('mouseup', function () {
+        // Stop dragging when mouse is released
+        isDragging = false;
+        widget.style.cursor = 'move';
+    });
+}
+
+// Initialize the movable functionality for the comparison widget
+makeWidgetMovable('comparisonWidget');
+
+// Close the widget when the close button is clicked
+document.getElementById('closeWidget').addEventListener('click', function () {
+    document.getElementById('comparisonWidget').style.display = 'none';
+});
+
 </script>
 <?= $this->endSection() ?>
