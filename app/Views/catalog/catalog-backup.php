@@ -360,5 +360,53 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
         }
     });
 });
+
+// Function to make the comparison widget draggable
+function makeWidgetMovable(widgetId) {
+    var widget = document.getElementById(widgetId);
+    var isDragging = false;
+    var offsetX, offsetY;
+
+    widget.addEventListener('mousedown', function (e) {
+        // Start dragging
+        isDragging = true;
+        offsetX = e.clientX - widget.getBoundingClientRect().left;
+        offsetY = e.clientY - widget.getBoundingClientRect().top;
+
+        // Change the cursor to indicate dragging
+        widget.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mousemove', function (e) {
+        if (isDragging) {
+            // Move the widget as the mouse moves
+            var x = e.clientX - offsetX;
+            var y = e.clientY - offsetY;
+
+            widget.style.left = x + 'px';
+            widget.style.top = y + 'px';
+        }
+    });
+
+    window.addEventListener('mouseup', function () {
+        // Stop dragging when mouse is released
+        isDragging = false;
+        widget.style.cursor = 'move';
+    });
+}
+
+// Initialize the movable functionality for the comparison widget
+makeWidgetMovable('comparisonWidget');
+
+// Close the widget when the close button is clicked
+document.addEventListener('DOMContentLoaded', function () {
+    var closeWidget = document.getElementById('closeWidget');
+    if (closeWidget) {
+        closeWidget.addEventListener('click', function () {
+            document.getElementById('comparisonWidget').style.display = 'none';
+        });
+    }
+});
+
 </script>
 <?= $this->endSection() ?>

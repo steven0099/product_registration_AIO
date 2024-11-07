@@ -96,7 +96,7 @@ class CatalogController extends BaseController
     public function filterProducts()
     {
         $categoryName = $this->request->getGet('category');
-        $subcategoryName = $this->request->getGet('subcategory'); // Updated variable name for clarity
+        $subcategoryName = $this->request->getGet('subcategory'); 
         $capacity = $this->request->getGet('capacity');
     
         // Map category name to category_id
@@ -109,24 +109,21 @@ class CatalogController extends BaseController
     
         // Apply filters based on category and subcategory
         if ($categoryName) $query->where('category', $categoryName);
-        if ($subcategoryName) $query->where('subcategory', $subcategoryName); // Ensure you're using subcategory_id
+        if ($subcategoryName) $query->where('subcategory', $subcategoryName);
     
         // Check if the capacity or ukuran filter should be applied
         if ($capacity) {
             $filterType = $this->getFilterType($categoryId, $subcategoryId);
-    
-            // Log filter type for debugging
-            log_message('debug', 'Filter Type: ' . $filterType);
+            log_message('debug', 'Filter Type: ' . $filterType); // Log the filter type
     
             if ($filterType === 'capacity') {
-                // Compare by string directly
-                $query->where('capacity', $capacity); // No need for conversion, just compare strings
+                $query->where('capacity', $capacity);
             } elseif ($filterType === 'ukuran') {
-                // Compare ukuran directly as a string as well
-                $query->where('ukuran', $capacity); // Compare as string
+                $query->where('ukuran', $capacity); // Use `capacity` but match against `ukuran`
             }
         }
     
+        // Fetch products
         $data['products'] = $query->findAll();
     
         // Log the filter values and the resulting query data
@@ -134,10 +131,13 @@ class CatalogController extends BaseController
         log_message('debug', 'Filter - Subcategory: ' . $subcategoryName);
         log_message('debug', 'Filter - Capacity/Ukuran: ' . $capacity);
         log_message('debug', 'Query Result: ' . print_r($data['products'], true));
+        log_message('debug', 'Final SQL Query: ' . $this->db->getLastQuery());
     
         return view('partials/product_grid', $data);
     }
     
+
+
 // For dynamically updating subcategory options
 public function getSubcategories()
 {
@@ -220,16 +220,11 @@ private function getFilterType($categoryId, $subcategoryId = null)
 public function getCapacities()
 {
     $subcategoryName = $this->request->getGet('subcategory');
-    
-    // Log the received subcategory for debugging
-    log_message('debug', 'Received Subcategory Name: ' . $subcategoryName);
 
     // Retrieve subcategory ID from name
     $subcategoryId = $this->getSubcategoryIdByName($subcategoryName);
 
     if ($subcategoryId) {
-        log_message('debug', 'Found Subcategory ID: ' . $subcategoryId);
-
         $categoryId = $this->getCategoryIdBySubcategoryId($subcategoryId);
         $filterType = $this->getFilterType($categoryId, $subcategoryId);
 
@@ -238,24 +233,23 @@ public function getCapacities()
 
         if ($filterType === 'capacity') {
             $capacities = $this->capacityModel->where('subcategory_id', $subcategoryId)->findAll();
-            log_message('debug', 'Capacities Retrieved from Capacity Model: ' . print_r($capacities, true));
         } elseif ($filterType === 'ukuran') {
             $capacities = $this->ukuranModel->where('subcategory_id', $subcategoryId)->findAll();
-            log_message('debug', 'Capacities Retrieved from Ukuran Model: ' . print_r($capacities, true));
         } else {
             $capacities = [];
-            log_message('debug', 'No valid filter type found, returning empty capacities.');
         }
+
+        // Log the retrieved capacities for debugging
+        log_message('debug', 'Capacities Retrieved: ' . print_r($capacities, true));
 
         // Return the response including the showCapacity flag
         return $this->response->setJSON(['capacities' => $capacities, 'showCapacity' => $showCapacity]);
     } else {
-        log_message('debug', 'No valid subcategory ID found for subcategory: ' . $subcategoryName);
+        log_message('debug', 'No valid subcategory ID found.');
         $capacities = [];
         return $this->response->setJSON(['capacities' => $capacities, 'showCapacity' => false]);
     }
 }
-
 
 
 
@@ -284,6 +278,5 @@ private function getCategoryIdBySubcategory($subcategoryName)
         return null;
     }
 }
-
 
 }

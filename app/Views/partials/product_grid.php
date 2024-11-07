@@ -112,7 +112,6 @@
            data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>">
     <label>Bandingkan</label>
 <button class="button" onclick="location.href='/catalog/details/<?= esc($product['id']) ?>'">Detail Produk</button>
-</button>
 </div>
 
                     </div>
