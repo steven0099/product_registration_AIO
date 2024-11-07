@@ -145,10 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             display: none;
         }
 
-
-
-
-
         @media (max-width: 600px) {
 
             .logo,
@@ -252,16 +248,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
 
+                                                <!-- Grup Formulir Dimensi Produk Stand -->
                                                 <div class="form-group row">
                                                     <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
                                                     <div class="col-sm-8">
-                                                        <div class="form-group-s" id="product-stand-field" style="display: flex">
+                                                        <div class="form-group-s" style="display: flex;">
+                                                            <!-- Input dimensi produk stand -->
                                                             <input type="number" name="pstand_p" placeholder="Panjang (cm)" class="form-control">
                                                             <label class="divider"> x </label>
                                                             <input type="number" name="pstand_l" placeholder="Lebar (cm)" class="form-control">
                                                             <label class="divider"> x </label>
                                                             <input type="number" name="pstand_t" placeholder="Tinggi (cm)" class="form-control">
-                                                            <label class="unit">cm</label>
+                                                            <label class="unit"> cm </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,14 +278,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
 
+                                                <!-- Grup Formulir Resolusi Panel -->
                                                 <div class="form-group row">
                                                     <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
                                                     <div class="col-sm-8">
-                                                        <div class="form-group-s" id="panel-resolution-field">
+                                                        <div class="form-group-s" style="display: flex;">
+                                                            <!-- Input resolusi panel -->
                                                             <input type="number" name="resolusi_x" placeholder="X (cm)" class="form-control">
                                                             <label class="divider"> x </label>
                                                             <input type="number" name="resolusi_y" placeholder="Y (cm)" class="form-control">
-                                                            <label class="unit">Pixel</label>
+                                                            <label class="unit"> Pixel </label>
                                                         </div>
                                                     </div>
                                                 </div>
