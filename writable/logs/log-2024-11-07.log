@@ -1,0 +1,313 @@
+INFO - 2024-11-07 08:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 08:28:23 --> CSRF token verified.
+INFO - 2024-11-07 08:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-07 08:28:28 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php:187
+Stack trace:
+#0 D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php(187): mysqli->real_connect('localhost', 'root', '', 'product_registr...', 3306, '', 0)
+#1 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\product_registration_AIO-steven\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\product_registration_AIO-steven\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\product_registration_AIO-steven\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 D:\product_registration_AIO-steven\app\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+#7 D:\product_registration_AIO-steven\system\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+#8 D:\product_registration_AIO-steven\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#9 D:\product_registration_AIO-steven\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\product_registration_AIO-steven\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 D:\product_registration_AIO-steven\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\product_registration_AIO-steven\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 D:\product_registration_AIO-steven\system\rewrite.php(44): require_once('D:\\product_regi...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\product_registration_AIO-steven\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\product_registration_AIO-steven\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\product_registration_AIO-steven\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 D:\product_registration_AIO-steven\app\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+#6 D:\product_registration_AIO-steven\system\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+#7 D:\product_registration_AIO-steven\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#8 D:\product_registration_AIO-steven\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\product_registration_AIO-steven\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\product_registration_AIO-steven\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\product_registration_AIO-steven\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 D:\product_registration_AIO-steven\system\rewrite.php(44): require_once('D:\\product_regi...')
+#13 {main}
+CRITICAL - 2024-11-07 08:28:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: login/auth]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\product_registration_AIO-steven\\public\\index.php')
+INFO - 2024-11-07 08:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 08:34:31 --> CSRF token verified.
+INFO - 2024-11-07 08:34:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-07 08:34:35 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php:187
+Stack trace:
+#0 D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php(187): mysqli->real_connect('localhost', 'root', '', 'product_registr...', 3306, '', 0)
+#1 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\product_registration_AIO-steven\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\product_registration_AIO-steven\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\product_registration_AIO-steven\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 D:\product_registration_AIO-steven\app\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+#7 D:\product_registration_AIO-steven\system\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+#8 D:\product_registration_AIO-steven\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#9 D:\product_registration_AIO-steven\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\product_registration_AIO-steven\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 D:\product_registration_AIO-steven\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\product_registration_AIO-steven\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 D:\product_registration_AIO-steven\system\rewrite.php(44): require_once('D:\\product_regi...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\product_registration_AIO-steven\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\product_registration_AIO-steven\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\product_registration_AIO-steven\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 D:\product_registration_AIO-steven\app\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+#6 D:\product_registration_AIO-steven\system\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+#7 D:\product_registration_AIO-steven\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#8 D:\product_registration_AIO-steven\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\product_registration_AIO-steven\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\product_registration_AIO-steven\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\product_registration_AIO-steven\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 D:\product_registration_AIO-steven\system\rewrite.php(44): require_once('D:\\product_regi...')
+#13 {main}
+CRITICAL - 2024-11-07 08:34:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: login/auth]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\product_registration_AIO-steven\\public\\index.php')
+INFO - 2024-11-07 08:38:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 08:38:32 --> CSRF token verified.
+INFO - 2024-11-07 08:38:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-07 08:38:36 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php:187
+Stack trace:
+#0 D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php(187): mysqli->real_connect('localhost', 'root', '', 'product_registr...', 3306, '', 0)
+#1 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\product_registration_AIO-steven\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\product_registration_AIO-steven\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\product_registration_AIO-steven\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 D:\product_registration_AIO-steven\app\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+#7 D:\product_registration_AIO-steven\system\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+#8 D:\product_registration_AIO-steven\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#9 D:\product_registration_AIO-steven\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\product_registration_AIO-steven\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 D:\product_registration_AIO-steven\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\product_registration_AIO-steven\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 D:\product_registration_AIO-steven\system\rewrite.php(44): require_once('D:\\product_regi...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\product_registration_AIO-steven\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\product_registration_AIO-steven\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\product_registration_AIO-steven\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\product_registration_AIO-steven\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\product_registration_AIO-steven\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 D:\product_registration_AIO-steven\app\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+#6 D:\product_registration_AIO-steven\system\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+#7 D:\product_registration_AIO-steven\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#8 D:\product_registration_AIO-steven\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\product_registration_AIO-steven\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 D:\product_registration_AIO-steven\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\product_registration_AIO-steven\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 D:\product_registration_AIO-steven\system\rewrite.php(44): require_once('D:\\product_regi...')
+#13 {main}
+CRITICAL - 2024-11-07 08:38:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: login/auth]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\AuthController.php(20): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\AuthController->authenticate()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\product_registration_AIO-steven\\public\\index.php')
+INFO - 2024-11-07 08:57:09 --> CSRF token verified.
+INFO - 2024-11-07 08:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 08:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 08:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:05:33 --> CSRF token verified.
+INFO - 2024-11-07 09:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:05:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:34:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:36:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:36:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:41:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:46:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:46:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:55:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:55:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:56:12 --> CSRF token verified.
+INFO - 2024-11-07 09:56:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:56:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 09:56:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:03:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:47 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-07 10:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:47 --> getCapacities called with ID: 6
+INFO - 2024-11-07 10:04:47 --> Capacities fetched: []
+INFO - 2024-11-07 10:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:04:47 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-07 10:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:05:32 --> getCapacities called with ID: 21
+INFO - 2024-11-07 10:05:32 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-07 10:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:05:32 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-07 10:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:05:32 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-07 10:05:42 --> CSRF token verified.
+INFO - 2024-11-07 10:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:06:39 --> CSRF token verified.
+INFO - 2024-11-07 10:06:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:06:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:06:56 --> CSRF token verified.
+INFO - 2024-11-07 10:06:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:06:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:09:40 --> CSRF token verified.
+INFO - 2024-11-07 10:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:09:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-07 10:09:41 --> Inserted new confirmation: Array
+(
+    [product_id] => 77
+    [status] => pending
+    [submitted_by] => superadmin
+    [brand] => ADVAN
+    [category] => KULKAS
+    [product_type] => OK
+    [color] => WARNA: KEBIRU-BIRUAN
+    [subcategory] => KULKAS PORTABLE
+    [capacity] => 42 L
+    [ukuran] => 
+    [berat] => 8
+    [daya] => 2
+    [pembuat] => INDONESIA
+    [refrigrant] => 
+    [compressor_warranty] => 2
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 12 x 1 x 3 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => bagus
+    [advantage2] => b
+    [advantage3] => b
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1730948980_310f7b28066f5293aca9.png
+    [gambar_belakang] => 1730948980_61305f1f21aae2ed9b0f.png
+    [gambar_samping_kiri] => 1730948980_09ff16cef572aba45d9f.png
+    [gambar_samping_kanan] => 1730948980_df13a106dc9136188ae2.png
+    [gambar_atas] => 1730948980_4eae7d5b33128479a4e9.png
+    [gambar_bawah] => 1730948980_3a21700ac938a87dd4d8.png
+    [video_produk] => https://youtu.be/FG9M0aEpJGE?si=qV9SzWa55JJEBY1y
+)
+
+INFO - 2024-11-07 10:09:56 --> CSRF token verified.
+INFO - 2024-11-07 10:09:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:09:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:10:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:10:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:11:15 --> CSRF token verified.
+INFO - 2024-11-07 10:11:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:11:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:11:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:11:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:16:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:18:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:18:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:19:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:26:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:26:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:27:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-07 10:34:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
