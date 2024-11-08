@@ -333,6 +333,51 @@ class ProductController extends BaseController
         }
     }
 
+    public function getCompressorWarranties()
+    {
+        $model = new CompressorWarrantyModel();
+        $warranties = $model->findAll();
+
+        return $this->response->setJSON($warranties);
+    }
+    public function getGaransiPanel()
+    {
+        $garansiPanelModel = new GaransiPanelModel();
+        $data = $garansiPanelModel->findAll();
+        return $this->response->setJSON($data);
+    }
+    // Fetch Garansi Motor data
+    public function getPanelWarranties()
+    {
+        $model = new GaransiPanelModel();
+        $warranties = $model->findAll();
+
+        return $this->response->setJSON($warranties);
+    }
+
+    public function getMotorWarranties()
+    {
+        $model = new GaransiMotorModel();
+        $warranties = $model->findAll();
+
+        return $this->response->setJSON($warranties);
+    }
+
+    public function getHeatWarranties()
+    {
+        $model = new GaransiElemenPanasModel();
+        $warranties = $model->findAll();
+
+        return $this->response->setJSON($warranties);
+    }
+    // Fetch Garansi Semua Service data
+    public function getGaransiSemuaService()
+    {
+        $model = new GaransiSemuaServiceModel();
+        $warranties = $model->findAll();
+        return $this->response->setJSON($warranties);
+    }
+
     public function fetchWarrantyOptions()
     {
         $type = $this->request->getGet('type');
