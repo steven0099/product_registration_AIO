@@ -24,7 +24,7 @@ class GaransiServiceController extends BaseController
     $data = [
         'value' => $this->request->getPost('value'),
     ];
-    if (!$garansimotorModel->save($data)) {
+    if (!$garansiserviceModel->save($data)) {
         return redirect()->back()->with('error', 'Failed to add Service Warranty.');
     }
 
@@ -34,7 +34,7 @@ class GaransiServiceController extends BaseController
     public function updateGaransiService($id)
     {
 
-        $garansiserviceModel = new GaransiServiceModel();
+        $garansiserviceModel = new GaransiSemuaServiceModel();
 
         $data = [
             'value' => $this->request->getPost('value'),

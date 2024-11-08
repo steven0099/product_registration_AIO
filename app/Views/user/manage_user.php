@@ -1,27 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<?= $this->include('partials/headbar')?>
-<?= $this->include('partials/sidebar')?>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <section class="background" style="padding: 20px; background-color: #f0f0f5;">
-  <title>Manajemen User</title>
+<?= $this->extend('partials/main') ?>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('plugins/fontawesome-free/css/all.min.css') ?>">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?= base_url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
-  <link rel="stylesheet" href="<?= base_url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
-  <link rel="stylesheet" href="<?= base_url('plugins/datatables-buttons/css/buttons.bootstrap4.min.cs') ?>s">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('dist/css/adminlte.min.css') ?>">
-</head>
-<body>
-    <!-- Main content -->
-    <section class="content" style="margin-left: 290px; padding: 20px; margin-top: 80px;">
+<?= $this->section('css') ?>
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<?= $this->endSection() ?>
+
+<?= $this->section('title') ?>
+    Pengelolaan User
+<?= $this->endSection() ?>
+
+<?= $this->section('breadcumb') ?>
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Pengelolaan User</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/#">Home</a></li>
+                        <li class="breadcrumb-item active">Pengelolaan User</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+<section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -35,7 +46,7 @@
                 <table id="user" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>No.</th>
                       <th>Nama</th>
                       <th>Brand</th>
                       <th>No.Telp</th>
@@ -57,7 +68,12 @@
                         <td><?= esc($users['address']) ?></td>
                         <td><?= esc($users['role']) ?></td>
                         <td>
-                          <!-- Actions like Edit/Delete can go here -->
+                        <a href="/superadmin/user/editUser/<?= esc($users['id']) ?>" class="btn-edit">
+    <i class="fas fa-pencil-alt"></i> <!-- Pencil icon from Font Awesome -->
+</a>
+<a href="/superadmin/user/deleteUser/<?= esc($users['id']) ?>" class="btn-delete">
+    <i class="fas fa-trash"></i> <!-- Trash icon from Font Awesome -->
+</a>
                         </td>
                       </tr>
                     <?php endforeach; ?>
@@ -69,7 +85,10 @@
         </div>
       </div>
     </section>
+<?= $this->endSection() ?>
 
+
+<?= $this->section('js') ?>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- DataTables JS -->
@@ -93,5 +112,4 @@
         });
       });
     </script>
-</body>
-</html>
+<?= $this->endSection() ?>

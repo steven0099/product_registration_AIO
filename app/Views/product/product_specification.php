@@ -88,9 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <label for="panel_resolution" id="panel-resolution-label">Resolusi Panel</label>
             <div class="form-group-s" id="panel-resolution-field">
-                <input type="number" name="resolusi_x" placeholder="X (cm)">
+                <input type="number" name="resolusi_x" placeholder="X (px)">
                 <label style="text-align: center">x</label>
-                <input type="number" name="resolusi_y" placeholder="Y (cm)">
+                <input type="number" name="resolusi_y" placeholder="Y (px)">
                 <label style="margin-left:10px">Pixel</label>
             </div>
 
@@ -149,7 +149,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 </div>
-
 
             <button type="submit" class="submit-btn">Selanjutnya</button>
         </form>

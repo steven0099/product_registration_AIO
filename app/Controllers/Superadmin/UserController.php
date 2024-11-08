@@ -64,4 +64,38 @@ class UserController extends BaseController
                 // Redirect to the user list or a success page
                 return redirect()->to('superadmin/user')->with('success', 'User created successfully');
 }
+
+public function editUser()
+{   
+    return view('user/edit_user');
+}
+
+public function updateUser($id)
+{
+
+    $userModel = new UserModel();
+
+    $data = [
+        'name' => $data['name'],
+        'brand' => $data['brand'],
+        'username' => $data['username'],
+        'email'    => $data['email'],
+        'address' => $data['address'],
+        'phone' => $data['phone'],
+        'role'     => $data['role'],  // 'admin' or 'user'
+    ];
+    // Update the Kategori  in the database
+    if (!$userModel->update($id, $data)) {
+        return redirect()->back()->with('error', 'Failed to update User.');
+    }
+
+    return redirect()->to('/superadmin/user')->with('success', 'User updated successfully.');
+}
+
+public function deleteUser($id)
+{
+    $userModel = new UserModel();
+    $userModel->delete($id);
+    return redirect()->to('/superadmin/user');
+}
 }

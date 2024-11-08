@@ -39,8 +39,17 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('confirm', 'ProductController::confirm');
     $routes->post('confirmSubmission', 'ProductController::finalizeProductSubmission');
 
-    $routes->post('updateField', 'ProductController::updateField');
+    $routes->get('getBrands', 'ProductController::getBrands');
+    $routes->post('updateBrand', 'ProductController::updateBrand');
+    $routes->post('deleteProduct/(:num)', 'ProductController::deleteProduct/$1');
     $routes->get('thank_you', 'ProductController::thank_you');
+});
+
+$routes->group('catalog', ['filter' => 'auth'], function ($routes) {
+$routes->get('', 'CatalogController::catalog');
+$routes->get('filterProducts', 'CatalogController::filterProducts');
+$routes->get('getSubcategories', 'CatalogController::getSubcategories');
+$routes->get('getCapacities', 'CatalogController::getCapacities');
 });
 
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {
@@ -52,6 +61,11 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->get('dashboard', 'SuperadminController::dashboard');
 
     $routes->get('product', 'SuperadminController::product');
+
+    $routes->get('details/(:num)', 'ProductController::productDetails/$1');
+    $routes->get('approve/(:num)', 'ProductController::approveProduct/$1');
+    $routes->get('reject/(:num)', 'ProductController::rejectProduct/$1');
+
     
     // User management routes for superadmin
     $routes->get('user', 'Superadmin\UserController::index'); // This should match your directory structure
@@ -64,7 +78,20 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     // Superadmin product approvals/rejections
     $routes->get('product/approved', 'ProductController::approved');
     $routes->get('product/rejected', 'ProductController::rejected');
-    $routes->get('product/deleteProduct/(:num)', 'ProductController::deleteProduct/$1');
+    $routes->post('updateColor', 'ProductController::updateColor');
+    $routes->post('updatePower', 'ProductController::updatePower');
+    $routes->post('updateWeight', 'ProductController::updateWeight');
+    $routes->post('updateColdCap', 'ProductController::updateColdCap');
+    $routes->post('updateHotCap', 'ProductController::updateHotCap');
+    $routes->post('updateCooling', 'ProductController::updateCooling');
+    $routes->post('updateCspf', 'ProductController::updateCspf');
+    $routes->post('updateManufacturer', 'ProductController::updateManufacturer');
+    $routes->post('updateProductType', 'ProductController::updateProductType');
+    $routes->post('updateAdvantages', 'ProductController::updateAdvantages');
+    $routes->post('updateProductDimensions', 'ProductController::updateProductDimensions');
+    $routes->post('updatePackagingDimensions', 'ProductController::updatePackagingDimensions');
+    $routes->post('updateStandDimensions', 'ProductController::updateStandDimensions');
+    $routes->post('updateResolution', 'ProductController::updateResolution');
 });
 
 // Routes for Admin and Superadmin (Admin Management)
@@ -74,7 +101,10 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('dashboard', 'AdminController::dashboard');
 
     $routes->get('product', 'AdminController::product');
-
+    $routes->get('details/(:num)', 'AdminController::productDetails/$1');
+    $routes->get('reports', 'ProductController::reports');
+    $routes->post('generateReport', 'ProductController::generateReport');
+  
     // Brand Management
     $routes->get('brand', 'Admin\BrandController::index');
     $routes->post('brand/saveBrand', 'Admin\BrandController::saveBrand');
@@ -119,7 +149,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('refrigrant', 'Admin\RefrigrantController::index');
     $routes->post('refrigrant/saveRefrigrant', 'Admin\RefrigrantController::saveRefrigrant');
     $routes->post('refrigrant/updateRefrigrant/(:num)', 'Admin\RefrigrantController::updateRefrigrant/$1');
-    $routes->post('refrigrant/deleteRefrigrant/(:num)', 'Admin\RefrigrantController::deleteRefrigrant/$1');
+    $routes->get('refrigrant/deleteRefrigrant/(:num)', 'Admin\RefrigrantController::deleteRefrigrant/$1');
 
     $routes->get('garansi_motor', 'Admin\GaransiMotorController::index');
     $routes->post('garansi_motor/saveGaransiMotor', 'Admin\GaransiMotorController::saveGaransiMotor');
@@ -139,26 +169,14 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
 
 // Public Routes (no authentication required)
 $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1');
-$routes->get('get-capacities', 'ProductController::getCapacities');
 $routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
-$routes->get('get-ukuran-tv', 'ProductController::getUkuranTv');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
-$routes->get('get-garansi-motor', 'ProductController::getGaransiMotor');
-$routes->get('get-garansi-panel', 'ProductController::getGaransiPanel');
-$routes->get('get-garansi-service', 'ProductController::getGaransiSemuaService');
-$routes->get('get-compressor-warranties', 'ProductController::getCompressorWarranties');
-$routes->get('get-panel-warranties', 'ProductController::getPanelWarranties');
-$routes->get('get-heat-warranties', 'ProductController::getHeatWarranties');
-$routes->get('get-motor-warranties', 'ProductController::getMotorWarranties');
-$routes->get('fetch-brands', 'ProductController::fetchBrands');
+$routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions');
+
 
 
 
 $routes->get('no-access', 'AuthController::NoAccess');
 
-// List of products (viewable by admin and superadmin)
-$routes->group('', ['filter' => 'role:admin,superadmin'], function($routes) {
-    $routes->get('product', 'ProductController::index');
-});
 
 

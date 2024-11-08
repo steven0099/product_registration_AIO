@@ -70,7 +70,7 @@
               <table id="capTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>#</th>
+                  <th>No.</th>
                   <th>Subkategori</th>
                   <th>Ukuran</th>
                   <th>Opsi</th>
@@ -195,7 +195,7 @@
           
           // Set the form action and input value dynamically
           document.getElementById('editForm').action = '/admin/ukuran/updateUkuran/' + id;
-          document.getElementById('editSize').value = value;
+          document.getElementById('editSize').value = size;
 
           editModal.style.display = "block";
         });
