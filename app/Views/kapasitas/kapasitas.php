@@ -70,7 +70,7 @@
               <table id="capTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>#</th>
+                  <th>No.</th>
                   <th>Subkategori</th>
                   <th>Kapasitas</th>
                   <th>Opsi</th>

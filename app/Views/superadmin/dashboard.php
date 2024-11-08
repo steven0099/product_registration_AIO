@@ -40,7 +40,7 @@ Dashboard
                         </h3>
                     </div><!-- /.card-header -->
                     <div class="row" style="margin-top: 10px; margin-left: 5px; margin-right:5px">
-                        <div class="col-lg-3 col-6">
+                        <div class="col-lg-3 col-6" id="boxAll">
                             <div class="small-box bg-info">
                                 <div class="inner">
                                     <h3><?= esc($count_all) ?></h3>
@@ -48,7 +48,7 @@ Dashboard
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
+                        <div class="col-lg-3 col-6" id="boxConfirmed">
                             <div class="small-box bg-warning">
                                 <div class="inner">
                                     <h3><?= esc($count_confirmed) ?></h3>
@@ -56,7 +56,7 @@ Dashboard
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
+                        <div class="col-lg-3 col-6" id="boxRejected">
                             <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3><?= esc($count_rejected) ?></h3>
@@ -64,7 +64,7 @@ Dashboard
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
+                        <div class="col-lg-3 col-6" id="boxApproved">
                             <div class="small-box bg-success">
                                 <div class="inner">
                                     <h3><?= esc($count_approved) ?></h3>
@@ -80,7 +80,7 @@ Dashboard
                                     <th>No.</th>
                                     <th>Merek</th>
                                     <th>Tipe Produk</th>
-                                    <th>Pengaju</th>
+                                    <th>Diajukan Oleh</th>
                                     <th>Status</th>
                                     <th>Tanggal</th>
                                     <th>Detail</th>
@@ -94,13 +94,13 @@ Dashboard
                                     <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
                                     <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
                                     <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
-                                    <td>
+                                    <td style="text-align: center">
                                         <?php if ($products['status'] === 'confirmed'): ?>
-                                        Menunggu Persetujuan
+                                        <h6 style="background-color: #ffdb23; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Menunggu Persetujuan</h6>
                                         <?php elseif ($products['status'] === 'rejected'): ?>
-                                        Ditolak
+                                            <h6 style="background-color: #ff0404; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Ditolak</h6>
                                         <?php elseif ($products['status'] === 'approved'): ?>
-                                        Disetujui
+                                            <h6 style="background-color: #00ff24; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Disetujui</h6>
                                         <?php endif; ?>
                                     </td>
                                     <td>
@@ -113,9 +113,8 @@ Dashboard
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="/superadmin/details/<?= esc($products['id']) ?>" class="btn-view">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                    <button class="button btn btn-success" onclick="location.href='/superadmin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
+                                    </button>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -132,5 +131,32 @@ Dashboard
 <?= $this->section('js') ?>
 <script>
 $('#spadmTable').DataTable();
+
+$(document).ready(function() {
+    // Initialize DataTable
+    const table = $('#spadmTable').DataTable();
+
+    // Filter function based on status
+    function filterTable(status) {
+        table.column(4).search(status).draw();
+    }
+
+    // Event listeners for each box
+    $('#boxAll').on('click', function() {
+        table.column(4).search('').draw(); // Show all statuses
+    });
+
+    $('#boxConfirmed').on('click', function() {
+        filterTable('Menunggu Persetujuan');
+    });
+
+    $('#boxRejected').on('click', function() {
+        filterTable('Ditolak');
+    });
+
+    $('#boxApproved').on('click', function() {
+        filterTable('Disetujui');
+    });
+});
 </script>
 <?= $this->endSection() ?>

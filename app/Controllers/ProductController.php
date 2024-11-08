@@ -189,7 +189,8 @@ public function generateReport()
         'AA' => 'Keunggulan 2', 'AB' => 'Keunggulan 3', 'AC' => 'Keunggulan 4', 'AD' => 'Keunggulan 5', 'AE' => 'Keunggulan 6',
         'AF' => 'Gambar Depan', 'AG' => 'Gambar Belakang', 'AH' => 'Gambar Samping Kiri', 
         'AI' => 'Gambar Samping Kanan', 'AJ' => 'Gambar Atas', 'AK' => 'Gambar Bawah',
-        'AL' => 'Link Video Produk', 'AM' => 'Status', 'AN' => 'Tanggal Disetujui', 'AO' => 'Tanggal Ditolak'
+        'AL' => 'Link Video Produk', 'AM' => 'Diajukan Oleh', 'AN' => 'Status', 'AO' => 'Tanggal Disetujui',
+        'AP' => 'Tanggal Ditolak', 'AQ' => 'Tanggal Pengajuan'
     ];
 
     // Set headers
@@ -205,55 +206,57 @@ public function generateReport()
               ->setCellValue('C' . $row, $product['subcategory'])
               ->setCellValue('D' . $row, $product['product_type'])
               ->setCellValue('E' . $row, $product['color'])
-              ->setCellValue('F' . $row, $product['garansi_motor'].'Tahun' ?? '')
-              ->setCellValue('G' . $row, $product['garansi_semua_service'].' Tahun' ?? '')
-              ->setCellValue('H' . $row, $product['garansi_elemen_panas'].' Tahun' ?? '')
-              ->setCellValue('I' . $row, $product['garansi_panel'].' Tahun' ?? '')
-              ->setCellValue('J' . $row, $product['compressor_warranty'].' Tahun' ?? '')
-              ->setCellValue('K' . $row, $product['sparepart_warranty'].' Tahun' ?? '')
+              ->setCellValue('F' . $row, (!empty($product['garansi_motor']) ? $product['garansi_motor'] . ' Tahun' : ''))
+              ->setCellValue('G' . $row, (!empty($product['garansi_semua_service']) ? $product['garansi_semua_service'] . ' Tahun' : ''))
+              ->setCellValue('H' . $row, (!empty($product['garansi_elemen_panas']) ? $product['garansi_elemen_panas'] . ' Tahun' : ''))
+              ->setCellValue('I' . $row, (!empty($product['garansi_panel']) ? $product['garansi_panel'] . ' Tahun' : ''))
+              ->setCellValue('J' . $row, (!empty($product['compressor_warranty']) ? $product['compressor_warranty'] . ' Tahun' : ''))
+              ->setCellValue('K' . $row, (!empty($product['sparepart_warranty']) ? $product['sparepart_warranty'] . ' Tahun' : ''))              
               ->setCellValue('L' . $row, $product['capacity'] ?? '')
               ->setCellValue('M' . $row, $product['ukuran'] ?? '')
-              ->setCellValue('N' . $row, $product['kapasitas_air_panas'].' Liter' ?? '')
-              ->setCellValue('O' . $row, $product['kapasitas_air_dingin'].' Liter' ?? '')
+              ->setCellValue('N' . $row, (!empty($product['kapasitas_air_panas']) ? $product['kapasitas_air_panas'].' Liter' : ''))
+              ->setCellValue('O' . $row, (!empty($product['kapasitas_air_dingin']) ? $product['kapasitas_air_dingin'].' Liter' : ''))
               ->setCellValue('P' . $row, $product['product_dimensions'] ?? '')
               ->setCellValue('Q' . $row, $product['packaging_dimensions'] ?? '')
               ->setCellValue('R' . $row, $product['daya'].' Watt' ?? '')
               ->setCellValue('S' . $row, $product['berat'].' Kg' ?? '')
               ->setCellValue('T' . $row, $product['pembuat'] ?? '')
               ->setCellValue('U' . $row, $product['pstand_dimensions'] ?? '')
-              ->setCellValue('V' . $row, $product['panel_resolution'].' Pixel' ?? '')
-              ->setCellValue('W' . $row, $product['cooling_capacity'].' BTU/H' ?? '')
+              ->setCellValue('V' . $row, (!empty($product['panel_resolution']) ? $product['panel_resolution'].' Pixel' : ''))
+              ->setCellValue('W' . $row, (!empty($product['cooling_capacity']) ? $product['cooling_capacity'].' BTU/H' : ''))
               ->setCellValue('X' . $row, $product['cspf'] ?? '')
-              ->setCellValue('Y' . $row, $product['refrigrant'].'/5' ?? '')
+              ->setCellValue('Y' . $row, (!empty($product['refrigrant']) ? $product['cspf'].'/5' : ''))
               ->setCellValue('Z' . $row, $product['advantage1'] ?? '')
               ->setCellValue('AA' . $row, $product['advantage2'] ?? '')
               ->setCellValue('AB' . $row, $product['advantage3'] ?? '')
               ->setCellValue('AC' . $row, $product['advantage4'] ?? '')
               ->setCellValue('AD' . $row, $product['advantage5'] ?? '')
               ->setCellValue('AE' . $row, $product['advantage6'] ?? '')
-              ->setCellValue('AF' . $row, 'localhost:8080/uploads/' . $product['gambar_depan'])
-              ->setCellValue('AG' . $row, 'localhost:8080/uploads/' . $product['gambar_belakang'])
-              ->setCellValue('AH' . $row, 'localhost:8080/uploads/' . $product['gambar_samping_kiri'])
-              ->setCellValue('AI' . $row, 'localhost:8080/uploads/' . $product['gambar_samping_kanan'])
-              ->setCellValue('AJ' . $row, 'localhost:8080/uploads/' . $product['gambar_atas'])
-              ->setCellValue('AK' . $row, 'localhost:8080/uploads/' . $product['gambar_bawah']);
+              ->setCellValue('AF' . $row, base_url('uploads/' . esc($product['gambar_depan'])))
+              ->setCellValue('AG' . $row, base_url('uploads/' . esc($product['gambar_belakang'])) ?? '')
+              ->setCellValue('AH' . $row, base_url('uploads/' . esc($product['gambar_samping_kiri'])) ?? '')
+              ->setCellValue('AI' . $row, base_url('uploads/' . esc($product['gambar_samping_kanan'])) ?? '')
+              ->setCellValue('AJ' . $row, base_url('uploads/' . esc($product['gambar_atas'])) ?? '')
+              ->setCellValue('AK' . $row, base_url('uploads/' . esc($product['gambar_bawah'])) ?? '');
 
 
         // Populate remaining fields
-        $sheet->setCellValue('AL' . $row, $product['video_produk'] ?? '');
+        $sheet->setCellValue('AL' . $row, $product['video_produk'] ?? '')
+              ->setCellValue('AM' . $row, $product['submitted_by'] ?? '');
               
         if ($product['status'] === 'approved') {
-            $sheet->setCellValue('AM' . $row, 'Disetujui');
+            $sheet->setCellValue('AN' . $row, 'Disetujui');
         } elseif ($product['status'] === 'rejected') {
-            $sheet->setCellValue('AM' . $row, 'Ditolak');
+            $sheet->setCellValue('AN' . $row, 'Ditolak');
         }
 
         // Conditionally set approved or rejected dates
         if ($product['status'] === 'approved') {
-            $sheet->setCellValue('AN' . $row, $product['approved_at']);
+            $sheet->setCellValue('AO' . $row, $product['approved_at']);
         } elseif ($product['status'] === 'rejected') {
-            $sheet->setCellValue('AO' . $row, $product['rejected_at']);
+            $sheet->setCellValue('AP' . $row, $product['rejected_at']);
         }
+        $sheet->setCellValue('AQ' . $row, $product['confirmed_at'] ?? '');
         $row++;
     }
     // Hide columns that are entirely empty
@@ -398,7 +401,7 @@ foreach (array_keys($headers) as $col) {
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        return view('product/product_registration', $data);
+        return view('layout/product/product_regis_step1', $data);
 //        $data['previousData'] = session()->get('step1');
 //
 //        return view('product/product_registration', $data);
@@ -490,7 +493,6 @@ foreach (array_keys($headers) as $col) {
             'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['37', '38'])) ? $step1Data['sparepart_warranty_id'] : null,
             'garansi_elemen_panas_id' => (in_array($subcategory, ['37', '38'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
-    
         // Insert the data into the database
         $productId = $this->productModel->insert($productData);
     
@@ -508,7 +510,7 @@ foreach (array_keys($headers) as $col) {
         $refrigrantModel = new RefrigrantModel();
 
         $data['refrigrant'] = $refrigrantModel->findAll();
-        return view('product/product_specification', $data);
+        return view('layout/product/product_regis_step2', $data);
     }
 
     public function saveStep2()
@@ -566,7 +568,7 @@ foreach (array_keys($headers) as $col) {
     // Step 3: Product Advantages
     public function step3()
     {
-        return view('product/product_pros');
+        return view('layout/product/product_regis_step3');
     }
 
     public function saveStep3()
@@ -580,7 +582,7 @@ foreach (array_keys($headers) as $col) {
     // Step 4: Upload Images
     public function step4()
     {
-        return view('product/product_uploads');
+        return view('layout/product/product_regis_step4');
     }
 
     public function saveStep4()
@@ -597,56 +599,56 @@ foreach (array_keys($headers) as $col) {
         $gambarSampingKananName = null;
         $videoProdukLink = null;
     
-        // Handle Gambar Tampak Depan
+        // Handle Gambar Tampak Depan (Required)
         $gambarDepan = $this->request->getFile('gambar_depan');
         if ($gambarDepan && $gambarDepan->isValid()) {
             $gambarDepanName = $gambarDepan->getRandomName();
             $gambarDepan->move($uploadPath, $gambarDepanName);
+        } else {
+            return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
         }
     
-        // Handle Gambar Tampak Belakang
+        // Handle Gambar Tampak Belakang (Optional)
         $gambarBelakang = $this->request->getFile('gambar_belakang');
         if ($gambarBelakang && $gambarBelakang->isValid()) {
             $gambarBelakangName = $gambarBelakang->getRandomName();
             $gambarBelakang->move($uploadPath, $gambarBelakangName);
         }
     
-        // Handle Gambar Tampak Atas
+        // Handle Gambar Tampak Atas (Optional)
         $gambarAtas = $this->request->getFile('gambar_atas');
         if ($gambarAtas && $gambarAtas->isValid()) {
             $gambarAtasName = $gambarAtas->getRandomName();
             $gambarAtas->move($uploadPath, $gambarAtasName);
         }
     
-        // Handle Gambar Tampak Bawah
+        // Handle Gambar Tampak Bawah (Optional)
         $gambarBawah = $this->request->getFile('gambar_bawah');
         if ($gambarBawah && $gambarBawah->isValid()) {
             $gambarBawahName = $gambarBawah->getRandomName();
             $gambarBawah->move($uploadPath, $gambarBawahName);
         }
     
-        // Handle Gambar Samping Kiri
+        // Handle Gambar Samping Kiri (Optional)
         $gambarSampingKiri = $this->request->getFile('gambar_samping_kiri');
         if ($gambarSampingKiri && $gambarSampingKiri->isValid()) {
             $gambarSampingKiriName = $gambarSampingKiri->getRandomName();
             $gambarSampingKiri->move($uploadPath, $gambarSampingKiriName);
         }
     
-        // Handle Gambar Samping Kanan
+        // Handle Gambar Samping Kanan (Optional)
         $gambarSampingKanan = $this->request->getFile('gambar_samping_kanan');
         if ($gambarSampingKanan && $gambarSampingKanan->isValid()) {
             $gambarSampingKananName = $gambarSampingKanan->getRandomName();
             $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
         }
     
-        // Handle Video Produk (YouTube link)
-        $videoProduk = $this->request->getPost('video_produk'); // Change this to getPost as we're dealing with links
-        if ($videoProduk && $this->isValidYouTubeUrl($videoProduk)) {
-            $videoProdukLink = $videoProduk; // Store the valid YouTube link
-        } else {
-            // Handle the case where the link is invalid
+        // Handle Video Produk (YouTube link, optional)
+        $videoProduk = $this->request->getPost('video_produk');
+        if ($videoProduk && !$this->isValidYouTubeUrl($videoProduk)) {
             return redirect()->back()->with('error', 'Invalid YouTube link provided.');
         }
+        $videoProdukLink = $videoProduk;
     
         // Save the file paths into the session for step 4
         $step4Data = [
@@ -672,7 +674,6 @@ foreach (array_keys($headers) as $col) {
         $pattern = '/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/';
         return preg_match($pattern, $url);
     }
-    
 
     public function confirm()
     {
@@ -739,7 +740,6 @@ foreach (array_keys($headers) as $col) {
         $finalData['packaging_dimensions'] = $this->formatDimensions($finalData, 'kemasan_p', 'kemasan_l', 'kemasan_t');
         $finalData['pstand_dimension'] = $this->formatStandDimensions($finalData, 'pstand_p', 'pstand_l', 'pstand_t');
         $finalData['panel_resolution'] = $this->formatResolution($finalData, 'resolusi_x', 'resolusi_y');
-    
         // Filter out null or empty values from the final data
         $finalData = array_filter($finalData, function($value) {
             return !is_null($value) && $value !== '';  // Keep only non-null, non-empty values
@@ -782,12 +782,12 @@ foreach (array_keys($headers) as $col) {
             'advantage5' => $finalData['advantage5'] ?? '',
             'advantage6' => $finalData['advantage6'] ?? '',
             'gambar_depan' => $finalData['gambar_depan'],
-            'gambar_belakang' => $finalData['gambar_belakang'],
-            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'],
-            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'],
-            'gambar_atas' => $finalData['gambar_atas'],
-            'gambar_bawah' => $finalData['gambar_bawah'],
-            'video_produk' => $finalData['video_produk'],
+            'gambar_belakang' => $finalData['gambar_belakang'] ?? '',
+            'gambar_samping_kiri' => $finalData['gambar_samping_kiri'] ?? '',
+            'gambar_samping_kanan' => $finalData['gambar_samping_kanan'] ?? '',
+            'gambar_atas' => $finalData['gambar_atas'] ?? '',
+            'gambar_bawah' => $finalData['gambar_bawah'] ?? '',
+            'video_produk' => $finalData['video_produk'] ?? '',
         ];
     
         $data = [
@@ -811,7 +811,7 @@ foreach (array_keys($headers) as $col) {
         session()->set('confirm', $dataToInsert);
     
         // Return the confirmation view with the filtered final data
-        return view('/product/product_confirmation', [
+        return view('/layout/product/step5', [
             'data' => $finalData,
         ]);
     }
@@ -831,7 +831,7 @@ foreach (array_keys($headers) as $col) {
     
 private function formatStandDimensions($data, $lengthKey, $widthKey, $heightKey)
 {
-    if ('category_id' !== '9') {
+    if ($data['category_id'] != '9') {
         return null; // Only format if category ID is '9'
     }
     return isset($data[$lengthKey], $data[$widthKey], $data[$heightKey])
@@ -841,7 +841,7 @@ private function formatStandDimensions($data, $lengthKey, $widthKey, $heightKey)
 
 private function formatResolution($data, $xKey, $yKey)
 {
-    if ('category_id' !== '9') {
+    if ($data['category_id'] != '9') {
         return null; // Only format if category ID is '9'
     }
     return isset($data[$xKey], $data[$yKey])
@@ -892,11 +892,292 @@ private function formatResolution($data, $xKey, $yKey)
         session()->setFlashdata('success', 'Product has been successfully confirmed.');
     
         // Instead of redirecting to a thank you page, stay on the current page
-        return redirect()->to('/product/thank_you'); // Redirect back to the confirmation page
+        return redirect()->to('product/thank_you'); // Redirect back to the confirmation page
     }    
 
     public function thank_you()
     {
-    return view ('product/thank_you');
+        session()->remove('step1');
+        session()->remove('step2');
+        session()->remove('step3');
+        session()->remove('step4');
+        session()->remove('confirm');
+        
+    return view ('layout/product/thankyou');
+    }   
+
+    public function updateColor()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $color = $this->request->getPost('color'); // Get the updated color value
+
+        // Validation (optional)
+        if (empty($id) || empty($color)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+        $color = strtoupper($color);
+        // Update the database
+        if ($this->confirmationModel->update($id, ['color' => $color])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Warna Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
     }
+ 
+    public function updatePower()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $power = $this->request->getPost('daya'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($power)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['daya' => $power])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Konsumsi Daya Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateWeight()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $weight = $this->request->getPost('berat'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($weight)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['berat' => $weight])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Berat Produk Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateColdCap()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $coldcap = $this->request->getPost('kapasitas_air_dingin'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($coldcap)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['kapasitas_air_dingin' => $coldcap])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Dingin Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateHotCap()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $hotcap = $this->request->getPost('kapasitas_air_panas'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($hotcap)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['kapasitas_air_panas' => $hotcap])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Panas Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateCooling()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $cooling = $this->request->getPost('cooling_capacity'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($cooling)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['cooling_capacity' => $cooling])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Pendinginan Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateCspf()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $cspf = $this->request->getPost('cspf'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($cspf)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+
+        if ($cspf > 5 || $cspf < 1) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Rating CSPF Harus Lebih dari 1 dan kurang dari 5.']);
+        }
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['cspf' => $cspf])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Rating CSPF Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateManufacturer()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $manufacturer = $this->request->getPost('pembuat'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($manufacturer)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+        $manufacturer = strtoupper($manufacturer);
+        // Update the database
+        if ($this->confirmationModel->update($id, ['pembuat' => $manufacturer])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Negara Pembuat Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateProductType()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $producttype = $this->request->getPost('product_type'); // Get the updated color value
+    
+        // Validation (optional)
+        if (empty($id) || empty($producttype)) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.', 'csrf_token' => csrf_hash()]);
+        }
+        $producttype = strtoupper(preg_replace('/[-\/]/', '', $producttype));
+        // Update the database
+        if ($this->confirmationModel->update($id, ['product_type' => $producttype])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Tipe Produk Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
+        }
+    }
+
+    public function updateProductDimensions()
+{
+    $id = $this->request->getPost('id');
+    $dimensions = $this->request->getPost('product_dimensions');
+
+    // Validate inputs
+    if (empty($id) || empty($dimensions)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['product_dimensions' => $dimensions]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Dimensi Produk Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updatePackagingDimensions()
+{
+    $id = $this->request->getPost('id');
+    $pdimensions = $this->request->getPost('packaging_dimensions');
+
+    // Validate inputs
+    if (empty($id) || empty($pdimensions)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['packaging_dimensions' => $pdimensions]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Dimensi Kemasan Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updateStandDimensions()
+{
+    $id = $this->request->getPost('id');
+    $sdimensions = $this->request->getPost('pstand_dimensions');
+
+    // Validate inputs
+    if (empty($id) || empty($sdimensions)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['pstand_dimensions' => $sdimensions]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Dimensi Produk (Dengan Stand) Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updateResolution()
+{
+    $id = $this->request->getPost('id');
+    $resolution = $this->request->getPost('panel_resolution');
+
+    // Validate inputs
+    if (empty($id) || empty($resolution)) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided.']);
+    }
+
+    // Update in the database
+    $updated = $this->confirmationModel->update($id, ['panel_resolution' => $resolution]);
+
+    return $this->response->setJSON([
+        'success' => $updated,
+        'message' => $updated ? 'Resolusi Panel Berhasil Diubah.' : 'Failed to update product dimensions.'
+    ]);
+}
+
+public function updateAdvantages() {
+    $id = $this->request->getPost('id');
+    $adv1 = $this->request->getPost('advantage1');
+    $adv2 = $this->request->getPost('advantage2');
+    $adv3 = $this->request->getPost('advantage3');
+    $adv4 = $this->request->getPost('advantage4') ?? '';
+    $adv5 = $this->request->getPost('advantage5') ?? '';
+    $adv6 = $this->request->getPost('advantage6') ?? '';
+
+    // Validate required fields
+    if (empty($id) || empty($adv1) || empty($adv2) || empty($adv3)) {
+        return $this->response->setJSON(['success' => false, 'message' => '3 Keunggulan Pertama Harus Diisi.']);
+    }
+
+    // Prepare data for update
+    $data = [
+        'advantage1' => $adv1,
+        'advantage2' => $adv2,
+        'advantage3' => $adv3,
+        'advantage4' => $adv4,
+        'advantage5' => $adv5,
+        'advantage6' => $adv6
+    ];
+
+    // Update the database
+    if ($this->confirmationModel->update($id, $data)) {
+        return $this->response->setJSON(['success' => true, 'message' => 'Keunggulan Berhasil Diubah.']);
+    } else {
+        return $this->response->setJSON(['success' => false, 'message' => 'Failed to update advantages.']);
+    }
+}
+
 }

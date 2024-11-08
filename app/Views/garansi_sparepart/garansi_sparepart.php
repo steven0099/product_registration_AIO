@@ -69,7 +69,7 @@
                 <table id="spwarTable" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>#</th>
+                    <th>No.</th>
                     <th>Garansi Sparepart (Tahun)</th>
                     <th>Opsi</th>
                   </tr>

@@ -33,32 +33,32 @@
 
     <div class="form-group">
         <label for="gambar_belakang">Gambar Tampak Belakang</label>
-        <input type="file" id="gambar_belakang" name="gambar_belakang" required>
+        <input type="file" id="gambar_belakang" name="gambar_belakang">
     </div>
 
     <div class="form-group">
         <label for="gambar_atas">Gambar Tampak Atas</label>
-        <input type="file" id="gambar_atas" name="gambar_atas" required>
+        <input type="file" id="gambar_atas" name="gambar_atas">
     </div>
 
     <div class="form-group">
         <label for="gambar_bawah">Gambar Tampak Bawah</label>
-        <input type="file" id="gambar_bawah" name="gambar_bawah" required>
+        <input type="file" id="gambar_bawah" name="gambar_bawah">
     </div>
 
     <div class="form-group">
         <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-        <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" required>
+        <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri">
     </div>
 
     <div class="form-group">
         <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-        <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" required>
+        <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan">
     </div>
 
     <div class="form-group">
         <label for="video_produk">Video Produk (YouTube Link)</label>
-        <input type="text" id="video_produk" name="video_produk" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" required pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
+        <input type="text" id="video_produk" name="video_produk" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
     </div>
 
     <!-- Submit Button -->

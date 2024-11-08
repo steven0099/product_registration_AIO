@@ -26,6 +26,7 @@
 
 <?= $this->section('content') ?>
     <section class="content">
+    <a href="/admin/dashboard" style="margin-left:20px">← Kembali Ke Dashboard</a>
         <div class="container-fluid">
             <table class="table">
                 <tr><th>Brand</th><td><?= esc($product['brand']) ?></td></tr>
@@ -56,7 +57,7 @@
                 <a href="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'])) ?>" target="_blank">Gambar Samping Kanan</a>
                 </td></tr>
                 <tr><th>Video Produk</th><td><a href="<?= esc($product['video_produk']) ?>" target="_blank"><?= esc($product['video_produk']) ?></a></td></tr>
-                <tr><th>Pengaju</th><td><?= esc($product['submitted_by']) ?></td></tr>
+                <tr><th>Diajukan Oleh</th><td><?= esc($product['submitted_by']) ?></td></tr>
                 <tr><th>Tanggal Diajukan</th><td><?= esc($product['confirmed_at']) ?></td></tr>
                         <!-- Conditional Fields -->
         <?php if ($product['category'] == 'TV'): ?>

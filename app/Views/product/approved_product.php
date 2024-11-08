@@ -47,7 +47,7 @@
                     <th>No.</th>
                     <th>Merek</th>
                     <th>Tipe Produk</th>
-                    <th>Pengaju</th>
+                    <th>Diajukan Oleh</th>
                     <th>Tanggal</th>
                     <th>Opsi</th>
                   </tr>
@@ -62,12 +62,8 @@
                 <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
                 <td><?= esc($products['confirmed_at']) ?></td>
                 <td>
-                <a href="/superadmin/details/<?= esc($products['id']) ?>" class="btn-view">
-                <i class="fas fa-eye"></i>
-                </a>
-                    <a href="/product/editProduct/<?= esc($products['product_id']) ?>" class="btn-edit">
-                        <i class="fas fa-pencil-alt"></i> <!-- Pencil icon from Font Awesome -->
-                    </a>
+                <button class="button btn btn-success" onclick="location.href='/superadmin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
+                </button>
                 </td>
             </tr>
         <?php endforeach; ?>

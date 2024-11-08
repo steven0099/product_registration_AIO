@@ -45,6 +45,13 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('thank_you', 'ProductController::thank_you');
 });
 
+$routes->group('catalog', ['filter' => 'auth'], function ($routes) {
+$routes->get('', 'CatalogController::catalog');
+$routes->get('filterProducts', 'CatalogController::filterProducts');
+$routes->get('getSubcategories', 'CatalogController::getSubcategories');
+$routes->get('getCapacities', 'CatalogController::getCapacities');
+});
+
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {
     $routes->get('reset-password', 'AuthController::resetPassword');
     $routes->post('reset_password', 'AuthController::updatePassword');
@@ -71,6 +78,20 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     // Superadmin product approvals/rejections
     $routes->get('product/approved', 'ProductController::approved');
     $routes->get('product/rejected', 'ProductController::rejected');
+    $routes->post('updateColor', 'ProductController::updateColor');
+    $routes->post('updatePower', 'ProductController::updatePower');
+    $routes->post('updateWeight', 'ProductController::updateWeight');
+    $routes->post('updateColdCap', 'ProductController::updateColdCap');
+    $routes->post('updateHotCap', 'ProductController::updateHotCap');
+    $routes->post('updateCooling', 'ProductController::updateCooling');
+    $routes->post('updateCspf', 'ProductController::updateCspf');
+    $routes->post('updateManufacturer', 'ProductController::updateManufacturer');
+    $routes->post('updateProductType', 'ProductController::updateProductType');
+    $routes->post('updateAdvantages', 'ProductController::updateAdvantages');
+    $routes->post('updateProductDimensions', 'ProductController::updateProductDimensions');
+    $routes->post('updatePackagingDimensions', 'ProductController::updatePackagingDimensions');
+    $routes->post('updateStandDimensions', 'ProductController::updateStandDimensions');
+    $routes->post('updateResolution', 'ProductController::updateResolution');
 });
 
 // Routes for Admin and Superadmin (Admin Management)

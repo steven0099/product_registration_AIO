@@ -18,5 +18,5 @@ class ConfirmationModel extends Model
         'advantage2', 'advantage3','advantage4', 'advantage5', 'advantage6', 'garansi_motor', 'garansi_semua_service',
         'status', 'submitted_by', 'confirmed_at', 'approved_at', 'rejected_at', 'kapasitas_air_panas', 'kapasitas_air_dingin'
     ];
-
+    
 }
