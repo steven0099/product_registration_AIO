@@ -63,7 +63,9 @@
                                                     class="btn-edit btn btn-primary">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button data-id="<?= esc($category['id']) ?>" class="btn-delete btn btn-danger">
+                                            <button class="btn-danger btn btn-delete" data-toggle="modal"
+                                                    data-subcategory-id="<?= esc($category['id']) ?>"
+                                                    data-target="#deleteBrandModal">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </td>
@@ -113,17 +115,28 @@
     </div>
 
     <!-- Modal for Deleting Category -->
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Confirm Deletion</h3>
-            <p>Are you sure you want to delete this category?</p>
-            <form id="deleteForm" method="post" action="">
-                <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                <button type="button" class="btn btn-secondary"
-                        id="cancelDeleteBtn">Cancel
-                </button>
-            </form>
+    <div id="deleteBrandModal" class="modal fade"  tabindex="-1" role="dialog"
+         aria-labelledby="deleteBrandModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteBrandModalLabel">Delete Kategori</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this category?</p>
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="post" action="">
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                        <button type="button" class="btn btn-secondary"
+                                id="cancelDeleteBtn">Cancel
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 <?= $this->endSection() ?>
@@ -176,37 +189,6 @@
         window.onclick = function (event) {
             if (event.target == editModal) {
                 editModal.style.display = "none";
-            }
-        }
-
-        // Modal for Deleting Category
-        // Modal for Deleting Category
-        var deleteModal = document.getElementById("deleteModal");
-        var closeDeleteModal = document.getElementsByClassName("close")[2];
-        var cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
-
-        document.querySelectorAll('.btn-delete').forEach(function (button) {
-            button.addEventListener('click', function () {
-                var id = this.getAttribute('data-id');
-
-                // Set the form action dynamically
-                document.getElementById('deleteForm').action = '/kategori/deleteKategori/' + id;
-
-                deleteModal.style.display = "block";
-            });
-        });
-
-        closeDeleteModal.onclick = function () {
-            deleteModal.style.display = "none";
-        }
-
-        cancelDeleteBtn.onclick = function () {
-            deleteModal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == deleteModal) {
-                deleteModal.style.display = "none";
             }
         }
 
