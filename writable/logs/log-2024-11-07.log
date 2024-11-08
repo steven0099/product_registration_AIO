@@ -42377,3 +42377,352 @@ WARNING - 2024-11-07 16:48:40 --> [DEPRECATED] Creation of dynamic property App\
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-11-07 16:58:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-07 16:58:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\CatalogController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-11-07 16:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-07 16:58:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\CatalogController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-11-07 16:58:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-07 16:58:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\CatalogController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+DEBUG - 2024-11-07 16:58:09 --> Filter - Category: 
+DEBUG - 2024-11-07 16:58:09 --> Filter - Subcategory: 
+DEBUG - 2024-11-07 16:58:09 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-07 16:58:09 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-05 14:05:01
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-05 14:05:01
+        )
+
+    [1] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+    [2] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INC
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-06 09:52:10
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-06 09:52:10
+        )
+
+    [3] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [4] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => KULKAS PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-06 12:56:15
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-06 12:56:15
+        )
+
+    [5] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 13:12:40
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-04 13:12:40
+        )
+
+)
+
+INFO - 2024-11-07 16:58:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-07 16:58:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\CatalogController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')

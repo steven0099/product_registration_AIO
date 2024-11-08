@@ -47,9 +47,12 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
 
 $routes->group('catalog', ['filter' => 'auth'], function ($routes) {
 $routes->get('', 'CatalogController::catalog');
+$routes->get('details/(:num)', 'CatalogController::details/$1');
 $routes->get('filterProducts', 'CatalogController::filterProducts');
 $routes->get('getSubcategories', 'CatalogController::getSubcategories');
 $routes->get('getCapacities', 'CatalogController::getCapacities');
+$routes->get('getComparisonWidget', 'CatalogController::getComparisonWidget');
+$routes->get('compare', 'CatalogController::CompareDetails');
 });
 
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {

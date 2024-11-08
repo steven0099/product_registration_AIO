@@ -36,7 +36,7 @@
         
         <!-- Status Filter -->
         <label for="status">Status Produk:</label>
-        <select name="status" id="status">
+        <select name="status" id="status" class="select-status">
             <option value="all">Diterima dan Ditolak</option>
             <option value="approved">Diterima</option>
             <option value="rejected">Ditolak</option>

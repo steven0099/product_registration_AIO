@@ -414,7 +414,7 @@ function fetchWarrantyOptions(type) {
                     // Use optional chaining and default values for robustness
                     const id = warranty.id ?? '';
                     const name = warranty.value ?? 'Unnamed Warranty';
-                    warrantyDropdown.innerHTML += `<option value="${id}">${name}</option>`;
+                    warrantyDropdown.innerHTML += `<option value="${id}">${name} Tahun</option>`;
                 });
             } else {
                 console.error('Unexpected data format:', data);
@@ -545,8 +545,8 @@ function handleCategoryChange(categoryId, subcategoryId) {
         document.getElementById('warranty-sparepart-group').style.display = 'none';
 
         // Show "kapasitas air dingin" and "kapasitas air panas"
-        document.getElementById('kapasitas-air-dingin').style.display = 'flex';
-        document.getElementById('kapasitas-air-panas').style.display = 'flex';
+        document.getElementById('kapasitas-air-dingin').style.display = 'block';
+        document.getElementById('kapasitas-air-panas').style.display = 'block';
         compressorWarrantyLabel.innerText = 'Garansi Kompresor';
     } else {
         // Show "kapasitas" and "garansi sparepart" for other subcategories

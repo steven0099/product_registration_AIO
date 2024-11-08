@@ -91,7 +91,17 @@ class CatalogController extends BaseController
             'ukuran' => $ukuran
         ]);
     }
-    
+
+    public function CompareDetails()
+{
+    $productIds = $this->request->getGet('products');
+    if (empty($productIds)) {
+        return redirect()->to('/catalog');
+    }
+
+    $products = $this->confirmationModel->whereIn('id', $productIds)->findAll();
+    return view('catalog/comparison_details', ['products' => $products]);
+}
 
     public function filterProducts()
     {
@@ -285,5 +295,11 @@ private function getCategoryIdBySubcategory($subcategoryName)
     }
 }
 
+public function details($id)
+{
+    $model = new ConfirmationModel();
+    $data['product'] = $model->find($id);
 
+    return view('catalog/details', $data);
+}
 }

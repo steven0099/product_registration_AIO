@@ -205,7 +205,7 @@ Rincian Produk
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
-                <td><?= esc($product['compressor_warranty']) ?> Tahun</td>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
             <tr>
                 <th>CSPF Rating</th>
                 <td><?= esc($product['cspf']) ?>/5</td>

@@ -160,16 +160,18 @@ Digital Catalog
         </div>
     </div>
 
-    <!-- Comparison Bar -->
-    <div id="comparisonWidget" style="display:none" class="comparison-widget">
-        <div class="comparison-header">
-            <span>Perbandingan</span>
-            <button onclick="closeComparisonWidget()">X</button>
-        </div>
-        <div class="comparison-content">
-            <!-- Dynamically added comparison items will go here -->
-        </div>
+<!-- Comparison Bar -->
+<div id="comparisonWidget" style="display:none" class="comparison-widget">
+    <div class="comparison-header">
+        <span>Perbandingan</span>
+        <button class="btn-close" onclick="closeComparisonWidget()">X</button>
     </div>
+    <div class="comparison-content">
+        <!-- Dynamically added comparison items will go here -->
+    </div>
+    <button onclick="viewDetailedComparison()">Perbandingan Detail</button>
+</div>
+
 </div>
 </div>
 
@@ -305,42 +307,46 @@ $(document).ready(function() {
 
     // Function to filter products based on selected filters
     function filterProducts() {
-        const category = $("input[name='category']:checked").val();
-        const subcategory = $("input[name='subcategory']:checked").val();
-        const capacity = $("input[name='capacity']:checked").val(); // Capture the selected capacity
-        const search = $('#search').val();
-        const sort = $('#sort').val();
+    const category = $("input[name='category']:checked").val();
+    const subcategory = $("input[name='subcategory']:checked").val();
+    const capacity = $("input[name='capacity']:checked").val();
+    const search = $('#search').val();
+    const sort = $('#sort').val();
 
-        // Log values to verify they are captured correctly
-        console.log("Category:", category);
-        console.log("Subcategory:", subcategory); 
-        console.log("Capacity:", capacity); // Verify capacity value
-        console.log("Search:", search);
-        console.log("Sort:", sort);
+    console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
 
-        // Show loading indicator
-        $('#productGrid').html('<div class="loader">Loading...</div>');
+    $('#productGrid').html('<div class="loader">Loading...</div>'); // Show loading
 
-        $.ajax({
-            url: "<?= base_url('catalog/filterProducts') ?>",
-            type: "GET",
-            data: {
-                category: category,
-                subcategory: subcategory,
-                capacity: capacity, // Include the capacity filter in the request
-                search: search,
-                sort: sort
-            },
-            success: function(response) {
-                console.log("Response:", response);
-                $('#productGrid').html(response); // Replace product grid content
-            },
-            error: function() {
-                alert("Failed to filter products.");
-                $('#productGrid').html(''); // Clear the product grid in case of error
+    $.ajax({
+        url: "<?= base_url('catalog/filterProducts') ?>",
+        type: "GET",
+        data: {
+            category: category,
+            subcategory: subcategory,
+            capacity: capacity,
+            search: search,
+            sort: sort
+        },
+        success: function(response) {
+            console.log("Filter response:", response);
+            $('#productGrid').html(response); // Update product grid
+            bindCheckboxListener();
+
+            // Check if any products in the comparison list are still displayed
+            const comparisonContent = document.querySelector('.comparison-content');
+            if (comparisonContent.children.length > 0) {
+                openComparisonWidget(); // Display widget if products are in comparison
+            } else {
+                closeComparisonWidget(); // Hide widget if no products are selected
             }
-        });
-    }
+        },
+        error: function() {
+            alert("Failed to filter products.");
+            $('#productGrid').html(''); // Clear product grid on error
+        }
+    });
+}
+
 
     // Reset subcategory and capacity filters
 function resetFilters() {
@@ -462,7 +468,7 @@ function closeComparisonWidget() {
 function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity) {
     const comparisonContent = document.querySelector('.comparison-content');
     const existingItem = document.getElementById(`compare-item-${productId}`);
-
+    // Rest of your function here
     // Check if the item is already in the comparison widget
     if (!existingItem) {
         const comparisonItem = document.createElement('div');
@@ -473,7 +479,7 @@ function addToComparison(productId, productName, productImage, productCategory, 
             <span>${productName}<br>
             ${productCategory} - ${productSubcategory}<br>
             ${productCapacity}</span>
-            <button onclick="removeFromComparison('${productId}')">Remove</button>
+            <button class="btn-remove" onclick="removeFromComparison('${productId}')">Hapus</button>
         `;
         comparisonContent.appendChild(comparisonItem);
     }
@@ -501,6 +507,20 @@ function removeFromComparison(productId) {
     }
 }
 
+function viewDetailedComparison() {
+    const productIds = Array.from(document.querySelectorAll('.comparison-item'))
+                            .map(item => item.id.replace('compare-item-', ''));
+    const queryString = productIds.map(id => `products[]=${id}`).join('&');
+    const selectedProducts = document.querySelectorAll('.comparison-item').length;
+
+    if (selectedProducts < 2) {
+        alert("Pilih minimal 2 produk untuk dibandingkan.");
+    } else {
+        // Proceed with the comparison
+        window.location.href = `catalog/compare?${queryString}`; // Update this with the actual path
+    }
+}
+
 // Event listener for each checkbox
 document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
@@ -510,6 +530,13 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
         const productCategory = this.getAttribute('data-product-category');
         const productSubcategory = this.getAttribute('data-product-subcategory');
         const productCapacity = this.getAttribute('data-product-capacity');
+        const selectedCount = document.querySelectorAll('.compare-checkbox:checked').length;
+
+        if (selectedCount > 3) {
+            alert("You can only compare up to 3 products.");
+            this.checked = false; // Uncheck if more than 3
+            return;
+        }
 
         if (this.checked) {
             // If no category is set, initialize it with the first product’s category
@@ -529,7 +556,7 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
                         productSubcategory, productCapacity);
                 } else {
                     alert(
-                        "Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
+                        "Hanya bisa membandingkan produk dengan kategori yang sama (untuk kategori SMALL APPLIANCES, subkategori juga harus sama)");
                     this.checked = false; // Uncheck the box
                 }
             }
@@ -538,6 +565,39 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
         }
     });
 });
+
+function bindCheckboxListener() {
+    document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const productId = this.getAttribute('data-product-id');
+            const productName = this.getAttribute('data-product-name');
+            const productImage = this.getAttribute('data-product-image');
+            const productCategory = this.getAttribute('data-product-category');
+            const productSubcategory = this.getAttribute('data-product-subcategory');
+            const productCapacity = this.getAttribute('data-product-capacity');
+
+            if (this.checked) {
+                if (!comparisonCategory) {
+                    comparisonCategory = productCategory;
+                    if (productCategory === "SMALL APPLIANCES") {
+                        comparisonSubcategory = productSubcategory;
+                    }
+                    addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity);
+                } else {
+                    if (productCategory === comparisonCategory &&
+                        (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory === comparisonSubcategory)) {
+                        addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity);
+                    } else {
+                        alert("Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
+                        this.checked = false; // Uncheck the box
+                    }
+                }
+            } else {
+                removeFromComparison(productId);
+            }
+        });
+    });
+}
 
 // Function to make the comparison widget draggable
 function makeWidgetMovable(widgetId) {
