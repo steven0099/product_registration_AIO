@@ -101,6 +101,15 @@
             text-align: right;
         }
 
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
+
 
         @media (max-width: 600px) {
 
@@ -141,7 +150,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -149,7 +158,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#type" data-toggle="tab">
+                                        <a href="#type" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -165,7 +174,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#description" data-toggle="tab">
+                                        <a href="#description" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -173,7 +182,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -210,13 +219,13 @@
                                                 <input type="text" id="advantage3" name="advantage3" value="<?= session()->get("step3")["advantage3"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage4" name="advantage4" value="<?= session()->get("step3")["advantage4"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                <input type="text" id="advantage4" name="advantage4" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage5" name="advantage5" value="<?= session()->get("step3")["advantage5"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                <input type="text" id="advantage5" name="advantage5" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage6" name="advantage6" value="<?= session()->get("step3")["advantage6"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                <input type="text" id="advantage6" name="advantage6" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
                                             <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
 

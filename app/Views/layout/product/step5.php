@@ -19,111 +19,121 @@
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
 
     <style>
-    input[type="text"],
-    input[type="file"],
-    input[type="number"],
-    input[type="video"] {
-        border: 2px solid #00BFFF;
-        /* Warna biru */
-        border-radius: 5px;
-        /* Membuat sudut sedikit melengkung */
-        padding: 10px;
-        /* Menambahkan jarak di dalam input */
-        outline: none;
-        /* Menghilangkan outline default */
-        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
-        /* Menambahkan efek bayangan */
-    }
-
-    input[type="text"]:focus,
-    input[type="file"]:focus,
-    input[type="number"]:focus,
-    input[type="video"]:focus {
-        border-color: #1E90FF;
-        /* Warna biru yang lebih tua saat input difokuskan */
-        box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
-        /* Bayangan yang lebih terang saat difokuskan */
-    }
-
-    select {
-        border: 2px solid #00BFFF !important;
-        /* Warna biru */
-        border-radius: 5px;
-        padding: 10px;
-        padding-right: 40px;
-        /* Tambahkan jarak untuk icon custom */
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
-        /* Menambahkan efek bayangan */
-        appearance: none;
-        /* Menghilangkan default arrow */
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
-        background-color: white;
-        /* Warna latar belakang */
-        background-size: 20px;
-        /* Ukuran icon */
-        cursor: pointer;
-    }
-
-    select:focus {
-        border-color: #1E90FF;
-        /* Warna biru yang lebih tua saat difokuskan */
-        box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
-        /* Bayangan lebih terang */
-    }
-
-    .logo {
-        justify-content: flex-start;
-        display: flex;
-    }
-
-    .title {
-        justify-content: end;
-        align-items: center;
-        display: flex;
-    }
-
-    .divider {
-        margin: 0 5px;
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-    }
-
-    .unit {
-        margin-left: 10px;
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-    }
-
-    .col-form-label {
-        text-align: right;
-    }
-
-    .floating-modal {
-        display: none;
-        /* Keep it hidden by default */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        /* Semi-transparent background */
-        justify-content: center;
-        align-items: center;
-        z-index: 1050;
-    }
-
-
-    @media (max-width: 600px) {
-
-        .logo,
-        .title {
-            justify-content: center;
+        input[type="text"],
+        input[type="file"],
+        input[type="number"],
+        input[type="video"] {
+            border: 2px solid #00BFFF;
+            /* Warna biru */
+            border-radius: 5px;
+            /* Membuat sudut sedikit melengkung */
+            padding: 10px;
+            /* Menambahkan jarak di dalam input */
+            outline: none;
+            /* Menghilangkan outline default */
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            /* Menambahkan efek bayangan */
         }
-    }
+
+        input[type="text"]:focus,
+        input[type="file"]:focus,
+        input[type="number"]:focus,
+        input[type="video"]:focus {
+            border-color: #1E90FF;
+            /* Warna biru yang lebih tua saat input difokuskan */
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan yang lebih terang saat difokuskan */
+        }
+
+        select {
+            border: 2px solid #00BFFF !important;
+            /* Warna biru */
+            border-radius: 5px;
+            padding: 10px;
+            padding-right: 40px;
+            /* Tambahkan jarak untuk icon custom */
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            /* Menambahkan efek bayangan */
+            appearance: none;
+            /* Menghilangkan default arrow */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
+            background-color: white;
+            /* Warna latar belakang */
+            background-size: 20px;
+            /* Ukuran icon */
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: #1E90FF;
+            /* Warna biru yang lebih tua saat difokuskan */
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan lebih terang */
+        }
+
+        .logo {
+            justify-content: flex-start;
+            display: flex;
+        }
+
+        .title {
+            justify-content: end;
+            align-items: center;
+            display: flex;
+        }
+
+        .divider {
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .unit {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .col-form-label {
+            text-align: right;
+        }
+
+
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
+
+        .floating-modal {
+            display: none;
+            /* Keep it hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1050;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .logo,
+            .title {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
@@ -146,20 +156,17 @@
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class=""
-                                            style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">
-                                            Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="wizard-navigation">
                                 <div class="progress-with-circle">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1"
-                                        aria-valuemax="4" style="width: 15%;"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -167,7 +174,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#specification" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -175,7 +182,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -183,7 +190,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#photos" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -204,8 +211,7 @@
                                 <div class="tab-pane" id="confirmation">
                                     <div class="row">
                                         <h5 class="info-text"> Harap Konfirmasi Kembali Produk Anda. </h5>
-                                        <table
-                                            class="table table-striped table-bordered table-hover confirmation-table">
+                                        <table class="table table-striped table-bordered table-hover confirmation-table">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th>Field</th>
@@ -235,6 +241,12 @@
                                                 </tr>
                                                 <!-- Conditional Fields -->
                                                 <?php if ($data['category_id'] == '9'): ?>
+                                                    <tr>
+                                                        <td>Dimensi Produk dengan Stand</td>
+                                                        <td><?= esc($data['pstand_dimension']) ?> cm</td>
+                                                        <td>Resolusi Panel</td>
+                                                        <td><?= esc($data['panel_resolution']) ?> Pixel</td>
+                                                    </tr>
                                                 <tr>
                                                     <td>Dimensi Produk dengan Stand</td>
                                                     <td><?= esc($data['pstand_dimension']) ?></td>
@@ -363,11 +375,9 @@
                                                 <!-- Default Fields -->
                                                 <tr>
                                                     <td>Dimensi Produk</td>
-                                                    <td><?= esc($data['produk_p']) ?> x <?= esc($data['produk_l']) ?> x
-                                                        <?= esc($data['produk_t']) ?> cm</td>
+                                                    <td><?= esc($data['produk_p']) ?> x <?= esc($data['produk_l']) ?> x <?= esc($data['produk_t']) ?> cm</td>
                                                     <td>Dimensi Kemasan</td>
-                                                    <td><?= esc($data['kemasan_p']) ?> x <?= esc($data['kemasan_l']) ?>
-                                                        x <?= esc($data['kemasan_t']) ?> cm</td>
+                                                    <td><?= esc($data['kemasan_p']) ?> x <?= esc($data['kemasan_l']) ?> x <?= esc($data['kemasan_t']) ?> cm</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Berat Unit</td>
@@ -386,20 +396,15 @@
                                                     <td>Foto Produk</td>
                                                     <td colspan="3">
                                                         <!-- Front Image -->
-                                                        <div
-                                                            style="display: inline-block; margin-right: 10px; text-align: center;">
-                                                            <img src="<?= base_url('uploads/' . esc($data['gambar_depan'])) ?>"
-                                                                style="width: 100px; height: auto;" alt="Gambar Depan">
+                                                        <div style="display: inline-block; margin-right: 10px; text-align: center;">
+                                                            <img src="<?= base_url('uploads/' . esc($data['gambar_depan'])) ?>" style="width: 100px; height: auto;" alt="Gambar Depan">
                                                             <div>Gambar Depan</div>
                                                         </div>
 
                                                         <!-- Back Image -->
-                                                        <div
-                                                            style="display: inline-block; margin-right: 10px; text-align: center;">
+                                                        <div style="display: inline-block; margin-right: 10px; text-align: center;">
                                                             <?php if (!empty($data['gambar_belakang'])): ?>
-                                                            <img src="<?= base_url('uploads/' . esc($data['gambar_belakang'] ?? '')) ?>"
-                                                                style="width: 100px; height: auto;"
-                                                                alt="Gambar Belakang">
+                                                            <img src="<?= base_url('uploads/' . esc($data['gambar_belakang'])) ?>" style="width: 100px; height: auto;" alt="Gambar Belakang">
                                                             <div>Gambar Belakang</div>
                                                             <?php endif; ?>
                                                         </div>
@@ -407,11 +412,8 @@
                                                         <!-- Other Images -->
                                                         <?php foreach (['gambar_atas', 'gambar_bawah', 'gambar_samping_kiri', 'gambar_samping_kanan'] as $image): ?>
                                                         <?php if (!empty($data[$image])): // Check if the image is set and not empty ?>
-                                                        <div
-                                                            style="display: inline-block; margin-right: 10px; text-align: center;">
-                                                            <img src="<?= base_url('uploads/' . esc($data[$image])) ?>"
-                                                                style="width: 100px; height: auto;"
-                                                                alt="<?= ucfirst(str_replace('_', ' ', $image)) ?>">
+                                                        <div style="display: inline-block; margin-right: 10px; text-align: center;">
+                                                            <img src="<?= base_url('uploads/' . esc($data[$image])) ?>" style="width: 100px; height: auto;" alt="<?= ucfirst(str_replace('_', ' ', $image)) ?>">
                                                             <div><?= ucfirst(str_replace('_', ' ', $image)) ?></div>
                                                         </div>
                                                         <?php endif; ?>
@@ -420,8 +422,7 @@
                                                     </td>
                                                     <?php if (!empty($data['video_produk'])): ?>
                                                     <td>Video Produk</td>
-                                                    <a href="<?= esc($data['video_produk'] ?? '')?>"
-                                                        target="_blank">Tonton Video Produk</a>
+                                                    <a href="<?= esc($data['video_produk'] ?? '')?>" target="_blank">Tonton Video Produk</a>
                                                     <?php endif; ?>
                                                     </td>
                                                 </tr>
@@ -446,8 +447,7 @@
                                         <input type="hidden" name="confirmed_at" value="<?= date('Y-m-d H:i:s') ?>">
                                         <!-- Use standard format -->
                                         <!-- <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name="confirm" value="Finish" onclick="showThankYouModal(event)" /> -->
-                                        <button type="submit" name="confirm" value="selesai"
-                                            class="btn btn-finish btn-fill btn-danger btn-wd">Finish</button>
+                                        <button type="submit" name="confirm" value="selesai" class="btn btn-finish btn-fill btn-danger btn-wd">Finish</button>
                                     </form>
 
                                     <!-- <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
@@ -458,8 +458,7 @@
                                     <!-- Back Button -->
 
 
-                                    <input type='button' class='btn btn-previous btn-default btn-wd'
-                                        onclick="history.back();" name='previous' value='Previous' />
+                                    <input type='button' class='btn btn-previous btn-default btn-wd' onclick="history.back();" name='previous' value='Previous' />
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -491,138 +490,137 @@
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
 <script>
-$(document).ready(function() {
-    $('a[href="#confirmation"]').tab('show'); // Activate the confirmations tab
-});
-// Function to open the edit modal
-function openEditModal(fieldName, fieldLabel, fieldValue) {
-    // Set the field name and label
-    document.getElementById('fieldName').value = fieldName;
-    document.getElementById('fieldLabel').innerText = fieldLabel;
-
-    // Determine if the field should be a dropdown or a text input
-    if (fieldName === 'brand') {
-        // Assuming you want to populate the dropdown dynamically for brands
-        populateBrandDropdown(fieldValue);
-        document.getElementById('fieldDropdown').style.display = 'block';
-        document.getElementById('inputFieldContainer').querySelector('input').style.display = 'none';
-    } else {
-        // For other fields, show the text input
-        document.getElementById('fieldValue').value = fieldValue;
-        document.getElementById('fieldValue').style.display = 'block';
-        document.getElementById('inputFieldContainer').querySelector('select').style.display = 'none';
-    }
-
-    // Show the modal
-    document.getElementById('editModal').style.display = 'flex'; // Change to 'flex' to center it
-}
-
-$(document).ready(function() {
-    // Fetch brands and populate the dropdown
-    $.ajax({
-        url: '/ProductController/fetchBrands', // Update with the correct URL to your controller
-        method: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            var $brandDropdown = $('#brandDropdown'); // Update with the actual ID of your dropdown
-
-            // Clear existing options
-            $brandDropdown.empty();
-
-            // Append a default option
-            $brandDropdown.append('<option value="">Select a brand</option>');
-
-            // Populate dropdown with brand names
-            data.forEach(function(brand) {
-                $brandDropdown.append('<option value="' + brand.id + '">' + brand.name +
-                    '</option>');
-            });
-        },
-        error: function(xhr, status, error) {
-            console.error('Error fetching brands:', error);
-        }
+    $(document).ready(function() {
+        $('a[href="#confirmation"]').tab('show'); // Activate the confirmations tab
     });
-});
+    // Function to open the edit modal
+    function openEditModal(fieldName, fieldLabel, fieldValue) {
+        // Set the field name and label
+        document.getElementById('fieldName').value = fieldName;
+        document.getElementById('fieldLabel').innerText = fieldLabel;
 
-function populateBrandDropdown(selectedValue, brands) {
-    const dropdown = document.getElementById('fieldDropdown');
-    dropdown.innerHTML = ''; // Clear existing options
-    brands.forEach(brand => {
-        const option = document.createElement('option');
-        option.value = brand.id;
-        option.textContent = brand.name;
-        if (brand.id == selectedValue) {
-            option.selected = true; // Set the current brand as selected
-        }
-        dropdown.appendChild(option);
-    });
-}
-
-
-// Update the field function
-function updateField() {
-    const fieldName = document.getElementById('fieldName').value;
-    const productId = document.getElementById('productId').value;
-    let fieldValue;
-
-    // Determine whether to get value from input or dropdown
-    if (fieldName === 'brand') {
-        fieldValue = document.getElementById('fieldDropdown').value;
-    } else {
-        fieldValue = document.getElementById('fieldValue').value;
-    }
-};
-// AJAX request to update the field on the server
-fetch(`<?= base_url('product/updateField') ?>`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': '<?= csrf_hash() ?>'
-        },
-        body: JSON.stringify({
-            fieldName: fieldName,
-            productId: productId,
-            fieldValue: fieldValue
-        })
-    })
-
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Field updated successfully');
-            // Optionally close the modal here
-            closeEditModal();
+        // Determine if the field should be a dropdown or a text input
+        if (fieldName === 'brand') {
+            // Assuming you want to populate the dropdown dynamically for brands
+            populateBrandDropdown(fieldValue);
+            document.getElementById('fieldDropdown').style.display = 'block';
+            document.getElementById('inputFieldContainer').querySelector('input').style.display = 'none';
         } else {
-            alert('Failed to update field');
+            // For other fields, show the text input
+            document.getElementById('fieldValue').value = fieldValue;
+            document.getElementById('fieldValue').style.display = 'block';
+            document.getElementById('inputFieldContainer').querySelector('select').style.display = 'none';
         }
-    })
-    .catch(error => console.error('Error updating field:', error));
 
+        // Show the modal
+        document.getElementById('editModal').style.display = 'flex'; // Change to 'flex' to center it
+    }
 
-function closeEditModal() {
-    document.getElementById('editModal').style.display = 'none';
-}
+    $(document).ready(function() {
+        // Fetch brands and populate the dropdown
+        $.ajax({
+            url: '/ProductController/fetchBrands', // Update with the correct URL to your controller
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var $brandDropdown = $('#brandDropdown'); // Update with the actual ID of your dropdown
 
-// Attach this function to the close button
-document.querySelector('.close').onclick = closeEditModal;
+                // Clear existing options
+                $brandDropdown.empty();
 
-// Event listener for edit buttons
-document.querySelectorAll('.edit-button').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const fieldName = event.currentTarget.getAttribute('data-field-name');
-        const fieldLabel = event.currentTarget.getAttribute('data-field-label');
-        const fieldValue = event.currentTarget.getAttribute('data-field-value');
-        openEditModal(fieldName, fieldLabel, fieldValue);
+                // Append a default option
+                $brandDropdown.append('<option value="">Select a brand</option>');
+
+                // Populate dropdown with brand names
+                data.forEach(function(brand) {
+                    $brandDropdown.append('<option value="' + brand.id + '">' + brand.name + '</option>');
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching brands:', error);
+            }
+        });
     });
-});
 
-// Function to show the thank you modal
-function showThankYouModal(event) {
-    event.preventDefault(); // Prevent default form submission
+    function populateBrandDropdown(selectedValue, brands) {
+        const dropdown = document.getElementById('fieldDropdown');
+        dropdown.innerHTML = ''; // Clear existing options
+        brands.forEach(brand => {
+            const option = document.createElement('option');
+            option.value = brand.id;
+            option.textContent = brand.name;
+            if (brand.id == selectedValue) {
+                option.selected = true; // Set the current brand as selected
+            }
+            dropdown.appendChild(option);
+        });
+    }
 
-    // Implement your thank you modal logic here
-    // Example: Show a modal thanking the user for their submission
-}
+
+    // Update the field function
+    function updateField() {
+        const fieldName = document.getElementById('fieldName').value;
+        const productId = document.getElementById('productId').value;
+        let fieldValue;
+
+        // Determine whether to get value from input or dropdown
+        if (fieldName === 'brand') {
+            fieldValue = document.getElementById('fieldDropdown').value;
+        } else {
+            fieldValue = document.getElementById('fieldValue').value;
+        }
+    };
+    // AJAX request to update the field on the server
+    fetch(`<?= base_url('product/updateField') ?>`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': '<?= csrf_hash() ?>'
+            },
+            body: JSON.stringify({
+                fieldName: fieldName,
+                productId: productId,
+                fieldValue: fieldValue
+            })
+        })
+
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Field updated successfully');
+                // Optionally close the modal here
+                closeEditModal();
+            } else {
+                alert('Failed to update field');
+            }
+        })
+        .catch(error => console.error('Error updating field:', error));
+
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    // Attach this function to the close button
+    document.querySelector('.close').onclick = closeEditModal;
+
+    // Event listener for edit buttons
+    document.querySelectorAll('.edit-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const fieldName = event.currentTarget.getAttribute('data-field-name');
+            const fieldLabel = event.currentTarget.getAttribute('data-field-label');
+            const fieldValue = event.currentTarget.getAttribute('data-field-value');
+            openEditModal(fieldName, fieldLabel, fieldValue);
+        });
+    });
+
+    // Function to show the thank you modal
+    function showThankYouModal(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Implement your thank you modal logic here
+        // Example: Show a modal thanking the user for their submission
+    }
 </script>
 
 

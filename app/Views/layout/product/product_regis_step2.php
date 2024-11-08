@@ -137,6 +137,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-align: right;
         }
 
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
+
         #product-stand-field,
         #panel-resolution-field,
         #cooling-capacity-field,
@@ -144,10 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         #refrigrant-field {
             display: none;
         }
-
-
-
-
 
         @media (max-width: 600px) {
 
@@ -188,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -204,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -212,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#photos" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -220,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -242,26 +247,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <div class="col-sm-8">
 
                                                         <div class="form-group-s" style="display: flex">
-                                                            <input type="number" name="produk_p" value="<?= session()->get("step2")["produk_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control" required>
+                                                            <input type="number" name="produk_p" placeholder="Panjang (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="produk_l" value="<?= session()->get("step2")["produk_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control" required>
+                                                            <input type="number" name="produk_l" placeholder="Lebar (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="produk_t" value="<?= session()->get("step2")["produk_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <input type="number" name="produk_t" placeholder="Tinggi (cm)" class="form-control" required>
                                                             <label class="unit">cm</label>
                                                         </div>
                                                     </div>
                                                 </div>
 
+                                                <!-- Grup Formulir Dimensi Produk Stand -->
                                                 <div class="form-group row">
                                                     <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
                                                     <div class="col-sm-8">
-                                                        <div class="form-group-s" id="product-stand-field" style="display: flex">
-                                                            <input type="number" name="pstand_p" value="<?= session()->get("step2")["pstand_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control">
+                                                        <div class="form-group-s" id="product-stand-field" style="display: flex; align-items: center;">
+                                                            <!-- Input dimensi produk stand -->
+                                                            <input type="number" name="pstand_p" placeholder="Panjang (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="pstand_l" value="<?= session()->get("step2")["pstand_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control">
+                                                            <input type="number" name="pstand_l" placeholder="Lebar (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="pstand_t" value="<?= session()->get("step2")["pstand_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control">
-                                                            <label class="unit">cm</label>
+                                                            <input type="number" name="pstand_t" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <label class="unit"> cm </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,24 +277,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="package_dimensions" class="col-sm-4 col-form-label">Dimensi Kemasan Produk (P x L x T)</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex;">
-                                                            <input type="number" name="kemasan_p" value="<?= session()->get("step2")["kemasan_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control" required>
+                                                            <input type="number" name="kemasan_p" placeholder="Panjang (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="kemasan_l" value="<?= session()->get("step2")["kemasan_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control" required>
+                                                            <input type="number" name="kemasan_l" placeholder="Lebar (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="kemasan_t" value="<?= session()->get("step2")["kemasan_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control" required>
+                                                            <input type="number" name="kemasan_t" placeholder="Tinggi (cm)" class="form-control" required>
                                                             <label class="unit">cm</label>
                                                         </div>
                                                     </div>
                                                 </div>
 
+                                                <!-- Grup Formulir Resolusi Panel -->
                                                 <div class="form-group row">
                                                     <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
                                                     <div class="col-sm-8">
-                                                        <div class="form-group-s" id="panel-resolution-field">
-                                                            <input type="number" name="resolusi_x" value="<?= session()->get("step2")["resolusi_x"] ?? '' ?>" placeholder="X (cm)" class="form-control">
+                                                        <div class="form-group-s" id="panel-resolution-field" style="display: flex; align-items: center;">
+                                                            <!-- Input resolusi panel -->
+                                                            <input type="number" name="resolusi_x" placeholder="X (cm)" class="form-control" required>
                                                             <label class="divider"> x </label>
-                                                            <input type="number" name="resolusi_y" value="<?= session()->get("step2")["resolusi_y"] ?? '' ?>" placeholder="Y (cm)" class="form-control">
-                                                            <label class="unit">Pixel</label>
+                                                            <input type="number" name="resolusi_y" placeholder="Y (cm)" class="form-control" required>
+                                                            <label class="unit"> Pixel </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -296,7 +305,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="berat" class="col-sm-4 col-form-label">Berat Produk</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex;">
-                                                            <input type="number" name="berat" value="<?= session()->get("step2")["berat"] ?? '' ?>" placeholder="Berat Produk (kg)" class="form-control" required>
+                                                            <input type="number" name="berat" placeholder="Berat Produk (kg)" class="form-control" required>
                                                             <label class="unit">kg</label>
                                                         </div>
                                                     </div>
@@ -306,7 +315,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="refrigrant" class="col-sm-4 col-form-label">Tipe Refrigrant</label>
                                                     <div class="col-sm-8">
                                                         <select id="refigrant" name="refrigrant_id" class="form-control">
-                                                            <option value="<?= session()->get("step2")["refrigrant_id"] ?? '' ?>" disabled selected>Tipe Refrigrant</option>
+                                                            <option value="" disabled selected>Tipe Refrigrant</option>
                                                             <?php foreach ($refrigrant as $refigrants): ?>
                                                                 <option value="<?= $refigrants['id'] ?>"><?= esc($refigrants['type']) ?></option>
                                                             <?php endforeach; ?>
@@ -323,7 +332,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="cspf" class="col-sm-4 col-form-label">CSPF Rating</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex; align-items: center;">
-                                                            <input type="number" name="cspf" value="<?= session()->get("step2")["cspf"] ?? '' ?>" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1">
+                                                            <input type="number" name="cspf" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1">
                                                             <div id="star-rating" style="margin-left: 10px;">
                                                                 <!-- Five star placeholders -->
                                                                 <span class="star" style="font-size: 1.5rem;">☆</span>
@@ -340,17 +349,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="daya" class="col-sm-4 col-form-label">Konsumsi Daya</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex;">
-                                                            <input type="number" name="daya" value="<?= session()->get("step2")["daya"] ?? '' ?>" placeholder="Konsumsi Daya (watt)" class="form-control" required>
+                                                            <input type="number" name="daya" placeholder="Konsumsi Daya (watt)" class="form-control" required>
                                                             <label class="unit">watt</label>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row" id="cooling-capacity-field">
+                                                <div class="form-group row">
                                                     <label for="cooling_capacity" class="col-sm-4 col-form-label">Kapasitas Pendinginan</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex;">
-                                                            <input type="number" name="cooling_capacity" value="<?= session()->get("step2")["cooling_capacity"] ?? '' ?>" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
+                                                            <input type="number" name="cooling_capacity" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
                                                             <label class="unit">BTU/h</label>
                                                         </div>
                                                     </div>
@@ -359,7 +368,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group row">
                                                     <label for="pembuat" class="col-sm-4 col-form-label">Negara Pembuat</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" name="pembuat" value="<?= session()->get("step2")["pembuat"] ?? '' ?>" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
+                                                        <input type="text" name="pembuat" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
                                                     </div>
                                                 </div>
 
@@ -444,12 +453,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (PanelLabel) PanelLabel.innerText = 'Resolusi Panel';
                 if (dimensiProdukStand) dimensiProdukStand.style.display = 'block';
                 if (resolusiPanel) resolusiPanel.style.display = 'block';
+                document.getElementById('product-stand-field').style.display = 'flex'; // Use 'flex' to maintain layout
+                document.getElementById('panel-resolution-field').style.display = 'flex'; // Use 'flex' to maintain layout
             } else {
                 if (dimensiProdukLabel) dimensiProdukLabel.innerText = 'Dimensi Produk (P x L x T cm)';
                 if (dimensiPStandLabel) dimensiPStandLabel.innerText = '';
                 if (PanelLabel) PanelLabel.innerText = '';
                 if (dimensiProdukStand) dimensiProdukStand.style.display = 'none';
                 if (resolusiPanel) resolusiPanel.style.display = 'none';
+                document.getElementById('product-stand-field').style.display = 'none';
+                document.getElementById('panel-resolution-field').style.display = 'none';
             }
 
             if (categoryId == 5) {

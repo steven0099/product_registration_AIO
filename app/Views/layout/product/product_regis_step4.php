@@ -101,6 +101,15 @@
             text-align: right;
         }
 
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
+
 
         @media (max-width: 600px) {
 
@@ -139,7 +148,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -147,7 +156,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#specification" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -155,7 +164,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -171,7 +180,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -202,22 +211,22 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_depan">Gambar Tampak Depan</label>
-                                                    <input type="file" id="gambar_depan" name="gambar_depan" value="<?= session()->get("step4")["gambar_depan"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_depan" name="gambar_depan" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" value="<?= session()->get("step4")["gambar_samping_kanan"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_atas">Gambar Tampak Atas</label>
-                                                    <input type="file" id="gambar_atas" name="gambar_atas" value="<?= session()->get("step4")["gambar_atas"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_atas" name="gambar_atas" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="video_produk">Video Produk (YouTube Link)</label>
-                                                    <input type="text" id="video_produk" name="video_produk" value="<?= session()->get("step4")["video_produk"] ?? '' ?>" class="form-control" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
+                                                    <input type="text" id="video_produk" name="video_produk" class="form-control" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" required pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
                                                 </div>
 
                                             </div>
@@ -227,17 +236,17 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" class="form-control" required>
                                                 </div>
 
 
