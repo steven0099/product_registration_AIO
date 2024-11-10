@@ -180,6 +180,10 @@ Rincian Produk
                 <th>Garansi Panel</th>
                 <td><?= esc($product['garansi_panel']) ?> Tahun</td>
             </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+            </tr>
             <?php endif; ?>
 
             <?php if ($product['category'] == 'AC'): ?>
@@ -208,7 +212,19 @@ Rincian Produk
                 <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
             <tr>
                 <th>CSPF Rating</th>
-                <td><?= esc($product['cspf']) ?>/5</td>
+                <td><?= esc($product['cspf']) ?>/5
+                <?php if ($product['cspf'] == 5): ?>
+        <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px"> 
+        <?php elseif ($product['cspf'] < 5 || $product['cspf'>= 4]): ?>
+        <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px"> 
+        <?php elseif ($product['cspf'] < 4 || $product['cspf'>= 3]): ?>
+        <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] < 3 || $product['cspf'>= 2]): ?>
+        <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] < 2 || $product['cspf'>= 1]): ?>
+        <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">   
+        <?php endif; ?>
+        </td>
                 <?php if ($product['status'] == 'approved'): ?>
                 <td><button onclick="opencspfModal()" class="btn btn-sm btn-primary">Edit</button></td>
                 <?php endif; ?>

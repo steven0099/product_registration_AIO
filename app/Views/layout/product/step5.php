@@ -416,15 +416,15 @@
                                                         </div>
                                                         <?php endif; ?>
                                                         <?php endforeach; ?>
-
-                                                    </td>
+                                                </tr>
+                                                <tr>                                                    </td>
                                                     <?php if (!empty($data['video_produk'])): ?>
                                                     <td>Video Produk</td>
-                                                    <a href="<?= esc($data['video_produk'] ?? '')?>"
-                                                        target="_blank">Tonton Video Produk</a>
+                                                    <td>
+                                                    <a href="<?= esc($data['video_produk'] ?? '')?>"target="_blank">Tonton Video Produk</a>
                                                     <?php endif; ?>
                                                     </td>
-                                                </tr>
+                                                    </tr>
                                             </tbody>
                                         </table>
 

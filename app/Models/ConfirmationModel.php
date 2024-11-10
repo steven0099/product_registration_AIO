@@ -19,4 +19,33 @@ class ConfirmationModel extends Model
         'status', 'submitted_by', 'confirmed_at', 'approved_at', 'rejected_at', 'kapasitas_air_panas', 'kapasitas_air_dingin'
     ];
     
+    public function getRelatedProducts($category, $capacity, $ukuran, $excludeId) {
+        $query = $this->db->table('product_submissions')
+                          ->where('category', $category)
+                          ->where('status', 'approved')
+                          ->where('id !=', $excludeId)  // Exclude the current product
+                          ->limit(8);                   // Limit to 8 products
+    
+        // Apply both capacity and ukuran conditions if they are set
+        if ($capacity && $ukuran) {
+            $query->groupStart() // Start a grouped condition
+                  ->where('capacity', $capacity)
+                  ->where('ukuran', $ukuran)
+                  ->groupEnd(); // End the grouped condition
+        } elseif ($capacity) {
+            // Only filter by capacity if ukuran is not set
+            $query->where('capacity', $capacity);
+        } elseif ($ukuran) {
+            // Only filter by ukuran if capacity is not set
+            $query->where('ukuran', $ukuran);
+        }
+    
+        return $query->get()->getResultArray();
+    }
+    
+    
+    
+    
+    
+    
 }

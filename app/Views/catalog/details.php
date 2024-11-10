@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<a href="/catalog">← Kembali</a>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Produk</title>
@@ -86,6 +87,20 @@
             background-color: #f5f5f5;
             font-weight: bold;
         }
+
+        .recommended-carousel {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .product-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 10px;
+        width: 80%;
+    }
     </style>
 </head>
 
@@ -178,9 +193,13 @@
                     <li><?= esc($product['advantage6'] ?? '') ?></li>
                     <?php endif; ?>
                 </ul>
+                <?php if (!empty($product['video_produk'])): ?>
+                    <a href="<?= esc($product['video_produk'] ?? '')?>" target="_blank">Tonton Video Produk</a>
+            <?php endif; ?>
                 <!-- Tombol Chat Pemesanan WhatsApp -->
                 <div class="text-center mt-4">
-                    <a href="https://wa.me/6289516103390?text=Halo%20saya%20ingin%20memesan%20produk%20yang%20Anda%20tawarkan."
+                <?php if ($product['capacity'] != null): ?>
+                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas:%20<?= urlencode($product['capacity']) ?>"
                         target="_blank"
                         class="btn btn-success btn-lg d-inline-flex align-items-center">
                         <i class="fab fa-whatsapp me-2"></i>
@@ -188,6 +207,27 @@
                         <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 8px;">
                         Pesan Via Whatsapp
                     </a>
+                    <?php endif; ?>
+                    <?php if ($product['ukuran'] != null): ?>
+                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aUkuran:%20<?= urlencode($product['ukuran']) ?>"
+                        target="_blank"
+                        class="btn btn-success btn-lg d-inline-flex align-items-center">
+                        <i class="fab fa-whatsapp me-2"></i>
+                        <!-- Gambar Logo WhatsApp -->
+                        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 8px;">
+                        Pesan Via Whatsapp
+                    </a>
+                    <?php endif; ?>
+                    <?php if ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
+                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin/Panas:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L/<?= urlencode($product['kapasitas_air_panas']) ?>%20L"
+                        target="_blank"
+                        class="btn btn-success btn-lg d-inline-flex align-items-center">
+                        <i class="fab fa-whatsapp me-2"></i>
+                        <!-- Gambar Logo WhatsApp -->
+                        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 8px;">
+                        Pesan Via Whatsapp
+                    </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -224,17 +264,29 @@
                         <td><?= esc($product['ukuran']) ?></td>
                     </tr>
                 <?php endif ?>
+                <?php if ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
+                    <tr>
+                        <th>Kapasitas Air Dingin</th>
+                        <td><?= esc($product['kapasitas_air_dingin']) ?> Liter</td>
+                        <th>Kapasitas Air Panas</th>
+                        <td><?= esc($product['kapasitas_air_panas']) ?> Liter</td>
+                    </tr>
+                <?php endif ?>
                 <tr>
-                    <th>Dimensi Produk (cm)</th>
+                    <th>Dimensi Produk</th>
                     <td><?= esc($product['product_dimensions']) ?></td>
                 </tr>
                 <tr>
-                    <th>Dimensi Kemasan (cm)</th>
+                    <th>Dimensi Kemasan</th>
                     <td><?= esc($product['packaging_dimensions']) ?></td>
                 </tr>
                 <tr>
-                    <th>Berat Unit (Kg)</th>
-                    <td><?= esc($product['berat']) ?></td>
+                    <th>Berat Unit</th>
+                    <td><?= esc($product['berat']) ?> Kg</td>
+                </tr>
+                <tr>
+                    <th>Konsumsi Daya</th>
+                    <td><?= esc($product['daya']) ?> Watt</td>
                 </tr>
                 <?php if ($product['subcategory'] == 'SPEAKER'): ?>
                     <tr>
@@ -242,25 +294,112 @@
                         <td><?= esc($product['garansi_semua_service']) ?> 1 Tahun</td>
                     </tr>
                 <?php endif; ?>
+                <?php if ($product['category'] == 'TV'): ?>
+            <!-- For category TV (ID 9): Display "dimensi produk dengan stand" and "resolusi panel" -->
+            <tr>
+                <th>Resolusi Panel</th>
+                <td><?= esc($product['panel_resolution']) ?> Pixel</td>
+            </tr>
+            <tr>
+                <th>Dimensi Produk Dengan Stand</th>
+                <td><?= esc($product['pstand_dimensions']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Panel</th>
+                <td><?= esc($product['garansi_panel']) ?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['category'] == 'AC'): ?>
+        <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
+        <tr><th>Kapasitas Pendinginan</th><td><?= esc($product['cooling_capacity']) ?> BTU/h</td></tr>
+        <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
+        <tr><th>Tipe Refrigerant</th><td><?= esc($product['refrigrant']) ?></td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['compressor_warranty']) ?> Tahun</td>
+        <tr><th>CSPF Rating</th><td><?= esc($product['cspf']) ?>/5
+        <?php if ($product['cspf'] == 5): ?>
+        <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px"> 
+        <?php elseif ($product['cspf'] < 5 || $product['cspf'>= 4]): ?>
+        <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px"> 
+        <?php elseif ($product['cspf'] < 4 || $product['cspf'>= 3]): ?>
+        <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] < 3 || $product['cspf'>= 2]): ?>
+        <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] < 2 || $product['cspf'>= 1]): ?>
+        <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">   
+        <?php endif; ?>
+        </td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['category'] == 'KULKAS' || $product['category'] == 'FREEZER' || $product['category'] == 'SHOWCASE' ): ?>
+        <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['category'] == 'MESIN CUCI'): ?>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
+        <tr><th>Garansi Motor</th><td><?= esc($product['garansi_motor']) ?> Tahun</td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'KIPAS ANGIN'): ?>
+        <tr><th>Garansi Motor</th><td><?= esc($product['garansi_motor']) ?> Tahun</td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'DISPENSER GALON ATAS' || $product['subcategory'] == 'DISPENSER GALON BAWAH'): ?>
+        <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty'])?></td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?></td></tr>
+        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['sparepart_warranty'])?></td></tr>
+        <?php endif; ?>
             </table>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4 mb-4">
-            <h3>Rekomendasi Produk Lainnya</h3>
-            <div class="card" style="width: 18rem;">
-                <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>" class="card-img-top" alt="Gambar Produk" style="height: 200px; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title"><?= esc($product['product_type']) ?></h5>
-                    <p class="card-text"><?= esc($product['category']) ?></p>
-                    <p class="card-text"><strong>Rp <?= (esc($product['subcategory'])) ?></strong></p>
-                    <p class="card-text"><?= esc($product['brand']) ?></p>
-                    <a href="<?= base_url('product/detail/' . esc($product['id'])) ?>" class="btn btn-primary">Lihat Detail</a>
+    <div class="col-md-12 mb-4">
+        <h3>Rekomendasi Produk Lainnya</h3>
+    </div>
+    
+<div class="recommended-carousel">
+    <!-- Left Arrow -->
+    <button class="arrow left-arrow" onclick="scrollLeft()">&#9664;</button>
 
+    <!-- Product Container -->
+    <div class="product-container">
+        <?php foreach ($relatedProducts as $product): ?>
+            <div class="product-item">
+                <div class="card" style="width: 300px;">
+                    <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>" class="card-img-top" alt="Gambar Produk" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= esc($product['product_type']) ?></h5>
+                        <p class="card-text"><?= esc($product['category']) ?></p>
+                        <p class="card-text"><?= esc($product['subcategory']) ?></p>
+                        <p class="card-text"><?= esc($product['brand']) ?></p>
+                        <p class="card-text">
+                            <?= !empty($product['capacity']) ? esc($product['capacity']) : 
+                                (!empty($product['ukuran']) ? esc($product['ukuran']) : 
+                                (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
+                                    esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas']) : 
+                                    'N/A')) ?>
+                        </p>
+                        <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>" class="btn btn-primary">Lihat Detail</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endforeach; ?>
     </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right-arrow" onclick="scrollRight()">&#9654;</button>
+</div>
+
+
 
     </div>
     </div>
@@ -269,20 +408,6 @@
 
     </div>
     </div>
-
-    <div class="text-center mt-4">
-        <?php if (!empty($product['whatsapp']) && $product['availability']): ?>
-            <!-- Tombol Pemesanan via WhatsApp -->
-            <a href="https://wa.me/<?= esc($product['whatsapp']) ?>?text=Halo%20saya%20ingin%20memesan%20<?= urlencode($product['name']) ?>%20dengan%20harga%20<?= urlencode($product['price']) ?>"
-                target="_blank"
-                class="btn btn-success btn-lg d-inline-flex align-items-center">
-                <img src="<?= base_url('assets/images/whatsapp-logo.png') ?>" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 8px;">
-                Pesan via WhatsApp
-            </a>
-        <?php else: ?>
-            <!-- Tampilkan pesan atau tombol non-aktif jika tidak tersedia -->
-
-        <?php endif; ?>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

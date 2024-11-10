@@ -298,8 +298,27 @@ private function getCategoryIdBySubcategory($subcategoryName)
 public function details($id)
 {
     $model = new ConfirmationModel();
-    $data['product'] = $model->find($id);
+
+    // Fetch the current product details and store it in the $product variable
+    $product = $model->find($id);
+    
+    // If the product does not exist, show a 404 error
+    if (!$product) {
+        show_404();
+    }
+
+    // Pass the data to the view
+    $data['product'] = $product;
+
+    // Fetch related products based on category and capacity/ukuran, excluding the current product
+    $data['relatedProducts'] = $model->getRelatedProducts(
+        $product['category'],
+        $product['capacity'],
+        $product['ukuran'],
+        $id // Pass $id as the product ID to exclude
+    );
 
     return view('catalog/details', $data);
 }
+
 }
