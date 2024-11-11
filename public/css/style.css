@@ -387,7 +387,8 @@ form select::after {
 
 /* Button styling for collapsible section titles */
 .filter-title {
-    background-color: #b3b3b3;
+    background-color: whitesmoke;
+    border-radius: 5px;
     border: none;
     width: 100%;
     text-align: left;

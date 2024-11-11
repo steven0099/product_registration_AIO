@@ -37,6 +37,27 @@
         font-size: 1.2em;
         /* Ukuran ikon */
     }
+
+    @media (max-width: 768px) {
+        #searchAndSortForm {
+            flex-direction: column;
+            /* Stack elements on small screens */
+            align-items: flex-start;
+            /* Align items to the start */
+        }
+
+        #searchAndSortForm .form-control {
+            width: 100%;
+            /* Full width on smaller screens */
+            margin-bottom: 10px;
+            /* Space between elements */
+        }
+
+        #sortButton {
+            width: 100%;
+            /* Full width button on smaller screens */
+        }
+    }
 </style>
 <?= $this->endSection() ?>
 
@@ -147,9 +168,9 @@ Digital Catalog
                 <div class="row">
                     <!-- Search field on the leftmost -->
                     <div class="col-md-6 d-flex align-items-center">
-                        <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-
+                        <form id="searchAndSortForm" action="" method="GET">
                             <div class="search-container">
+
                                 <input type="text" id="search" name="search" value="<?= esc($search) ?>" placeholder="Cari Produk..." class="form-control mr-2">
                                 <button type="submit" class="search-icon">
                                     <i class="fas fa-search"></i>
@@ -161,7 +182,7 @@ Digital Catalog
                     <!-- Sort dropdown on the rightmost -->
                     <div class="col-md-6 d-flex align-items-center justify-content-end">
                         <form id="searchAndSortForm" action="" method="GET" class="d-flex align-items-center">
-                            <label for="sort" class="mr-2 mb-0">Sort By:</label>
+                            <label for="sort">Sort By:</label>
                             <select id="sort" name="sort" class="form-control mr-2" style="width: auto;">
                                 <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
                                 <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
@@ -642,6 +663,43 @@ Digital Catalog
             if (submitButton.hasAttribute("aria-expanded")) return;
             searchIconSpan.textContent = "\u{E60D}";
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('search');
+
+        // Event listener untuk menangani input pada search bar
+        searchInput.addEventListener('input', function() {
+            // Ambil nilai dari input
+            const query = this.value;
+
+            // Lakukan pencarian jika ada query
+            if (query.length > 0) {
+                // Panggil fungsi untuk memfilter produk
+                searchProducts(query);
+            } else {
+                // Jika input kosong, bisa menampilkan semua produk atau melakukan tindakan lain
+                searchProducts('');
+            }
+        });
+
+        function searchProducts(query) {
+            // Lakukan AJAX request atau filter produk berdasarkan query
+            $.ajax({
+                url: "<?= base_url('catalog/filterProducts') ?>",
+                type: "GET",
+                data: {
+                    search: query
+                },
+                success: function(response) {
+                    $('#productGrid').html(response); // Ganti konten grid produk dengan respons dari server
+                },
+                error: function() {
+                    alert("Failed to filter products.");
+                    $('#productGrid').html(''); // Kosongkan grid produk jika terjadi kesalahan
+                }
+            });
+        }
     });
 </script>
 <?= $this->endSection() ?>
