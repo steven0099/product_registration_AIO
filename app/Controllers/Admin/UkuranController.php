@@ -18,9 +18,20 @@ class UkuranController extends BaseController
     // Dashboard view
     public function index()
     {
+        // Define the list of category IDs and subcategory IDs you want to fetch
+        $selectedCategoryIds = [9]; 
+        $selectedSubcategoryIds = [31,32]; 
+    
+        $data['subcategories'] = $this->subcategoryModel
+        ->groupStart() // Start a grouped condition
+            ->whereIn('category_id', $selectedCategoryIds) // Condition 1: category IDs
+            ->orWhereIn('id', $selectedSubcategoryIds) // OR Condition 2: subcategory IDs
+        ->groupEnd() // End the grouped condition
+        ->findAll();
+    
+        // Fetch the capacities (no change here)
         $data['ukuran'] = $this->ukuranModel->getUkuranWithSubcategory();
-        $data['subcategories'] = $this->subcategoryModel->findAll();
-
+    
         return view('ukuran/ukuran', $data);
     }
 

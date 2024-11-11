@@ -33,6 +33,14 @@
                 <tr><th>Kategori</th><td><?= esc($product['category']) ?></td></tr>
                 <tr><th>Subkategori</th><td><?= esc($product['subcategory']) ?></td></tr>
                 <tr><th>Tipe Produk</th><td><?= esc($product['product_type']) ?></td></tr>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <tr><th>Harga</th>
+                    <?php if ($product['harga'] != null): ?>
+        <td><?= esc($product['harga']) ?></td></tr>
+        <?php elseif ($product['harga'] == null): ?>
+        <td>Belum Ditentukan</td></tr>
+        <?php endif; ?>
+        <?php endif; ?>
                 <tr><th>Warna</th><td><?= esc($product['color']) ?></td></tr>
                 <tr><th>Dimensi Produk</th><td><?= esc($product['product_dimensions']) ?></td></tr>
                 <tr><th>Dimensi Kemasan</th><td><?= esc($product['packaging_dimensions']) ?></td></tr>

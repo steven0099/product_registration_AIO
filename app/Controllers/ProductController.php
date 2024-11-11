@@ -1054,6 +1054,32 @@ private function formatResolution($data, $xKey, $yKey)
         }
     }
 
+    public function updateHarga()
+    {
+        $id = $this->request->getPost('id'); // Get the product ID from the form
+        $harga = $this->request->getPost('harga'); // Get the updated price value
+        
+        // Validation: Check if ID and harga are provided and if harga is a valid number
+        if (empty($id) || empty($harga) || !is_numeric(str_replace('.', '', $harga))) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid input provided. Please enter a numeric value.', 'csrf_token' => csrf_hash()]);
+        }
+    
+        // Convert harga to a numeric value (remove any existing formatting if it's already partially formatted)
+        $harga = str_replace(['Rp', '.', ',00'], '', $harga); // Remove existing formatting elements
+        $harga = (float) $harga; // Convert to a float or integer if it's a whole number
+    
+        // Format harga in the "Rp X.000.000,00" format
+        $formattedHarga = 'Rp ' . number_format($harga, 2, ',', '.'); // Add Rp. prefix, 2 decimal places with comma, thousands separator with dot
+    
+        // Update the database
+        if ($this->confirmationModel->update($id, ['harga' => $formattedHarga])) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Harga Berhasil Diubah.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update price.']);
+        }
+    }
+    
+
     public function updateProductType()
     {
         $id = $this->request->getPost('id'); // Get the product ID from the form

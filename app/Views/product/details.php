@@ -49,6 +49,19 @@ Rincian Produk
                 <td><button onclick="openProductTypeModal()" class="btn btn-sm btn-primary">Edit</button></td>
                 <?php endif; ?>
             </tr>
+
+            <?php if ($product['status'] == 'approved'): ?>
+            <tr>
+                <th>Harga</th>
+                <?php if ($product['harga'] != null): ?>
+                <td><?= esc($product['harga'] ?? '') ?></td>
+                <?php elseif ($product['harga'] == null): ?>
+                <td>Belum Ditentukan</td>
+                <?php endif; ?>
+                <td><button onclick="openHargaModal()" class="btn btn-sm btn-primary">Edit</button></td>
+            </tr>
+            <?php endif; ?>
+
             <tr>
                 <th>Warna</th>
                 <td><?= esc($product['color']) ?></td>
@@ -461,6 +474,32 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateColdCap()">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="hargaModal" tabindex="-1" role="dialog" aria-labelledby="hargaModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hargaModalLabel">Tentukan Harga</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="hargaInput" class="form-control"
+                            value="<?= esc($product['harga']) ?>"
+                            placeholder="Harga (Angka Saja)">
+                        <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
+                        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
+                        <!-- Include CSRF Token -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="updateHarga()">Update</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -1062,6 +1101,55 @@ function updateColdCap() {
         });
 }
 
+function updateHarga() {
+    const hargaInput = document.getElementById('hargaInput');
+    const idInput = document.getElementById('id');
+
+    if (!hargaInput || !idInput) {
+        console.error('One or more elements not found:', {
+            hargaInput: hargaInput,
+            idInput: idInput
+        });
+        alert('Unable to find input fields.');
+        return; // Exit the function early
+    }
+
+    const harga = hargaInput.value; // Get the color input value
+    const id = `<?= $product['id'] ?>`; // Get the product ID
+
+    // Validate the color input
+    if (!harga) {
+        alert("Cold Water Capacity cannot be empty.");
+        return;
+    }
+
+    const csrfTokenName = '<?= csrf_token() ?>';
+    const csrfTokenValue = '<?= csrf_hash() ?>';
+
+    // Send the POST request to update the color
+    $.post("<?= base_url('superadmin/updateHarga') ?>", {
+            id: id,
+            harga: harga,
+            [csrfTokenName]: csrfTokenValue
+        })
+        .done(function(response) {
+            // Check if the response is in the expected format
+            if (typeof response === "object" && response !== null) {
+                if (response.success) {
+                    alert(response.message); // Show success message
+                    location.reload(); // Reload the page to see the updated color
+                } else {
+                    alert("Error: " + response.message); // Show error message
+                }
+            } else {
+                alert("Unexpected response format.");
+            }
+        })
+        .fail(function(jqXHR) {
+            alert("Request failed: " + jqXHR.statusText);
+        });
+}
+
 function updateHotCap() {
     const hotcapInput = document.getElementById('hotcapInput');
     const idInput = document.getElementById('id');
@@ -1535,6 +1623,12 @@ function openColdCapModal(id, coldcap) {
     document.getElementById('id').value = id; // Set the hidden ID input
     document.getElementById('coldcapInput').value = coldcap || ''; // Set the power input, default to empty if undefined
     $('#coldcapModal').modal('show'); // Show the modal
+}
+
+function openHargaModal(id, harga) {
+    document.getElementById('id').value = id; // Set the hidden ID input
+    document.getElementById('hargaInput').value = harga || ''; // Set the power input, default to empty if undefined
+    $('#hargaModal').modal('show'); // Show the modal
 }
 
 function openHotCapModal(id, hotcap) {

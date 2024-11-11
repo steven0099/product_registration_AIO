@@ -12,7 +12,7 @@ class CapacityModel extends Model
     // Fetch capacities with their related categories
     public function getCapacitiesWithSubcategory()
     {
-        return $this->select('capacities.*, capacities.value as capacity_value, subcategories.name as subcategory_name')
+        return $this->select('capacities.*, capacities.value as capacity_value, subcategories.name as subcategory_name, subcategories.id as subcategory_id')
                     ->join('subcategories', 'subcategories.id = capacities.subcategory_id')
                     ->findAll();
     }

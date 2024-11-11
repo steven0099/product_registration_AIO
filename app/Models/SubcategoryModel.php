@@ -12,7 +12,7 @@ class SubcategoryModel extends Model
 
     public function getSubcategoriesWithCategory()
     {
-        return $this->select('subcategories.id, subcategories.name as subcategory_name, categories.name as category_name')
+        return $this->select('subcategories.id, subcategories.name as subcategory_name, categories.name as category_name, categories.id as category_id')
                     ->join('categories', 'categories.id = subcategories.category_id') // Join with categories table
                     ->findAll();
     }

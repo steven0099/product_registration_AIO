@@ -8,7 +8,7 @@
     .product-item img {
         width: 100%;
         padding:5px;
-        height: 150px; /* Increase height for better image focus */
+        height: 135px; /* Increase height for better image focus */
         object-fit: cover;
     }
 
@@ -79,6 +79,11 @@
                         <h5 class="card-title"><?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?></h5>
                         <p class="card-text"><?= esc($product['category']) ?></p>
                         <p class="card-text"><?= esc($product['subcategory']) ?></p>
+                        <?php if ($product['harga'] != null): ?>
+                        <p class="card-text"><strong><?= esc($product['harga']) ?></strong></p>
+                        <?php elseif ($product['harga'] == null): ?>
+                        <p class="card-text"><strong>Harga Belum Ditentukan</strong></p>
+                        <?php endif; ?>
                         <p class="card-text">
     <?php
     if (!empty($product['capacity'])) {
@@ -93,11 +98,13 @@
     ?>
 </p>
 
+
 <div class="column">
 <input type="checkbox" class="compare-checkbox" data-product-id="<?= esc($product['id']) ?>"
            data-product-name="<?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?>"
            data-product-category="<?= esc($product['category']) ?>"
            data-product-subcategory="<?= esc($product['subcategory']) ?>"
+           data-product-harga="<?= esc($product['harga']) ?>"
            data-product-capacity="    <?php
     if (!empty($product['capacity'])) {
         echo esc($product['capacity']);

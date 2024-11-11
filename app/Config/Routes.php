@@ -85,6 +85,7 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->post('updatePower', 'ProductController::updatePower');
     $routes->post('updateWeight', 'ProductController::updateWeight');
     $routes->post('updateColdCap', 'ProductController::updateColdCap');
+    $routes->post('updateHarga', 'ProductController::updateHarga');
     $routes->post('updateHotCap', 'ProductController::updateHotCap');
     $routes->post('updateCooling', 'ProductController::updateCooling');
     $routes->post('updateCspf', 'ProductController::updateCspf');
@@ -130,7 +131,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('kapasitas', 'Admin\KapasitasController::index');
     $routes->post('kapasitas/saveKapasitas', 'Admin\KapasitasController::saveKapasitas');
     $routes->post('kapasitas/updateKapasitas/(:num)', 'Admin\KapasitasController::updateKapasitas/$1');
-    $routes->post('kapasitas/deleteKapasitas/(:num)', 'Admin\KapasitasController::deleteKapasitas/$1');
+    $routes->get('kapasitas/deleteKapasitas/(:num)', 'Admin\KapasitasController::deleteKapasitas/$1');
 
     // Garansi Kompresor Management
     $routes->get('garansi_kompresor', 'Admin\GaransiKompresorController::index');
@@ -147,7 +148,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('ukuran', 'Admin\UkuranController::index');
     $routes->post('ukuran/saveUkuran', 'Admin\UkuranController::saveUkuran');
     $routes->post('ukuran/updateUkuran/(:num)', 'Admin\UkuranController::updateUkuran/$1');
-    $routes->post('ukuran/deleteUkuran/(:num)', 'Admin\UkuranController::deleteUkuran/$1');
+    $routes->get('ukuran/deleteUkuran/(:num)', 'Admin\UkuranController::deleteUkuran/$1');
 
     $routes->get('refrigrant', 'Admin\RefrigrantController::index');
     $routes->post('refrigrant/saveRefrigrant', 'Admin\RefrigrantController::saveRefrigrant');

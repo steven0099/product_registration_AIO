@@ -18,11 +18,23 @@ class KapasitasController extends BaseController
     // Dashboard view
     public function index()
     {
+        // Define the list of category IDs and subcategory IDs you want to fetch
+        $selectedCategoryIds = [3, 4, 5, 6, 7, 8]; 
+        $selectedSubcategoryIds = [37, 38]; 
+    
+        $data['subcategories'] = $this->subcategoryModel
+        ->groupStart() // Start a grouped condition
+            ->whereIn('category_id', $selectedCategoryIds) // Condition 1: category IDs
+            ->orWhereIn('id', $selectedSubcategoryIds) // OR Condition 2: subcategory IDs
+        ->groupEnd() // End the grouped condition
+        ->findAll();
+    
+        // Fetch the capacities (no change here)
         $data['kapasitas'] = $this->capacityModel->getCapacitiesWithSubcategory();
-        $data['subcategories'] = $this->subcategoryModel->findAll();
-
+    
         return view('kapasitas/kapasitas', $data);
     }
+    
 
     public function saveKapasitas()
     {
@@ -40,7 +52,7 @@ class KapasitasController extends BaseController
             'value' => $this->request->getPost('value'),
             'subcategory_id' => $this->request->getPost('subcategory_id')
         ]);
-
+        
         return redirect()->to('/admin/kapasitas');
     }
 
@@ -51,15 +63,5 @@ class KapasitasController extends BaseController
         return redirect()->to('/admin/kapasitas');
     }
 
-    public function getCapacitiesBySubcategory($subcategoryId)
-    {
-        $capacityModel = new CapacityModel();
-
-        // Fetch capacities based on subcategory_id
-        $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
-
-        // Return capacities in JSON format
-        return $this->response->setJSON($capacities);
-    }
      
 }

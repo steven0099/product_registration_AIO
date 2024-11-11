@@ -62,7 +62,7 @@ class CatalogController extends BaseController
                 $query->orderBy('capacity', 'DESC');
                 break;
             default:
-                $query->orderBy('id', 'ASC');
+                $query->orderBy('id', 'DESC');
                 break;
         }
         
@@ -298,27 +298,68 @@ private function getCategoryIdBySubcategory($subcategoryName)
 public function details($id)
 {
     $model = new ConfirmationModel();
-
-    // Fetch the current product details and store it in the $product variable
     $product = $model->find($id);
-    
-    // If the product does not exist, show a 404 error
+
     if (!$product) {
         show_404();
     }
 
-    // Pass the data to the view
-    $data['product'] = $product;
-
     // Fetch related products based on category and capacity/ukuran, excluding the current product
-    $data['relatedProducts'] = $model->getRelatedProducts(
+    $relatedProducts = $model->getRelatedProducts(
         $product['category'],
         $product['capacity'],
         $product['ukuran'],
-        $id // Pass $id as the product ID to exclude
+        $id
     );
 
-    return view('catalog/details', $data);
-}
+    // Special logic for 'SMALL APPLIANCES' category to include subcategory in related products
+    if ($product['category'] == "SMALL APPLIANCES") {
+        $relatedProducts = $model->getRelatedProducts(
+            $product['subcategory'], // Check by subcategory for this category
+            $product['capacity'],
+            $product['ukuran'],
+            $id
+        );
+    }
 
+    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH") {
+        $relatedProducts = $model->getRelatedProductsBySubcategoryOnly(
+            $product['subcategory'], // Check by subcategory for this category
+            $id // Pass only the product ID to exclude the current product
+        );
+    } else {
+        $relatedProducts = $model->getRelatedProducts(
+            $product['subcategory'],
+            $product['capacity'],
+            $product['ukuran'],
+            $id // Exclude the current product for related products
+        );
+    }
+    
+    // Check if there's a video link, and extract the video ID if it exists
+    $videoId = '';
+    $embedUrl = '';
+    $thumbnailUrl = '';
+
+    if (!empty($product['video_produk'])) {
+        // Extract the video ID more precisely
+        $urlParts = parse_url($product['video_produk']);
+        if (isset($urlParts['query'])) {
+            parse_str($urlParts['query'], $queryParams);
+            $videoId = $queryParams['v'] ?? '';
+        }
+
+        if ($videoId) {
+            $embedUrl = "https://www.youtube.com/embed/{$videoId}";
+            $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
+        }
+    }
+
+    return view('catalog/details', [
+        'product' => $product,
+        'relatedProducts' => $relatedProducts,
+        'embedUrl' => $embedUrl,
+        'thumbnailUrl' => $thumbnailUrl,
+    ]);
+}
 }

@@ -11,6 +11,13 @@
             <h5 class="product-title"><?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?></h5>
             <p class="product-category"><?= esc($product['category']) ?></p>
             <p class="product-subcategory"><?= esc($product['subcategory']) ?></p>
+            <p class="product-harga">
+            <?php if ($product['harga'] != null): ?>
+                <?= esc($product['harga'] ?? '') ?>
+                <?php elseif ($product['harga'] == null): ?>
+                    Harga Belum Ditentukan
+                </p>
+<?php endif;?>
             <p class="product-capacity">
                 <?= 
     !empty($product['capacity']) ? esc($product['capacity']) : 
@@ -18,9 +25,11 @@
     (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
         esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas']) : 
         ''))
-?>
+?></p>
+    
+            
 
-            </p>
+    <?php if ($product['harga'] != null): ?>
             <div class="text-center mt-4">
                 <?php if ($product['capacity'] != null): ?>
                 <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas:%20<?= urlencode($product['capacity']) ?>"
@@ -53,10 +62,12 @@
                 </a>
                 <?php endif; ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
     <?php endforeach; ?>
 </div>
+
 
 <!-- Comparison Table -->
 
@@ -364,7 +375,8 @@
 
 .comparison-product-card .product-category,
 .comparison-product-card .product-subcategory,
-.comparison-product-card .product-capacity {
+.comparison-product-card .product-capacity,
+.comparison-product-card .product-harga {
     font-size: 14px;
     color: #555;
     margin: 3px 0;
