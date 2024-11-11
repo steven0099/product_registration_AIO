@@ -1,3 +1,4 @@
+app/Config/App.php
 writable/*
 vendor/*
 .idea/*
