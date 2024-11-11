@@ -355,7 +355,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
+                                                <div class="form-group row" id="cooling-capacity-field">
                                                     <label for="cooling_capacity" class="col-sm-4 col-form-label">Kapasitas Pendinginan</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex;">
