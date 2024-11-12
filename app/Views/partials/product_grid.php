@@ -93,7 +93,7 @@
     } elseif (!empty($product['kapasitas_air_dingin'] && $product['kapasitas_air_panas'])){
         echo esc($product['kapasitas_air_dingin']. 'L' . '/' . $product['kapasitas_air_panas'] . 'L');
     } else {
-        echo 'No capacity or ukuran available.';
+        echo ' ';
     }
     ?>
 </p>
@@ -113,7 +113,7 @@
     } elseif (!empty($product['kapasitas_air_dingin'] && $product['kapasitas_air_panas'])){
         echo esc($product['kapasitas_air_dingin']. 'L' . '/' . $product['kapasitas_air_panas'] . 'L');
     } else {
-        echo 'No capacity or ukuran available.';
+        echo ' ';
     }
     ?>"
            data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>">

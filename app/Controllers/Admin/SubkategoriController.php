@@ -49,6 +49,8 @@ class SubkategoriController extends BaseController
             'category_id' => $this->request->getPost('category_id'), // Get category_id from the form
         ];
         
+        
+    $data['name'] = strtoupper($data['name']);
         $subcategoryModel->save($data);
         
         return redirect()->to('/admin/subkategori')->with('success', 'Subcategory added successfully.');
@@ -69,6 +71,7 @@ class SubkategoriController extends BaseController
             'category_id' => $this->request->getPost('category_id'), // Update category_id
         ];
     
+        $data['name'] = strtoupper($data['name']);
         // Update the Subkategori in the database
         if (!$subcategoryModel->update($id, $data)) {
             return redirect()->back()->with('error', 'Failed to update Subkategori.');

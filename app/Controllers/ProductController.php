@@ -439,7 +439,7 @@ foreach (array_keys($headers) as $col) {
             $validationRules['compressor_warranty_id'] = 'required';  // Corrected field name
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';        
-        } elseif ($category == '6') {
+        } elseif ($category == '6' || $subcategory == '49') {
             $validationRules['garansi_motor_id'] = 'required'; // Ensure this matches your form
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
@@ -458,12 +458,27 @@ foreach (array_keys($headers) as $col) {
                 $validationRules['kapasitas_air_dingin'] = 'required';
             }
             $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
-        } elseif ($subcategory == '37') {
+        } elseif ($subcategory == ['33','34','37','38','41','44']) {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
-            $validationRules['garansi_elemen_panas'] = 'required';
-        }
-    
+            $validationRules['garansi_elemen_panas_id'] = 'required';
+    } elseif ($subcategory == '42') {
+        $validationRules['sparepart_warranty_id'] = 'required';
+        $validationRules['garansi_elemen_panas_id'] = 'required';
+    } elseif ($subcategory == '43' || $subcategory == '48') {
+        $validationRules['capacity_id'] = 'required';
+        $validationRules['sparepart_warranty_id'] = 'required';
+        $validationRules['garansi_elemen_panas_id'] = 'required';
+    } elseif ($subcategory == '45' || $subcategory == '46') {
+        $validationRules['capacity_id'] = 'required';
+        $validationRules['sparepart_warranty_id'] = 'required';
+        $validationRules['garansi_semua_service_id'] = 'required';
+    } elseif ($subcategory == '47' || $subcategory == '50' || $subcategory == '51') {
+        $validationRules['ukuran_id'] = 'required';
+        $validationRules['sparepart_warranty_id'] = 'required';
+        $validationRules['garansi_semua_service_id'] = 'required';
+    }
+
         // Apply validation
         if (!$this->validate($validationRules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
@@ -478,11 +493,11 @@ foreach (array_keys($headers) as $col) {
             'color' => $step1Data['color'], // Corrected from 'warna'
             
             // Dynamic fields based on conditions
-            'ukuran_id' => ($category == '9' || in_array($subcategory, ['31', '32'])) ? $step1Data['ukuran_id'] : null, 
+            'ukuran_id' => ($category == '9' || in_array($subcategory, ['31', '32','47','50','51'])) ? $step1Data['ukuran_id'] : null, 
             'garansi_panel_id' => ($category == '9') ? $step1Data['garansi_panel_id'] : null,
-            'capacity_id' => in_array($category, ['3', '4', '5', '7']) ? $step1Data['capacity_id'] : null,
-            'garansi_motor_id' => ($category == '6' || $subcategory == '32') ? $step1Data['garansi_motor_id'] : null,
-            'garansi_semua_service_id' => ($subcategory == '31') ? $step1Data['garansi_semua_service_id'] : null,
+            'capacity_id' => (in_array($category, ['3', '4', '5', '6', '7']) || in_array($subcategory, ['33', '34', '37', '38', '41', '43', '44', '45', '46', '48', '49'])) ? $step1Data['capacity_id'] : null,
+            'garansi_motor_id' => ($category == '6' || in_array($subcategory, ['32','49'])) ? $step1Data['garansi_motor_id'] : null,
+            'garansi_semua_service_id' => (in_array($subcategory, ['31', '45', '46','47','50','51'])) ? $step1Data['garansi_semua_service_id'] : null,
     
             // Only include air capacities if they are intended to be filled
             'kapasitas_air_panas' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
@@ -490,8 +505,8 @@ foreach (array_keys($headers) as $col) {
     
             // Extra dynamic warranties or other fields
             'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36'])) ? $step1Data['compressor_warranty_id'] : null,
-            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['37', '38'])) ? $step1Data['sparepart_warranty_id'] : null,
-            'garansi_elemen_panas_id' => (in_array($subcategory, ['37', '38'])) ? $step1Data['garansi_elemen_panas_id'] : null,
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51'])) ? $step1Data['sparepart_warranty_id'] : null,
+            'garansi_elemen_panas_id' => (in_array($subcategory, ['33','34','37', '38','41','42','43','44','48'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
         // Insert the data into the database
         $productId = $this->productModel->insert($productData);
@@ -722,7 +737,7 @@ foreach (array_keys($headers) as $col) {
             ? $this->getNameById($this->sparepartwarrantyModel, $finalData['sparepart_warranty_id'], 'value', 'Unknown')
             : '',
             'garansi_elemen_panas_value' => isset($finalData['garansi_elemen_panas_id'])
-            ? $this->getNameById($this->garansipanasModel, $finalData['gaeansi_elemen_panas_id'], 'value', 'Unknown')
+            ? $this->getNameById($this->garansipanasModel, $finalData['garansi_elemen_panas_id'], 'value', 'Unknown')
             : '',
             'garansi_motor_value' => isset($finalData['garansi_motor_id'])
             ? $this->getNameById($this->garansimotorModel, $finalData['garansi_motor_id'], 'value', 'Unknown')

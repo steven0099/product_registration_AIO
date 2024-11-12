@@ -14,7 +14,7 @@ Rincian Produk
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/superadmin/dashboard">Home</a></li>
                     <li class="breadcrumb-item active">Rincian Produk</li>
                 </ol>
             </div><!-- /.col -->
@@ -26,8 +26,6 @@ Rincian Produk
 
 <?= $this->section('content') ?>
 <section class="content">
-<a href="/superadmin/dashboard" style="margin-left:20px">← Kembali Ke Dashboard</i>
-</a>
     <div class="container-fluid">
         <table class="table">
             <tr>
@@ -226,18 +224,18 @@ Rincian Produk
             <tr>
                 <th>CSPF Rating</th>
                 <td><?= esc($product['cspf']) ?>/5
-                <?php if ($product['cspf'] == 5): ?>
-        <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px"> 
-        <?php elseif ($product['cspf'] < 5 || $product['cspf'>= 4]): ?>
-        <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px"> 
-        <?php elseif ($product['cspf'] < 4 || $product['cspf'>= 3]): ?>
-        <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-        <?php elseif ($product['cspf'] < 3 || $product['cspf'>= 2]): ?>
-        <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-        <?php elseif ($product['cspf'] < 2 || $product['cspf'>= 1]): ?>
-        <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">   
-        <?php endif; ?>
-        </td>
+                    <?php if ($product['cspf'] == 5): ?>
+                    <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+                    <?php elseif ($product['cspf'] < 5 || $product['cspf'>= 4]): ?>
+                    <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+                    <?php elseif ($product['cspf'] < 4 || $product['cspf'>= 3]): ?>
+                    <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+                    <?php elseif ($product['cspf'] < 3 || $product['cspf'>= 2]): ?>
+                    <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+                    <?php elseif ($product['cspf'] < 2 || $product['cspf'>= 1]): ?>
+                    <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+                    <?php endif; ?>
+                </td>
                 <?php if ($product['status'] == 'approved'): ?>
                 <td><button onclick="opencspfModal()" class="btn btn-sm btn-primary">Edit</button></td>
                 <?php endif; ?>
@@ -259,7 +257,7 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['category'] == 'MESIN CUCI'): ?>
+            <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -317,7 +315,39 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+            <?php if ($product['subcategory'] == 'VACUUM CLEANER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Elemen Panas</th>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'TOASTER'): ?>
+        <tr>
+            <th>Kapasitas</th>
+            <td><?= esc($product['capacity']) ?></td>
+        </tr>    
+        <tr>
+            <th>Garansi Elemen Panas</th>
+            <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+        </tr>
+        <tr>
+            <th>Garansi Sparepart</th>
+            <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+        </tr>
+        
+        <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -327,10 +357,52 @@ Rincian Produk
                 <td><?= esc($product['garansi_elemen_panas']) ?></td>
             </tr>
             <tr>
-                <th>Garansi Sparepart & Jasa Service</th>
+                <th>Garansi Service</th>
                 <td><?= esc($product['sparepart_warranty'])?></td>
             </tr>
 
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'SETRIKA'): ?>
+            <tr>
+                <th>Garansi Elemen Panas</th>
+                <td><?= esc($product['garansi_elemen_panas']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?></td>
+            </tr>
+            <?php endif; ?>
+
+
+            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+            <tr>
+                <th>Ukuran</th>
+                <td><?= esc($product['ukuran']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
             <?php endif; ?>
 
             <?php if ($product['status'] == 'approved'): ?>
@@ -491,8 +563,7 @@ Rincian Produk
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" id="hargaInput" class="form-control"
-                            value="<?= esc($product['harga']) ?>"
+                        <input type="text" id="hargaInput" class="form-control" value="<?= esc($product['harga']) ?>"
                             placeholder="Harga (Angka Saja)">
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
@@ -828,16 +899,16 @@ Rincian Produk
     </div>
 
     <div id="deleteModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Are you sure you want to delete this product?</p>
-        <form id="deleteForm" method="POST">
-            <?= csrf_field() ?>
-            <button type="submit" class="btn btn-danger">Delete</button>
-            <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
-        </form>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Are you sure you want to delete this product?</p>
+            <form id="deleteForm" method="POST">
+                <?= csrf_field() ?>
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
     </div>
-</div>
 
 </section>
 <?= $this->endSection() ?>
@@ -1652,14 +1723,14 @@ function opencspfModal(id, cspf) {
 function openProductTypeModal(id, producttype) {
     document.getElementById('id').value = id; // Set the hidden ID input
     document.getElementById('producttypeInput').value = producttype ||
-    ''; // Set the power input, default to empty if undefined
+        ''; // Set the power input, default to empty if undefined
     $('#producttypeModal').modal('show'); // Show the modal
 }
 
 function openManufacturerModal(id, manufacturer) {
     document.getElementById('id').value = id; // Set the hidden ID input
     document.getElementById('manufacturerInput').value = manufacturer ||
-    ''; // Set the power input, default to empty if undefined
+        ''; // Set the power input, default to empty if undefined
     $('#manufacturerModal').modal('show'); // Show the modal
 }
 
@@ -1699,6 +1770,5 @@ window.onclick = function(event) {
         deleteModal.style.display = "none";
     }
 }
-
 </script>
 <?= $this->endSection() ?>

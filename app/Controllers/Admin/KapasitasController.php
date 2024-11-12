@@ -19,8 +19,8 @@ class KapasitasController extends BaseController
     public function index()
     {
         // Define the list of category IDs and subcategory IDs you want to fetch
-        $selectedCategoryIds = [3, 4, 5, 6, 7, 8]; 
-        $selectedSubcategoryIds = [37, 38]; 
+        $selectedCategoryIds = [3, 4, 5, 6, 7]; 
+        $selectedSubcategoryIds = [33, 34, 37, 38, 41, 43, 44, 45, 46, 48, 49]; 
     
         $data['subcategories'] = $this->subcategoryModel
         ->groupStart() // Start a grouped condition
@@ -38,21 +38,48 @@ class KapasitasController extends BaseController
 
     public function saveKapasitas()
     {
-        $this->capacityModel->save([
-            'value' => $this->request->getPost('value'),
-            'subcategory_id' => $this->request->getPost('subcategory_id')
+        $capacityModel = new CapacityModel();
+        
+        // Validate input
+        $this->validate([
+            'value' => 'required',
+            'subcategory_id' => 'required|is_not_unique[subcategories.id]', // Check if category_id exists
         ]);
-
+    
+        // Save subcategory with the category_id
+        $data = [
+            'value' => $this->request->getPost('value'),
+            'subcategory_id' => $this->request->getPost('subcategory_id'), // Get category_id from the form
+        ];
+        
+        
+    $data['value'] = strtoupper($data['value']);
+        $capacityModel->save($data);
+        
         return redirect()->to('/admin/kapasitas');
     }
 
     public function updateKapasitas($id)
     {
-        $this->capacityModel->update($id, [
-            'value' => $this->request->getPost('value'),
-            'subcategory_id' => $this->request->getPost('subcategory_id')
+        $capacityModel = new CapacityModel();
+    
+        // Validate input
+        $this->validate([
+            'value' => 'required',
+            'subcategory_id' => 'required|is_not_unique[subcategories.id]', // Check if category_id exists
         ]);
-        
+    
+        $data = [
+            'value' => $this->request->getPost('value'),
+            'subcategory_id' => $this->request->getPost('subcategory_id'), // Update category_id
+        ];
+    
+        $data['value'] = strtoupper($data['value']);
+        // Update the Subkategori in the database
+        if (!$capacityModel->update($id, $data)) {
+            return redirect()->back()->with('error', 'Failed to update Subkategori.');
+        }
+    
         return redirect()->to('/admin/kapasitas');
     }
 

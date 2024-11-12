@@ -1,5 +1,10 @@
 <head>
-<a href="/catalog">← Kembali</a>
+<div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/catalog">Beranda</a></li>
+                    <li class="breadcrumb-item active">Perbandingan Produk</li>
+                </ol>
+            </div><!-- /.col -->
 </head>
 <!-- Product Grid Display for Selected Products -->
 <div class="comparison-product-grid">
@@ -32,7 +37,7 @@
     <?php if ($product['harga'] != null): ?>
             <div class="text-center mt-4">
                 <?php if ($product['capacity'] != null): ?>
-                <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas:%20<?= urlencode($product['capacity']) ?>"
+                <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas:%20<?= urlencode($product['capacity'])?>%0aHarga:%20<?= urlencode($product['harga'])?>"
                     target="_blank" class="btn-custom btn-custom-success">
                     <i class="fab fa-whatsapp me-2"></i>
                     <!-- Gambar Logo WhatsApp -->
@@ -42,8 +47,8 @@
                 </a>
                 <?php endif; ?>
                 <?php if ($product['ukuran'] != null): ?>
-                <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aUkuran:%20<?= urlencode($product['ukuran']) ?>"
-                    target="_blank" class="btn-custom btn-custom-success">
+                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aUkuran:%20<?= urlencode($product['ukuran']) ?>%0aHarga:%20<?= urlencode($product['harga']) ?>"
+                    target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
                     <i class="fab fa-whatsapp me-2"></i>
                     <!-- Gambar Logo WhatsApp -->
                     <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
@@ -52,8 +57,12 @@
                 </a>
                 <?php endif; ?>
                 <?php if ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
-                <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin/Panas:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L/<?= urlencode($product['kapasitas_air_panas']) ?>%20L"
-                    target="_blank" class="btn-custom btn-custom-success">
+                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>
+                    %20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>
+                    %0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L
+                    %0aKapasitas%20Air%20Panas:%20<?= urlencode($product['kapasitas_air_panas']) ?>%20L
+                    %0aHarga:%20<?= urlencode($product['harga']) ?>"
+                        target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
                     <i class="fab fa-whatsapp me-2"></i>
                     <!-- Gambar Logo WhatsApp -->
                     <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
@@ -106,24 +115,30 @@
             <td><?= esc($product['advantage3']) ?></td>
             <?php endforeach; ?>
         </tr>
+        <?php if ($product['advantage4'] != null): ?>
         <tr>
             <td>Keunggulan 4</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['advantage4'] ?? '') ?></td>
             <?php endforeach; ?>
         </tr>
+        <?php endif; ?>
+        <?php if ($product['advantage5'] != null): ?>
         <tr>
             <td>Keunggulan 5</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['advantage5'] ?? '') ?></td>
             <?php endforeach; ?>
         </tr>
+        <?php endif;?>
+        <?php if ($product['advantage6'] != null): ?>
         <tr>
             <td>Keunggulan 6</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['advantage6'] ?? '') ?></td>
             <?php endforeach; ?>
         </tr>
+        <?php endif; ?>
         <!-- Add more rows as needed for other attributes -->
     </tbody>
 </table>
@@ -238,7 +253,7 @@
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['category'] == 'MESIN CUCI'): ?>
+        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'): ?>
         <tr>
             <td>Garansi Motor</td>
             <?php foreach ($products as $product): ?>
@@ -292,7 +307,7 @@
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER' ): ?>
+        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER'|| $product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
         <tr>
             <td>Garansi Elemen Panas</td>
             <?php foreach ($products as $product): ?>
@@ -306,36 +321,158 @@
             <?php endforeach ; ?>
         </tr>
         <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'VACUUM CLEANER'): ?>
+        <tr><td>Garansi Elemen Panas</td>
+        <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><td>Garansi Service</td>
+        <td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'TOASTER'): ?>
+        <tr><td>Garansi Elemen Panas</td>
+        <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><td>Garansi Sparepart</td>
+        <td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+        <tr><td>Garansi Service</td>
+        <td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
+        <tr><td>Garansi Sparepart</td>
+        <td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
         </tr>
         <!-- Add more rows as needed for other attributes -->
     </tbody>
 </table>
 
-<label>Dimensi Produk dan Kemasan</label>
+<label>Dimensi Produk</label>
 <table class="comparison-table">
     <tbody>
-        <tr>
-            <td>Dimensi Produk</td>
-            <?php foreach ($products as $product): ?>
-            <td><?= esc($product['product_dimensions']) ?></td>
-            <?php endforeach; ?>
-        </tr>
-        <tr>
-            <td>Dimensi Kemasan</td>
-            <?php foreach ($products as $product): ?>
-            <td><?= esc($product['packaging_dimensions']) ?></td>
-            <?php endforeach; ?>
-        </tr>
-        <?php if ($product['category'] == 'TV'): ?>
-        <tr>
-            <td>Dimensi Produk Dengan Stand</td>
-            <?php foreach ($products as $product): ?>
-            <td><?= esc($product['pstand_dimensions']) ?></td>
-            <?php endforeach; ?>
-        </tr>
-        <?php endif; ?>
+    <tr>
+    <td>Panjang Produk</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $productDims = explode(" x ", str_replace(" cm", "", $product['product_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($productDims[0]) ?> cm</p>
+        </td>
+        <?php endforeach; ?>
+    </tr>
+    <tr>
+    <td>Lebar Produk</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $productDims = explode(" x ", str_replace(" cm", "", $product['product_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($productDims[1]) ?> cm</p>
+        </td>
+        <?php endforeach; ?>
+    </tr>
+    <tr>
+    <td>Tinggi Produk</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $productDims = explode(" x ", str_replace(" cm", "", $product['product_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($productDims[2]) ?> cm</p>
+        </td>
+    <?php endforeach; ?>
+</tr>
+<?php if ($product['category'] == 'TV'): ?>
+    <tr>
+    <td>Panjang Produk Dengan Stand</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $pstandDims = explode(" x ", str_replace(" cm", "", $product['pstand_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($pstandDims[0]) ?> cm</p>
+        </td>
+        <?php endforeach; ?>
+    </tr>
+    <tr>
+    <td>Lebar Produk Dengan Stand</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $pstandDims = explode(" x ", str_replace(" cm", "", $product['pstand_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($pstandDims[1]) ?> cm</p>
+        </td>
+        <?php endforeach; ?>
+    </tr>
+    <tr>
+    <td>Tinggi Produk Dengan Stand</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $pstandDims = explode(" x ", str_replace(" cm", "", $product['pstand_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($pstandDims[2]) ?> cm</p>
+        </td>
+    <?php endforeach; ?>
+</tr>
+<?php endif; ?>
+
     </tbody>
 </table>
+
+<label>Dimensi Kemasan</label>
+<table class="comparison-table">
+    <tbody>
+    <tr>
+    <td>Panjang Kemasan</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $packageDims = explode(" x ", str_replace(" cm", "", $product['packaging_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($packageDims[0]) ?> cm</p>
+        </td>
+        <?php endforeach; ?>
+    </tr>
+    <tr>
+    <td>Lebar Kemasan</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $packageDims = explode(" x ", str_replace(" cm", "", $product['packaging_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($packageDims[1]) ?> cm</p>
+        </td>
+        <?php endforeach; ?>
+    </tr>
+    <tr>
+    <td>Tinggi Kemasan</td>
+    <?php foreach ($products as $product): ?>
+        <?php 
+            // Split product dimensions into x, y, and z
+            $packageDims = explode(" x ", str_replace(" cm", "", $product['packaging_dimensions']));
+        ?>
+        <td>
+            <p><?= esc($packageDims[2]) ?> cm</p>
+        </td>
+    <?php endforeach; ?>
+</tr>
+    </tbody>
+    </table>
 <style>
 /* Product grid styling */
 .comparison-product-grid {

@@ -2,27 +2,69 @@
 <html lang="en">
 
 <head>
-    <a href="/catalog">← Kembali</a>
+<div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/catalog">Beranda</a></li>
+                    <li class="breadcrumb-item active">Rincian Produk</li>
+                </ol>
+            </div><!-- /.col -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Produk</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    .product-detail-container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 10px;
-    }
+.product-detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    background-image: url('<?= base_url("images/wm.png") ?>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px; /* Adjust size as needed */
+    background-attachment: fixed; /* Keeps the watermark in place when scrolling */
+    z-index: 1; /* Ensure the background is behind content */
+}
+
+.product-detail-container * {
+    position: relative;
+    z-index: 2; /* Ensures text and images overlay the watermark */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    width: 5%; /* Reduce width if needed */
+    background: none; /* Remove default background */
+    color: #333; /* Set color if needed for visibility */
+}
+
+.carousel-control-prev {
+    left: -7%; /* Position to the left outside the image */
+    margin-top: 50px;
+}
+
+.carousel-control-next {
+    right: -102%; /* Position to the right outside the image */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Make the icons semi-transparent */
+    border-radius: 50%;
+    padding: 10px; /* Increase padding for a larger click area */
+}
 
     .carousel-item img {
         max-width: auto;
-        height: 450px;
+        height: 350px;
         border-radius: 10px;
     }
 
     .carousel-item iframe {
         max-width: auto;
-        height: 450px;
+        height: 350px;
         border-radius: 10px;
     }
 
@@ -81,26 +123,42 @@
 
     .product-specifications {
         margin-top: 30px;
-        padding: 20px;
-        border-top: 2px solid #0d6efd;
+        padding: 10px;
     }
 
     .product-specifications table {
-        width: 100%;
-        font-size: 1rem;
-        border-collapse: collapse;
-    }
+    width: 100%;
+    padding: 0px;
+    border-top: none;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-bottom: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 8px 8px;
+    table-layout: fixed; /* Force equal column widths */
+}
 
-    .product-specifications th,
-    .product-specifications td {
-        padding: 8px;
-        border: 1px solid #ddd;
-    }
+.product-specifications th, 
+.product-specifications td {
+    width: 50%; /* Each cell will take up half the width */
+    padding-left: 5px;
+    background-color: rgba(0, 0, 0, 0.1); /* Light gray with 80% opacity */
+    border-right: 2px solid rgba(255, 255, 255, 0.1); /* White with 80% opacity */
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
 
-    .product-specifications th {
-        background-color: #f5f5f5;
-        font-weight: bold;
-    }
+
+.product-specifications h3 {
+    text-align: center;
+    background-color: rgba(0, 77, 255, 0.8);
+    color: #fff;
+    display: block;
+    height: 25px;
+    font-family: Arial;
+    font-size: 18px;
+}
 
     .recommended-carousel {
         position: relative;
@@ -170,12 +228,12 @@
                     <!-- Carousel Controls -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="carousel-control-prev-icon"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
                         data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="carousel-control-next-icon"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
@@ -216,14 +274,20 @@
             <div class="col-md-6 product-description">
                 <h1 class="product-title"><?= esc($product['brand']) ?></h1>
                 <h2 class="product-title"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?></h2>
-                <p class="product-subtitle"><?= esc($product['product_type']) ?></p>
+                <h3 class="product-title"><?= esc($product['product_type']) ?> |
+                <?php if ($product['capacity'] != null): ?>
+                <?= esc($product['capacity']) ?>
+                <?php elseif ($product['ukuran'] != null): ?>
+                <?= esc($product['ukuran']) ?>
+                <?php elseif ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
+                <?= esc($product['kapasitas_air_dingin']) ?>/<?= esc($product['kapasitas_air_panas']) ?> Liter</td>
+                <?php endif ?>
+                 </h3>
                 <?php if ($product['harga'] != null): ?>
                 <p class="product-subtitle"><strong><?= esc($product['harga']) ?></strong></p>
                 <?php elseif ($product['harga'] == null): ?>
                 <p class="product-subtitle"><strong>Harga Belum Ditentukan</strong></p>
                 <?php endif; ?>
-                <p><strong><?= !empty($product['capacity']) ? esc($product['capacity']) : ( !empty($product['ukuran']) ? esc($product['ukuran']) : null) ?>
-                </p>
                 <ul class="product-details">
                     <li><?= esc($product['advantage1']) ?></li>
                     <li><?= esc($product['advantage2']) ?></li>
@@ -262,7 +326,11 @@
                     </a>
                     <?php endif; ?>
                     <?php if ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
-                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin/Panas:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L/<?= urlencode($product['kapasitas_air_panas']) ?>%20L%0aHarga:%20<?= urlencode($product['harga']) ?>"
+                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>
+                    %20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>
+                    %0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L
+                    %0aKapasitas%20Air%20Panas:%20<?= urlencode($product['kapasitas_air_panas']) ?>%20L
+                    %0aHarga:%20<?= urlencode($product['harga']) ?>"
                         target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
                         <i class="fab fa-whatsapp me-2"></i>
                         <!-- Gambar Logo WhatsApp -->
@@ -334,6 +402,10 @@
                 <tr>
                     <th>Konsumsi Daya</th>
                     <td><?= esc($product['daya']) ?> Watt</td>
+                </tr>
+                <tr>
+                    <th>Negara Pembuat</th>
+                    <td><?= esc($product['pembuat']) ?></td>
                 </tr>
                 <?php if ($product['subcategory'] == 'SPEAKER'): ?>
                 <tr>
@@ -416,7 +488,7 @@
                 </tr>
                 <?php endif; ?>
 
-                <?php if ($product['category'] == 'MESIN CUCI'): ?>
+                <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'): ?>
                 <tr>
                     <th>Garansi Sparepart</th>
                     <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
@@ -437,26 +509,60 @@
                 <?php if ($product['subcategory'] == 'DISPENSER GALON ATAS' || $product['subcategory'] == 'DISPENSER GALON BAWAH'): ?>
                 <tr>
                     <th>Garansi Kompresor</th>
-                    <td><?= esc($product['compressor_warranty'])?></td>
+                    <td><?= esc($product['compressor_warranty'])?> Tahun</td>
                 </tr>
                 <?php endif; ?>
 
-                <?php if ($product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+                <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
                 <tr>
                     <th>Garansi Elemen Panas</th>
-                    <td><?= esc($product['garansi_elemen_panas']) ?></td>
+                    <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
                 </tr>
                 <tr>
                     <th>Garansi Sparepart & Jasa Service</th>
-                    <td><?= esc($product['sparepart_warranty'])?></td>
+                    <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                </tr>
+                <?php endif; ?>
+
+                <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'VACUUM CLEANER'): ?>
+                <tr>
+                    <th>Garansi Elemen Panas</th>
+                    <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+                </tr>
+                <tr>
+                    <th>Garansi Service</th>
+                    <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                </tr>
+                <?php endif; ?>
+
+                <?php if ($product['subcategory'] == 'TOASTER'): ?>
+                <tr>
+                    <th>Garansi Elemen Panas</th>
+                    <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+                </tr>
+                <tr>
+                    <th>Garansi Sparepart</th>
+                    <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                </tr>
+                <?php endif; ?>
+
+                <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' ||$product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+                <tr>
+                    <th>Garansi Service</th>
+                    <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                </tr>
+                <tr>
+                    <th>Garansi Sparepart</th>
+                    <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
                 </tr>
                 <?php endif; ?>
             </table>
         </div>
-    </div>
+
+    
     <div class="row">
         <div class="col-md-12 mb-4">
-            <h3>Rekomendasi Produk Lainnya</h3>
+            <h3 style="text-align:center">Rekomendasi Produk Lainnya</h3>
         </div>
 
         <div class="recommended-carousel">
@@ -485,7 +591,7 @@
                                 <?= !empty($product['capacity']) ? esc($product['capacity']) : 
                                 (!empty($product['ukuran']) ? esc($product['ukuran']) : 
                                 (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
-                                    esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas']) : 
+                                    esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas'] . ' Liter') : 
                                     'N/A')) ?>
                             </p>
                             <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
@@ -499,25 +605,17 @@
             <!-- Right Arrow -->
             <button class="arrow right-arrow" onclick="scrollRight()">&#9654;</button>
         </div>
+        </div>
 
 
 
-    </div>
-    </div>
-
-    </div>
-
-    </div>
-    </div>
-    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script>
 document.querySelectorAll('.thumbnail-images img').forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', (e) => {
         // Remove 'active' class from all thumbnails
-        document.querySelectorAll('.thumbnail-images img').forEach((img) => img.classList.remove(
-            'active'));
+        document.querySelectorAll('.thumbnail-images img').forEach((img) => img.classList.remove('active'));
         // Add 'active' class to the clicked thumbnail
         e.target.classList.add('active');
 
@@ -526,6 +624,7 @@ document.querySelectorAll('.thumbnail-images img').forEach((thumbnail, index) =>
         const bootstrapCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
         bootstrapCarousel.to(index); // Navigate to the specific slide index
     });
+
 
     document.addEventListener("DOMContentLoaded", function() {
         const thumbnails = document.querySelectorAll('.thumbnail-images img');

@@ -327,39 +327,38 @@ public function details($id)
             $product['subcategory'], // Check by subcategory for this category
             $id // Pass only the product ID to exclude the current product
         );
-    } else {
-        $relatedProducts = $model->getRelatedProducts(
-            $product['subcategory'],
-            $product['capacity'],
-            $product['ukuran'],
-            $id // Exclude the current product for related products
-        );
     }
     
     // Check if there's a video link, and extract the video ID if it exists
-    $videoId = '';
-    $embedUrl = '';
-    $thumbnailUrl = '';
-
-    if (!empty($product['video_produk'])) {
-        // Extract the video ID more precisely
-        $urlParts = parse_url($product['video_produk']);
-        if (isset($urlParts['query'])) {
-            parse_str($urlParts['query'], $queryParams);
-            $videoId = $queryParams['v'] ?? '';
-        }
-
-        if ($videoId) {
-            $embedUrl = "https://www.youtube.com/embed/{$videoId}";
-            $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
-        }
-    }
-
-    return view('catalog/details', [
-        'product' => $product,
-        'relatedProducts' => $relatedProducts,
-        'embedUrl' => $embedUrl,
-        'thumbnailUrl' => $thumbnailUrl,
-    ]);
+   // Check if there's a video link, and extract the video ID if it exists
+   $videoId = '';
+   $embedUrl = '';
+   $thumbnailUrl = '';
+   
+   if (!empty($product['video_produk'])) {
+       // Display the video link for debugging
+       log_message('debug', 'Video link: ' . $product['video_produk']);
+   
+       // Use regex to extract only the video ID, ignoring any additional parameters
+       if (preg_match('/(?:youtube\.com\/.*v=|youtu\.be\/)([^&?]+)/', $product['video_produk'], $matches)) {
+           $videoId = $matches[1];
+       }
+   
+       if ($videoId) {
+           // Create YouTube embed and thumbnail URLs
+           $embedUrl = "https://www.youtube.com/embed/{$videoId}";
+           $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
+       }
+   }
+   
+   // Pass the data to the view
+   return view('catalog/details', [
+       'product' => $product,
+       'relatedProducts' => $relatedProducts,
+       'videoId' => $videoId,
+       'embedUrl' => $embedUrl,
+       'thumbnailUrl' => $thumbnailUrl,
+   ]);
+   
 }
 }

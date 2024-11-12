@@ -477,7 +477,7 @@ function fetchWarrantyOptions(type) {
         type = 'garansi_motor';
     } else if (subcategoryId === '35' || subcategoryId === '36') {
         type = 'garansi_kompresor';
-    } else if (subcategoryId === '37' || subcategoryId === '38') {
+    } else if (subcategoryId === '33' || subcategoryId === '34' || subcategoryId === '37' || subcategoryId === '38' || subcategoryId === '41') {
         type = 'garansi_elemen_panas';
     } else {
         type = 'garansi_kompresor'; // Default type if no conditions match
@@ -523,7 +523,7 @@ function fetchWarrantyOptions(type) {
         document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name for Garansi Semua Service
         warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
-    } else if (subcategoryId == '37' || subcategoryId == '38') { // Check for subcategory id 31
+    } else if (subcategoryId == '33' ||subcategoryId == '34' ||subcategoryId == '37' ||subcategoryId == '38' || subcategoryId == '41') { // Check for subcategory id 31
         compressorWarrantyLabel.innerText = 'Garansi Elemen Panas';
         sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service';
         document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
@@ -565,7 +565,13 @@ function handleCategoryChange(categoryId, subcategoryId) {
 } else if (subcategoryId == '35' || subcategoryId == '36') {
     hideCapacityField(); // Hide dropdown for capacity
     fetchWarrantyOptions('garansi_kompresor'); // Fetch Compressor Warranty options
-} else if (subcategoryId == '37' || subcategoryId == '38') {
+} else if (subcategoryId == '33' ||subcategoryId == '34' ||subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41') {
+    showCapacityField(false); // Show dropdown for capacity
+    fetchWarrantyOptions('garansi_elemen_panas'); // Fetch Garansi Elemen Panas options
+} else if (subcategoryId == '42') {
+    hideCapacityField(); // Hide dropdown for capacity
+    fetchWarrantyOptions('garansi_elemen_panas'); // Fetch Compressor Warranty options
+} else if (subcategoryId == '43') {
     showCapacityField(false); // Show dropdown for capacity
     fetchWarrantyOptions('garansi_elemen_panas'); // Fetch Garansi Elemen Panas options
 } else {
