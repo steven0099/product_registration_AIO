@@ -2,6 +2,7 @@
 namespace App\Controllers\Admin;
 
 use App\Models\CapacityModel;
+use App\Models\CategoryModel;
 use App\Models\SubcategoryModel;
 use App\Controllers\BaseController;
 

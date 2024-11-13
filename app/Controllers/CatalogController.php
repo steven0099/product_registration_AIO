@@ -8,6 +8,7 @@ use App\Models\SubcategoryModel;
 use App\Models\CapacityModel;
 use App\Models\UkuranModel;
 use App\Models\ProductModel;
+use App\Models\MarketplaceModel;
 
 class CatalogController extends BaseController
 {
@@ -17,6 +18,7 @@ class CatalogController extends BaseController
     protected $ukuranModel;
     protected $confirmationModel;
     protected $productModel;
+    protected $marketplaceModel;
 
     public function __construct()
     {
@@ -27,6 +29,7 @@ class CatalogController extends BaseController
         $this->ukuranModel = new UkuranModel();
         $this->subcategoryModel = new SubcategoryModel();
         $this->confirmationModel = new ConfirmationModel();
+        $this->marketplaceModel = new MarketplaceModel();
     }
 
     public function catalog()
@@ -298,6 +301,8 @@ private function getCategoryIdBySubcategory($subcategoryName)
 public function details($id)
 {
     $model = new ConfirmationModel();
+    $marketplacemodel = new MarketplaceModel();
+    $marketplace = $marketplacemodel->findAll();
     $product = $model->find($id);
 
     if (!$product) {
@@ -322,7 +327,7 @@ public function details($id)
         );
     }
 
-    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH") {
+    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA") {
         $relatedProducts = $model->getRelatedProductsBySubcategoryOnly(
             $product['subcategory'], // Check by subcategory for this category
             $id // Pass only the product ID to exclude the current product
@@ -354,6 +359,7 @@ public function details($id)
    // Pass the data to the view
    return view('catalog/details', [
        'product' => $product,
+       'marketplace' => $marketplace,
        'relatedProducts' => $relatedProducts,
        'videoId' => $videoId,
        'embedUrl' => $embedUrl,

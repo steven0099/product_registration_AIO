@@ -78,6 +78,10 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->post('user/updateUser/(:num)', 'Superadmin\UserController::updateUser/$1');
     $routes->get('user/deleteUser/(:num)', 'Superadmin\UserController::deleteUser/$1'); // Correct namespace
 
+    $routes->get('marketplace', 'SuperadminController::marketplace');
+    $routes->post('marketplace/saveMarketplace', 'SuperadminController::saveMarketplace');
+    $routes->post('marketplace/updateMarketplace/(:num)', 'SuperadminController::updateMarketplace/$1');
+    $routes->get('marketplace/deleteMarketplace/(:num)', 'SuperadminController::deleteMarketplace/$1');
     // Superadmin product approvals/rejections
     $routes->get('product/approved', 'ProductController::approved');
     $routes->get('product/rejected', 'ProductController::rejected');

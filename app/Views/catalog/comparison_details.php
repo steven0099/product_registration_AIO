@@ -31,49 +31,10 @@
         esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas']) : 
         ''))
 ?></p>
-    
-            
-
-    <?php if ($product['harga'] != null): ?>
-            <div class="text-center mt-4">
-                <?php if ($product['capacity'] != null): ?>
-                <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20<?= urlencode($product['subcategory']) ?>%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas:%20<?= urlencode($product['capacity'])?>%0aHarga:%20<?= urlencode($product['harga'])?>"
-                    target="_blank" class="btn-custom btn-custom-success">
-                    <i class="fab fa-whatsapp me-2"></i>
-                    <!-- Gambar Logo WhatsApp -->
-                    <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                        style="width: 24px; height: 24px; margin-right: 8px;">
-                    Pesan Via Whatsapp
-                </a>
-                <?php endif; ?>
-                <?php if ($product['ukuran'] != null): ?>
-                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aUkuran:%20<?= urlencode($product['ukuran']) ?>%0aHarga:%20<?= urlencode($product['harga']) ?>"
-                    target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
-                    <i class="fab fa-whatsapp me-2"></i>
-                    <!-- Gambar Logo WhatsApp -->
-                    <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                        style="width: 24px; height: 24px; margin-right: 8px;">
-                    Pesan Via Whatsapp
-                </a>
-                <?php endif; ?>
-                <?php if ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
-                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>
-                    %20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>
-                    %0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L
-                    %0aKapasitas%20Air%20Panas:%20<?= urlencode($product['kapasitas_air_panas']) ?>%20L
-                    %0aHarga:%20<?= urlencode($product['harga']) ?>"
-                        target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
-                    <i class="fab fa-whatsapp me-2"></i>
-                    <!-- Gambar Logo WhatsApp -->
-                    <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                        style="width: 24px; height: 24px; margin-right: 8px;">
-                    Pesan Via Whatsapp
-                </a>
-                <?php endif; ?>
-            </div>
-            <?php endif; ?>
-        </div>
+<a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
+class="btn-custom btn-custom-primary">Lihat Detail</a>
     </div>
+                </div>
     <?php endforeach; ?>
 </div>
 
@@ -156,12 +117,6 @@
             <td>Konsumsi Daya</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['daya']) ?> Watt</td>
-            <?php endforeach; ?>
-        </tr>
-        <tr>
-            <td>Berat Produk</td>
-            <?php foreach ($products as $product): ?>
-            <td><?= esc($product['berat']) ?> Kg</td>
             <?php endforeach; ?>
         </tr>
         <tr>
@@ -473,6 +428,18 @@
 </tr>
     </tbody>
     </table>
+
+    <label>Berat Produk</label>
+<table class="comparison-table">
+    <tbody>
+    <tr>
+            <td>Berat Produk</td>
+            <?php foreach ($products as $product): ?>
+            <td><?= esc($product['berat']) ?> Kg</td>
+            <?php endforeach; ?>
+        </tr>
+    </tbody>
+    </table>
 <style>
 /* Product grid styling */
 .comparison-product-grid {
@@ -536,8 +503,7 @@ label {
 }
 
 .comparison-table {
-    width: 99.5%;
-    margin-left: 3px;
+    width: 100%;
     border-top: none;
     /* Remove top border */
     border-left: 1px solid #fff;

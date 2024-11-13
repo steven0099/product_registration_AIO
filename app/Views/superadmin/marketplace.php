@@ -8,7 +8,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
-    Brand
+    Marketplace AIO
 <?= $this->endSection() ?>
 
 <?= $this->section('breadcumb') ?>
@@ -17,12 +17,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Brand</h1>
+                    <h1 class="m-0">Marketplace AIO</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/#">Home</a></li>
-                        <li class="breadcrumb-item active">Brand</li>
+                        <li class="breadcrumb-item active">Marketplace AIO</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -38,33 +38,30 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Daftar Merek</h3>
-                            <button id="createBrandBtn" class="btn btn-primary ml-auto">+ Tambah Merek</button>
+                            <h3 class="card-title">Daftar Gerai AIO</h3>
+                            <button id="createMarketplaceBtn" class="btn btn-primary ml-auto">+ Tambah Gerai</button>
                         </div>
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
+                            <table id="marketplaceTable" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Kode Merek</th>
-                                    <th>Merek</th>
+                                    <th>Lokasi</th>
                                     <th>Options</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($brand as $merk): ?>
+                                <?php foreach ($marketplaces as $mp): ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= esc($merk['code']) ?></td>
-                                        <td><?= esc($merk['name']) ?></td>
+                                        <td><?= esc($mp['location']) ?></td>
                                         <td>
-                                            <button class="btn-primary btn btn-edit" data-id="<?= esc($merk['id']) ?>"
-                                                    data-code="<?= esc($merk['code']) ?>"
-                                                    data-name="<?= esc($merk['name']) ?>">
+                                            <button class="btn-primary btn btn-edit" data-id="<?= esc($mp['id']) ?>"
+                                                    data-location="<?= esc($mp['location']) ?>">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button class="btn-danger btn btn-delete" data-id="<?= esc($merk['id']) ?>">
+                                            <button class="btn-danger btn btn-delete" data-id="<?= esc($mp['id']) ?>">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </td>
@@ -79,19 +76,15 @@
         </div>
 
         <!-- Modal for Adding Brand -->
-        <div id="BrandModal" class="modal">
+        <div id="MarketplaceModal" class="modal">
             <div class="modal-content">
-                <span class="close" id="closeBrandModal">&times;</span>
-                <h3>Tambah Merek</h3>
-                <form method="post" action="<?= base_url('/brand/saveBrand') ?>" enctype="multipart/form-data">
-                <?=csrf_field()?>    
-                <div class="form-group">
-                        <label for="code">Kode Merek</label>
-                        <input type="text" class="form-control" name="code" placeholder="Enter Brand Code" required>
-                    </div>
+                <span class="close" id="closeMarketplaceModal">&times;</span>
+                <h3>Tambah Gerai</h3>
+                <form method="post" action="<?= base_url('/superadmin/marketplace/saveMarketplace') ?>" enctype="multipart/form-data">
+                    <?=csrf_field()?>
                     <div class="form-group">
-                        <label for="name">Merek</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Brand Name" required>
+                        <label for="location">Lokasi Gerai</label>
+                        <input type="text" class="form-control" name="location" placeholder="Lokasi Cabang" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -99,21 +92,16 @@
         </div>
 
         <!-- Modal for Editing Brand -->
-        <div id="editBrandModal" class="modal">
+        <div id="editMarketplaceModal" class="modal">
             <div class="modal-content">
-                <span class="close" id="closeEditBrandModal">&times;</span>
-                <h3>Edit Merek</h3>
-                <form id="editBrandForm" method="post" action="" enctype="multipart/form-data">
-                <?=csrf_field()?>    
-                <div class="form-group">
-                        <label for="code">Brand Code</label>
-                        <input type="text" class="form-control" name="code" id="editBrandCode"
-                               placeholder="Enter Brand Code" required>
-                    </div>
+                <span class="close" id="closeEditMarketplaceModal">&times;</span>
+                <h3>Edit Gerai</h3>
+                <form id="editMarketplaceForm" method="post" action="" enctype="multipart/form-data">
+                <?=csrf_field()?>
                     <div class="form-group">
-                        <label for="name">Brand Name</label>
-                        <input type="text" class="form-control" name="name" id="editBrandName"
-                               placeholder="Enter Brand Name" required>
+                        <label for="location">Lokasi Cabang</label>
+                        <input type="text" class="form-control" name="location" id="editMarketplaceLocation"
+                               placeholder="Lokasi Cabang" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -124,9 +112,9 @@
         <div id="deleteConfirmationModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeDeleteConfirmationModal">&times;</span>
-                <h3>Hapus Merek Ini?</h3>
+                <h3>Hapus Data ini?</h3>
                 <div class="button-container">
-                    <button id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
+                    <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
                     <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
                 </div>
             </div>
@@ -138,52 +126,50 @@
 <?= $this->section('js') ?>
     <script>
 
-        $('#example2').DataTable();
+        $('#marketplaceTable').DataTable();
         // Modal for Adding Brand
-        var brandModal = document.getElementById("BrandModal");
-        var createBtn = document.getElementById("createBrandBtn");
-        var closeBrandModal = document.getElementById("closeBrandModal");
+        var MarketplaceModal = document.getElementById("MarketplaceModal");
+        var createBtn = document.getElementById("createMarketplaceBtn");
+        var closeMarketplaceModal = document.getElementById("closeMarketplaceModal");
 
         createBtn.onclick = function () {
-            brandModal.style.display = "block";
+            MarketplaceModal.style.display = "block";
         }
 
-        closeBrandModal.onclick = function () {
-            brandModal.style.display = "none";
+        closeMarketplaceModal.onclick = function () {
+            MarketplaceModal.style.display = "none";
         }
 
         window.onclick = function (event) {
-            if (event.target == brandModal) {
-                brandModal.style.display = "none";
+            if (event.target == MarketplaceModal) {
+                MarketplaceModal.style.display = "none";
             }
         }
 
         // Modal for Editing Brand
-        var editBrandModal = document.getElementById("editBrandModal");
-        var closeEditBrandModal = document.getElementById("closeEditBrandModal");
+        var editMarketplaceModal = document.getElementById("editMarketplaceModal");
+        var closeEditMarketplaceModal = document.getElementById("closeEditMarketplaceModal");
 
         document.querySelectorAll('.btn-edit').forEach(function (button) {
             button.addEventListener('click', function () {
                 var id = this.getAttribute('data-id');
-                var code = this.getAttribute('data-code');
-                var name = this.getAttribute('data-name');
+                var location = this.getAttribute('data-location');
 
                 // Set the form action dynamically
-                document.getElementById('editBrandForm').action = '<?= base_url('/brand/updateBrand') ?>/' + id;
-                document.getElementById('editBrandCode').value = code;
-                document.getElementById('editBrandName').value = name;
+                document.getElementById('editMarketplaceForm').action = '<?= base_url('/superadmin/marketplace/updateMarketplace') ?>/' + id;
+                document.getElementById('editMarketplaceLocation').value = location;
 
-                editBrandModal.style.display = "block";
+                editMarketplaceModal.style.display = "block";
             });
         });
 
-        closeEditBrandModal.onclick = function () {
-            editBrandModal.style.display = "none";
+        closeEditMarketplaceModal.onclick = function () {
+            editMarketplaceModal.style.display = "none";
         }
 
         window.onclick = function (event) {
-            if (event.target == editBrandModal) {
-                editBrandModal.style.display = "none";
+            if (event.target == editMarketplaceModal) {
+                editMarketplaceModal.style.display = "none";
             }
         }
 
@@ -210,7 +196,7 @@
         }
 
         confirmDeleteBtn.onclick = function () {
-            window.location.href = "/brand/deleteBrand/" + deleteId; // Adjust as necessary for your delete action
+            window.location.href = "/superadmin/marketplace/deleteMarketplace/" + deleteId; // Adjust as necessary for your delete action
         }
 
         window.onclick = function (event) {

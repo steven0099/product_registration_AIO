@@ -38,9 +38,9 @@ Sub-Kategori
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">List of Subcategories</h3>
+                        <h3 class="card-title">Daftar Subkategori</h3>
                         <button class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addSubcategoryModal">+
-                            Create Subcategory
+                            Tambah Subkategori
                         </button>
                     </div>
                     <!-- /.card-header -->
@@ -49,8 +49,8 @@ Sub-Kategori
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Category Name</th>
-                                    <th>Subcategory Name</th>
+                                    <th>Kategori</th>
+                                    <th>Subkategori</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
@@ -79,7 +79,7 @@ Sub-Kategori
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editSubcategoryModalLabel">Edit Subcategory</h5>
+                <h5 class="modal-title" id="editSubcategoryModalLabel">Edit Subkategori</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -90,13 +90,8 @@ Sub-Kategori
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Subcategory Name</label>
-                        <input type="text" class="form-control" name="name" value="<?= esc($subcategory['subcategory_name']) ?>"
-                            placeholder="Enter Subcategory Name">
-                    </div>
-                    <!-- Categories dropdown -->
                     <div class="form-group">
-    <label for="category_id">Category</label>
+    <label for="category_id">Kategori</label>
     <select name="category_id" class="form-control">
         <?php if (isset($categories) && !empty($categories)): ?>
             <?php foreach ($categories as $category): ?>
@@ -106,15 +101,20 @@ Sub-Kategori
                     <?= esc($category['name']) ?>
                 </option>
             <?php endforeach; ?>
+                        <label for="name">Subkategori</label>
+                        <input type="text" class="form-control" name="name" value="<?= esc($subcategory['subcategory_name']) ?>"
+                            placeholder="Enter Subcategory Name">
+                    </div>
+                    <!-- Categories dropdown -->
         <?php else: ?>
-            <option value="">No Categories Available</option>
+            <option value="">Tidak Ada Kategori</option>
         <?php endif; ?>
     </select>
 </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
@@ -138,7 +138,7 @@ Sub-Kategori
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addSubcategoryModalLabel">Add Subcategory</h5>
+                <h5 class="modal-title" id="addSubcategoryModalLabel">Tambah Subkategori</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -148,22 +148,22 @@ Sub-Kategori
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="category_id">Category</label>
+                        <label for="category_id">Kategori</label>
                         <select class="form-control" name="category_id">
-                            <option value="">Select Category</option>
+                            <option value="">Pilih Kategori</option>
                             <?php foreach ($categories as $category): ?>
                             <option value="<?= esc($category['id']) ?>"><?= esc($category['name']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="name">Subcategory Name</label>
+                        <label for="name">Subkategori</label>
                         <input type="text" class="form-control" name="name" placeholder="Enter Subcategory Name"
                             required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
@@ -175,10 +175,9 @@ Sub-Kategori
 <div id="deleteConfirmationModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeDeleteConfirmationModal">&times;</span>
-                <h3>Are you sure you want to delete this subcategory?</h3>
-                <p>This action cannot be undone.</p>
+                <h3>Hapus Subkategori Ini?</h3>
                 <div class="button-container">
-                    <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+                    <button id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
                     <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
                 </div>
             </div>

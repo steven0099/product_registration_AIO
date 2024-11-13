@@ -21,7 +21,7 @@ class ConfirmationModel extends Model
     
     public function getRelatedProducts($category, $capacity, $ukuran, $excludeId = null)
     {
-        $builder = $this->db->table('product_submissions'); // Assuming the table is called 'products'
+        $builder = $this->db->table('product_submissions'); // Assuming the table is called 'product_submissions'
         
         // Build the query based on category and capacity/ukuran
         $builder->where('category', $category);
@@ -37,10 +37,14 @@ class ConfirmationModel extends Model
         if ($excludeId) {
             $builder->where('id !=', $excludeId);
         }
+    
+        // Filter by 'approved' status (assuming the status column exists and stores the approval status)
+        $builder->where('status', 'approved');
         
         // Fetch the related products
         return $builder->get()->getResultArray();
     }
+    
     
     public function getRelatedProductsBySubcategoryOnly($subcategory, $excludeId = null)
     {
@@ -54,6 +58,7 @@ class ConfirmationModel extends Model
             $builder->where('id !=', $excludeId); // Exclude the product with the same ID
         }
         
+        $builder->where('status', 'approved');
         // Fetch the related products
         return $builder->get()->getResultArray();
     }

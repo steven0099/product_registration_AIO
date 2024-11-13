@@ -87,8 +87,8 @@
           </ul>
         </li>
 
-        <li class="nav-item <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service' || uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 99%">
-            <a href="#" class="nav-link <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
+        <li class="nav-item <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_panel' || uri_string() == 'admin/garansi_service' || uri_string() == 'admin/garansi_elemen_panas') ? 'menu-open' : '' ?>" style="width: 99%">
+            <a href="#" class="nav-link <?= (uri_string() == 'admin/garansi_kompresor' || uri_string() == 'admin/garansi_sparepart' || uri_string() == 'admin/garansi_motor' || uri_string() == 'admin/garansi_panel' || uri_string() == 'admin/garansi_service'|| uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-circle"></i>
               <p>
                 Garansi
@@ -106,6 +106,12 @@
               <a href="/admin/garansi_sparepart" class="nav-link <?= (uri_string() == 'admin/garansi_sparepart') ? 'active' : '' ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Garansi Sparepart</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/garansi_panel" class="nav-link <?= (uri_string() == 'admin/garansi_panel') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Garansi Panel</p>
               </a>
             </li>
             <li class="nav-item">
@@ -193,6 +199,19 @@
             </li>
           </ul>
         </li>
+
+        <li class="nav-item <?= (uri_string() == 'superadmin/marketplace') ? 'menu-open' : '' ?>" style="width: 99%">
+          <a href="#" class="nav-link <?= (uri_string() == 'superadmin/marketplace') ? 'active' : '' ?>">
+          <i class="fas fa-map-marked-alt" style="margin-right:10px"></i>
+            <p>Kelola Gerai<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/superadmin/marketplace" class="nav-link <?= (uri_string() == 'superadmin/marketplace') ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manajemen Gerai</p>
+              </a>
+            </li>
         <?php endif; ?>
       </ul>
     </nav>

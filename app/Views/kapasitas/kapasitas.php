@@ -36,17 +36,17 @@ Kapasitas Management
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">List of Capacities</h3>
+                        <h3 class="card-title">Daftar Kapasitas</h3>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#addCapacityModal">+
-                            Add Capacity</button>
+                            Tambah Kapasitas</button>
                     </div>
                     <div class="card-body">
                         <table id="capacityTable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Subcategory Name</th>
-                                    <th>Capacity Value</th>
+                                    <th>Subkategori</th>
+                                    <th>Kapasitas</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
@@ -74,7 +74,7 @@ Kapasitas Management
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Edit Capacity</h5>
+                                                <h5 class="modal-title">Edit Kapasitas</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -85,7 +85,7 @@ Kapasitas Management
                                                 <?= csrf_field(); ?>
                                                 <div class="modal-body">
                                                 <div class="form-group">
-    <label for="subcategory_id">Subcategory</label>
+    <label for="subcategory_id">Subkategori</label>
     <select name="subcategory_id" class="form-control">
         <?php if (isset($subcategories) && !empty($subcategories)): ?>
             <?php foreach ($subcategories as $subcategory): ?>
@@ -100,14 +100,14 @@ Kapasitas Management
         <?php endif; ?>
 </div>
                                                     <div class="form-group">
-                                                        <label for="value">Capacity Value</label>
+                                                        <label for="value">Kapasitas</label>
                                                         <input type="text" class="form-control" name="value"
                                                             value="<?= esc($capacity['capacity_value']) ?>"
-                                                            placeholder="Enter Capacity Value" required>
+                                                            placeholder="Kapasitas" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                     <button type="submit" class="btn btn-primary">Update</button>
                                                 </div>
                                             </form>
@@ -130,7 +130,7 @@ Kapasitas Management
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Capacity</h5>
+                <h5 class="modal-title">Tambah Kapasitas</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -139,21 +139,21 @@ Kapasitas Management
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="subcategory_id">Subcategory</label>
+                        <label for="subcategory_id">Subkategori</label>
                         <select class="form-control" name="subcategory_id" required>
-                            <option value="">Select Subcategory</option>
+                            <option value="">Pilih Subkategori</option>
                             <?php foreach ($subcategories as $subcategory): ?>
                             <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="value">Capacity Value</label>
-                        <input type="text" class="form-control" name="value" placeholder="Enter Capacity Value" required>
+                        <label for="value">Kapasitas</label>
+                        <input type="text" class="form-control" name="value" placeholder="Kapasitas" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
@@ -165,10 +165,9 @@ Kapasitas Management
 <div id="deleteConfirmationModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeDeleteConfirmationModal">&times;</span>
-        <h3>Are you sure you want to delete this capacity?</h3>
-        <p>This action cannot be undone.</p>
+        <h3>Hapus Kapasitas Ini?</h3>
         <div class="button-container">
-            <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+            <button id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
             <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
         </div>
     </div>

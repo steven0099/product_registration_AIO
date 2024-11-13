@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
 .product-detail-container {
-    max-width: 900px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 10px;
     position: relative;
@@ -41,29 +41,30 @@
 }
 
 .carousel-control-prev {
-    left: -7%; /* Position to the left outside the image */
-    margin-top: 50px;
+    left: -10%; /* Position to the left outside the image */
+    margin-left:25px;
 }
 
 .carousel-control-next {
-    right: -102%; /* Position to the right outside the image */
+    right: -90%; /* Position to the right outside the image */
+    margin-top: 205px;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5); /* Make the icons semi-transparent */
     border-radius: 50%;
-    padding: 10px; /* Increase padding for a larger click area */
+    padding: 20px; /* Increase padding for a larger click area */
 }
 
     .carousel-item img {
-        max-width: auto;
+        max-width: 540px;
         height: 350px;
         border-radius: 10px;
     }
 
     .carousel-item iframe {
-        max-width: auto;
+        max-width: 540px;
         height: 350px;
         border-radius: 10px;
     }
@@ -96,7 +97,7 @@
     }
 
     .product-description {
-        padding: 20px;
+        padding: 50px;
     }
 
     .product-description h2 {
@@ -180,7 +181,12 @@
     <div class="container product-detail-container">
         <div class="row">
             <!-- Carousel Gambar Produk -->
-            <div class="col-md-6">
+            <div class="col-md-7">
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
                 <div id="productCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -224,18 +230,16 @@
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <?php endif; ?>
-                    </div>
-                    <!-- Carousel Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                    </div>
+                
+                    <!-- Carousel Controls -->
+
+
                 </div>
 
                 <!-- Thumbnail Gambar Produk -->
@@ -271,7 +275,7 @@
 
 
             <!-- Deskripsi Produk -->
-            <div class="col-md-6 product-description">
+            <div class="col-md-5 product-description">
                 <h1 class="product-title"><?= esc($product['brand']) ?></h1>
                 <h2 class="product-title"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?></h2>
                 <h3 class="product-title"><?= esc($product['product_type']) ?> |
@@ -302,46 +306,19 @@
                     <li><?= esc($product['advantage6'] ?? '') ?></li>
                     <?php endif; ?>
                 </ul>
-                <!-- Tombol Chat Pemesanan WhatsApp -->
-                <?php if ($product['harga'] != null): ?>
+
                 <div class="text-center mt-4">
-                    <?php if ($product['capacity'] != null): ?>
-                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas:%20<?= urlencode($product['capacity']) ?>%0aHarga:%20<?= urlencode($product['harga']) ?>"
-                        target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
-                        <i class="fab fa-whatsapp me-2"></i>
-                        <!-- Gambar Logo WhatsApp -->
-                        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                            style="width: 24px; height: 24px; margin-right: 8px;">
-                        Pesan Via Whatsapp
-                    </a>
-                    <?php endif; ?>
-                    <?php if ($product['ukuran'] != null): ?>
-                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>%20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>%0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aUkuran:%20<?= urlencode($product['ukuran']) ?>%0aHarga:%20<?= urlencode($product['harga']) ?>"
-                        target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
-                        <i class="fab fa-whatsapp me-2"></i>
-                        <!-- Gambar Logo WhatsApp -->
-                        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                            style="width: 24px; height: 24px; margin-right: 8px;">
-                        Pesan Via Whatsapp
-                    </a>
-                    <?php endif; ?>
-                    <?php if ($product['kapasitas_air_dingin'] != null || $product['kapasitas_air_panas'] != null): ?>
-                    <a href="https://wa.me/6287822297790?text=Halo,%20saya%20ingin%20memesan%20<?= urlencode($product['category']) ?>
-                    %20(<?= urlencode($product['subcategory']) ?>)%0aBrand:%20<?= urlencode($product['brand']) ?>
-                    %0aTipe%20Produk:%20<?= urlencode($product['product_type']) ?>%0aKapasitas%20Air%20Dingin:%20<?= urlencode($product['kapasitas_air_dingin']) ?>%20L
-                    %0aKapasitas%20Air%20Panas:%20<?= urlencode($product['kapasitas_air_panas']) ?>%20L
-                    %0aHarga:%20<?= urlencode($product['harga']) ?>"
-                        target="_blank" class="btn btn-success btn-lg d-inline-flex align-items-center">
-                        <i class="fab fa-whatsapp me-2"></i>
-                        <!-- Gambar Logo WhatsApp -->
-                        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                            style="width: 24px; height: 24px; margin-right: 8px;">
-                        Pesan Via Whatsapp
-                    </a>
-                    <?php endif; ?>
-                </div>
-                <?php endif; ?>
-            </div>
+    <a id="locationButton" class="btn btn-success btn-lg dropdown-toggle d-inline-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+        <i class="fab fa-whatsapp me-2"></i>
+        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 8px;">
+        Pilih Lokasi
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="locationButton">
+        <?php foreach ($marketplace as $item): ?>
+            <li><a class="dropdown-item" href="#" data-location="<?= $item['location'] ?>">AIO Store <?= $item['location'] ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
         </div>
 
         <!-- Tabel Spesifikasi Produk di Bagian Paling Bawah -->
@@ -632,13 +609,34 @@ document.querySelectorAll('.thumbnail-images img').forEach((thumbnail, index) =>
         // Check the number of thumbnails
         if (thumbnails.length === 7) {
             thumbnails.forEach(thumbnail => {
-                thumbnail.style.width = '60px'; // Set width to 60px for 7 thumbnails
+                thumbnail.style.width = '80px'; // Set width to 60px for 7 thumbnails
             });
         } else {
             thumbnails.forEach(thumbnail => {
-                thumbnail.style.width = '80px'; // Set width to 80px for less than 7 thumbnails
+                thumbnail.style.width = '100px'; // Set width to 80px for less than 7 thumbnails
             });
         }
+    });
+});
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // Get product details for WhatsApp message
+    const brand = "<?= urlencode($product['brand']) ?>";
+    const productType = "<?= urlencode($product['product_type']) ?>";
+
+    // Handle dropdown item click and redirect to WhatsApp in a new tab
+    document.querySelectorAll(".dropdown-item").forEach(item => {
+        item.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            const location = this.getAttribute("data-location");
+
+            // Construct the WhatsApp link with selected location and product details
+            const whatsappLink = `https://wa.me/6287822297790?text=Halo%20CS%20AIO%20Store,%20saya%20ingin%20bertanya%20mengenai%20produk%20${brand}%20${productType}%0aApakah%20ready%20di%20AIO%20Store%20${location}?`;
+
+            // Open WhatsApp link in a new tab
+            window.open(whatsappLink, '_blank');
+        });
     });
 });
 </script>

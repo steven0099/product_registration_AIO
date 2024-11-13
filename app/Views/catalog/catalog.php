@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 <?= $this->endSection() ?>
 
@@ -37,110 +38,107 @@ Digital Catalog
     <div class="card">
     <div class="row">
     <!-- Sidebar for Filters -->
-    <div class="col-md-3">
-        <!-- Sidebar Filters -->
-        <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 20px;">
-            <h4>Filter Produk</h4>
+<div class="col-md-3">
+    <!-- Sidebar Filters -->
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 500px; overflow-y: auto;">
+        <h4>Filter Produk</h4>
 
-            <form id="filterForm" action="" method="GET">
-                <div id="filterSidebar" style="width: 300px; padding: 20px; background-color: #f7f7f7; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+        <form id="filterForm" action="" method="GET">
+            <div id="filterSidebar" style="width: 300px; padding: 20px;">
 
-                    <!-- Category Filter -->
-                    <div>
-                        <h5 class="filter-title" data-target="#categoryContainer">Kategori Produk</h5>
-                        <div id="categoryContainer" class="filter-options">
-                            <label class="filter-option">
-                                <input class="filter-option" type="radio" name="category" value="" checked>
-                                Semua Kategori
-                            </label>
-                            <?php foreach ($categories as $category): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="category" value="<?= esc($category['category']) ?>">
-                                <?= esc($category['category']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                        </div>
+                <!-- Category Filter -->
+                <div>
+                    <h5 class="filter-title" data-target="#categoryContainer">Kategori Produk</h5>
+                    <div id="categoryContainer" class="filter-options">
+                        <label class="filter-option">
+                            <input class="filter-option" type="radio" name="category" value="" checked>
+                            Semua Kategori
+                        </label>
+                        <?php foreach ($categories as $category): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="category" value="<?= esc($category['category']) ?>">
+                            <?= esc($category['category']) ?>
+                        </label>
+                        <?php endforeach; ?>
                     </div>
-
-                    <!-- Subcategory Filter -->
-                    <div>
-                        <h5 class="filter-title" data-target="#subcategoryContainer">Sub Kategori Produk</h5>
-                        <div id="subcategoryContainer" class="filter-options">
-                            <label class="filter-option">
-                                <input type="radio" name="subcategory" value="" checked>
-                                Semua Subkategori
-                            </label>
-                            <?php foreach ($subcategories as $subcategory): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="subcategory" value="<?= esc($subcategory['subcategory']) ?>">
-                                <?= esc($subcategory['subcategory']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-
-                    <!-- Capacity Filter -->
-                    <div>
-                        <h5 class="filter-title" data-target="#capacityContainer">Ukuran / Kapasitas</h5>
-                        <div id="capacityContainer" class="filter-options" style="display: none;">
-                            <label class="filter-option">
-                                <input type="radio" name="capacity" value="" checked>
-                                Semua
-                            </label>
-                            <?php foreach ($capacities as $capacity): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="capacity" value="<?= esc($capacity['capacity']) ?>">
-                                <?= esc($capacity['capacity']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                            <?php foreach ($ukuran as $size): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="capacity" value="<?= esc($size['ukuran']) ?>">
-                                <?= esc($size['ukuran']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Subcategory Filter -->
+                <div>
+                    <h5 class="filter-title" data-target="#subcategoryContainer">Sub Kategori Produk</h5>
+                    <div id="subcategoryContainer" class="filter-options">
+                        <label class="filter-option">
+                            <input type="radio" name="subcategory" value="" checked>
+                            Semua Subkategori
+                        </label>
+                        <?php foreach ($subcategories as $subcategory): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="subcategory" value="<?= esc($subcategory['subcategory']) ?>">
+                            <?= esc($subcategory['subcategory']) ?>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <!-- Capacity Filter -->
+                <div>
+                    <h5 class="filter-title" data-target="#capacityContainer">Ukuran / Kapasitas</h5>
+                    <div id="capacityContainer" class="filter-options" style="display:none">
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="" checked>
+                            Semua
+                        </label>
+                        <?php foreach ($capacities as $capacity): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="<?= esc($capacity['capacity']) ?>">
+                            <?= esc($capacity['capacity']) ?>
+                        </label>
+                        <?php endforeach; ?>
+                        <?php foreach ($ukuran as $size): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="<?= esc($size['ukuran']) ?>">
+                            <?= esc($size['ukuran']) ?>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+        
+
+<!-- Main Product Grid (Right side) -->
+<div class="col-md-9">
+    <div class="row">
+        <!-- Search field on the leftmost -->
+        <div class="col-md-6 d-flex align-items-center">
+            <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
+                <input style="width:250px" type="text" id="search" name="search" value="<?= esc($search) ?>"
+                    placeholder="Cari Produk..." class="form-control">
+                <button type="submit" class="btn btn-primary ml-1"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <!-- Sort dropdown on the rightmost -->
+        <div class="col-md-6 d-flex align-items-center justify-content-end">
+            <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
+                <select style="width: 250px" id="sort" name="sort" class="form-control">
+                    <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
+                    <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
+                    <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
+                    <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
+                </select>
+                <button type="submit" class="btn btn-primary ml-1">Urutkan</button>
             </form>
         </div>
     </div>
 
 
-        
-
-        <!-- Main Product Grid (Right side) -->
-        <div class="col-md-9">
-            <div class="row">
-                <!-- Search field on the leftmost -->
-                <div class="col-md-6 d-flex align-items-center">
-                    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                        <label for="search" class="mr-2 mb-0">Search</label>
-                        <input style="width:170px" type="text" id="search" name="search" value="<?= esc($search) ?>"
-                            placeholder="Cari Produk..." class="form-control mr-2">
-                        <button type="submit" class="btn btn-primary mb-0">Search</button>
-                    </form>
-                </div>
-
-                <!-- Sort dropdown on the rightmost -->
-                <div class="col-md-6 d-flex align-items-center justify-content-end">
-                    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                        <label for="sort" class="mr-2 mb-0">Sort By</label>
-                        <select style="width:170px" id="sort" name="sort" class="form-control mr-2">
-                            <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z
-                            </option>
-                            <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A
-                            </option>
-                            <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas
-                                Rendah - Tinggi</option>
-                            <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>
-                                Kapasitas Tinggi - Rendah</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary mb-0">Apply</button>
-                    </form>
-                </div>
-            </div>
 
             <!-- Product Grid -->
             <div id="productGrid" class="row">
@@ -166,10 +164,12 @@ Digital Catalog
         <span>Perbandingan</span>
         <button class="btn-close" onclick="closeComparisonWidget()">X</button>
     </div>
+    <div class="row">
     <div class="comparison-content">
         <!-- Dynamically added comparison items will go here -->
     </div>
-    <button onclick="viewDetailedComparison()">Perbandingan Detail</button>
+    <button class="btn-detailed-comparison" onclick="viewDetailedComparison()">Bandingkan</button>
+                            </div>
 </div>
 
 </div>
@@ -190,115 +190,112 @@ $(document).ready(function() {
 
     // Dynamically update subcategory options when category changes
     $('#categoryContainer input[name="category"]').on('change', function() {
+    resetFilters();
+    const selectedCategory = $(this).val();
 
-        resetFilters();
+    // Reset the capacity container visibility
+    $('#capacityContainer').hide();
+    $("input[name='capacity']").prop('checked', false); // Clear capacity selection
 
-        const selectedCategory = $(this).val();
-
-        if (selectedCategory) {
-            $.ajax({
-                url: '<?= base_url('catalog/getSubcategories') ?>',
-                type: 'GET',
-                data: { category: selectedCategory },
-                success: function(subcategories) {
-                    console.log(subcategories); // Log the subcategories to verify they're returned correctly
-                    
-                    let subcategoryHTML = `
+    // Manually handle visibility of subcategory container
+    if (selectedCategory) {
+        // Fetch subcategories without triggering dropdown behavior
+        $.ajax({
+            url: '<?= base_url('catalog/getSubcategories') ?>',
+            type: 'GET',
+            data: { category: selectedCategory },
+            success: function(subcategories) {
+                let subcategoryHTML = `
+                    <label class="filter-option">
+                        <input type="radio" name="subcategory" value="" checked>
+                        Semua Subkategori
+                    </label>
+                `;
+                
+                subcategories.forEach(subcat => {
+                    subcategoryHTML += `
                         <label class="filter-option">
-                            <input type="radio" name="subcategory" value="" checked>
-                            Semua Subkategori
+                            <input type="radio" name="subcategory" value="${subcat.subcategory_name}">
+                            ${subcat.subcategory_name}
                         </label>
                     `;
-                    
-                    subcategories.forEach(subcat => {
-                        subcategoryHTML += `
-                            <label class="filter-option">
-                                <input type="radio" name="subcategory" value="${subcat.subcategory_name}">
-                                ${subcat.subcategory_name}
-                            </label>
-                        `;
-                    });
+                });
 
-                    // Update subcategory container and show it
-                    $('#subcategoryContainer').html(subcategoryHTML).show();
+                // Update subcategory container content
+                $('#subcategoryContainer').html(subcategoryHTML);
+                // Only show subcategory container if category is selected
+                $('#subcategoryContainer');
+                // Keep capacity container hidden until a subcategory is selected
+                $('#capacityContainer').hide();
+            },
+            error: function() {
+                alert("Failed to load subcategories.");
+            }
+        });
+    } else {
+        // Hide subcategory and capacity containers if no category is selected
+        $('#subcategoryContainer').hide();
+        $('#capacityContainer').hide();
+    }
 
-                    // Reset capacity container
-                    $('#capacityContainer').hide(); // Hide capacity container
-                    $("input[name='capacity']").prop('checked', false); // Uncheck capacity radio buttons
-                    $("input[name='subcategory']").prop('checked', false); // Uncheck subcategory radio buttons
-                },
-                error: function() {
-                    alert("Failed to load subcategories.");
-                }
-            });
-        } else {
-            $('#subcategoryContainer').hide();
-            $('#capacityContainer').hide();
-        }
+    filterProducts(); // Trigger filtering after category change
+});
 
-        filterProducts(); // Call filterProducts after category change
-    });
+
 
     // Dynamically update capacity options when subcategory changes
     $('#subcategoryContainer').on('change', "input[name='subcategory']", function() {
-        resetCapacity();
-        const selectedSubcategory = $(this).val();
+    resetCapacity();
+    const selectedSubcategory = $(this).val();
 
-        console.log('Selected Subcategory:', selectedSubcategory); // Log to verify the selected subcategory
+    // Manually show capacity container based on subcategory selection
+    if (selectedSubcategory) {
+        $('#capacityContainer').show(); // Show capacity container
 
-        // Show the capacity container when a subcategory is selected
-        if (selectedSubcategory) {
-            $('#capacityContainer').show(); // Show the capacity container
+        $.ajax({
+            url: '<?= base_url('catalog/getCapacities') ?>',
+            type: 'GET',
+            data: { subcategory: selectedSubcategory },
+            success: function(response) {
+                let capacityHTML = `
+                    <label class="filter-option">
+                        <input type="radio" name="capacity" value="" checked>
+                        Semua
+                    </label>
+                `;
 
-            // Fetch available capacity/ukuran options based on the selected subcategory
-            $.ajax({
-                url: '<?= base_url('catalog/getCapacities') ?>',
-                type: 'GET',
-                data: { subcategory: selectedSubcategory },
-                success: function(response) {
-                    console.log(response); // Log to verify the available capacities
-                    
-                    let capacityHTML = `
-                                        <label class="filter-option">
-                                            <input type="radio" name="capacity" value="" checked>
-                                            Semua
-                                        </label>`;
-                    if (response.capacities.length > 0) {
-                        // Loop through the available capacities and generate the radio buttons
-                        response.capacities.forEach(capacity => {
-                            if (capacity.value) {
-                                // Handle capacity type
-                                capacityHTML += `
-                                    <label class="filter-option">
-                                        <input type="radio" name="capacity" value="${capacity.value}">
-                                        ${capacity.value}
-                                    </label>
-                                `;
-                            } else if (capacity.size) {
-                                // Handle ukuran type (with size instead of capacity_value)
-                                capacityHTML += `
-                                    <label class="filter-option">
-                                        <input type="radio" name="capacity" value="${capacity.size}">
-                                        ${capacity.size}
-                                    </label>
-                                `;
-                            }
-                        });
-                        $('#capacityContainer').html(capacityHTML); // Update the capacity container with options
-                    } else {
-                        $('#capacityContainer').html('<p>No capacity options available.</p>'); // Handle empty capacity case
+                response.capacities.forEach(capacity => {
+                    if (capacity.value) {
+                        capacityHTML += `
+                            <label class="filter-option">
+                                <input type="radio" name="capacity" value="${capacity.value}">
+                                ${capacity.value}
+                            </label>
+                        `;
+                    } else if (capacity.size) {
+                        capacityHTML += `
+                            <label class="filter-option">
+                                <input type="radio" name="capacity" value="${capacity.size}">
+                                ${capacity.size}
+                            </label>
+                        `;
                     }
-                },
-                error: function() {
-                    alert("Failed to load capacity options.");
-                }
-            });
-        } else {
-            $('#capacityContainer').hide(); // Hide the capacity container if no subcategory is selected
-        }
+                });
 
-        filterProducts();  // Call the filter function after the subcategory selection
-    });
+                // Update the capacity container
+                $('#capacityContainer').html(capacityHTML);
+            },
+            error: function() {
+                alert("Failed to load capacity options.");
+            }
+        });
+    } else {
+        $('#capacityContainer').hide(); // Hide capacity container if no subcategory is selected
+    }
+
+    filterProducts(); // Trigger filtering after subcategory change
+});
+
 
     // Trigger filtering when capacity is changed
     $('#capacityContainer').on('change', "input[name='capacity']", function() {
@@ -382,32 +379,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const subcategoryContainer = document.getElementById("subcategoryContainer");
     const capacityContainer = document.getElementById("capacityContainer");
 
-    if (categoryRadios.length > 0) {
-        categoryRadios.forEach(radio => {
-            radio.addEventListener("change", function() {
-                if (this.value) {
-                    subcategoryContainer.style.display = 'block';
-                } else {
-                    subcategoryContainer.style.display = 'none';
-                    capacityContainer.style.display = 'none';
-                }
-            });
-        });
-    }
-
     const subcategoryRadios = document.querySelectorAll("input[name='subcategory']");
     if (subcategoryRadios.length > 0) {
         subcategoryRadios.forEach(radio => {
             radio.addEventListener("change", function() {
                 if (this.value) {
-                    capacityContainer.style.display = 'block';
-                } else {
                     capacityContainer.style.display = 'none';
                 }
             });
         });
     }
 });
+
 
 // Function to toggle the filter options
 // Function to toggle the filter options and arrow direction
@@ -422,9 +405,25 @@ document.querySelectorAll('.filter-title').forEach(function(title) {
 
         // Rotate the arrow inside the title
         if (target.classList.contains('show')) {
+            title.style.setProperty('background-color', '#d4d4d4');
             title.style.setProperty('--arrow-rotate', '90deg');
         } else {
+            title.style.setProperty('background-color', '#f9f9f9');
             title.style.setProperty('--arrow-rotate', '0deg');
+        }
+    });
+});
+
+document.querySelectorAll('.filter-option input[type="radio"]').forEach((radio) => {
+    radio.addEventListener('change', function () {
+        // Remove the "selected" class from all filter-option labels
+        document.querySelectorAll('.filter-option').forEach((label) => {
+            label.classList.remove('selected');
+        });
+
+        // Add the "selected" class to the parent label of the selected radio button
+        if (radio.checked) {
+            radio.closest('.filter-option').classList.add('selected');
         }
     });
 });
@@ -475,12 +474,13 @@ function addToComparison(productId, productName, productImage, productCategory, 
         comparisonItem.classList.add('comparison-item');
         comparisonItem.id = `compare-item-${productId}`;
         comparisonItem.innerHTML = ` 
+                    <button class="btn-remove" onclick="removeFromComparison('${productId}')">X</button>
             <img src="${productImage}" alt="${productName}" style="width: 100px; height: auto;">
             <span>${productName}<br>
             ${productCategory} - ${productSubcategory}<br>
-            <strong>${productHarga}<br></strong>
-            ${productCapacity}</span>
-            <button class="btn-remove" onclick="removeFromComparison('${productId}')">Hapus</button>
+            ${productCapacity}<br>
+            <strong>${productHarga}</strong>
+            </span>
         `;
         comparisonContent.appendChild(comparisonItem);
     }

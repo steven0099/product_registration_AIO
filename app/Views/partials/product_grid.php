@@ -101,7 +101,7 @@
 
 <div class="column">
 <input type="checkbox" class="compare-checkbox" data-product-id="<?= esc($product['id']) ?>"
-           data-product-name="<?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?>"
+           data-product-name="<?= esc($product['brand']) ?>"
            data-product-category="<?= esc($product['category']) ?>"
            data-product-subcategory="<?= esc($product['subcategory']) ?>"
            data-product-harga="<?= esc($product['harga']) ?>"
@@ -115,10 +115,10 @@
     } else {
         echo ' ';
     }
-    ?>"
+    ?> | <?= esc($product['product_type']) ?>"
            data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>">
     <label>Bandingkan</label>
-<button class="button" onclick="location.href='/catalog/details/<?= esc($product['id']) ?>'">Detail Produk</button>
+<button class="button" onclick="location.href='/catalog/details/<?= esc($product['id']) ?>'">Lihat Detail</button>
 </div>
 
                     </div>

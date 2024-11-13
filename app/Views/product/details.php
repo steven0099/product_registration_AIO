@@ -354,11 +354,11 @@ Rincian Produk
             </tr>
             <tr>
                 <th>Garansi Elemen Panas</th>
-                <td><?= esc($product['garansi_elemen_panas']) ?></td>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
             </tr>
             <tr>
                 <th>Garansi Service</th>
-                <td><?= esc($product['sparepart_warranty'])?></td>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
             </tr>
 
             <?php endif; ?>
@@ -366,11 +366,11 @@ Rincian Produk
             <?php if ($product['subcategory'] == 'SETRIKA'): ?>
             <tr>
                 <th>Garansi Elemen Panas</th>
-                <td><?= esc($product['garansi_elemen_panas']) ?></td>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
             </tr>
             <tr>
                 <th>Garansi Service</th>
-                <td><?= esc($product['sparepart_warranty'])?></td>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
             </tr>
             <?php endif; ?>
 

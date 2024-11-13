@@ -36,16 +36,16 @@ Ukuran Management
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">List of Sizes</h3>
+                        <h3 class="card-title">Daftar Ukuran</h3>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#addUkuranModal">+
-                            Add Size</button>
+                            Tambah Ukuran</button>
                     </div>
                     <div class="card-body">
                         <table id="sizeTable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Subcategory Name</th>
+                                    <th>Subkategori</th>
                                     <th>Ukuran</th>
                                     <th>Options</th>
                                 </tr>
@@ -85,7 +85,7 @@ Ukuran Management
                                                 <?= csrf_field(); ?>
                                                 <div class="modal-body">
                                                 <div class="form-group">
-    <label for="subcategory_id">Subcategory</label>
+    <label for="subcategory_id">Subkategori</label>
     <select name="subcategory_id" class="form-control">
         <?php if (isset($subcategories) && !empty($subcategories)): ?>
             <?php foreach ($subcategories as $subcategory): ?>
@@ -103,11 +103,11 @@ Ukuran Management
                                                         <label for="size">Ukuran</label>
                                                         <input type="text" class="form-control" name="size"
                                                             value="<?= esc($size['ukuran_size']) ?>"
-                                                            placeholder="Enter Ukuran Value" required>
+                                                            placeholder="Ukuran" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                                     <button type="submit" class="btn btn-primary">Update</button>
                                                 </div>
                                             </form>
@@ -130,7 +130,7 @@ Ukuran Management
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Ukuran</h5>
+                <h5 class="modal-title">Tambah Ukuran</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -139,9 +139,9 @@ Ukuran Management
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="subcategory_id">Subcategory</label>
+                        <label for="subcategory_id">Subkategori</label>
                         <select class="form-control" name="subcategory_id" required>
-                            <option value="">Select Subcategory</option>
+                            <option value="">Pilih Subkategori</option>
                             <?php foreach ($subcategories as $subcategory): ?>
                             <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
                             <?php endforeach; ?>
@@ -149,11 +149,11 @@ Ukuran Management
                     </div>
                     <div class="form-group">
                         <label for="size">Ukuran</label>
-                        <input type="text" class="form-control" name="size" placeholder="Enter Ukuran Value" required>
+                        <input type="text" class="form-control" name="size" placeholder="Ukuran" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
@@ -165,10 +165,9 @@ Ukuran Management
 <div id="deleteConfirmationModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeDeleteConfirmationModal">&times;</span>
-        <h3>Are you sure you want to delete this size?</h3>
-        <p>This action cannot be undone.</p>
+        <h3>Hapus Ukuran Ini?</h3>
         <div class="button-container">
-            <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+            <button id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
             <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
         </div>
     </div>

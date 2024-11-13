@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ProductModel;
 use App\Models\ConfirmationModel;
+use App\Models\MarketplaceModel;
 
 class SuperadminController extends BaseController
 {
@@ -45,5 +46,59 @@ class SuperadminController extends BaseController
 
         // Pass data to the view
         return view('superadmin/list_product', $data);
+    }
+
+    public function marketplace()
+    {
+        // Check if the user has the required role (admin or superadmin)
+        if (session()->get('role') !== 'superadmin') {
+            return redirect()->to('/no-access'); // Redirect if unauthorized
+        }
+    
+    // Authorized users (admins and superadmins) proceed with fetching the data
+    $marketplace_model = new MarketplaceModel();
+
+    // Fetch only records where status is "confirmed"
+    $data['marketplaces'] = $marketplace_model->findAll();
+
+        // Pass data to the view
+        return view('superadmin/marketplace', $data);
+    }
+
+    public function saveMarketplace()
+    {
+    $marketplaceModel = new MarketplaceModel();
+
+    $data = [
+        'location' => $this->request->getPost('location'),
+    ];
+    if (!$marketplaceModel->save($data)) {
+        return redirect()->back()->with('error', 'Failed to add Marketplace.');
+    }
+
+    return redirect()->to('/superadmin/marketplace')->with('success', 'Marketplace added successfully.');
+    }
+
+    public function updateMarketplace($id)
+    {
+
+        $marketplaceModel = new MarketplaceModel();
+
+        $data = [
+            'location' => $this->request->getPost('location'),
+        ];
+        // Update the Brand  in the database
+        if (!$marketplaceModel->update($id, $data)) {
+            return redirect()->back()->with('error', 'Failed to update Marketplace.');
+        }
+
+        return redirect()->to('/superadmin/marketplace')->with('success', 'Marketplace  updated successfully.');
+    }
+
+    public function deleteMarketplace($id)
+    {
+        $marketplaceModel = new MarketplaceModel();
+        $marketplaceModel->delete($id);
+        return redirect()->to('/superadmin/marketplace');
     }
 }
