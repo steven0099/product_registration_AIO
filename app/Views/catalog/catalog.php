@@ -7,58 +7,10 @@
 <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-<style>
-    /* Make placeholder text italic */
-    input::placeholder {
-        font-style: italic;
-    }
 
-    .search-container {
-        position: relative;
-        display: flex;
-    }
+<!-- Theme style -->
+<link rel="stylesheet" href="../dist/css/adminlte.min.css">
 
-    .search-icon {
-        position: absolute;
-        right: 10px;
-        /* Atur jarak dari kanan */
-        top: 50%;
-        /* Posisikan di tengah vertikal */
-        transform: translateY(-90%);
-        /* Pindahkan ke tengah */
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        color: #007bff;
-        /* Warna ikon */
-    }
-
-    .search-icon i {
-        font-size: 1.2em;
-        /* Ukuran ikon */
-    }
-
-    @media (max-width: 768px) {
-        #searchAndSortForm {
-            flex-direction: column;
-            /* Stack elements on small screens */
-            align-items: flex-start;
-            /* Align items to the start */
-        }
-
-        #searchAndSortForm .form-control {
-            width: 100%;
-            /* Full width on smaller screens */
-            margin-bottom: 10px;
-            /* Space between elements */
-        }
-
-        #sortButton {
-            width: 100%;
-            /* Full width button on smaller screens */
-        }
-    }
-</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
@@ -181,17 +133,15 @@ Digital Catalog
 
                     <!-- Sort dropdown on the rightmost -->
                     <div class="col-md-6 d-flex align-items-center justify-content-end">
-                        <form id="searchAndSortForm" action="" method="GET" class="d-flex align-items-center">
-                            <label for="sort">Sort By:</label>
-                            <select id="sort" name="sort" class="form-control mr-2" style="width: auto;">
-                                <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
-                                <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
-                                <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
-                                <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary mr-2">Apply</button>
-                        </form>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gray-500 flex items-center cursor-pointer" id="sortButton">
+                                <span>Urutkan Berdasarkan:</span>
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
 
                 <!-- Product Grid -->
@@ -211,18 +161,49 @@ Digital Catalog
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal" id="SortModal">
+            <div class="modal-content">
+                <span class="close" id="closeSortModal">&times;</span>
+                <h3>Sort By</h3>
+                <tr>
+                    <form action="" method="GET">
+                        <div class="col">
+                            <div class="radio-input">
+                                <input checked="" id="name_asc" name="radio" type="radio" value="name_asc" />
+                                <label for="name_asc">Tipe Produk A-Z</label>
 
-        <!-- Comparison Bar -->
-        <div id="comparisonWidget" style="display:none" class="comparison-widget">
-            <div class="comparison-header">
-                <span>Perbandingan</span>
-                <button onclick="closeComparisonWidget()">X</button>
-            </div>
-            <div class="comparison-content">
-                <!-- Dynamically added comparison items will go here -->
+                                <input id="name_desc" name="radio" type="radio" value="name_desc" />
+                                <label for="name_desc">Tipe Produk Z-A</label>
+
+                                <input id="capacity_asc" name="radio" type="radio" value="capacity_asc" />
+                                <label for="capacity_asc">Kapasitas Rendah - Tinggi</label>
+
+                                <input id="capacity_desc" name="radio" type="radio" value="capacity_desc" />
+                                <label for="capacity_desc">Kapasitas Rendah - Tinggi</label>
+                                <div class="glider-container">
+                                    <div class="glider"></div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Apply</button>
+                        </div>
+                    </form>
             </div>
         </div>
     </div>
+
+    <!-- Comparison Bar -->
+    <div id="comparisonWidget" style="display:none" class="comparison-widget">
+        <div class="comparison-header">
+            <span>Perbandingan</span>
+            <button onclick="closeComparisonWidget()">X</button>
+        </div>
+        <div class="comparison-content">
+            <!-- Dynamically added comparison items will go here -->
+        </div>
+    </div>
+</div>
 </div>
 
 <?= $this->endSection() ?>
@@ -700,6 +681,28 @@ Digital Catalog
                 }
             });
         }
+    });
+
+    // Function to toggle modal for sorting options
+    var brandModal = document.getElementById("SortModal");
+    var createBtn = document.getElementById("sortButton");
+    var closeBrandModal = document.getElementById("closeSortModal");
+
+    createBtn.onclick = function() {
+        brandModal.style.display = "block";
+    }
+    closeBrandModal.onclick = function() {
+        brandModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == brandModal) {
+            brandModal.style.display = "none";
+        }
+    }
+
+    document.getElementById('sortButton').addEventListener('click', function() {
+        document.getElementById('SortModal').classList.toggle('active');
     });
 </script>
 <?= $this->endSection() ?>
