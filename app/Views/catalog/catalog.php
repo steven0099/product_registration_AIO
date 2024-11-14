@@ -170,17 +170,17 @@ Digital Catalog
                     <form action="" method="GET">
                         <div class="col">
                             <div class="radio-input">
-                                <input checked="" id="name_asc" name="radio" type="radio" value="name_asc" />
+                                <input checked="" id="name_asc" name="sort" type="radio" value="name_asc" <?= $sort == 'name_asc' ? 'checked' : '' ?> />
                                 <label for="name_asc">Tipe Produk A-Z</label>
 
-                                <input id="name_desc" name="radio" type="radio" value="name_desc" />
+                                <input id="name_desc" name="sort" type="radio" value="name_desc" <?= $sort == 'name_desc' ? 'checked' : '' ?> />
                                 <label for="name_desc">Tipe Produk Z-A</label>
 
-                                <input id="capacity_asc" name="radio" type="radio" value="capacity_asc" />
+                                <input id="capacity_asc" name="sort" type="radio" value="capacity_asc" <?= $sort == 'capacity_asc' ? 'checked' : '' ?> />
                                 <label for="capacity_asc">Kapasitas Rendah - Tinggi</label>
 
-                                <input id="capacity_desc" name="radio" type="radio" value="capacity_desc" />
-                                <label for="capacity_desc">Kapasitas Rendah - Tinggi</label>
+                                <input id="capacity_desc" name="sort" type="radio" value="capacity_desc" <?= $sort == 'capacity_desc' ? 'checked' : '' ?> />
+                                <label for="capacity_desc">Kapasitas Tinggi - Rendah</label>
                                 <div class="glider-container">
                                     <div class="glider"></div>
                                 </div>
