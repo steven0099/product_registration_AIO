@@ -45,6 +45,7 @@ Kapasitas Management
                             <thead>
                                 <tr>
                                     <th>No.</th>
+                                    <th>Kategori</th>
                                     <th>Subkategori</th>
                                     <th>Kapasitas</th>
                                     <th>Options</th>
@@ -55,6 +56,7 @@ Kapasitas Management
                                 <?php foreach ($kapasitas as $capacity): ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
+                                    <td><?= esc($capacity['category_name']) ?></td>
                                     <td><?= esc($capacity['subcategory_name']) ?></td>
                                     <td><?= esc($capacity['capacity_value']) ?></td>
                                     <td>
@@ -67,7 +69,6 @@ Kapasitas Management
                                         </button>
                                     </td>
                                 </tr>
-
                                 <!-- Edit Capacity Modal -->
                                 <div class="modal fade" id="editCapacityModal<?= esc($capacity['id']) ?>" tabindex="-1"
                                     role="dialog" aria-labelledby="editCapacityModalLabel" aria-hidden="true">
@@ -85,20 +86,20 @@ Kapasitas Management
                                                 <?= csrf_field(); ?>
                                                 <div class="modal-body">
                                                 <div class="form-group">
-    <label for="subcategory_id">Subkategori</label>
-    <select name="subcategory_id" class="form-control">
-        <?php if (isset($subcategories) && !empty($subcategories)): ?>
-            <?php foreach ($subcategories as $subcategory): ?>
-                <!-- Check if this category is the selected one -->
-                <option value="<?= esc($subcategory['id']) ?>"
-                    <?= isset($capacity['subcategory_id']) && $capacity['subcategory_id'] == $subcategory['id'] ? 'selected' : '' ?>>
-                    <?= esc($subcategory['name']) ?>
-                </option>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <option value="">No SubCategories Available</option>
-        <?php endif; ?>
-</div>
+                                                <label for="subcategory_id">Subkategori</label>
+<select name="subcategory_id" class="form-control">
+    <?php if (isset($subcategories) && !empty($subcategories)): ?>
+        <?php foreach ($subcategories as $subcategory): ?>
+            <option value="<?= esc($subcategory['id']) ?>"
+                <?= isset($capacity['subcategory_id']) && $capacity['subcategory_id'] == $subcategory['id'] ? 'selected' : '' ?>>
+                <?= esc($subcategory['category_name'] . ' - ' . $subcategory['name']) ?> <!-- Display both category and subcategory names -->
+            </option>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <option value="">No SubCategories Available</option>
+    <?php endif; ?>
+</select>
+
                                                     <div class="form-group">
                                                         <label for="value">Kapasitas</label>
                                                         <input type="text" class="form-control" name="value"
@@ -143,7 +144,7 @@ Kapasitas Management
                         <select class="form-control" name="subcategory_id" required>
                             <option value="">Pilih Subkategori</option>
                             <?php foreach ($subcategories as $subcategory): ?>
-                            <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
+                            <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['category_name'] . ' - ' . $subcategory['name']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

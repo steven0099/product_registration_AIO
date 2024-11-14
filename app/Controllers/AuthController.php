@@ -39,6 +39,8 @@ class AuthController extends BaseController
                     return redirect()->to('/admin/dashboard');
                 case 'user':
                     return redirect()->to('/product/step1');
+                case 'visitor':
+                    return redirect()->to('/catalog');
                 default:
                     return redirect()->to('/login')->with('error', 'Invalid role');
             }
@@ -86,5 +88,60 @@ class AuthController extends BaseController
     {
         session()->destroy();
         return redirect()->to('/');
+    }
+
+    public function register()
+    {
+        // Load the registration form view
+        return view('auth/register');
+    }
+
+    public function registration()
+    {
+        helper(['form', 'url']);
+
+        // Load the validation library
+        $validation = \Config\Services::validation();
+        
+        // Set validation rules
+        $validation->setRules([
+            'name'     => 'required|min_length[3]|max_length[100]',
+            'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
+            'email'    => 'required|valid_email|is_unique[users.email]',
+            'password' => 'required|min_length[6]',
+            'phone'    => 'permit_empty|min_length[10]|max_length[15]',
+            'address'  => 'permit_empty|max_length[255]'
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            // Validation failed, show the form again with errors
+            return view('register_view', ['validation' => $validation]);
+        }
+
+        // Get form data
+        $name     = $this->request->getPost('name');
+        $username = $this->request->getPost('username');
+        $email    = $this->request->getPost('email');
+        $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+        $phone    = $this->request->getPost('phone');
+        $address  = $this->request->getPost('address');
+
+        // Prepare data for insertion
+        $data = [
+            'name'     => $name,
+            'username' => $username,
+            'email'    => $email,
+            'password' => $password,
+            'phone'    => $phone,
+            'address'  => $address,
+            'role'     => 'visitor' // Automatically assign "visitor" role
+        ];
+
+        // Load the User model and save data
+        $userModel = new UserModel();
+        $userModel->save($data);
+
+        // Redirect to a success page or login page
+        return redirect()->to('/')->with('success', 'Registration successful! Please log in.');
     }
 }

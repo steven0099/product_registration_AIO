@@ -45,6 +45,7 @@ Ukuran Management
                             <thead>
                                 <tr>
                                     <th>No.</th>
+                                    <th>Kategori</th>
                                     <th>Subkategori</th>
                                     <th>Ukuran</th>
                                     <th>Options</th>
@@ -55,6 +56,7 @@ Ukuran Management
                                 <?php foreach ($ukuran as $size): ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
+                                    <td><?= esc($size['category_name']) ?></td>
                                     <td><?= esc($size['subcategory_name']) ?></td>
                                     <td><?= esc($size['ukuran_size']) ?></td>
                                     <td>
@@ -85,20 +87,18 @@ Ukuran Management
                                                 <?= csrf_field(); ?>
                                                 <div class="modal-body">
                                                 <div class="form-group">
-    <label for="subcategory_id">Subkategori</label>
-    <select name="subcategory_id" class="form-control">
-        <?php if (isset($subcategories) && !empty($subcategories)): ?>
-            <?php foreach ($subcategories as $subcategory): ?>
-                <!-- Check if this category is the selected one -->
-                <option value="<?= esc($subcategory['id']) ?>"
-                    <?= isset($size['subcategory_id']) && $size['subcategory_id'] == $subcategory['id'] ? 'selected' : '' ?>>
-                    <?= esc($subcategory['name']) ?>
-                </option>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <option value="">No SubCategories Available</option>
-        <?php endif; ?>
-</div>
+                                                <select name="subcategory_id" class="form-control">
+    <?php if (isset($subcategories) && !empty($subcategories)): ?>
+        <?php foreach ($subcategories as $subcategory): ?>
+            <option value="<?= esc($subcategory['id']) ?>"
+                <?= isset($capacity['subcategory_id']) && $capacity['subcategory_id'] == $subcategory['id'] ? 'selected' : '' ?>>
+                <?= esc($subcategory['category_name'] . ' - ' . $subcategory['name']) ?> <!-- Display both category and subcategory names -->
+            </option>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <option value="">No SubCategories Available</option>
+    <?php endif; ?>
+</select>
                                                     <div class="form-group">
                                                         <label for="size">Ukuran</label>
                                                         <input type="text" class="form-control" name="size"
@@ -143,7 +143,7 @@ Ukuran Management
                         <select class="form-control" name="subcategory_id" required>
                             <option value="">Pilih Subkategori</option>
                             <?php foreach ($subcategories as $subcategory): ?>
-                            <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
+                            <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['category_name'] . ' - ' . $subcategory['name']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

@@ -48,7 +48,7 @@ Rincian Produk
                 <?php endif; ?>
             </tr>
 
-            <?php if ($product['status'] == 'approved'): ?>
+            <!--<?php if ($product['status'] == 'approved'): ?>
             <tr>
                 <th>Harga</th>
                 <?php if ($product['harga'] != null): ?>
@@ -58,7 +58,7 @@ Rincian Produk
                 <?php endif; ?>
                 <td><button onclick="openHargaModal()" class="btn btn-sm btn-primary">Edit</button></td>
             </tr>
-            <?php endif; ?>
+            <?php endif; ?>-->
 
             <tr>
                 <th>Warna</th>
@@ -257,7 +257,7 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'): ?>
+            <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER' || $product['subcategory'] == 'JUICER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -375,7 +375,7 @@ Rincian Produk
             <?php endif; ?>
 
 
-            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'): ?>
+            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -402,6 +402,20 @@ Rincian Produk
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['kapasitas_air_dingin']) ?> M²</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                <td><button onclick="openColdCapModal()" class="btn btn-sm btn-primary">Edit</button></td>
+                <?php endif; ?>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart & Jasa Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
             </tr>
             <?php endif; ?>
 
@@ -531,7 +545,7 @@ Rincian Produk
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas Air Dingin</h5>
+                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -539,7 +553,7 @@ Rincian Produk
                     <div class="modal-body">
                         <input type="text" id="coldcapInput" class="form-control"
                             value="<?= esc($product['kapasitas_air_dingin']) ?>"
-                            placeholder="Kapasitas Air Dingin (Liter)">
+                            placeholder="Kapasitas">
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                         <!-- Include CSRF Token -->

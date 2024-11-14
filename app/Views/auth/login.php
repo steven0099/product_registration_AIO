@@ -103,6 +103,7 @@
                   Login
                 </button>
               </div>
+              <p>Belum punya akun? <a href="/register">Daftar Disini</a></p>
             </div>
           </form>
         </div>

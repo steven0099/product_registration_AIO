@@ -327,7 +327,7 @@ public function details($id)
         );
     }
 
-    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA") {
+    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA" || $product['subcategory'] == "AIR PURIFIER" ) {
         $relatedProducts = $model->getRelatedProductsBySubcategoryOnly(
             $product['subcategory'], // Check by subcategory for this category
             $id // Pass only the product ID to exclude the current product

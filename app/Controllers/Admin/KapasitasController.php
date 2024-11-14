@@ -9,26 +9,30 @@ use App\Controllers\BaseController;
 class KapasitasController extends BaseController
 {
     protected $capacityModel;
+    protected $categoryModel;
     protected $subcategoryModel;
 
     public function __construct()
     {
         $this->capacityModel = new CapacityModel();
         $this->subcategoryModel = new SubcategoryModel();
+        $this->categoryModel = new CategoryModel();
     }
     // Dashboard view
     public function index()
     {
-        // Define the list of category IDs and subcategory IDs you want to fetch
-        $selectedCategoryIds = [3, 4, 5, 6, 7]; 
-        $selectedSubcategoryIds = [33, 34, 37, 38, 41, 43, 44, 45, 46, 48, 49]; 
+        $selectedCategoryIds = [3, 4, 5, 6, 7];
+        $selectedSubcategoryIds = [33, 34, 37, 38, 41, 43, 44, 45, 46, 48, 49, 53, 54];
     
+        // Modify the query to include category name
         $data['subcategories'] = $this->subcategoryModel
-        ->groupStart() // Start a grouped condition
-            ->whereIn('category_id', $selectedCategoryIds) // Condition 1: category IDs
-            ->orWhereIn('id', $selectedSubcategoryIds) // OR Condition 2: subcategory IDs
-        ->groupEnd() // End the grouped condition
-        ->findAll();
+            ->select('subcategories.*, categories.name AS category_name') // Select subcategory and category name
+            ->join('categories', 'categories.id = subcategories.category_id') // Join with categories table
+            ->groupStart()
+                ->whereIn('category_id', $selectedCategoryIds)
+                ->orWhereIn('subcategories.id', $selectedSubcategoryIds)
+            ->groupEnd()
+            ->findAll();
     
         // Fetch the capacities (no change here)
         $data['kapasitas'] = $this->capacityModel->getCapacitiesWithSubcategory();

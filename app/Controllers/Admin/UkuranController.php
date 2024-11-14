@@ -23,11 +23,13 @@ class UkuranController extends BaseController
         $selectedSubcategoryIds = [31,32,47,50,51]; 
     
         $data['subcategories'] = $this->subcategoryModel
-        ->groupStart() // Start a grouped condition
-            ->whereIn('category_id', $selectedCategoryIds) // Condition 1: category IDs
-            ->orWhereIn('id', $selectedSubcategoryIds) // OR Condition 2: subcategory IDs
-        ->groupEnd() // End the grouped condition
-        ->findAll();
+            ->select('subcategories.*, categories.name AS category_name') // Select subcategory and category name
+            ->join('categories', 'categories.id = subcategories.category_id') // Join with categories table
+            ->groupStart()
+                ->whereIn('category_id', $selectedCategoryIds)
+                ->orWhereIn('subcategories.id', $selectedSubcategoryIds)
+            ->groupEnd()
+            ->findAll();
     
         // Fetch the capacities (no change here)
         $data['ukuran'] = $this->ukuranModel->getUkuranWithSubcategory();

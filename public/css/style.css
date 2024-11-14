@@ -224,14 +224,14 @@ form select::after {
     position: fixed;
     bottom:0;
     width: auto;
-    height: 245px;
-    background-color: rgba(255, 255, 255);
+    height: 220px;
+    background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     cursor: move;
-    overflow-x: auto;  /* Allow horizontal scrolling if items overflow */
+    overflow-x: hidden;  /* Allow horizontal scrolling if items overflow */
     max-width: 1080px;  /* Prevent the widget from being too tall */
 }
 
@@ -239,14 +239,23 @@ form select::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
-    margin-bottom:5px;
-    background-color: #007bff;
+    padding: 5px 10px; /* Increase padding for space around the button */
+    background-color: #0daff0;
     color: #fff;
     font-weight: bold;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     position: relative;
+    overflow: hidden; /* Prevent side scroll from appearing */
+}
+
+.comparison-header .header-left {
+    flex: 1; /* Take up remaining space */
+}
+
+.comparison-header .header-right {
+    display: flex;
+    align-items: center;
 }
 
 .comparison-content {
@@ -258,9 +267,9 @@ form select::after {
 }
 
 .comparison-item {
-    width: 300px;
+    width: 280px;
     height: 180px;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     border-radius: 8px;
     padding: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -288,25 +297,28 @@ form select::after {
 }
 
 .comparison-widget .btn-detailed-comparison {
-    margin-left: 10px;
-    height: 50px;
-    width: 75px;
-    padding: 12px;
+    height: 40px; /* Reduce height to better fit */
+    width: 150px; /* Adjust width for a balanced look */
+    padding: 8px;
     font-size: 14px;
-    background-color: #007bff;  
-    color: #fff;
-    border:none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.comparison-widget .btn-close {
-    font-size: 16px;
-    background-color: #007bff;
+    background-color: #0daff0;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 5px; /* Align it to the right */
+    margin-right: 10px; /* Add spacing from the right edge */
+    transform: translateY(180%); /* Ensure proper vertical alignment */
+}
+
+.comparison-widget .btn-close {
+    font-size: 16px;
+    background-color: #0daff0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
 .comparison-item .btn-remove {
@@ -337,7 +349,7 @@ form select::after {
 
 #sortButton {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #0daff0;
     color: white;
     border: none;
     border-radius: 5px;
@@ -345,7 +357,7 @@ form select::after {
 }
 
 #sortButton:hover {
-    background-color: #0056b3;
+    background-color: #0d2a46;
 }
 
 /* Adjust the width of the search bar and sort dropdown */
@@ -394,7 +406,7 @@ form select::after {
 }
 
 .pagination .active a {
-    background-color: #007bff;
+    background-color: #0DAFF0;
     color: white;
 }
 
@@ -402,12 +414,12 @@ form select::after {
     padding: 8px 16px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    color: #007bff;
+    color: #0DAFF0;
     text-decoration: none;
 }
 
 .pagination a:hover {
-    background-color: #0056b3;
+    background-color: #0D2A46;
     color: white;
 }
 
@@ -419,7 +431,7 @@ form select::after {
 /* Button styling for collapsible section titles */
 .filter-title {
     border: none;
-    border-radius: 8px;
+    border-bottom: 1px solid #000;
     width: 110%;
     text-align: left;
     font-size: 16px;
@@ -466,11 +478,20 @@ form select::after {
     margin-bottom: 5px;
 }
 
+.container-fluid.d-flex {
+    display: flex;
+    min-height: 100vh; /* Full viewport height */
+}
+
 #filters {
     padding: 15px;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;          /* Full viewport height */
+    position: sticky;        /* Keeps sidebar fixed as you scroll */
+    top: 0;                  /* Aligns it to the top of the viewport */
+    overflow-y: auto;        /* Enables vertical scrolling if content overflows */
 }
 
 /* Style for the filter title with an arrow */
@@ -478,7 +499,7 @@ form select::after {
     cursor: pointer;
     color: #000000;
     font-weight: bold;
-    background-color: #f9f9f9;
+    background-color: #fff;
     position: relative; /* Positioning the arrow */
     padding-right: 20px; /* Space for the arrow */
 }
@@ -495,18 +516,18 @@ form select::after {
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 8px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     padding: 5px;
     border-radius: 4px;
     transition: background-color 0.2s ease;
 }
 
 .filter-option.selected {
-    background-color: #e0e0e0; /* Darker background color for selected option */
+    background-color: #d9d9d9; /* Darker background color for selected option */
 }
 
 .filter-option:hover {
-    background-color: #e9ecef;
+    background-color: #d9d9d9;
 }
 
 /* Style for the radio input */

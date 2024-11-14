@@ -10,7 +10,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
-Digital Catalog
+Katalog Digital
 <?= $this->endSection() ?>
 
 <?= $this->section('breadcumb') ?>
@@ -19,12 +19,11 @@ Digital Catalog
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Digital Catalog</h1>
+                <h1 class="m-0">Katalog Digital</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
-                    <li class="breadcrumb-item active">Digital Catalog</li>
+                    <li class="breadcrumb-item active">Katalog Digital</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -38,9 +37,10 @@ Digital Catalog
     <div class="card">
     <div class="row">
     <!-- Sidebar for Filters -->
+<div class="container-fluid d-flex">
 <div class="col-md-3">
     <!-- Sidebar Filters -->
-    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 500px; overflow-y: auto;">
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 500px; overflow-y: auto; width:260px">
         <h4>Filter Produk</h4>
 
         <form id="filterForm" action="" method="GET">
@@ -107,6 +107,7 @@ Digital Catalog
         </form>
     </div>
 </div>
+                        
 
 
 
@@ -157,6 +158,7 @@ Digital Catalog
             </div>
         </div>
     </div>
+                            
 
 <!-- Comparison Bar -->
 <div id="comparisonWidget" style="display:none" class="comparison-widget">
@@ -464,7 +466,7 @@ function closeComparisonWidget() {
 
 // Function to add a product to the comparison widget
 // Function to add a product to the comparison widget
-function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productHarga, productCapacity) {
+function addToComparison(productId, productName, productImage, productCategory, productSubcategory,productCapacity){ //productHarga,  {
     const comparisonContent = document.querySelector('.comparison-content');
     const existingItem = document.getElementById(`compare-item-${productId}`);
     // Rest of your function here
@@ -477,11 +479,12 @@ function addToComparison(productId, productName, productImage, productCategory, 
                     <button class="btn-remove" onclick="removeFromComparison('${productId}')">X</button>
             <img src="${productImage}" alt="${productName}" style="width: 100px; height: auto;">
             <span>${productName}<br>
-            ${productCategory} - ${productSubcategory}<br>
-            ${productCapacity}<br>
-            <strong>${productHarga}</strong>
+            ${productCategory}  ${productCapacity}<br>
+            ${productSubcategory}<br>
             </span>
         `;
+        //pindahkan keatas kalau butuh
+        //<strong>${productHarga}</strong>
         comparisonContent.appendChild(comparisonItem);
     }
 
@@ -529,11 +532,10 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
         const productName = this.getAttribute('data-product-name');
         const productImage = this.getAttribute('data-product-image');
         const productCategory = this.getAttribute('data-product-category');
-        const productHarga = this.getAttribute('data-product-harga');
         const productSubcategory = this.getAttribute('data-product-subcategory');
         const productCapacity = this.getAttribute('data-product-capacity');
         const selectedCount = document.querySelectorAll('.compare-checkbox:checked').length;
-
+// const productHarga = this.getAttribute('data-product-harga');
         if (selectedCount > 3) {
             alert("You can only compare up to 3 products.");
             this.checked = false; // Uncheck if more than 3
@@ -547,15 +549,15 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
                 if (productCategory === "SMALL APPLIANCES") {
                     comparisonSubcategory = productSubcategory;
                 }
-                addToComparison(productId, productName, productImage, productCategory,
-                    productSubcategory, productHarga, productCapacity);
+                addToComparison(productId, productName, productImage, productCategory, productCapacity,
+                    productSubcategory,); //productHarga);
             } else {
                 // Check if the selected product’s category matches the initial category
                 if (productCategory === comparisonCategory &&
                     (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory ===
                         comparisonSubcategory)) {
                     addToComparison(productId, productName, productImage, productCategory,
-                        productSubcategory, productHarga, productCapacity);
+                        productSubcategory,productCapacity); //productHarga,) 
                 } else {
                     alert(
                         "Hanya bisa membandingkan produk dengan kategori yang sama (untuk kategori SMALL APPLIANCES, subkategori juga harus sama)");
@@ -576,7 +578,7 @@ function bindCheckboxListener() {
             const productImage = this.getAttribute('data-product-image');
             const productCategory = this.getAttribute('data-product-category');
             const productSubcategory = this.getAttribute('data-product-subcategory');
-            const productHarga = this.getAttribute('data-product-harga');
+            //const productHarga = this.getAttribute('data-product-harga');
             const productCapacity = this.getAttribute('data-product-capacity');
 
             if (this.checked) {
@@ -585,11 +587,11 @@ function bindCheckboxListener() {
                     if (productCategory === "SMALL APPLIANCES") {
                         comparisonSubcategory = productSubcategory;
                     }
-                    addToComparison(productId, productName, productImage, productCategory, productSubcategory, productHarga, productCapacity);
+                    addToComparison(productId, productName, productImage, productCategory, productSubcategory,productCapacity); //productHarga);
                 } else {
                     if (productCategory === comparisonCategory &&
                         (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory === comparisonSubcategory)) {
-                        addToComparison(productId, productName, productImage, productCategory, productSubcategory, productHarga, productCapacity);
+                        addToComparison(productId, productName, productImage, productCategory, productSubcategory,productCapacity); //productHarga); 
                     } else {
                         alert("Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
                         this.checked = false; // Uncheck the box

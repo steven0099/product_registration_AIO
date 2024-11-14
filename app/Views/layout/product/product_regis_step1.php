@@ -297,9 +297,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
                                                 <div class="form-group">
                                                     <div style="">
-                                                        <label for="kapasitas_air_dingin" style="">Kapasitas Air Dingin</label>
+                                                        <label for="kapasitas_air_dingin" id="kapasitas-air-dingin-label" style="">Kapasitas Air Dingin</label>
                                                         <input type="text" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" style="" placeholder="Kapasitas Air Dingin">
-                                                        <span style="">Liter</span>
+                                                        <span style="" id="air-dingin-satuan">Liter</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -441,9 +441,9 @@ function fetchWarrantyOptions(type) {
         type = 'garansi_panel';
     } else if (categoryId == '6') {
         type = 'garansi_motor';
-    } else if (subcategoryId == '31' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '48' || subcategoryId == '50' || subcategoryId == '51') {
+    } else if (subcategoryId == '31' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '48' || subcategoryId == '50' || subcategoryId == '51' || subcategoryId == '52' || subcategoryId == '54') {
         type = 'garansi_semua_service';
-    } else if (subcategoryId == '32' || subcategoryId == '49') {
+    } else if (subcategoryId == '32' || subcategoryId == '49' || subcategoryId == '53') {
         type = 'garansi_motor';
     } else if (subcategoryId == '35' || subcategoryId == '36') {
         type = 'garansi_kompresor';
@@ -467,7 +467,10 @@ function fetchWarrantyOptions(type) {
     const subcategoryId = document.getElementById('subcategory').value;
     const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
     const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
+    const airdinginLabel = document.getElementById('kapasitas-air-dingin-label');
+    const airdinginSatuan = document.getElementById('air-dingin-satuan');
     const capacityLabel = document.getElementById('capacity-label');
+    const airdinginField = document.getElementById('kapasitas_air_dingin');
     const warrantyDropdown = document.getElementById('compressor_warranty');
     const sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
     // Update compressor warranty field based on category
@@ -476,7 +479,7 @@ function fetchWarrantyOptions(type) {
         document.getElementById('warranty-sparepart-group').style.display = 'flex';
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_panel_id'); // Change name to garansi_panel_id
         warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Panel</option>';
-    } else if (categoryId == '6' || subcategoryId == '49') {
+    } else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53') {
         compressorWarrantyLabel.innerText = 'Garansi Motor';
         document.getElementById('warranty-sparepart-group').style.display = 'flex';
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name to garansi_motor_id
@@ -508,7 +511,7 @@ function fetchWarrantyOptions(type) {
         document.getElementById('warranty-sparepart-group').style.display = 'flex'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
         warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-    }  else if (subcategoryId == '45' || subcategoryId == '46'|| subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') { // Check for subcategory id 31
+    }  else if (subcategoryId == '45' || subcategoryId == '46'|| subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51' || subcategoryId == '54') { // Check for subcategory id 31
         compressorWarrantyLabel.innerText = 'Garansi Jasa Service';
         sparepartWarrantyLabel.innerText = 'Garansi Sparepart';
         document.getElementById('warranty-sparepart-group').style.display = 'flex'; // Hide the sparepart warranty group
@@ -520,6 +523,11 @@ function fetchWarrantyOptions(type) {
         document.getElementById('warranty-sparepart-group').style.display = 'flex'; // Hide the sparepart warranty group
         document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
         warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
+    } else if (subcategoryId == '52') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service';
+        document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Sparepart & Jasa Service</option>';
     }else {
         compressorWarrantyLabel.innerText = 'Garansi Kompresor';
         sparepartWarrantyLabel.innerText = 'Garansi Sparepart';
@@ -544,7 +552,7 @@ function handleCategoryChange(categoryId, subcategoryId) {
     // Check if the category is "TV" to fetch options for Ukuran TV
     if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
     showCapacityField(true); // Show dropdown for capacity
-} else if (subcategoryId == '42' ||subcategoryId == '35' || subcategoryId == '36') {
+} else if (subcategoryId == '42' || subcategoryId == '52' ||subcategoryId == '35' || subcategoryId == '36') {
     hideCapacityField(); // Hide dropdown for capacity
 } else {
     showCapacityField(false); // Show dropdown for capacity
@@ -560,6 +568,9 @@ function handleCategoryChange(categoryId, subcategoryId) {
         document.getElementById('kapasitas-air-dingin').style.display = 'block';
         document.getElementById('kapasitas-air-panas').style.display = 'block';
         compressorWarrantyLabel.innerText = 'Garansi Kompresor';
+        airdinginLabel.innerText = 'Kapasitas Air Dingin';
+        airdinginField.placeholder = 'Kapasitas Air Dingin';
+        airdinginSatuan.innerText = 'Liter';
     }else if (subcategoryId == 42) {
         document.getElementById('capacity-group').style.display = 'none';
         document.getElementById('warranty-sparepart-group').style.display = 'block';
@@ -568,6 +579,18 @@ function handleCategoryChange(categoryId, subcategoryId) {
         document.getElementById('kapasitas-air-dingin').style.display = 'none';
         document.getElementById('kapasitas-air-panas').style.display = 'none';
         compressorWarrantyLabel.innerText = 'Garansi Elemen Panas';
+
+    }else if (subcategoryId == 52) {
+        document.getElementById('capacity-group').style.display = 'none';
+        document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+        // Show "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'block';
+        document.getElementById('kapasitas-air-panas').style.display = 'none';
+        compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service';
+        airdinginLabel.innerText = 'Kapasitas';
+        airdinginField.placeholder = 'Kapasitas';
+        airdinginSatuan.innerText = 'M²';
     } else {
         // Show "kapasitas" and "garansi sparepart" for other subcategories
         document.getElementById('capacity-group').style.display = 'block';
@@ -576,6 +599,9 @@ function handleCategoryChange(categoryId, subcategoryId) {
         // Hide "kapasitas air dingin" and "kapasitas air panas"
         document.getElementById('kapasitas-air-dingin').style.display = 'none';
         document.getElementById('kapasitas-air-panas').style.display = 'none';
+        airdinginLabel.innerText = 'Kapasitas Air Dingin';
+        airdinginField.placeholder = 'Kapasitas Air Dingin';
+        airdinginSatuan.innerText = 'Liter';
     }
 };
 

@@ -1,10 +1,9 @@
 <head>
-<div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/catalog">Beranda</a></li>
-                    <li class="breadcrumb-item active">Perbandingan Produk</li>
-                </ol>
-            </div><!-- /.col -->
+<a href="/catalog" class="breadcrumb-link">Beranda</a> 
+<span class="breadcrumb-separator">/</span> 
+<span class="breadcrumb-product">Perbandingan Produk</span>
+
+
 </head>
 <!-- Product Grid Display for Selected Products -->
 <div class="comparison-product-grid">
@@ -16,21 +15,26 @@
             <h5 class="product-title"><?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?></h5>
             <p class="product-category"><?= esc($product['category']) ?></p>
             <p class="product-subcategory"><?= esc($product['subcategory']) ?></p>
-            <p class="product-harga">
-            <?php if ($product['harga'] != null): ?>
+            <!-- harga
+             <p class="product-harga">
+             <?php if ($product['harga'] != null): ?>
                 <?= esc($product['harga'] ?? '') ?>
                 <?php elseif ($product['harga'] == null): ?>
                     Harga Belum Ditentukan
-                </p>
+                </p> -->
 <?php endif;?>
             <p class="product-capacity">
                 <?= 
     !empty($product['capacity']) ? esc($product['capacity']) : 
     (!empty($product['ukuran']) ? esc($product['ukuran']) : 
     (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
-        esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas']) : 
+        esc($product['kapasitas_air_dingin']) . 'L' . '/' . esc($product['kapasitas_air_panas']) . 'L': 
         ''))
-?></p>
+?>
+<?php if  ($product['subcategory'] == 'AIR PURIFIER'): ?>
+    <?= esc($product['kapasitas_air_dingin']) . ' M²'?>
+<?php endif; ?>
+</p>
 <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
 class="btn-custom btn-custom-primary">Lihat Detail</a>
     </div>
@@ -208,7 +212,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'): ?>
+        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER'): ?>
         <tr>
             <td>Garansi Motor</td>
             <?php foreach ($products as $product): ?>
@@ -279,29 +283,64 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
 
         <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'VACUUM CLEANER'): ?>
         <tr><td>Garansi Elemen Panas</td>
-        <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><td>Garansi Service</td>
-        <td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
+        <tr>
+        <td>Garansi Service</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
         <?php endif; ?>
 
         <?php if ($product['subcategory'] == 'TOASTER'): ?>
         <tr><td>Garansi Elemen Panas</td>
-        <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><td>Garansi Sparepart</td>
-        <td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
-        <tr><td>Garansi Service</td>
-        <td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
-        <tr><td>Garansi Sparepart</td>
-        <td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+        <?php endforeach ; ?>
         </tr>
+        <tr>
+        <td>Garansi Sparepart</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'  || $product['subcategory'] == 'AIR FRYER'): ?>
+        <tr>
+            <td>Garansi Jasa Service</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
+        <tr>
+        <td>Garansi Sparepart</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+        </tr>
+        <?php endforeach ; ?>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
+        <tr>
+        <td>Kapasitas</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['kapasitas_air_dingin']) ?> M²</td>
+        <?php endforeach ; ?>
+        </tr>   
+        <tr>
+        <td>Garansi Sparepart & Jasa Service</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
+        
+        <?php endif; ?>
+
         <!-- Add more rows as needed for other attributes -->
     </tbody>
 </table>
@@ -441,24 +480,44 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
     </tbody>
     </table>
 <style>
+
+.breadcrumb-link,
+.breadcrumb-separator,
+.breadcrumb-product {
+    display: inline; /* Keeps all elements on the same line */
+    font-family: Arial, sans-serif; /* Ensures Arial font for all */
+}
+
+.breadcrumb-separator {
+    font-family: Arial, sans-serif; /* This will ensure the separator uses Arial as well */
+}
+
 /* Product grid styling */
 .comparison-product-grid {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
     justify-content: center;
+    font-family: Arial;
 }
 
 .comparison-product-card {
     width: 200px;
+    height:250px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #fff;
+    font-family: Arial;
+    position: relative; /* Makes the card a reference point for absolute positioning */
+    padding-bottom: 50px; /* Ensure there's space for the button */
 }
 
+a {
+    font-family: arial;
+}
 .comparison-product-card .product-image {
     width: 100%;
     height: 150px;
@@ -472,7 +531,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
 }
 
 .comparison-product-card .product-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     margin: 5px 0;
 }
@@ -494,7 +553,7 @@ table {
 
 label {
     text-align: center;
-    background-color: #007bff;
+    background-color: #0daff0;
     color: #fff;
     display: block;
     height: 25px;
@@ -506,9 +565,6 @@ label {
     width: 100%;
     border-top: none;
     /* Remove top border */
-    border-left: 1px solid #fff;
-    /* Adjusted typo in `solid` */
-    border-right: 1px solid #fff;
     /* Add right border if needed */
     border-bottom: none;
     /* Remove bottom border */
@@ -516,15 +572,22 @@ label {
     /* Bottom-only shadow */
     border-radius: 0 0 8px 8px;
     /* Optional: rounded bottom corners */
+    font-family: Arial;
 }
 
 .comparison-table td,
 .comparison-table th {
     padding: 10px;
-    background-color: #ddd;
+    background-color: #d9d9d9;
     /* Change this to your desired cell background color */
     padding: 10px;
     border-bottom: 1px solid #ccc;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    border-right: 2px solid rgba(255, 255, 255, 0.1); /* White with 80% opacity */
+    border-left: none;
 }
 
 .comparison-table-head {
@@ -536,6 +599,7 @@ label {
     border-right: 1px solid #fff;
     /* Add right border if needed */
     border-bottom: none;
+    font-family: Arial;
     /* Remove bottom border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Bottom-only shadow */
@@ -564,50 +628,31 @@ td {
 }
 
 .btn-custom {
-        display: inline-flex;
-        align-items: center;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        border-radius: 5px;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute; /* Position the button absolutely inside the card */
+    bottom: 10px; /* Margin from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust the center alignment */
+}
 
     .btn-custom-primary {
-        background-color: #007bff;
+        background-color: #0daff0;
         color: white;
-        border: 1px solid #007bff;
+        border: 1px solid #0daff0;
     }
 
     .btn-custom-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
+        background-color: #0d2a46;
+        border-color: #0d2a46;
         transform: translateY(-2px);
-    }
-
-    .btn-custom-success {
-        background-color: #28a745;
-        color: white;
-        border: 1px solid #28a745;
-    }
-
-    .btn-custom-success:hover {
-        background-color: #218838;
-        border-color: #1e7e34;
-        transform: translateY(-2px);
-    }
-
-    /* Button with WhatsApp icon */
-    .btn-custom .fab {
-        margin-right: 8px;
-    }
-
-    /* Icon Size Adjustment */
-    .btn-custom img {
-        width: 24px;
-        height: 24px;
     }
 </style>

@@ -33,14 +33,14 @@
                 <tr><th>Kategori</th><td><?= esc($product['category']) ?></td></tr>
                 <tr><th>Subkategori</th><td><?= esc($product['subcategory']) ?></td></tr>
                 <tr><th>Tipe Produk</th><td><?= esc($product['product_type']) ?></td></tr>
-                <?php if ($product['status'] == 'approved'): ?>
+                <!--harga <?php if ($product['status'] == 'approved'): ?>
                     <tr><th>Harga</th>
                     <?php if ($product['harga'] != null): ?>
         <td><?= esc($product['harga']) ?></td></tr>
         <?php elseif ($product['harga'] == null): ?>
         <td>Belum Ditentukan</td></tr>
         <?php endif; ?>
-        <?php endif; ?>
+        <?php endif; ?>-->
                 <tr><th>Warna</th><td><?= esc($product['color']) ?></td></tr>
                 <tr><th>Dimensi Produk</th><td><?= esc($product['product_dimensions']) ?></td></tr>
                 <tr><th>Dimensi Kemasan</th><td><?= esc($product['packaging_dimensions']) ?></td></tr>
@@ -105,7 +105,7 @@
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <?php endif; ?>
 
-        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'): ?>
+        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <tr><th>Garansi Motor</th><td><?= esc($product['garansi_motor']) ?> Tahun</td></tr>
@@ -154,9 +154,9 @@
         
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'): ?>
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
-        <tr><th>Garansi Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
+        <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         
         <?php endif; ?>
@@ -165,6 +165,12 @@
         <tr><th>Ukuran</th><td><?= esc($product['ukuran']) ?></td></tr>
         <tr><th>Garansi Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
+        <tr><th>Kapasitas</th><td><?= esc($product['kapasitas_air_dingin']) ?> M²</td></tr>
+        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         
         <?php endif; ?>
 

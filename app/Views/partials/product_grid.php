@@ -21,7 +21,7 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         border: 2px solid #b3b3b3;
-        height:350px;
+        height:280px;
     }
 
     .card-body {
@@ -48,12 +48,15 @@
 
     /* Adjust button position */
     .button {
+        position:absolute;
+        bottom:3%;
+        right:7%;
         margin-top: 10px;
-        padding: 8px 12px;
+        padding: 3px;
         font-size: 14px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
         border-radius: 4px;
         cursor: pointer;
     }
@@ -79,11 +82,11 @@
                         <h5 class="card-title"><?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?></h5>
                         <p class="card-text"><?= esc($product['category']) ?></p>
                         <p class="card-text"><?= esc($product['subcategory']) ?></p>
-                        <?php if ($product['harga'] != null): ?>
+                        <!--harga <?php if ($product['harga'] != null): ?>
                         <p class="card-text"><strong><?= esc($product['harga']) ?></strong></p>
                         <?php elseif ($product['harga'] == null): ?>
                         <p class="card-text"><strong>Harga Belum Ditentukan</strong></p>
-                        <?php endif; ?>
+                        <?php endif; ?>-->
                         <p class="card-text">
     <?php
     if (!empty($product['capacity'])) {
@@ -92,19 +95,20 @@
         echo esc($product['ukuran']);
     } elseif (!empty($product['kapasitas_air_dingin'] && $product['kapasitas_air_panas'])){
         echo esc($product['kapasitas_air_dingin']. 'L' . '/' . $product['kapasitas_air_panas'] . 'L');
+    } elseif ($product['subcategory'] == 'AIR PURIFIER'){
+        echo esc($product['kapasitas_air_dingin']. ' M²');
     } else {
-        echo ' ';
+        echo 'Tidak Ada Kapasitas / Ukuran';
     }
     ?>
 </p>
 
-
+<!--harga data-product-harga="<?= esc($product['harga']) ?>" -->
 <div class="column">
 <input type="checkbox" class="compare-checkbox" data-product-id="<?= esc($product['id']) ?>"
            data-product-name="<?= esc($product['brand']) ?>"
            data-product-category="<?= esc($product['category']) ?>"
            data-product-subcategory="<?= esc($product['subcategory']) ?>"
-           data-product-harga="<?= esc($product['harga']) ?>"
            data-product-capacity="    <?php
     if (!empty($product['capacity'])) {
         echo esc($product['capacity']);
@@ -112,12 +116,14 @@
         echo esc($product['ukuran']);
     } elseif (!empty($product['kapasitas_air_dingin'] && $product['kapasitas_air_panas'])){
         echo esc($product['kapasitas_air_dingin']. 'L' . '/' . $product['kapasitas_air_panas'] . 'L');
+    } elseif ($product['subcategory'] == 'AIR PURIFIER'){
+        echo esc($product['kapasitas_air_dingin']. 'M²');
     } else {
         echo ' ';
     }
     ?> | <?= esc($product['product_type']) ?>"
            data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>">
-    <label>Bandingkan</label>
+    <label style="font-size:14px">Bandingkan</label>
 <button class="button" onclick="location.href='/catalog/details/<?= esc($product['id']) ?>'">Lihat Detail</button>
 </div>
 
