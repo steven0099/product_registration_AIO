@@ -83,7 +83,7 @@
             <div class="modal-content">
                 <span class="close" id="closeBrandModal">&times;</span>
                 <h3>Tambah Merek</h3>
-                <form method="post" action="<?= base_url('/brand/saveBrand') ?>" enctype="multipart/form-data">
+                <form method="post" action="<?= base_url('/admin/brand/saveBrand') ?>" enctype="multipart/form-data">
                 <?=csrf_field()?>    
                 <div class="form-group">
                         <label for="code">Kode Merek</label>
@@ -169,7 +169,7 @@
                 var name = this.getAttribute('data-name');
 
                 // Set the form action dynamically
-                document.getElementById('editBrandForm').action = '<?= base_url('/brand/updateBrand') ?>/' + id;
+                document.getElementById('editBrandForm').action = '<?= base_url('/admin/brand/updateBrand') ?>/' + id;
                 document.getElementById('editBrandCode').value = code;
                 document.getElementById('editBrandName').value = name;
 
@@ -210,7 +210,7 @@
         }
 
         confirmDeleteBtn.onclick = function () {
-            window.location.href = "/brand/deleteBrand/" + deleteId; // Adjust as necessary for your delete action
+            window.location.href = "/admin/brand/deleteBrand/" + deleteId; // Adjust as necessary for your delete action
         }
 
         window.onclick = function (event) {

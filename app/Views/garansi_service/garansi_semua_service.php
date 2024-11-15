@@ -107,7 +107,7 @@
           <?= csrf_field() ?> 
           <div class="form-group">
               <label for="value">Garansi Motor (Tahun)</label>
-              <input type="text" class="form-control" name="value" placeholder="Garansi Service (Tahun)" required>
+              <input type="number" class="form-control" name="value" placeholder="Garansi Service (Tahun)" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>
@@ -123,7 +123,7 @@
           <?= csrf_field() ?> 
           <div class="form-group">
               <label for="value">Garansi Service (Tahun)</label>
-              <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Motor (Tahun)" required>
+              <input type="number" id="editValue" class="form-control" name="value" placeholder="Garansi Motor (Tahun)" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </form>

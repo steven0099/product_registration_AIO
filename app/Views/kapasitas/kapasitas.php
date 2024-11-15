@@ -37,7 +37,7 @@ Kapasitas Management
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title">Daftar Kapasitas</h3>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#addCapacityModal">+
+                        <button class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addCapacityModal">+
                             Tambah Kapasitas</button>
                     </div>
                     <div class="card-body">

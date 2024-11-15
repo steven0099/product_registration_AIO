@@ -40,7 +40,7 @@ Katalog Digital
 <div class="container-fluid d-flex">
 <div class="col-md-3">
     <!-- Sidebar Filters -->
-    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 500px; overflow-y: auto; width:260px">
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:260px">
         <h4>Filter Produk</h4>
 
         <form id="filterForm" action="" method="GET">
@@ -222,7 +222,6 @@ $(document).ready(function() {
                         </label>
                     `;
                 });
-
                 // Update subcategory container content
                 $('#subcategoryContainer').html(subcategoryHTML);
                 // Only show subcategory container if category is selected
@@ -314,7 +313,8 @@ $(document).ready(function() {
 
     console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
 
-    $('#productGrid').html('<div class="loader">Loading...</div>'); // Show loading
+    // Update product grid content with loading indicator
+    $('#productGrid').html('<div class="loader">Loading...</div>');
 
     $.ajax({
         url: "<?= base_url('catalog/filterProducts') ?>",
@@ -328,8 +328,19 @@ $(document).ready(function() {
         },
         success: function(response) {
             console.log("Filter response:", response);
-            $('#productGrid').html(response); // Update product grid
+            $('#productGrid').html(response); // Update product grid with filtered products
+
+            // Bind checkbox listeners again after the new content is loaded
             bindCheckboxListener();
+
+            // Show the checkboxes if at least one filter is selected
+            if (category || subcategory || capacity) {
+                $('.compare-checkbox').show(); // Show checkboxes
+                $('.compare-label').show();
+            } else {
+                $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+                $('.compare-label').hide();
+            }
 
             // Check if any products in the comparison list are still displayed
             const comparisonContent = document.querySelector('.comparison-content');
@@ -345,6 +356,7 @@ $(document).ready(function() {
         }
     });
 }
+
 
 
     // Reset subcategory and capacity filters
@@ -479,8 +491,8 @@ function addToComparison(productId, productName, productImage, productCategory, 
                     <button class="btn-remove" onclick="removeFromComparison('${productId}')">X</button>
             <img src="${productImage}" alt="${productName}" style="width: 100px; height: auto;">
             <span>${productName}<br>
-            ${productCategory}  ${productCapacity}<br>
-            ${productSubcategory}<br>
+            ${productCategory}  ${productSubcategory}<br>
+            ${productCapacity}<br>
             </span>
         `;
         //pindahkan keatas kalau butuh

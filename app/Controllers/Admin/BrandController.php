@@ -25,10 +25,15 @@ class BrandController extends BaseController
         'code' => $this->request->getPost('code'),
         'name' => $this->request->getPost('name'),
     ];
+
+    $data['code'] = strtoupper($data['code']);
+    $data['name'] = strtoupper($data['name']);
+    $brandModel->save($data);
+
     if (!$brandModel->save($data)) {
         return redirect()->back()->with('error', 'Failed to add Brand.');
     }
-
+    
     return redirect()->to('/admin/brand')->with('success', 'Brand added successfully.');
     }
 
@@ -41,6 +46,10 @@ class BrandController extends BaseController
             'code' => $this->request->getPost('code'),
             'name' => $this->request->getPost('name'),
         ];
+
+        $data['code'] = strtoupper($data['code']);
+        $data['name'] = strtoupper($data['name']);
+        $brandModel->save($data);
         // Update the Brand  in the database
         if (!$brandModel->update($id, $data)) {
             return redirect()->back()->with('error', 'Failed to update Brand.');

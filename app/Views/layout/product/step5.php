@@ -513,7 +513,7 @@
                                         </table>
 
                                         <!-- Submission Information -->
-                                        <p class="font-weight-bold">Submitted by: <?= esc($data['submitted_by']) ?></p>
+                                        <p class="font-weight-bold">Diajukan Atas Nama: <?= esc($data['submitted_by']) ?></p>
                                         <div class="note text-danger font-italic">*Harap dicek kembali.</div>
 
                                     </div> <!-- End of row -->

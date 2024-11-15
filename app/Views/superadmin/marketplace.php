@@ -47,6 +47,7 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Lokasi</th>
+                                    <th>No. HP</th>
                                     <th>Options</th>
                                 </tr>
                                 </thead>
@@ -56,9 +57,11 @@
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= esc($mp['location']) ?></td>
+                                        <td><?= esc($mp['phone']) ?></td>
                                         <td>
                                             <button class="btn-primary btn btn-edit" data-id="<?= esc($mp['id']) ?>"
-                                                    data-location="<?= esc($mp['location']) ?>">
+                                                    data-location="<?= esc($mp['location']) ?>"
+                                                    data-phone="<?= esc($mp['phone']) ?>">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
                                             <button class="btn-danger btn btn-delete" data-id="<?= esc($mp['id']) ?>">
@@ -86,6 +89,10 @@
                         <label for="location">Lokasi Gerai</label>
                         <input type="text" class="form-control" name="location" placeholder="Lokasi Cabang" required>
                     </div>
+                    <div class="form-group">
+                        <label for="phone">No. HP</label>
+                        <input type="tel" class="form-control" name="phone" placeholder="(628xxxxxx)" required>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
@@ -101,7 +108,10 @@
                     <div class="form-group">
                         <label for="location">Lokasi Cabang</label>
                         <input type="text" class="form-control" name="location" id="editMarketplaceLocation"
-                               placeholder="Lokasi Cabang" required>
+                        placeholder="Lokasi Cabang" required>
+                        <label for="location">No. WA</label>
+                        <input type="text" class="form-control" name="location" id="editMarketplacePhone"
+                               placeholder="(628xxxxx))" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -154,10 +164,12 @@
             button.addEventListener('click', function () {
                 var id = this.getAttribute('data-id');
                 var location = this.getAttribute('data-location');
+                var phone = this.getAttribute('data-phone')
 
                 // Set the form action dynamically
                 document.getElementById('editMarketplaceForm').action = '<?= base_url('/superadmin/marketplace/updateMarketplace') ?>/' + id;
                 document.getElementById('editMarketplaceLocation').value = location;
+                document.getElementById('editMarketplacePhone').value = phone;
 
                 editMarketplaceModal.style.display = "block";
             });

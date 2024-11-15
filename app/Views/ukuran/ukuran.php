@@ -37,7 +37,7 @@ Ukuran Management
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title">Daftar Ukuran</h3>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#addUkuranModal">+
+                        <button class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addUkuranModal">+
                             Tambah Ukuran</button>
                     </div>
                     <div class="card-body">

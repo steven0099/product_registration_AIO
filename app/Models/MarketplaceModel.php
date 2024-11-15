@@ -8,5 +8,5 @@ class MarketplaceModel extends Model
 {
     protected $table = 'marketplaces';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['location'];
+    protected $allowedFields = ['location', 'phone'];
 }

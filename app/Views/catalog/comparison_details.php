@@ -653,6 +653,5 @@ td {
     .btn-custom-primary:hover {
         background-color: #0d2a46;
         border-color: #0d2a46;
-        transform: translateY(-2px);
     }
 </style>

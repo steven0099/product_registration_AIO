@@ -65,6 +65,7 @@
     .compare-checkbox, .compare-label {
         margin-right: 5px;
         vertical-align: middle;
+        display: none;
     }
 
     </style>
@@ -123,7 +124,7 @@
     }
     ?> | <?= esc($product['product_type']) ?>"
            data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>">
-    <label style="font-size:14px">Bandingkan</label>
+    <label class="compare-label" style="font-size:14px">Bandingkan</label>
 <button class="button" onclick="location.href='/catalog/details/<?= esc($product['id']) ?>'">Lihat Detail</button>
 </div>
 

@@ -71,6 +71,7 @@ class SuperadminController extends BaseController
 
     $data = [
         'location' => $this->request->getPost('location'),
+        'phone' => $this->request->getPost('phone'),
     ];
     if (!$marketplaceModel->save($data)) {
         return redirect()->back()->with('error', 'Failed to add Marketplace.');
@@ -86,6 +87,7 @@ class SuperadminController extends BaseController
 
         $data = [
             'location' => $this->request->getPost('location'),
+            'phone' => $this->request->getPost('phone'),
         ];
         // Update the Brand  in the database
         if (!$marketplaceModel->update($id, $data)) {

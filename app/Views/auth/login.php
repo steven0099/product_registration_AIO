@@ -45,17 +45,18 @@
       <div id="particles_effect" class="particles-effect"></div>
     <div class="container">
       <div class="row align-items-center justify-content-md-center mt-5">
-        <div class="col-lg-6  text-center ">
+        <div class="col-lg-6 mt-5  text-center ">
           <img
             class="logo-utdi"
+            style="margin-top:45px"
             src="static\img\aio.png"
             width="80%"
             title="logo AIO"
             alt="logo AIO"
           />
         </div>
-        <div class="col-lg-6">
-          <h2 class="font-alt text-warning mt-4 text-center">Login User <br>Product Registration</h2>
+        <div class="col-lg-6 mt-5">
+          <h2 class="font-alt text-warning mt-5 text-center">Login User <br>Product Registration</h2>
           <h6 class="white-color-light text-center"> </h6>
           <form
             id="loginForm"

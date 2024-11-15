@@ -47,7 +47,7 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('thank_you', 'ProductController::thank_you');
 });
 
-$routes->group('catalog', ['filter' => 'auth'], function ($routes) {
+$routes->group('catalog', function ($routes) {
 $routes->get('', 'CatalogController::catalog');
 $routes->get('details/(:num)', 'CatalogController::details/$1');
 $routes->get('filterProducts', 'CatalogController::filterProducts');
@@ -165,6 +165,11 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->post('garansi_motor/saveGaransiMotor', 'Admin\GaransiMotorController::saveGaransiMotor');
     $routes->post('garansi_motor/updateGaransiMotor/(:num)', 'Admin\GaransiMotorController::updateGaransiMotor/$1');
     $routes->post('garansi_motor/deleteGaransiMotor/(:num)', 'Admin\GaransiMotorController::deleteGaransiMotor/$1');
+
+    $routes->get('garansi_panel', 'Admin\GaransiPanelController::index');
+    $routes->post('garansi_panel/saveGaransiPanel', 'Admin\GaransiPanelController::saveGaransiPanel');
+    $routes->post('garansi_panel/updateGaransiPanel/(:num)', 'Admin\GaransiPanelController::updateGaransiPanel/$1');
+    $routes->post('garansi_panel/deleteGaransiPanel/(:num)', 'Admin\GaransiPanelController::deleteGaransiPanel/$1');
 
     $routes->get('garansi_service', 'Admin\GaransiServiceController::index');
     $routes->post('garansi_service/saveGaransiService', 'Admin\GaransiServiceController::saveGaransiService');

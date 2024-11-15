@@ -35,60 +35,47 @@
         /* Ensures text and images overlay the watermark */
     }
 
-    .carousel-control-prev {
-        top: 51%;
-        /* Center vertically */
-        transform: translateY(-50%);
-        /* Adjust for perfect centering */
-        width: 5%;
-        /* Reduce width if needed */
-        background: none;
-        /* Remove default background */
-        color: #000;
-        /* Set color if needed for visibility */
-        left: -10%;
-        /* Position to the left outside the image */
-        margin-left: 15px;
-    }
 
-    .carousel-control-next {
-        top: 43%;
-        /* Center vertically */
-        transform: translateY(-50%);
-        /* Adjust for perfect centering */
-        width: 5%;
-        /* Reduce width if needed */
-        background: none;
-        /* Remove default background */
-        color: #000;
-        /* Set color if needed for visibility */
-        right: -99%;
-        /* Position to the right outside the image */
-        margin-left: 17px;
-    }
+.carousel-control-prev {
+    left: -43px; /* Move the button to the left of the carousel */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: none;
+    color: #000;
+    cursor: pointer;
+    z-index: 10;
+}
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: #000;
-        /* Make the icons semi-transparent */
-        border: 1px solid #000;
-        color: #000;
-        border-radius: 50%;
-        padding: 20px;
-        /* Increase padding for a larger click area */
-    }
+.carousel-control-next {
+    right: -20px; /* Move the button to the right of the carousel */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: none;
+    color: #000;
+    cursor: pointer;
+    z-index: 10;
+}
 
-    .carousel-item img {
-        max-width: 540px;
-        height: 350px;
-        border-radius: 10px;
-    }
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 10px; /* Adjust padding to make the click area larger */
+}
 
-    .carousel-item iframe {
-        max-width: 540px;
-        height: 350px;
-        border-radius: 10px;
-    }
+.carousel-item img, .carousel-item iframe {
+    max-width: 495px;
+    height: 350px;
+    border-radius: 10px;
+}
 
     .thumbnail-images {
         display: flex;
@@ -114,9 +101,8 @@
     }
 
     .thumbnail-images img.active {
-        border: 2px;
-        border-color: #0daff0;
-    }
+    border: 2px solid #0daff0;
+}
 
     .product-description {
         padding: 50px;
@@ -206,22 +192,34 @@
 
     .product-container {
         display: flex;
-        overflow-x: auto;
+        overflow-x: hidden;
         scroll-behavior: smooth;
         gap: 10px;
         width: 100%;
+        overflow-y: hidden;
     }
 
     .product-item .card-title{
         color: #000000;
         margin-bottom:1px;
+        font-size:14px;
     }
 
     .product-item a{
+        position: absolute;
         color: #fff;
+        bottom:5px;
+        left:10px;
         background-color: #0daff0;
         border: #0d2a46;
         margin-bottom:1px;
+    }
+
+    .product-item .card img {
+        width: 100%;
+        padding:5px;
+        height: 125px; /* Increase height for better image focus */
+        object-fit: cover;
     }
     </style>
 </head>
@@ -231,16 +229,6 @@
         <div class="row">
             <!-- Carousel Gambar Produk -->
             <div class="col-md-6">
-                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                 <div id="productCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -285,7 +273,17 @@
                         </div>
                         <?php endif; ?>
                     </div>
-
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                 </div>
 
                 <!-- Thumbnail Gambar Produk -->
@@ -614,19 +612,18 @@
 
                 <div class="recommended-carousel">
                     <!-- Left Arrow -->
-                    <button class="carousel-control-prev-icon" onclick="scrollProductLeft()"></button>
+                    <button class="carousel-control-prev-icon" style="right:5px;" onclick="scrollProductLeft()"></button>
 
                     <!-- Product Container -->
                     <div class="product-container">
                         <?php foreach ($relatedProducts as $product): ?>
                         <div class="product-item">
-                            <div class="card" style="width: 250px;">
+                            <div class="card" style="width: 250px; height:270px;">
                                 <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>"
-                                    class="card-img-top" alt="Gambar Produk" style="height: 200px; object-fit: cover;">
+                                    class="card-img-top" alt="Gambar Produk" >
                                 <div class="card-body p-2">
-                                    <h5 class="card-title"><?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?></h5>
-                                    <p class="card-title"><?= esc($product['category']) ?></p>
-                                    <p class="card-title"><?= esc($product['subcategory']) ?></p>
+                                    <h5 class="card-title"><strong><?= esc($product['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
+                                    <p class="card-title"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?></p>
                                     <!-- harga 
                                     <?php if ($product['harga'] != null): ?>
                                     <p class="card-text"><strong><?= esc($product['harga']) ?></strong></p>
@@ -653,7 +650,7 @@
                     </div>
 
                     <!-- Right Arrow -->
-                    <button class="carousel-control-next-icon" onclick="scrollProductRight()"></button>
+                    <button class="carousel-control-next-icon" style="left:5px;" onclick="scrollProductRight()"></button>
                 </div>
             </div>
 
@@ -705,7 +702,7 @@ document.querySelectorAll('.thumbnail-images img').forEach((thumbnail, index) =>
         // Check the number of thumbnails
         if (thumbnails.length === 7) {
             thumbnails.forEach(thumbnail => {
-                thumbnail.style.width = '80px'; // Set width to 60px for 7 thumbnails
+                thumbnail.style.width = '70px'; // Set width to 60px for 7 thumbnails
             });
         } else {
             thumbnails.forEach(thumbnail => {
@@ -729,7 +726,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Construct the WhatsApp link with selected location and product details
             const whatsappLink =
-                `https://wa.me/6287822297790?text=Halo%20CS%20AIO%20Store,%20saya%20ingin%20bertanya%20mengenai%20produk%20${brand}%20${productType}%0aApakah%20ready%20di%20AIO%20Store%20${location}?`;
+                `https://wa.me/${phone}?text=Halo%20CS%20AIO%20Store!%0asaya%20ingin%20bertanya%20mengenai%20produk%20${brand}%20${productType}%0aApakah%20ready%20di%20AIO%20Store%20${location}?`;
 
             // Open WhatsApp link in a new tab
             window.open(whatsappLink, '_blank');

@@ -101,7 +101,7 @@
         <?= csrf_field() ?>
         <div class="form-group">
             <label for="value">Garansi Sparepart (Tahun)</label>
-            <input type="text" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)">
+            <input type="number" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -117,7 +117,7 @@
         <?= csrf_field() ?> 
           <div class="form-group">
             <label for="value">Garansi Sparepart (Tahun)</label>
-            <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)" required>
+            <input type="number" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)" required>
           </div>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
