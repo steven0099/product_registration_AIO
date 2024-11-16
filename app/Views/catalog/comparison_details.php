@@ -1,6 +1,7 @@
 <head>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 <a href="/catalog" class="breadcrumb-link">Beranda</a> 
-<span class="breadcrumb-separator">/</span> 
+<span class="breadcrumb-separator"></span> 
 <span class="breadcrumb-product">Perbandingan Produk</span>
 
 
@@ -481,15 +482,18 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
     </table>
 <style>
 
+a{
+    font-family: Arial, sans-serif;   
+}
 .breadcrumb-link,
-.breadcrumb-separator,
 .breadcrumb-product {
     display: inline; /* Keeps all elements on the same line */
     font-family: Arial, sans-serif; /* Ensures Arial font for all */
 }
 
 .breadcrumb-separator {
-    font-family: Arial, sans-serif; /* This will ensure the separator uses Arial as well */
+    font-family: FontAwesome; /* This will ensure the separator uses Arial as well */
+    font-size:12px;
 }
 
 /* Product grid styling */
@@ -515,9 +519,6 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
     padding-bottom: 50px; /* Ensure there's space for the button */
 }
 
-a {
-    font-family: arial;
-}
 .comparison-product-card .product-image {
     width: 100%;
     height: 150px;

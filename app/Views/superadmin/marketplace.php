@@ -109,9 +109,9 @@
                         <label for="location">Lokasi Cabang</label>
                         <input type="text" class="form-control" name="location" id="editMarketplaceLocation"
                         placeholder="Lokasi Cabang" required>
-                        <label for="location">No. WA</label>
-                        <input type="text" class="form-control" name="location" id="editMarketplacePhone"
-                               placeholder="(628xxxxx))" required>
+                        <label for="phone">No. WA</label>
+                        <input type="tel" class="form-control" name="phone" id="editMarketplacePhone"
+                               placeholder="(628xxxxx)" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

@@ -47,10 +47,13 @@ class CatalogController extends BaseController
             $query->groupStart()  // Start of the OR condition group
                 ->like('product_type', $search)
                 ->orLike('brand', $search)  // Searching both product_type and brand
+                ->orLike('capacity', $search)  // Searching both product_type and brand
+                ->orLike('id', $search)  // Searching both product_type and brand
                 ->groupEnd();  // End of the OR condition group
         }
     
-        // Apply sorting
+        $sort = $this->request->getGet('sort') ?? 'default';
+
         switch ($sort) {
             case 'name_asc':
                 $query->orderBy('product_type', 'ASC');
@@ -59,15 +62,16 @@ class CatalogController extends BaseController
                 $query->orderBy('product_type', 'DESC');
                 break;
             case 'capacity_asc':
-                $query->orderBy('capacity', 'ASC');
+                $query->orderBy('capacity' ?? 'ukuran', 'ASC'); // Handle null capacities
                 break;
             case 'capacity_desc':
-                $query->orderBy('capacity', 'DESC');
+                $query->orderBy('capacity' ?? 'ukuran', 'DESC');
                 break;
             default:
-                $query->orderBy('id', 'DESC');
+                $query->orderBy('id', 'ASC'); // Default sorting
                 break;
         }
+        
         
         // Pagination
         $perPage = 15;

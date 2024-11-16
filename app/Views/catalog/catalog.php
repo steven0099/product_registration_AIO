@@ -127,16 +127,15 @@ Katalog Digital
 
         <!-- Sort dropdown on the rightmost -->
         <div class="col-md-6 d-flex align-items-center justify-content-end">
-            <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                <select style="width: 250px" id="sort" name="sort" class="form-control">
-                    <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
-                    <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
-                    <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
-                    <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
-                </select>
-                <button type="submit" class="btn btn-primary ml-1">Urutkan</button>
-            </form>
-        </div>
+    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
+        <select style="width: 250px" id="sort" name="sort" class="form-control">
+            <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
+            <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
+            <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
+            <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
+        </select>
+    </form>
+</div>
     </div>
 
 
@@ -185,6 +184,7 @@ Katalog Digital
 <?= $this->section('js') ?>
 <script>
 $(document).ready(function() {
+
     // Trigger filtering on any change in dropdowns
     $('#category, #subcategory, #capacity, #sort').on('change', function() {
         filterProducts();
@@ -671,6 +671,23 @@ function resetComparisonFilters() {
     // Optionally, close the comparison widget if no products are selected
     closeComparisonWidget();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+        const sortDropdown = document.getElementById("sort");
+
+        if (sortDropdown) {
+            sortDropdown.addEventListener("change", function () {
+                const selectedSort = this.value;
+                const currentUrl = new URL(window.location.href);
+
+                // Update the "sort" parameter in the URL
+                currentUrl.searchParams.set("sort", selectedSort);
+
+                // Redirect to the new URL
+                window.location.href = currentUrl.toString();
+            });
+        }
+    });
 
 </script>
 <?= $this->endSection() ?>

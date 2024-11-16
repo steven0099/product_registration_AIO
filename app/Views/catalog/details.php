@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/catalog">Beranda</a></li>
-            <li class="breadcrumb-item active">Rincian Produk</li>
-        </ol>
+    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Beranda</a> 
+<span class="breadcrumb-separator"></span> 
+<span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Produk</span>
     </div><!-- /.col -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Produk</title>
@@ -103,6 +104,10 @@
     .thumbnail-images img.active {
     border: 2px solid #0daff0;
 }
+
+.breadcrumb-separator {
+        font-family: FontAwesome;
+    }
 
     .product-description {
         padding: 50px;
@@ -360,7 +365,6 @@
                     <a id="locationButton"
                         class="btn btn-success btn-lg dropdown-toggle d-inline-flex align-items-center"
                         data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                        <i class="fab fa-whatsapp me-2"></i>
                         <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
                             style="width: 24px; height: 24px; margin-right: 8px;">
                         Hubungi Kami
@@ -368,7 +372,7 @@
                     <ul class="dropdown-menu" aria-labelledby="locationButton">
                         <li class="dropdown-item">Pilih Cabang AIO Store:</li>
                         <?php foreach ($marketplace as $item): ?>
-                        <li><a class="dropdown-item" href="#" data-location="<?= $item['location'] ?>">AIO Store
+                        <li><a class="dropdown-item" href="#" data-location="<?= $item['location'] ?>" data-phone="<?= $item['phone'] ?>">AIO Store
                                 <?= $item['location'] ?></a></li>
                         <?php endforeach; ?>
                     </ul>
@@ -718,11 +722,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const brand = "<?= urlencode($product['brand']) ?>";
     const productType = "<?= urlencode($product['product_type']) ?>";
 
+
+
     // Handle dropdown item click and redirect to WhatsApp in a new tab
     document.querySelectorAll(".dropdown-item").forEach(item => {
         item.addEventListener("click", function(event) {
             event.preventDefault(); // Prevent default link behavior
             const location = this.getAttribute("data-location");
+            const phone = this.getAttribute("data-phone");
 
             // Construct the WhatsApp link with selected location and product details
             const whatsappLink =
