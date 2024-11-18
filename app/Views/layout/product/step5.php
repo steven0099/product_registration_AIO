@@ -513,7 +513,8 @@
                                         </table>
 
                                         <!-- Submission Information -->
-                                        <p class="font-weight-bold">Diajukan Atas Nama: <?= esc($data['submitted_by']) ?></p>
+                                        <p class="font-weight-bold">Diajukan Atas Nama: <?= esc($data['submitted_by']) ?></p><br>
+                                        <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
                                         <div class="note text-danger font-italic">*Harap dicek kembali.</div>
 
                                     </div> <!-- End of row -->

@@ -227,12 +227,6 @@
             </li>
         <?php endif; ?>
       </ul>
-      <li class="nav-item">
-              <a href="/reset/reset-password" class="nav-link <?= (uri_string() == 'superadmin/user/reset') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Ganti Password</p>
-              </a>
-            </li>
     </nav>
   </aside>
 </div>

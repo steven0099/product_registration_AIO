@@ -323,6 +323,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
                                         <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
                                     </div>
+                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a>
 
                                     <div class="pull-left">
                                         <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />

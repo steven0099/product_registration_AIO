@@ -65,26 +65,35 @@ class UserController extends BaseController
                 return redirect()->to('superadmin/user')->with('success', 'User created successfully');
 }
 
-public function editUser()
-{   
-    return view('user/edit_user');
+public function editUser($id)
+{
+    $userModel = new UserModel();
+    $user = $userModel->find($id);
+
+    if (!$user) {
+        return redirect()->to('/superadmin/user')->with('error', 'User not found.');
+    }
+
+    return view('user/edit_user', ['user' => $user]);
 }
+
 
 public function updateUser($id)
 {
-
     $userModel = new UserModel();
 
+    // Retrieve input data from the request
     $data = [
-        'name' => $data['name'],
-        'brand' => $data['brand'],
-        'username' => $data['username'],
-        'email'    => $data['email'],
-        'address' => $data['address'],
-        'phone' => $data['phone'],
-        'role'     => $data['role'],  // 'admin' or 'user'
+        'name' => $this->request->getPost('name'),
+        'brand' => ($this->request->getPost('brand') ?? ''),
+        'username' => $this->request->getPost('username'),
+        'email' => $this->request->getPost('email'),
+        'address' => $this->request->getPost('address'),
+        'phone' => $this->request->getPost('phone'),
+        'role' => $this->request->getPost('role'),  // 'admin' or 'user'
     ];
-    // Update the Kategori  in the database
+
+    // Update the user in the database
     if (!$userModel->update($id, $data)) {
         return redirect()->back()->with('error', 'Failed to update User.');
     }
@@ -98,4 +107,31 @@ public function deleteUser($id)
     $userModel->delete($id);
     return redirect()->to('/superadmin/user');
 }
+
+public function resetPassword($id)
+{
+    $userModel = new UserModel();
+
+    // Fetch the user's details
+    $user = $userModel->find($id);
+
+    if (!$user) {
+        return redirect()->back()->with('error', 'User not found.');
+    }
+
+    // Generate a temporary password
+    $temporaryPassword = bin2hex(random_bytes(4)); // 8-character random string
+    $hashedPassword = password_hash($temporaryPassword, PASSWORD_DEFAULT);
+
+    // Update the user's password
+    if (!$userModel->update($id, ['password' => $hashedPassword])) {
+        return redirect()->back()->with('error', 'Failed to reset password.');
+    }
+
+    // Replace (name) with the user's name in the success message
+    $userName = $user['name']; // Assuming 'name' is the column for the user's name
+    return redirect()->back()->with('success', 'Password User ' . $userName . ' terganti, Password Sementara: ' . $temporaryPassword);
+}
+
+
 }

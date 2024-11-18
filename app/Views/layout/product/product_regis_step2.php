@@ -252,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
+                                                <div class="form-group-s row">
                                                     <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
                                                     <div class="col-sm-8">
                                                         <div class="form-group-s" id="product-stand-field" style="display: flex">
@@ -266,7 +266,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
+                                                <div class="form-group-s row">
                                                     <label for="package_dimensions" class="col-sm-4 col-form-label">Dimensi Kemasan Produk (P x L x T)</label>
                                                     <div class="col-sm-8">
                                                         <div style="display: flex;">
@@ -376,6 +376,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>
 
                                     <div class="pull-left">
+                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
                                         <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
@@ -442,8 +443,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (dimensiProdukLabel) dimensiProdukLabel.innerText = 'Dimensi Produk Tanpa Stand (P x L x T cm)';
                 if (dimensiPStandLabel) dimensiPStandLabel.innerText = 'Dimensi Produk Dengan Stand (P x L x T cm)';
                 if (PanelLabel) PanelLabel.innerText = 'Resolusi Panel';
-                if (dimensiProdukStand) dimensiProdukStand.style.display = 'block';
-                if (resolusiPanel) resolusiPanel.style.display = 'block';
+                if (dimensiProdukStand) dimensiProdukStand.style.display = 'flex';
+                if (resolusiPanel) resolusiPanel.style.display = 'flex';
             } else {
                 if (dimensiProdukLabel) dimensiProdukLabel.innerText = 'Dimensi Produk (P x L x T cm)';
                 if (dimensiPStandLabel) dimensiPStandLabel.innerText = '';

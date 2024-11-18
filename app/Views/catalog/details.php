@@ -615,47 +615,39 @@
                 </div>
 
                 <div class="recommended-carousel">
-                    <!-- Left Arrow -->
-                    <button class="carousel-control-prev-icon" style="right:5px;" onclick="scrollProductLeft()"></button>
+    <!-- Left Arrow -->
+    <button class="carousel-control-prev-icon" style="right:5px;" onclick="scrollProductLeft()"></button>
 
-                    <!-- Product Container -->
-                    <div class="product-container">
-                        <?php foreach ($relatedProducts as $product): ?>
-                        <div class="product-item">
-                            <div class="card" style="width: 250px; height:270px;">
-                                <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>"
-                                    class="card-img-top" alt="Gambar Produk" >
-                                <div class="card-body p-2">
-                                    <h5 class="card-title"><strong><?= esc($product['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
-                                    <p class="card-title"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?></p>
-                                    <!-- harga 
-                                    <?php if ($product['harga'] != null): ?>
-                                    <p class="card-text"><strong><?= esc($product['harga']) ?></strong></p>
-                                    <?php elseif ($product['harga'] == null): ?>
-                                    <p class="card-text"><strong>Harga Belum Ditentukan</strong></p>
-                                    <?php endif; ?> -->
-
-                                    <p class="card-text">
-                                        <?= !empty($product['capacity']) ? esc($product['capacity']) : 
-                                (!empty($product['ukuran']) ? esc($product['ukuran']) : 
-                                (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
-                                    esc($product['kapasitas_air_dingin']) . '/' . esc($product['kapasitas_air_panas'] . ' Liter') : 
-                                    null)) ?>
-                                        <?php if  ($product['subcategory'] == 'AIR PURIFIER'): ?>
-                                        <?= esc($product['kapasitas_air_dingin']) . ' M²'?>
-                                        <?php endif; ?>
-                                    </p>
-                                    <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
-                                        class="btn btn-primary">Lihat Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <!-- Right Arrow -->
-                    <button class="carousel-control-next-icon" style="left:5px;" onclick="scrollProductRight()"></button>
+    <!-- Product Container -->
+    <div class="product-container">
+        <?php foreach ($relatedProducts as $relproduct): ?>
+        <a href="<?= base_url('catalog/details/' . esc($relproduct['id'])) ?>" class="product-item" style="text-decoration: none; color: inherit;">
+            <div class="card" style="width: 250px; height: 220px;">
+                <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" class="card-img-top" alt="Gambar Produk">
+                <div class="card-body p-2">
+                    <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
+                    <p class="card-title"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?></p>
+                    
+                    <p class="card-text">
+                        <?= !empty($relproduct['capacity']) ? esc($relproduct['capacity']) : 
+                            (!empty($relproduct['ukuran']) ? esc($relproduct['ukuran']) : 
+                            (!empty($relproduct['kapasitas_air_dingin']) && !empty($relproduct['kapasitas_air_panas']) ? 
+                                esc($relproduct['kapasitas_air_dingin']) . '/' . esc($relproduct['kapasitas_air_panas'] . ' Liter') : 
+                                null)) ?>
+                        <?php if  ($relproduct['subcategory'] == 'AIR PURIFIER'): ?>
+                        <?= esc($relproduct['kapasitas_air_dingin']) . ' M²' ?>
+                        <?php endif; ?>
+                    </p>
                 </div>
+            </div>
+        </a>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="carousel-control-next-icon" style="left:5px;" onclick="scrollProductRight()"></button>
+</div>
+
             </div>
 
 
@@ -717,29 +709,30 @@ document.querySelectorAll('.thumbnail-images img').forEach((thumbnail, index) =>
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Get product details for WhatsApp message
-    const brand = "<?= urlencode($product['brand']) ?>";
-    const productType = "<?= urlencode($product['product_type']) ?>";
-
-
-
+document.addEventListener("DOMContentLoaded", function () {
     // Handle dropdown item click and redirect to WhatsApp in a new tab
     document.querySelectorAll(".dropdown-item").forEach(item => {
-        item.addEventListener("click", function(event) {
+        item.addEventListener("click", function (event) {
             event.preventDefault(); // Prevent default link behavior
-            const location = this.getAttribute("data-location");
-            const phone = this.getAttribute("data-phone");
 
-            // Construct the WhatsApp link with selected location and product details
+            // Fetch product details dynamically
+            const brand = encodeURIComponent("<?= $product['brand'] ?>"); // Use correct server-side variables
+            const productType = encodeURIComponent("<?= $product['product_type'] ?>");
+
+            // Fetch location and phone dynamically from the clicked item
+            const location = encodeURIComponent(this.getAttribute("data-location"));
+            const phone = encodeURIComponent(this.getAttribute("data-phone"));
+
+            // Construct the WhatsApp link
             const whatsappLink =
-                `https://wa.me/${phone}?text=Halo%20CS%20AIO%20Store!%0asaya%20ingin%20bertanya%20mengenai%20produk%20${brand}%20${productType}%0aApakah%20ready%20di%20AIO%20Store%20${location}?`;
+                `https://wa.me/${phone}?text=Halo%20CS%20AIO%20Store!%0ASaya%20ingin%20bertanya%20mengenai%20produk%20${brand}%20${productType}%0AApakah%20ready%20di%20AIO%20Store%20${location}?`;
 
             // Open WhatsApp link in a new tab
             window.open(whatsappLink, '_blank');
         });
     });
 });
+
 
 
 </script>

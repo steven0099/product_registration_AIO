@@ -64,6 +64,11 @@ class AuthController extends BaseController
         $userModel = new \App\Models\UserModel();
         $user = $userModel->find(session()->get('id')); 
     
+        // Check if user exists
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+    
         // Check if current password is correct
         if (!password_verify($current_password, $user['password'])) {
             return redirect()->back()->with('error', 'Current password is incorrect.');
@@ -77,8 +82,21 @@ class AuthController extends BaseController
         // Update the user's password in the database
         $userModel->update($user['id'], ['password' => password_hash($new_password, PASSWORD_DEFAULT)]);
     
-        return redirect()->to('/')->with('success', 'Password successfully updated.');
+        // Redirect based on user role
+        switch ($user['role']) { // Assuming 'role' column exists in your users table
+            case 'superadmin':
+                return redirect()->to('/superadmin/dashboard')->with('success', 'Password successfully updated.');
+            case 'admin':
+                return redirect()->to('/admin/dashboard')->with('success', 'Password successfully updated.');
+            case 'user':
+                return redirect()->to('/product/step1')->with('success', 'Password successfully updated.');
+            case 'visitor':
+                return redirect()->to('/catalog')->with('success', 'Password successfully updated.');
+            default:
+                return redirect()->to('/')->with('success', 'Password successfully updated.');
+        }
     }
+    
     
     public function noAccess()
 {

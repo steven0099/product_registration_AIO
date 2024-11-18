@@ -23,7 +23,7 @@ Katalog Digital
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item active">Katalog Digital</li>
+                <li class="breadcrumb-item"><a href="/catalog">Katalog digital</a></li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -133,6 +133,8 @@ Katalog Digital
             <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
             <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
             <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
+            <option value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>Produk Lama - Baru</option>
+            <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Produk Baru - Lama</option>
         </select>
     </form>
 </div>
@@ -313,7 +315,6 @@ $(document).ready(function() {
 
     console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
 
-    // Update product grid content with loading indicator
     $('#productGrid').html('<div class="loader">Loading...</div>');
 
     $.ajax({
@@ -672,22 +673,301 @@ function resetComparisonFilters() {
     closeComparisonWidget();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-        const sortDropdown = document.getElementById("sort");
+    document.addEventListener("DOMContentLoaded", function () {
+    const sortDropdown = document.getElementById("sort");
+    const searchInput = document.getElementById("search");
+    const filterInputs = document.querySelectorAll("input[name='category'], input[name='subcategory'], input[name='capacity']");
 
-        if (sortDropdown) {
-            sortDropdown.addEventListener("change", function () {
-                const selectedSort = this.value;
-                const currentUrl = new URL(window.location.href);
+    // Helper function to update the URL with current filters, search, and sorting
+    const updateUrlWithFilters = () => {
+        const url = new URL(window.location.href);
+        const search = searchInput ? searchInput.value : '';
+        const sort = sortDropdown ? sortDropdown.value : '';
 
-                // Update the "sort" parameter in the URL
-                currentUrl.searchParams.set("sort", selectedSort);
+        // Update URL with search and sort parameters
+        if (search) {
+            url.searchParams.set("search", search);
+        } else {
+            url.searchParams.delete("search");
+        }
 
-                // Redirect to the new URL
-                window.location.href = currentUrl.toString();
-            });
+        if (sort) {
+            url.searchParams.set("sort", sort);
+        } else {
+            url.searchParams.delete("sort");
+        }
+
+        // Manually handle filter inputs (checkboxes, radio buttons, and text inputs)
+        filterInputs.forEach((input) => {
+            // For checkboxes and radio buttons: include the parameter if it's checked
+            if ((input.type === "checkbox" || input.type === "radio") && input.checked) {
+                url.searchParams.set(input.name, input.value);
+            }
+            // For text inputs, include the parameter when the field is not empty
+            if (input.type === "text" && input.value) {
+                url.searchParams.set(input.name, input.value);
+            }
+        });
+
+        return url;
+    };
+
+    // Event listener for sort change (without full page refresh)
+    if (sortDropdown) {
+        sortDropdown.addEventListener("change", function () {
+            const updatedUrl = updateUrlWithFilters();
+            history.pushState(null, '', updatedUrl.toString()); // Update URL without reloading page
+            filterProducts(); // Trigger filtering (reapply filters including sort)
+        });
+    }
+
+    // Event listener for search input
+    if (searchInput) {
+        searchInput.addEventListener("change", function () {
+            const updatedUrl = updateUrlWithFilters();
+            history.pushState(null, '', updatedUrl.toString());
+            filterProducts(); // Trigger filtering
+        });
+
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const updatedUrl = updateUrlWithFilters();
+                history.pushState(null, '', updatedUrl.toString());
+                filterProducts(); // Trigger filtering
+            }
+        });
+    }
+
+    // Event listeners for filter inputs (checkboxes and radios)
+    filterInputs.forEach((input) => {
+        input.addEventListener("change", function () {
+            const updatedUrl = updateUrlWithFilters();
+            history.pushState(null, '', updatedUrl.toString()); // Update URL without reloading page
+            filterProducts(); // Trigger filtering
+        });
+    });
+
+    // Function to filter products based on selected filters
+    function filterProducts() {
+        const category = $("input[name='category']:checked").val();
+        const subcategory = $("input[name='subcategory']:checked").val();
+        const capacity = $("input[name='capacity']:checked").val();
+        const search = $('#search').val();
+        const sort = $('#sort').val();
+
+        console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+
+        $.ajax({
+            url: "<?= base_url('catalog/filterProducts') ?>",
+            type: "GET",
+            data: {
+                category: category,
+                subcategory: subcategory,
+                capacity: capacity,
+                search: search,
+                sort: sort
+            },
+            success: function(response) {
+            console.log("Filter response:", response);
+            $('#productGrid').html(response); // Update product grid with filtered products
+
+            // Bind checkbox listeners again after the new content is loaded
+            bindCheckboxListener();
+
+            // Show the checkboxes if at least one filter is selected
+            if (category || subcategory || capacity) {
+                $('.compare-checkbox').show(); // Show checkboxes
+                $('.compare-label').show();
+            } else {
+                $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+                $('.compare-label').hide();
+            }
+
+            // Check if any products in the comparison list are still displayed
+            const comparisonContent = document.querySelector('.comparison-content');
+            if (comparisonContent.children.length > 0) {
+                openComparisonWidget(); // Display widget if products are in comparison
+            } else {
+                closeComparisonWidget(); // Hide widget if no products are selected
+            }
+        },
+        error: function() {
+            alert("Failed to filter products.");
+            $('#productGrid').html(''); // Clear product grid on error
         }
     });
+}
+
+    // Dynamically update subcategory options when category changes
+    $('#categoryContainer input[name="category"]').on('change', function() {
+        resetFilters();
+        const selectedCategory = $(this).val();
+
+        // Reset the capacity container visibility
+        $('#capacityContainer').hide();
+        $("input[name='capacity']").prop('checked', false); // Clear capacity selection
+
+        // Manually handle visibility of subcategory container
+        if (selectedCategory) {
+            // Fetch subcategories without triggering dropdown behavior
+            $.ajax({
+                url: '<?= base_url('catalog/getSubcategories') ?>',
+                type: 'GET',
+                data: { category: selectedCategory },
+                success: function(subcategories) {
+                    let subcategoryHTML = `
+                        <label class="filter-option">
+                            <input type="radio" name="subcategory" value="" checked>
+                            Semua Subkategori
+                        </label>
+                    `;
+                    
+                    subcategories.forEach(subcat => {
+                        subcategoryHTML += `
+                            <label class="filter-option">
+                                <input type="radio" name="subcategory" value="${subcat.subcategory_name}">
+                                ${subcat.subcategory_name}
+                            </label>
+                        `;
+                    });
+                    // Update subcategory container content
+                    $('#subcategoryContainer').html(subcategoryHTML);
+                    $('#subcategoryContainer');
+                    // Keep capacity container hidden until a subcategory is selected
+                    $('#capacityContainer').hide();
+                },
+                error: function() {
+                    alert("Failed to load subcategories.");
+                }
+            });
+        } else {
+            // Hide subcategory and capacity containers if no category is selected
+            $('#subcategoryContainer').hide();
+            $('#capacityContainer').hide();
+        }
+
+        filterProducts(); // Trigger filtering after category change
+    });
+
+    // Dynamically update capacity options when subcategory changes
+    $('#subcategoryContainer').on('change', "input[name='subcategory']", function() {
+        resetCapacity();
+        const selectedSubcategory = $(this).val();
+
+        // Manually show capacity container based on subcategory selection
+        if (selectedSubcategory) {
+            $('#capacityContainer').show(); // Show capacity container
+
+            $.ajax({
+                url: '<?= base_url('catalog/getCapacities') ?>',
+                type: 'GET',
+                data: { subcategory: selectedSubcategory },
+                success: function(response) {
+                    let capacityHTML = `
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="" checked>
+                            Semua
+                        </label>
+                    `;
+
+                    response.capacities.forEach(capacity => {
+                        if (capacity.value) {
+                            capacityHTML += `
+                                <label class="filter-option">
+                                    <input type="radio" name="capacity" value="${capacity.value}">
+                                    ${capacity.value}
+                                </label>
+                            `;
+                        } else if (capacity.size) {
+                            capacityHTML += `
+                                <label class="filter-option">
+                                    <input type="radio" name="capacity" value="${capacity.size}">
+                                    ${capacity.size}
+                                </label>
+                            `;
+                        }
+                    });
+
+                    // Update the capacity container
+                    $('#capacityContainer').html(capacityHTML);
+                },
+                error: function() {
+                    alert("Failed to load capacity options.");
+                }
+            });
+        } else {
+            $('#capacityContainer').hide(); // Hide capacity container if no subcategory is selected
+        }
+
+        filterProducts(); // Trigger filtering after subcategory change
+    });
+
+    // Trigger filtering when capacity is changed
+    $('#capacityContainer').on('change', "input[name='capacity']", function() {
+        filterProducts();
+    });
+
+    // Reset subcategory and capacity filters
+    function resetFilters() {
+        // Reset the subcategory filter to ' ' (unselected state)
+        $("input[name='subcategory']").prop('checked', false);
+
+        // Reset the capacity filter to ' ' (unselected state)
+        $("input[name='capacity']").prop('checked', false);
+
+        // Optionally, clear the subcategory and capacity containers
+        $('#subcategoryContainer').html('');
+        $('#capacityContainer').html('');
+
+        // Reset the comparison widget visibility
+        $('#comparisonWidget').hide(); // Hide comparison widget initially
+    }
+
+    function resetCapacity() {
+        // Reset the capacity filter to ' ' (unselected state)
+        $("input[name='capacity']").prop('checked', false);
+
+        // Optionally, clear the capacity container
+        $('#capacityContainer').html('');
+    }
+
+    // Apply filters from URL on page load
+    function applyFiltersFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get category, subcategory, and capacity values from URL
+        const category = urlParams.get('category');
+        const subcategory = urlParams.get('subcategory');
+        const capacity = urlParams.get('capacity');
+        const sort = urlParams.get('sort');
+
+        if (category) {
+            $(`input[name="category"][value="${category}"]`).prop('checked', true);
+            $('#categoryContainer').show(); // Show category container
+        }
+
+        if (subcategory) {
+            $(`input[name="subcategory"][value="${subcategory}"]`).prop('checked', true);
+            $('#subcategoryContainer').show(); // Show subcategory container
+        }
+
+        if (capacity) {
+            $(`input[name="capacity"][value="${capacity}"]`).prop('checked', true);
+            $('#capacityContainer').show(); // Show capacity container
+        }
+
+        if (sort) {
+            $('#sort').val(sort); // Set the sort dropdown
+        }
+    }
+
+    // Trigger the filter re-application on page load
+    applyFiltersFromUrl();
+});
+
+
+
 
 </script>
 <?= $this->endSection() ?>

@@ -61,7 +61,13 @@ class BrandController extends BaseController
     public function deleteBrand($id)
     {
         $brandModel = new BrandModel();
+        
+        if (!$brandModel->find($id)) {
+            return redirect()->to('/admin/brand')->with('error', 'Subcategory not found.');
+        }
+        
         $brandModel->delete($id);
-        return redirect()->to('/admin/brand');
+        
+        return redirect()->to('/admin/brand')->with('success', 'Subcategory deleted successfully.');
     }
 }

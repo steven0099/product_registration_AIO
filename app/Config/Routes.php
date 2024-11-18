@@ -77,6 +77,7 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->get('user/addUser', 'Superadmin\UserController::addUser');
     $routes->post('user/saveUser', 'Superadmin\UserController::saveUser');
     $routes->get('user/editUser/(:num)', 'Superadmin\UserController::editUser/$1');
+    $routes->post('user/resetPassword/(:num)', 'Superadmin\UserController::resetPassword/$1');
     $routes->post('user/updateUser/(:num)', 'Superadmin\UserController::updateUser/$1');
     $routes->get('user/deleteUser/(:num)', 'Superadmin\UserController::deleteUser/$1'); // Correct namespace
 
