@@ -2684,3 +2684,762 @@ DEBUG - 2024-11-18 09:40:35 --> Query Result: Array
 
 )
 
+INFO - 2024-11-18 09:42:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:05 --> CSRF token verified.
+INFO - 2024-11-18 09:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:12 --> getCapacities called with ID: 38
+INFO - 2024-11-18 09:43:12 --> Capacities fetched: [{"id":"61","subcategory_id":"38","value":"1.3 L"}]
+INFO - 2024-11-18 09:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:12 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:30 --> getCapacities called with ID: 35
+INFO - 2024-11-18 09:43:30 --> Capacities fetched: []
+INFO - 2024-11-18 09:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:30 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:33 --> getCapacities called with ID: 36
+INFO - 2024-11-18 09:43:33 --> Capacities fetched: []
+INFO - 2024-11-18 09:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:33 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:35 --> getCapacities called with ID: 35
+INFO - 2024-11-18 09:43:35 --> Capacities fetched: []
+INFO - 2024-11-18 09:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:43:35 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:44:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:19 --> getCapacities called with ID: 36
+INFO - 2024-11-18 09:44:19 --> Capacities fetched: []
+INFO - 2024-11-18 09:44:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:19 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:44:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:20 --> getUkuranTv called with ID: 32 - Result: [{"id":"8","subcategory_id":"32","size":"7 INCH"},{"id":"9","subcategory_id":"32","size":"8 INCH"},{"id":"10","subcategory_id":"32","size":"9 INCH"},{"id":"11","subcategory_id":"32","size":"10 INCH"}]
+INFO - 2024-11-18 09:44:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:20 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 09:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:22 --> getCapacities called with ID: 33
+INFO - 2024-11-18 09:44:22 --> Capacities fetched: []
+INFO - 2024-11-18 09:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:22 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:26 --> getCapacities called with ID: 34
+INFO - 2024-11-18 09:44:26 --> Capacities fetched: []
+INFO - 2024-11-18 09:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:26 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:27 --> getCapacities called with ID: 35
+INFO - 2024-11-18 09:44:27 --> Capacities fetched: []
+INFO - 2024-11-18 09:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:44:27 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:46:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:46:53 --> getCapacities called with ID: 20
+INFO - 2024-11-18 09:46:53 --> Capacities fetched: []
+INFO - 2024-11-18 09:46:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:46:54 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:47:04 --> getCapacities called with ID: 21
+INFO - 2024-11-18 09:47:04 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-18 09:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:47:04 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 09:47:08 --> CSRF token verified.
+INFO - 2024-11-18 09:47:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:47:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:47:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:47:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:31 --> getUkuranTv called with ID: 32 - Result: [{"id":"8","subcategory_id":"32","size":"7 INCH"},{"id":"9","subcategory_id":"32","size":"8 INCH"},{"id":"10","subcategory_id":"32","size":"9 INCH"},{"id":"11","subcategory_id":"32","size":"10 INCH"}]
+INFO - 2024-11-18 09:48:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:31 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 09:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:33 --> getCapacities called with ID: 33
+INFO - 2024-11-18 09:48:33 --> Capacities fetched: []
+INFO - 2024-11-18 09:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:33 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:37 --> getCapacities called with ID: 37
+INFO - 2024-11-18 09:48:37 --> Capacities fetched: []
+INFO - 2024-11-18 09:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:37 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:48:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:39 --> getCapacities called with ID: 38
+INFO - 2024-11-18 09:48:39 --> Capacities fetched: [{"id":"61","subcategory_id":"38","value":"1.3 L"}]
+INFO - 2024-11-18 09:48:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:39 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:41 --> getCapacities called with ID: 36
+INFO - 2024-11-18 09:48:41 --> Capacities fetched: []
+INFO - 2024-11-18 09:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:48:41 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:21:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:21:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:21:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:21:21 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:21:21 --> Capacities fetched: []
+INFO - 2024-11-18 11:21:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:21:21 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:23 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:23:23 --> Capacities fetched: []
+INFO - 2024-11-18 11:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:23 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:23:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:58 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:23:58 --> Capacities fetched: []
+INFO - 2024-11-18 11:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:23:58 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:24:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:24:23 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:24:23 --> Capacities fetched: []
+INFO - 2024-11-18 11:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:24:23 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:25:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:25:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:25:57 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:25:57 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:25:57 --> Capacities fetched: []
+INFO - 2024-11-18 11:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:42 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:43 --> getCapacities called with ID: 20
+INFO - 2024-11-18 11:26:43 --> Capacities fetched: []
+INFO - 2024-11-18 11:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:44 --> getCapacities called with ID: 21
+INFO - 2024-11-18 11:26:44 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-18 11:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:26:44 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:26:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:00 --> getCapacities called with ID: 4
+INFO - 2024-11-18 11:27:00 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-18 11:27:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:00 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:27:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:02 --> getCapacities called with ID: 28
+INFO - 2024-11-18 11:27:02 --> Capacities fetched: []
+INFO - 2024-11-18 11:27:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:02 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:04 --> getCapacities called with ID: 4
+INFO - 2024-11-18 11:27:04 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-18 11:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:04 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:27:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:07 --> getCapacities called with ID: 25
+INFO - 2024-11-18 11:27:07 --> Capacities fetched: []
+INFO - 2024-11-18 11:27:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:08 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 11:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:09 --> getCapacities called with ID: 24
+INFO - 2024-11-18 11:27:09 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-18 11:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:09 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 11:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:17 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-18 11:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:17 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 11:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:18 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-18 11:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:18 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 11:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:19 --> getUkuranTv called with ID: 17 - Result: []
+CRITICAL - 2024-11-18 11:27:19 --> Error: Class "App\Controllers\ResponseInterface" not found
+[Method: GET, Route: get-ukuran-tv/17]
+in APPPATH\Controllers\ProductController.php on line 321.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->getUkuranTv('17')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 11:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:20 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 11:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:29 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:27:29 --> Capacities fetched: []
+INFO - 2024-11-18 11:27:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:29 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:27:56 --> CSRF token verified.
+INFO - 2024-11-18 11:27:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:24 --> getCapacities called with ID: 6
+INFO - 2024-11-18 11:28:24 --> Capacities fetched: []
+INFO - 2024-11-18 11:28:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:24 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:25 --> getCapacities called with ID: 20
+INFO - 2024-11-18 11:28:25 --> Capacities fetched: []
+INFO - 2024-11-18 11:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:25 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:54 --> getUkuranTv called with ID: 31 - Result: [{"id":"5","subcategory_id":"31","size":"Kecil"},{"id":"6","subcategory_id":"31","size":"Sedang"},{"id":"7","subcategory_id":"31","size":"Besar"}]
+INFO - 2024-11-18 11:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:54 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 11:28:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:56 --> getUkuranTv called with ID: 32 - Result: [{"id":"8","subcategory_id":"32","size":"7 INCH"},{"id":"9","subcategory_id":"32","size":"8 INCH"},{"id":"10","subcategory_id":"32","size":"9 INCH"},{"id":"11","subcategory_id":"32","size":"10 INCH"}]
+INFO - 2024-11-18 11:28:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:56 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 11:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:57 --> getCapacities called with ID: 33
+INFO - 2024-11-18 11:28:57 --> Capacities fetched: []
+INFO - 2024-11-18 11:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:57 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 11:28:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:59 --> getCapacities called with ID: 34
+INFO - 2024-11-18 11:28:59 --> Capacities fetched: []
+INFO - 2024-11-18 11:28:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:28:59 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 11:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:01 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:29:01 --> Capacities fetched: []
+INFO - 2024-11-18 11:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:01 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:29:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:03 --> getCapacities called with ID: 36
+INFO - 2024-11-18 11:29:03 --> Capacities fetched: []
+INFO - 2024-11-18 11:29:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:03 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:29:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:04 --> getCapacities called with ID: 37
+INFO - 2024-11-18 11:29:04 --> Capacities fetched: []
+INFO - 2024-11-18 11:29:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:04 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 11:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:06 --> getCapacities called with ID: 38
+INFO - 2024-11-18 11:29:06 --> Capacities fetched: [{"id":"61","subcategory_id":"38","value":"1.3 L"}]
+INFO - 2024-11-18 11:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:06 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 11:29:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:11 --> getCapacities called with ID: 34
+INFO - 2024-11-18 11:29:11 --> Capacities fetched: []
+INFO - 2024-11-18 11:29:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:11 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 11:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:12 --> getCapacities called with ID: 35
+INFO - 2024-11-18 11:29:12 --> Capacities fetched: []
+INFO - 2024-11-18 11:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:29:13 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 11:32:45 --> CSRF token verified.
+INFO - 2024-11-18 11:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:33:07 --> CSRF token verified.
+INFO - 2024-11-18 11:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:34:09 --> CSRF token verified.
+INFO - 2024-11-18 11:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:34:18 --> CSRF token verified.
+INFO - 2024-11-18 11:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 11:34:19 --> Inserted new confirmation: Array
+(
+    [product_id] => 137
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => BEKO
+    [category] => SMALL APPLIANCES
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => DISPENSER GALON ATAS
+    [capacity] => 
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => 
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 5
+    [kapasitas_air_dingin] => 5
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => v
+    [advantage4] => d
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1731904459_a75c2d4347f8fa00cc11.jpg
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => 
+)
+
+INFO - 2024-11-18 11:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:20 --> CSRF token verified.
+INFO - 2024-11-18 11:56:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 11:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:00:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:00:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-18 12:00:23 --> mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist in C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\benya\Documents\GitHub\product_registration_AIO\app\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+#8 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+#9 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\benya\Documents\GitHub\product_registration_AIO\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\rewrite.php(44): require_once('C:\\Users\\benya\\...')
+#14 {main}
+CRITICAL - 2024-11-18 12:00:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+[Method: GET, Route: superadmin/marketplace]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 12:00:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 12:00:23 --> [Caused by] mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `marketplaces`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 12:00:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:00:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:00:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:56 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:56 --> getCapacities called with ID: 35
+INFO - 2024-11-18 12:21:56 --> Capacities fetched: []
+INFO - 2024-11-18 12:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:58 --> getCapacities called with ID: 36
+INFO - 2024-11-18 12:21:58 --> Capacities fetched: []
+INFO - 2024-11-18 12:21:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:21:59 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:02 --> getCapacities called with ID: 52
+INFO - 2024-11-18 12:22:02 --> Capacities fetched: []
+INFO - 2024-11-18 12:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:02 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:06 --> getUkuranTv called with ID: 51 - Result: [{"id":"17","subcategory_id":"51","size":"SEDANG"}]
+INFO - 2024-11-18 12:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:06 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:22:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:13 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:22:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:13 --> getCapacities called with ID: 45
+INFO - 2024-11-18 12:22:13 --> Capacities fetched: [{"id":"69","subcategory_id":"45","value":"1 TUNGKU"}]
+INFO - 2024-11-18 12:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:18 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:22:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:19 --> getUkuranTv called with ID: 50 - Result: [{"id":"16","subcategory_id":"50","size":"KECIL"}]
+INFO - 2024-11-18 12:22:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:20 --> getCapacities called with ID: 52
+INFO - 2024-11-18 12:22:20 --> Capacities fetched: []
+INFO - 2024-11-18 12:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:22:21 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:26 --> getCapacities called with ID: 35
+INFO - 2024-11-18 12:23:26 --> Capacities fetched: []
+INFO - 2024-11-18 12:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:26 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:29 --> getCapacities called with ID: 36
+INFO - 2024-11-18 12:23:29 --> Capacities fetched: []
+INFO - 2024-11-18 12:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:29 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:23:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:35 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:23:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:36 --> getUkuranTv called with ID: 50 - Result: [{"id":"16","subcategory_id":"50","size":"KECIL"}]
+INFO - 2024-11-18 12:23:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:39 --> getCapacities called with ID: 52
+INFO - 2024-11-18 12:23:39 --> Capacities fetched: []
+INFO - 2024-11-18 12:23:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:23:39 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:08 --> getCapacities called with ID: 35
+INFO - 2024-11-18 12:24:08 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:08 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:12 --> getCapacities called with ID: 36
+INFO - 2024-11-18 12:24:12 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:12 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:14 --> getCapacities called with ID: 35
+INFO - 2024-11-18 12:24:14 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:14 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:16 --> getCapacities called with ID: 52
+INFO - 2024-11-18 12:24:16 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:16 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:24 --> getCapacities called with ID: 46
+INFO - 2024-11-18 12:24:24 --> Capacities fetched: [{"id":"70","subcategory_id":"46","value":"1 TUNGKU"}]
+INFO - 2024-11-18 12:24:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:24 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:26 --> getCapacities called with ID: 52
+INFO - 2024-11-18 12:24:26 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:26 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:28 --> getCapacities called with ID: 53
+INFO - 2024-11-18 12:24:28 --> Capacities fetched: [{"id":"74","subcategory_id":"53","value":"500 ML"}]
+INFO - 2024-11-18 12:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:28 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:24:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:30 --> getCapacities called with ID: 54
+INFO - 2024-11-18 12:24:30 --> Capacities fetched: [{"id":"75","subcategory_id":"54","value":"2.4 L"}]
+INFO - 2024-11-18 12:24:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:31 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:32 --> getUkuranTv called with ID: 31 - Result: [{"id":"5","subcategory_id":"31","size":"Kecil"},{"id":"6","subcategory_id":"31","size":"Sedang"},{"id":"7","subcategory_id":"31","size":"Besar"}]
+INFO - 2024-11-18 12:24:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:33 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:37 --> getUkuranTv called with ID: 32 - Result: [{"id":"8","subcategory_id":"32","size":"7 INCH"},{"id":"9","subcategory_id":"32","size":"8 INCH"},{"id":"10","subcategory_id":"32","size":"9 INCH"},{"id":"11","subcategory_id":"32","size":"10 INCH"}]
+INFO - 2024-11-18 12:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:37 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:39 --> getCapacities called with ID: 33
+INFO - 2024-11-18 12:24:39 --> Capacities fetched: [{"id":"66","subcategory_id":"33","value":"1.2 L"}]
+INFO - 2024-11-18 12:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:39 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:40 --> getCapacities called with ID: 34
+INFO - 2024-11-18 12:24:40 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:41 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:42 --> getCapacities called with ID: 35
+INFO - 2024-11-18 12:24:42 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:42 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:43 --> getCapacities called with ID: 36
+INFO - 2024-11-18 12:24:43 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:43 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:45 --> getCapacities called with ID: 37
+INFO - 2024-11-18 12:24:45 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:45 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:46 --> getCapacities called with ID: 38
+INFO - 2024-11-18 12:24:46 --> Capacities fetched: [{"id":"61","subcategory_id":"38","value":"1.3 L"}]
+INFO - 2024-11-18 12:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:46 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:47 --> getCapacities called with ID: 41
+INFO - 2024-11-18 12:24:47 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:48 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:49 --> getCapacities called with ID: 42
+INFO - 2024-11-18 12:24:49 --> Capacities fetched: []
+INFO - 2024-11-18 12:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:49 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:51 --> getCapacities called with ID: 43
+INFO - 2024-11-18 12:24:51 --> Capacities fetched: [{"id":"67","subcategory_id":"43","value":"0.3 L"}]
+INFO - 2024-11-18 12:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:51 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:56 --> getCapacities called with ID: 45
+INFO - 2024-11-18 12:24:56 --> Capacities fetched: [{"id":"69","subcategory_id":"45","value":"1 TUNGKU"}]
+INFO - 2024-11-18 12:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:56 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:59 --> getCapacities called with ID: 44
+INFO - 2024-11-18 12:24:59 --> Capacities fetched: [{"id":"68","subcategory_id":"44","value":"20 L"}]
+INFO - 2024-11-18 12:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:24:59 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 12:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:01 --> getCapacities called with ID: 46
+INFO - 2024-11-18 12:25:01 --> Capacities fetched: [{"id":"70","subcategory_id":"46","value":"1 TUNGKU"}]
+INFO - 2024-11-18 12:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:01 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:04 --> getUkuranTv called with ID: 47 - Result: [{"id":"15","subcategory_id":"47","size":"BESAR"}]
+INFO - 2024-11-18 12:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:04 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:05 --> getCapacities called with ID: 48
+INFO - 2024-11-18 12:25:05 --> Capacities fetched: [{"id":"71","subcategory_id":"48","value":"4 SLICE"}]
+INFO - 2024-11-18 12:25:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:06 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:25:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:08 --> getCapacities called with ID: 49
+INFO - 2024-11-18 12:25:08 --> Capacities fetched: [{"id":"72","subcategory_id":"49","value":"1 L"}]
+INFO - 2024-11-18 12:25:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:08 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:25:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:10 --> getUkuranTv called with ID: 50 - Result: [{"id":"16","subcategory_id":"50","size":"KECIL"}]
+INFO - 2024-11-18 12:25:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:10 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:14 --> getUkuranTv called with ID: 51 - Result: [{"id":"17","subcategory_id":"51","size":"SEDANG"}]
+INFO - 2024-11-18 12:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:14 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:25:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:16 --> getCapacities called with ID: 53
+INFO - 2024-11-18 12:25:16 --> Capacities fetched: [{"id":"74","subcategory_id":"53","value":"500 ML"}]
+INFO - 2024-11-18 12:25:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:16 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:17 --> getCapacities called with ID: 54
+INFO - 2024-11-18 12:25:17 --> Capacities fetched: [{"id":"75","subcategory_id":"54","value":"2.4 L"}]
+INFO - 2024-11-18 12:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:18 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-18 12:25:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:21 --> getCapacities called with ID: 6
+INFO - 2024-11-18 12:25:21 --> Capacities fetched: [{"id":"73","subcategory_id":"6","value":"100 L"}]
+INFO - 2024-11-18 12:25:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:21 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:22 --> getCapacities called with ID: 20
+INFO - 2024-11-18 12:25:22 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:22 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:23 --> getCapacities called with ID: 21
+INFO - 2024-11-18 12:25:23 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-18 12:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:23 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:24 --> getCapacities called with ID: 22
+INFO - 2024-11-18 12:25:24 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:24 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:25 --> getCapacities called with ID: 23
+INFO - 2024-11-18 12:25:25 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:25 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:27 --> getCapacities called with ID: 4
+INFO - 2024-11-18 12:25:27 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-18 12:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:28 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:28 --> getCapacities called with ID: 28
+INFO - 2024-11-18 12:25:28 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:29 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:31 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:31 --> getCapacities called with ID: 9
+INFO - 2024-11-18 12:25:31 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-18 12:25:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:32 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:32 --> getCapacities called with ID: 10
+INFO - 2024-11-18 12:25:32 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:33 --> getCapacities called with ID: 11
+INFO - 2024-11-18 12:25:33 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:33 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:34 --> getCapacities called with ID: 12
+INFO - 2024-11-18 12:25:34 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:34 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:36 --> getCapacities called with ID: 13
+INFO - 2024-11-18 12:25:36 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:36 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:38 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:39 --> getCapacities called with ID: 24
+INFO - 2024-11-18 12:25:39 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-18 12:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:39 --> getCapacities called with ID: 25
+INFO - 2024-11-18 12:25:39 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:40 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:25:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:40 --> getCapacities called with ID: 26
+INFO - 2024-11-18 12:25:40 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:41 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:41 --> getCapacities called with ID: 27
+INFO - 2024-11-18 12:25:41 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:42 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-18 12:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:45 --> getCapacities called with ID: 29
+INFO - 2024-11-18 12:25:45 --> Capacities fetched: [{"id":"38","subcategory_id":"29","value":"42 L"},{"id":"39","subcategory_id":"29","value":"46 L"},{"id":"40","subcategory_id":"29","value":"47 L"},{"id":"41","subcategory_id":"29","value":"50 L"}]
+INFO - 2024-11-18 12:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:45 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:47 --> getCapacities called with ID: 30
+INFO - 2024-11-18 12:25:47 --> Capacities fetched: []
+INFO - 2024-11-18 12:25:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:48 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-18 12:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:50 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-18 12:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:50 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 12:25:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:51 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-18 12:25:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:51 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 12:25:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:52 --> getUkuranTv called with ID: 17 - Result: [{"id":"13","subcategory_id":"17","size":"50 INCH"}]
+INFO - 2024-11-18 12:25:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:52 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 12:25:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:53 --> getUkuranTv called with ID: 18 - Result: []
+CRITICAL - 2024-11-18 12:25:53 --> Error: Class "App\Controllers\ResponseInterface" not found
+[Method: GET, Route: get-ukuran-tv/18]
+in APPPATH\Controllers\ProductController.php on line 321.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->getUkuranTv('18')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 12:25:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:25:53 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 12:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:26:00 --> getUkuranTv called with ID: 17 - Result: [{"id":"13","subcategory_id":"17","size":"50 INCH"}]
+INFO - 2024-11-18 12:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:26:00 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 12:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:26:02 --> getUkuranTv called with ID: 18 - Result: []
+CRITICAL - 2024-11-18 12:26:02 --> Error: Class "App\Controllers\ResponseInterface" not found
+[Method: GET, Route: get-ukuran-tv/18]
+in APPPATH\Controllers\ProductController.php on line 321.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->getUkuranTv('18')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 12:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:26:02 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-18 12:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:26:06 --> getUkuranTv called with ID: 19 - Result: []
+CRITICAL - 2024-11-18 12:26:06 --> Error: Class "App\Controllers\ResponseInterface" not found
+[Method: GET, Route: get-ukuran-tv/19]
+in APPPATH\Controllers\ProductController.php on line 321.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->getUkuranTv('19')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 12:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 12:26:06 --> fetchWarrantyOptions type: garansi_panel
