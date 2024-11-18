@@ -66,9 +66,39 @@ Category
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Category</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
+                    <li class="breadcrumb-item active">Category</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3 class="card-title">List of Categories</h3>
+                        <button id="createCategoryBtn" class="btn btn-primary ml-auto">+ Create Category</button>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -89,6 +119,8 @@ Category
                                 </tr>
                             </thead>
                             <tbody>
+                            </thead>
+                            <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($kategori as $category): ?>
                                     <tr>
@@ -98,8 +130,13 @@ Category
                                             <button data-id="<?= esc($category['id']) ?>"
                                                 data-value="<?= esc($category['name']) ?>"
                                                 class="btn-edit btn btn-primary">
+                                                data-value="<?= esc($category['name']) ?>"
+                                                class="btn-edit btn btn-primary">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
+                                            <button class="btn-danger btn btn-delete" data-toggle="modal"
+                                                data-subcategory-id="<?= esc($category['id']) ?>"
+                                                data-target="#deleteBrandModal">
                                             <button class="btn-danger btn btn-delete" data-toggle="modal"
                                                 data-subcategory-id="<?= esc($category['id']) ?>"
                                                 data-target="#deleteBrandModal">
@@ -116,7 +153,31 @@ Category
         </div>
     </div>
 </section>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Modal for Adding Category -->
+<div id="catModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Add Category</h3>
+        <form method="post" action="<?= base_url('/kategori/saveKategori') ?>"
+            enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Category</label>
+                <input type="text" class="form-control" name="name"
+                    placeholder="Enter Category">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
 <!-- Modal for Adding Category -->
 <div id="catModal" class="modal">
     <div class="modal-content">
@@ -150,7 +211,6 @@ Category
         </form>
     </div>
 </div>
-
 <!-- Modal for Deleting Category -->
 <div id="deleteBrandModal" class="modal fade" tabindex="-1" role="dialog"
     aria-labelledby="deleteBrandModalLabel" aria-hidden="true">
@@ -168,8 +228,9 @@ Category
             <div class="modal-footer">
                 <form id="deleteForm" method="post" action="">
                     <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                    <button type="button" class="btn btn-secondary"
-                        id="cancelDeleteBtn">Cancel
+                    <button type="button" class="btn btn-secondary">
+    </div>
+</div>
                     </button>
                 </form>
             </div>
@@ -182,16 +243,17 @@ Category
 <?= $this->section('js') ?>
 <script>
     $('#example2').DataTable();
-
     // Modal for Adding Category
     var addModal = document.getElementById("catModal");
     var addBtn = document.getElementById("createCategoryBtn");
     var closeAddModal = document.getElementsByClassName("close")[0];
 
+
     addBtn.onclick = function() {
         addModal.style.display = "block";
     }
 
+\
     closeAddModal.onclick = function() {
         addModal.style.display = "none";
     }
@@ -202,6 +264,7 @@ Category
         }
     }
 
+
     // Modal for Editing Category
     var editModal = document.getElementById("editModal");
     var closeEditModal = document.getElementsByClassName("close")[1];
@@ -211,9 +274,9 @@ Category
             var id = this.getAttribute('data-id');
             var name = this.getAttribute('data-value');
 
-            // Set the form action and input name dynamically
             document.getElementById('editForm').action = '/kategori/updateKategori/' + id;
             document.getElementById('editValue').value = name;
+
 
             editModal.style.display = "block";
         });
@@ -222,6 +285,8 @@ Category
     closeEditModal.onclick = function() {
         editModal.style.display = "none";
     }
+
+
 
     window.onclick = function(event) {
         if (event.target == editModal) {

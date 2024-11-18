@@ -94,70 +94,70 @@ Sub-Kategori
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($subkategori as $subcategory): ?>
-                                <tr>
-                                    <td><?= $i++; ?></td>
-                                    <td><?= esc($subcategory['category_name']) ?></td> <!-- Display Category Name -->
-                                    <td><?= esc($subcategory['subcategory_name']) ?></td>
-                                    <!-- Display Subcategory Name -->
-                                    <td>
-                                        <button class="btn-primary btn btn-edit" data-toggle="modal"
-                                            data-target="#editSubcategoryModal<?= esc($subcategory['id']) ?>">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </button>
+                                    <tr>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= esc($subcategory['category_name']) ?></td> <!-- Display Category Name -->
+                                        <td><?= esc($subcategory['subcategory_name']) ?></td>
+                                        <!-- Display Subcategory Name -->
+                                        <td>
+                                            <button class="btn-primary btn btn-edit" data-toggle="modal"
+                                                data-target="#editSubcategoryModal<?= esc($subcategory['id']) ?>">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </button>
                                             <button class="btn-danger btn btn-delete" data-id="<?= esc($subcategory['id']) ?>">
                                                 <i class="fas fa-trash"></i>
                                             </button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
 
-<!-- Edit Subcategory Modal -->
-<div class="modal fade" id="editSubcategoryModal<?= esc($subcategory['id']) ?>"
-    tabindex="-1" role="dialog" aria-labelledby="editSubcategoryModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editSubcategoryModalLabel">Edit Subkategori</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post"
-                action="<?= base_url('/admin/subkategori/updateSubkategori/' . esc($subcategory['id'])) ?>"
-                enctype="multipart/form-data">
-                <?= csrf_field(); ?>
-                <div class="modal-body">
-                    <div class="form-group">
-                    <div class="form-group">
-    <label for="category_id">Kategori</label>
-    <select name="category_id" class="form-control">
-        <?php if (isset($categories) && !empty($categories)): ?>
-            <?php foreach ($categories as $category): ?>
-                <!-- Check if this category is the selected one -->
-                <option value="<?= esc($category['id']) ?>"
-                    <?= isset($subcategory['category_id']) && $subcategory['category_id'] == $category['id'] ? 'selected' : '' ?>>
-                    <?= esc($category['name']) ?>
-                </option>
-            <?php endforeach; ?>
-                        <label for="name">Subkategori</label>
-                        <input type="text" class="form-control" name="name" value="<?= esc($subcategory['subcategory_name']) ?>"
-                            placeholder="Enter Subcategory Name">
-                    </div>
-                    <!-- Categories dropdown -->
-        <?php else: ?>
-            <option value="">Tidak Ada Kategori</option>
-        <?php endif; ?>
-    </select>
-</div>
+                                    <!-- Edit Subcategory Modal -->
+                                    <div class="modal fade" id="editSubcategoryModal<?= esc($subcategory['id']) ?>"
+                                        tabindex="-1" role="dialog" aria-labelledby="editSubcategoryModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editSubcategoryModalLabel">Edit Subkategori</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post"
+                                                    action="<?= base_url('/admin/subkategori/updateSubkategori/' . esc($subcategory['id'])) ?>"
+                                                    enctype="multipart/form-data">
+                                                    <?= csrf_field(); ?>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <div class="form-group">
+                                                                <label for="category_id">Kategori</label>
+                                                                <select name="category_id" class="form-control">
+                                                                    <?php if (isset($categories) && !empty($categories)): ?>
+                                                                        <?php foreach ($categories as $category): ?>
+                                                                            <!-- Check if this category is the selected one -->
+                                                                            <option value="<?= esc($category['id']) ?>"
+                                                                                <?= isset($subcategory['category_id']) && $subcategory['category_id'] == $category['id'] ? 'selected' : '' ?>>
+                                                                                <?= esc($category['name']) ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                        <label for="name">Subkategori</label>
+                                                                        <input type="text" class="form-control" name="name" value="<?= esc($subcategory['subcategory_name']) ?>"
+                                                                            placeholder="Enter Subcategory Name">
+                                                            </div>
+                                                            <!-- Categories dropdown -->
+                                                        <?php else: ?>
+                                                            <option value="">Tidak Ada Kategori</option>
+                                                        <?php endif; ?>
+                                                        </select>
+                                                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 <?php endforeach; ?>
                             </tbody>
@@ -189,7 +189,7 @@ Sub-Kategori
                         <select class="form-control" name="category_id">
                             <option value="">Pilih Kategori</option>
                             <?php foreach ($categories as $category): ?>
-                            <option value="<?= esc($category['id']) ?>"><?= esc($category['name']) ?></option>
+                                <option value="<?= esc($category['id']) ?>"><?= esc($category['name']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -210,57 +210,57 @@ Sub-Kategori
 
 <!-- Delete Subcategory Modal -->
 <div id="deleteConfirmationModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeDeleteConfirmationModal">&times;</span>
-                <h3>Hapus Subkategori Ini?</h3>
-                <div class="button-container">
-                    <button id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
-                    <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
-                </div>
-            </div>
+    <div class="modal-content">
+        <span class="close" id="closeDeleteConfirmationModal">&times;</span>
+        <h3>Hapus Subkategori Ini?</h3>
+        <div class="button-container">
+            <button id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
+            <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
         </div>
-    </section>
+    </div>
+</div>
+</section>
 <?= $this->endSection() ?>
 
 
 <?= $this->section('js') ?>
 <script>
-// Modal for Delete Confirmation
-        var deleteConfirmationModal = document.getElementById("deleteConfirmationModal");
-        var closeDeleteConfirmationModal = document.getElementById("closeDeleteConfirmationModal");
-        var confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
-        var cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
-        var deleteId = null;
+    // Modal for Delete Confirmation
+    var deleteConfirmationModal = document.getElementById("deleteConfirmationModal");
+    var closeDeleteConfirmationModal = document.getElementById("closeDeleteConfirmationModal");
+    var confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+    var cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+    var deleteId = null;
 
-        document.querySelectorAll('.btn-delete').forEach(function (button) {
-            button.addEventListener('click', function () {
-                deleteId = this.getAttribute('data-id');
-                deleteConfirmationModal.style.display = "block";
-            });
+    document.querySelectorAll('.btn-delete').forEach(function(button) {
+        button.addEventListener('click', function() {
+            deleteId = this.getAttribute('data-id');
+            deleteConfirmationModal.style.display = "block";
         });
+    });
 
-        closeDeleteConfirmationModal.onclick = function () {
+    closeDeleteConfirmationModal.onclick = function() {
+        deleteConfirmationModal.style.display = "none";
+    }
+
+    cancelDeleteBtn.onclick = function() {
+        deleteConfirmationModal.style.display = "none";
+    }
+
+    confirmDeleteBtn.onclick = function() {
+        window.location.href = "subkategori/deleteSubkategori/" + deleteId; // Adjust as necessary for your delete action
+    }
+
+    window.onclick = function(event) {
+        if (event.target == deleteConfirmationModal) {
             deleteConfirmationModal.style.display = "none";
         }
+    }
 
-        cancelDeleteBtn.onclick = function () {
-            deleteConfirmationModal.style.display = "none";
-        }
-
-        confirmDeleteBtn.onclick = function () {
-            window.location.href = "subkategori/deleteSubkategori/" + deleteId; // Adjust as necessary for your delete action
-        }
-
-        window.onclick = function (event) {
-            if (event.target == deleteConfirmationModal) {
-                deleteConfirmationModal.style.display = "none";
-            }
-        }
-
-        $(document).ready(function() {
+    $(document).ready(function() {
         $('#subcatTable').DataTable({
-          responsive: true
+            responsive: true
         });
-      });
-    </script>
+    });
+</script>
 <?= $this->endSection() ?>
