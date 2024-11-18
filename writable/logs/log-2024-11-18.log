@@ -1,0 +1,2686 @@
+INFO - 2024-11-18 09:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:06 --> CSRF token verified.
+INFO - 2024-11-18 09:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:19 --> getCapacities called with ID: 38
+INFO - 2024-11-18 09:04:19 --> Capacities fetched: [{"id":"61","subcategory_id":"38","value":"1.3 L"}]
+INFO - 2024-11-18 09:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:19 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-18 09:04:41 --> CSRF token verified.
+INFO - 2024-11-18 09:04:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:05:39 --> CSRF token verified.
+INFO - 2024-11-18 09:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:05:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:06:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:06:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:06:08 --> Filter - Category: 
+DEBUG - 2024-11-18 09:06:08 --> Filter - Subcategory: 
+DEBUG - 2024-11-18 09:06:08 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-18 09:06:08 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-05 14:05:01
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-05 14:05:01
+        )
+
+    [1] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+    [2] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INC
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-06 09:52:10
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-06 09:52:10
+        )
+
+    [3] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [4] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => KULKAS PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-06 12:56:15
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-06 12:56:15
+        )
+
+    [5] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [6] => Array
+        (
+            [id] => 95
+            [product_id] => 119
+            [brand] => COSMOS
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => HVILAPN0132
+            [color] => KUNING
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 8.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 4 x 5 x 6 cm
+            [berat] => 7.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 9
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730875380_cb30c991f05b11fac62a.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 13:11:25
+            [approved_at] => 2024-11-11 13:11:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 13:43:00
+            [updated_at] => 2024-11-11 13:11:25
+        )
+
+    [7] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [8] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [9] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [10] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [11] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => SAMSUNG
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ZX-1090
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 60.00
+            [product_dimensions] => 50 x 50 x 50 cm
+            [packaging_dimensions] => 50 x 50 x 50 cm
+            [berat] => 7.00
+            [pembuat] => INDONESIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 25 x 50
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => Tahan banting
+            [advantage2] => Tahan api
+            [advantage3] => Tahan air
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731308229_f602f87ff752bc6d0801.jpg
+            [gambar_belakang] => 1731308229_7d401a83a2f8542e6890.jpg
+            [gambar_atas] => 1731308229_30f2e806e3bbce0713df.jpg
+            [gambar_bawah] => 1731308229_fa1f0663721dd98c21be.jpg
+            [gambar_samping_kiri] => 1731308229_71ba7150cddc3ccc078e.jpg
+            [gambar_samping_kanan] => 1731308229_757cd0e651aa0392de06.jpg
+            [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-11 13:57:57
+            [approved_at] => 2024-11-11 13:57:57
+            [rejected_at] => 
+            [submitted_at] => 2024-11-11 13:57:10
+            [updated_at] => 2024-11-11 13:57:57
+        )
+
+)
+
+INFO - 2024-11-18 09:06:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:06:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:06:12 --> Filter - Category: 
+DEBUG - 2024-11-18 09:06:12 --> Filter - Subcategory: 
+DEBUG - 2024-11-18 09:06:12 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-18 09:06:12 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-05 14:05:01
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-05 14:05:01
+        )
+
+    [1] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+    [2] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INC
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-06 09:52:10
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-06 09:52:10
+        )
+
+    [3] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [4] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => KULKAS PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-06 12:56:15
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-06 12:56:15
+        )
+
+    [5] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [6] => Array
+        (
+            [id] => 95
+            [product_id] => 119
+            [brand] => COSMOS
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => HVILAPN0132
+            [color] => KUNING
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 8.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 4 x 5 x 6 cm
+            [berat] => 7.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 9
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730875380_cb30c991f05b11fac62a.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 13:11:25
+            [approved_at] => 2024-11-11 13:11:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 13:43:00
+            [updated_at] => 2024-11-11 13:11:25
+        )
+
+    [7] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [8] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [9] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [10] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [11] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => SAMSUNG
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ZX-1090
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 60.00
+            [product_dimensions] => 50 x 50 x 50 cm
+            [packaging_dimensions] => 50 x 50 x 50 cm
+            [berat] => 7.00
+            [pembuat] => INDONESIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 25 x 50
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => Tahan banting
+            [advantage2] => Tahan api
+            [advantage3] => Tahan air
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731308229_f602f87ff752bc6d0801.jpg
+            [gambar_belakang] => 1731308229_7d401a83a2f8542e6890.jpg
+            [gambar_atas] => 1731308229_30f2e806e3bbce0713df.jpg
+            [gambar_bawah] => 1731308229_fa1f0663721dd98c21be.jpg
+            [gambar_samping_kiri] => 1731308229_71ba7150cddc3ccc078e.jpg
+            [gambar_samping_kanan] => 1731308229_757cd0e651aa0392de06.jpg
+            [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-11 13:57:57
+            [approved_at] => 2024-11-11 13:57:57
+            [rejected_at] => 
+            [submitted_at] => 2024-11-11 13:57:10
+            [updated_at] => 2024-11-11 13:57:57
+        )
+
+)
+
+INFO - 2024-11-18 09:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:06:14 --> Filter - Category: 
+DEBUG - 2024-11-18 09:06:14 --> Filter - Subcategory: 
+DEBUG - 2024-11-18 09:06:14 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-18 09:06:14 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-05 14:05:01
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-05 14:05:01
+        )
+
+    [1] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+    [2] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INC
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-06 09:52:10
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-06 09:52:10
+        )
+
+    [3] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [4] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => KULKAS PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-06 12:56:15
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-06 12:56:15
+        )
+
+    [5] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [6] => Array
+        (
+            [id] => 95
+            [product_id] => 119
+            [brand] => COSMOS
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => HVILAPN0132
+            [color] => KUNING
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 8.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 4 x 5 x 6 cm
+            [berat] => 7.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 9
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730875380_cb30c991f05b11fac62a.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 13:11:25
+            [approved_at] => 2024-11-11 13:11:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 13:43:00
+            [updated_at] => 2024-11-11 13:11:25
+        )
+
+    [7] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [8] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [9] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [10] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [11] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => SAMSUNG
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ZX-1090
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 60.00
+            [product_dimensions] => 50 x 50 x 50 cm
+            [packaging_dimensions] => 50 x 50 x 50 cm
+            [berat] => 7.00
+            [pembuat] => INDONESIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 25 x 50
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => Tahan banting
+            [advantage2] => Tahan api
+            [advantage3] => Tahan air
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731308229_f602f87ff752bc6d0801.jpg
+            [gambar_belakang] => 1731308229_7d401a83a2f8542e6890.jpg
+            [gambar_atas] => 1731308229_30f2e806e3bbce0713df.jpg
+            [gambar_bawah] => 1731308229_fa1f0663721dd98c21be.jpg
+            [gambar_samping_kiri] => 1731308229_71ba7150cddc3ccc078e.jpg
+            [gambar_samping_kanan] => 1731308229_757cd0e651aa0392de06.jpg
+            [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-11 13:57:57
+            [approved_at] => 2024-11-11 13:57:57
+            [rejected_at] => 
+            [submitted_at] => 2024-11-11 13:57:10
+            [updated_at] => 2024-11-11 13:57:57
+        )
+
+)
+
+INFO - 2024-11-18 09:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:07:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:07:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:07:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:07:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:07:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:08:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:21:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:21:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:23:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:23:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:23:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:23:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:25:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:25:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:25:50 --> Filter - Category: SMALL APPLIANCES
+DEBUG - 2024-11-18 09:25:50 --> Filter - Subcategory: 
+DEBUG - 2024-11-18 09:25:50 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-18 09:25:50 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [1] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [2] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+)
+
+INFO - 2024-11-18 09:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-18 09:26:14 --> mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist in C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\benya\Documents\GitHub\product_registration_AIO\app\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+#8 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+#9 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\benya\Documents\GitHub\product_registration_AIO\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\rewrite.php(44): require_once('C:\\Users\\benya\\...')
+#14 {main}
+CRITICAL - 2024-11-18 09:26:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+[Method: GET, Route: catalog/details/80]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 09:26:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 09:26:14 --> [Caused by] mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `marketplaces`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 09:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:26:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:30:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:32:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:34:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:34:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:35:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:35:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:35:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:36:26 --> CSRF token verified.
+INFO - 2024-11-18 09:36:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-18 09:37:20 --> mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist in C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\benya\Documents\GitHub\product_registration_AIO\app\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+#8 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+#9 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\benya\Documents\GitHub\product_registration_AIO\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\rewrite.php(44): require_once('C:\\Users\\benya\\...')
+#14 {main}
+CRITICAL - 2024-11-18 09:37:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+[Method: GET, Route: superadmin/marketplace]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 09:37:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 09:37:20 --> [Caused by] mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `marketplaces`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\SuperadminController.php(62): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperadminController->marketplace()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperadminController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 09:37:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:37:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:37:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:37:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-18 09:39:57 --> mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist in C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\benya\Documents\GitHub\product_registration_AIO\app\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+#8 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+#9 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\benya\Documents\GitHub\product_registration_AIO\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\benya\Documents\GitHub\product_registration_AIO\system\rewrite.php(44): require_once('C:\\Users\\benya\\...')
+#14 {main}
+CRITICAL - 2024-11-18 09:39:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+[Method: GET, Route: catalog/details/80]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 09:39:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+CRITICAL - 2024-11-18 09:39:57 --> [Caused by] mysqli_sql_exception: Table 'product_registration.marketplaces' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `marketplaces`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `marketplaces`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `marketplaces`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `marketplaces`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CatalogController.php(309): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('80')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-18 09:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:40:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:40:26 --> Received Subcategory Name: KULKAS PORTABLE
+DEBUG - 2024-11-18 09:40:26 --> Found Subcategory ID: 21
+DEBUG - 2024-11-18 09:40:26 --> Category ID: 3
+DEBUG - 2024-11-18 09:40:26 --> Filter Type: Capacity
+DEBUG - 2024-11-18 09:40:26 --> Capacities Retrieved from Capacity Model: Array
+(
+    [0] => Array
+        (
+            [id] => 46
+            [subcategory_id] => 21
+            [value] => 42 L
+        )
+
+    [1] => Array
+        (
+            [id] => 47
+            [subcategory_id] => 21
+            [value] => 46 L
+        )
+
+    [2] => Array
+        (
+            [id] => 48
+            [subcategory_id] => 21
+            [value] => 47 L
+        )
+
+    [3] => Array
+        (
+            [id] => 49
+            [subcategory_id] => 21
+            [value] => 50 L
+        )
+
+)
+
+INFO - 2024-11-18 09:40:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:40:26 --> Filter - Category: 
+DEBUG - 2024-11-18 09:40:26 --> Filter - Subcategory: KULKAS PORTABLE
+DEBUG - 2024-11-18 09:40:26 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-18 09:40:26 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => KULKAS PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-06 12:56:15
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-06 12:56:15
+        )
+
+)
+
+INFO - 2024-11-18 09:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:40:28 --> Category ID: , Subcategory ID: 21
+DEBUG - 2024-11-18 09:40:28 --> Filter Type: None
+DEBUG - 2024-11-18 09:40:28 --> Filter Type: 
+DEBUG - 2024-11-18 09:40:28 --> Filter - Category: 
+DEBUG - 2024-11-18 09:40:28 --> Filter - Subcategory: KULKAS PORTABLE
+DEBUG - 2024-11-18 09:40:28 --> Filter - Capacity/Ukuran: 42 L
+DEBUG - 2024-11-18 09:40:28 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => KULKAS PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-06 12:56:15
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-06 12:56:15
+        )
+
+)
+
+INFO - 2024-11-18 09:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-18 09:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-18 09:40:35 --> Filter - Category: SMALL APPLIANCES
+DEBUG - 2024-11-18 09:40:35 --> Filter - Subcategory: 
+DEBUG - 2024-11-18 09:40:35 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-18 09:40:35 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [1] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [2] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+)
+
