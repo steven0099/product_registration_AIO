@@ -6,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $session->set('step1', $_POST);
 }
 
-
 ?>
 
 <!DOCTYPE html>

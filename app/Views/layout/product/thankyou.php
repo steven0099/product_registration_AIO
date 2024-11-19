@@ -99,7 +99,6 @@
         <div class="button-container">
             <button class="button" onclick="location.href='/product/step1'">Tambah Produk Baru</button>
             <button class="button" onclick="location.href='/logout'">Keluar Akun</button>
-
         </div>
     </div>
 

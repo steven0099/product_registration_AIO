@@ -201,9 +201,9 @@ class App extends BaseConfig
     public bool $CSPEnabled = false;
 
     public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
-public $sessionCookieName = 'ci_session';
-public $sessionExpiration = 7200; // Session expiration
-public $sessionSavePath = WRITEPATH . 'sessions'; // Ensure this is correct
+    public $sessionCookieName = 'ci_session';
+    public $sessionExpiration = 7200; // Session expiration
+    public $sessionSavePath = WRITEPATH . 'sessions'; // Ensure this is correct
 
-    
+
 }

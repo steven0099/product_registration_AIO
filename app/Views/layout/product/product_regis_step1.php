@@ -273,7 +273,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="color">Warna</label>
@@ -316,7 +315,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                         </div>
                                     </div>
-
 
                                 </div>
                                 <div class="wizard-footer">
@@ -456,7 +454,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         fetchWarrantyOptions(type);
         fetchOptions(subcategoryId);
-
 
     });
 

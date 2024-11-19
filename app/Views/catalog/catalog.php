@@ -186,7 +186,6 @@ Katalog Digital
 <?= $this->section('js') ?>
 <script>
 $(document).ready(function() {
-
     // Trigger filtering on any change in dropdowns
     $('#category, #subcategory, #capacity, #sort').on('change', function() {
         filterProducts();
@@ -405,7 +404,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
 
 // Function to toggle the filter options
 // Function to toggle the filter options and arrow direction
