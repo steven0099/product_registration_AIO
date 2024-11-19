@@ -125,6 +125,11 @@
             /* Change cursor to indicate it's disabled */
         }
 
+        .icon-circle.filled {
+            border-color: #00a9ee;
+            /* Ganti dengan warna tema Anda */
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -176,7 +181,7 @@
                                     </li>
                                     <li>
                                         <a href="#specification" data-toggle="tab" class="disabled-link">
-                                            <div class="icon-circle">
+                                            <div class="icon-circle filled">
                                                 <i class="ti-package"></i>
                                             </div>
                                             Spesifikasi Produk
@@ -184,7 +189,7 @@
                                     </li>
                                     <li>
                                         <a href="#advantages" data-toggle="tab" class="disabled-link">
-                                            <div class="icon-circle">
+                                            <div class="icon-circle filled">
                                                 <i class="ti-package"></i>
                                             </div>
                                             Keunggulan Produk
@@ -192,7 +197,7 @@
                                     </li>
                                     <li>
                                         <a href="#photos" data-toggle="tab" onclick="history.back();">
-                                            <div class="icon-circle">
+                                            <div class="icon-circle filled">
                                                 <i class="ti-package"></i>
                                             </div>
                                             Foto Produk
