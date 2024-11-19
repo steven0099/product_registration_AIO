@@ -188,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#photos" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -376,7 +376,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>
 
                                     <div class="pull-left">
-                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
+                                        <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
                                         <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>

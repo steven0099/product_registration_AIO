@@ -101,6 +101,14 @@
             text-align: right;
         }
 
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
 
         @media (max-width: 600px) {
 
@@ -141,7 +149,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -149,7 +157,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#type" data-toggle="tab">
+                                        <a href="#type" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -165,7 +173,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#description" data-toggle="tab">
+                                        <a href="#description" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -173,7 +181,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -231,7 +239,7 @@
                                     </div>
 
                                     <div class="pull-left">
-                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
+                                        <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
                                         <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>

@@ -1,0 +1,69 @@
+INFO - 2024-11-19 10:57:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:57:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:57:52 --> getCapacities called with ID: 52
+INFO - 2024-11-19 10:57:52 --> Capacities fetched: []
+INFO - 2024-11-19 10:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:57:52 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-19 10:58:02 --> CSRF token verified.
+INFO - 2024-11-19 10:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:11 --> CSRF token verified.
+INFO - 2024-11-19 10:58:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:20 --> CSRF token verified.
+INFO - 2024-11-19 10:58:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:51 --> CSRF token verified.
+INFO - 2024-11-19 10:58:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-19 10:58:52 --> Inserted new confirmation: Array
+(
+    [product_id] => 132
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ADVAN
+    [category] => SMALL APPLIANCES
+    [product_type] => AA
+    [color] => PUTIH
+    [subcategory] => AIR PURIFIER
+    [capacity] => 
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => 
+    [compressor_warranty] => 
+    [sparepart_warranty] => 
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => <1
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 12
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => d
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1731988732_b8510496f8da4fcc4105.jpg
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => 
+)
+
+INFO - 2024-11-19 10:59:21 --> CSRF token verified.
+INFO - 2024-11-19 10:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 10:59:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
