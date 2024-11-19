@@ -1,0 +1,9 @@
+        if (isset($finalData['garansi_semua_service_id'])) {
+            $garansiservice = $this->garansiserviceModel->find($finalData['garansi_semua_service_id']);
+            $finalData['garansi_semua_service_value'] = $garansiservice ? $garansiservice['value'] : 'Unknown';
+        }
+
+                if (isset($finalData['sparepart_warranty_id'])) {
+            $garansipanas = $this->garansipanasModel->find($finalData['sparepart_warranty_id']);
+            $finalData['sparepart_warranty_value'] = $garansipanas ? $garansipanas['value'] : 'Unknown';
+        }
