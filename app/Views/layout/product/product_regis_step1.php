@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                             <?php endif; ?>
 
-                            <form action="save-step1" method="post">
+                            <form action="save-step1" method="post" style="margin-left: 25px; margin-right: 25px;">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
                                     <div class="tab-pane" id="general">
@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label id="capacity-label">Kapasitas</label>
                                                     <select id="capacity" name="capacity_value" class="form-control" required>
-                                                        <option value="" disabled selected>Select Kapasitas</option>
+                                                        <option value="" disabled selected>Pilih Kapasitas</option>
                                                         <!-- Options will be populated dynamically -->
                                                     </select>
                                                 </div>
@@ -331,19 +331,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class="pull-right">
 
 
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Konfirmasi' />
                                     </div>
-                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a>
+
 
                                     <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Kembali' />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
 
                             </form>
-                            <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
+                            <p class="form-note" style="margin-left: 25px;">*Harap diisi dengan benar</p>
+                            <a href="/reset/reset-password" style="margin: 25px;">Ganti Password</a>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

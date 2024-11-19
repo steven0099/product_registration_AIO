@@ -155,7 +155,7 @@
                                     </div>
                                     <div class="col-sm-5 title">
                                         <h3 class=""
-                                            style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">
+                                            style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">
                                             Form Registrasi Produk</h3>
                                     </div>
                                 </div>
@@ -542,7 +542,7 @@
                                         <!-- Use standard format -->
                                         <!-- <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name="confirm" value="Finish" onclick="showThankYouModal(event)" /> -->
                                         <button type="submit" name="confirm" value="selesai"
-                                            class="btn btn-finish btn-fill btn-danger btn-wd">Finish</button>
+                                            class="btn btn-finish btn-fill btn-danger btn-wd">Konfirmasi Produk</button>
                                     </form>
 
                                     <!-- <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
@@ -554,7 +554,7 @@
 
 
                                     <input type='button' class='btn btn-previous btn-default btn-wd'
-                                        onclick="history.back();" name='previous' value='Previous' />
+                                        onclick="history.back();" name='previous' value='Kembali' />
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

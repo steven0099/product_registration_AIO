@@ -67,3 +67,674 @@ INFO - 2024-11-19 10:59:21 --> CSRF token verified.
 INFO - 2024-11-19 10:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-19 10:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-19 10:59:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 13:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 13:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:49:37 --> CSRF token verified.
+INFO - 2024-11-19 14:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:20 --> getCapacities called with ID: 9
+INFO - 2024-11-19 14:50:20 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 14:50:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:20 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 14:50:27 --> CSRF token verified.
+INFO - 2024-11-19 14:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:50:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:05 --> getCapacities called with ID: 24
+INFO - 2024-11-19 14:51:05 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-19 14:51:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:05 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-19 14:51:08 --> CSRF token verified.
+INFO - 2024-11-19 14:51:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:44 --> CSRF token verified.
+INFO - 2024-11-19 14:51:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:57 --> CSRF token verified.
+INFO - 2024-11-19 14:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:11 --> CSRF token verified.
+INFO - 2024-11-19 14:52:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:22 --> CSRF token verified.
+INFO - 2024-11-19 14:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:33 --> getCapacities called with ID: 4
+INFO - 2024-11-19 14:52:33 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-19 14:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:33 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 14:52:36 --> CSRF token verified.
+INFO - 2024-11-19 14:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:52:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:53:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:53:39 --> CSRF token verified.
+INFO - 2024-11-19 14:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:11 --> CSRF token verified.
+INFO - 2024-11-19 14:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:26 --> CSRF token verified.
+INFO - 2024-11-19 14:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:31 --> CSRF token verified.
+INFO - 2024-11-19 14:54:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:54:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:55:06 --> CSRF token verified.
+INFO - 2024-11-19 14:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 14:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-19 14:55:06 --> Inserted new confirmation: Array
+(
+    [product_id] => 135
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ELECTROLUX
+    [category] => FREEZER
+    [product_type] => AA
+    [color] => PUTIH
+    [subcategory] => CHEST FREEZER 1 PINTU
+    [capacity] => 47 L
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => 
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 11 x 1 cm
+    [packaging_dimensions] => 11 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => d
+    [advantage5] => e
+    [advantage6] => f
+    [gambar_depan] => 1732002906_85eb29720e604df14800.png
+    [gambar_belakang] => 1732002906_4bac514c4dcb91798ee7.png
+    [gambar_samping_kiri] => 1732002906_53c3c0546dd3b26c17e2.png
+    [gambar_samping_kanan] => 1732002906_9a6cf19325400901a608.png
+    [gambar_atas] => 1732002906_4037380f979bcb83066c.png
+    [gambar_bawah] => 1732002906_1644259ac7414b5003eb.png
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-19 15:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:06:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:06:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:07:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:56:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:52 --> getCapacities called with ID: 4
+INFO - 2024-11-19 15:58:52 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-19 15:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:52 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 15:58:56 --> CSRF token verified.
+INFO - 2024-11-19 15:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:59 --> CSRF token verified.
+INFO - 2024-11-19 15:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:59:09 --> CSRF token verified.
+INFO - 2024-11-19 15:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 15:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:00:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:00:55 --> CSRF token verified.
+INFO - 2024-11-19 16:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:02:13 --> CSRF token verified.
+INFO - 2024-11-19 16:02:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:02:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:03:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:03:33 --> CSRF token verified.
+INFO - 2024-11-19 16:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:04:43 --> CSRF token verified.
+INFO - 2024-11-19 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:05:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:05:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:07:59 --> CSRF token verified.
+INFO - 2024-11-19 16:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:09:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:41 --> getUkuranTv called with ID: 31 - Result: [{"id":"5","subcategory_id":"31","size":"Kecil"},{"id":"6","subcategory_id":"31","size":"Sedang"},{"id":"7","subcategory_id":"31","size":"Besar"}]
+INFO - 2024-11-19 16:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:41 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-19 16:12:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:43 --> getUkuranTv called with ID: 32 - Result: [{"id":"8","subcategory_id":"32","size":"7 INCH"},{"id":"9","subcategory_id":"32","size":"8 INCH"},{"id":"10","subcategory_id":"32","size":"9 INCH"},{"id":"11","subcategory_id":"32","size":"10 INCH"}]
+INFO - 2024-11-19 16:12:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:43 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-19 16:12:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:44 --> getCapacities called with ID: 33
+INFO - 2024-11-19 16:12:44 --> Capacities fetched: [{"id":"66","subcategory_id":"33","value":"1.2 L"}]
+INFO - 2024-11-19 16:12:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:44 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:47 --> getCapacities called with ID: 34
+INFO - 2024-11-19 16:12:47 --> Capacities fetched: []
+INFO - 2024-11-19 16:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:47 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:48 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:48 --> getCapacities called with ID: 35
+INFO - 2024-11-19 16:12:48 --> Capacities fetched: []
+INFO - 2024-11-19 16:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:52 --> getCapacities called with ID: 36
+INFO - 2024-11-19 16:12:52 --> Capacities fetched: []
+INFO - 2024-11-19 16:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:52 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:55 --> getCapacities called with ID: 37
+INFO - 2024-11-19 16:12:55 --> Capacities fetched: []
+INFO - 2024-11-19 16:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:55 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:12:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:58 --> getCapacities called with ID: 41
+INFO - 2024-11-19 16:12:58 --> Capacities fetched: []
+INFO - 2024-11-19 16:12:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:58 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:12:59 --> getCapacities called with ID: 42
+INFO - 2024-11-19 16:12:59 --> Capacities fetched: []
+INFO - 2024-11-19 16:13:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:00 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:13:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:01 --> getCapacities called with ID: 43
+INFO - 2024-11-19 16:13:01 --> Capacities fetched: [{"id":"67","subcategory_id":"43","value":"0.3 L"}]
+INFO - 2024-11-19 16:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:02 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:04 --> getCapacities called with ID: 44
+INFO - 2024-11-19 16:13:05 --> Capacities fetched: [{"id":"68","subcategory_id":"44","value":"20 L"}]
+INFO - 2024-11-19 16:13:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:05 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-19 16:13:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:07 --> getCapacities called with ID: 45
+INFO - 2024-11-19 16:13:07 --> Capacities fetched: [{"id":"69","subcategory_id":"45","value":"1 TUNGKU"}]
+INFO - 2024-11-19 16:13:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:13:07 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-19 16:16:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:17:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:17:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:17:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:18:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:19:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:19:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:52 --> getCapacities called with ID: 9
+INFO - 2024-11-19 16:21:52 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 16:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:21:53 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:22:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:22:32 --> getCapacities called with ID: 4
+INFO - 2024-11-19 16:22:32 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-19 16:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:22:32 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:22:45 --> CSRF token verified.
+INFO - 2024-11-19 16:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:30:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:31:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:31:03 --> getCapacities called with ID: 21
+INFO - 2024-11-19 16:31:03 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-19 16:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:31:03 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:31:06 --> CSRF token verified.
+INFO - 2024-11-19 16:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:32:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:34:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:34:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:36:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:36:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:37:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:38:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:38:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:39:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:46 --> getCapacities called with ID: 4
+INFO - 2024-11-19 16:42:46 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-19 16:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:46 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:42:48 --> CSRF token verified.
+INFO - 2024-11-19 16:42:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:43:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:43:23 --> getCapacities called with ID: 9
+INFO - 2024-11-19 16:43:23 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 16:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:43:23 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 16:43:33 --> CSRF token verified.
+INFO - 2024-11-19 16:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:45:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:45:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:47:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:47:45 --> CSRF token verified.
+INFO - 2024-11-19 16:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:47:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:48:30 --> CSRF token verified.
+INFO - 2024-11-19 16:48:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:48:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:48:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:52:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:52:50 --> CSRF token verified.
+INFO - 2024-11-19 16:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:56:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:56:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:57:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:58:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 16:58:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:03:21 --> CSRF token verified.
+INFO - 2024-11-19 17:03:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:03:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:03:26 --> CSRF token verified.
+INFO - 2024-11-19 17:03:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:03:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:04:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:26 --> CSRF token verified.
+INFO - 2024-11-19 17:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:31 --> CSRF token verified.
+INFO - 2024-11-19 17:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:05:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:48:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:54:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:54:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:56:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 17:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:00:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:03:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:04:37 --> CSRF token verified.
+INFO - 2024-11-19 18:04:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:04:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:01 --> CSRF token verified.
+INFO - 2024-11-19 18:05:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:20 --> CSRF token verified.
+INFO - 2024-11-19 18:05:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:06:00 --> getCapacities called with ID: 4
+INFO - 2024-11-19 18:06:00 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-19 18:06:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:06:01 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 18:06:05 --> CSRF token verified.
+INFO - 2024-11-19 18:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:07:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:11:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:14:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:30 --> getCapacities called with ID: 9
+INFO - 2024-11-19 18:15:30 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 18:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:30 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 18:15:33 --> CSRF token verified.
+INFO - 2024-11-19 18:15:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:39 --> CSRF token verified.
+INFO - 2024-11-19 18:15:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:16:01 --> CSRF token verified.
+INFO - 2024-11-19 18:16:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:16:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:16:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:17:58 --> CSRF token verified.
+INFO - 2024-11-19 18:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:18:05 --> CSRF token verified.
+INFO - 2024-11-19 18:18:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:18:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:18:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:20:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:23:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:25:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:59 --> getCapacities called with ID: 9
+INFO - 2024-11-19 18:27:59 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 18:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:27:59 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 18:28:05 --> CSRF token verified.
+INFO - 2024-11-19 18:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:28:15 --> CSRF token verified.
+INFO - 2024-11-19 18:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:28:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:30:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:33:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:35:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:36:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:38:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:39:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:41:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:41:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:42 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-19 18:44:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:42 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-19 18:44:45 --> CSRF token verified.
+INFO - 2024-11-19 18:44:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:53 --> CSRF token verified.
+INFO - 2024-11-19 18:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:32 --> getCapacities called with ID: 24
+INFO - 2024-11-19 18:50:32 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-19 18:50:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:32 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-19 18:50:35 --> CSRF token verified.
+INFO - 2024-11-19 18:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:44 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-19 18:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:44 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-19 18:50:47 --> CSRF token verified.
+INFO - 2024-11-19 18:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:53:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:54:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:44 --> getCapacities called with ID: 25
+INFO - 2024-11-19 18:56:44 --> Capacities fetched: []
+INFO - 2024-11-19 18:56:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:44 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-19 18:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:47 --> getCapacities called with ID: 24
+INFO - 2024-11-19 18:56:47 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-19 18:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:47 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-19 18:56:50 --> CSRF token verified.
+INFO - 2024-11-19 18:56:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:56:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:57:59 --> getCapacities called with ID: 9
+INFO - 2024-11-19 18:57:59 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 18:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:57:59 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 18:58:03 --> CSRF token verified.
+INFO - 2024-11-19 18:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:58:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:58:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 18:59:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:00:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:00:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:01 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-19 19:01:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:01 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-19 19:01:04 --> CSRF token verified.
+INFO - 2024-11-19 19:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:59 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-19 19:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:01:59 --> getCapacities called with ID: 9
+INFO - 2024-11-19 19:01:59 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-19 19:02:02 --> CSRF token verified.
+INFO - 2024-11-19 19:02:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:02:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:06:14 --> CSRF token verified.
+INFO - 2024-11-19 19:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:06:19 --> CSRF token verified.
+INFO - 2024-11-19 19:06:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:06:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:07:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:10:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:11:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:11:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:12:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:12:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:13:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:13:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:13:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:13:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:17:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:17:52 --> CSRF token verified.
+INFO - 2024-11-19 19:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:17:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-19 19:17:53 --> Inserted new confirmation: Array
+(
+    [product_id] => 150
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ADVAN
+    [category] => AC
+    [product_type] => AA
+    [color] => PUTIH
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-410 A
+    [compressor_warranty] => <1
+    [sparepart_warranty] => <1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 11 x 1 cm
+    [packaging_dimensions] => 11 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 100
+    [cspf] => 4.5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => d
+    [advantage5] => e
+    [advantage6] => f
+    [gambar_depan] => 1732018672_a8970f2d164023283f25.png
+    [gambar_belakang] => 1732018672_033d40d9a7a8db3a49ba.png
+    [gambar_samping_kiri] => 1732018672_79de06c82a5d00b687a5.png
+    [gambar_samping_kanan] => 1732018672_edcc1adf045f14d868f0.png
+    [gambar_atas] => 1732018672_ddc3bbf73ce77b23b848.png
+    [gambar_bawah] => 1732018672_d3645e2a33402dc93ce1.png
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-19 19:18:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-19 19:18:47 --> Updated confirmation: Array
+(
+    [product_id] => 150
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ADVAN
+    [category] => AC
+    [product_type] => AA
+    [color] => PUTIH
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-410 A
+    [compressor_warranty] => <1
+    [sparepart_warranty] => <1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 11 x 1 cm
+    [packaging_dimensions] => 11 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 100
+    [cspf] => 4.5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => d
+    [advantage5] => e
+    [advantage6] => f
+    [gambar_depan] => 1732018672_a8970f2d164023283f25.png
+    [gambar_belakang] => 1732018672_033d40d9a7a8db3a49ba.png
+    [gambar_samping_kiri] => 1732018672_79de06c82a5d00b687a5.png
+    [gambar_samping_kanan] => 1732018672_edcc1adf045f14d868f0.png
+    [gambar_atas] => 1732018672_ddc3bbf73ce77b23b848.png
+    [gambar_bawah] => 1732018672_d3645e2a33402dc93ce1.png
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
