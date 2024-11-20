@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-        <img src="/images/logo-aio.png" alt="AIO Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="/images/aio-logo.png" alt="AIO Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AIO Store Admin</span>
     </a>
     <!-- Sidebar Menu -->
@@ -50,37 +51,37 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="/admin/brand" class="nav-link <?= (uri_string() == 'admin/brand') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-tags nav-icon"></i>
                 <p>Merek</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/kategori" class="nav-link <?= (uri_string() == 'admin/kategori') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-cocktail nav-icon"></i>
                 <p>Kategori</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/subkategori" class="nav-link <?= (uri_string() == 'admin/subkategori') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-hourglass-start nav-icon"></i>
                 <p>Subkategori</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/kapasitas" class="nav-link <?= (uri_string() == 'admin/kapasitas') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-dolly-flatbed nav-icon"></i>
                 <p>Kapasitas</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/ukuran" class="nav-link <?= (uri_string() == 'admin/ukuran') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-caret-square-up"></i>
                 <p>Ukuran</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/refrigrant" class="nav-link <?= (uri_string() == 'admin/refrigrant') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-certificate"></i>
                 <p>Tipe Refrigrant</p>
               </a>
             </li>
@@ -98,31 +99,31 @@
             <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="/admin/garansi_kompresor" class="nav-link <?= (uri_string() == 'admin/garansi_kompresor') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-tools nav-icon"></i>
                 <p>Garansi Kompresor</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/garansi_sparepart" class="nav-link <?= (uri_string() == 'admin/garansi_sparepart') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-venus-mars nav-icon"></i>
                 <p>Garansi Sparepart</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/garansi_motor" class="nav-link <?= (uri_string() == 'admin/garansi_motor') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-motorcycle nav-icon"></i>
                 <p>Garansi Motor</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/garansi_service" class="nav-link <?= (uri_string() == 'admin/garansi_service') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-wrench nav-icon"></i>
                 <p>Garansi Service</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/admin/garansi_elemen_panas" class="nav-link <?= (uri_string() == 'admin/garansi_elemen_panas') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-vials nav-icon"></i>
                 <p>Garansi Elemen Panas</p>
               </a>
             </li>
@@ -140,7 +141,7 @@
           <?php if (session()->get('role') == 'superadmin'): ?>
             <!-- Link to Superadmin Dashboard -->
             <a href="/superadmin/product" class="nav-link <?= (uri_string() == 'superadmin/product') ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
+            <i class="fas fa-users nav-icon"></i>
               <p>Konfirmasi Antrian Produk</p>
             </a>
           <?php else: ?>
@@ -157,13 +158,13 @@
             <!-- These links are visible only to superadmin -->
             <li class="nav-item">
               <a href="/superadmin/product/approved" class="nav-link <?= (uri_string() == 'product/approved') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-user-check nav-icon"></i>
                 <p>Produk Disetujui</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/superadmin/product/rejected" class="nav-link <?= (uri_string() == 'product/rejected') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-user-alt-slash nav-icon"></i>
                 <p>Produk Ditolak</p>
               </a>
             </li>
@@ -181,13 +182,13 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="/superadmin/user" class="nav-link <?= (uri_string() == 'superadmin/user') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-user-cog nav-icon"></i>
                 <p>Manajemen User</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/reset/reset-password" class="nav-link <?= (uri_string() == 'superadmin/user/reset') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-user-edit nav-icon"></i>
                 <p>Ganti Password</p>
               </a>
             </li>
