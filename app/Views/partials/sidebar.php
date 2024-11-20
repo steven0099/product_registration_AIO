@@ -8,17 +8,17 @@
     <?php if (session()->get('role') == 'superadmin'): ?>
     <a href="/" class="brand-link">
         <img src="/images/logo-aio.png" alt="AIO Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AIO Store SuperAdmin</span>
+        <span class="brand-text font-weight-light" style="font-size:16px">AIO Store SuperAdmin</span>
     </a>
     <?php elseif (session()->get('role') == 'admin'): ?>
       <a href="/" class="brand-link">
         <img src="/images/logo-aio.png" alt="AIO Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AIO Store Admin</span>
+        <span class="brand-text font-weight-light" style="font-size:16px">AIO Store Admin</span>
     </a>
     <?php else: ?>
       <a href="/" class="brand-link">
         <img src="/images/logo-aio.png" alt="AIO Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AIO Store</span>
+        <span class="brand-text font-weight-light" style="font-size:16px">AIO Store</span>
     </a>
     <?php endif; ?>
     <!-- Sidebar Menu -->
@@ -30,13 +30,13 @@
             <!-- Link to Superadmin Dashboard -->
             <a href="/superadmin/dashboard" class="nav-link <?= (uri_string() == 'superadmin/dashboard') ? 'active' : '' ?>">
               <i class="far fa-circle nav-icon"></i>
-              <p>Superadmin Dashboard</p>
+              <p style="font-size:14px">Superadmin Dashboard</p>
             </a>
           <?php elseif (session()->get('role') == 'admin'): ?>
             <!-- Link to Admin Dashboard -->
             <a href="/admin/dashboard" class="nav-link <?= (uri_string() == 'admin/dashboard') ? 'active' : '' ?>">
               <i class="far fa-circle nav-icon"></i>
-              <p>Admin Dashboard</p>
+              <p style="font-size:14px">Admin Dashboard</p>
             </a>
           <?php endif; ?>
         </li>
@@ -242,4 +242,3 @@
 <script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('dist/js/adminlte.min.js') ?>"></script>
-

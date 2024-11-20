@@ -41,6 +41,14 @@
         <td>Belum Ditentukan</td></tr>
         <?php endif; ?>
         <?php endif; ?>-->
+                <!--harga <?php if ($product['status'] == 'approved'): ?>
+                    <tr><th>Harga</th>
+                    <?php if ($product['harga'] != null): ?>
+        <td><?= esc($product['harga']) ?></td></tr>
+        <?php elseif ($product['harga'] == null): ?>
+        <td>Belum Ditentukan</td></tr>
+        <?php endif; ?>
+        <?php endif; ?>-->
                 <tr><th>Warna</th><td><?= esc($product['color']) ?></td></tr>
                 <tr><th>Dimensi Produk</th><td><?= esc($product['product_dimensions']) ?></td></tr>
                 <tr><th>Dimensi Kemasan</th><td><?= esc($product['packaging_dimensions']) ?></td></tr>
@@ -75,6 +83,7 @@
         <tr><th>Resolusi Panel</th><td><?= esc($product['panel_resolution']) ?> Pixel</td></tr>
         <tr><th>Garansi Panel</th><td><?= esc($product['garansi_panel']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <?php endif; ?>
 
         <?php if ($product['category'] == 'AC'): ?>
@@ -106,6 +115,7 @@
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <?php endif; ?>
 
+        
         <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
@@ -153,10 +163,53 @@
         <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         
+        <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty'])?> Tahun</td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'VACUUM CLEANER'): ?>
+        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'SETRIKA'): ?>
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'TOASTER'): ?>
+        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>    
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
         <?php endif; ?>
 
         <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
+        <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+        <tr><th>Ukuran</th><td><?= esc($product['ukuran']) ?></td></tr>
+        <tr><th>Garansi Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
+        <tr><th>Kapasitas</th><td><?= esc($product['kapasitas_air_dingin']) ?> M²</td></tr>
+        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         

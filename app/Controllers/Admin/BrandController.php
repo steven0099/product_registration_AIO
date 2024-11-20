@@ -33,6 +33,7 @@ class BrandController extends BaseController
         return redirect()->back()->with('error', 'Failed to add Brand.');
     }
     
+    
     return redirect()->to('/admin/brand')->with('success', 'Brand added successfully.');
     }
 
@@ -64,7 +65,14 @@ class BrandController extends BaseController
             return redirect()->to('/admin/brand')->with('error', 'Subcategory not found.');
         }
         
+        
+        if (!$brandModel->find($id)) {
+            return redirect()->to('/admin/brand')->with('error', 'Subcategory not found.');
+        }
+        
         $brandModel->delete($id);
+        
+        return redirect()->to('/admin/brand')->with('success', 'Subcategory deleted successfully.');
         
         return redirect()->to('/admin/brand')->with('success', 'Subcategory deleted successfully.');
     }

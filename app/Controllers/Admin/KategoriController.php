@@ -31,6 +31,7 @@ class KategoriController extends BaseController
         return redirect()->back()->with('error', 'Failed to add Category.');
     }
 
+    $data['name'] = strtoupper($data['name']);
     return redirect()->to('/admin/kategori')->with('success', 'Category added successfully.');
     }
 

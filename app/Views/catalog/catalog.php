@@ -1,4 +1,4 @@
-<?= $this->extend('partials/main') ?>
+<?= $this->extend('partials/catalog') ?>
 
 <?= $this->section('css') ?>
 <!-- DataTables -->
@@ -6,7 +6,8 @@
 <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+    <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
@@ -14,6 +15,39 @@ Katalog Digital
 <?= $this->endSection() ?>
 
 <?= $this->section('breadcumb') ?>
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed">
+  <!-- Left navbar links -->
+  <ul class="navbar-nav">
+      <li class="nav-item">
+         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+         </a>
+      </li>
+   </ul>
+
+   <div class="col-sm-6" style="margin-left:100px">
+    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
+    </div><!-- /.col -->
+
+   <!-- User Dropdown -->
+   <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a href="/reset/reset-password" class="dropdown-item">
+               <i class="fas fa-key mr-2"></i> Ganti Password
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="/logout" class="dropdown-item">
+               <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+            </a>
+         </div>
+      </li>
+   </ul>
+</nav>
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -33,7 +67,7 @@ Katalog Digital
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="container">
+
     <div class="card">
     <div class="row">
     <!-- Sidebar for Filters -->
@@ -114,7 +148,7 @@ Katalog Digital
         
 
 <!-- Main Product Grid (Right side) -->
-<div class="col-md-9">
+<div class="col-md-12">
     <div class="row">
         <!-- Search field on the leftmost -->
         <div class="col-md-6 d-flex align-items-center">
@@ -165,8 +199,11 @@ Katalog Digital
 <div id="comparisonWidget" style="display:none" class="comparison-widget">
     <div class="comparison-header">
         <span>Perbandingan</span>
-        <button class="btn-close" onclick="closeComparisonWidget()">X</button>
+        <div class="button-group">
+        <button class="btn-minimize" onclick="toggleComparisonWidget()" id="minimizeButton"><i class="fas fa-chevron-down"></i></button>
+        <button class="btn-close" onclick="closeComparisonWidget()"><i class="fas fa-times"></i></button>
     </div>
+                            </div>
     <div class="row">
     <div class="comparison-content">
         <!-- Dynamically added comparison items will go here -->
@@ -405,8 +442,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Function to toggle the filter options
-// Function to toggle the filter options and arrow direction
 // Function to toggle the filter options and arrow direction
 document.querySelectorAll('.filter-title').forEach(function(title) {
     title.addEventListener('click', function() {
@@ -616,41 +651,20 @@ function bindCheckboxListener() {
 }
 
 // Function to make the comparison widget draggable
-function makeWidgetMovable(widgetId) {
-    var widget = document.getElementById(widgetId);
-    var isDragging = false;
-    var offsetX, offsetY;
+function toggleComparisonWidget() {
+    const widget = document.getElementById('comparisonWidget');
+    const button = document.getElementById('minimizeButton');
 
-    widget.addEventListener('mousedown', function(e) {
-        // Start dragging
-        isDragging = true;
-        offsetX = e.clientX - widget.getBoundingClientRect().left;
-        offsetY = e.clientY - widget.getBoundingClientRect().top;
-
-        // Change the cursor to indicate dragging
-        widget.style.cursor = 'grabbing';
-    });
-
-    window.addEventListener('mousemove', function(e) {
-        if (isDragging) {
-            // Move the widget as the mouse moves
-            var x = e.clientX - offsetX;
-            var y = e.clientY - offsetY;
-
-            widget.style.left = x + 'px';
-            widget.style.top = y + 'px';
-        }
-    });
-
-    window.addEventListener('mouseup', function() {
-        // Stop dragging when mouse is released
-        isDragging = false;
-        widget.style.cursor = 'move';
-    });
+    if (widget.classList.toggle('minimized')) {
+        // Change to up arrow (restore icon)
+        button.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    } else {
+        // Change to minimize icon (underscore)
+        button.innerHTML = '<i class="fas fa-chevron-down"></i>';
+    }
 }
 
-// Initialize the movable functionality for the comparison widget
-makeWidgetMovable('comparisonWidget');
+
 
 // Close the widget when the close button is clicked
 document.addEventListener('DOMContentLoaded', function() {

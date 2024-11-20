@@ -101,6 +101,19 @@
             text-align: right;
         }
 
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
+
+        .icon-circle.filled {
+            border-color: #00a9ee;
+            /* Ganti dengan warna tema Anda */
+        }
 
         @media (max-width: 600px) {
 
@@ -129,7 +142,7 @@
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +152,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#general" data-toggle="tab">
+                                        <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -147,16 +160,16 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#specification" data-toggle="tab">
-                                            <div class="icon-circle">
+                                        <a href="#specification" data-toggle="tab" class="disabled-link">
+                                            <div class="icon-circle filled">
                                                 <i class="ti-package"></i>
                                             </div>
                                             Spesifikasi Produk
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
-                                            <div class="icon-circle">
+                                        <a href="#advantages" data-toggle="tab" onclick="history.back();">
+                                            <div class="icon-circle filled">
                                                 <i class="ti-package"></i>
                                             </div>
                                             Keunggulan Produk
@@ -171,7 +184,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -227,19 +240,18 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control" >
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control" >
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="gambar_bawah">Gambar Tampak Bawah</label>
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control" >
+                                                </div>
 
                                             </div>
 
@@ -249,16 +261,18 @@
                                 <div class="wizard-footer">
                                     <div class="pull-right">
                                         <!-- Submit Button -->
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' style="margin-right: 25px;" />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Konfirmasi' />
                                     </div>
 
                                     <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
+
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Kembali' style="margin-left: 25px;" onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
+                            
                         </div>
                     </div> <!-- wizard container -->
                 </div>

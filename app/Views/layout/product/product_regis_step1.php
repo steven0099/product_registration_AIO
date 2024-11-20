@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* Menambahkan jarak di dalam input */
             outline: none;
             /* Menghilangkan outline default */
-            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
             /* Menambahkan efek bayangan */
         }
 
@@ -54,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* Bayangan yang lebih terang saat difokuskan */
         }
 
+        
         select {
             border: 2px solid #00BFFF !important;
             /* Warna biru */
@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             padding-right: 40px;
             /* Tambahkan jarak untuk icon custom */
             outline: none;
-            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
             /* Menambahkan efek bayangan */
             appearance: none;
             /* Menghilangkan default arrow */
@@ -72,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-size: 20px;
             /* Ukuran icon */
             cursor: pointer;
+            overflow-y: auto;
         }
 
         select:focus {
@@ -110,6 +110,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-align: right;
         }
 
+        .disabled-link {
+            pointer-events: none;
+            /* Disables click events */
+            color: gray;
+            /* Optional: make it look disabled */
+            cursor: not-allowed;
+            /* Change cursor to indicate it's disabled */
+        }
 
         @media (max-width: 600px) {
 
@@ -140,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 17px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#specification" data-toggle="tab">
+                                        <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -166,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#advantages" data-toggle="tab">
+                                        <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -174,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#photos" data-toggle="tab">
+                                        <a href="#photos" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -182,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirmation" data-toggle="tab">
+                                        <a href="#confirmation" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
@@ -202,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                             <?php endif; ?>
 
-                            <form action="save-step1" method="post">
+                            <form action="save-step1" method="post" style="margin-left: 25px; margin-right: 25px;">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
                                     <div class="tab-pane" id="general">
@@ -254,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label id="capacity-label">Kapasitas</label>
                                                     <select id="capacity" name="capacity_value" class="form-control" required>
-                                                        <option value="" disabled selected>Select Kapasitas</option>
+                                                        <option value="" disabled selected>Pilih Kapasitas</option>
                                                         <!-- Options will be populated dynamically -->
                                                     </select>
                                                 </div>
@@ -273,6 +281,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="color">Warna</label>
@@ -316,24 +325,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                     </div>
 
+
                                 </div>
                             <div class="wizard-footer">
-                                    <div class="pull-right">
+                            <div class="pull-right">
                                         <div class="col">
                                         <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
                                         <div class="-ml-1">
                                         <a href="/reset/reset-password" class='btn btn-fill btn-danger btn-wd' style="margin-top:10px">Ganti Password</a>
                                         </div>
                                     </div>
-                                </div>
+                                                            </div>
+
 
                                     <div class="pull-left">
-                                        <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
+                                    <p class="form-note" style="margin-left: 25px;">*Harap diisi dengan benar</p>
                                     </div>
                                     <div class="clearfix"></div>
                             </div>
-
                             </form>
+                            
                         </div>
                     </div> <!-- wizard container -->
                 </div>
@@ -454,6 +465,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         fetchWarrantyOptions(type);
         fetchOptions(subcategoryId);
+
 
     });
 

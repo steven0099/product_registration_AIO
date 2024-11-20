@@ -71,23 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         /* Menambahkan efek bayangan */
     }
 
-    #cspf-field {
-    display: flex;
-    flex-direction: column;
-}
-
-#cspf-field .row-ml-2 {
-    display: flex;
-    align-items: center; /* Aligns stars with the input field */
-}
-
-#cspf-field input[type="number"] {
-    flex: 1; /* Ensures the input field takes up most of the space */
-    max-width: 100%; /* Prevents the input field from overflowing */
+    /* For most modern browsers */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 #star-rating .star {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: #FFD700; /* Yellow color for filled stars */
     transition: color 0.3s ease; /* Smooth transition */
 }
@@ -259,7 +251,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
 
-                                    <div class="tab-pane" id="specification">
+                                    <div class="tab-pane" id="specification" style="margin-left:20px; margin-right:20px">
                                         <div class="row">
                                             <!-- Left Column -->
                                             <div class="col-sm-6" style="margin-top: 65px;">
@@ -271,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                 style="align-text:left">Dimensi Produk (P x L x
                                                                 T)</label>
                                                         </div>
-                                                        <div class="row-ml-2">
+                                                        <div class="row-ml-4">
                                                             <div class="form-group-s" style="display: flex">
                                                                 <input type="number" name="produk_p"
                                                                     value="<?= session()->get("step2")["produk_p"] ?? '' ?>"
@@ -300,9 +292,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                 class="col-sm-8">Dimensi Produk dengan
                                                                 Stand (P x L x T)</label>
                                                         </div>
-                                                        <div class="row-ml-2">
+                                                        <div class="row-ml-4">
                                                             <div class="form-group-s" id="product-stand-field"
-                                                                style="display: flex">
+                                                                style="display: flex; margin-bottom:14px">
                                                                 <input type="number" name="pstand_p"
                                                                     value="<?= session()->get("step2")["pstand_p"] ?? '' ?>"
                                                                     placeholder="Panjang (cm)" class="form-control">
@@ -328,8 +320,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                 (P x L x
                                                                 T)</label>
                                                         </div>
-                                                        <div class="row-ml-8">
-                                                            <div style="display: flex;">
+                                                        <div class="row-ml-4">
+                                                            <div style="display: flex; margin-bottom:14px">
                                                                 <input type="number" name="kemasan_p"
                                                                     value="<?= session()->get("step2")["kemasan_p"] ?? '' ?>"
                                                                     placeholder="Panjang (cm)" class="form-control"
@@ -356,7 +348,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="berat" class="col-sm-8">Berat
                                                         Unit</label>
 </div>
-                                                        <div style="display: flex;" class="row-ml-2">
+                                                        <div style="display: flex;" class="row-ml-4">
                                                             <input type="number" name="berat"
                                                                 value="<?= session()->get("step2")["berat"] ?? '' ?>"
                                                                 placeholder="Berat Produk (kg)" class="form-control"
@@ -371,7 +363,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="row">
                                                     <label for="refrigrant" class="col-sm-8">Tipe
                                                         Refrigrant</label></div>
-                                                        <div class="row-ml-2">
+                                                        <div class="row-ml-4">
                                                         <select id="refigrant" name="refrigrant_id"
                                                             class="form-control">
                                                             <option
@@ -397,18 +389,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="cspf" class="col-sm-8">CSPF
                                                         Rating</label>
                                                     </div>
-                                                        <div style="display: flex; align-items: center;" class="row-ml-2">
+                                                        <div style="display: flex; align-items: center;" class="row-ml-4">
                                                             <input type="number" name="cspf"
                                                                 value="<?= session()->get("step2")["cspf"] ?? '' ?>"
                                                                 id="cspf-input" placeholder="CSPF rating" min="1"
                                                                 max="5" step="0.1">
                                                             <div id="star-rating" style="margin-left: 10px;">
                                                                 <!-- Five star placeholders -->
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
+                                                                <span class="star" >☆</span>
+                                                                <span class="star" >☆</span>
+                                                                <span class="star" >☆</span>
+                                                                <span class="star" >☆</span>
+                                                                <span class="star" >☆</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -435,7 +427,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="row">
                                                     <label for="cooling_capacity"
                                                         class="col-sm-8">Kapasitas Pendinginan</label></div>
-                                                        <div style="display: flex;" class="row-ml-2">
+                                                        <div style="display: flex;" class="row-ml-4">
                                                             <input type="number" name="cooling_capacity"
                                                                 value="<?= session()->get("step2")["cooling_capacity"] ?? '' ?>"
                                                                 placeholder="Kapasitas Pendinginan (BTU/h)"
@@ -451,7 +443,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="pembuat" class="col-sm-8">Negara
                                                         Pembuat</label>
                                                             </div>
-                                                            <div class="row-ml-2">
+                                                            <div class="row-ml-4">
                                                         <input type="text" name="pembuat"
                                                             value="<?= session()->get("step2")["pembuat"] ?? '' ?>"
                                                             placeholder="Negara Pembuat"
@@ -466,7 +458,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <label for="panel_resolution" id="panel-resolution-label"
                                                         class="col-sm-8">Resolusi Panel</label>
 </div>
-<div class="row-ml-2">
+<div class="row-ml-4">
                                                         <div class="form-group-s" id="panel-resolution-field">
                                                             <input type="number" name="resolusi_x"
                                                                 value="<?= session()->get("step2")["resolusi_x"] ?? '' ?>"

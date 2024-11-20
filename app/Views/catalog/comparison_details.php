@@ -14,7 +14,7 @@
    </ul>
 
    <div class="col-sm-6" style="margin-left:100px">
-    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Beranda</a> 
+    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
 <span class="breadcrumb-separator"></span> 
 <span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Perbandingan Produk</span>
     </div><!-- /.col -->

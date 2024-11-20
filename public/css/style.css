@@ -223,16 +223,43 @@ form select::after {
 .comparison-widget {
     position: fixed;
     bottom:0;
-    width: auto;
+    max-width: 1080px;
     height: 220px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 9999;
-    cursor: move;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow-y: hidden;
     overflow-x: hidden;  /* Allow horizontal scrolling if items overflow */
     max-width: 1080px;  /* Prevent the widget from being too tall */
+}
+
+/* Minimized state for the widget */
+.comparison-widget.minimized {
+    height: 50px; /* Adjust as needed for the header */
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.content-wrapper-full {
+    margin-left: 0; /* Removes the space reserved for the sidebar */
+    width: 100%;    /* Makes the content span the full width */
+    max-width: 100%; /* Ensures no unintended max-width restriction */
+  }
+
+  .headbar-full {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.comparison-widget .button-group {
+    display: flex;
+    align-items: center; /* Vertically align buttons */
+    gap: 5px; /* Small gap between buttons */
 }
 
 .comparison-header {
@@ -306,19 +333,21 @@ form select::after {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    left: 0;
     margin-left: 5px; /* Align it to the right */
     margin-right: 10px; /* Add spacing from the right edge */
     transform: translateY(180%); /* Ensure proper vertical alignment */
 }
 
-.comparison-widget .btn-close {
-    font-size: 16px;
-    background-color: #0daff0;
-    color: #fff;
+.comparison-widget .btn-close,
+.comparison-widget .btn-minimize {
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
     cursor: pointer;
-    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 .comparison-item .btn-remove {
@@ -487,7 +516,6 @@ form select::after {
     padding: 15px;
     border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 100vh;          /* Full viewport height */
     position: sticky;        /* Keeps sidebar fixed as you scroll */
     top: 0;                  /* Aligns it to the top of the viewport */
