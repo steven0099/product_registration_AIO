@@ -3933,3 +3933,252 @@ DEBUG - 2024-11-20 18:16:15 --> Updated confirmation: Array
 
 INFO - 2024-11-20 18:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-20 18:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:17:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:31:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:36:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:37:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:39:51 --> CSRF token verified.
+INFO - 2024-11-20 18:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 18:39:51 --> Updated confirmation: Array
+(
+    [product_id] => 184
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ARTUGO
+    [category] => AC
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-22
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 5
+    [cspf] => 5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732102791_c233e5b5358275913087.png
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-20 18:40:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 18:40:47 --> Updated confirmation: Array
+(
+    [product_id] => 184
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ARTUGO
+    [category] => AC
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-22
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 5
+    [cspf] => 5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732102791_c233e5b5358275913087.png
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-20 18:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 18:42:56 --> Updated confirmation: Array
+(
+    [product_id] => 184
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ARTUGO
+    [category] => AC
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-22
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 5
+    [cspf] => 5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732102791_c233e5b5358275913087.png
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-20 18:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 18:45:05 --> Updated confirmation: Array
+(
+    [product_id] => 184
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ARTUGO
+    [category] => AC
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-22
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 5
+    [cspf] => 5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732102791_c233e5b5358275913087.png
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-20 18:49:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 18:49:22 --> Updated confirmation: Array
+(
+    [product_id] => 184
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ARTUGO
+    [category] => AC
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-22
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 5
+    [cspf] => 5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732102791_c233e5b5358275913087.png
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-20 18:49:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 18:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

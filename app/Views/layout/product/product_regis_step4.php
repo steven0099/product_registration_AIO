@@ -45,6 +45,11 @@
             /* Bayangan yang lebih terang saat difokuskan */
         }
 
+        input[type="file"].image-uploaded {
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan tetap sama setelah upload */
+        }
+
         select {
             border: 2px solid #00BFFF !important;
             /* Warna biru */
@@ -317,6 +322,13 @@
 <script>
     $(document).ready(function() {
         $('a[href="#photos"]').tab('show'); // Activate the upload photos tab
+    });
+
+    document.querySelector('form').addEventListener('submit', function() {
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput.files.length > 0) {
+            fileInput.classList.add('image-uploaded'); // Tambahkan kelas untuk menandai bahwa gambar telah di-upload
+        }
     });
 </script>
 
