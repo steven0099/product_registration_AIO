@@ -130,6 +130,10 @@
             /* Ganti dengan warna tema Anda */
         }
 
+        .ti-package.filled {
+            color: #00a9ee;
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -174,33 +178,33 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <b style="color: #00a9ee;">General Data</b>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <b style="color: #00a9ee;">Spesifikasi Produk</b>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Keunggulan Produk
+                                            <b style="color: #00a9ee;">Keunggulan Produk</b>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#photos" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Foto Produk
+                                            <b style="color: #00a9ee;">Foto Produk</b>
                                         </a>
                                     </li>
                                     <li>
@@ -208,7 +212,7 @@
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            Konfirmasi Produk
+                                            <b style="color: #00a9ee;">Konfirmasi Produk</b>
                                         </a>
                                     </li>
                                 </ul>

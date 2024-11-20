@@ -115,6 +115,10 @@
             /* Ganti dengan warna tema Anda */
         }
 
+        .ti-package.filled {
+            border-color: #00a9ee;
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -156,17 +160,18 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <b style="color: #00a9ee;"> General Data</b>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#type" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <b style="color: #00a9ee;">Spesifikasi Produk</b>
+
                                         </a>
                                     </li>
                                     <li>
@@ -174,7 +179,7 @@
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            Keunggulan Produk
+                                            <b style="color: #00a9ee;">Keunggulan Produk</b>
                                         </a>
                                     </li>
                                     <li>
@@ -206,12 +211,12 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('product/save-step3') ?>" method="post" style=" margin-top: 25px; margin-left: 25px; margin-right: 25px;">
+                            <form action="<?= base_url('product/save-step3') ?>" method="post" style=" margin-top: 45px; margin-left: 25px; margin-right: 25px;">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
                                     <div class="tab-pane" id="facilities">
 
-                                        <div class="row" style="margin: 20px;">
+                                        <div class="row-sm-6">
 
                                             <div class="form-group">
                                                 <input type="text" id="advantage1" name="advantage1" value="<?= session()->get("step3")["advantage1"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
@@ -231,7 +236,7 @@
                                             <div class="form-group">
                                                 <input type="text" id="advantage6" name="advantage6" value="<?= session()->get("step3")["advantage6"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
-                                            <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
+
 
 
                                         </div>
@@ -250,7 +255,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
-                            <a href="/reset/reset-password" style="margin-left:50px">Ganti Password</a><br>
+                            <p class="form-note" style="margin-left:47px; margin-top: 8px;"><span style="color: red;">*</span>Harap diisi Minimal 3 Keunggulan Produk</p>
+                            <a href="/reset/reset-password" style="margin:50px">Ganti Password</a><br>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

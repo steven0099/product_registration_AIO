@@ -115,6 +115,10 @@
             /* Ganti dengan warna tema Anda */
         }
 
+        .ti-package.filled {
+            color: #00a9ee;
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -154,25 +158,25 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <b style="color: #00a9ee;"> General Data</b>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <b style="color: #00a9ee;">Spesifikasi Produk</b>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#advantages" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Keunggulan Produk
+                                            <b style="color: #00a9ee;">Keunggulan Produk</b>
                                         </a>
                                     </li>
                                     <li>
@@ -180,7 +184,7 @@
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            Foto Produk
+                                            <b style="color: #00a9ee;">Foto Produk</b>
                                         </a>
                                     </li>
                                     <li>
@@ -220,12 +224,12 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" value="<?= session()->get("step4")["gambar_samping_kanan"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" value="<?= session()->get("step4")["gambar_samping_kanan"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_atas">Gambar Tampak Atas</label>
-                                                    <input type="file" id="gambar_atas" name="gambar_atas" value="<?= session()->get("step4")["gambar_atas"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_atas" name="gambar_atas" value="<?= session()->get("step4")["gambar_atas"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
@@ -240,17 +244,17 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                             </div>
@@ -272,7 +276,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
-                            <a href="/reset/reset-password" style="margin-left:50px">Ganti Password</a><br>
+                            <p class="form-note" style="margin-left: 46px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
+                            <a href="/reset/reset-password" style="margin:50px">Ganti Password</a><br>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

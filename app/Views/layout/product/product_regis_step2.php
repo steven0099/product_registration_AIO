@@ -168,6 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         #star-rating .star {
+            font-size: 125px;
             /* Ukuran bintang */
             color: #ffa50a;
             /* Warna default */
@@ -181,6 +182,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         #star-rating .star.half {
             color: #D5AB55;
             /* Warna bintang setengah */
+        }
+
+        .ti-package.filled {
+            color: #00a9ee;
         }
 
 
@@ -226,9 +231,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <li>
                                         <a href="#general" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <b style="color: #00a9ee;"> General Data</b>
                                         </a>
                                     </li>
                                     <li>
@@ -236,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <b style="color: #00a9ee;">Spesifikasi Produk</b>
                                         </a>
                                     </li>
                                     <li>
@@ -268,93 +273,80 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <form action="save-step2" method="post" style="margin-left: 25px; margin-right: 25px;">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
-
                                     <div class="tab-pane" id="specification">
                                         <div class="row">
                                             <!-- Left Column -->
                                             <div class="col-sm-6" style="margin-top: 65px;">
-                                                <div class="form-group row">
-                                                    <label for="product_dimensions" id="product-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk (P x L x T)</label>
-                                                    <div class="col-sm-8">
-
-                                                        <div class="form-group-s" style="display: flex">
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="produk_p" value="<?= session()->get("step2")["produk_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control" required>
-                                                            </div>
-
-                                                            <label class="divider"> x </label>
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="produk_l" value="<?= session()->get("step2")["produk_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control" required>
-                                                            </div>
-                                                            <label class="divider"> x </label>
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="produk_t" value="<?= session()->get("step2")["produk_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control" required>
-                                                            </div>
-                                                            <label class="unit">cm</label>
+                                                <div class="form-group">
+                                                    <label for="product_dimensions" id="product-dimensions-label">Dimensi Produk (P x L x T)</label>
+                                                    <div style="display: flex; gap: 8px;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="produk_p" value="<?= session()->get("step2")["produk_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control" required>
                                                         </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="produk_l" value="<?= session()->get("step2")["produk_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control" required>
+                                                        </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="produk_t" value="<?= session()->get("step2")["produk_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control" required>
+                                                        </div>
+                                                        <label class="unit">cm</label>
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group-s row">
-                                                    <label for="pstand_dimensions" id="pstand-dimensions-label" class="col-sm-4 col-form-label">Dimensi Produk dengan Stand (P x L x T)</label>
-                                                    <div class="col-sm-8">
-                                                        <div class="form-group-s" id="product-stand-field" style="display: flex">
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="pstand_p" value="<?= session()->get("step2")["pstand_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control">
-                                                            </div>
-                                                            <label class="divider"> x </label>
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="pstand_l" value="<?= session()->get("step2")["pstand_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control">
-                                                            </div>
-                                                            <label class="divider"> x </label>
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="pstand_t" value="<?= session()->get("step2")["pstand_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control">
-                                                            </div>
-                                                            <label class="unit">cm</label>
+                                                <div class="form-group" id="product-stand-field">
+                                                    <label for="pstand_dimensions" id="pstand-dimensions-label">Dimensi Produk dengan Stand (P x L x T)</label>
+                                                    <div style="display: flex; gap: 8px;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="pstand_p" value="<?= session()->get("step2")["pstand_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control">
                                                         </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="pstand_l" value="<?= session()->get("step2")["pstand_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control">
+                                                        </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="pstand_t" value="<?= session()->get("step2")["pstand_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control">
+                                                        </div>
+                                                        <label class="unit">cm</label>
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group-s row" style="margin-bottom: 14px;">
-                                                    <label for="package_dimensions" class="col-sm-4 col-form-label">Dimensi Kemasan Produk (P x L x T)</label>
-                                                    <div class="col-sm-8">
-                                                        <div style="display: flex; ">
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="kemasan_p" value="<?= session()->get("step2")["kemasan_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control" required>
-                                                            </div>
-                                                            <label class="divider"> x </label>
-
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="kemasan_l" value="<?= session()->get("step2")["kemasan_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control" required>
-                                                            </div>
-                                                            <label class="divider"> x </label>
-
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="kemasan_t" value="<?= session()->get("step2")["kemasan_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control" required>
-                                                            </div>
-                                                            <label class="unit">cm</label>
-
+                                                <div class="form-group">
+                                                    <label for="package_dimensions" id="package-dimensions-label">Dimensi Kemasan Produk (P x L x T)</label>
+                                                    <div style="display: flex; gap: 8px;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="kemasan_p" value="<?= session()->get("step2")["kemasan_p"] ?? '' ?>" placeholder="Panjang (cm)" class="form-control" required>
                                                         </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="kemasan_l" value="<?= session()->get("step2")["kemasan_l"] ?? '' ?>" placeholder="Lebar (cm)" class="form-control" required>
+                                                        </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="kemasan_t" value="<?= session()->get("step2")["kemasan_t"] ?? '' ?>" placeholder="Tinggi (cm)" class="form-control" required>
+                                                        </div>
+                                                        <label class="unit">cm</label>
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="berat">Berat Unit</label>
+                                                    <div style="display: flex; align-items: center; gap: 8px;">
 
-
-                                                <div class="form-group row">
-                                                    <label for="berat" class="col-sm-4 col-form-label">Berat Unit</label>
-                                                    <div class="col-sm-8">
-                                                        <div style="display: flex; align-items: center;">
-                                                            <div style="flex-direction: column; flex: 1;">
-                                                                <input type="number" name="berat" value="<?= session()->get("step2")["berat"] ?? '' ?>" placeholder="Berat Unit (kg)" class="form-control" required>
-                                                            </div>
-                                                            <label class="unit">kg</label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="berat" value="<?= session()->get("step2")["berat"] ?? '' ?>" placeholder="Berat Unit (kg)" class="form-control" required>
                                                         </div>
+                                                        <label class="unit">kg</label>
+
                                                     </div>
                                                 </div>
+
                                                 <!-- refigrant Dropdown -->
-                                                <div class="form-group row" id="refrigrant-field">
-                                                    <label for="refrigrant" class="col-sm-4 col-form-label">Tipe Refrigrant</label>
-                                                    <div class="col-sm-8">
+                                                <div class="form-group" id="refrigrant-field">
+                                                    <label for="refrigrant">Tipe Refrigrant</label>
+                                                    <div style="display: flex; gap: 8px;">
                                                         <select id="refigrant" name="refrigrant_id" class="form-control">
                                                             <option value="<?= session()->get("step2")["refrigrant_id"] ?? '' ?>" disabled selected>Tipe Refrigrant</option>
                                                             <?php foreach ($refrigrant as $refigrants): ?>
@@ -369,71 +361,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                             <!-- Right Column -->
                                             <div class="col-sm-6" style="margin-top: 65px;">
-                                                <div class="form-group row" id="cspf-field">
-                                                    <label for="cspf" class="col-sm-4 col-form-label">CSPF Rating</label>
-                                                    <div class="col-sm-8">
-                                                        <div style="display: flex; align-items: center;">
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="cspf" value="<?= session()->get("step2")["cspf"] ?? '' ?>" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1">
-                                                            </div>
-                                                            <div id="star-rating" style="margin-left: 10px;">
-                                                                <!-- Five star placeholders -->
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                                <span class="star" style="font-size: 1.5rem;">☆</span>
-                                                            </div>
+                                                <div class="form-group" id="cspf-field">
+                                                    <label for="cspf">CSPF Rating</label>
+                                                    <div style="display: flex; align-items: center;gap: 8px;">
+                                                        <div style="flex-direction: column;">
+                                                            <input type="number" name="cspf" value="<?= session()->get("step2")["cspf"] ?? '' ?>" id="cspf-input" placeholder="CSPF rating" min="1" max="5" step="0.1" style="width: 240px;" class="form-control">
                                                         </div>
+                                                        <div id="star-rating" style="margin-left: 10px;">
+                                                            <!-- Five star placeholders -->
+                                                            <span class="star" style="font-size: 2rem;">☆</span>
+                                                            <span class="star" style="font-size: 2rem;">☆</span>
+                                                            <span class="star" style="font-size: 2rem;">☆</span>
+                                                            <span class="star" style="font-size: 2rem;">☆</span>
+                                                            <span class="star" style="font-size: 2rem;">☆</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group" id="panel-resolution-field">
+                                                    <label for="panel_resolution" id="panel-resolution-label">Resolusi Panel</label>
+                                                    <div style="display: flex; gap: 8px;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="resolusi_x" value="<?= session()->get("step2")["resolusi_x"] ?? '' ?>" placeholder="X (cm)" class="form-control">
+                                                        </div>
+                                                        <label class="divider"> x </label>
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="resolusi_y" value="<?= session()->get("step2")["resolusi_y"] ?? '' ?>" placeholder="Y (cm)" class="form-control">
+                                                        </div>
+                                                        <label class="unit">Pixel</label>
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row" id="panel-resolution-field">
-                                                    <label for="panel_resolution" id="panel-resolution-label" class="col-sm-4 col-form-label">Resolusi Panel</label>
-                                                    <div class="col-sm-8">
-                                                        <div class="form-group-s" style="display: flex; gap: 9px;">
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="resolusi_x" value="<?= session()->get("step2")["resolusi_x"] ?? '' ?>" placeholder="X (cm)" class="form-control">
-                                                            </div>
-                                                            <label class="divider"> x </label>
-                                                            <div style="flex-direction: column;">
-                                                                <input type="number" name="resolusi_y" value="<?= session()->get("step2")["resolusi_y"] ?? '' ?>" placeholder="Y (cm)" class="form-control">
-                                                            </div>
-                                                            <label class="unit">Pixel</label>
+                                                <div class="form-group">
+                                                    <label for="daya">Konsumsi Daya</label>
+                                                    <div style="display: flex;align-items: center; gap: 8px;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="daya" value="<?= session()->get("step2")["daya"] ?? '' ?>" placeholder="Konsumsi Daya (watt)" class="form-control" required>
                                                         </div>
+                                                        <label class="unit">watt</label>
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
-                                                    <label for="daya" class="col-sm-4 col-form-label">Konsumsi Daya</label>
-                                                    <div class="col-sm-8">
-                                                        <div style="display: flex; align-items: center; gap: 9px;">
-                                                            <div style="flex-direction: column; flex: 1;">
-                                                                <input type="number" name="daya" value="<?= session()->get("step2")["daya"] ?? '' ?>" placeholder="Konsumsi Daya (watt)" class="form-control" required>
-                                                            </div>
-                                                            <label class="unit">watt</label>
+                                                <div class="form-group" id="cooling-capacity-field">
+                                                    <label for="cooling_capacity">Kapasitas Pendinginan</label>
+                                                    <div style="display: flex; align-items: center;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="number" name="cooling_capacity" value="<?= session()->get("step2")["cooling_capacity"] ?? '' ?>" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
                                                         </div>
+                                                        <label class="unit">BTU/h</label>
                                                     </div>
                                                 </div>
 
-
-
-                                                <div class="form-group row" id="cooling-capacity-field">
-                                                    <label for="cooling_capacity" class="col-sm-4 col-form-label">Kapasitas Pendinginan</label>
-                                                    <div class="col-sm-8">
-                                                        <div style="display: flex; align-items: center;">
-                                                            <div style="flex-direction: column; flex: 1;">
-                                                                <input type="number" name="cooling_capacity" value="<?= session()->get("step2")["cooling_capacity"] ?? '' ?>" placeholder="Kapasitas Pendinginan (BTU/h)" class="form-control">
-                                                            </div>
-                                                            <label class="unit">BTU/h</label>
+                                                <div class="form-group">
+                                                    <label for="pembuat">Negara Pembuat</label>
+                                                    <div style="display: flex; align-items: center;">
+                                                        <div style="flex-direction: column; flex: 1;">
+                                                            <input type="text" name="pembuat" value="<?= session()->get("step2")["pembuat"] ?? '' ?>" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="pembuat" class="col-sm-4 col-form-label">Negara Pembuat</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" name="pembuat" value="<?= session()->get("step2")["pembuat"] ?? '' ?>" placeholder="Negara Pembuat" style="text-transform: uppercase;" class="form-control" required>
                                                     </div>
                                                 </div>
 
@@ -445,18 +430,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                                 <div class="wizard-footer">
                                     <div class="pull-right">
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Konfirmasi' />
                                     </div>
 
                                     <div class="pull-left">
 
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Kembali' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
-                            <a href="/reset/reset-password" style="margin-left:50px;">Ganti Password</a><br>
+                            <p class="form-note" style="margin-left: 46px;margin-top: 8px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
+                            <a href="/reset/reset-password" style="margin:50px;">Ganti Password</a><br>
                         </div>
                     </div> <!-- wizard container -->
                 </div>
@@ -518,8 +504,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (dimensiProdukLabel) dimensiProdukLabel.innerText = 'Dimensi Produk Tanpa Stand (P x L x T)';
                 if (dimensiPStandLabel) dimensiPStandLabel.innerText = 'Dimensi Produk Dengan Stand (P x L x T)';
                 if (PanelLabel) PanelLabel.innerText = 'Resolusi Panel';
-                if (dimensiProdukStand) dimensiProdukStand.style.display = 'flex';
-                if (resolusiPanel) resolusiPanel.style.display = 'flex';
+                if (dimensiProdukStand) dimensiProdukStand.style.display = 'block';
+                if (resolusiPanel) resolusiPanel.style.display = 'block';
             } else {
                 if (dimensiProdukLabel) dimensiProdukLabel.innerText = 'Dimensi Produk (P x L x T)';
                 if (dimensiPStandLabel) dimensiPStandLabel.innerText = '';
@@ -560,7 +546,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Menambahkan event listener untuk input CSPF
         document.getElementById('cspf-input').addEventListener('input', function() {
             const cspfValue = parseFloat(this.value);
-            if (!isNaN(cspfValue) && cspfValue >= 0 && cspfValue <= 5) { // Memperbaiki rentang nilai
+            if (!isNaN(cspfValue) && cspfValue >= 0 && cspfValue <= 5) {
                 updateStars(cspfValue); // Menggunakan nilai desimal langsung
             } else {
                 updateStars(0); // Reset jika input tidak valid
@@ -578,6 +564,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Panggil fungsi updateVisibility untuk menetapkan visibilitas awal
         updateVisibility();
     };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectElements = document.querySelectorAll('.select-css');
+
+        selectElements.forEach(select => {
+            select.addEventListener('click', function() {
+                const rect = this.getBoundingClientRect();
+                const dropdownHeight = this.scrollHeight;
+
+                // Cek apakah ada cukup ruang di bawah
+                if (window.innerHeight - rect.bottom < dropdownHeight) {
+                    this.style.position = 'absolute';
+                    this.style.top = `${rect.top - dropdownHeight}px`; // Pindahkan ke atas jika tidak ada ruang
+                } else {
+                    this.style.position = 'relative'; // Kembalikan posisi default
+                }
+            });
+        });
+    });
 </script>
 
 

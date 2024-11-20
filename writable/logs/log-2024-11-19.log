@@ -784,3 +784,6 @@ DEBUG - 2024-11-19 19:24:23 --> Updated confirmation: Array
     [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
 )
 
+INFO - 2024-11-19 19:26:21 --> CSRF token verified.
+INFO - 2024-11-19 19:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-19 19:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

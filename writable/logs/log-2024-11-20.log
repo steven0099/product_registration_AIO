@@ -1,0 +1,3724 @@
+INFO - 2024-11-20 06:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:26 --> CSRF token verified.
+INFO - 2024-11-20 06:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:51 --> getCapacities called with ID: 9
+INFO - 2024-11-20 06:05:51 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 06:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:51 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 06:05:58 --> CSRF token verified.
+INFO - 2024-11-20 06:05:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:14 --> CSRF token verified.
+INFO - 2024-11-20 06:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:24 --> CSRF token verified.
+INFO - 2024-11-20 06:07:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:35 --> CSRF token verified.
+INFO - 2024-11-20 06:07:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:07:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:08:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:08:15 --> getCapacities called with ID: 36
+INFO - 2024-11-20 06:08:15 --> Capacities fetched: []
+INFO - 2024-11-20 06:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:08:16 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 06:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:35 --> getCapacities called with ID: 52
+INFO - 2024-11-20 06:13:35 --> Capacities fetched: []
+INFO - 2024-11-20 06:13:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:36 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-20 06:13:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:43 --> getUkuranTv called with ID: 50 - Result: [{"id":"16","subcategory_id":"50","size":"KECIL"}]
+INFO - 2024-11-20 06:13:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:43 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-20 06:13:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:46 --> getCapacities called with ID: 52
+INFO - 2024-11-20 06:13:46 --> Capacities fetched: []
+INFO - 2024-11-20 06:13:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:13:46 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-20 06:14:11 --> CSRF token verified.
+INFO - 2024-11-20 06:14:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:14:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:14:17 --> CSRF token verified.
+INFO - 2024-11-20 06:14:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:14:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:14:20 --> CSRF token verified.
+INFO - 2024-11-20 06:14:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:17 --> getCapacities called with ID: 9
+INFO - 2024-11-20 06:15:17 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 06:15:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:17 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 06:15:21 --> CSRF token verified.
+INFO - 2024-11-20 06:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:15:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:16:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:16:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:16:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:17:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 06:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:59:10 --> CSRF token verified.
+INFO - 2024-11-20 08:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:59:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 08:59:32 --> Category: 
+INFO - 2024-11-20 08:59:32 --> Subcategory: 
+INFO - 2024-11-20 08:59:32 --> Capacity: 
+INFO - 2024-11-20 08:59:32 --> Search: 
+INFO - 2024-11-20 08:59:32 --> Sort: id_asc
+INFO - 2024-11-20 09:00:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-20 09:00:02 --> ErrorException: Undefined array key "phone"
+[Method: GET, Route: catalog/details/97]
+in APPPATH\Views\catalog\details.php on line 375.
+ 1 APPPATH\Views\catalog\details.php(375): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "phone"', 'C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\app\\Views\\catalog\\details.php', 375)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\app\\Views\\catalog\\details.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('catalog/details', [], true)
+ 5 APPPATH\Controllers\CatalogController.php(447): view('catalog/details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\CatalogController->details('97')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CatalogController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-20 09:00:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:00:44 --> Category: 
+INFO - 2024-11-20 09:00:44 --> Subcategory: 
+INFO - 2024-11-20 09:00:44 --> Capacity: 
+INFO - 2024-11-20 09:00:44 --> Search: 
+INFO - 2024-11-20 09:00:44 --> Sort: id_asc
+INFO - 2024-11-20 09:00:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 09:00:50 --> Filter - Category: 
+DEBUG - 2024-11-20 09:00:50 --> Filter - Subcategory: 
+DEBUG - 2024-11-20 09:00:50 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-20 09:00:50 --> Filter - Search: 
+DEBUG - 2024-11-20 09:00:50 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+    [1] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [2] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-12 15:28:52
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-12 15:28:52
+        )
+
+    [3] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [4] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 13:29:20
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-14 13:29:20
+        )
+
+    [5] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-12 15:28:16
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-12 15:28:16
+        )
+
+    [6] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [7] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [8] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [9] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [10] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => GEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => SETRIKA
+            [product_type] => JFQ0WFJ
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 1
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => MALAYSIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 1
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1731384621_a5bb38de44df059a1ad3.png
+            [gambar_belakang] => 1731384621_6cddb34a2d1791408f71.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731384621_341126d3d9cecfbecc79.png
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-12 11:13:11
+            [approved_at] => 2024-11-12 11:13:11
+            [rejected_at] => 
+            [submitted_at] => 2024-11-12 11:10:54
+            [updated_at] => 2024-11-12 11:13:11
+        )
+
+    [11] => Array
+        (
+            [id] => 104
+            [product_id] => 129
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => JJ09WEFFC
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 40
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => JERMAN
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731553811_e2a7376553e3f46db5b6.png
+            [gambar_belakang] => 1731553811_dc565f424654b84f8770.png
+            [gambar_atas] => 1731553811_5fc961f03287a2e8a641.png
+            [gambar_bawah] => 1731553811_d4ad9f5af83ffb373b73.png
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:10:48
+            [approved_at] => 2024-11-14 10:10:48
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:10:12
+            [updated_at] => 2024-11-14 10:10:48
+        )
+
+    [12] => Array
+        (
+            [id] => 105
+            [product_id] => 130
+            [brand] => MIDEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => D0WFIEW1A
+            [color] => MERAH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 80
+            [daya] => 4.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 33 cm
+            [berat] => 3.00
+            [pembuat] => SWEDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731554190_a45f6101a3b7529e259b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731554190_db0524a452d38950a6e6.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:16:50
+            [approved_at] => 2024-11-14 10:16:50
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:16:30
+            [updated_at] => 2024-11-14 10:16:50
+        )
+
+)
+
+INFO - 2024-11-20 09:00:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 09:00:51 --> Filter - Category: 
+DEBUG - 2024-11-20 09:00:51 --> Filter - Subcategory: 
+DEBUG - 2024-11-20 09:00:51 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-20 09:00:51 --> Filter - Search: 
+DEBUG - 2024-11-20 09:00:51 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+    [1] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [2] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-12 15:28:52
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-12 15:28:52
+        )
+
+    [3] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [4] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 13:29:20
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-14 13:29:20
+        )
+
+    [5] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-12 15:28:16
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-12 15:28:16
+        )
+
+    [6] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [7] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [8] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [9] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [10] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => GEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => SETRIKA
+            [product_type] => JFQ0WFJ
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 1
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => MALAYSIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 1
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1731384621_a5bb38de44df059a1ad3.png
+            [gambar_belakang] => 1731384621_6cddb34a2d1791408f71.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731384621_341126d3d9cecfbecc79.png
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-12 11:13:11
+            [approved_at] => 2024-11-12 11:13:11
+            [rejected_at] => 
+            [submitted_at] => 2024-11-12 11:10:54
+            [updated_at] => 2024-11-12 11:13:11
+        )
+
+    [11] => Array
+        (
+            [id] => 104
+            [product_id] => 129
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => JJ09WEFFC
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 40
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => JERMAN
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731553811_e2a7376553e3f46db5b6.png
+            [gambar_belakang] => 1731553811_dc565f424654b84f8770.png
+            [gambar_atas] => 1731553811_5fc961f03287a2e8a641.png
+            [gambar_bawah] => 1731553811_d4ad9f5af83ffb373b73.png
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:10:48
+            [approved_at] => 2024-11-14 10:10:48
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:10:12
+            [updated_at] => 2024-11-14 10:10:48
+        )
+
+    [12] => Array
+        (
+            [id] => 105
+            [product_id] => 130
+            [brand] => MIDEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => D0WFIEW1A
+            [color] => MERAH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 80
+            [daya] => 4.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 33 cm
+            [berat] => 3.00
+            [pembuat] => SWEDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731554190_a45f6101a3b7529e259b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731554190_db0524a452d38950a6e6.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:16:50
+            [approved_at] => 2024-11-14 10:16:50
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:16:30
+            [updated_at] => 2024-11-14 10:16:50
+        )
+
+)
+
+INFO - 2024-11-20 09:00:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 09:00:54 --> Filter - Category: 
+DEBUG - 2024-11-20 09:00:54 --> Filter - Subcategory: 
+DEBUG - 2024-11-20 09:00:54 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-20 09:00:54 --> Filter - Search: 
+DEBUG - 2024-11-20 09:00:54 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 105
+            [product_id] => 130
+            [brand] => MIDEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => D0WFIEW1A
+            [color] => MERAH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 80
+            [daya] => 4.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 33 cm
+            [berat] => 3.00
+            [pembuat] => SWEDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731554190_a45f6101a3b7529e259b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731554190_db0524a452d38950a6e6.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:16:50
+            [approved_at] => 2024-11-14 10:16:50
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:16:30
+            [updated_at] => 2024-11-14 10:16:50
+        )
+
+    [1] => Array
+        (
+            [id] => 104
+            [product_id] => 129
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => JJ09WEFFC
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 40
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => JERMAN
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731553811_e2a7376553e3f46db5b6.png
+            [gambar_belakang] => 1731553811_dc565f424654b84f8770.png
+            [gambar_atas] => 1731553811_5fc961f03287a2e8a641.png
+            [gambar_bawah] => 1731553811_d4ad9f5af83ffb373b73.png
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:10:48
+            [approved_at] => 2024-11-14 10:10:48
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:10:12
+            [updated_at] => 2024-11-14 10:10:48
+        )
+
+    [2] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => GEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => SETRIKA
+            [product_type] => JFQ0WFJ
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 1
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => MALAYSIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 1
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1731384621_a5bb38de44df059a1ad3.png
+            [gambar_belakang] => 1731384621_6cddb34a2d1791408f71.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731384621_341126d3d9cecfbecc79.png
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-12 11:13:11
+            [approved_at] => 2024-11-12 11:13:11
+            [rejected_at] => 
+            [submitted_at] => 2024-11-12 11:10:54
+            [updated_at] => 2024-11-12 11:13:11
+        )
+
+    [3] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [4] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [5] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [6] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [7] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-12 15:28:16
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-12 15:28:16
+        )
+
+    [8] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 13:29:20
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-14 13:29:20
+        )
+
+    [9] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [10] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-12 15:28:52
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-12 15:28:52
+        )
+
+    [11] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [12] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+)
+
+INFO - 2024-11-20 09:00:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 09:00:54 --> Filter - Category: 
+DEBUG - 2024-11-20 09:00:54 --> Filter - Subcategory: 
+DEBUG - 2024-11-20 09:00:54 --> Filter - Capacity/Ukuran: 
+DEBUG - 2024-11-20 09:00:54 --> Filter - Search: 
+DEBUG - 2024-11-20 09:00:54 --> Query Result: Array
+(
+    [0] => Array
+        (
+            [id] => 105
+            [product_id] => 130
+            [brand] => MIDEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => D0WFIEW1A
+            [color] => MERAH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 80
+            [daya] => 4.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 33 cm
+            [berat] => 3.00
+            [pembuat] => SWEDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731554190_a45f6101a3b7529e259b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731554190_db0524a452d38950a6e6.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:16:50
+            [approved_at] => 2024-11-14 10:16:50
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:16:30
+            [updated_at] => 2024-11-14 10:16:50
+        )
+
+    [1] => Array
+        (
+            [id] => 104
+            [product_id] => 129
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => AIR PURIFIER
+            [product_type] => JJ09WEFFC
+            [color] => HITAM
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 1
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 40
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => JERMAN
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731553811_e2a7376553e3f46db5b6.png
+            [gambar_belakang] => 1731553811_dc565f424654b84f8770.png
+            [gambar_atas] => 1731553811_5fc961f03287a2e8a641.png
+            [gambar_bawah] => 1731553811_d4ad9f5af83ffb373b73.png
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 10:10:48
+            [approved_at] => 2024-11-14 10:10:48
+            [rejected_at] => 
+            [submitted_at] => 2024-11-14 10:10:12
+            [updated_at] => 2024-11-14 10:10:48
+        )
+
+    [2] => Array
+        (
+            [id] => 102
+            [product_id] => 127
+            [brand] => GEA
+            [category] => SMALL APPLIANCES
+            [subcategory] => SETRIKA
+            [product_type] => JFQ0WFJ
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 1
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => MALAYSIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 1
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1731384621_a5bb38de44df059a1ad3.png
+            [gambar_belakang] => 1731384621_6cddb34a2d1791408f71.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731384621_341126d3d9cecfbecc79.png
+            [gambar_samping_kanan] => 
+            [video_produk] => https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-12 11:13:11
+            [approved_at] => 2024-11-12 11:13:11
+            [rejected_at] => 
+            [submitted_at] => 2024-11-12 11:10:54
+            [updated_at] => 2024-11-12 11:13:11
+        )
+
+    [3] => Array
+        (
+            [id] => 101
+            [product_id] => 126
+            [brand] => LG
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => ABCD09
+            [color] => UNGU
+            [capacity] => 0,75 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 10.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 1 x 2 x 3 cm
+            [berat] => 1.00
+            [pembuat] => PRAPATAN CIAMIS
+            [refrigrant] => R-410 A
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 10
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 5.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731198942_2e189eea7d2f4c2db788.png
+            [gambar_belakang] => 1731198942_dcab665afb9744dd9561.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731198942_6e326430b68c803c7fba.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-10 07:41:17
+            [approved_at] => 2024-11-10 07:41:17
+            [rejected_at] => 
+            [submitted_at] => 2024-11-10 07:35:43
+            [updated_at] => 2024-11-10 07:41:17
+        )
+
+    [4] => Array
+        (
+            [id] => 100
+            [product_id] => 125
+            [brand] => LG
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => J2EI0EP1S
+            [color] => PUTIH
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 1.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 2 x 3 x 4 cm
+            [berat] => 1.00
+            [pembuat] => INDIA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054835_e7e451d60f468fb73c9f.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 1731054835_24765437e60493b9c25b.png
+            [gambar_samping_kanan] => 1731054835_d5fc0fa9fcfcd1d165f0.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Rizal F
+            [confirmed_at] => 2024-11-08 15:34:38
+            [approved_at] => 2024-11-08 15:34:38
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:33:56
+            [updated_at] => 2024-11-08 15:34:38
+        )
+
+    [5] => Array
+        (
+            [id] => 99
+            [product_id] => 123
+            [brand] => ELECTROLUX
+            [category] => SMALL APPLIANCES
+            [subcategory] => SPEAKER
+            [product_type] => ABCD09
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 2
+            [ukuran] => Besar
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1731054626_d4cade1e49edf94cf7f0.png
+            [gambar_belakang] => 1731054626_4b843e4a87bb2c18e198.png
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 1731054626_197885da8e63648ad079.png
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-08 15:34:25
+            [approved_at] => 2024-11-08 15:34:25
+            [rejected_at] => 
+            [submitted_at] => 2024-11-08 15:30:26
+            [updated_at] => 2024-11-08 15:34:25
+        )
+
+    [6] => Array
+        (
+            [id] => 97
+            [product_id] => 121
+            [brand] => ELECTROLUX
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => A90DWW9
+            [color] => KUNING
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 13.00
+            [product_dimensions] => 1 x 2 x 3 cm
+            [packaging_dimensions] => 7 x 8 x 9 cm
+            [berat] => 12.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 4 x 5 x 6 cm
+            [panel_resolution] => 10 x 11
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730882309_2d2dbc06a1fb60073128.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-08 14:43:13
+            [approved_at] => 2024-11-08 14:43:13
+            [rejected_at] => 
+            [submitted_at] => 2024-11-06 15:38:30
+            [updated_at] => 2024-11-08 14:43:13
+        )
+
+    [7] => Array
+        (
+            [id] => 86
+            [product_id] => 94
+            [brand] => BEKO
+            [category] => TV
+            [subcategory] => ANDROID
+            [product_type] => ABCD09
+            [color] => BIRU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => <1
+            [garansi_semua_service] => 
+            [ukuran] => 40 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 3.14
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 1 x 1
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730281659_11d9280ed09db2b0b3f9.png
+            [gambar_belakang] => 1730281659_8425beeb490787f9c568.png
+            [gambar_atas] => 1730281659_dbd1bfd8a7b5967256fb.png
+            [gambar_bawah] => 1730281659_63a25eea985929ad224d.png
+            [gambar_samping_kiri] => 1730281659_0f032cea4ba262c6cebd.png
+            [gambar_samping_kanan] => 1730281659_05042f804e3ce65ac322.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => superadmin
+            [confirmed_at] => 2024-11-12 15:28:16
+            [approved_at] => 2024-11-06 09:52:10
+            [rejected_at] => 
+            [submitted_at] => 2024-10-30 16:47:40
+            [updated_at] => 2024-11-12 15:28:16
+        )
+
+    [8] => Array
+        (
+            [id] => 89
+            [product_id] => 97
+            [brand] => ELECTROLUX
+            [category] => KULKAS
+            [subcategory] => PORTABLE
+            [product_type] => ZHL019
+            [color] => HITAM
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 2
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730360126_14cff9c23225585f8b0e.png
+            [gambar_belakang] => 1730360126_a61f6148dcde7e86ee05.png
+            [gambar_atas] => 1730360126_f254de4a5b457d9c1e93.png
+            [gambar_bawah] => 1730360126_a2fa6aa2339c25e663bb.png
+            [gambar_samping_kiri] => 1730360126_4e7f608afb1a89ec96b9.png
+            [gambar_samping_kanan] => 1730360126_99fce0b15f61a1c49d29.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-14 13:29:20
+            [approved_at] => 2024-11-05 13:54:57
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 14:35:27
+            [updated_at] => 2024-11-14 13:29:20
+        )
+
+    [9] => Array
+        (
+            [id] => 92
+            [product_id] => 110
+            [brand] => BERVIN
+            [category] => SMALL APPLIANCES
+            [subcategory] => DISPENSER GALON BAWAH
+            [product_type] => ABCD09
+            [color] => HIJAU
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 9
+            [kapasitas_air_dingin] => 10
+            [daya] => 2.00
+            [product_dimensions] => 2 x 2 x 2 cm
+            [packaging_dimensions] => 2 x 2 x 2 cm
+            [berat] => 2.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 2
+            [sparepart_warranty] => 
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730700690_4f5799f7a5c7ec16966b.png
+            [gambar_belakang] => 
+            [gambar_atas] => 
+            [gambar_bawah] => 
+            [gambar_samping_kiri] => 
+            [gambar_samping_kanan] => 
+            [video_produk] => 
+            [harga] => Rp 2.000.000,00
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-11 08:40:38
+            [approved_at] => 2024-11-04 13:12:09
+            [rejected_at] => 
+            [submitted_at] => 2024-11-04 13:11:31
+            [updated_at] => 2024-11-11 08:40:38
+        )
+
+    [10] => Array
+        (
+            [id] => 80
+            [product_id] => 82
+            [brand] => ARTUGO
+            [category] => TV
+            [subcategory] => ANALOG
+            [product_type] => ABCD09
+            [color] => X
+            [capacity] => 
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 1
+            [garansi_semua_service] => 
+            [ukuran] => 24 INCH
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => 
+            [pstand_dimensions] => 1 x 1 x 1 cm
+            [panel_resolution] => 2 x 2
+            [cooling_capacity] => 
+            [compressor_warranty] => 
+            [sparepart_warranty] => <1
+            [cspf] => 
+            [advantage1] => 11
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730084986_a70d59874d394cd72958.png
+            [gambar_belakang] => 1730084986_6f1835ccc8fb0bee9434.png
+            [gambar_atas] => 1730084986_c91212f22505df7ef920.png
+            [gambar_bawah] => 1730084986_7eeca5a9a4e3ae61ba2a.png
+            [gambar_samping_kiri] => 1730084986_a5e7a33e906b29e02091.png
+            [gambar_samping_kanan] => 1730084986_c8acde9bcfde71a1d016.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-12 15:28:52
+            [approved_at] => 2024-11-04 11:11:14
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 10:09:46
+            [updated_at] => 2024-11-12 15:28:52
+        )
+
+    [11] => Array
+        (
+            [id] => 88
+            [product_id] => 96
+            [brand] => DAIKIN
+            [category] => FREEZER
+            [subcategory] => CHEST FREEZER 1 PINTU
+            [product_type] => AB091
+            [color] => HIJAU
+            [capacity] => 42 L
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 123.45
+            [product_dimensions] => 123 x 123 x 123 cm
+            [packaging_dimensions] => 100 x 100 x 100 cm
+            [berat] => 123.45
+            [pembuat] => UK
+            [refrigrant] => 
+            [pstand_dimensions] => 
+            [panel_resolution] => 
+            [cooling_capacity] => 
+            [compressor_warranty] => 3
+            [sparepart_warranty] => 3
+            [cspf] => 0.00
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 4
+            [advantage5] => 5
+            [advantage6] => 
+            [gambar_depan] => 1730346278_8bf1aae5c580ad3fe533.png
+            [gambar_belakang] => 1730346278_48504c0bbd1d6a97fe72.png
+            [gambar_atas] => 1730346278_44078201a8c2d8ceaeea.png
+            [gambar_bawah] => 1730346278_6726dd3d6b421e17a6d5.png
+            [gambar_samping_kiri] => 1730346278_13c590061d187c866e8d.png
+            [gambar_samping_kanan] => 1730346278_2bea85d0e738332a25a0.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => Aoz0raSenpai
+            [confirmed_at] => 2024-11-04 10:58:24
+            [approved_at] => 2024-10-31 10:45:24
+            [rejected_at] => 
+            [submitted_at] => 2024-10-31 10:44:39
+            [updated_at] => 2024-11-04 10:58:24
+        )
+
+    [12] => Array
+        (
+            [id] => 82
+            [product_id] => 84
+            [brand] => HISENSE
+            [category] => AC
+            [subcategory] => SPLIT STANDARD
+            [product_type] => EFGH78
+            [color] => MERAH
+            [capacity] => 0,5 PK
+            [garansi_elemen_panas] => 
+            [garansi_motor] => 
+            [garansi_panel] => 
+            [garansi_semua_service] => 
+            [ukuran] => 
+            [kapasitas_air_panas] => 
+            [kapasitas_air_dingin] => 
+            [daya] => 1.00
+            [product_dimensions] => 1 x 1 x 1 cm
+            [packaging_dimensions] => 1 x 1 x 1 cm
+            [berat] => 1.00
+            [pembuat] => CHINA
+            [refrigrant] => R-32
+            [pstand_dimensions] => 
+            [panel_resolution] =>  x 
+            [cooling_capacity] => 2
+            [compressor_warranty] => <1
+            [sparepart_warranty] => <1
+            [cspf] => 4.30
+            [advantage1] => 1
+            [advantage2] => 2
+            [advantage3] => 3
+            [advantage4] => 
+            [advantage5] => 
+            [advantage6] => 
+            [gambar_depan] => 1730096229_6a6524bb3ed3a965943d.png
+            [gambar_belakang] => 1730096229_f222315a3f990d127593.png
+            [gambar_atas] => 1730096229_e8f2b7e25a847cbd0bee.png
+            [gambar_bawah] => 1730096229_0fbe8577c941b5eb8445.png
+            [gambar_samping_kiri] => 1730096229_60033b9343b7c2bb6ef0.png
+            [gambar_samping_kanan] => 1730096229_7c48e93939c95833523d.png
+            [video_produk] => https://www.youtube.com/watch?v=FOaSPfALEHk
+            [harga] => 
+            [status] => approved
+            [submitted_by] => cipto
+            [confirmed_at] => 2024-11-06 12:55:38
+            [approved_at] => 2024-10-30 10:20:28
+            [rejected_at] => 
+            [submitted_at] => 2024-10-28 13:17:10
+            [updated_at] => 2024-11-06 12:55:38
+        )
+
+)
+
+INFO - 2024-11-20 09:01:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:01:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:01:15 --> CSRF token verified.
+INFO - 2024-11-20 09:01:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:01:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:54 --> getCapacities called with ID: 9
+INFO - 2024-11-20 09:02:54 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 09:02:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:54 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:02:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:59 --> getCapacities called with ID: 6
+INFO - 2024-11-20 09:02:59 --> Capacities fetched: [{"id":"73","subcategory_id":"6","value":"100 L"}]
+INFO - 2024-11-20 09:02:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:02:59 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:06 --> getCapacities called with ID: 9
+INFO - 2024-11-20 09:03:06 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 09:03:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:06 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:07 --> getCapacities called with ID: 10
+INFO - 2024-11-20 09:03:07 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:08 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:09 --> getCapacities called with ID: 11
+INFO - 2024-11-20 09:03:09 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:09 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:11 --> getCapacities called with ID: 12
+INFO - 2024-11-20 09:03:11 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:11 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:15 --> getCapacities called with ID: 24
+INFO - 2024-11-20 09:03:15 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-20 09:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:15 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 09:03:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:16 --> getCapacities called with ID: 25
+INFO - 2024-11-20 09:03:16 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:17 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 09:03:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:22 --> getCapacities called with ID: 26
+INFO - 2024-11-20 09:03:22 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:22 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 09:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:25 --> getCapacities called with ID: 27
+INFO - 2024-11-20 09:03:25 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:25 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 09:03:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:29 --> getCapacities called with ID: 29
+INFO - 2024-11-20 09:03:29 --> Capacities fetched: [{"id":"38","subcategory_id":"29","value":"42 L"},{"id":"39","subcategory_id":"29","value":"46 L"},{"id":"40","subcategory_id":"29","value":"47 L"},{"id":"41","subcategory_id":"29","value":"50 L"}]
+INFO - 2024-11-20 09:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:30 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:31 --> getCapacities called with ID: 30
+INFO - 2024-11-20 09:03:31 --> Capacities fetched: []
+INFO - 2024-11-20 09:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:32 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:03:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:45 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-20 09:03:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:45 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 09:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:46 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 09:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:46 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 09:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:48 --> getUkuranTv called with ID: 17 - Result: [{"id":"13","subcategory_id":"17","size":"50 INCH"}]
+INFO - 2024-11-20 09:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:48 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 09:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:49 --> getUkuranTv called with ID: 18 - Result: []
+CRITICAL - 2024-11-20 09:03:49 --> Error: Class "App\Controllers\ResponseInterface" not found
+[Method: GET, Route: get-ukuran-tv/18]
+in APPPATH\Controllers\ProductController.php on line 321.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->getUkuranTv('18')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-20 09:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:49 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 09:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:52 --> getUkuranTv called with ID: 19 - Result: []
+CRITICAL - 2024-11-20 09:03:52 --> Error: Class "App\Controllers\ResponseInterface" not found
+[Method: GET, Route: get-ukuran-tv/19]
+in APPPATH\Controllers\ProductController.php on line 321.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->getUkuranTv('19')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\benya\\Documents\\GitHub\\product_registration_AIO\\public\\index.php')
+INFO - 2024-11-20 09:03:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:53 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 09:03:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:59 --> getUkuranTv called with ID: 31 - Result: [{"id":"5","subcategory_id":"31","size":"Kecil"},{"id":"6","subcategory_id":"31","size":"Sedang"},{"id":"7","subcategory_id":"31","size":"Besar"}]
+INFO - 2024-11-20 09:03:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:03:59 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-20 09:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:06 --> getUkuranTv called with ID: 32 - Result: [{"id":"8","subcategory_id":"32","size":"7 INCH"},{"id":"9","subcategory_id":"32","size":"8 INCH"},{"id":"10","subcategory_id":"32","size":"9 INCH"},{"id":"11","subcategory_id":"32","size":"10 INCH"}]
+INFO - 2024-11-20 09:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:06 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 09:04:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:10 --> getCapacities called with ID: 33
+INFO - 2024-11-20 09:04:10 --> Capacities fetched: [{"id":"66","subcategory_id":"33","value":"1.2 L"}]
+INFO - 2024-11-20 09:04:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:10 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-20 09:04:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:17 --> getCapacities called with ID: 34
+INFO - 2024-11-20 09:04:17 --> Capacities fetched: []
+INFO - 2024-11-20 09:04:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:17 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-20 09:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:19 --> getCapacities called with ID: 35
+INFO - 2024-11-20 09:04:19 --> Capacities fetched: []
+INFO - 2024-11-20 09:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:19 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:04:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:26 --> getCapacities called with ID: 36
+INFO - 2024-11-20 09:04:26 --> Capacities fetched: []
+INFO - 2024-11-20 09:04:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:26 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 09:04:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:30 --> getCapacities called with ID: 37
+INFO - 2024-11-20 09:04:30 --> Capacities fetched: []
+INFO - 2024-11-20 09:04:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:30 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-20 09:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:39 --> getCapacities called with ID: 38
+INFO - 2024-11-20 09:04:39 --> Capacities fetched: [{"id":"61","subcategory_id":"38","value":"1.3 L"}]
+INFO - 2024-11-20 09:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:39 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-20 09:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:42 --> getCapacities called with ID: 52
+INFO - 2024-11-20 09:04:42 --> Capacities fetched: []
+INFO - 2024-11-20 09:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:42 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-20 09:04:57 --> CSRF token verified.
+INFO - 2024-11-20 09:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:05:16 --> CSRF token verified.
+INFO - 2024-11-20 09:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:05:30 --> CSRF token verified.
+INFO - 2024-11-20 09:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:05:51 --> CSRF token verified.
+INFO - 2024-11-20 09:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 09:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 09:05:51 --> Inserted new confirmation: Array
+(
+    [product_id] => 154
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ADVAN
+    [category] => SMALL APPLIANCES
+    [product_type] => AA
+    [color] => PUTIH
+    [subcategory] => AIR PURIFIER
+    [capacity] => 
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => CHINA
+    [refrigrant] => 
+    [compressor_warranty] => 
+    [sparepart_warranty] => 
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => <1
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 5
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => 1
+    [advantage2] => 2
+    [advantage3] => c
+    [advantage4] => d
+    [advantage5] => e
+    [advantage6] => 
+    [gambar_depan] => 1732068351_1a08c818e331d6a3cbce.png
+    [gambar_belakang] => 1732068351_0613ef40b2395c38c895.png
+    [gambar_samping_kiri] => 1732068351_4e646886184b24be783f.png
+    [gambar_samping_kanan] => 1732068351_18090be0ac10891ec714.png
+    [gambar_atas] => 1732068351_4543ad2b79d29ca1e8e2.png
+    [gambar_bawah] => 1732068351_fb913fc315163ed73285.png
+    [video_produk] => 
+)
+
+INFO - 2024-11-20 09:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 09:52:19 --> Updated confirmation: Array
+(
+    [product_id] => 154
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ADVAN
+    [category] => SMALL APPLIANCES
+    [product_type] => AA
+    [color] => PUTIH
+    [subcategory] => AIR PURIFIER
+    [capacity] => 
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => CHINA
+    [refrigrant] => 
+    [compressor_warranty] => 
+    [sparepart_warranty] => 
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => <1
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 5
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => 1
+    [advantage2] => 2
+    [advantage3] => c
+    [advantage4] => d
+    [advantage5] => e
+    [advantage6] => 
+    [gambar_depan] => 1732068351_1a08c818e331d6a3cbce.png
+    [gambar_belakang] => 1732068351_0613ef40b2395c38c895.png
+    [gambar_samping_kiri] => 1732068351_4e646886184b24be783f.png
+    [gambar_samping_kanan] => 1732068351_18090be0ac10891ec714.png
+    [gambar_atas] => 1732068351_4543ad2b79d29ca1e8e2.png
+    [gambar_bawah] => 1732068351_fb913fc315163ed73285.png
+    [video_produk] => 
+)
+
+INFO - 2024-11-20 10:07:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 10:07:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 10:07:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 10:07:54 --> CSRF token verified.
+INFO - 2024-11-20 10:07:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 10:07:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 10:07:56 --> CSRF token verified.
+INFO - 2024-11-20 10:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 10:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:10:40 --> CSRF token verified.
+INFO - 2024-11-20 12:10:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:10:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:11 --> getCapacities called with ID: 11
+INFO - 2024-11-20 12:27:11 --> Capacities fetched: []
+INFO - 2024-11-20 12:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:11 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 12:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:17 --> getCapacities called with ID: 9
+INFO - 2024-11-20 12:27:17 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 12:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:17 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 12:27:22 --> CSRF token verified.
+INFO - 2024-11-20 12:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:27:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:28:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:33:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:33:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:39:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:39:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:40:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:52:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:53:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:53:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:54:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:55:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:55:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:55:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:56:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:05 --> getCapacities called with ID: 20
+INFO - 2024-11-20 12:59:05 --> Capacities fetched: []
+INFO - 2024-11-20 12:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:05 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 12:59:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:06 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 12:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:07 --> getCapacities called with ID: 21
+INFO - 2024-11-20 12:59:07 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-20 12:59:09 --> CSRF token verified.
+INFO - 2024-11-20 12:59:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:17 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 12:59:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:17 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 12:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:23 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 12:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:23 --> getUkuranTv called with ID: 17 - Result: [{"id":"13","subcategory_id":"17","size":"50 INCH"}]
+INFO - 2024-11-20 12:59:27 --> CSRF token verified.
+INFO - 2024-11-20 12:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 12:59:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:33 --> getCapacities called with ID: 9
+INFO - 2024-11-20 13:04:33 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 13:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:33 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:04:38 --> CSRF token verified.
+INFO - 2024-11-20 13:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:52 --> getCapacities called with ID: 24
+INFO - 2024-11-20 13:04:52 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-20 13:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:52 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 13:04:54 --> CSRF token verified.
+INFO - 2024-11-20 13:04:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:04:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:20 --> getCapacities called with ID: 33
+INFO - 2024-11-20 13:05:20 --> Capacities fetched: [{"id":"66","subcategory_id":"33","value":"1.2 L"}]
+INFO - 2024-11-20 13:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:20 --> fetchWarrantyOptions type: garansi_elemen_panas
+INFO - 2024-11-20 13:05:24 --> CSRF token verified.
+INFO - 2024-11-20 13:05:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:32 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 13:05:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:32 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 13:05:35 --> CSRF token verified.
+INFO - 2024-11-20 13:05:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:05:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:09:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:09 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:10:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:10 --> getCapacities called with ID: 4
+INFO - 2024-11-20 13:10:10 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-20 13:10:14 --> CSRF token verified.
+INFO - 2024-11-20 13:10:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:10:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:11:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:11:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:11:04 --> getCapacities called with ID: 9
+INFO - 2024-11-20 13:11:04 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 13:11:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:11:05 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:11:09 --> CSRF token verified.
+INFO - 2024-11-20 13:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:13:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:15:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:17:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:02 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-20 13:18:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:02 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 13:18:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:03 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 13:18:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:03 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 13:18:06 --> CSRF token verified.
+INFO - 2024-11-20 13:18:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:18:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:19:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:19:20 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:19:20 --> getCapacities called with ID: 9
+INFO - 2024-11-20 13:19:20 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 13:19:23 --> CSRF token verified.
+INFO - 2024-11-20 13:19:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:19:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:16 --> getCapacities called with ID: 9
+INFO - 2024-11-20 13:20:16 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 13:20:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:16 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:20:18 --> CSRF token verified.
+INFO - 2024-11-20 13:20:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:23:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:23:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:24:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:28:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:30:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:31:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:31:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:31:25 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 13:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:31:25 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 13:31:29 --> CSRF token verified.
+INFO - 2024-11-20 13:31:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:31:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:08 --> getCapacities called with ID: 29
+INFO - 2024-11-20 13:33:08 --> Capacities fetched: [{"id":"38","subcategory_id":"29","value":"42 L"},{"id":"39","subcategory_id":"29","value":"46 L"},{"id":"40","subcategory_id":"29","value":"47 L"},{"id":"41","subcategory_id":"29","value":"50 L"}]
+INFO - 2024-11-20 13:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:08 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:33:11 --> CSRF token verified.
+INFO - 2024-11-20 13:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:32 --> getCapacities called with ID: 6
+INFO - 2024-11-20 13:33:32 --> Capacities fetched: [{"id":"73","subcategory_id":"6","value":"100 L"}]
+INFO - 2024-11-20 13:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:32 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 13:33:35 --> CSRF token verified.
+INFO - 2024-11-20 13:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 13:33:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:46 --> getCapacities called with ID: 9
+INFO - 2024-11-20 14:50:46 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 14:50:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:46 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 14:50:49 --> CSRF token verified.
+INFO - 2024-11-20 14:50:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:53:46 --> CSRF token verified.
+INFO - 2024-11-20 14:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:54:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:54:53 --> CSRF token verified.
+INFO - 2024-11-20 14:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:37 --> getCapacities called with ID: 4
+INFO - 2024-11-20 14:55:37 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-20 14:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:38 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 14:55:45 --> CSRF token verified.
+INFO - 2024-11-20 14:55:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:53 --> getCapacities called with ID: 29
+INFO - 2024-11-20 14:55:53 --> Capacities fetched: [{"id":"38","subcategory_id":"29","value":"42 L"},{"id":"39","subcategory_id":"29","value":"46 L"},{"id":"40","subcategory_id":"29","value":"47 L"},{"id":"41","subcategory_id":"29","value":"50 L"}]
+INFO - 2024-11-20 14:55:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:54 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 14:55:56 --> CSRF token verified.
+INFO - 2024-11-20 14:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:58 --> CSRF token verified.
+INFO - 2024-11-20 14:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:56:01 --> CSRF token verified.
+INFO - 2024-11-20 14:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:56:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:56:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:57:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:57:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:59:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 14:59:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:00:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:00:57 --> getCapacities called with ID: 9
+INFO - 2024-11-20 15:00:57 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 15:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:00:57 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 15:00:59 --> CSRF token verified.
+INFO - 2024-11-20 15:00:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:01:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:01:22 --> CSRF token verified.
+INFO - 2024-11-20 15:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:01:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:02:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:02:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:02:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:03:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:03:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:04:12 --> CSRF token verified.
+INFO - 2024-11-20 15:04:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:04:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:06:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:07:25 --> CSRF token verified.
+INFO - 2024-11-20 15:07:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:07:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:07:30 --> CSRF token verified.
+INFO - 2024-11-20 15:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:09:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:10:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:13:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:13:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:13:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:14:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:15:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:15:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:15:51 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 15:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:15:51 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 15:15:55 --> CSRF token verified.
+INFO - 2024-11-20 15:15:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:15:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 15:55:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:01:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:06:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:07:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:07:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:07:38 --> CSRF token verified.
+INFO - 2024-11-20 16:07:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:07:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:08:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:08:43 --> getCapacities called with ID: 52
+INFO - 2024-11-20 16:08:43 --> Capacities fetched: []
+INFO - 2024-11-20 16:08:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:08:43 --> fetchWarrantyOptions type: garansi_semua_service
+INFO - 2024-11-20 16:08:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:08:49 --> getCapacities called with ID: 35
+INFO - 2024-11-20 16:08:49 --> Capacities fetched: []
+INFO - 2024-11-20 16:08:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:08:49 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 16:09:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:09:15 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-20 16:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:09:15 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 16:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:27:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:27:58 --> getCapacities called with ID: 9
+INFO - 2024-11-20 16:27:58 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 16:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:27:59 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 16:28:05 --> CSRF token verified.
+INFO - 2024-11-20 16:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:28:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:28:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:01 --> getCapacities called with ID: 6
+INFO - 2024-11-20 16:29:01 --> Capacities fetched: [{"id":"73","subcategory_id":"6","value":"100 L"}]
+INFO - 2024-11-20 16:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:01 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 16:29:04 --> CSRF token verified.
+INFO - 2024-11-20 16:29:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:14 --> getUkuranTv called with ID: 16 - Result: [{"id":"12","subcategory_id":"16","size":"40 INCH"}]
+INFO - 2024-11-20 16:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:15 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 16:29:17 --> CSRF token verified.
+INFO - 2024-11-20 16:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:37:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:37:15 --> getCapacities called with ID: 24
+INFO - 2024-11-20 16:37:15 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-20 16:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:37:15 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 16:37:19 --> CSRF token verified.
+INFO - 2024-11-20 16:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:38:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:38:50 --> CSRF token verified.
+INFO - 2024-11-20 16:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:38:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:06 --> getCapacities called with ID: 21
+INFO - 2024-11-20 16:39:06 --> Capacities fetched: [{"id":"46","subcategory_id":"21","value":"42 L"},{"id":"47","subcategory_id":"21","value":"46 L"},{"id":"48","subcategory_id":"21","value":"47 L"},{"id":"49","subcategory_id":"21","value":"50 L"}]
+INFO - 2024-11-20 16:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:07 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 16:39:13 --> CSRF token verified.
+INFO - 2024-11-20 16:39:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:25 --> getCapacities called with ID: 9
+INFO - 2024-11-20 16:39:25 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 16:39:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:25 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 16:39:30 --> CSRF token verified.
+INFO - 2024-11-20 16:39:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:39:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:19 --> getUkuranTv called with ID: 15 - Result: [{"id":"1","subcategory_id":"15","size":"24 INCH"},{"id":"2","subcategory_id":"15","size":"27 INCH"},{"id":"3","subcategory_id":"15","size":"32 INCH"},{"id":"4","subcategory_id":"15","size":"40 INCH"}]
+INFO - 2024-11-20 16:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:19 --> fetchWarrantyOptions type: garansi_panel
+INFO - 2024-11-20 16:40:22 --> CSRF token verified.
+INFO - 2024-11-20 16:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:42 --> CSRF token verified.
+INFO - 2024-11-20 16:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:41:11 --> CSRF token verified.
+INFO - 2024-11-20 16:41:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:42:16 --> CSRF token verified.
+INFO - 2024-11-20 16:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 16:42:16 --> Inserted new confirmation: Array
+(
+    [product_id] => 181
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => HAIER
+    [category] => TV
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => ANALOG
+    [capacity] => 
+    [ukuran] => 27 INCH
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => 
+    [compressor_warranty] => 
+    [sparepart_warranty] => <1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => <1
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 1 x 1 x 1 cm
+    [panel_resolution] => 1 x 1
+    [cooling_capacity] => 
+    [cspf] => 
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732095736_69e340025709c7a9143a.png
+    [gambar_belakang] => 1732095736_1fbd9c748f91aef89700.png
+    [gambar_samping_kiri] => 1732095736_e869595509082266896d.png
+    [gambar_samping_kanan] => 1732095736_0ca4fa919e0c67f3bc12.png
+    [gambar_atas] => 1732095736_caff2d63a78a69454eb0.png
+    [gambar_bawah] => 1732095736_d0c58ce81aebfc2e0039.png
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+
+INFO - 2024-11-20 16:43:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:44:53 --> getCapacities called with ID: 4
+INFO - 2024-11-20 16:44:53 --> Capacities fetched: [{"id":"42","subcategory_id":"4","value":"42 L"},{"id":"43","subcategory_id":"4","value":"46 L"},{"id":"44","subcategory_id":"4","value":"47 L"},{"id":"45","subcategory_id":"4","value":"50 L"},{"id":"58","subcategory_id":"4","value":"60 L"},{"id":"59","subcategory_id":"4","value":"128 L"},{"id":"60","subcategory_id":"4","value":"133 L"}]
+INFO - 2024-11-20 16:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:44:53 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 16:44:57 --> CSRF token verified.
+INFO - 2024-11-20 16:44:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:44:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:46:09 --> CSRF token verified.
+INFO - 2024-11-20 16:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:46:11 --> CSRF token verified.
+INFO - 2024-11-20 16:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:46:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 16:54:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:02:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:02:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:02:18 --> getCapacities called with ID: 24
+INFO - 2024-11-20 17:02:18 --> Capacities fetched: [{"id":"50","subcategory_id":"24","value":"6,5 Kg"},{"id":"51","subcategory_id":"24","value":"7 Kg"},{"id":"52","subcategory_id":"24","value":"7,5 Kg"},{"id":"53","subcategory_id":"24","value":"8 Kg"}]
+INFO - 2024-11-20 17:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:02:18 --> fetchWarrantyOptions type: garansi_motor
+INFO - 2024-11-20 17:02:23 --> CSRF token verified.
+INFO - 2024-11-20 17:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:03:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:03:27 --> CSRF token verified.
+INFO - 2024-11-20 17:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:05:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:06:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:07:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:07:40 --> getCapacities called with ID: 9
+INFO - 2024-11-20 17:07:40 --> Capacities fetched: [{"id":"54","subcategory_id":"9","value":"0,5 PK"},{"id":"55","subcategory_id":"9","value":"0,75 PK"},{"id":"56","subcategory_id":"9","value":"1 PK"},{"id":"57","subcategory_id":"9","value":"1,5 PK"}]
+INFO - 2024-11-20 17:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:07:40 --> fetchWarrantyOptions type: garansi_kompresor
+INFO - 2024-11-20 17:07:44 --> CSRF token verified.
+INFO - 2024-11-20 17:07:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:07:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:15 --> CSRF token verified.
+INFO - 2024-11-20 17:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:20 --> CSRF token verified.
+INFO - 2024-11-20 17:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:42 --> CSRF token verified.
+INFO - 2024-11-20 17:12:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:12:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:13:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:13:47 --> CSRF token verified.
+INFO - 2024-11-20 17:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-20 17:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-20 17:13:47 --> Inserted new confirmation: Array
+(
+    [product_id] => 184
+    [status] => pending
+    [submitted_by] => cipto
+    [brand] => ARTUGO
+    [category] => AC
+    [product_type] => AA
+    [color] => AA
+    [subcategory] => SPLIT STANDARD
+    [capacity] => 0,5 PK
+    [ukuran] => 
+    [berat] => 1
+    [daya] => 1
+    [pembuat] => INDONESIA
+    [refrigrant] => R-22
+    [compressor_warranty] => 1
+    [sparepart_warranty] => 1
+    [garansi_elemen_panas] => 
+    [garansi_motor] => 
+    [garansi_panel] => 
+    [garansi_semua_service] => 
+    [kapasitas_air_panas] => 
+    [kapasitas_air_dingin] => 
+    [product_dimensions] => 1 x 1 x 1 cm
+    [packaging_dimensions] => 1 x 1 x 1 cm
+    [pstand_dimensions] => 
+    [panel_resolution] => 
+    [cooling_capacity] => 5
+    [cspf] => 5
+    [advantage1] => a
+    [advantage2] => b
+    [advantage3] => c
+    [advantage4] => 
+    [advantage5] => 
+    [advantage6] => 
+    [gambar_depan] => 1732097627_a3495aec4c6863ecefe7.png
+    [gambar_belakang] => 
+    [gambar_samping_kiri] => 
+    [gambar_samping_kanan] => 
+    [gambar_atas] => 
+    [gambar_bawah] => 
+    [video_produk] => https://www.youtube.com/watch?v=UhpzEne6omo&list=PLFIM0718LjIUkkIq1Ub6B5dYNb6IlMvtc&index=7
+)
+

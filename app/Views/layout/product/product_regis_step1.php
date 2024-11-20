@@ -81,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* Bayangan lebih terang */
         }
 
+
+
         .logo {
             justify-content: flex-start;
             display: flex;
@@ -162,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            General Data
+                                            <b style="color: #00a9ee;"> General Data</b>
                                         </a>
                                     </li>
                                     <li>
@@ -343,8 +345,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
 
                             </form>
-                            <p class="form-note" style="margin-left: 25px;">*Harap diisi dengan benar</p>
-                            <a href="/reset/reset-password" style="margin: 25px;">Ganti Password</a>
+                            <p class="form-note" style="margin-left: 46px;margin-top: 8px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
+                            <a href="/reset/reset-password" style="margin: 50px;">Ganti Password</a>
                         </div>
                     </div> <!-- wizard container -->
                 </div>
