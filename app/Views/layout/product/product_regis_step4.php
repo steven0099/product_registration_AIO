@@ -160,7 +160,7 @@
                                             <div class="icon-circle">
                                                 <i class="ti-package filled"></i>
                                             </div>
-                                            <b style="color: #00a9ee;"> General Data</b>
+                                            <span style="color: #00a9ee;">Informasi Umum</span>
                                         </a>
                                     </li>
                                     <li>
@@ -168,7 +168,7 @@
                                             <div class="icon-circle filled">
                                                 <i class="ti-package filled"></i>
                                             </div>
-                                            <b style="color: #00a9ee;">Spesifikasi Produk</b>
+                                            <span style="color: #00a9ee;">Spesifikasi Produk</span>
                                         </a>
                                     </li>
                                     <li>
@@ -176,7 +176,7 @@
                                             <div class="icon-circle filled">
                                                 <i class="ti-package filled"></i>
                                             </div>
-                                            <b style="color: #00a9ee;">Keunggulan Produk</b>
+                                            <span style="color: #00a9ee;">Keunggulan Produk</span>
                                         </a>
                                     </li>
                                     <li>
@@ -184,7 +184,7 @@
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            <b style="color: #00a9ee;">Foto Produk</b>
+                                            Foto Produk
                                         </a>
                                     </li>
                                     <li>

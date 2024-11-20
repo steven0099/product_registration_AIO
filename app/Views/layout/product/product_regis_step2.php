@@ -233,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="icon-circle">
                                                 <i class="ti-package filled"></i>
                                             </div>
-                                            <b style="color: #00a9ee;"> General Data</b>
+                                            <span style="color: #00a9ee;">Informasi Umum</b>
                                         </a>
                                     </li>
                                     <li>
@@ -241,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            <b style="color: #00a9ee;">Spesifikasi Produk</b>
+                                            Spesifikasi Produk
                                         </a>
                                     </li>
                                     <li>

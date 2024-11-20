@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            <b style="color: #00a9ee;"> General Data</b>
+                                            Informasi Umum
                                         </a>
                                     </li>
                                     <li>
