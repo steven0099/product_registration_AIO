@@ -755,8 +755,6 @@ function resetComparisonFilters() {
         const sort = $('#sort').val();
 
         console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
-
-        $('#productGrid').html('<div class="loader">Loading...</div>');
         
         $.ajax({
             url: "<?= base_url('catalog/filterProducts') ?>",

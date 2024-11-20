@@ -203,7 +203,6 @@
                             <div class="tab-content">
                                 <div class="tab-pane" id="confirmation">
                                     <div class="row">
-                                        <h5 class="info-text"> Harap Konfirmasi Kembali Produk Anda. </h5>
                                         <table
                                             class="table table-striped table-bordered table-hover confirmation-table">
                                             <thead class="thead-dark">
@@ -514,7 +513,6 @@
 
                                         <!-- Submission Information -->
                                         <p class="font-weight-bold">Diajukan Atas Nama: <?= esc($data['submitted_by']) ?></p><br>
-                                        <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
                                         <div class="note text-danger font-italic">*Harap dicek kembali.</div>
 
                                     </div> <!-- End of row -->

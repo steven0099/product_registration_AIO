@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 17px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="tab-content">
                                     <div class="tab-pane" id="general">
                                         <div class="row">
-                                            <div class="col-sm-12" style="margin-bottom: 65px;">
+                                            <div class="col-sm-12" style="margin-bottom: 65px">
                                             </div>
                                             <div class="col-sm-6">
 
@@ -317,23 +317,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>
 
                                 </div>
-                                <div class="wizard-footer">
+                            <div class="wizard-footer">
                                     <div class="pull-right">
-
-
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        <div class="col">
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
+                                        <div class="-ml-1">
+                                        <a href="/reset/reset-password" class='btn btn-fill btn-danger btn-wd' style="margin-top:10px">Ganti Password</a>
+                                        </div>
                                     </div>
-                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a>
-
-                                    <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
-                                    </div>
-                                    <div class="clearfix"></div>
                                 </div>
 
+                                    <div class="pull-left">
+                                        <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                            </div>
+
                             </form>
-                            <p class="form-note" style="margin-left: 20px;">*Harap diisi dengan benar</p>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

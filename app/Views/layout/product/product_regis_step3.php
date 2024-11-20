@@ -197,7 +197,6 @@
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
                                     <div class="tab-pane" id="facilities">
-                                        <h5 class="info-text">Beritahu Kami Keunggulan Produk Anda</h5>
                                         <div class="row" style="margin: 25px;">
 
                                             <div class="form-group">
@@ -231,7 +230,6 @@
                                     </div>
 
                                     <div class="pull-left">
-                                    <a href="/reset/reset-password" style="margin-right:50px">Ganti Password</a><br>
                                         <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>

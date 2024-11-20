@@ -221,25 +221,27 @@ Rincian Produk
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
-            <tr>
-                <th>CSPF Rating</th>
-                <td><?= esc($product['cspf']) ?>/5
-                    <?php if ($product['cspf'] == 5): ?>
-                    <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-                    <?php elseif ($product['cspf'] < 5 || $product['cspf'>= 4]): ?>
-                    <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-                    <?php elseif ($product['cspf'] < 4 || $product['cspf'>= 3]): ?>
-                    <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-                    <?php elseif ($product['cspf'] < 3 || $product['cspf'>= 2]): ?>
-                    <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-                    <?php elseif ($product['cspf'] < 2 || $product['cspf'>= 1]): ?>
-                    <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
-                    <?php endif; ?>
-                </td>
-                <?php if ($product['status'] == 'approved'): ?>
-                <td><button onclick="opencspfModal()" class="btn btn-sm btn-primary">Edit</button></td>
-                <?php endif; ?>
-            </tr>
+                <tr>
+    <th>CSPF Rating</th>
+    <td>
+        <?= esc($product['cspf']) ?>/5
+        <?php if ($product['cspf'] == 5): ?>
+            <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 4.00 && $product['cspf'] < 5): ?>
+            <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 3.00 && $product['cspf'] < 4.00): ?>
+            <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 2.00 && $product['cspf'] < 3.00): ?>
+            <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 1.00 && $product['cspf'] < 2.00): ?>
+            <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php endif; ?>
+    </td>
+    <?php if ($product['status'] == 'approved'): ?>
+        <td><button onclick="opencspfModal()" class="btn btn-sm btn-primary">Edit</button></td>
+    <?php endif; ?>
+</tr>
+
             <?php endif; ?>
 
             <?php if ($product['category'] == 'KULKAS' || $product['category'] == 'FREEZER' || $product['category'] == 'SHOWCASE' ): ?>

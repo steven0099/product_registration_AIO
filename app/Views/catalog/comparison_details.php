@@ -209,17 +209,18 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
             <td>Rating CSPF</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['cspf']) ?>/5
-                <?php if ($product['cspf'] == 5): ?>
-                <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:15px">
-                <?php elseif ($product['cspf'] < 5 || $product['cspf'>= 4]): ?>
-                <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:15px">
-                <?php elseif ($product['cspf'] < 4 || $product['cspf'>= 3]): ?>
-                <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:15px">
-                <?php elseif ($product['cspf'] < 3 || $product['cspf'>= 2]): ?>
-                <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:15px">
-                <?php elseif ($product['cspf'] < 2 || $product['cspf'>= 1]): ?>
-                <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:15px">
-                <?php endif; ?>
+            <?= esc($product['cspf']) ?>/5
+        <?php if ($product['cspf'] == 5): ?>
+            <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 4.00 && $product['cspf'] < 5): ?>
+            <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 3.00 && $product['cspf'] < 4.00): ?>
+            <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 2.00 && $product['cspf'] < 3.00): ?>
+            <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 1.00 && $product['cspf'] < 2.00): ?>
+            <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php endif; ?>
             </td>
             <?php endforeach ; ?>
         </tr>
@@ -612,8 +613,7 @@ label {
     font-family: Arial;
     font-size: 18px;
     width: 95%; /* Make label match the table width */
-    margin: 0 auto; /* Center horizontally */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for consistency */
+    margin: 0 auto; /* Center horizontally */ /* Optional: add shadow for consistency */
 }
 
 /* Comparison table styles */
@@ -622,7 +622,6 @@ label {
     align-items: center;
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
-    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
     font-family: Arial;
     margin: 5px auto; /* Center horizontally with some space above */
 }
@@ -639,10 +638,14 @@ label {
 }
 
 .comparison-table th:first-child,
-.comparison-table td:first-child,
-.comparison-table td:last-child {
-    border-right: 2px solid rgba(255, 255, 255, 0.1); /* White with 80% opacity */
+.comparison-table td:first-child {
+    border-right: 3px solid rgba(255, 255, 255); /* White with 80% opacity */
     border-left: none;
+}
+
+.comparison-table td:last-child {
+    border-right: none;
+    border-left: 3px solid rgba(255, 255, 255); /* White with 80% opacity */
 }
 
 .comparison-table-head {
@@ -656,9 +659,8 @@ label {
     border-bottom: none;
     font-family: Arial;
     /* Remove bottom border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.3);
     /* Bottom-only shadow */
-    border-radius: 0 0 8px 8px;
     /* Optional: rounded bottom corners */
 }
 

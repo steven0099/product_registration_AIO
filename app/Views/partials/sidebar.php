@@ -1,3 +1,7 @@
+<link
+      href="static\plugin\font-awesome\css\fontawesome-all.min.css"
+      rel="stylesheet"
+    />
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
@@ -65,7 +69,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="/admin/brand" class="nav-link <?= (uri_string() == 'admin/brand') ? 'active' : '' ?>">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fas fa-laptop-medical"></i>
                 <p>Merek</p>
               </a>
             </li>
