@@ -511,7 +511,7 @@ function closeComparisonWidget() {
 
 // Function to add a product to the comparison widget
 // Function to add a product to the comparison widget
-function addToComparison(productId, productName, productImage, productCategory, productSubcategory,productCapacity){ //productHarga,  {
+function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity){ //productHarga,  {
     const comparisonContent = document.querySelector('.comparison-content');
     const existingItem = document.getElementById(`compare-item-${productId}`);
     // Rest of your function here
@@ -524,7 +524,7 @@ function addToComparison(productId, productName, productImage, productCategory, 
                     <button class="btn-remove" onclick="removeFromComparison('${productId}')">X</button>
             <img src="${productImage}" alt="${productName}" style="width: 100px; height: auto;">
             <span>${productName}<br>
-            ${productCategory}  ${productSubcategory}<br>
+            ${productCategory} ${productSubcategory}<br>
             ${productCapacity}<br>
             </span>
         `;
@@ -594,15 +594,15 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
                 if (productCategory === "SMALL APPLIANCES") {
                     comparisonSubcategory = productSubcategory;
                 }
-                addToComparison(productId, productName, productImage, productCategory, productCapacity,
-                    productSubcategory,); //productHarga);
+                addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity,
+                    ); //productHarga);
             } else {
                 // Check if the selected product’s category matches the initial category
                 if (productCategory === comparisonCategory &&
                     (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory ===
                         comparisonSubcategory)) {
                     addToComparison(productId, productName, productImage, productCategory,
-                        productSubcategory,productCapacity); //productHarga,) 
+                        productSubcategory, productCapacity); //productHarga,) 
                 } else {
                     alert(
                         "Hanya bisa membandingkan produk dengan kategori yang sama (untuk kategori SMALL APPLIANCES, subkategori juga harus sama)");
@@ -623,20 +623,21 @@ function bindCheckboxListener() {
             const productImage = this.getAttribute('data-product-image');
             const productCategory = this.getAttribute('data-product-category');
             const productSubcategory = this.getAttribute('data-product-subcategory');
-            //const productHarga = this.getAttribute('data-product-harga');
             const productCapacity = this.getAttribute('data-product-capacity');
 
+
+                        //const productHarga = this.getAttribute('data-product-harga');
             if (this.checked) {
                 if (!comparisonCategory) {
                     comparisonCategory = productCategory;
                     if (productCategory === "SMALL APPLIANCES") {
                         comparisonSubcategory = productSubcategory;
                     }
-                    addToComparison(productId, productName, productImage, productCategory, productSubcategory,productCapacity); //productHarga);
+                    addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity); //productHarga);
                 } else {
                     if (productCategory === comparisonCategory &&
-                        (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory === comparisonSubcategory)) {
-                        addToComparison(productId, productName, productImage, productCategory, productSubcategory,productCapacity); //productHarga); 
+                        (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory == comparisonSubcategory)) {
+                        addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity); //productHarga); 
                     } else {
                         alert("Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
                         this.checked = false; // Uncheck the box
@@ -709,8 +710,8 @@ $(document).ready(function () {
         console.log("No filters selected, hiding checkboxes.");
         $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
         $('.compare-label').hide();
+    }    
     }
-}
 });
 
     document.addEventListener("DOMContentLoaded", function () {

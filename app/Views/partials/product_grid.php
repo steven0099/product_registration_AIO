@@ -160,7 +160,7 @@
            data-product-name="<?= esc($product['brand']) ?>"
            data-product-category="<?= esc($product['category']) ?>"
            data-product-subcategory="<?= esc($product['subcategory']) ?>"
-           data-product-capacity="    <?php
+           data-product-capacity="<?php
     if (!empty($product['capacity'])) {
         echo esc($product['capacity']);
     } elseif (!empty($product['ukuran'])) {

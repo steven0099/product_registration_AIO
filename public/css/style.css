@@ -223,8 +223,7 @@ form select::after {
 .comparison-widget {
     position: fixed;
     bottom:0;
-    left:300px;
-    max-width: 1080px;
+    max-width: 1365px;
     height: 220px;
     background-color: #ffffff;
     border: 1px solid #ccc;
@@ -235,7 +234,7 @@ form select::after {
     border-top-right-radius: 8px;
     overflow-y: hidden;
     overflow-x: hidden;  /* Allow horizontal scrolling if items overflow */
-    max-width: 1080px;  /* Prevent the widget from being too tall */
+    max-width: 100%;  /* Prevent the widget from being too tall */
 }
 
 /* Minimized state for the widget */
@@ -295,7 +294,7 @@ form select::after {
 }
 
 .comparison-item {
-    width: 280px;
+    width: 390px;
     height: 180px;
     background-color: #f4f4f4;
     border-radius: 8px;
