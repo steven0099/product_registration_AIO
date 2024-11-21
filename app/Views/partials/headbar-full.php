@@ -11,20 +11,19 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position:fixed, margin-bottom:10px;">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
-      <li class="nav-item">
-         <a class="nav-link" data-widget="pushmenu" href="#" role="button">
-            <i class="fas fa-bars"></i>
-         </a>
-      </li>
       <li class="nav-item">
          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
          </a>
       </li>
    </ul>
+
+   <div class="col-sm-6" style="margin-left:100px">
+    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
+    </div><!-- /.col -->
 
    <!-- User Dropdown -->
    <ul class="navbar-nav ml-auto">

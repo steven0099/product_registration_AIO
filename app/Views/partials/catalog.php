@@ -26,19 +26,17 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        <img class="animation__shake" src="/images/aio-logo-circle.png" alt="Logo" height="200" width="200">
     </div>
 
-
-
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper-full">
+    <div class="content-wrapper-full" style="overflow-x:hidden">
         <?= $this->renderSection('breadcumb') ?>
 
         <!-- Main content -->
         <?= $this->renderSection('content') ?>
         <!-- /.content -->
-    
+</div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy; 2024 AIO.</strong>

@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('partials/catalog') ?>
 
-
-<head>
+<?= $this->section('css') ?>
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- iCheck -->
@@ -16,54 +15,6 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
 
-
-
-<!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed">
-  <!-- Left navbar links -->
-  <ul class="navbar-nav">
-      <li class="nav-item">
-         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-            <i class="fas fa-expand-arrows-alt"></i>
-         </a>
-      </li>
-   </ul>
-
-   <div class="col-sm-6" style="margin-left:100px">
-    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
-<span class="breadcrumb-separator"></span> 
-<span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Produk</span>
-    </div><!-- /.col -->
-
-   <!-- User Dropdown -->
-   <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
-         </a>
-         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a href="/reset/reset-password" class="dropdown-item">
-               <i class="fas fa-key mr-2"></i> Ganti Password
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="/logout" class="dropdown-item">
-               <i class="fas fa-sign-out-alt mr-2"></i> Log Out
-            </a>
-         </div>
-      </li>
-   </ul>
-</nav>
-
-<!-- jQuery -->
-<script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         
         /* Ensure the navbar stays fixed and doesn’t overlap the content */
@@ -287,6 +238,11 @@
         margin-bottom:1px;
     }
 
+    .breadcrumb-separator {
+    font-family: FontAwesome; /* This will ensure the separator uses Arial as well */
+    font-size:12px;
+}
+
     .product-item .card img {
         width: 100%;
         padding:5px;
@@ -294,9 +250,73 @@
         object-fit: cover;
     }
     </style>
-</head>
+<?= $this->endSection() ?>
 
-<body style="margin-top:60px;">
+<?= $this->section('title') ?>
+Detail Produk
+<?= $this->endSection() ?>
+
+<?= $this->section('breadcumb') ?>
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; display: flex; justify-content: space-between; align-items: center;">
+
+   <!-- Left section (Breadcrumb links) -->
+   <div class="col-sm-6 d-flex align-items-center">
+      <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a>
+      <span class="breadcrumb-separator"></span> 
+      <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Kategori</a>
+      <span class="breadcrumb-separator"></span> 
+      <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Subkategori</a>
+      <?php if ($product['capacity'] != null): ?>
+         <span class="breadcrumb-separator"></span> 
+         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&capacity=<?= esc($product['capacity'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Kapasitas</a>
+      <?php elseif ($product['ukuran'] != null): ?>
+         <span class="breadcrumb-separator"></span> 
+         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&ukuran=<?= esc($product['ukuran'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Ukuran</a>
+      <?php endif; ?>
+      <span class="breadcrumb-separator"></span>
+      <span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Produk</span>
+   </div>
+
+   <!-- Center section (Logo image) -->
+   <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
+      <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+   </div>
+
+   <!-- Right section (User Dropdown) -->
+   <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a href="/reset/reset-password" class="dropdown-item">
+               <i class="fas fa-key mr-2"></i> Ganti Password
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="/logout" class="dropdown-item">
+               <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+            </a>
+         </div>
+      </li>
+   </ul>
+</nav>
+
+<div class="content-header" style="margin-bottom:30px; background-color: #0daff0; padding: 20px; border-radius: 8px; color: white;">
+    <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
+        <!-- Breadcrumb Text -->
+        <div class="breadcrumb-text">
+            <h1 style="margin: 0; font-size: 52px; font-weight: bold;">Katalog Digital</h1>
+        </div>
+        <!-- Breadcrumb Image -->
+        <div class="breadcrumb-image">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 250px; width: auto;">
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
     <div class="container product-detail-container">
         <div class="row">
             <!-- Carousel Gambar Produk -->
@@ -712,10 +732,13 @@
 </div>
 
             </div>
+<?= $this->endSection() ?>
 
-
-
-</body>
+<?= $this->section('js')?>
+<!-- jQuery -->
+<script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script>
     // Define the scroll amount (in pixels)
@@ -799,9 +822,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </script>
-
-
-
-
-
-</html>
+<?= $this->endSection() ?>

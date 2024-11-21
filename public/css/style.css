@@ -223,6 +223,7 @@ form select::after {
 .comparison-widget {
     position: fixed;
     bottom:0;
+    left:300px;
     max-width: 1080px;
     height: 220px;
     background-color: #ffffff;
@@ -635,7 +636,7 @@ form select::after {
 
 /* Optional: Style the labels */
 .filter-option label {
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
 }
 

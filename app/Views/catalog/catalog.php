@@ -16,19 +16,16 @@ Katalog Digital
 
 <?= $this->section('breadcumb') ?>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed">
-  <!-- Left navbar links -->
-  <ul class="navbar-nav">
-      <li class="nav-item">
-         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-            <i class="fas fa-expand-arrows-alt"></i>
-         </a>
-      </li>
-   </ul>
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
 
-   <div class="col-sm-6" style="margin-left:100px">
+   <div class="col-sm-6">
     <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
     </div><!-- /.col -->
+
+       <!-- Center section (Logo image) -->
+   <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
+      <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+   </div>
 
    <!-- User Dropdown -->
    <ul class="navbar-nav ml-auto">
@@ -48,23 +45,21 @@ Katalog Digital
       </li>
    </ul>
 </nav>
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Katalog Digital</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/catalog">Katalog digital</a></li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
+    <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
+        <!-- Breadcrumb Text -->
+        <div class="breadcrumb-text">
+            <h1 style="margin: 0; font-size: 52px; font-weight: bold;">Katalog Digital</h1>
+        </div>
+        <!-- Breadcrumb Image -->
+        <div class="breadcrumb-image">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 250px; width: auto;">
+        </div>
+    </div>
 </div>
-<!-- /.content-header -->
 <?= $this->endSection() ?>
+
+
 
 <?= $this->section('content') ?>
 
@@ -74,11 +69,11 @@ Katalog Digital
 <div class="container-fluid d-flex">
 <div class="col-md-3">
     <!-- Sidebar Filters -->
-    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:260px">
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:300px">
         <h4>Filter Produk</h4>
 
         <form id="filterForm" action="" method="GET">
-            <div id="filterSidebar" style="width: 300px; padding: 20px;">
+            <div id="filterSidebar" style="width: 400px; padding: 20px;">
 
                 <!-- Category Filter -->
                 <div>
@@ -149,13 +144,12 @@ Katalog Digital
 
 <!-- Main Product Grid (Right side) -->
 <div class="col-md-12">
-    <div class="row">
+    <div class="row" style="margin-top:10px;margin-bottom: 30px">
         <!-- Search field on the leftmost -->
         <div class="col-md-6 d-flex align-items-center">
             <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
                 <input style="width:250px" type="text" id="search" name="search" value="<?= esc($search) ?>"
                     placeholder="Cari Produk..." class="form-control">
-                <button type="submit" class="btn btn-primary ml-1"><i class="fas fa-search"></i></button>
             </form>
         </div>
 
@@ -177,7 +171,7 @@ Katalog Digital
 
 
             <!-- Product Grid -->
-            <div id="productGrid" class="row">
+            <div id="productGrid" style="flex:1; max-width:75%" class="row">
                 <!-- Content loaded from partials/product_grid -->
                 <?= view('partials/product_grid') ?>
                 <div class="row">
@@ -193,6 +187,7 @@ Katalog Digital
             </div>
         </div>
     </div>
+                            </div>
                             
 
 <!-- Comparison Bar -->
@@ -341,6 +336,19 @@ $(document).ready(function() {
         filterProducts();
     });
 
+    function evaluateFilterVisibility(category, subcategory, capacity) {
+    console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+    
+    if (category || subcategory || capacity) {
+        console.log("At least one filter is selected, showing checkboxes.");
+        $('.compare-checkbox').show(); // Show checkboxes
+        $('.compare-label').show();
+    } else {
+        console.log("No filters selected, hiding checkboxes.");
+        $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+        $('.compare-label').hide();
+    }
+}
     // Function to filter products based on selected filters
     function filterProducts() {
     const category = $("input[name='category']:checked").val();
@@ -370,14 +378,7 @@ $(document).ready(function() {
             // Bind checkbox listeners again after the new content is loaded
             bindCheckboxListener();
 
-            // Show the checkboxes if at least one filter is selected
-            if (category || subcategory || capacity) {
-                $('.compare-checkbox').show(); // Show checkboxes
-                $('.compare-label').show();
-            } else {
-                $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
-                $('.compare-label').hide();
-            }
+            evaluateFilterVisibility(category, subcategory, capacity);
 
             // Check if any products in the comparison list are still displayed
             const comparisonContent = document.querySelector('.comparison-content');
@@ -393,8 +394,6 @@ $(document).ready(function() {
         }
     });
 }
-
-
 
     // Reset subcategory and capacity filters
 function resetFilters() {
@@ -685,6 +684,35 @@ function resetComparisonFilters() {
     closeComparisonWidget();
 }
 
+$(document).ready(function () {
+    // Check if filters are pre-applied (e.g., via query parameters)
+    const category = new URLSearchParams(window.location.search).get('category');
+    const subcategory = new URLSearchParams(window.location.search).get('subcategory');
+    const capacity = new URLSearchParams(window.location.search).get('ukuran'); // Assuming `ukuran` maps to capacity
+
+    console.log("Initial Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+
+    // Show/hide checkboxes and labels based on the current filters
+    evaluateFilterVisibility(category, subcategory, capacity);
+
+    // Optionally, trigger the initial filtering here
+    filterProducts();
+
+    function evaluateFilterVisibility(category, subcategory, capacity) {
+    console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+    
+    if (category || subcategory || capacity) {
+        console.log("At least one filter is selected, showing checkboxes.");
+        $('.compare-checkbox').show(); // Show checkboxes
+        $('.compare-label').show();
+    } else {
+        console.log("No filters selected, hiding checkboxes.");
+        $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+        $('.compare-label').hide();
+    }
+}
+});
+
     document.addEventListener("DOMContentLoaded", function () {
     const sortDropdown = document.getElementById("sort");
     const searchInput = document.getElementById("search");
@@ -735,7 +763,8 @@ function resetComparisonFilters() {
 
     // Event listener for search input
     if (searchInput) {
-        searchInput.addEventListener("change", function () {
+        searchInput.addEventListener("change", function (event) {
+            event.preventDefault();
             const updatedUrl = updateUrlWithFilters();
             history.pushState(null, '', updatedUrl.toString());
             filterProducts(); // Trigger filtering
@@ -760,6 +789,19 @@ function resetComparisonFilters() {
         });
     });
 
+    function evaluateFilterVisibility(category, subcategory, capacity) {
+    console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+    
+    if (category || subcategory || capacity) {
+        console.log("At least one filter is selected, showing checkboxes.");
+        $('.compare-checkbox').show(); // Show checkboxes
+        $('.compare-label').show();
+    } else {
+        console.log("No filters selected, hiding checkboxes.");
+        $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+        $('.compare-label').hide();
+    }
+}
     // Function to filter products based on selected filters
     function filterProducts() {
         const category = $("input[name='category']:checked").val();
@@ -769,7 +811,7 @@ function resetComparisonFilters() {
         const sort = $('#sort').val();
 
         console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
-        
+
         $.ajax({
             url: "<?= base_url('catalog/filterProducts') ?>",
             type: "GET",
@@ -788,13 +830,7 @@ function resetComparisonFilters() {
             bindCheckboxListener();
 
             // Show the checkboxes if at least one filter is selected
-            if (category || subcategory || capacity) {
-                $('.compare-checkbox').show(); // Show checkboxes
-                $('.compare-label').show();
-            } else {
-                $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
-                $('.compare-label').hide();
-            }
+            evaluateFilterVisibility(category, subcategory, capacity);
 
             // Check if any products in the comparison list are still displayed
             const comparisonContent = document.querySelector('.comparison-content');
@@ -810,7 +846,6 @@ function resetComparisonFilters() {
         }
     });
 }
-
     // Dynamically update subcategory options when category changes
     $('#categoryContainer input[name="category"]').on('change', function() {
         resetFilters();
