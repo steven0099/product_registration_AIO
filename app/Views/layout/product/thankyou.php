@@ -26,12 +26,13 @@
             text-align: center;
             width: 100%;
             /* Almost full width */
-            max-width: 1140px;
+            max-width:720px;
             height: 560px;
             /* Maximum width */
         }
 
         .image-container {
+            margin-top:120px;
             display: flex;
             /* Use flexbox to arrange images in a row */
             align-items: center;
@@ -50,7 +51,8 @@
         }
 
         .logo {
-            max-height: 200px;
+            max-height: 75px;
+            width:125px;
             /* Set maximum height for logo */
             margin-right: 20px;
             margin-left:20px
@@ -58,7 +60,8 @@
         }
 
         .robot-image {
-            max-height: 500px;
+            max-height: 375px;
+            width: 270px;
             /* Set maximum height for robot image */
         }
 
@@ -66,6 +69,10 @@
             display: flex;
             /* Use flexbox for button layout */
             justify-content: space-between;
+            bottom:160px;
+            width:40%;
+            right:410px;
+            position:absolute;
             /* Space buttons to the left and right */
             margin-top: 20px;
             /* Space above the buttons */
@@ -94,7 +101,7 @@
 
     <div class="content">
         <div class="image-container">
-            <img src="<?= base_url('images/logo.png') ?>" alt="Logo" class="logo">
+            <img src="<?= base_url('images/aio-new.png') ?>" alt="Logo" class="logo">
             <img src="<?= base_url('images/Pose_25.png') ?>" alt="Robot" class="robot-image">
         </div>
 

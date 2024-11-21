@@ -49,11 +49,11 @@ Katalog Digital
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:50px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
-            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; width: auto;">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; margin-right:80px; width: auto;">
         </div>
     </div>
 </div>

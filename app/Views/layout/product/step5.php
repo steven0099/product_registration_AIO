@@ -220,17 +220,9 @@
                             <div class="tab-content">
                                 <div class="tab-pane" id="confirmation">
                                     <div class="row">
-                                        <h5 class="info-text"> Harap Konfirmasi Kembali Produk Anda. </h5>
                                         <table
-                                            class="table table-striped table-bordered table-hover confirmation-table">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th>Field</th>
-                                                    <th>Value</th>
-                                                    <th>Field</th>
-                                                    <th>Value</th>
-                                                </tr>
-                                            </thead>
+                                            class="table table-striped table-bordered table-hover confirmation-table" style="margin-top:50px; width:90%; margin-left: 55px">
+
                                             <tbody>
                                                 <tr>
                                                     <td><b>Merek</b></td>
@@ -532,9 +524,9 @@
                                         </table>
 
                                         <!-- Submission Information -->
-                                        <p class="font-weight-bold"><b>Diajukan Atas Nama: </b> <?= esc($data['submitted_by']) ?></p><br>
+                                        <p class="font-weight-bold" style="margin-left:55px"><b>Diajukan Atas Nama: </b> <?= esc($data['submitted_by']) ?></p><br>
 
-                                        <div class="note text-danger font-italic">*Harap dicek kembali.</div>
+                                        <div class="note text-danger font-italic" style="margin-left:55px">*Harap dicek kembali.</div>
 
                                     </div> <!-- End of row -->
                                 </div> <!-- End of confirmation tab -->

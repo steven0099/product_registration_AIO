@@ -414,20 +414,22 @@ input.form-control:-webkit-autofill.form-control.valid {
                         </div>
                         <div class="wizard-footer">
                             <div class="pull-right">
-                                <div class="col">
+                            
                                     <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next'
                                         value='Selanjutnya' />
-                                    <div>
-                                        <a href="/reset/reset-password" class='btn btn-fill btn-danger btn-wd'
-                                            style="margin-top:10px">Ganti Password</a>
-                                    </div>
-                                </div>
+                                
                             </div>
 
                             <div class="pull-left">
-                                <p class="form-note" style="margin-left: 46px;margin-top: 8px;"><span
+                            <div class="col">
+                                <p class="form-note" style="margin-left: 0px;margin-top: 8px;"><span
                                         style="color: red;">*</span>Harap diisi dengan benar</p>
                             </div>
+                            <div>
+                                        <a href="/reset/reset-password" class='btn btn-fill btn-danger btn-wd'
+                                            style="margin-top:10px">Ganti Password</a>
+                                    </div>
+                                    </div>
                             <div class="clearfix"></div>
                         </div>
 
