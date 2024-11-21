@@ -31,7 +31,7 @@
             /* Menambahkan jarak di dalam input */
             outline: none;
             /* Menghilangkan outline default */
-            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            background-color: #fff;
             /* Menambahkan efek bayangan */
         }
 
@@ -115,6 +115,10 @@
             /* Ganti dengan warna tema Anda */
         }
 
+        .ti-package.filled {
+            color: #00a9ee;
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -156,17 +160,18 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <span style="color: #00a9ee;">Informasi Umum</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#type" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <span style="color: #00a9ee;">Spesifikasi Produk</span>
+
                                         </a>
                                     </li>
                                     <li>
@@ -206,12 +211,12 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('product/save-step3') ?>" method="post" style=" margin-top: 25px; margin-left: 25px; margin-right: 25px;">
+                            <form action="<?= base_url('product/save-step3') ?>" method="post" style=" margin-top: 45px; margin-left: 25px; margin-right: 25px;">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
                                     <div class="tab-pane" id="facilities">
 
-                                        <div class="row" style="margin: 20px;">
+                                        <div class="row-sm-6">
 
                                             <div class="form-group">
                                                 <input type="text" id="advantage1" name="advantage1" value="<?= session()->get("step3")["advantage1"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
@@ -231,7 +236,7 @@
                                             <div class="form-group">
                                                 <input type="text" id="advantage6" name="advantage6" value="<?= session()->get("step3")["advantage6"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
-                                            <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
+
 
 
                                         </div>

@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             padding: 10px;
             /* Menambahkan jarak di dalam input */
             outline: none;
+            background-color: #fff;
             /* Menghilangkan outline default */
             /* Menambahkan efek bayangan */
         }
@@ -80,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
             /* Bayangan lebih terang */
         }
+
+
 
         .logo {
             justify-content: flex-start;
@@ -162,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="icon-circle">
                                                 <i class="ti-package"></i>
                                             </div>
-                                            General Data
+                                            Informasi Umum
                                         </a>
                                     </li>
                                     <li>
@@ -253,11 +256,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             </div>
 
                                             <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="product_type">Tipe Produk</label>
-                                                    <input type="text" id="product_type" value="<?= session()->get("step1")["product_type"] ?? '' ?>" class="form-control" name="product_type" placeholder="Masukan Tipe Produk" pattern="[^-/]+" title="Cannot contain '-' or '/'" style="text-transform: uppercase;" required>
-                                                </div>
-                                            </div>
+    <div class="form-group">
+        <label for="product_type">Tipe Produk</label>
+        <input 
+            type="text" 
+            id="product_type" 
+            value="<?= session()->get("step1")["product_type"] ?? '' ?>" 
+            class="form-control" 
+            name="product_type" 
+            placeholder="Masukan Tipe Produk" 
+            pattern="^[a-zA-Z0-9\s]+$" 
+            title="Only alphanumeric characters are allowed." 
+            style="text-transform: uppercase;" 
+            required
+            oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')"
+        >
+    </div>
+</div>
+
                                             <div id="capacity-group" class="col-sm-6" style="display:block;">
                                                 <div class="form-group">
                                                     <label id="capacity-label">Kapasitas</label>

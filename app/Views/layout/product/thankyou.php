@@ -24,9 +24,10 @@
             padding: 20px;
             border-radius: 5px;
             text-align: center;
-            width: 80%;
+            width: 100%;
             /* Almost full width */
-            max-width: 600px;
+            max-width: 1140px;
+            height: 560px;
             /* Maximum width */
         }
 
@@ -37,26 +38,27 @@
             /* Center items vertically */
             justify-content: center;
             /* Center the images horizontally */
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             /* Space below the images */
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             /* Ensure images are responsive */
-            height: auto;
+            max-height: auto;
             /* Maintain aspect ratio */
         }
 
         .logo {
-            max-height: 70px;
+            max-height: 200px;
             /* Set maximum height for logo */
             margin-right: 20px;
+            margin-left:20px
             /* Space between logo and robot image */
         }
 
         .robot-image {
-            max-height: 200px;
+            max-height: 500px;
             /* Set maximum height for robot image */
         }
 
