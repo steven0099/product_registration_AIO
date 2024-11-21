@@ -245,9 +245,9 @@ Detail Perbandingan
       <?php endif; ?>
 
       <span class="breadcrumb-separator"></span> 
-      <span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Produk</span>
+      <span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Perbandingan</span>
    </div><!-- /.col -->
-</nav>
+
 
        <!-- Center section (Logo image) -->
    <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
@@ -272,15 +272,15 @@ Detail Perbandingan
       </li>
    </ul>
 </nav>
-<div class="content-header" style="margin-bottom:30px; background-color: #0daff0; padding: 20px; border-radius: 8px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; font-size: 52px; font-weight: bold;">Katalog Digital</h1>
+            <h1 style="margin: 0; margin-left:50px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
-            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 250px; width: auto;">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; width: auto;">
         </div>
     </div>
 </div>
@@ -452,7 +452,6 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
             <td>Rating CSPF</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['cspf']) ?>/5
-            <?= esc($product['cspf']) ?>/5
         <?php if ($product['cspf'] == 5): ?>
             <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
         <?php elseif ($product['cspf'] >= 4.00 && $product['cspf'] < 5): ?>

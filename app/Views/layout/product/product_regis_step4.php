@@ -19,6 +19,31 @@
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
 
     <style>
+
+input.form-control:-webkit-autofill {
+    box-shadow:  0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid #00bfff; /* Blue border */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
+
+input.form-control:-webkit-autofill:focus {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid #00bfff; /* Blue border */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
+/* For valid autofill (if manually validated with Bootstrap classes) */
+input.form-control:-webkit-autofill.form-control.valid {
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid rgba(0, 191, 255, 0.8); /* Blue border */
+    border-color: #00bfff;
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
         input[type="text"],
         input[type="file"],
         input[type="number"],
@@ -41,7 +66,7 @@
         input[type="file"]:focus,
         input[type="number"]:focus,
         input[type="video"]:focus {
-            border: 2px solid #1E90FF;
+            border: 2px solid #00bfff;
             /* Warna biru yang lebih tua saat input difokuskan */
             box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
             /* Bayangan yang lebih terang saat difokuskan */

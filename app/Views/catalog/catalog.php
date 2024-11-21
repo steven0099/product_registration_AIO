@@ -49,11 +49,11 @@ Katalog Digital
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; font-size: 52px; font-weight: bold;">Katalog Digital</h1>
+            <h1 style="margin: 0; margin-left:50px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
-            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 250px; width: auto;">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; width: auto;">
         </div>
     </div>
 </div>
@@ -148,7 +148,7 @@ Katalog Digital
         <!-- Search field on the leftmost -->
         <div class="col-md-6 d-flex align-items-center">
             <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                <input style="width:250px" type="text" id="search" name="search" value="<?= esc($search) ?>"
+                <input style="width:250px; margin-left:50px" type="text" id="search" name="search" value="<?= esc($search) ?>"
                     placeholder="Cari Produk..." class="form-control">
             </form>
         </div>

@@ -4,6 +4,45 @@
 Rincian Produk
 <?= $this->endSection() ?>
 
+<?= $this->section('css') ?>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 400px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<?= $this->endSection();?>
 <?= $this->section('breadcumb') ?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -1052,21 +1091,11 @@ Rincian Produk
     <div id="deleteModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Are you sure you want to delete this product?</p>
+            <p>Hapus Produk Ini?</p>
             <form id="deleteForm" method="POST">
                 <?= csrf_field() ?>
-                <button type="submit" class="btn btn-danger">Delete</button>
-                <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
-            </form>
-        </div>
-    </div>
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Are you sure you want to delete this product?</p>
-            <form id="deleteForm" method="POST">
-                <?= csrf_field() ?>
-                <button type="submit" class="btn btn-danger">Delete</button>
-                <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-danger">Hapus</button>
+                <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Batal</button>
             </form>
         </div>
     </div>
