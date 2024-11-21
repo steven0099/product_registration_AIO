@@ -130,6 +130,10 @@
             /* Ganti dengan warna tema Anda */
         }
 
+        .ti-package.filled {
+            color: #00a9ee;
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -174,33 +178,33 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <span style="color: #00a9ee;">Informasi Umum</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <span style="color: #00a9ee;">Spesifikasi Produk</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#advantages" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Keunggulan Produk
+                                            <span style="color: #00a9ee;">Keunggulan Produk</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#photos" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Foto Produk
+                                            <span style="color: #00a9ee;">Foto Produk</span>
                                         </a>
                                     </li>
                                     <li>
@@ -216,8 +220,9 @@
                             <div class="tab-content">
                                 <div class="tab-pane" id="confirmation">
                                     <div class="row">
+                                        <h5 class="info-text"> Harap Konfirmasi Kembali Produk Anda. </h5>
                                         <table
-                                            class="table table-striped table-bordered table-hover confirmation-table" style="margin-top:50px">
+                                            class="table table-striped table-bordered table-hover confirmation-table">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th>Field</th>
@@ -335,7 +340,7 @@
                                                     <tr>
                                                         <td><b>Ukuran</b></td>
                                                         <td><?= esc($data['ukuran_size']) ?></td>
-                                                        <td><b>Garansi Motor</b></td>
+                                                        <td><b>Kapasitas Air Dingin</b>Garansi Motor</td>
                                                         <td><?= esc($data['garansi_motor_value']) ?> Tahun</td>
                                                     </tr>
 
@@ -343,7 +348,7 @@
                                                 <?php if ($data['subcategory_id'] == '35' || $data['subcategory_id'] == '36'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
-                                                        <td><b>Kapasitas Air Dingin</b></td>
+                                                        <td><b></b></td>
                                                         <td><?= esc($data['kapasitas_air_dingin']) ?> Liter</td>
                                                         <td><b>Kapasitas Air Panas</b></td>
                                                         <td><?= esc($data['kapasitas_air_panas']) ?> Liter</td>
@@ -527,8 +532,8 @@
                                         </table>
 
                                         <!-- Submission Information -->
-                                        <p class="font-weight-bold"><b>Diajukan Atas Nama:</b> <?= esc($data['submitted_by']) ?></p><br>
-                                    
+                                        <p class="font-weight-bold"><b>Diajukan Atas Nama: </b> <?= esc($data['submitted_by']) ?></p><br>
+
                                         <div class="note text-danger font-italic">*Harap dicek kembali.</div>
 
                                     </div> <!-- End of row -->

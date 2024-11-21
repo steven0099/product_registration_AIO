@@ -28,107 +28,128 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
 
     <style>
-        input[type="text"],
-        input[type="file"],
-        input[type="number"],
-        input[type="video"] {
-            border: 2px solid #00BFFF;
-            /* Warna biru */
-            border-radius: 5px;
-            /* Membuat sudut sedikit melengkung */
-            padding: 10px;
-            /* Menambahkan jarak di dalam input */
-            outline: none;
-            background-color: #fff;
-            /* Menghilangkan outline default */
-            /* Menambahkan efek bayangan */
-        }
+    input[type="text"],
+    input[type="file"],
+    input[type="number"],
+    input[type="video"] {
+        border: 2px solid #00BFFF;
+        /* Warna biru */
+        border-radius: 5px;
+        /* Membuat sudut sedikit melengkung */
+        padding: 10px;
+        /* Menambahkan jarak di dalam input */
+        outline: none;
+        /* Menghilangkan outline default */
+        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+        background-color: #fff;
+        color: #000;
+        /* Menambahkan efek bayangan */
+    }
 
-        input[type="text"]:focus,
-        input[type="file"]:focus,
-        input[type="number"]:focus,
-        input[type="video"]:focus {
-            border-color: #1E90FF;
-            /* Warna biru yang lebih tua saat input difokuskan */
-            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
-            /* Bayangan yang lebih terang saat difokuskan */
-        }
+    input[type="text"]:focus,
+    input[type="file"]:focus,
+    input[type="number"]:focus,
+    input[type="video"]:focus {
+        border-color: #1E90FF;
+        /* Warna biru yang lebih tua saat input difokuskan */
+        box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+        /* Bayangan yang lebih terang saat difokuskan */
+    }
 
-        
-        select {
-            border: 2px solid #00BFFF !important;
-            /* Warna biru */
-            border-radius: 5px;
-            padding: 10px;
-            padding-right: 40px;
-            /* Tambahkan jarak untuk icon custom */
-            outline: none;
-            /* Menambahkan efek bayangan */
-            appearance: none;
-            /* Menghilangkan default arrow */
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
-            background-color: white;
-            /* Warna latar belakang */
-            background-size: 20px;
-            /* Ukuran icon */
-            cursor: pointer;
-            overflow-y: auto;
-        }
+    select {
+        border: 2px solid #00BFFF !important;
+        color: #000;
+        /* Warna biru */
+        border-radius: 5px;
+        padding: 10px;
+        padding-right: 40px;
+        /* Tambahkan jarak untuk icon custom */
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+        /* Menambahkan efek bayangan */
+        appearance: none;
+        /* Menghilangkan default arrow */
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
+        background-color: white;
+        /* Warna latar belakang */
+        background-size: 20px;
+        /* Ukuran icon */
+        cursor: pointer;
+    }
 
-        select:focus {
-            border-color: #1E90FF;
-            /* Warna biru yang lebih tua saat difokuskan */
-            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
-            /* Bayangan lebih terang */
-        }
+    select:focus {
+        border-color: #1E90FF;
+        /* Warna biru yang lebih tua saat difokuskan */
+        box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+        /* Bayangan lebih terang */
+    }
 
+    .select-css {
+        border: 2px solid #00BFFF;
+        border-radius: 5px;
+        padding: 10px;
+        outline: none;
+        appearance: none;
+        background-image: linear-gradient(to bottom, transparent, transparent),
+            radial-gradient(farthest-side padding-box, #fff calc(1% + 2px), currentColor calc(99% - 2px));
+        background-position: right 13px top 14px, right 18px top 16px;
+        background-size: 10px auto, 12px auto;
+        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+        background-origin: padding-box;
+        background-clip: content-box, border-box;
+    }
 
+    /* Styling focus state untuk dropdown select */
+    .select-css:focus {
+        border-color: #1E90FF;
+        box-shadow: 0 0 8px rgba(30, 144, 255, 07);
+    }
 
-        .logo {
-            justify-content: flex-start;
-            display: flex;
-        }
+    .logo {
+        justify-content: flex-start;
+        display: flex;
+    }
 
+    .title {
+        justify-content: end;
+        align-items: center;
+        display: flex;
+    }
+
+    .divider {
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .unit {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .col-form-label {
+        text-align: right;
+    }
+
+    .disabled-link {
+        pointer-events: none;
+        /* Disables click events */
+        color: gray;
+        /* Optional: make it look disabled */
+        cursor: not-allowed;
+        /* Change cursor to indicate it's disabled */
+    }
+
+    @media (max-width: 600px) {
+
+        .logo,
         .title {
-            justify-content: end;
-            align-items: center;
-            display: flex;
+            justify-content: center;
         }
-
-        .divider {
-            margin: 0 5px;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-        }
-
-        .unit {
-            margin-left: 10px;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-        }
-
-        .col-form-label {
-            text-align: right;
-        }
-
-        .disabled-link {
-            pointer-events: none;
-            /* Disables click events */
-            color: gray;
-            /* Optional: make it look disabled */
-            cursor: not-allowed;
-            /* Change cursor to indicate it's disabled */
-        }
-
-        @media (max-width: 600px) {
-
-            .logo,
-            .title {
-                justify-content: center;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -151,13 +172,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class=""
+                                            style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">
+                                            Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="wizard-navigation">
                                 <div class="progress-with-circle">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1"
+                                        aria-valuemax="4" style="width: 15%;"></div>
                                 </div>
                                 <ul>
                                     <li>
@@ -204,13 +228,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
 
                             <?php if (session()->getFlashdata('errors')): ?>
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                                            <li><?= esc($error) ?></li>
-                                        <?php endforeach ?>
-                                    </ul>
-                                </div>
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                    <li><?= esc($error) ?></li>
+                                    <?php endforeach ?>
+                                </ul>
+                            </div>
                             <?php endif; ?>
 
                             <form action="save-step1" method="post" style="margin-left: 25px; margin-right: 25px;">
@@ -218,16 +242,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="tab-content">
                                     <div class="tab-pane" id="general">
                                         <div class="row">
-                                            <div class="col-sm-12" style="margin-bottom: 65px">
+                                            <div class="col-sm-12" style="margin-bottom: 65px;">
                                             </div>
                                             <div class="col-sm-6">
 
                                                 <div class="form-group">
                                                     <label for="brand">Merek</label>
-                                                    <select id="brand" name="brand_id" class="form-control" required>
-                                                        <option value="<?= session()->get("step1")["brand_id"] ?? '' ?>" disabled selected>Pilih Merek</option>
+                                                    <select id="brand" name="brand_id" class="form-control select-css"
+                                                        required>
+                                                        <option value="<?= session()->get("step1")["brand_id"] ?? '' ?>"
+                                                            disabled selected>Pilih Merek</option>
                                                         <?php foreach ($brands as $brand): ?>
-                                                            <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
+                                                        <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?>
+                                                        </option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -235,10 +262,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="category">Kategori</label>
-                                                    <select id="category" name="category_id" class="form-control" required>
-                                                        <option value="<?= session()->get("step1")["category_id"] ?? '' ?>" disabled selected>Pilih Kategori</option>
+                                                    <select id="category" name="category_id"
+                                                        class="form-control select-css" required>
+                                                        <option
+                                                            value="<?= session()->get("step1")["category_id"] ?? '' ?>"
+                                                            disabled selected>Pilih Kategori</option>
                                                         <?php foreach ($categories as $category): ?>
-                                                            <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
+                                                        <option value="<?= $category['id'] ?>">
+                                                            <?= esc($category['name']) ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -246,132 +277,147 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="subcategory">Subkategori</label>
-                                                    <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
+                                                    <select id="subcategory" class="form-control select-css"
+                                                        name="subcategory_id" disabled required>
                                                         <option value="" disabled selected>Pilih Subkategori</option>
                                                         <?php foreach ($subcategories as $subcategory): ?>
-                                                            <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
+                                                        <option value="<?= $subcategory['id'] ?>">
+                                                            <?= esc($subcategory['name']) ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6">
-    <div class="form-group">
-        <label for="product_type">Tipe Produk</label>
-        <input 
-            type="text" 
-            id="product_type" 
-            value="<?= session()->get("step1")["product_type"] ?? '' ?>" 
-            class="form-control" 
-            name="product_type" 
-            placeholder="Masukan Tipe Produk" 
-            pattern="^[a-zA-Z0-9\s]+$" 
-            title="Only alphanumeric characters are allowed." 
-            style="text-transform: uppercase;" 
-            required
-            oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')"
-        >
-    </div>
-</div>
 
-                                            <div id="capacity-group" class="col-sm-6" style="display:block;">
+                                            <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label id="capacity-label">Kapasitas</label>
-                                                    <select id="capacity" name="capacity_value" class="form-control" required>
-                                                        <option value="" disabled selected>Pilih Kapasitas</option>
-                                                        <!-- Options will be populated dynamically -->
+                                                    <label for="product_type">Tipe Produk</label>
+                                                    <input type="text" id="product_type"
+                                                        value="<?= session()->get("step1")["product_type"] ?? '' ?>"
+                                                        class="form-control" name="product_type"
+                                                        placeholder="Masukan Tipe Produk" pattern="^[a-zA-Z0-9\s]+$"
+                                                        title="Only alphanumeric characters are allowed."
+                                                        style="text-transform: uppercase;" required
+                                                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
+                                                </div>
+                                            </div>
+
+                                        
+                                        <div id="capacity-group" class="col-sm-6" style="display:block;">
+                                            <div class="form-group">
+                                                <label id="capacity-label">Kapasitas</label>
+                                                <select id="capacity" name="capacity_value"
+                                                    class="form-control select-css" required>
+                                                    <option value="" disabled selected>Pilih Kapasitas</option>
+                                                    <!-- Options will be populated dynamically -->
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="warranty-compressor-group">
+                                                <label for="compressor_warranty" id="compressor-warranty-label">Garansi
+                                                    Kompresor (Tahun)</label>
+                                                <div>
+                                                    <select id="compressor_warranty" name="compressor_warranty_id"
+                                                        class="form-control select-css" style="" required>
+                                                        <option value="" disabled selected>Pilih Garansi Kompresor
+                                                            (Tahun)</option>
+                                                        <?php foreach ($compressor_warranties as $compressor_warranty): ?>
+                                                        <option value="<?= $compressor_warranty['id'] ?>">
+                                                            <?= esc($compressor_warranty['value']) ?> Tahun</option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group" id="warranty-compressor-group">
-                                                    <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor (Tahun)</label>
-                                                    <div>
-                                                        <select id="compressor_warranty" name="compressor_warranty_id" class="form-control" style="" required>
-                                                            <option value="" disabled selected>Pilih Garansi Kompresor (Tahun)</option>
-                                                            <?php foreach ($compressor_warranties as $compressor_warranty): ?>
-                                                                <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?> Tahun</option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="color">Warna</label>
-                                                    <input type="text" id="color" name="color" value="<?= session()->get("step1")["color"] ?? '' ?>" placeholder="Masukan Warna" class="form-control" style="text-transform: uppercase;" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
-                                                <div class="form-group">
-
-                                                    <label for="kapasitas_air_dingin" id="kapasitas-air-dingin-label">Kapasitas Air Dingin (Liter)</label>
-                                                    <input type="number" class="form-control" id="kapasitas_air_dingin" name="kapasitas_air_dingin" placeholder="Kapasitas Air Dingin">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group" id="warranty-sparepart-group">
-                                                    <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart (Tahun)</label>
-                                                    <div style="">
-                                                        <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
-                                                            <option value="" disabled selected>Pilih Garansi (Tahun)</option>
-                                                            <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                                                                <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
-                                                <div class="form-group">
-
-                                                    <label for="kapasitas_air_panas">Kapasitas Air Panas (Liter)</label>
-                                                    <input type="number" class="form-control" id="kapasitas_air_panas" name="kapasitas_air_panas" placeholder="Kapasitas Air Panas">
-
-                                                </div>
-                                            </div>
-
-
-
-
                                         </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="color">Warna</label>
+                                                <input type="text" id="color" name="color"
+                                                    value="<?= session()->get("step1")["color"] ?? '' ?>"
+                                                    placeholder="Masukan Warna" class="form-control"
+                                                    style="text-transform: uppercase;" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6" id="kapasitas-air-dingin" style="display:none;">
+                                            <div class="form-group">
+
+                                                <label for="kapasitas_air_dingin"
+                                                    id="kapasitas-air-dingin-label">Kapasitas Air Dingin (Liter)</label>
+                                                <input type="number" class="form-control" id="kapasitas_air_dingin"
+                                                    name="kapasitas_air_dingin" placeholder="Kapasitas Air Dingin">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="warranty-sparepart-group">
+                                                <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi
+                                                    Sparepart (Tahun)</label>
+                                                <div style="">
+                                                    <select id="sparepart_warranty" class="form-control select-css"
+                                                        name="sparepart_warranty_id" style="" required>
+                                                        <option value="" disabled selected>Pilih Garansi (Tahun)
+                                                        </option>
+                                                        <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
+                                                        <option value="<?= esc($sparepart_warranty['id']) ?>">
+                                                            <?= esc($sparepart_warranty['value']) ?> Tahun</option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
+                                            <div class="form-group">
+
+                                                <label for="kapasitas_air_panas">Kapasitas Air Panas (Liter)</label>
+                                                <input type="number" class="form-control" id="kapasitas_air_panas"
+                                                    name="kapasitas_air_panas" placeholder="Kapasitas Air Panas">
+
+                                            </div>
+                                        </div>
+
+
+
+
                                     </div>
-
-
                                 </div>
-                            <div class="wizard-footer">
-                            <div class="pull-right">
-                                        <div class="col">
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
-                                        <div class="-ml-1">
-                                        <a href="/reset/reset-password" class='btn btn-fill btn-danger btn-wd' style="margin-top:10px">Ganti Password</a>
-                                        </div>
-                                    </div>
-                                                            </div>
 
 
-                                    <div class="pull-left">
-                                    <p class="form-note" style="margin-left: 25px;">*Harap diisi dengan benar</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                            </div>
-                            </form>
-                            
                         </div>
-                    </div> <!-- wizard container -->
-                </div>
-            </div> <!-- row -->
-        </div> <!--  big container -->
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <div class="col">
+                                    <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next'
+                                        value='Selanjutnya' />
+                                    <div>
+                                        <a href="/reset/reset-password" class='btn btn-fill btn-danger btn-wd'
+                                            style="margin-top:10px">Ganti Password</a>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="footer">
-            <div class="container text-center">
-                Copyright &copy; 2024 AIO. All rights reserved.
+                            <div class="pull-left">
+                                <p class="form-note" style="margin-left: 46px;margin-top: 8px;"><span
+                                        style="color: red;">*</span>Harap diisi dengan benar</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        </form>
+                    </div>
+                </div> <!-- wizard container -->
             </div>
+        </div> <!-- row -->
+    </div> <!--  big container -->
+
+    <div class="footer">
+        <div class="container text-center">
+            Copyright &copy; 2024 AIO. All rights reserved.
         </div>
+    </div>
     </div>
 
 </body>
@@ -388,342 +434,370 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
 <script>
-    document.getElementById('category').addEventListener('change', function() {
-        const categoryId = this.value;
-        const subcategoryDropdown = document.getElementById('subcategory');
+document.getElementById('category').addEventListener('change', function() {
+    const categoryId = this.value;
+    const subcategoryDropdown = document.getElementById('subcategory');
 
-        // Clear the current options and disable the dropdown
-        subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
-        subcategoryDropdown.disabled = true; // Disable until we load new options
+    // Clear the current options and disable the dropdown
+    subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
+    subcategoryDropdown.disabled = true; // Disable until we load new options
 
-        // Fetch subcategories via AJAX
-        fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
-            .then(response => {
-                console.log('Response:', response); // Log the response object
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Data:', data);
-                subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
-                if (data.length > 0) {
-                    data.forEach(subcategory => {
-                        subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
-                    });
-                    subcategoryDropdown.disabled = false; // Enable dropdown after loading options
-                } else {
-                    subcategoryDropdown.innerHTML = '<option value="" disabled selected>No Subcategories Available</option>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching subcategories:', error);
-            });
-    });
-
-    function fetchWarrantyOptions(type) {
-        fetch(`<?= base_url('fetch-warranty-options') ?>?type=${type}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('API Response:', data); // Debug: Check what the API returns
-
-                const warrantyDropdown = document.getElementById('compressor_warranty');
-
-                // Ensure that the data is an array and has the expected format
-                if (Array.isArray(data)) {
-                    data.forEach(warranty => {
-                        // Use optional chaining and default values for robustness
-                        const id = warranty.id ?? '';
-                        const name = warranty.value ?? 'Unnamed Warranty';
-                        warrantyDropdown.innerHTML += `<option value="${id}">${name} Tahun</option>`;
-                    });
-                } else {
-                    console.error('Unexpected data format:', data);
-                    alert('Failed to load warranty options. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching warranty options:', error);
-                alert('An error occurred while fetching warranty options. Please try again later.');
-            });
-    }
-
-
-    document.getElementById('subcategory').addEventListener('change', function() {
-        const subcategoryId = this.value;
-        const categoryId = document.getElementById('category').value;
-
-        handleSparepartWarranty(subcategoryId);
-        handleCapacityGroup(subcategoryId);
-        updateWarrantyAndCapacityLabels();
-
-        let type = '';
-        if (categoryId == '9') {
-            type = 'garansi_panel';
-        } else if (categoryId == '6') {
-            type = 'garansi_motor';
-        } else if (subcategoryId == '31' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '48' || subcategoryId == '50' || subcategoryId == '51' || subcategoryId == '52' || subcategoryId == '54') {
-            type = 'garansi_semua_service';
-        } else if (subcategoryId == '32' || subcategoryId == '49' || subcategoryId == '53') {
-            type = 'garansi_motor';
-        } else if (subcategoryId == '35' || subcategoryId == '36') {
-            type = 'garansi_kompresor';
-        } else if (subcategoryId == '33' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41' || subcategoryId == '42' || subcategoryId == '43' || subcategoryId == '44') {
-            type = 'garansi_elemen_panas';
-        } else {
-            type = 'garansi_kompresor'; // Default type if no conditions match
-        }
-        fetchWarrantyOptions(type);
-        fetchOptions(subcategoryId);
-
-
-    });
-
-
-
-    // Fetch warranty and capacity options using the determined type
-    fetchWarrantyOptions(type);
-
-    function updateWarrantyAndCapacityLabels() {
-        const categoryId = document.getElementById('category').value;
-        const subcategoryId = document.getElementById('subcategory').value;
-        const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
-        const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
-        const airdinginLabel = document.getElementById('kapasitas-air-dingin-label');
-        const airdinginSatuan = document.getElementById('air-dingin-satuan');
-        const capacityLabel = document.getElementById('capacity-label');
-        const airdinginField = document.getElementById('kapasitas_air_dingin');
-        const warrantyDropdown = document.getElementById('compressor_warranty');
-        const sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
-        // Update compressor warranty field based on category
-        if (categoryId == '9') { // Category is for Garansi Panel
-            compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block';
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_panel_id'); // Change name to garansi_panel_id
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Panel</option>';
-        } else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53') {
-            compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block';
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name to garansi_motor_id
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
-        } else if (subcategoryId == '31') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Semua Service</option>';
-        } else if (subcategoryId == '32') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
-        } else if (subcategoryId == '35' || subcategoryId == '36') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
-        } else if (subcategoryId == '33' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41' || subcategoryId == '44') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
-            sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        } else if (subcategoryId == '42' || subcategoryId == '43') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
-            sparepartWarrantyLabel.innerText = 'Garansi Service (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        } else if (subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51' || subcategoryId == '54') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Jasa Service (Tahun)';
-            sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Service</option>';
-        } else if (subcategoryId == '48') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
-            sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        } else if (subcategoryId == '52') { // Check for subcategory id 31
-            compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Sparepart & Jasa Service</option>';
-        } else {
-            compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
-            sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block'; // Ensure the group is visible
-            document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name back to compressor_warranty_id
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
-        }
-
-        // Change capacity to ukuran_size if category is TV
-        if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
-            capacityLabel.innerText = 'Ukuran'; // You may want to handle each subcategory separately for clarity
-            document.getElementById('capacity').setAttribute('name', 'ukuran_id'); // Change name of the select element
-            fetchOptions('ukuran', subcategoryId);
-        } else {
-            capacityLabel.innerText = 'Kapasitas';
-            document.getElementById('capacity').setAttribute('name', 'capacity_id'); // Change back if not TV
-            fetchOptions('kapasitas', subcategoryId);
-
-        }
-
-        function handleCategoryChange(categoryId, subcategoryId) {
-            // Check if the category is "TV" to fetch options for Ukuran TV
-            if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
-                showCapacityField(true); // Show dropdown for capacity
-            } else if (subcategoryId == '42' || subcategoryId == '52' || subcategoryId == '35' || subcategoryId == '36') {
-                hideCapacityField(); // Hide dropdown for capacity
-            } else {
-                showCapacityField(false); // Show dropdown for capacity
+    // Fetch subcategories via AJAX
+    fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
+        .then(response => {
+            console.log('Response:', response); // Log the response object
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
             }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data:', data);
+            subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
+            if (data.length > 0) {
+                data.forEach(subcategory => {
+                    subcategoryDropdown.innerHTML +=
+                        `<option value="${subcategory.id}">${subcategory.name}</option>`;
+                });
+                subcategoryDropdown.disabled = false; // Enable dropdown after loading options
+            } else {
+                subcategoryDropdown.innerHTML =
+                    '<option value="" disabled selected>No Subcategories Available</option>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching subcategories:', error);
+        });
+});
 
-        }
-        if (subcategoryId == 35 || subcategoryId == 36) {
-            // Hide "kapasitas" and "garansi sparepart"
-            document.getElementById('capacity-group').style.display = 'none';
-            document.getElementById('warranty-sparepart-group').style.display = 'none';
+function fetchWarrantyOptions(type) {
+    fetch(`<?= base_url('fetch-warranty-options') ?>?type=${type}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('API Response:', data); // Debug: Check what the API returns
 
-            // Show "kapasitas air dingin" and "kapasitas air panas"
-            document.getElementById('kapasitas-air-dingin').style.display = 'block';
-            document.getElementById('kapasitas-air-panas').style.display = 'block';
-            compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
-            airdinginLabel.innerText = 'Kapasitas Air Dingin (Liter)';
-            airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
-        } else if (subcategoryId == 42) {
-            document.getElementById('capacity-group').style.display = 'none';
-            document.getElementById('warranty-sparepart-group').style.display = 'block';
+            const warrantyDropdown = document.getElementById('compressor_warranty');
 
-            // Show "kapasitas air dingin" and "kapasitas air panas"
-            document.getElementById('kapasitas-air-dingin').style.display = 'none';
-            document.getElementById('kapasitas-air-panas').style.display = 'none';
-            compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+            // Ensure that the data is an array and has the expected format
+            if (Array.isArray(data)) {
+                data.forEach(warranty => {
+                    // Use optional chaining and default values for robustness
+                    const id = warranty.id ?? '';
+                    const name = warranty.value ?? 'Unnamed Warranty';
+                    warrantyDropdown.innerHTML += `<option value="${id}">${name} Tahun</option>`;
+                });
+            } else {
+                console.error('Unexpected data format:', data);
+                alert('Failed to load warranty options. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching warranty options:', error);
+            alert('An error occurred while fetching warranty options. Please try again later.');
+        });
+}
 
-        } else if (subcategoryId == 52) {
-            document.getElementById('capacity-group').style.display = 'none';
-            document.getElementById('warranty-sparepart-group').style.display = 'none';
 
-            // Show "kapasitas air dingin" and "kapasitas air panas"
-            document.getElementById('kapasitas-air-dingin').style.display = 'block';
-            document.getElementById('kapasitas-air-panas').style.display = 'none';
-            compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
-            airdinginLabel.innerText = 'Kapasitas (M²)';
-            airdinginField.placeholder = 'Kapasitas (M²)';
-        } else {
-            // Show "kapasitas" and "garansi sparepart" for other subcategories
-            document.getElementById('capacity-group').style.display = 'block';
+document.getElementById('subcategory').addEventListener('change', function() {
+    const subcategoryId = this.value;
+    const categoryId = document.getElementById('category').value;
 
-            // Hide "kapasitas air dingin" and "kapasitas air panas"
-            document.getElementById('kapasitas-air-dingin').style.display = 'none';
-            document.getElementById('kapasitas-air-panas').style.display = 'none';
-            airdinginLabel.innerText = 'Kapasitas Air Dingin (Liter)';
-            airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
-        }
-    };
+    handleSparepartWarranty(subcategoryId);
+    handleCapacityGroup(subcategoryId);
+    updateWarrantyAndCapacityLabels();
 
-    function handleSparepartWarranty(subcategoryId) {
-        const sparepartWarrantyGroup = document.getElementById('warranty-sparepart-group');
-        const sparepartWarrantyField = document.getElementById('sparepart_warranty');
+    let type = '';
+    if (categoryId == '9') {
+        type = 'garansi_panel';
+    } else if (categoryId == '6') {
+        type = 'garansi_motor';
+    } else if (subcategoryId == '31' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId ==
+        '47' || subcategoryId == '48' || subcategoryId == '50' || subcategoryId == '51' || subcategoryId ==
+        '52' || subcategoryId == '54') {
+        type = 'garansi_semua_service';
+    } else if (subcategoryId == '32' || subcategoryId == '49' || subcategoryId == '53') {
+        type = 'garansi_motor';
+    } else if (subcategoryId == '35' || subcategoryId == '36') {
+        type = 'garansi_kompresor';
+    } else if (subcategoryId == '33' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId ==
+        '38' || subcategoryId == '41' || subcategoryId == '42' || subcategoryId == '43' || subcategoryId == '44'
+        ) {
+        type = 'garansi_elemen_panas';
+    } else {
+        type = 'garansi_kompresor'; // Default type if no conditions match
+    }
+    fetchWarrantyOptions(type);
+    fetchOptions(subcategoryId);
 
-        if ([31, 32, 35, 36].includes(Number(subcategoryId))) {
-            sparepartWarrantyGroup.style.display = 'none';
-            sparepartWarrantyField.removeAttribute('required');
-        } else {
-            sparepartWarrantyGroup.style.display = 'flex';
-            sparepartWarrantyField.setAttribute('required', 'required');
-        }
+
+});
+
+
+
+// Fetch warranty and capacity options using the determined type
+fetchWarrantyOptions(type);
+
+function updateWarrantyAndCapacityLabels() {
+    const categoryId = document.getElementById('category').value;
+    const subcategoryId = document.getElementById('subcategory').value;
+    const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
+    const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
+    const airdinginLabel = document.getElementById('kapasitas-air-dingin-label');
+    const airdinginSatuan = document.getElementById('air-dingin-satuan');
+    const capacityLabel = document.getElementById('capacity-label');
+    const airdinginField = document.getElementById('kapasitas_air_dingin');
+    const warrantyDropdown = document.getElementById('compressor_warranty');
+    const sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
+    // Update compressor warranty field based on category
+    if (categoryId == '9') { // Category is for Garansi Panel
+        compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'block';
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_panel_id'); // Change name to garansi_panel_id
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Panel</option>';
+    } else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53') {
+        compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'block';
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_motor_id'); // Change name to garansi_motor_id
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
+    } else if (subcategoryId == '31') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_semua_service_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Semua Service</option>';
+    } else if (subcategoryId == '32') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_motor_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
+    } else if (subcategoryId == '35' || subcategoryId == '36') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'compressor_warranty_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
+    } else if (subcategoryId == '33' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' ||
+        subcategoryId == '41' || subcategoryId == '44') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+        sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display =
+        'block'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
+    } else if (subcategoryId == '42' || subcategoryId == '43') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+        sparepartWarrantyLabel.innerText = 'Garansi Service (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display =
+        'block'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
+    } else if (subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '50' ||
+        subcategoryId == '51' || subcategoryId == '54') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Jasa Service (Tahun)';
+        sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display =
+        'block'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_semua_service_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Service</option>';
+    } else if (subcategoryId == '48') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+        sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display =
+        'block'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
+    } else if (subcategoryId == '52') { // Check for subcategory id 31
+        compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'garansi_semua_service_id'); // Change name for Garansi Semua Service
+        warrantyDropdown.innerHTML =
+            '<option value="" disabled selected>Pilih Garansi Sparepart & Jasa Service</option>';
+    } else {
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+        document.getElementById('warranty-sparepart-group').style.display = 'block'; // Ensure the group is visible
+        document.getElementById('compressor_warranty').setAttribute('name',
+        'compressor_warranty_id'); // Change name back to compressor_warranty_id
+        warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
     }
 
-    function handleCapacityGroup(subcategoryId) {
-        const capacityGroup = document.getElementById('capacity-group');
-        const capacityField = document.getElementById('capacity');
+    // Change capacity to ukuran_size if category is TV
+    if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId ==
+        '50' || subcategoryId == '51') {
+        capacityLabel.innerText = 'Ukuran'; // You may want to handle each subcategory separately for clarity
+        document.getElementById('capacity').setAttribute('name', 'ukuran_id'); // Change name of the select element
+        fetchOptions('ukuran', subcategoryId);
+    } else {
+        capacityLabel.innerText = 'Kapasitas';
+        document.getElementById('capacity').setAttribute('name', 'capacity_id'); // Change back if not TV
+        fetchOptions('kapasitas', subcategoryId);
 
-        if ([35, 36].includes(Number(subcategoryId))) {
-            capacityGroup.style.display = 'none';
-            capacityField.removeAttribute('required');
-        } else {
-            capacityGroup.style.display = 'flex';
-            capacityField.setAttribute('required', 'required');
-        }
     }
 
-    // Function to show capacity field with dropdown
-    // Function to show capacity field with dropdown and update the label based on category/subcategory
-    function showCapacityField(isUkuran = false) {
-        const capacityGroup = document.getElementById('capacity-group');
-        const label = isUkuran ? 'Ukuran' : 'Kapasitas'; // Use 'Ukuran' if isUkuran is true, else 'Kapasitas'
+    function handleCategoryChange(categoryId, subcategoryId) {
+        // Check if the category is "TV" to fetch options for Ukuran TV
+        if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' ||
+            subcategoryId == '50' || subcategoryId == '51') {
+            showCapacityField(true); // Show dropdown for capacity
+        } else if (subcategoryId == '42' || subcategoryId == '52' || subcategoryId == '35' || subcategoryId == '36') {
+            hideCapacityField(); // Hide dropdown for capacity
+        } else {
+            showCapacityField(false); // Show dropdown for capacity
+        }
 
-        capacityGroup.style.display = 'flex'; // Ensure capacity group is visible
-        capacityGroup.innerHTML = `
+    }
+    if (subcategoryId == 35 || subcategoryId == 36) {
+        // Hide "kapasitas" and "garansi sparepart"
+        document.getElementById('capacity-group').style.display = 'none';
+        document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+        // Show "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'block';
+        document.getElementById('kapasitas-air-panas').style.display = 'block';
+        compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
+        airdinginLabel.innerText = 'Kapasitas Air Dingin (Liter)';
+        airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
+    } else if (subcategoryId == 42) {
+        document.getElementById('capacity-group').style.display = 'none';
+        document.getElementById('warranty-sparepart-group').style.display = 'block';
+
+        // Show "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'none';
+        document.getElementById('kapasitas-air-panas').style.display = 'none';
+        compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+
+    } else if (subcategoryId == 52) {
+        document.getElementById('capacity-group').style.display = 'none';
+        document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+        // Show "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'block';
+        document.getElementById('kapasitas-air-panas').style.display = 'none';
+        compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
+        airdinginLabel.innerText = 'Kapasitas (M²)';
+        airdinginField.placeholder = 'Kapasitas (M²)';
+    } else {
+        // Show "kapasitas" and "garansi sparepart" for other subcategories
+        document.getElementById('capacity-group').style.display = 'block';
+
+        // Hide "kapasitas air dingin" and "kapasitas air panas"
+        document.getElementById('kapasitas-air-dingin').style.display = 'none';
+        document.getElementById('kapasitas-air-panas').style.display = 'none';
+        airdinginLabel.innerText = 'Kapasitas Air Dingin (Liter)';
+        airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
+    }
+};
+
+function handleSparepartWarranty(subcategoryId) {
+    const sparepartWarrantyGroup = document.getElementById('warranty-sparepart-group');
+    const sparepartWarrantyField = document.getElementById('sparepart_warranty');
+
+    if ([31, 32, 35, 36].includes(Number(subcategoryId))) {
+        sparepartWarrantyGroup.style.display = 'none';
+        sparepartWarrantyField.removeAttribute('required');
+    } else {
+        sparepartWarrantyGroup.style.display = 'flex';
+        sparepartWarrantyField.setAttribute('required', 'required');
+    }
+}
+
+function handleCapacityGroup(subcategoryId) {
+    const capacityGroup = document.getElementById('capacity-group');
+    const capacityField = document.getElementById('capacity');
+
+    if ([35, 36].includes(Number(subcategoryId))) {
+        capacityGroup.style.display = 'none';
+        capacityField.removeAttribute('required');
+    } else {
+        capacityGroup.style.display = 'flex';
+        capacityField.setAttribute('required', 'required');
+    }
+}
+
+// Function to show capacity field with dropdown
+// Function to show capacity field with dropdown and update the label based on category/subcategory
+function showCapacityField(isUkuran = false) {
+    const capacityGroup = document.getElementById('capacity-group');
+    const label = isUkuran ? 'Ukuran' : 'Kapasitas'; // Use 'Ukuran' if isUkuran is true, else 'Kapasitas'
+
+    capacityGroup.style.display = 'flex'; // Ensure capacity group is visible
+    capacityGroup.innerHTML = `
         <label id="capacity-label">${label}</label>
         <select id="capacity" name="${isUkuran ? 'ukuran_id' : 'capacity_id'}" required>
             <option value="" disabled selected>Pilih ${label}</option>
             <!-- Options will be loaded dynamically -->
         </select>`;
+}
+
+// Function to fetch options (Ukuran TV or Kapasitas) via AJAX
+function fetchOptions(type, subcategoryId) {
+    let url;
+    const capacityDropdown = document.getElementById('capacity'); // Select the <select> element directly
+
+    // Determine the URL and placeholder based on type
+    if (type == 'ukuran') {
+        url = `<?= base_url('get-ukuran-tv') ?>/${subcategoryId}`;
+        capacityDropdown.innerHTML =
+        '<option value="" disabled selected>Pilih Ukuran</option>'; // Clear existing options
+    } else if (type == 'kapasitas') {
+        url = `<?= base_url('get-capacities') ?>/${subcategoryId}`;
+        capacityDropdown.innerHTML =
+        '<option value="" disabled selected>Pilih Kapasitas</option>'; // Clear existing options
+    } else {
+        console.error('Invalid type specified for fetching options.');
+        return; // Exit if the type is invalid
     }
 
-    // Function to fetch options (Ukuran TV or Kapasitas) via AJAX
-    function fetchOptions(type, subcategoryId) {
-        let url;
-        const capacityDropdown = document.getElementById('capacity'); // Select the <select> element directly
+    // Fetch data
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (Array.isArray(data)) {
+                data.forEach(item => {
+                    // Determine the correct value and display text based on the type
+                    if (type == 'ukuran') {
+                        capacityDropdown.innerHTML += `<option value="${item.id}">${item.size}</option>`;
+                    } else if (type == 'kapasitas') {
+                        capacityDropdown.innerHTML += `<option value="${item.id}">${item.value}</option>`;
+                    }
+                });
+            } else {
+                console.error('Data format is not as expected:', data);
+                alert('Failed to load options. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error(`Error fetching ${type} options:`, error);
+            alert(`An error occurred while fetching ${type} options. Please try again later.`);
+        });
+}
 
-        // Determine the URL and placeholder based on type
-        if (type == 'ukuran') {
-            url = `<?= base_url('get-ukuran-tv') ?>/${subcategoryId}`;
-            capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Ukuran</option>'; // Clear existing options
-        } else if (type == 'kapasitas') {
-            url = `<?= base_url('get-capacities') ?>/${subcategoryId}`;
-            capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Kapasitas</option>'; // Clear existing options
-        } else {
-            console.error('Invalid type specified for fetching options.');
-            return; // Exit if the type is invalid
-        }
+const productTypeInput = document.getElementById('product_type');
+const errorMessage = document.getElementById('error-message');
+const form = document.getElementById('productForm');
 
-        // Fetch data
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (Array.isArray(data)) {
-                    data.forEach(item => {
-                        // Determine the correct value and display text based on the type
-                        if (type == 'ukuran') {
-                            capacityDropdown.innerHTML += `<option value="${item.id}">${item.size}</option>`;
-                        } else if (type == 'kapasitas') {
-                            capacityDropdown.innerHTML += `<option value="${item.id}">${item.value}</option>`;
-                        }
-                    });
-                } else {
-                    console.error('Data format is not as expected:', data);
-                    alert('Failed to load options. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error(`Error fetching ${type} options:`, error);
-                alert(`An error occurred while fetching ${type} options. Please try again later.`);
-            });
-    }
-
-    const productTypeInput = document.getElementById('product_type');
-    const errorMessage = document.getElementById('error-message');
-    const form = document.getElementById('productForm');
-
-    // Replace forbidden characters and enforce uppercase
-    productTypeInput.addEventListener('input', function() {
-        this.value = this.value.replace(/[-/]/g, '').toUpperCase();
-    });
+// Replace forbidden characters and enforce uppercase
+productTypeInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[-/]/g, '').toUpperCase();
+});
 </script>
 
 

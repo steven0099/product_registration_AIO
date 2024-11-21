@@ -31,7 +31,8 @@
             /* Menambahkan jarak di dalam input */
             outline: none;
             /* Menghilangkan outline default */
-            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            background-color:#fff;
             /* Menambahkan efek bayangan */
         }
 
@@ -255,6 +256,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
+                            <p class="form-note" style="margin-left:47px; margin-top: 8px;"><span style="color: red;">*</span>Harap diisi Minimal 3 Keunggulan Produk</p>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>

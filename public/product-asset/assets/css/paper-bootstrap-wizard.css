@@ -135,16 +135,20 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
   border-color: #00A9EE;
 }
 .has-success .form-control, .form-control.valid {
-  color: #66615b;
-  border-color: #e8e7e3;
+  color: #fff;
+  border-color: #00bfff;
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+  color:#000;
 }
 .has-error .form-control:focus, .form-control.error:focus {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-color: #00A9EE;
 }
 .has-success .form-control:focus, .form-control.valid:focus {
-  background-color: #FFFFFF;
-  border-color: #7AC29A;
+  background-color: #FFF;
+  border-color: #1e90ff;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+  color:#000;
 }
 .form-control + .form-control-feedback {
   border-radius: 6px;

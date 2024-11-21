@@ -31,7 +31,9 @@
             /* Menambahkan jarak di dalam input */
             outline: none;
             /* Menghilangkan outline default */
-            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            background-color:#fff;
+            color:#000;
             /* Menambahkan efek bayangan */
         }
 
@@ -43,6 +45,11 @@
             /* Warna biru yang lebih tua saat input difokuskan */
             box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
             /* Bayangan yang lebih terang saat difokuskan */
+        }
+
+        input[type="file"].image-uploaded {
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan tetap sama setelah upload */
         }
 
         select {
@@ -115,6 +122,10 @@
             /* Ganti dengan warna tema Anda */
         }
 
+        .ti-package.filled {
+            color: #00a9ee;
+        }
+
         @media (max-width: 600px) {
 
             .logo,
@@ -154,25 +165,25 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <span style="color: #00a9ee;">Informasi Umum</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#specification" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <span style="color: #00a9ee;">Spesifikasi Produk</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#advantages" data-toggle="tab" onclick="history.back();">
                                             <div class="icon-circle filled">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Keunggulan Produk
+                                            <span style="color: #00a9ee;">Keunggulan Produk</span>
                                         </a>
                                     </li>
                                     <li>
@@ -240,17 +251,17 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control" >
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control" >
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control" >
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                             </div>
@@ -272,7 +283,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
-                            
+                            <p class="form-note" style="margin-left: 46px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>
@@ -312,6 +324,13 @@
 <script>
     $(document).ready(function() {
         $('a[href="#photos"]').tab('show'); // Activate the upload photos tab
+    });
+
+    document.querySelector('form').addEventListener('submit', function() {
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput.files.length > 0) {
+            fileInput.classList.add('image-uploaded'); // Tambahkan kelas untuk menandai bahwa gambar telah di-upload
+        }
     });
 </script>
 
