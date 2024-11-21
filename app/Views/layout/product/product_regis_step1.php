@@ -81,7 +81,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* Bayangan lebih terang */
         }
 
+        .select-css {
+            border: 2px solid #00BFFF;
+            border-radius: 5px;
+            padding: 10px;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            appearance: none;
+            background-image: linear-gradient(to bottom, transparent, transparent),
+                radial-gradient(farthest-side padding-box, #fff calc(1% + 2px), currentColor calc(99% - 2px));
+            background-position: right 13px top 14px, right 18px top 16px;
+            background-size: 10px auto, 12px auto;
+            background-origin: padding-box;
+            background-clip: content-box, border-box;
+        }
 
+        /* Styling focus state untuk dropdown select */
+        .select-css:focus {
+            border-color: #1E90FF;
+            box-shadow: 0 0 8 pxrgba(30, 144, 255, 07);
+        }
 
         .logo {
             justify-content: flex-start;
@@ -223,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                                 <div class="form-group">
                                                     <label for="brand">Merek</label>
-                                                    <select id="brand" name="brand_id" class="form-control" required>
+                                                    <select id="brand" name="brand_id" class="form-control select-css" required>
                                                         <option value="<?= session()->get("step1")["brand_id"] ?? '' ?>" disabled selected>Pilih Merek</option>
                                                         <?php foreach ($brands as $brand): ?>
                                                             <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
@@ -234,7 +253,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="category">Kategori</label>
-                                                    <select id="category" name="category_id" class="form-control" required>
+                                                    <select id="category" name="category_id" class="form-control select-css" required>
                                                         <option value="<?= session()->get("step1")["category_id"] ?? '' ?>" disabled selected>Pilih Kategori</option>
                                                         <?php foreach ($categories as $category): ?>
                                                             <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
@@ -245,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="subcategory">Subkategori</label>
-                                                    <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
+                                                    <select id="subcategory" class="form-control" name="subcategory_id select-css" disabled required>
                                                         <option value="" disabled selected>Pilih Subkategori</option>
                                                         <?php foreach ($subcategories as $subcategory): ?>
                                                             <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
@@ -263,7 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div id="capacity-group" class="col-sm-6" style="display:block;">
                                                 <div class="form-group">
                                                     <label id="capacity-label">Kapasitas</label>
-                                                    <select id="capacity" name="capacity_value" class="form-control" required>
+                                                    <select id="capacity" name="capacity_value" class="form-control select-css" required>
                                                         <option value="" disabled selected>Pilih Kapasitas</option>
                                                         <!-- Options will be populated dynamically -->
                                                     </select>
@@ -274,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group" id="warranty-compressor-group">
                                                     <label for="compressor_warranty" id="compressor-warranty-label">Garansi Kompresor (Tahun)</label>
                                                     <div>
-                                                        <select id="compressor_warranty" name="compressor_warranty_id" class="form-control" style="" required>
+                                                        <select id="compressor_warranty" name="compressor_warranty_id" class="form-control select-css" style="" required>
                                                             <option value="" disabled selected>Pilih Garansi Kompresor (Tahun)</option>
                                                             <?php foreach ($compressor_warranties as $compressor_warranty): ?>
                                                                 <option value="<?= $compressor_warranty['id'] ?>"><?= esc($compressor_warranty['value']) ?> Tahun</option>
@@ -303,7 +322,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group" id="warranty-sparepart-group">
                                                     <label for="sparepart_warranty" id="sparepart-warranty-label">Garansi Sparepart (Tahun)</label>
                                                     <div style="">
-                                                        <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
+                                                        <select id="sparepart_warranty" class="form-control select-css" name="sparepart_warranty_id" style="" required>
                                                             <option value="" disabled selected>Pilih Garansi (Tahun)</option>
                                                             <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
                                                                 <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
@@ -331,8 +350,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                                 <div class="wizard-footer">
                                     <div class="pull-right">
-
-
                                         <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
                                         <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Konfirmasi' />
                                     </div>
@@ -346,7 +363,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             </form>
                             <p class="form-note" style="margin-left: 46px;margin-top: 8px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
-                            <a href="/reset/reset-password" style="margin: 50px;">Ganti Password</a>
+                            <a href="/reset/reset-password" style="margin: 50px;">
+                                Ganti Password
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1" />
+                                </svg>
+                            </a>
                         </div>
                     </div> <!-- wizard container -->
                 </div>

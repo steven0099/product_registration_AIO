@@ -282,7 +282,7 @@
                                 </div>
                             </form>
                             <p class="form-note" style="margin-left: 46px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
-                            <a href="/reset/reset-password" style="margin:50px">Ganti Password</a><br>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>

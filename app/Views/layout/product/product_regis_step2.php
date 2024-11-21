@@ -121,6 +121,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* Bayangan lebih terang */
         }
 
+        .select-css {
+            border: 2px solid #00BFFF;
+            border-radius: 5px;
+            padding: 10px;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            appearance: none;
+            background-image: linear-gradient(to bottom, transparent, transparent),
+                radial-gradient(farthest-side padding-box, #fff calc(1% + 2px), currentColor calc(99% - 2px));
+            background-position: right 13px top 14px, right 18px top 16px;
+            background-size: 10px auto, 12px auto;
+            background-origin: padding-box;
+            background-clip: content-box, border-box;
+        }
+
+        /* Styling focus state untuk dropdown select */
+        .select-css:focus {
+            border-color: #1E90FF;
+            box-shadow: 0 0 8 pxrgba(30, 144, 255, 07);
+        }
+
         .logo {
             justify-content: flex-start;
             display: flex;
@@ -347,7 +368,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group" id="refrigrant-field">
                                                     <label for="refrigrant">Tipe Refrigrant</label>
                                                     <div style="display: flex; gap: 8px;">
-                                                        <select id="refigrant" name="refrigrant_id" class="form-control">
+                                                        <select id="refigrant" name="refrigrant_id" class="form-control select-css">
                                                             <option value="<?= session()->get("step2")["refrigrant_id"] ?? '' ?>" disabled selected>Tipe Refrigrant</option>
                                                             <?php foreach ($refrigrant as $refigrants): ?>
                                                                 <option value="<?= $refigrants['id'] ?>"><?= esc($refigrants['type']) ?></option>
@@ -369,11 +390,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         </div>
                                                         <div id="star-rating" style="margin-left: 10px;">
                                                             <!-- Five star placeholders -->
-                                                            <span class="star" style="font-size: 2rem;">☆</span>
-                                                            <span class="star" style="font-size: 2rem;">☆</span>
-                                                            <span class="star" style="font-size: 2rem;">☆</span>
-                                                            <span class="star" style="font-size: 2rem;">☆</span>
-                                                            <span class="star" style="font-size: 2rem;">☆</span>
+                                                            <span class="star" style="font-size: 2.4rem;">☆</span>
+                                                            <span class="star" style="font-size: 2.4rem;">☆</span>
+                                                            <span class="star" style="font-size: 2.4rem;">☆</span>
+                                                            <span class="star" style="font-size: 2.4rem;">☆</span>
+                                                            <span class="star" style="font-size: 2.4rem;">☆</span>
                                                         </div>
                                                     </div>
 
@@ -442,7 +463,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                             </form>
                             <p class="form-note" style="margin-left: 46px;margin-top: 8px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
-                            <a href="/reset/reset-password" style="margin:50px;">Ganti Password</a><br>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>

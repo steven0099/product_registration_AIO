@@ -256,7 +256,7 @@
                                 </div>
                             </form>
                             <p class="form-note" style="margin-left:47px; margin-top: 8px;"><span style="color: red;">*</span>Harap diisi Minimal 3 Keunggulan Produk</p>
-                            <a href="/reset/reset-password" style="margin:50px">Ganti Password</a><br>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>
