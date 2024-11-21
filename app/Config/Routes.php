@@ -176,7 +176,8 @@ $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions'
 // app/Config/Routes.php
 
 // Routing untuk katalog
-$routes->get('katalog', 'Katalog::index');
+$routes->get('/catalog', 'Catalog::index');
+
 $routes->post('katalog/filter', 'Katalog::filter');
 
 $routes->get('/catalog/detail/(:num)', 'CatalogController::detail/$1');

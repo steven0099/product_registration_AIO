@@ -108,3 +108,41 @@ class CatalogController extends BaseController
         return view('product/detail', $data);
     }
 }
+
+namespace App\Controllers;
+
+use CodeIgniter\Controller;
+
+class WatermarkController extends Controller
+{
+    public function addWatermark()
+    {
+        // Lokasi gambar yang akan diberi watermark
+        $imagePath = WRITEPATH . 'public/images/aio-logo1.png'; // Ganti dengan path gambar Anda
+        $outputPath = WRITEPATH . ' public/images/logo-aio.png'; // Path hasil gambar dengan watermark
+
+        // Lokasi logo watermark
+        $watermarkPath = FCPATH . 'logo-aio.png'; // Pastikan file ini sesuai dengan lokasi file logo Anda
+
+        // Load Image Manipulation Library
+        $image = \Config\Services::image()
+            ->withFile($imagePath)
+            ->resize(800, 800, true, 'auto') // Mengatur ukuran gambar jika diperlukan
+            ->watermark($watermarkPath, 'bottom right', 0.3) // Menambahkan watermark di kanan bawah
+            ->save($outputPath); // Menyimpan gambar dengan watermark
+
+        if ($image) {
+            echo "Watermark berhasil ditambahkan!";
+        } else {
+            echo "Gagal menambahkan watermark.";
+        }
+    }
+}
+
+class Catalog extends BaseController
+{
+    public function index()
+    {
+        return view('catalog');
+    }
+}

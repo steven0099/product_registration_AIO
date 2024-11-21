@@ -12272,7 +12272,7 @@ DEBUG - 2024-11-04 13:11:31 --> Inserted new confirmation: Array
     [product_id] => 110
     [status] => pending
     [submitted_by] => Aoz0raSenpai
-    [brand] => BERVIN
+    [brand] => BERVIN 
     [category] => SMALL APPLIANCES
     [product_type] => ABCD09
     [color] => HIJAU

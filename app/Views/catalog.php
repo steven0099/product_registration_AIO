@@ -1,142 +1,204 @@
-<?= $this->extend('partials/main') ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<?= $this->section('css') ?>
-<!-- DataTables -->
-<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-<?= $this->endSection() ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+        }
 
-<?= $this->section('title') ?>
-Digital Catalog
-<?= $this->endSection() ?>
+        .header img {
+            max-height: 150px;
+        }
 
-<?= $this->section('breadcumb') ?>
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Digital Catalog</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
-                    <li class="breadcrumb-item active">Digital Catalog</li>
-                </ol>
-            </div>
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .filter-sidebar {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <img src="/images/aio-magang.png" alt="Logo" class="mb-3">
+            <h1>Katalog Produk</h1>
         </div>
     </div>
-</div>
-<?= $this->endSection() ?>
+    <div class="container">
+        <div>
+            <input type="text" class="search-bar" placeholder="Cari produk...">
+        </div>
 
-<?= $this->section('content') ?>
-<div class="container">
-    <?= $this->include('partials/product_grid') ?>
-
-    <!-- Sidebar Filters -->
-    <div class="filters mt-4 p-3 border rounded">
-        <h4>Filter Produk</h4>
-        <form id="filterForm" action="" method="GET">
-            <div class="form-group">
-                <label for="category">Kategori Produk</label>
-                <select id="category" name="category" class="form-control">
-                    <option value="">All</option>
-                    <?php foreach ($categories as $category): ?>
-                        <option value="<?= esc($category['category']) ?>"><?= esc($category['category']) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="subcategory">Sub Kategori Produk</label>
-                <select id="subcategory" name="subcategory" class="form-control">
-                    <option value="">All</option>
-                    <?php foreach ($subcategories as $subcategory): ?>
-                        <option value="<?= esc($subcategory['subcategory']) ?>"><?= esc($subcategory['subcategory']) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="capacity">Ukuran / Kapasitas</label>
-                <select id="capacity" name="capacity" class="form-control">
-                    <option value="">All</option>
-                    <?php foreach ($capacities as $capacity): ?>
-                        <option value="<?= esc($capacity['capacity']) ?>"><?= esc($capacity['capacity']) ?></option>
-                    <?php endforeach; ?>
-                    <?php foreach ($ukuran as $size): ?>
-                        <option value="<?= esc($size['ukuran']) ?>"><?= esc($size['ukuran']) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <a href="<button type=" submit" class="btn btn-primary">Filter</button>
-
-        </form>
-    </div>
-</div>
-<?= $this->endSection() ?>
-
-<?= $this->section('js') ?>
-<script>
-    $('#filterForm').on('submit', function(e) {
-        e.preventDefault(); // Prevent page reload
-
-        $.ajax({
-            url: "<?= base_url('catalog/filterProducts') ?>",
-            type: "GET",
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#productGrid').html(response);
-            },
-            error: function() {
-                alert("Failed to fetch filtered products.");
+        <style>
+            .search-bar {
+                background-color: #f0f0f0;
+                /* Warna abu-abu terang */
+                border: 1px solid #ccc;
+                /* Warna border abu-abu */
+                padding: 8px;
+                /* Jarak dalam */
+                border-radius: 5px;
+                /* Sudut melengkung */
+                width: 100%;
+                /* Sesuaikan dengan lebar container */
+                box-sizing: border-box;
+                /* Supaya padding tidak melebihi lebar */
             }
-        });
-    });
+        </style>
 
-    // Populate subcategories based on selected category
-    $('#category').on('change', function() {
-        const categoryId = $(this).val();
-        $.ajax({
-            url: "<?= base_url('catalog/getSubcategories') ?>",
-            type: "GET",
-            data: {
-                category_id: categoryId
-            },
-            success: function(response) {
-                $('#subcategory').empty().append('<option value="">All</option>');
-                $.each(response, function(index, subcategory) {
-                    $('#subcategory').append('<option value="' + subcategory.subcategory_id + '">' + subcategory.subcategory_name + '</option>');
-                });
-            },
-            error: function() {
-                alert("Failed to fetch subcategories.");
-            }
-        });
-    });
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Sidebar Filter -->
+                <div class="col-md-3">
+                    <div class="filter-sidebar">
+                        <h5>Filter Produk</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Brand</label>
+                                <select class="form-select" id="category">
+                                    <option value="all">Semua</option>
+                                    <option value="ac">GREE</option>
+                                    <option value="tv">SHARP</option>
+                                    <option value="kulkas">SAMSUNG</option>
+                                    <option value="freezer">RSA</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Kategori Produk</label>
+                                <select class="form-select" id="category">
+                                    <option value="all">Semua</option>
+                                    <option value="ac">AC</option>
+                                    <option value="tv">TV</option>
+                                    <option value="kulkas">Kulkas</option>
+                                    <option value="freezer">Freezer</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subcategory" class="form-label">Sub Kategori Produk</label>
+                                <select class="form-select" id="subcategory">
+                                    <option value="all">Semua</option>
+                                    <option value="split">GREE AC 2 PK</option>
+                                    <option value="inverter">SHARP TV 32 INCH</option>
+                                    <option value="large"> SAMSUNG KULKAS 2 PINTU</option>
+                                    <option value="large">RSA FREEZER 199 LITER</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="size" class="form-label">Ukuran / Kapasitas</label>
+                                <select class="form-select" id="size">
+                                    <option value="all">Semua</option>
+                                    <option value="small">PK</option>
+                                    <option value="large">INCH</option>
+                                    <option value="large">TABUNG</option>
+                                    <option value="large">LITER</option>
 
-    // Populate capacities based on selected subcategory
-    $('#subcategory').on('change', function() {
-        const subcategory = $(this).val();
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Terapkan</button>
+                        </form>
+                    </div>
+                </div>
 
-        $.ajax({
-            url: "<?= base_url('catalog/getCapacities') ?>",
-            type: "GET",
-            data: {
-                subcategory: subcategory
-            },
-            success: function(data) {
-                $('#capacity').empty().append('<option value="">All</option>');
-                data.forEach(capacity => {
-                    $('#capacity').append(`<option value="${capacity.value}">${capacity.value}</option>`);
-                });
-            },
-            error: function() {
-                alert("Failed to load capacities.");
-            }
-        });
-    });
-</script>
-<?= $this->endSection() ?>
+                <!-- Product List -->
+                <div class="col-md-9">
+                    <div class="row">
+                        <!-- Contoh produk -->
+                        <?php for ($i = 0; $i < 1; $i++): ?>
+                            <div class="col-md-3">
+                                <div class="product-card">
+                                    <img src="/images/gree.webp" alt="Produk" style="width:200px">
+                                    <h5 class="mt-2">GREE</h5>
+                                    <p>AC - 2 PK</p>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="checkbox" class="me-2">
+                                        <button type="submit" class="btn btn-primary" style="margin-right:20px">Bandingkan</button>
+                                        <button type="submit" class="btn btn-primary">Lihat Detail</button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+
+
+
+
+                        <?php for ($i = 0; $i < 1; $i++): ?>
+                            <div class="col-md-3">
+                                <div class="product-card">
+                                    <img src="/images/tv.jpg" alt="Produk">
+                                    <h5 class="mt-2">SHARP</h5>
+                                    <p>TV - 32 INCH</p>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="checkbox" class="me-2">
+                                        <button type="submit" class="btn btn-primary" style="margin-right:20px">Bandingkan</button>
+                                        <button type="submit" class="btn btn-primary">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+
+
+                        <?php for ($i = 0; $i < 1; $i++): ?>
+                            <div class="col-md-3">
+                                <div class="product-card">
+                                    <img src="/images/kulkas.avif" alt="Produk">
+                                    <h5 class="mt-2">SAMSUNG</h5>
+                                    <p>Kulkas - 2 Pintu</p>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="checkbox" class="me-2">
+                                        <button type="submit" class="btn btn-primary" style="margin-right:20px">Bandingkan</button>
+                                        <button type="submit" class="btn btn-primary">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+
+                        <?php for ($i = 0; $i < 1; $i++): ?>
+                            <div class="col-md-3">
+                                <div class="product-card">
+                                    <img src="/images/freezer.avif" alt="Produk">
+                                    <h5 class="mt-2">RSA</h5>
+                                    <p>Freezer - 199 Liter</p>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="checkbox" class="me-2">
+                                        <button type="submit" class="btn btn-primary" style="margin-right:20px">Bandingkan</button>
+                                        <button type="submit" class="btn btn-primary">Lihat Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?= $this->include('partials/headbar')?>
-<?= $this->include('partials/sidebar')?>
+<?= $this->include('partials/headbar') ?>
+<?= $this->include('partials/sidebar') ?>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     .modal-content {
@@ -47,13 +48,15 @@
       font-weight: bold;
     }
 
-    .close:hover, .close:focus {
+    .close:hover,
+    .close:focus {
       color: black;
       text-decoration: none;
       cursor: pointer;
     }
   </style>
 </head>
+
 <body>
   <!-- Main content -->
   <section class="content" style="margin-left: 290px; padding: 20px; margin-top: 80px;">
@@ -69,29 +72,29 @@
             <div class="card-body">
               <table id="capTable" class="table table-bordered table-hover">
                 <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Subkategori</th>
-                  <th>Kapasitas</th>
-                  <th>Opsi</th>
-                </tr>
+                  <tr>
+                    <th>No.</th>
+                    <th>Subkategori</th>
+                    <th>Kapasitas</th>
+                    <th>Opsi</th>
+                  </tr>
                 </thead>
                 <tbody>
                   <?php $i = 1; ?>
                   <?php foreach ($kapasitas as $capacity): ?>
-                  <tr>
-                    <td><?= $i++; ?></td>
-                    <td><?= esc($capacity['subcategory_name']) ?></td>
-                    <td><?= esc($capacity['capacity_value']) ?></td>
-                    <td>
-                      <button data-id="<?= esc($capacity['id']) ?>" data-value="<?= esc($capacity['value']) ?>" class="btn-edit btn btn-primary">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
-                      <button data-id="<?= esc($capacity['id']) ?>" class="btn-delete btn btn-danger">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
+                    <tr>
+                      <td><?= $i++; ?></td>
+                      <td><?= esc($capacity['subcategory_name']) ?></td>
+                      <td><?= esc($capacity['capacity_value']) ?></td>
+                      <td>
+                        <button data-id="<?= esc($capacity['id']) ?>" data-value="<?= esc($capacity['value']) ?>" class="btn-edit btn btn-primary">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button data-id="<?= esc($capacity['id']) ?>" class="btn-delete btn btn-danger">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
@@ -107,16 +110,16 @@
         <span class="close">&times;</span>
         <h3>Tambah Kapasitas</h3>
         <form method="post" action="<?= base_url('/admin/kapasitas/saveKapasitas') ?>" enctype="multipart/form-data">
-        <?= csrf_field() ?>
-        <div class="form-group">
-  <label for="subcategory">Subkategori</label>
-  <select name="subcategory_id" class="form-control">
-    <?php foreach($subcategories as $subcategory): ?>
-      <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
-    <?php endforeach; ?>
-  </select>
-</div>
-        <div class="form-group">
+          <?= csrf_field() ?>
+          <div class="form-group">
+            <label for="subcategory">Subkategori</label>
+            <select name="subcategory_id" class="form-control">
+              <?php foreach ($subcategories as $subcategory): ?>
+                <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="value">Kapasitas</label>
             <input type="text" class="form-control" name="value" placeholder="Kapasitas">
           </div>
@@ -131,17 +134,17 @@
         <span class="close">&times;</span>
         <h3>Edit Kapasitas</h3>
         <form id="editForm" method="post" action="" enctype="multipart/form-data">
-        <?= csrf_field() ?>
-        <div class="form-group">
-  <label for="subcategory">Subcategory</label>
-  <select name="subcategory_id" class="form-control" id="editSubcategory">
-    <?php foreach($subcategories as $subcategory): ?>
-      <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
-    <?php endforeach; ?>
-  </select>
-</div>
+          <?= csrf_field() ?>
+          <div class="form-group">
+            <label for="subcategory">Subcategory</label>
+            <select name="subcategory_id" class="form-control" id="editSubcategory">
+              <?php foreach ($subcategories as $subcategory): ?>
+                <option value="<?= esc($subcategory['id']) ?>"><?= esc($subcategory['name']) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
 
-        <div class="form-group">
+          <div class="form-group">
             <label for="value">Kapasitas</label>
             <input type="text" id="editValue" class="form-control" name="value" placeholder="Kapasitas" required>
           </div>
@@ -157,7 +160,7 @@
         <h3>Konfirmasi</h3>
         <p>Hapus Kapasitas Ini?</p>
         <form id="deleteForm" method="post" action="">
-        <?= csrf_field() ?> 
+          <?= csrf_field() ?>
           <button type="submit" class="btn btn-danger">Hapus</button>
           <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Batal</button>
         </form>
@@ -192,7 +195,7 @@
         button.addEventListener('click', function() {
           var id = this.getAttribute('data-id');
           var value = this.getAttribute('data-value');
-          
+
           // Set the form action and input value dynamically
           document.getElementById('editForm').action = '/admin/kapasitas/updateKapasitas/' + id;
           document.getElementById('editValue').value = value;
@@ -242,29 +245,30 @@
         }
       }
     </script>
-        <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- DataTables JS -->
-<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 
-<script>
+    <script>
       $(document).ready(function() {
         var table = $('#capTable').DataTable();
         table.destroy(); // Destroy existing DataTable instance
 
-  $('#capTable').DataTable({
-    "paging": true,
-    "pageLength": 10,
-    "searching": true,
-    "ordering": true,
-    "info": true,
-    "responsive": true
-  });
-});
-</script>
+        $('#capTable').DataTable({
+          "paging": true,
+          "pageLength": 10,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "responsive": true
+        });
+      });
+    </script>
   </section>
 </body>
+
 </html>

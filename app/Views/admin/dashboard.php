@@ -89,34 +89,34 @@ Dashboard
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($all_products as $products): ?>
-                                <tr>
-                                    <td><?= $i++; ?></td>
-                                    <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
-                                    <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
-                                    <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
-                                    <td style="text-align: center">
-                                        <?php if ($products['status'] === 'confirmed'): ?>
-                                        <h6 style="background-color: #ffdb23; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Menunggu Persetujuan</h6>
-                                        <?php elseif ($products['status'] === 'rejected'): ?>
-                                            <h6 style="background-color: #ff0404; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Ditolak</h6>
-                                        <?php elseif ($products['status'] === 'approved'): ?>
-                                            <h6 style="background-color: #00ff24; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Disetujui</h6>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <?php if ($products['status'] === 'confirmed'): ?>
-                                        <?= esc($products['confirmed_at']) ?>
-                                        <?php elseif ($products['status'] === 'rejected'): ?>
-                                        <?= esc($products['rejected_at']) ?>
-                                        <?php elseif ($products['status'] === 'approved'): ?>
-                                        <?= esc($products['approved_at']) ?>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                    <button class="button btn btn-success" onclick="location.href='/admin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
-                                    </button>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= esc($products['brand']) ?></td> <!-- Display Brand Name -->
+                                        <td><?= esc($products['product_type']) ?></td> <!-- Display Category Name -->
+                                        <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
+                                        <td style="text-align: center">
+                                            <?php if ($products['status'] === 'confirmed'): ?>
+                                                <h6 style="background-color: #ffdb23; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Menunggu Persetujuan</h6>
+                                            <?php elseif ($products['status'] === 'rejected'): ?>
+                                                <h6 style="background-color: #ff0404; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Ditolak</h6>
+                                            <?php elseif ($products['status'] === 'approved'): ?>
+                                                <h6 style="background-color: #00ff24; color: #ffffff; text-align: center; display: inline; border-radius: 5px; font-size: 18px">Disetujui</h6>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($products['status'] === 'confirmed'): ?>
+                                                <?= esc($products['confirmed_at']) ?>
+                                            <?php elseif ($products['status'] === 'rejected'): ?>
+                                                <?= esc($products['rejected_at']) ?>
+                                            <?php elseif ($products['status'] === 'approved'): ?>
+                                                <?= esc($products['approved_at']) ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <button class="button btn btn-success" onclick="location.href='/admin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
+                                            </button>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
@@ -137,33 +137,33 @@ Dashboard
 
 <?= $this->section('js') ?>
 <script>
-$('#admproducts').DataTable();
+    $('#admproducts').DataTable();
 
-$(document).ready(function() {
-    // Initialize DataTable
-    const table = $('#admproducts').DataTable();
+    $(document).ready(function() {
+        // Initialize DataTable
+        const table = $('#admproducts').DataTable();
 
-    // Filter function based on status
-    function filterTable(status) {
-        table.column(4).search(status).draw();
-    }
+        // Filter function based on status
+        function filterTable(status) {
+            table.column(4).search(status).draw();
+        }
 
-    // Event listeners for each box
-    $('#boxAll').on('click', function() {
-        table.column(4).search('').draw(); // Show all statuses
+        // Event listeners for each box
+        $('#boxAll').on('click', function() {
+            table.column(4).search('').draw(); // Show all statuses
+        });
+
+        $('#boxConfirmed').on('click', function() {
+            filterTable('Menunggu Persetujuan');
+        });
+
+        $('#boxRejected').on('click', function() {
+            filterTable('Ditolak');
+        });
+
+        $('#boxApproved').on('click', function() {
+            filterTable('Disetujui');
+        });
     });
-
-    $('#boxConfirmed').on('click', function() {
-        filterTable('Menunggu Persetujuan');
-    });
-
-    $('#boxRejected').on('click', function() {
-        filterTable('Ditolak');
-    });
-
-    $('#boxApproved').on('click', function() {
-        filterTable('Disetujui');
-    });
-});
 </script>
 <?= $this->endSection() ?>
