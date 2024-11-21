@@ -41,7 +41,7 @@
         input[type="file"]:focus,
         input[type="number"]:focus,
         input[type="video"]:focus {
-            border-color: #1E90FF;
+            border: 2px solid #1E90FF;
             /* Warna biru yang lebih tua saat input difokuskan */
             box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
             /* Bayangan yang lebih terang saat difokuskan */
