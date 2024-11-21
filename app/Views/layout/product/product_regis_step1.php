@@ -264,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="subcategory">Subkategori</label>
-                                                    <select id="subcategory" class="form-control" name="subcategory_id select-css" disabled required>
+                                                    <select id="subcategory" class="form-control select-css" name="subcategory_id" disabled required>
                                                         <option value="" disabled selected>Pilih Subkategori</option>
                                                         <?php foreach ($subcategories as $subcategory): ?>
                                                             <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
