@@ -19,13 +19,13 @@ Katalog Digital
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
 
    <div class="col-sm-6">
-    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
+   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:40px">
     </div><!-- /.col -->
 
        <!-- Center section (Logo image) -->
-   <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
-      <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px;">
-   </div>
+       <div class="navbar-brand mx-auto" style="position: absolute; left: 40%; transform: translateX(-50%);">
+       <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Katalog</a> 
+</div>
 
    <!-- User Dropdown -->
    <ul class="navbar-nav ml-auto">
@@ -45,11 +45,11 @@ Katalog Digital
       </li>
    </ul>
 </nav>
-<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-family:Poppins, serif; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
@@ -67,9 +67,10 @@ Katalog Digital
     <div class="row">
     <!-- Sidebar for Filters -->
 <div class="container-fluid d-flex">
+<div class="row">   
 <div class="col-md-3">
     <!-- Sidebar Filters -->
-    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:300px">
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:350px">
         <h4>Filter Produk</h4>
 
         <form id="filterForm" action="" method="GET">
@@ -135,6 +136,7 @@ Katalog Digital
             </div>
         </form>
     </div>
+                        </div>
 </div>
                         
 

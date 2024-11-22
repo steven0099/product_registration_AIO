@@ -1,12 +1,12 @@
 <style>
 .footer {
-    background-color: #00AEEF; /* Bright blue */
+    background-color: #0d2a46; /* Bright blue */
     color: #FFFFFF;
     padding: 20px 40px;
     display: flex;
     justify-content: center; /* Center all footer content horizontally */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-container {
@@ -26,6 +26,8 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     margin-top:60px;
+    margin-left:100px;
+    margin-right:150px;
     margin-bottom: 20px; /* Add spacing below the logo on smaller screens */
 }
 
@@ -36,7 +38,7 @@
 .footer-section {
     flex: 1;
     max-width: 250px;
-    margin: 0 10px; /* Add spacing between sections */
+    margin: 0 50px; /* Add spacing between sections */
     text-align: left; /* Align text to the left */
 }
 
@@ -62,7 +64,7 @@
     color: #FFFFFF;
     text-decoration: none;
     font-size: 16px;
-    margin-left: 10px; /* Add space between icon and text */
+    margin-left: 0px; /* Add space between icon and text */
 }
 
 .footer-section ul li a:hover {
@@ -157,12 +159,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://facebook.com/AIOStore" target="_self">
-                        <i class="fab fa-facebook"></i> AIO Store
+                    <a href="https://www.facebook.com/aiostore.elektronik" target="_self">
+                        <i class="fab fa-facebook"></i>AIO Store
                     </a>
                 </li>
                 <li>
-                    <a href="https://youtube.com/AIOChannel" target="_self">
+                    <a href="https://www.youtube.com/@aiochannel8395" target="_self">
                         <i class="fab fa-youtube"></i> AIO Channel
                     </a>
                 </li>

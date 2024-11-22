@@ -16,25 +16,9 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
 
     <style>
-        
-        /* Ensure the navbar stays fixed and doesn’t overlap the content */
-.main-header {
-  position: fixed; /* Fix the navbar at the top */
-  top: 0;
-  left: 0;
-  width: 100%; /* Ensure it spans the full width */
-  z-index: 1030; /* Higher than other elements to avoid being covered */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for clarity */
-}
-
-/* Add padding to the content below to avoid overlap */
-.content-wrapper {
-  margin-top: 56px; /* Same as the navbar height */
-}
-
     .product-detail-container {
         max-width: 1080px;
-        margin-bottom: auto;
+        margin: 0 auto;
         padding: 10px;
         position: relative;
         background-image: url('<?= base_url("images/wm.png") ?>');
@@ -90,6 +74,8 @@
     padding: 10px; /* Adjust padding to make the click area larger */
 }
 
+
+
 .carousel-item img, .carousel-item iframe {
     max-width: 495px;
     height: 350px;
@@ -125,6 +111,7 @@
 
 .breadcrumb-separator {
         font-family: FontAwesome;
+        font-size:14px;
     }
 
     .product-description {
@@ -203,7 +190,7 @@
         display: block;
         padding: 8px;
         height: 35px;
-        font-family: Arial;
+        font-family: Poppins;
         font-size: 18px;
     }
 
@@ -218,7 +205,7 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
         gap: 10px;
-        width: 100%;
+        width: 76.5%;
         overflow-y: hidden;
     }
 
@@ -238,20 +225,12 @@
         margin-bottom:1px;
     }
 
-    .breadcrumb-separator {
-    margin: 0 8px; /* Adjust spacing as needed */
-    color: #666; /* Optional: Adjust separator color */
-    font-size: 12px; /* Optional: Match font size with links */
-    vertical-align: middle; /* Align with the text */
-    font-family:FontAwesome;
-}
-
-
     .product-item .card img {
         width: 100%;
         padding:5px;
         height: 125px; /* Increase height for better image focus */
         object-fit: cover;
+        border-bottom: 2px solid rgba(0,0,0, 0.4);
     }
     </style>
 <?= $this->endSection() ?>
@@ -266,25 +245,25 @@ Detail Produk
 
    <!-- Left section (Breadcrumb links) -->
    <div class="col-sm-6 d-flex align-items-center">
-      <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a>
-      <span class="breadcrumb-separator"></span> 
-      <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Kategori</a>
-      <span class="breadcrumb-separator"></span> 
-      <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Subkategori</a>
-      <?php if ($product['capacity'] != null): ?>
-         <span class="breadcrumb-separator"></span> 
-         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&capacity=<?= esc($product['capacity'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Kapasitas</a>
-      <?php elseif ($product['ukuran'] != null): ?>
-         <span class="breadcrumb-separator"></span> 
-         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&ukuran=<?= esc($product['ukuran'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Ukuran</a>
-      <?php endif; ?>
-      <span class="breadcrumb-separator"></span>
-      <span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Produk</span>
+   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:40px">
    </div>
 
    <!-- Center section (Logo image) -->
-   <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
-      <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px;">
+   <div class="navbar-brand mx-auto" style="position: absolute; left: 40%; transform: translateX(-50%);">
+      <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Katalog</a>
+      <span class="breadcrumb-separator"></span> 
+      <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kategori</a>
+      <span class="breadcrumb-separator"></span> 
+      <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Subkategori</a>
+      <?php if ($product['capacity'] != null): ?>
+         <span class="breadcrumb-separator"></span> 
+         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&capacity=<?= esc($product['capacity'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kapasitas</a>
+      <?php elseif ($product['ukuran'] != null): ?>
+         <span class="breadcrumb-separator"></span> 
+         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&ukuran=<?= esc($product['ukuran'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Ukuran</a>
+      <?php endif; ?>
+      <span class="breadcrumb-separator"></span>
+      <span class="breadcrumb-item" style="font-family: Poppins sans-serif; font-size:18px">Detail Produk</span>
    </div>
 
    <!-- Right section (User Dropdown) -->
@@ -306,15 +285,15 @@ Detail Produk
    </ul>
 </nav>
 
-<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:50px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog <br> Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
-            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; width: auto;">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; margin-right:80px; width: auto;">
         </div>
     </div>
 </div>
@@ -372,13 +351,11 @@ Detail Produk
                     <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
-                    <span class="visually-hidden">Previous</span>
                 </button>
                 
                     <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon"></span>
-                            <span class="visually-hidden">Next</span>
                         </button>
                 </div>
 
@@ -541,8 +518,8 @@ Detail Produk
                     </tr>
                     <?php if ($product['subcategory'] == 'SPEAKER'): ?>
                     <tr>
-                        <th>Garansi Barang</th>
-                        <td><?= esc($product['garansi_semua_service']) ?> 1 Tahun</td>
+                        <th>Garansi Semua Service</th>
+                        <td><?= esc($product['garansi_semua_service']) ?></td>
                     </tr>
                     <?php endif; ?>
                     <?php if ($product['category'] == 'TV'): ?>
@@ -696,7 +673,7 @@ Detail Produk
 
 
             <div class="row">
-                <div class="col-md-12 mb-4">
+                <div class="col-md-10 mb-1 mt-4">
                     <h3 style="text-align:center">Rekomendasi Untuk Anda</h3>
                 </div>
 
@@ -708,12 +685,11 @@ Detail Produk
     <div class="product-container">
         <?php foreach ($relatedProducts as $relproduct): ?>
         <a href="<?= base_url('catalog/details/' . esc($relproduct['id'])) ?>" class="product-item" style="text-decoration: none; color: inherit;">
-            <div class="card" style="width: 250px; height: 220px;">
+            <div class="card" style="width: 250px; height: 220px; background-color: rgba(255,255,255,0.2); border: 2px solid rgba(0,0,0,0.4)">
                 <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" class="card-img-top" alt="Gambar Produk">
                 <div class="card-body p-2">
-                    <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5><br>
-                    <p class="card-title"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?></p>
-                    
+                    <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
+                    <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?></p>
                     <p class="card-text">
                         <?= !empty($relproduct['capacity']) ? esc($relproduct['capacity']) : 
                             (!empty($relproduct['ukuran']) ? esc($relproduct['ukuran']) : 
@@ -729,11 +705,14 @@ Detail Produk
         </a>
         <?php endforeach; ?>
     </div>
+                        
+                        
 
     <!-- Right Arrow -->
     <button class="carousel-control-next-icon" style="left:5px;" onclick="scrollProductRight()"></button>
 </div>
-                        </div>
+
+            </div>
 
             </div>
 <?= $this->endSection() ?>

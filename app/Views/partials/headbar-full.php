@@ -22,7 +22,7 @@
    </ul>
 
    <div class="col-sm-6" style="margin-left:100px">
-    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
+    <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Katalog</a> 
     </div><!-- /.col -->
 
    <!-- User Dropdown -->

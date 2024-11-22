@@ -355,7 +355,7 @@ input.form-control:-webkit-autofill.form-control.valid {
                                                         <option value="" disabled selected>Pilih Garansi Kompresor
                                                             (Tahun)</option>
                                                         <?php foreach ($compressor_warranties as $compressor_warranty): ?>
-                                                        <option value="<?= $compressor_warranty['id'] ?>"
+                                                        <option value="<?= $compressor_warranty['id'] ?>">
                                                             <?= esc($compressor_warranty['value']) ?> Tahun</option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -858,4 +858,4 @@ input.form-control:-webkit-autofill.form-control.valid {
 </script>
 
 
-</html>
+</html> 

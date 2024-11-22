@@ -26,7 +26,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="/images/aio-logo-circle.png" alt="Logo" height="200" width="200">
+        <img class="animation__shake" src="/images/logo-aio.png" alt="Logo" height="150" width="150">
     </div>
 
     <!-- Content Wrapper. Contains page content -->
@@ -39,12 +39,9 @@
 </div>
 <?= $this->include('partials/footer')?>
     <!-- /.content-wrapper -->
-    <footer class="main-footer" style="margin-left:auto">
+    <footer class="main-footer" style="margin-left:500px">
         <strong>Copyright &copy; 2024 AIO.</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
-        </div>
     </footer>
     </div>
 

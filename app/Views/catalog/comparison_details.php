@@ -10,16 +10,16 @@
     <style>
 
 a{
-    font-family: Arial, sans-serif;   
+    font-family: Poppins, sans-serif;   
 }
 .breadcrumb-link,
 .breadcrumb-product {
     display: inline; /* Keeps all elements on the same line */
-    font-family: Arial, sans-serif; /* Ensures Arial font for all */
+    font-family: Poppins, sans-serif; /* Ensures Poppins font for all */
 }
 
 .breadcrumb-separator {
-    font-family: FontAwesome; /* This will ensure the separator uses Arial as well */
+    font-family: FontAwesome; /* This will ensure the separator uses Poppins as well */
     font-size:12px;
 }
 
@@ -29,7 +29,7 @@ a{
     gap: 20px;
     margin-bottom: 20px;
     justify-content: center;
-    font-family: Arial;
+    font-family: Poppins;
 }
 
 .comparison-product-card {
@@ -41,7 +41,7 @@ a{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #fff;
-    font-family: Arial;
+    font-family: Poppins;
     position: relative; /* Makes the card a reference point for absolute positioning */
     padding-bottom: 50px; /* Ensure there's space for the button */
 }
@@ -95,7 +95,7 @@ label {
     color: #fff;
     display: block;
     height: 25px;
-    font-family: Arial;
+    font-family: Poppins;
     font-size: 18px;
     width: 95%; /* Make label match the table width */
     margin: 0 auto; /* Center horizontally */ /* Optional: add shadow for consistency */
@@ -107,7 +107,7 @@ label {
     align-items: center;
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
-    font-family: Arial;
+    font-family: Poppins;
     margin: 5px auto; /* Center horizontally with some space above */
 }
 
@@ -142,7 +142,7 @@ label {
     border-right: 1px solid #fff;
     /* Add right border if needed */
     border-bottom: none;
-    font-family: Arial;
+    font-family: Poppins;
     /* Remove bottom border */
     box-shadow: 0 12px 10px rgba(0, 0, 0, 0.3);
     /* Bottom-only shadow */
@@ -229,30 +229,32 @@ Detail Perbandingan
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
    <div class="col-sm-6">
-      <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a>
+   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:40px">
+
+   </div><!-- /.col -->
+
+
+       <!-- Center section (Logo image) -->
+       <div class="navbar-brand mx-auto" style="position: absolute; left: 40%; transform: translateX(-50%);">
+       <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Katalog</a>
       <span class="breadcrumb-separator"></span> 
 
       <!-- Render category link -->
       <?php if (!empty($products)): ?>
          <?php $product = $products[0]; // Get the first product, assuming all products belong to the same category ?>
          <?php if ($product['category'] == 'SMALL APPLIANCES'): ?>
-            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Kategori</a>
+            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kategori</a>
             <span class="breadcrumb-separator"></span> 
-            <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Subkategori</a>
+            <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Subkategori</a>
          <?php else: ?>
-            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Kategori</a>
+            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kategori</a>
          <?php endif; ?>
       <?php endif; ?>
 
       <span class="breadcrumb-separator"></span> 
-      <span class="breadcrumb-item" style="font-family: arial sans-serif; font-size:18px">Detail Perbandingan</span>
-   </div><!-- /.col -->
+      <span class="breadcrumb-item" style="font-family: Poppins sans-serif; font-size:18px">Detail Perbandingan</span>
+    </div>
 
-
-       <!-- Center section (Logo image) -->
-   <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
-      <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px;">
-   </div>
 
    <!-- User Dropdown -->
    <ul class="navbar-nav ml-auto">
@@ -272,15 +274,15 @@ Detail Perbandingan
       </li>
    </ul>
 </nav>
-<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:50px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
-            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; width: auto;">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; margin-right:80px; width: auto;">
         </div>
     </div>
 </div>
@@ -295,8 +297,17 @@ Detail Perbandingan
         <img src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" alt="<?= esc($product['product_type']) ?>"
             class="product-image">
         <div class="product-info">
-            <h5 class="product-title"><?= esc($product['brand']) ?> - <?= esc($product['product_type']) ?></h5>
-            <p class="product-category"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?></p>
+            <h5 class="product-title"><?= esc($product['brand']) ?></h5>
+            <p class="product-category"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>                 <?= 
+    !empty($product['capacity']) ? esc($product['capacity']) : 
+    (!empty($product['ukuran']) ? esc($product['ukuran']) : 
+    (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
+        esc($product['kapasitas_air_dingin']) . 'L' . '/' . esc($product['kapasitas_air_panas']) . 'L': 
+        ''))
+?>
+<?php if  ($product['subcategory'] == 'AIR PURIFIER'): ?>
+    <?= esc($product['kapasitas_air_dingin']) . ' M²'?>
+<?php endif; ?></p>
             <!-- harga
              <p class="product-harga">
              <?php if ($product['harga'] != null): ?>
@@ -306,16 +317,7 @@ Detail Perbandingan
                 </p> -->
 <?php endif;?>
             <p class="product-capacity">
-                <?= 
-    !empty($product['capacity']) ? esc($product['capacity']) : 
-    (!empty($product['ukuran']) ? esc($product['ukuran']) : 
-    (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
-        esc($product['kapasitas_air_dingin']) . 'L' . '/' . esc($product['kapasitas_air_panas']) . 'L': 
-        ''))
-?>
-<?php if  ($product['subcategory'] == 'AIR PURIFIER'): ?>
-    <?= esc($product['kapasitas_air_dingin']) . ' M²'?>
-<?php endif; ?>
+<?= esc($product['product_type']) ?>
 </p>
 <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
 class="btn-custom btn-custom-primary">Lihat Detail</a>

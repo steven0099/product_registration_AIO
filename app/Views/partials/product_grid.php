@@ -80,7 +80,7 @@
 /* Button positioned bottom-right */
 .button {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     right:20px;  /* Ensure button is in the bottom-right */
     padding: 5px 20px;
     font-size: 12px;
@@ -96,14 +96,14 @@
     /* Ensure checkbox and label styling */
     .compare-checkbox {
     position: absolute;
-    bottom: 10px; /* Position the checkbox towards the bottom */
-    left: 20px;   /* Position the checkbox towards the left */
+    bottom: 12px; /* Position the checkbox towards the bottom */
+    left: 25px;   /* Position the checkbox towards the left */
     display:none;
 }
 
 
     .compare-label {
-        margin-left: 10px;
+        margin-left: 15px;
         bottom:0;
         vertical-align: middle;
         font-size: 14px;
@@ -138,10 +138,8 @@
                         <img src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top"
                              alt="<?= esc($product['product_type']) ?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?= esc($product['brand']) ?> <?= esc($product['product_type']) ?></h5>
-                            <p class="card-text"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?></p>
-                            <p class="card-text">
-                                <?php
+                            <h5 class="card-title"><?= esc($product['brand']) ?></h5>
+                            <p class="card-text"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>                                 <?php
                                 if (!empty($product['capacity'])) {
                                     echo esc($product['capacity']);
                                 } elseif (!empty($product['ukuran'])) {
@@ -153,8 +151,8 @@
                                 } else {
                                     echo 'Tidak Ada Kapasitas / Ukuran';
                                 }
-                                ?>
-                            </p>
+                                ?></p>
+                            <p class="card-text"> <?= esc($product['product_type']) ?></p>
                             <div class="column">
 <input type="checkbox" class="compare-checkbox" data-product-id="<?= esc($product['id']) ?>"
            data-product-name="<?= esc($product['brand']) ?>"
