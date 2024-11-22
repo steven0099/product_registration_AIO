@@ -470,7 +470,7 @@ class ProductController extends BaseController
         $data['ukuran'] = $ukuranModel->findAll();
 
         $data['previousData'] = session()->get('step1');
-
+//        dd($data,  session()->get("step1"));
         return view('layout/product/product_regis_step1', $data);
         //return view('product/product_registration', $data);
         //        $data['previousData'] = session()->get('step1');

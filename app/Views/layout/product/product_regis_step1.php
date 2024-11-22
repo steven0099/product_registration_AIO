@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label for="brand">Merek</label>
                                                     <select id="brand" name="brand_id" class="form-control" required>
-                                                        <option value="<?= session()->get("step1")["brand_id"] ?? '' ?>" disabled selected>Masukan Merek</option>
+                                                        <option value="" disabled selected>Masukan Merek</option>
                                                         <?php foreach ($brands as $brand): ?>
                                                             <option value="<?= $brand['id'] ?>"><?= esc($brand['name']) ?></option>
                                                         <?php endforeach; ?>
@@ -234,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label for="category">Kategori</label>
                                                     <select id="category" name="category_id" class="form-control" required>
-                                                        <option value="<?= session()->get("step1")["category_id"] ?? '' ?>" disabled selected>Masukan Kategori</option>
+                                                        <option value="" disabled selected>Masukan Kategori</option>
                                                         <?php foreach ($categories as $category): ?>
                                                             <option value="<?= $category['id'] ?>"><?= esc($category['name']) ?></option>
                                                         <?php endforeach; ?>
@@ -245,7 +245,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="form-group">
                                                     <label for="subcategory">Subkategori</label>
                                                     <select id="subcategory" class="form-control" name="subcategory_id" disabled required>
-                                                        <option value="" disabled selected>Select Subcategory</option>
                                                         <option value="" disabled selected>Masukan Subkategori</option>
                                                         <?php foreach ($subcategories as $subcategory): ?>
                                                             <option value="<?= $subcategory['id'] ?>"><?= esc($subcategory['name']) ?></option>
@@ -297,7 +296,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         <select id="sparepart_warranty" class="form-control" name="sparepart_warranty_id" style="" required>
                                                             <option value="" disabled selected>Masukan Garansi Sparepart</option>
                                                             <?php foreach ($sparepart_warranties as $sparepart_warranty): ?>
-                                                                <option value="<?= esc($sparepart_warranty['id']) ?>"><?= esc($sparepart_warranty['value']) ?> Tahun</option>
+                                                                <option value="<?= esc($sparepart_warranty['id']) ?>" <?= $sparepart_warranty['id'] == (session()->get("step1")["sparepart_warranty_id"] ?? null) ?>><?= esc($sparepart_warranty['value']) ?> Tahun</option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
@@ -370,38 +369,79 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="/product-asset/assets/js/jquery.validate.min.js" type="text/javascript"></script>
 
 <script>
-    document.getElementById('category').addEventListener('change', function() {
-        const categoryId = this.value;
-        const subcategoryDropdown = document.getElementById('subcategory');
+    $(document).ready(function(){
+        $('#category').on('change', function() {
+            const categoryId = this.value;
+            const subcategoryDropdown = document.getElementById('subcategory');
 
-        // Clear the current options and disable the dropdown
-        subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
-        subcategoryDropdown.disabled = true; // Disable until we load new options
+            // Clear the current options and disable the dropdown
+            subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
+            subcategoryDropdown.disabled = true; // Disable until we load new options
 
-        // Fetch subcategories via AJAX
-        fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
-            .then(response => {
-                console.log('Response:', response); // Log the response object
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Data:', data);
-                subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
-                if (data.length > 0) {
-                    data.forEach(subcategory => {
-                        subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
-                    });
-                    subcategoryDropdown.disabled = false; // Enable dropdown after loading options
-                } else {
-                    subcategoryDropdown.innerHTML = '<option value="" disabled selected>No Subcategories Available</option>';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching subcategories:', error);
-            });
+            // Fetch subcategories via AJAX
+            fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
+                .then(response => {
+                    console.log('Response:', response); // Log the response object
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data:', data);
+                    subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
+                    if (data.length > 0) {
+                        data.forEach(subcategory => {
+                            subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
+                        });
+                        subcategoryDropdown.disabled = false; // Enable dropdown after loading options
+                        if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
+                            $('#subcategory').val(`<?= session()->get("step1")["subcategory_id"] ?? null ?>`).change()
+                        }
+                    } else {
+                        subcategoryDropdown.innerHTML = '<option value="" disabled selected>No Subcategories Available</option>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching subcategories:', error);
+                });
+
+        });
+
+        $('#subcategory').on('change', function() {
+            const subcategoryId = $('#subcategory').val();
+            const categoryId = document.getElementById('category').value;
+
+            handleSparepartWarranty(subcategoryId);
+            handleCapacityGroup(subcategoryId);
+            updateWarrantyAndCapacityLabels();
+
+            let type = '';
+            if (categoryId === '9') {
+                type = 'garansi_panel';
+            } else if (categoryId === '6') {
+                type = 'garansi_motor';
+            } else if (subcategoryId === '31') {
+                type = 'garansi_semua_service';
+            } else if (subcategoryId === '32') {
+                type = 'garansi_motor';
+            } else if (subcategoryId === '35' || subcategoryId === '36') {
+                type = 'garansi_kompresor';
+            } else if (subcategoryId === '37' || subcategoryId === '38') {
+                type = 'garansi_elemen_panas';
+            } else {
+                type = 'garansi_kompresor'; // Default type if no conditions match
+            }
+            fetchWarrantyOptions(type);
+            fetchOptions(subcategoryId);
+
+        });
+
+        if(`<?= isset(session()->get("step1")["category_id"]) ?>`){
+            $('#brand').val(`<?= session()->get("step1")["brand_id"] ?? null ?>`).change()
+            $('#category').val(`<?= session()->get("step1")["category_id"] ?? null ?>`).change()
+            $('#sparepart_warranty').val(`<?= session()->get("step1")["sparepart_warranty_id"] ?? null ?>`).change()
+        }
     });
 
     function fetchWarrantyOptions(type) {
@@ -437,54 +477,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 
-    document.getElementById('subcategory').addEventListener('change', function() {
-        const subcategoryId = this.value;
-        const categoryId = document.getElementById('category').value;
-
-        handleSparepartWarranty(subcategoryId);
-        handleCapacityGroup(subcategoryId);
-        updateWarrantyAndCapacityLabels();
-
-        let type = '';
-        if (categoryId === '9') {
-            type = 'garansi_panel';
-        } else if (categoryId === '6') {
-            type = 'garansi_motor';
-        } else if (subcategoryId === '31') {
-            type = 'garansi_semua_service';
-        } else if (subcategoryId === '32') {
-            type = 'garansi_motor';
-        } else if (subcategoryId === '35' || subcategoryId === '36') {
-            type = 'garansi_kompresor';
-        } else if (subcategoryId === '37' || subcategoryId === '38') {
-            type = 'garansi_elemen_panas';
-        } else {
-            type = 'garansi_kompresor'; // Default type if no conditions match
-        }
-        fetchWarrantyOptions(type);
-        fetchOptions(subcategoryId);
-
-    });
-
-
-
     // Fetch warranty and capacity options using the determined type
-    fetchWarrantyOptions(type);
+    // fetchWarrantyOptions(type);
 
     function updateWarrantyAndCapacityLabels() {
-        const categoryId = document.getElementById('category').value;
-        const subcategoryId = document.getElementById('subcategory').value;
-        const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
-        const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
-        const capacityLabel = document.getElementById('capacity-label');
-        const warrantyDropdown = document.getElementById('compressor_warranty');
-        const sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
+        let categoryId = $('#category').val();
+        let subcategoryId = $('#subcategory').val();
+        let compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
+        let sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
+        let capacityLabel = document.getElementById('capacity-label');
+        let warrantyDropdown = document.getElementById('compressor_warranty');
+        let sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
         // Update compressor warranty field based on category
         if (categoryId === '9') { // Category is for Garansi Panel
             compressorWarrantyLabel.innerText = 'Garansi Panel';
             document.getElementById('warranty-sparepart-group').style.display = 'flex';
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_panel_id'); // Change name to garansi_panel_id
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Panel</option>';
+            warrantyDropdown.innerHTML = '<option value="" disabled>Pilih Garansi Panel</option>';
+            if(`<?= isset(session()->get("step1")["category_id"]) ?>`){
+                $('#compressor_warranty').val(`<?= session()->get("step1")["garansi_panel_id"] ?? null ?>`).change()
+                console.log('udah masuk sini')
+            }
         } else if (categoryId === '6') {
             compressorWarrantyLabel.innerText = 'Garansi Motor';
             document.getElementById('warranty-sparepart-group').style.display = 'flex';
@@ -504,7 +517,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             compressorWarrantyLabel.innerText = 'Garansi Kompresor';
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
+            warrantyDropdown.innerHTML = '<option value="" disabled>Pilih Garansi Kompresor</option>';
         } else if (subcategoryId == '37' || subcategoryId == '38') { // Check for subcategory id 31
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service';
@@ -516,7 +529,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart';
             document.getElementById('warranty-sparepart-group').style.display = 'flex'; // Ensure the group is visible
             document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name back to compressor_warranty_id
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
+            warrantyDropdown.innerHTML = '<option value="" disabled>Pilih Garansi Kompresor</option>';
         }
 
         // Change capacity to ukuran_size if category is TV
@@ -624,16 +637,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Determine the URL and placeholder based on type
         if (type === 'ukuran') {
             url = `<?= base_url('get-ukuran-tv') ?>/${subcategoryId}`;
-            capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Ukuran</option>'; // Clear existing options
+            capacityDropdown.innerHTML = '<option value="" disabled>Pilih Ukuran</option>'; // Clear existing options
+            if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
+                $('#capacity').val(`<?= session()->get("step1")["ukuran_id"] ?? null ?>`).change()
+                $('#compressor_warranty').val(`<?= session()->get("step1")["garansi_panel_id"]  ?? null ?>`).change()
+            }
         } else if (type === 'kapasitas') {
             url = `<?= base_url('get-capacities') ?>/${subcategoryId}`;
-            capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Kapasitas</option>'; // Clear existing options
+            capacityDropdown.innerHTML = '<option value="" disabled>Pilih Kapasitas</option>'; // Clear existing options
+            if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
+                $('#capacity').val(`<?= session()->get("step1")["capacity_id"] ?? null ?>`).change()
+                $('#compressor_warranty').val(`<?= session()->get("step1")["compressor_warranty_id"]  ?? null ?>`).change()
+            }
         } else {
             console.error('Invalid type specified for fetching options.');
             return; // Exit if the type is invalid
         }
 
         // Fetch data
+        if(subcategoryId)
         fetch(url)
             .then(response => {
                 if (!response.ok) {
