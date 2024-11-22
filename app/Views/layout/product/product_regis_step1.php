@@ -195,7 +195,7 @@ input.form-control:-webkit-autofill.form-control.valid {
                             <div class="wizard-header" style="text-align: center;weight: 7000;">
                                 <div class="row" style=" height: 135px; align-content: center">
                                     <div class="col-sm-5 col-sm-offset-1 logo">
-                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                        <img src="<?= base_url('images/aio-new.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
                                         <h3 class=""

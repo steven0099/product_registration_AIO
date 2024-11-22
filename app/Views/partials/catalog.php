@@ -37,6 +37,7 @@
         <?= $this->renderSection('content') ?>
         <!-- /.content -->
 </div>
+<?= $this->include('partials/footer')?>
     <!-- /.content-wrapper -->
     <footer class="main-footer" style="margin-left:auto">
         <strong>Copyright &copy; 2024 AIO.</strong>

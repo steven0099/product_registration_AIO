@@ -24,7 +24,7 @@ Katalog Digital
 
        <!-- Center section (Logo image) -->
    <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
-      <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+      <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px;">
    </div>
 
    <!-- User Dropdown -->
