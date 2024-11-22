@@ -38,7 +38,7 @@
         <!-- /.content -->
 </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main-footer" style="margin-left:auto">
         <strong>Copyright &copy; 2024 AIO.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
