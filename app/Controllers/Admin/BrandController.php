@@ -25,10 +25,15 @@ class BrandController extends BaseController
         'code' => $this->request->getPost('code'),
         'name' => $this->request->getPost('name'),
     ];
+
+    $data['code'] = strtoupper($data['code']);
+    $data['name'] = strtoupper($data['name']);
+
     if (!$brandModel->save($data)) {
         return redirect()->back()->with('error', 'Failed to add Brand.');
     }
-
+    
+    
     return redirect()->to('/admin/brand')->with('success', 'Brand added successfully.');
     }
 
@@ -41,6 +46,9 @@ class BrandController extends BaseController
             'code' => $this->request->getPost('code'),
             'name' => $this->request->getPost('name'),
         ];
+
+        $data['code'] = strtoupper($data['code']);
+        $data['name'] = strtoupper($data['name']);
         // Update the Brand  in the database
         if (!$brandModel->update($id, $data)) {
             return redirect()->back()->with('error', 'Failed to update Brand.');
@@ -52,7 +60,20 @@ class BrandController extends BaseController
     public function deleteBrand($id)
     {
         $brandModel = new BrandModel();
+        
+        if (!$brandModel->find($id)) {
+            return redirect()->to('/admin/brand')->with('error', 'Subcategory not found.');
+        }
+        
+        
+        if (!$brandModel->find($id)) {
+            return redirect()->to('/admin/brand')->with('error', 'Subcategory not found.');
+        }
+        
         $brandModel->delete($id);
-        return redirect()->to('/admin/brand');
+        
+        return redirect()->to('/admin/brand')->with('success', 'Subcategory deleted successfully.');
+        
+        return redirect()->to('/admin/brand')->with('success', 'Subcategory deleted successfully.');
     }
 }

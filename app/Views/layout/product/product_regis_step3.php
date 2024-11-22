@@ -19,6 +19,21 @@
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
 
     <style>
+input.form-control:-webkit-autofill {
+    box-shadow:  0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid #00bfff; /* Blue border */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
+
+input.form-control:-webkit-autofill:focus {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid #00bfff; /* Blue border */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
         input[type="text"],
         input[type="file"],
         input[type="number"],
@@ -32,6 +47,8 @@
             outline: none;
             /* Menghilangkan outline default */
             box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            background-color:#fff;
+            color:#000;
             /* Menambahkan efek bayangan */
         }
 
@@ -39,7 +56,7 @@
         input[type="file"]:focus,
         input[type="number"]:focus,
         input[type="video"]:focus {
-            border-color: #1E90FF;
+            border: 2px solid #1E90FF;
             /* Warna biru yang lebih tua saat input difokuskan */
             box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
             /* Bayangan yang lebih terang saat difokuskan */
@@ -110,6 +127,14 @@
             /* Change cursor to indicate it's disabled */
         }
 
+        .icon-circle.filled {
+            border-color: #00a9ee;
+            /* Ganti dengan warna tema Anda */
+        }
+
+        .ti-package.filled {
+            color: #00a9ee;
+        }
 
         @media (max-width: 600px) {
 
@@ -140,7 +165,7 @@
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
@@ -152,17 +177,18 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <span style="color: #00a9ee;">Informasi Umum</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#type" data-toggle="tab" onclick="history.back();">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                            <div class="icon-circle filled">
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <span style="color: #00a9ee;">Spesifikasi Produk</span>
+
                                         </a>
                                     </li>
                                     <li>
@@ -202,12 +228,12 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('product/save-step3') ?>" method="post">
+                            <form action="<?= base_url('product/save-step3') ?>" method="post" style=" margin-top: 45px; margin-left: 25px; margin-right: 25px;">
                                 <?= csrf_field() ?>
                                 <div class="tab-content">
                                     <div class="tab-pane" id="facilities">
-                                        <h5 class="info-text">Beritahu Kami Keunggulan Produk Anda</h5>
-                                        <div class="row" style="margin: 25px;">
+
+                                        <div class="row-sm-6">
 
                                             <div class="form-group">
                                                 <input type="text" id="advantage1" name="advantage1" value="<?= session()->get("step3")["advantage1"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
@@ -219,15 +245,15 @@
                                                 <input type="text" id="advantage3" name="advantage3" value="<?= session()->get("step3")["advantage3"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage4" name="advantage4" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                <input type="text" id="advantage4" name="advantage4" value="<?= session()->get("step3")["advantage4"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage5" name="advantage5" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                <input type="text" id="advantage5" name="advantage5" value="<?= session()->get("step3")["advantage5"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" id="advantage6" name="advantage6" placeholder="Masukan Keunggulan Produk" class="form-control">
+                                                <input type="text" id="advantage6" name="advantage6" value="<?= session()->get("step3")["advantage6"] ?? '' ?>" placeholder="Masukan Keunggulan Produk" class="form-control">
                                             </div>
-                                            <p class="form-note">*Harap diisi Minimal 3 Keunggulan</p>
+
 
 
                                         </div>
@@ -235,16 +261,19 @@
                                 </div>
                                 <div class="wizard-footer">
                                     <div class="pull-right">
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Konfirmasi' />
                                     </div>
 
                                     <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
+
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Kembali' onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
+                            <p class="form-note" style="margin-left:47px; margin-top: 8px;"><span style="color: red;">*</span>Harap diisi Minimal 3 Keunggulan Produk</p>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>

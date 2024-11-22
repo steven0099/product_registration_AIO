@@ -1,149 +1,177 @@
-<?= $this->extend('partials/main') ?>
+<?= $this->extend('partials/catalog') ?>
 
 <?= $this->section('css') ?>
 <!-- DataTables -->
 <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-<link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
-Digital Catalog
+Katalog Digital
 <?= $this->endSection() ?>
 
 <?= $this->section('breadcumb') ?>
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Digital Catalog</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
-                    <li class="breadcrumb-item active">Digital Catalog</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
+
+   <div class="col-sm-6">
+    <a href="/catalog" class="breadcrumb-link" style="font-family: arial sans-serif; font-size:18px">Katalog</a> 
+    </div><!-- /.col -->
+
+       <!-- Center section (Logo image) -->
+   <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
+      <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+   </div>
+
+   <!-- User Dropdown -->
+   <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a href="/reset/reset-password" class="dropdown-item">
+               <i class="fas fa-key mr-2"></i> Ganti Password
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="/logout" class="dropdown-item">
+               <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+            </a>
+         </div>
+      </li>
+   </ul>
+</nav>
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
+    <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
+        <!-- Breadcrumb Text -->
+        <div class="breadcrumb-text">
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+        </div>
+        <!-- Breadcrumb Image -->
+        <div class="breadcrumb-image">
+            <img src="/images/eco-catalog.png" alt="Header Image" style="max-height: 420px; margin-right:80px; width: auto;">
+        </div>
+    </div>
 </div>
-<!-- /.content-header -->
 <?= $this->endSection() ?>
 
+
+
 <?= $this->section('content') ?>
-<div class="container">
+
     <div class="card">
     <div class="row">
     <!-- Sidebar for Filters -->
-    <div class="col-md-3">
-        <!-- Sidebar Filters -->
-        <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 20px;">
-            <h4>Filter Produk</h4>
+<div class="container-fluid d-flex">
+<div class="col-md-3">
+    <!-- Sidebar Filters -->
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:300px">
+        <h4>Filter Produk</h4>
 
-            <form id="filterForm" action="" method="GET">
-                <div id="filterSidebar" style="width: 300px; padding: 20px; background-color: #f7f7f7; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+        <form id="filterForm" action="" method="GET">
+            <div id="filterSidebar" style="width: 400px; padding: 20px;">
 
-                    <!-- Category Filter -->
-                    <div>
-                        <h5 class="filter-title" data-target="#categoryContainer">Kategori Produk</h5>
-                        <div id="categoryContainer" class="filter-options">
-                            <label class="filter-option">
-                                <input class="filter-option" type="radio" name="category" value="" checked>
-                                Semua Kategori
-                            </label>
-                            <?php foreach ($categories as $category): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="category" value="<?= esc($category['category']) ?>">
-                                <?= esc($category['category']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                        </div>
+                <!-- Category Filter -->
+                <div>
+                    <h5 class="filter-title" data-target="#categoryContainer">Kategori Produk</h5>
+                    <div id="categoryContainer" class="filter-options">
+                        <label class="filter-option">
+                            <input class="filter-option" type="radio" name="category" value="" checked>
+                            Semua Kategori
+                        </label>
+                        <?php foreach ($categories as $category): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="category" value="<?= esc($category['category']) ?>">
+                            <?= esc($category['category']) ?>
+                        </label>
+                        <?php endforeach; ?>
                     </div>
-
-                    <!-- Subcategory Filter -->
-                    <div>
-                        <h5 class="filter-title" data-target="#subcategoryContainer">Sub Kategori Produk</h5>
-                        <div id="subcategoryContainer" class="filter-options">
-                            <label class="filter-option">
-                                <input type="radio" name="subcategory" value="" checked>
-                                Semua Subkategori
-                            </label>
-                            <?php foreach ($subcategories as $subcategory): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="subcategory" value="<?= esc($subcategory['subcategory']) ?>">
-                                <?= esc($subcategory['subcategory']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-
-                    <!-- Capacity Filter -->
-                    <div>
-                        <h5 class="filter-title" data-target="#capacityContainer">Ukuran / Kapasitas</h5>
-                        <div id="capacityContainer" class="filter-options" style="display: none;">
-                            <label class="filter-option">
-                                <input type="radio" name="capacity" value="" checked>
-                                Semua
-                            </label>
-                            <?php foreach ($capacities as $capacity): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="capacity" value="<?= esc($capacity['capacity']) ?>">
-                                <?= esc($capacity['capacity']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                            <?php foreach ($ukuran as $size): ?>
-                            <label class="filter-option">
-                                <input type="radio" name="capacity" value="<?= esc($size['ukuran']) ?>">
-                                <?= esc($size['ukuran']) ?>
-                            </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-
                 </div>
-            </form>
-        </div>
+
+                <!-- Subcategory Filter -->
+                <div>
+                    <h5 class="filter-title" data-target="#subcategoryContainer">Sub Kategori Produk</h5>
+                    <div id="subcategoryContainer" class="filter-options">
+                        <label class="filter-option">
+                            <input type="radio" name="subcategory" value="" checked>
+                            Semua Subkategori
+                        </label>
+                        <?php foreach ($subcategories as $subcategory): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="subcategory" value="<?= esc($subcategory['subcategory']) ?>">
+                            <?= esc($subcategory['subcategory']) ?>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <!-- Capacity Filter -->
+                <div>
+                    <h5 class="filter-title" data-target="#capacityContainer">Ukuran / Kapasitas</h5>
+                    <div id="capacityContainer" class="filter-options" style="display:none">
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="" checked>
+                            Semua
+                        </label>
+                        <?php foreach ($capacities as $capacity): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="<?= esc($capacity['capacity']) ?>">
+                            <?= esc($capacity['capacity']) ?>
+                        </label>
+                        <?php endforeach; ?>
+                        <?php foreach ($ukuran as $size): ?>
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="<?= esc($size['ukuran']) ?>">
+                            <?= esc($size['ukuran']) ?>
+                        </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+            </div>
+        </form>
     </div>
+</div>
+                        
+
 
 
         
 
-        <!-- Main Product Grid (Right side) -->
-        <div class="col-md-9">
-            <div class="row">
-                <!-- Search field on the leftmost -->
-                <div class="col-md-6 d-flex align-items-center">
-                    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                        <label for="search" class="mr-2 mb-0">Search</label>
-                        <input style="width:170px" type="text" id="search" name="search" value="<?= esc($search) ?>"
-                            placeholder="Cari Produk..." class="form-control mr-2">
-                        <button type="submit" class="btn btn-primary mb-0">Search</button>
-                    </form>
-                </div>
+<!-- Main Product Grid (Right side) -->
+<div class="col-md-12">
+    <div class="row" style="margin-top:10px;margin-bottom: 30px">
+        <!-- Search field on the leftmost -->
+        <div class="col-md-6 d-flex align-items-center">
+            <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
+                <input style="width:250px; margin-left:50px" type="text" id="search" name="search" value="<?= esc($search) ?>"
+                    placeholder="Cari Produk..." class="form-control">
+            </form>
+        </div>
 
-                <!-- Sort dropdown on the rightmost -->
-                <div class="col-md-6 d-flex align-items-center justify-content-end">
-                    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                        <label for="sort" class="mr-2 mb-0">Sort By</label>
-                        <select style="width:170px" id="sort" name="sort" class="form-control mr-2">
-                            <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z
-                            </option>
-                            <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A
-                            </option>
-                            <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas
-                                Rendah - Tinggi</option>
-                            <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>
-                                Kapasitas Tinggi - Rendah</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary mb-0">Apply</button>
-                    </form>
-                </div>
-            </div>
+        <!-- Sort dropdown on the rightmost -->
+        <div class="col-md-6 d-flex align-items-center justify-content-end">
+    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
+        <select style="width: 250px" id="sort" name="sort" class="form-control">
+            <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
+            <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
+            <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
+            <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
+            <option value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>Produk Lama - Baru</option>
+            <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Produk Baru - Lama</option>
+        </select>
+    </form>
+</div>
+    </div>
+
+
 
             <!-- Product Grid -->
-            <div id="productGrid" class="row">
+            <div id="productGrid" style="flex:1; max-width:75%" class="row">
                 <!-- Content loaded from partials/product_grid -->
                 <?= view('partials/product_grid') ?>
                 <div class="row">
@@ -159,17 +187,26 @@ Digital Catalog
             </div>
         </div>
     </div>
+                            </div>
+                            
 
-    <!-- Comparison Bar -->
-    <div id="comparisonWidget" style="display:none" class="comparison-widget">
-        <div class="comparison-header">
-            <span>Perbandingan</span>
-            <button onclick="closeComparisonWidget()">X</button>
-        </div>
-        <div class="comparison-content">
-            <!-- Dynamically added comparison items will go here -->
-        </div>
+<!-- Comparison Bar -->
+<div id="comparisonWidget" style="display:none" class="comparison-widget">
+    <div class="comparison-header">
+        <span>Perbandingan</span>
+        <div class="button-group">
+        <button class="btn-minimize" onclick="toggleComparisonWidget()" id="minimizeButton"><i class="fas fa-chevron-down"></i></button>
+        <button class="btn-close" onclick="closeComparisonWidget()"><i class="fas fa-times"></i></button>
     </div>
+                            </div>
+    <div class="row">
+    <div class="comparison-content">
+        <!-- Dynamically added comparison items will go here -->
+    </div>
+    <button class="btn-detailed-comparison" onclick="viewDetailedComparison()">Bandingkan</button>
+                            </div>
+</div>
+
 </div>
 </div>
 
@@ -188,159 +225,175 @@ $(document).ready(function() {
 
     // Dynamically update subcategory options when category changes
     $('#categoryContainer input[name="category"]').on('change', function() {
+    resetFilters();
+    const selectedCategory = $(this).val();
 
-        resetFilters();
+    // Reset the capacity container visibility
+    $('#capacityContainer').hide();
+    $("input[name='capacity']").prop('checked', false); // Clear capacity selection
 
-        const selectedCategory = $(this).val();
-
-        if (selectedCategory) {
-            $.ajax({
-                url: '<?= base_url('catalog/getSubcategories') ?>',
-                type: 'GET',
-                data: { category: selectedCategory },
-                success: function(subcategories) {
-                    console.log(subcategories); // Log the subcategories to verify they're returned correctly
-                    
-                    let subcategoryHTML = `
+    // Manually handle visibility of subcategory container
+    if (selectedCategory) {
+        // Fetch subcategories without triggering dropdown behavior
+        $.ajax({
+            url: '<?= base_url('catalog/getSubcategories') ?>',
+            type: 'GET',
+            data: { category: selectedCategory },
+            success: function(subcategories) {
+                let subcategoryHTML = `
+                    <label class="filter-option">
+                        <input type="radio" name="subcategory" value="" checked>
+                        Semua Subkategori
+                    </label>
+                `;
+                
+                subcategories.forEach(subcat => {
+                    subcategoryHTML += `
                         <label class="filter-option">
-                            <input type="radio" name="subcategory" value="" checked>
-                            Semua Subkategori
+                            <input type="radio" name="subcategory" value="${subcat.subcategory_name}">
+                            ${subcat.subcategory_name}
                         </label>
                     `;
-                    
-                    subcategories.forEach(subcat => {
-                        subcategoryHTML += `
-                            <label class="filter-option">
-                                <input type="radio" name="subcategory" value="${subcat.subcategory_name}">
-                                ${subcat.subcategory_name}
-                            </label>
-                        `;
-                    });
+                });
+                // Update subcategory container content
+                $('#subcategoryContainer').html(subcategoryHTML);
+                // Only show subcategory container if category is selected
+                $('#subcategoryContainer');
+                // Keep capacity container hidden until a subcategory is selected
+                $('#capacityContainer').hide();
+            },
+            error: function() {
+                alert("Failed to load subcategories.");
+            }
+        });
+    } else {
+        // Hide subcategory and capacity containers if no category is selected
+        $('#subcategoryContainer').hide();
+        $('#capacityContainer').hide();
+    }
 
-                    // Update subcategory container and show it
-                    $('#subcategoryContainer').html(subcategoryHTML).show();
+    filterProducts(); // Trigger filtering after category change
+});
 
-                    // Reset capacity container
-                    $('#capacityContainer').hide(); // Hide capacity container
-                    $("input[name='capacity']").prop('checked', false); // Uncheck capacity radio buttons
-                    $("input[name='subcategory']").prop('checked', false); // Uncheck subcategory radio buttons
-                },
-                error: function() {
-                    alert("Failed to load subcategories.");
-                }
-            });
-        } else {
-            $('#subcategoryContainer').hide();
-            $('#capacityContainer').hide();
-        }
 
-        filterProducts(); // Call filterProducts after category change
-    });
 
     // Dynamically update capacity options when subcategory changes
     $('#subcategoryContainer').on('change', "input[name='subcategory']", function() {
-        resetCapacity();
-        const selectedSubcategory = $(this).val();
+    resetCapacity();
+    const selectedSubcategory = $(this).val();
 
-        console.log('Selected Subcategory:', selectedSubcategory); // Log to verify the selected subcategory
+    // Manually show capacity container based on subcategory selection
+    if (selectedSubcategory) {
+        $('#capacityContainer').show(); // Show capacity container
 
-        // Show the capacity container when a subcategory is selected
-        if (selectedSubcategory) {
-            $('#capacityContainer').show(); // Show the capacity container
+        $.ajax({
+            url: '<?= base_url('catalog/getCapacities') ?>',
+            type: 'GET',
+            data: { subcategory: selectedSubcategory },
+            success: function(response) {
+                let capacityHTML = `
+                    <label class="filter-option">
+                        <input type="radio" name="capacity" value="" checked>
+                        Semua
+                    </label>
+                `;
 
-            // Fetch available capacity/ukuran options based on the selected subcategory
-            $.ajax({
-                url: '<?= base_url('catalog/getCapacities') ?>',
-                type: 'GET',
-                data: { subcategory: selectedSubcategory },
-                success: function(response) {
-                    console.log(response); // Log to verify the available capacities
-                    
-                    let capacityHTML = `
-                                        <label class="filter-option">
-                                            <input type="radio" name="capacity" value="" checked>
-                                            Semua
-                                        </label>`;
-                    if (response.capacities.length > 0) {
-                        // Loop through the available capacities and generate the radio buttons
-                        response.capacities.forEach(capacity => {
-                            if (capacity.value) {
-                                // Handle capacity type
-                                capacityHTML += `
-                                    <label class="filter-option">
-                                        <input type="radio" name="capacity" value="${capacity.value}">
-                                        ${capacity.value}
-                                    </label>
-                                `;
-                            } else if (capacity.size) {
-                                // Handle ukuran type (with size instead of capacity_value)
-                                capacityHTML += `
-                                    <label class="filter-option">
-                                        <input type="radio" name="capacity" value="${capacity.size}">
-                                        ${capacity.size}
-                                    </label>
-                                `;
-                            }
-                        });
-                        $('#capacityContainer').html(capacityHTML); // Update the capacity container with options
-                    } else {
-                        $('#capacityContainer').html('<p>No capacity options available.</p>'); // Handle empty capacity case
+                response.capacities.forEach(capacity => {
+                    if (capacity.value) {
+                        capacityHTML += `
+                            <label class="filter-option">
+                                <input type="radio" name="capacity" value="${capacity.value}">
+                                ${capacity.value}
+                            </label>
+                        `;
+                    } else if (capacity.size) {
+                        capacityHTML += `
+                            <label class="filter-option">
+                                <input type="radio" name="capacity" value="${capacity.size}">
+                                ${capacity.size}
+                            </label>
+                        `;
                     }
-                },
-                error: function() {
-                    alert("Failed to load capacity options.");
-                }
-            });
-        } else {
-            $('#capacityContainer').hide(); // Hide the capacity container if no subcategory is selected
-        }
+                });
 
-        filterProducts();  // Call the filter function after the subcategory selection
-    });
+                // Update the capacity container
+                $('#capacityContainer').html(capacityHTML);
+            },
+            error: function() {
+                alert("Failed to load capacity options.");
+            }
+        });
+    } else {
+        $('#capacityContainer').hide(); // Hide capacity container if no subcategory is selected
+    }
+
+    filterProducts(); // Trigger filtering after subcategory change
+});
+
 
     // Trigger filtering when capacity is changed
     $('#capacityContainer').on('change', "input[name='capacity']", function() {
         filterProducts();
     });
 
+    function evaluateFilterVisibility(category, subcategory, capacity) {
+    console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+    
+    if (category || subcategory || capacity) {
+        console.log("At least one filter is selected, showing checkboxes.");
+        $('.compare-checkbox').show(); // Show checkboxes
+        $('.compare-label').show();
+    } else {
+        console.log("No filters selected, hiding checkboxes.");
+        $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+        $('.compare-label').hide();
+    }
+}
     // Function to filter products based on selected filters
     function filterProducts() {
-        const category = $("input[name='category']:checked").val();
-        const subcategory = $("input[name='subcategory']:checked").val();
-        const capacity = $("input[name='capacity']:checked").val(); // Capture the selected capacity
-        const search = $('#search').val();
-        const sort = $('#sort').val();
+    const category = $("input[name='category']:checked").val();
+    const subcategory = $("input[name='subcategory']:checked").val();
+    const capacity = $("input[name='capacity']:checked").val();
+    const search = $('#search').val();
+    const sort = $('#sort').val();
 
-        // Log values to verify they are captured correctly
-        console.log("Category:", category);
-        console.log("Subcategory:", subcategory); 
-        console.log("Capacity:", capacity); // Verify capacity value
-        console.log("Search:", search);
-        console.log("Sort:", sort);
+    console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
 
-        // Show loading indicator
-        $('#productGrid').html('<div class="loader">Loading...</div>');
+    $('#productGrid').html('<div class="loader">Loading...</div>');
 
-        $.ajax({
-            url: "<?= base_url('catalog/filterProducts') ?>",
-            type: "GET",
-            data: {
-                category: category,
-                subcategory: subcategory,
-                capacity: capacity, // Include the capacity filter in the request
-                search: search,
-                sort: sort
-            },
-            success: function(response) {
-                console.log("Response:", response);
-                $('#productGrid').html(response); // Replace product grid content
-            },
-            error: function() {
-                alert("Failed to filter products.");
-                $('#productGrid').html(''); // Clear the product grid in case of error
+    $.ajax({
+        url: "<?= base_url('catalog/filterProducts') ?>",
+        type: "GET",
+        data: {
+            category: category,
+            subcategory: subcategory,
+            capacity: capacity,
+            search: search,
+            sort: sort
+        },
+        success: function(response) {
+            console.log("Filter response:", response);
+            $('#productGrid').html(response); // Update product grid with filtered products
+
+            // Bind checkbox listeners again after the new content is loaded
+            bindCheckboxListener();
+
+            evaluateFilterVisibility(category, subcategory, capacity);
+
+            // Check if any products in the comparison list are still displayed
+            const comparisonContent = document.querySelector('.comparison-content');
+            if (comparisonContent.children.length > 0) {
+                openComparisonWidget(); // Display widget if products are in comparison
+            } else {
+                closeComparisonWidget(); // Hide widget if no products are selected
             }
-        });
-    }
+        },
+        error: function() {
+            alert("Failed to filter products.");
+            $('#productGrid').html(''); // Clear product grid on error
+        }
+    });
+}
 
     // Reset subcategory and capacity filters
 function resetFilters() {
@@ -376,26 +429,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const subcategoryContainer = document.getElementById("subcategoryContainer");
     const capacityContainer = document.getElementById("capacityContainer");
 
-    if (categoryRadios.length > 0) {
-        categoryRadios.forEach(radio => {
-            radio.addEventListener("change", function() {
-                if (this.value) {
-                    subcategoryContainer.style.display = 'block';
-                } else {
-                    subcategoryContainer.style.display = 'none';
-                    capacityContainer.style.display = 'none';
-                }
-            });
-        });
-    }
-
     const subcategoryRadios = document.querySelectorAll("input[name='subcategory']");
     if (subcategoryRadios.length > 0) {
         subcategoryRadios.forEach(radio => {
             radio.addEventListener("change", function() {
                 if (this.value) {
-                    capacityContainer.style.display = 'block';
-                } else {
                     capacityContainer.style.display = 'none';
                 }
             });
@@ -403,8 +441,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Function to toggle the filter options
-// Function to toggle the filter options and arrow direction
 // Function to toggle the filter options and arrow direction
 document.querySelectorAll('.filter-title').forEach(function(title) {
     title.addEventListener('click', function() {
@@ -416,9 +452,25 @@ document.querySelectorAll('.filter-title').forEach(function(title) {
 
         // Rotate the arrow inside the title
         if (target.classList.contains('show')) {
+            title.style.setProperty('background-color', '#d4d4d4');
             title.style.setProperty('--arrow-rotate', '90deg');
         } else {
+            title.style.setProperty('background-color', '#f9f9f9');
             title.style.setProperty('--arrow-rotate', '0deg');
+        }
+    });
+});
+
+document.querySelectorAll('.filter-option input[type="radio"]').forEach((radio) => {
+    radio.addEventListener('change', function () {
+        // Remove the "selected" class from all filter-option labels
+        document.querySelectorAll('.filter-option').forEach((label) => {
+            label.classList.remove('selected');
+        });
+
+        // Add the "selected" class to the parent label of the selected radio button
+        if (radio.checked) {
+            radio.closest('.filter-option').classList.add('selected');
         }
     });
 });
@@ -459,22 +511,25 @@ function closeComparisonWidget() {
 
 // Function to add a product to the comparison widget
 // Function to add a product to the comparison widget
-function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity) {
+function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity){ //productHarga,  {
     const comparisonContent = document.querySelector('.comparison-content');
     const existingItem = document.getElementById(`compare-item-${productId}`);
-
+    // Rest of your function here
     // Check if the item is already in the comparison widget
     if (!existingItem) {
         const comparisonItem = document.createElement('div');
         comparisonItem.classList.add('comparison-item');
         comparisonItem.id = `compare-item-${productId}`;
         comparisonItem.innerHTML = ` 
+                    <button class="btn-remove" onclick="removeFromComparison('${productId}')">X</button>
             <img src="${productImage}" alt="${productName}" style="width: 100px; height: auto;">
             <span>${productName}<br>
-            ${productCategory} - ${productSubcategory}<br>
-            ${productCapacity}</span>
-            <button onclick="removeFromComparison('${productId}')">Remove</button>
+            ${productCategory} ${productSubcategory}<br>
+            ${productCapacity}<br>
+            </span>
         `;
+        //pindahkan keatas kalau butuh
+        //<strong>${productHarga}</strong>
         comparisonContent.appendChild(comparisonItem);
     }
 
@@ -501,6 +556,20 @@ function removeFromComparison(productId) {
     }
 }
 
+function viewDetailedComparison() {
+    const productIds = Array.from(document.querySelectorAll('.comparison-item'))
+                            .map(item => item.id.replace('compare-item-', ''));
+    const queryString = productIds.map(id => `products[]=${id}`).join('&');
+    const selectedProducts = document.querySelectorAll('.comparison-item').length;
+
+    if (selectedProducts < 2) {
+        alert("Pilih minimal 2 produk untuk dibandingkan.");
+    } else {
+        // Proceed with the comparison
+        window.location.href = `catalog/compare?${queryString}`; // Update this with the actual path
+    }
+}
+
 // Event listener for each checkbox
 document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
@@ -510,6 +579,13 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
         const productCategory = this.getAttribute('data-product-category');
         const productSubcategory = this.getAttribute('data-product-subcategory');
         const productCapacity = this.getAttribute('data-product-capacity');
+        const selectedCount = document.querySelectorAll('.compare-checkbox:checked').length;
+// const productHarga = this.getAttribute('data-product-harga');
+        if (selectedCount > 3) {
+            alert("You can only compare up to 3 products.");
+            this.checked = false; // Uncheck if more than 3
+            return;
+        }
 
         if (this.checked) {
             // If no category is set, initialize it with the first product’s category
@@ -518,18 +594,18 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
                 if (productCategory === "SMALL APPLIANCES") {
                     comparisonSubcategory = productSubcategory;
                 }
-                addToComparison(productId, productName, productImage, productCategory,
-                    productSubcategory, productCapacity);
+                addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity,
+                    ); //productHarga);
             } else {
                 // Check if the selected product’s category matches the initial category
                 if (productCategory === comparisonCategory &&
                     (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory ===
                         comparisonSubcategory)) {
                     addToComparison(productId, productName, productImage, productCategory,
-                        productSubcategory, productCapacity);
+                        productSubcategory, productCapacity); //productHarga,) 
                 } else {
                     alert(
-                        "Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
+                        "Hanya bisa membandingkan produk dengan kategori yang sama (untuk kategori SMALL APPLIANCES, subkategori juga harus sama)");
                     this.checked = false; // Uncheck the box
                 }
             }
@@ -539,42 +615,56 @@ document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
     });
 });
 
-// Function to make the comparison widget draggable
-function makeWidgetMovable(widgetId) {
-    var widget = document.getElementById(widgetId);
-    var isDragging = false;
-    var offsetX, offsetY;
+function bindCheckboxListener() {
+    document.querySelectorAll('.compare-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const productId = this.getAttribute('data-product-id');
+            const productName = this.getAttribute('data-product-name');
+            const productImage = this.getAttribute('data-product-image');
+            const productCategory = this.getAttribute('data-product-category');
+            const productSubcategory = this.getAttribute('data-product-subcategory');
+            const productCapacity = this.getAttribute('data-product-capacity');
 
-    widget.addEventListener('mousedown', function(e) {
-        // Start dragging
-        isDragging = true;
-        offsetX = e.clientX - widget.getBoundingClientRect().left;
-        offsetY = e.clientY - widget.getBoundingClientRect().top;
 
-        // Change the cursor to indicate dragging
-        widget.style.cursor = 'grabbing';
-    });
-
-    window.addEventListener('mousemove', function(e) {
-        if (isDragging) {
-            // Move the widget as the mouse moves
-            var x = e.clientX - offsetX;
-            var y = e.clientY - offsetY;
-
-            widget.style.left = x + 'px';
-            widget.style.top = y + 'px';
-        }
-    });
-
-    window.addEventListener('mouseup', function() {
-        // Stop dragging when mouse is released
-        isDragging = false;
-        widget.style.cursor = 'move';
+                        //const productHarga = this.getAttribute('data-product-harga');
+            if (this.checked) {
+                if (!comparisonCategory) {
+                    comparisonCategory = productCategory;
+                    if (productCategory === "SMALL APPLIANCES") {
+                        comparisonSubcategory = productSubcategory;
+                    }
+                    addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity); //productHarga);
+                } else {
+                    if (productCategory === comparisonCategory &&
+                        (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory == comparisonSubcategory)) {
+                        addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity); //productHarga); 
+                    } else {
+                        alert("Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
+                        this.checked = false; // Uncheck the box
+                    }
+                }
+            } else {
+                removeFromComparison(productId);
+            }
+        });
     });
 }
 
-// Initialize the movable functionality for the comparison widget
-makeWidgetMovable('comparisonWidget');
+// Function to make the comparison widget draggable
+function toggleComparisonWidget() {
+    const widget = document.getElementById('comparisonWidget');
+    const button = document.getElementById('minimizeButton');
+
+    if (widget.classList.toggle('minimized')) {
+        // Change to up arrow (restore icon)
+        button.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    } else {
+        // Change to minimize icon (underscore)
+        button.innerHTML = '<i class="fas fa-chevron-down"></i>';
+    }
+}
+
+
 
 // Close the widget when the close button is clicked
 document.addEventListener('DOMContentLoaded', function() {
@@ -594,6 +684,338 @@ function resetComparisonFilters() {
     // Optionally, close the comparison widget if no products are selected
     closeComparisonWidget();
 }
+
+$(document).ready(function () {
+    // Check if filters are pre-applied (e.g., via query parameters)
+    const category = new URLSearchParams(window.location.search).get('category');
+    const subcategory = new URLSearchParams(window.location.search).get('subcategory');
+    const capacity = new URLSearchParams(window.location.search).get('ukuran'); // Assuming `ukuran` maps to capacity
+
+    console.log("Initial Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+
+    // Show/hide checkboxes and labels based on the current filters
+    evaluateFilterVisibility(category, subcategory, capacity);
+
+    // Optionally, trigger the initial filtering here
+    filterProducts();
+
+    function evaluateFilterVisibility(category, subcategory, capacity) {
+    console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+    
+    if (category || subcategory || capacity) {
+        console.log("At least one filter is selected, showing checkboxes.");
+        $('.compare-checkbox').show(); // Show checkboxes
+        $('.compare-label').show();
+    } else {
+        console.log("No filters selected, hiding checkboxes.");
+        $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+        $('.compare-label').hide();
+    }    
+    }
+});
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const sortDropdown = document.getElementById("sort");
+    const searchInput = document.getElementById("search");
+    const filterInputs = document.querySelectorAll("input[name='category'], input[name='subcategory'], input[name='capacity']");
+
+    // Helper function to update the URL with current filters, search, and sorting
+    const updateUrlWithFilters = () => {
+        const url = new URL(window.location.href);
+        const search = searchInput ? searchInput.value : '';
+        const sort = sortDropdown ? sortDropdown.value : '';
+
+        // Update URL with search and sort parameters
+        if (search) {
+            url.searchParams.set("search", search);
+        } else {
+            url.searchParams.delete("search");
+        }
+
+        if (sort) {
+            url.searchParams.set("sort", sort);
+        } else {
+            url.searchParams.delete("sort");
+        }
+
+        // Manually handle filter inputs (checkboxes, radio buttons, and text inputs)
+        filterInputs.forEach((input) => {
+            // For checkboxes and radio buttons: include the parameter if it's checked
+            if ((input.type === "checkbox" || input.type === "radio") && input.checked) {
+                url.searchParams.set(input.name, input.value);
+            }
+            // For text inputs, include the parameter when the field is not empty
+            if (input.type === "text" && input.value) {
+                url.searchParams.set(input.name, input.value);
+            }
+        });
+
+        return url;
+    };
+
+    // Event listener for sort change (without full page refresh)
+    if (sortDropdown) {
+        sortDropdown.addEventListener("change", function () {
+            const updatedUrl = updateUrlWithFilters();
+            history.pushState(null, '', updatedUrl.toString()); // Update URL without reloading page
+            filterProducts(); // Trigger filtering (reapply filters including sort)
+        });
+    }
+
+    // Event listener for search input
+    if (searchInput) {
+        searchInput.addEventListener("change", function (event) {
+            event.preventDefault();
+            const updatedUrl = updateUrlWithFilters();
+            history.pushState(null, '', updatedUrl.toString());
+            filterProducts(); // Trigger filtering
+        });
+
+        searchInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const updatedUrl = updateUrlWithFilters();
+                history.pushState(null, '', updatedUrl.toString());
+                filterProducts(); // Trigger filtering
+            }
+        });
+    }
+
+    // Event listeners for filter inputs (checkboxes and radios)
+    filterInputs.forEach((input) => {
+        input.addEventListener("change", function () {
+            const updatedUrl = updateUrlWithFilters();
+            history.pushState(null, '', updatedUrl.toString()); // Update URL without reloading page
+            filterProducts(); // Trigger filtering
+        });
+    });
+
+    function evaluateFilterVisibility(category, subcategory, capacity) {
+    console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+    
+    if (category || subcategory || capacity) {
+        console.log("At least one filter is selected, showing checkboxes.");
+        $('.compare-checkbox').show(); // Show checkboxes
+        $('.compare-label').show();
+    } else {
+        console.log("No filters selected, hiding checkboxes.");
+        $('.compare-checkbox').hide(); // Hide checkboxes if no filter is selected
+        $('.compare-label').hide();
+    }
+}
+    // Function to filter products based on selected filters
+    function filterProducts() {
+        const category = $("input[name='category']:checked").val();
+        const subcategory = $("input[name='subcategory']:checked").val();
+        const capacity = $("input[name='capacity']:checked").val();
+        const search = $('#search').val();
+        const sort = $('#sort').val();
+
+        console.log("Filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
+
+        $.ajax({
+            url: "<?= base_url('catalog/filterProducts') ?>",
+            type: "GET",
+            data: {
+                category: category,
+                subcategory: subcategory,
+                capacity: capacity,
+                search: search,
+                sort: sort
+            },
+            success: function(response) {
+            console.log("Filter response:", response);
+            $('#productGrid').html(response); // Update product grid with filtered products
+
+            // Bind checkbox listeners again after the new content is loaded
+            bindCheckboxListener();
+
+            // Show the checkboxes if at least one filter is selected
+            evaluateFilterVisibility(category, subcategory, capacity);
+
+            // Check if any products in the comparison list are still displayed
+            const comparisonContent = document.querySelector('.comparison-content');
+            if (comparisonContent.children.length > 0) {
+                openComparisonWidget(); // Display widget if products are in comparison
+            } else {
+                closeComparisonWidget(); // Hide widget if no products are selected
+            }
+        },
+        error: function() {
+            alert("Failed to filter products.");
+            $('#productGrid').html(''); // Clear product grid on error
+        }
+    });
+}
+    // Dynamically update subcategory options when category changes
+    $('#categoryContainer input[name="category"]').on('change', function() {
+        resetFilters();
+        const selectedCategory = $(this).val();
+
+        // Reset the capacity container visibility
+        $('#capacityContainer').hide();
+        $("input[name='capacity']").prop('checked', false); // Clear capacity selection
+
+        // Manually handle visibility of subcategory container
+        if (selectedCategory) {
+            // Fetch subcategories without triggering dropdown behavior
+            $.ajax({
+                url: '<?= base_url('catalog/getSubcategories') ?>',
+                type: 'GET',
+                data: { category: selectedCategory },
+                success: function(subcategories) {
+                    let subcategoryHTML = `
+                        <label class="filter-option">
+                            <input type="radio" name="subcategory" value="" checked>
+                            Semua Subkategori
+                        </label>
+                    `;
+                    
+                    subcategories.forEach(subcat => {
+                        subcategoryHTML += `
+                            <label class="filter-option">
+                                <input type="radio" name="subcategory" value="${subcat.subcategory_name}">
+                                ${subcat.subcategory_name}
+                            </label>
+                        `;
+                    });
+                    // Update subcategory container content
+                    $('#subcategoryContainer').html(subcategoryHTML);
+                    $('#subcategoryContainer');
+                    // Keep capacity container hidden until a subcategory is selected
+                    $('#capacityContainer').hide();
+                },
+                error: function() {
+                    alert("Failed to load subcategories.");
+                }
+            });
+        } else {
+            // Hide subcategory and capacity containers if no category is selected
+            $('#subcategoryContainer').hide();
+            $('#capacityContainer').hide();
+        }
+
+        filterProducts(); // Trigger filtering after category change
+    });
+
+    // Dynamically update capacity options when subcategory changes
+    $('#subcategoryContainer').on('change', "input[name='subcategory']", function() {
+        resetCapacity();
+        const selectedSubcategory = $(this).val();
+
+        // Manually show capacity container based on subcategory selection
+        if (selectedSubcategory) {
+            $('#capacityContainer').show(); // Show capacity container
+
+            $.ajax({
+                url: '<?= base_url('catalog/getCapacities') ?>',
+                type: 'GET',
+                data: { subcategory: selectedSubcategory },
+                success: function(response) {
+                    let capacityHTML = `
+                        <label class="filter-option">
+                            <input type="radio" name="capacity" value="" checked>
+                            Semua
+                        </label>
+                    `;
+
+                    response.capacities.forEach(capacity => {
+                        if (capacity.value) {
+                            capacityHTML += `
+                                <label class="filter-option">
+                                    <input type="radio" name="capacity" value="${capacity.value}">
+                                    ${capacity.value}
+                                </label>
+                            `;
+                        } else if (capacity.size) {
+                            capacityHTML += `
+                                <label class="filter-option">
+                                    <input type="radio" name="capacity" value="${capacity.size}">
+                                    ${capacity.size}
+                                </label>
+                            `;
+                        }
+                    });
+
+                    // Update the capacity container
+                    $('#capacityContainer').html(capacityHTML);
+                },
+                error: function() {
+                    alert("Failed to load capacity options.");
+                }
+            });
+        } else {
+            $('#capacityContainer').hide(); // Hide capacity container if no subcategory is selected
+        }
+
+        filterProducts(); // Trigger filtering after subcategory change
+    });
+
+    // Trigger filtering when capacity is changed
+    $('#capacityContainer').on('change', "input[name='capacity']", function() {
+        filterProducts();
+    });
+
+    // Reset subcategory and capacity filters
+    function resetFilters() {
+        // Reset the subcategory filter to ' ' (unselected state)
+        $("input[name='subcategory']").prop('checked', false);
+
+        // Reset the capacity filter to ' ' (unselected state)
+        $("input[name='capacity']").prop('checked', false);
+
+        // Optionally, clear the subcategory and capacity containers
+        $('#subcategoryContainer').html('');
+        $('#capacityContainer').html('');
+
+        // Reset the comparison widget visibility
+        $('#comparisonWidget').hide(); // Hide comparison widget initially
+    }
+
+    function resetCapacity() {
+        // Reset the capacity filter to ' ' (unselected state)
+        $("input[name='capacity']").prop('checked', false);
+
+        // Optionally, clear the capacity container
+        $('#capacityContainer').html('');
+    }
+
+    // Apply filters from URL on page load
+    function applyFiltersFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get category, subcategory, and capacity values from URL
+        const category = urlParams.get('category');
+        const subcategory = urlParams.get('subcategory');
+        const capacity = urlParams.get('capacity');
+        const sort = urlParams.get('sort');
+
+        if (category) {
+            $(`input[name="category"][value="${category}"]`).prop('checked', true);
+            $('#categoryContainer').show(); // Show category container
+        }
+
+        if (subcategory) {
+            $(`input[name="subcategory"][value="${subcategory}"]`).prop('checked', true);
+            $('#subcategoryContainer').show(); // Show subcategory container
+        }
+
+        if (capacity) {
+            $(`input[name="capacity"][value="${capacity}"]`).prop('checked', true);
+            $('#capacityContainer').show(); // Show capacity container
+        }
+
+        if (sort) {
+            $('#sort').val(sort); // Set the sort dropdown
+        }
+    }
+
+    // Trigger the filter re-application on page load
+    applyFiltersFromUrl();
+});
+
+
+
 
 </script>
 <?= $this->endSection() ?>

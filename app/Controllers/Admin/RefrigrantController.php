@@ -24,6 +24,9 @@ class RefrigrantController extends BaseController
     $data = [
         'type' => $this->request->getPost('type'),
     ];
+
+    $data['type'] = strtoupper($data['type']);
+
     if (!$refrigrantModel->save($data)) {
         return redirect()->back()->with('error', 'Failed to add Refrigrant Type.');
     }
@@ -39,8 +42,10 @@ class RefrigrantController extends BaseController
         $data = [
             'type' => $this->request->getPost('type'),
         ];
+
+        $data['type'] = strtoupper($data['type']);
         // Update the Kategori  in the database
-        if (!$kategoriModel->update($id, $data)) {
+        if (!$refrigrantModel->update($id, $data)) {
             return redirect()->back()->with('error', 'Failed to update Refrigrant Type.');
         }
 

@@ -24,10 +24,14 @@ class KategoriController extends BaseController
     $data = [
         'name' => $this->request->getPost('name'),
     ];
+    
+    $data['name'] = strtoupper($data['name']);
+
     if (!$kategoriModel->save($data)) {
         return redirect()->back()->with('error', 'Failed to add Category.');
     }
 
+    $data['name'] = strtoupper($data['name']);
     return redirect()->to('/admin/kategori')->with('success', 'Category added successfully.');
     }
 
@@ -39,6 +43,8 @@ class KategoriController extends BaseController
         $data = [
             'name' => $this->request->getPost('name'),
         ];
+
+        $data['name'] = strtoupper($data['name']);
         // Update the Kategori  in the database
         if (!$kategoriModel->update($id, $data)) {
             return redirect()->back()->with('error', 'Failed to update Kategori.');

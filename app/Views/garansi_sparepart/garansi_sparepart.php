@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<?= $this->include('partials/headbar')?>
-<?= $this->include('partials/sidebar')?>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <section class="background" style="padding: 20px; background-color: #f0f0f5;">
-  <title>Kelola Garansi Sparepart</title>
+<?= $this->extend('partials/main') ?>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-  <style>
+<?= $this->section('css') ?>
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<style>
     .modal {
       display: none;
       position: fixed;
@@ -52,10 +39,33 @@
       cursor: pointer;
     }
   </style>
-</head>
-<body>
+<?= $this->endSection() ?>
+
+<?= $this->section('title') ?>
+Manajemen Garansi Sparepart
+<?= $this->endSection() ?>
+
+<?= $this->section('breadcumb') ?>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Garansi Sparepart</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
+                    <li class="breadcrumb-item active">Garansi Sparepart</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
     <!-- Main content -->
-    <section class="content" style="margin-left: 290px; padding: 20px; margin-top: 80px;">
+    <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -101,7 +111,7 @@
         <?= csrf_field() ?>
         <div class="form-group">
             <label for="value">Garansi Sparepart (Tahun)</label>
-            <input type="text" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)">
+            <input type="number" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -117,7 +127,7 @@
         <?= csrf_field() ?> 
           <div class="form-group">
             <label for="value">Garansi Sparepart (Tahun)</label>
-            <input type="text" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)" required>
+            <input type="number" id="editValue" class="form-control" name="value" placeholder="Garansi Sparepart (Tahun)" required>
           </div>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
@@ -137,7 +147,9 @@
         </form>
       </div>
     </div>
+    <?= $this->endSection() ?>
 
+<?= $this->section('js') ?>
     <script>
       // Modal for Adding sparepartwarranty
       var addModal = document.getElementById("myModal");
@@ -239,5 +251,4 @@
   });
 });
 </script>
-                </section>
-</body>
+<?= $this->endSection() ?>

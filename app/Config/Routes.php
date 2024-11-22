@@ -7,6 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  * 
  */
 $routes->get('/', 'AuthController::login', ['as' => 'login']);
+$routes->get('register', 'AuthController::register');
+$routes->post('register/send', 'AuthController::registration');
 $routes->post('login/auth', 'AuthController::authenticate');
 $routes->get('logout', 'AuthController::logout');
 
@@ -45,11 +47,14 @@ $routes->group('product', ['filter' => 'auth'], function ($routes) {
     $routes->get('thank_you', 'ProductController::thank_you');
 });
 
-$routes->group('catalog', ['filter' => 'auth'], function ($routes) {
+$routes->group('catalog', function ($routes) {
 $routes->get('', 'CatalogController::catalog');
+$routes->get('details/(:num)', 'CatalogController::details/$1');
 $routes->get('filterProducts', 'CatalogController::filterProducts');
 $routes->get('getSubcategories', 'CatalogController::getSubcategories');
 $routes->get('getCapacities', 'CatalogController::getCapacities');
+$routes->get('getComparisonWidget', 'CatalogController::getComparisonWidget');
+$routes->get('compare', 'CatalogController::CompareDetails');
 });
 
 $routes->group('reset', ['filter' => 'auth'], function ($routes) {
@@ -72,9 +77,14 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->get('user/addUser', 'Superadmin\UserController::addUser');
     $routes->post('user/saveUser', 'Superadmin\UserController::saveUser');
     $routes->get('user/editUser/(:num)', 'Superadmin\UserController::editUser/$1');
+    $routes->post('user/resetPassword/(:num)', 'Superadmin\UserController::resetPassword/$1');
     $routes->post('user/updateUser/(:num)', 'Superadmin\UserController::updateUser/$1');
     $routes->get('user/deleteUser/(:num)', 'Superadmin\UserController::deleteUser/$1'); // Correct namespace
 
+    $routes->get('marketplace', 'SuperadminController::marketplace');
+    $routes->post('marketplace/saveMarketplace', 'SuperadminController::saveMarketplace');
+    $routes->post('marketplace/updateMarketplace/(:num)', 'SuperadminController::updateMarketplace/$1');
+    $routes->get('marketplace/deleteMarketplace/(:num)', 'SuperadminController::deleteMarketplace/$1');
     // Superadmin product approvals/rejections
     $routes->get('product/approved', 'ProductController::approved');
     $routes->get('product/rejected', 'ProductController::rejected');
@@ -82,6 +92,7 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->post('updatePower', 'ProductController::updatePower');
     $routes->post('updateWeight', 'ProductController::updateWeight');
     $routes->post('updateColdCap', 'ProductController::updateColdCap');
+    $routes->post('updateHarga', 'ProductController::updateHarga');
     $routes->post('updateHotCap', 'ProductController::updateHotCap');
     $routes->post('updateCooling', 'ProductController::updateCooling');
     $routes->post('updateCspf', 'ProductController::updateCspf');
@@ -115,7 +126,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('kategori', 'Admin\KategoriController::index');
     $routes->post('kategori/saveKategori', 'Admin\KategoriController::saveKategori');
     $routes->post('kategori/updateKategori/(:num)', 'Admin\KategoriController::updateKategori/$1');
-    $routes->post('kategori/deleteKategori/(:num)', 'Admin\KategoriController::deleteKategori/$1');
+    $routes->get('kategori/deleteKategori/(:num)', 'Admin\KategoriController::deleteKategori/$1');
 
     // Subkategori Management
     $routes->get('subkategori', 'Admin\SubkategoriController::index');
@@ -127,7 +138,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('kapasitas', 'Admin\KapasitasController::index');
     $routes->post('kapasitas/saveKapasitas', 'Admin\KapasitasController::saveKapasitas');
     $routes->post('kapasitas/updateKapasitas/(:num)', 'Admin\KapasitasController::updateKapasitas/$1');
-    $routes->post('kapasitas/deleteKapasitas/(:num)', 'Admin\KapasitasController::deleteKapasitas/$1');
+    $routes->get('kapasitas/deleteKapasitas/(:num)', 'Admin\KapasitasController::deleteKapasitas/$1');
 
     // Garansi Kompresor Management
     $routes->get('garansi_kompresor', 'Admin\GaransiKompresorController::index');
@@ -144,7 +155,7 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('ukuran', 'Admin\UkuranController::index');
     $routes->post('ukuran/saveUkuran', 'Admin\UkuranController::saveUkuran');
     $routes->post('ukuran/updateUkuran/(:num)', 'Admin\UkuranController::updateUkuran/$1');
-    $routes->post('ukuran/deleteUkuran/(:num)', 'Admin\UkuranController::deleteUkuran/$1');
+    $routes->get('ukuran/deleteUkuran/(:num)', 'Admin\UkuranController::deleteUkuran/$1');
 
     $routes->get('refrigrant', 'Admin\RefrigrantController::index');
     $routes->post('refrigrant/saveRefrigrant', 'Admin\RefrigrantController::saveRefrigrant');
@@ -155,6 +166,11 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->post('garansi_motor/saveGaransiMotor', 'Admin\GaransiMotorController::saveGaransiMotor');
     $routes->post('garansi_motor/updateGaransiMotor/(:num)', 'Admin\GaransiMotorController::updateGaransiMotor/$1');
     $routes->post('garansi_motor/deleteGaransiMotor/(:num)', 'Admin\GaransiMotorController::deleteGaransiMotor/$1');
+
+    $routes->get('garansi_panel', 'Admin\GaransiPanelController::index');
+    $routes->post('garansi_panel/saveGaransiPanel', 'Admin\GaransiPanelController::saveGaransiPanel');
+    $routes->post('garansi_panel/updateGaransiPanel/(:num)', 'Admin\GaransiPanelController::updateGaransiPanel/$1');
+    $routes->post('garansi_panel/deleteGaransiPanel/(:num)', 'Admin\GaransiPanelController::deleteGaransiPanel/$1');
 
     $routes->get('garansi_service', 'Admin\GaransiServiceController::index');
     $routes->post('garansi_service/saveGaransiService', 'Admin\GaransiServiceController::saveGaransiService');

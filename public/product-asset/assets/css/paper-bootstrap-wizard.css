@@ -106,11 +106,13 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .form-control {
-  background-color: #F3F2EE;
+  background-color: #Fff;
   border: 1px solid #e8e7e3;
   border-radius: 4px;
-  color: #66615b;
+  color: #000;
   font-size: 14px;
+  width:98%;
+  margin-left:5px;
   padding: 7px 18px;
   height: 40px;
   -webkit-box-shadow: none;
@@ -133,16 +135,20 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
   border-color: #00A9EE;
 }
 .has-success .form-control, .form-control.valid {
-  color: #66615b;
-  border-color: #e8e7e3;
+  color: #fff;
+  border-color: #00bfff;
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+  color:#000;
 }
 .has-error .form-control:focus, .form-control.error:focus {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-color: #00A9EE;
 }
 .has-success .form-control:focus, .form-control.valid:focus {
-  background-color: #FFFFFF;
-  border-color: #7AC29A;
+  background-color: #FFF;
+  border-color: #1e90ff;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.8);
+  color:#000;
 }
 .form-control + .form-control-feedback {
   border-radius: 6px;
@@ -235,7 +241,7 @@ label.error:not(.form-control) {
 }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background-color: #E3E3E3;
+  background-color: #fff;
   cursor: not-allowed;
   color: #9A9A9A;
   opacity: 1;

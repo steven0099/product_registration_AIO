@@ -8,6 +8,7 @@ use App\Models\SubcategoryModel;
 use App\Models\CapacityModel;
 use App\Models\UkuranModel;
 use App\Models\ProductModel;
+use App\Models\MarketplaceModel;
 
 class CatalogController extends BaseController
 {
@@ -17,6 +18,7 @@ class CatalogController extends BaseController
     protected $ukuranModel;
     protected $confirmationModel;
     protected $productModel;
+    protected $marketplaceModel;
 
     public function __construct()
     {
@@ -27,24 +29,46 @@ class CatalogController extends BaseController
         $this->ukuranModel = new UkuranModel();
         $this->subcategoryModel = new SubcategoryModel();
         $this->confirmationModel = new ConfirmationModel();
+        $this->marketplaceModel = new MarketplaceModel();
     }
 
     public function catalog()
     {
-        // Get GET parameters
+        // Get query parameters
+        $category = $this->request->getGet('category');
+        $subcategory = $this->request->getGet('subcategory');
+        $capacity = $this->request->getGet('capacity');
         $search = $this->request->getGet('search') ?? '';
-        $sort = $this->request->getGet('sort') ?? 'name_asc';
-        $page = $this->request->getGet('page') ?? 1;
+        $sort = $this->request->getGet('sort') ?? 'id_asc';
     
-        // Start the query on confirmationModel
+        // Start building the query
         $query = $this->confirmationModel->where('status', 'approved');
     
-        // Apply search filter for product_type and brand
-        if ($search) {
-            $query->groupStart()  // Start of the OR condition group
+        // Apply category filter
+        if (!empty($category)) {
+            $query->where('category', $category);
+        }
+    
+        // Apply subcategory filter
+        if (!empty($subcategory)) {
+            $query->where('subcategory', $subcategory);
+        }
+    
+        // Apply capacity filter
+        if (!empty($capacity)) {
+            $query->where('capacity', $capacity);
+        }
+    
+        // Apply search filter (for product_type, brand, or capacity)
+        if (!empty($search)) {
+            $query->groupStart()
                 ->like('product_type', $search)
-                ->orLike('brand', $search)  // Searching both product_type and brand
-                ->groupEnd();  // End of the OR condition group
+                ->orLike('brand', $search)
+                ->orLike('category', $search)
+                ->orLike('subcategory', $search)
+                ->orLike('capacity', $search)
+                ->orLike('ukuran', $search)
+                ->groupEnd();
         }
     
         // Apply sorting
@@ -61,82 +85,152 @@ class CatalogController extends BaseController
             case 'capacity_desc':
                 $query->orderBy('capacity', 'DESC');
                 break;
+            case 'date_asc':
+                $query->orderBy('approved_at', 'ASC');
+                break;
+            case 'date_desc':
+                $query->orderBy('approved_at', 'DESC');
+                break;
             default:
-                $query->orderBy('id', 'ASC');
+                $query->orderBy('product_type', 'ASC'); // Default sorting
                 break;
         }
-        
+    
         // Pagination
         $perPage = 15;
-        $totalProducts = $query->countAllResults(false);  // Get the total count after applying filters
+        $currentPage = $this->request->getGet('page') ?? 1;
+        $products = $query->paginate($perPage, 'default', $currentPage);
     
-        $pager = \Config\Services::pager();
-        $products = $query->paginate($perPage, 'default', $page);
-    
-        // Get unique filter options
+        // Fetch distinct filter options
         $categories = $this->confirmationModel->distinct()->select('category')->findAll();
         $subcategories = $this->confirmationModel->distinct()->select('subcategory')->findAll();
         $capacities = $this->confirmationModel->distinct()->select('capacity')->findAll();
         $ukuran = $this->confirmationModel->distinct()->select('ukuran')->findAll();
-    
-        // Pass data to the view
+        // Return the view
+
+        log_message('info', 'Category: ' . $category);
+log_message('info', 'Subcategory: ' . $subcategory);
+log_message('info', 'Capacity: ' . $capacity);
+log_message('info', 'Search: ' . $search);
+log_message('info', 'Sort: ' . $sort);
+
         return view('catalog/catalog', [
             'products' => $products,
-            'pager' => $pager,
-            'search' => $search,
-            'sort' => $sort,
+            'pager' => $this->confirmationModel->pager,
             'categories' => $categories,
             'subcategories' => $subcategories,
             'capacities' => $capacities,
-            'ukuran' => $ukuran
+            'search' => $search,
+            'sort' => $sort,
+            'ukuran' => $ukuran,
+            'category' => $category,
+            'subcategory' => $subcategory,
+            'capacity' => $capacity,
         ]);
     }
     
-
-    public function filterProducts()
+    public function CompareDetails()
     {
-        $categoryName = $this->request->getGet('category');
-        $subcategoryName = $this->request->getGet('subcategory'); // Updated variable name for clarity
-        $capacity = $this->request->getGet('capacity');
-    
-        // Map category name to category_id
-        $categoryId = $categoryName ? $this->getCategoryIdByName($categoryName) : null;
-    
-        // Retrieve the subcategory ID based on the selected name
-        $subcategoryId = $subcategoryName ? $this->getSubcategoryIdByName($subcategoryName) : null;
-    
-        $query = $this->confirmationModel->where('status', 'approved');
-    
-        // Apply filters based on category and subcategory
-        if ($categoryName) $query->where('category', $categoryName);
-        if ($subcategoryName) $query->where('subcategory', $subcategoryName); // Ensure you're using subcategory_id
-    
-        // Check if the capacity or ukuran filter should be applied
-        if ($capacity) {
-            $filterType = $this->getFilterType($categoryId, $subcategoryId);
-    
-            // Log filter type for debugging
-            log_message('debug', 'Filter Type: ' . $filterType);
-    
-            if ($filterType === 'capacity') {
-                // Compare by string directly
-                $query->where('capacity', $capacity); // No need for conversion, just compare strings
-            } elseif ($filterType === 'ukuran') {
-                // Compare ukuran directly as a string as well
-                $query->where('ukuran', $capacity); // Compare as string
-            }
+        $productIds = $this->request->getGet('products');
+        if (empty($productIds)) {
+            return redirect()->to('/catalog');
         }
     
-        $data['products'] = $query->findAll();
-    
-        // Log the filter values and the resulting query data
-        log_message('debug', 'Filter - Category: ' . $categoryName);
-        log_message('debug', 'Filter - Subcategory: ' . $subcategoryName);
-        log_message('debug', 'Filter - Capacity/Ukuran: ' . $capacity);
-        log_message('debug', 'Query Result: ' . print_r($data['products'], true));
-    
-        return view('partials/product_grid', $data);
+        $products = $this->confirmationModel->whereIn('id', $productIds)->findAll();
+        return view('catalog/comparison_details', ['products' => $products]);
     }
+
+public function filterProducts()
+{
+    // Get all query parameters
+    $categoryName = $this->request->getGet('category');
+    $subcategoryName = $this->request->getGet('subcategory');
+    $capacity = $this->request->getGet('capacity');
+    $search = $this->request->getGet('search') ?? '';  // Default to empty if no search
+    $sort = $this->request->getGet('sort') ?? 'id_asc'; // Default to 'id_asc' if no sort
+
+    // Map category and subcategory names to IDs (optional, if required)
+    $categoryId = $categoryName ? $this->getCategoryIdByName($categoryName) : null;
+    $subcategoryId = $subcategoryName ? $this->getSubcategoryIdByName($subcategoryName) : null;
+
+    // Build the query
+    $query = $this->confirmationModel->where('status', 'approved');
+
+    // Apply category filter
+    if (!empty($categoryName)) {
+        $query->where('category', $categoryName);
+    }
+
+    // Apply subcategory filter
+    if (!empty($subcategoryName)) {
+        $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
+    }
+
+    // Apply capacity or ukuran filter
+    if (!empty($capacity)) {
+        // Determine filter type based on category and subcategory
+        $filterType = $this->getFilterType($categoryId, $subcategoryId);
+
+        log_message('debug', 'Filter Type: ' . $filterType);
+
+        if ($filterType === 'capacity') {
+            $query->where('capacity', $capacity);
+        } elseif ($filterType === 'ukuran') {
+            $query->where('ukuran', $capacity);  // Compare ukuran directly as a string
+        }
+    }
+
+    // Apply search filter (search across multiple fields)
+    if (!empty($search)) {
+        $query->groupStart()
+            ->like('product_type', $search)
+            ->orLike('brand', $search)
+            ->orLike('category', $search)
+            ->orLike('subcategory', $search)
+            ->orLike('capacity', $search)
+            ->orLike('ukuran', $search)
+            ->groupEnd();
+    }
+
+    // Apply sorting based on the selected sort option
+    switch ($sort) {
+        case 'name_asc':
+            $query->orderBy('product_type', 'ASC');
+            break;
+        case 'name_desc':
+            $query->orderBy('product_type', 'DESC');
+            break;
+        case 'capacity_asc':
+            $query->orderBy('capacity', 'ASC');
+            break;
+        case 'capacity_desc':
+            $query->orderBy('capacity', 'DESC');
+            break;
+            case 'date_asc':
+                $query->orderBy('approved_at', 'ASC');
+                break;
+            case 'date_desc':
+                $query->orderBy('approved_at', 'DESC');
+                break;
+        default:
+            $query->orderBy('id', 'ASC'); // Default sorting
+            break;
+    }
+
+    // Fetch the filtered products
+    $data['products'] = $query->findAll();
+
+    // Log the filter values and the resulting query data
+    log_message('debug', 'Filter - Category: ' . $categoryName);
+    log_message('debug', 'Filter - Subcategory: ' . $subcategoryName);
+    log_message('debug', 'Filter - Capacity/Ukuran: ' . $capacity);
+    log_message('debug', 'Filter - Search: ' . $search);
+    log_message('debug', 'Query Result: ' . print_r($data['products'], true));
+
+    // Return the view with filtered products
+    return view('partials/product_grid', $data);
+}
+
     
 // For dynamically updating subcategory options
 public function getSubcategories()
@@ -234,7 +328,7 @@ public function getCapacities()
         $filterType = $this->getFilterType($categoryId, $subcategoryId);
 
         // Determine if the capacity dropdown should be shown
-        $showCapacity = !in_array($subcategoryId, [35, 36]);
+        $showCapacity = !in_array($subcategoryId, [35, 36,42,52]);
 
         if ($filterType === 'capacity') {
             $capacities = $this->capacityModel->where('subcategory_id', $subcategoryId)->findAll();
@@ -285,5 +379,73 @@ private function getCategoryIdBySubcategory($subcategoryName)
     }
 }
 
+public function details($id)
+{
+    $model = new ConfirmationModel();
+    $marketplacemodel = new MarketplaceModel();
+    $marketplace = $marketplacemodel->findAll();
+    $product = $model->find($id);
 
+    if (!$product) {
+        show_404();
+    }
+
+    // Fetch related products based on category and capacity/ukuran, excluding the current product
+    $relatedProducts = $model->getRelatedProducts(
+        $product['category'],
+        $product['capacity'],
+        $product['ukuran'],
+        $id
+    );
+
+    // Special logic for 'SMALL APPLIANCES' category to include subcategory in related products
+    if ($product['category'] == "SMALL APPLIANCES") {
+        $relatedProducts = $model->getRelatedProducts(
+            $product['subcategory'], // Check by subcategory for this category
+            $product['capacity'],
+            $product['ukuran'],
+            $id
+        );
+    }
+
+    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA" || $product['subcategory'] == "AIR PURIFIER" ) {
+        $relatedProducts = $model->getRelatedProductsBySubcategoryOnly(
+            $product['subcategory'], // Check by subcategory for this category
+            $id // Pass only the product ID to exclude the current product
+        );
+    }
+    
+    // Check if there's a video link, and extract the video ID if it exists
+   // Check if there's a video link, and extract the video ID if it exists
+   $videoId = '';
+   $embedUrl = '';
+   $thumbnailUrl = '';
+   
+   if (!empty($product['video_produk'])) {
+       // Display the video link for debugging
+       log_message('debug', 'Video link: ' . $product['video_produk']);
+   
+       // Use regex to extract only the video ID, ignoring any additional parameters
+       if (preg_match('/(?:youtube\.com\/.*v=|youtu\.be\/)([^&?]+)/', $product['video_produk'], $matches)) {
+           $videoId = $matches[1];
+       }
+   
+       if ($videoId) {
+           // Create YouTube embed and thumbnail URLs
+           $embedUrl = "https://www.youtube.com/embed/{$videoId}";
+           $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
+       }
+   }
+   
+   // Pass the data to the view
+   return view('catalog/details', [
+       'product' => $product,
+       'marketplace' => $marketplace,
+       'relatedProducts' => $relatedProducts,
+       'videoId' => $videoId,
+       'embedUrl' => $embedUrl,
+       'thumbnailUrl' => $thumbnailUrl,
+   ]);
+   
+}
 }

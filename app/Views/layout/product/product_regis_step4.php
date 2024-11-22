@@ -19,6 +19,31 @@
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
 
     <style>
+
+input.form-control:-webkit-autofill {
+    box-shadow:  0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid #00bfff; /* Blue border */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
+
+input.form-control:-webkit-autofill:focus {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid #00bfff; /* Blue border */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
+/* For valid autofill (if manually validated with Bootstrap classes) */
+input.form-control:-webkit-autofill.form-control.valid {
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5),
+                0 0 0 30px white inset !important; /* White background for content */
+    -webkit-text-fill-color: #000 !important; /* Default text color */
+    border: 2px solid rgba(0, 191, 255, 0.8); /* Blue border */
+    border-color: #00bfff;
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
+}
         input[type="text"],
         input[type="file"],
         input[type="number"],
@@ -32,6 +57,8 @@
             outline: none;
             /* Menghilangkan outline default */
             box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+            background-color:#fff;
+            color:#000;
             /* Menambahkan efek bayangan */
         }
 
@@ -39,10 +66,15 @@
         input[type="file"]:focus,
         input[type="number"]:focus,
         input[type="video"]:focus {
-            border-color: #1E90FF;
+            border: 2px solid #00bfff;
             /* Warna biru yang lebih tua saat input difokuskan */
             box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
             /* Bayangan yang lebih terang saat difokuskan */
+        }
+
+        input[type="file"].image-uploaded {
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7);
+            /* Bayangan tetap sama setelah upload */
         }
 
         select {
@@ -110,6 +142,14 @@
             /* Change cursor to indicate it's disabled */
         }
 
+        .icon-circle.filled {
+            border-color: #00a9ee;
+            /* Ganti dengan warna tema Anda */
+        }
+
+        .ti-package.filled {
+            color: #00a9ee;
+        }
 
         @media (max-width: 600px) {
 
@@ -138,7 +178,7 @@
                                         <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
-                                        <h3 class="" style="font-weight: 700;margin-top: 0;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
+                                        <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>
                                     </div>
                                 </div>
                             </div>
@@ -150,25 +190,25 @@
                                     <li>
                                         <a href="#general" data-toggle="tab" class="disabled-link">
                                             <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            General Data
+                                            <span style="color: #00a9ee;">Informasi Umum</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#specification" data-toggle="tab" class="disabled-link">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                            <div class="icon-circle filled">
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Spesifikasi Produk
+                                            <span style="color: #00a9ee;">Spesifikasi Produk</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#advantages" data-toggle="tab" onclick="history.back();">
-                                            <div class="icon-circle">
-                                                <i class="ti-package"></i>
+                                            <div class="icon-circle filled">
+                                                <i class="ti-package filled"></i>
                                             </div>
-                                            Keunggulan Produk
+                                            <span style="color: #00a9ee;">Keunggulan Produk</span>
                                         </a>
                                     </li>
                                     <li>
@@ -211,22 +251,22 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_depan">Gambar Tampak Depan</label>
-                                                    <input type="file" id="gambar_depan" name="gambar_depan" class="form-control" required>
+                                                    <input type="file" id="gambar_depan" name="gambar_depan" value="<?= session()->get("step4")["gambar_depan"] ?? '' ?>" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" class="form-control" required>
+                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" value="<?= session()->get("step4")["gambar_samping_kanan"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_atas">Gambar Tampak Atas</label>
-                                                    <input type="file" id="gambar_atas" name="gambar_atas" class="form-control" required>
+                                                    <input type="file" id="gambar_atas" name="gambar_atas" value="<?= session()->get("step4")["gambar_atas"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="video_produk">Video Produk (YouTube Link)</label>
-                                                    <input type="text" id="video_produk" name="video_produk" class="form-control" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" required pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
+                                                    <input type="text" id="video_produk" name="video_produk" value="<?= session()->get("step4")["video_produk"] ?? '' ?>" class="form-control" placeholder="https://www.youtube.com/watch?v=XXXXXXXXX" pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$">
                                                 </div>
 
                                             </div>
@@ -236,19 +276,18 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" class="form-control" required>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" class="form-control" required>
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" class="form-control" required>
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="gambar_bawah">Gambar Tampak Bawah</label>
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
+                                                </div>
 
                                             </div>
 
@@ -258,16 +297,19 @@
                                 <div class="wizard-footer">
                                     <div class="pull-right">
                                         <!-- Submit Button -->
-                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Selanjutnya' style="margin-right: 25px;" />
+                                        <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Konfirmasi' />
                                     </div>
 
                                     <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' onclick="history.back();" />
+
+                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Kembali' style="margin-left: 25px;" onclick="history.back();" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
+                            <p class="form-note" style="margin-left: 46px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
+
                         </div>
                     </div> <!-- wizard container -->
                 </div>
@@ -307,6 +349,13 @@
 <script>
     $(document).ready(function() {
         $('a[href="#photos"]').tab('show'); // Activate the upload photos tab
+    });
+
+    document.querySelector('form').addEventListener('submit', function() {
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput.files.length > 0) {
+            fileInput.classList.add('image-uploaded'); // Tambahkan kelas untuk menandai bahwa gambar telah di-upload
+        }
     });
 </script>
 

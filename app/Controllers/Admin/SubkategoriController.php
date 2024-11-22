@@ -12,13 +12,27 @@ class SubkategoriController extends BaseController
     {
         $subcategoryModel = new SubcategoryModel();
         $categoryModel = new CategoryModel();
-        
+
+        $subcategoryId = $this->request->getVar('id'); // or from URL parameter if passed via URL
+
+    
+        // Assuming you're editing an existing subcategory, get the selected category ID
+        $selected_category_id = null;
+        if ($subcategoryId) {
+            $subcategory = $subcategoryModel->find($subcategoryId);
+            if ($subcategory) {
+                $selected_category_id = $subcategory['category_id']; // Get the category ID
+            }
+        }
+    
         $data['subkategori'] = $subcategoryModel->getSubcategoriesWithCategory(); // Get subcategories with category data
         $data['categories'] = $categoryModel->getCategories(); // Fetch categories for the dropdown
-    
+        $data['selected_category_id'] = $selected_category_id; // Pass the selected category ID to the view
+        $data['subcategoryId'] = $subcategoryId;
+
         return view('subkategori/subkategori', $data); // Pass the data to the view
     }
-
+    
     public function saveSubkategori()
     {
         $subcategoryModel = new SubcategoryModel();
@@ -35,6 +49,8 @@ class SubkategoriController extends BaseController
             'category_id' => $this->request->getPost('category_id'), // Get category_id from the form
         ];
         
+        
+    $data['name'] = strtoupper($data['name']);
         $subcategoryModel->save($data);
         
         return redirect()->to('/admin/subkategori')->with('success', 'Subcategory added successfully.');
@@ -55,6 +71,7 @@ class SubkategoriController extends BaseController
             'category_id' => $this->request->getPost('category_id'), // Update category_id
         ];
     
+        $data['name'] = strtoupper($data['name']);
         // Update the Subkategori in the database
         if (!$subcategoryModel->update($id, $data)) {
             return redirect()->back()->with('error', 'Failed to update Subkategori.');

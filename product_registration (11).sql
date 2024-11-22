@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2024 at 05:41 AM
+-- Generation Time: Nov 14, 2024 at 11:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -111,7 +111,17 @@ INSERT INTO `capacities` (`id`, `subcategory_id`, `value`) VALUES
 (58, 4, '60 L'),
 (59, 4, '128 L'),
 (60, 4, '133 L'),
-(61, 38, '1.3 L');
+(61, 38, '1.3 L'),
+(66, 33, '1.2 L'),
+(67, 43, '0.3 L'),
+(68, 44, '20 L'),
+(69, 45, '1 TUNGKU'),
+(70, 46, '1 TUNGKU'),
+(71, 48, '4 SLICE'),
+(72, 49, '1 L'),
+(73, 6, '100 L'),
+(74, 53, '500 ML'),
+(75, 54, '2.4 L');
 
 -- --------------------------------------------------------
 
@@ -245,6 +255,26 @@ INSERT INTO `garansi_semua_service` (`id`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `marketplaces`
+--
+
+CREATE TABLE `marketplaces` (
+  `id` int(11) NOT NULL,
+  `location` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `marketplaces`
+--
+
+INSERT INTO `marketplaces` (`id`, `location`) VALUES
+(1, 'Test Location 1'),
+(2, 'Cirebon'),
+(6, 'Tasikmalaya');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -322,7 +352,11 @@ INSERT INTO `products` (`id`, `brand_id`, `category_id`, `subcategory_id`, `capa
 (123, 16, 10, 31, NULL, NULL, NULL, NULL, NULL, NULL, 3, 7, 'ABCD09', 'KUNING', NULL, NULL, '2024-11-08 08:30:05', '2024-11-08 08:30:05'),
 (124, 24, 10, 36, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, 'J2EI0EP1S', 'PUTIH', '9', NULL, '2024-11-08 08:32:51', '2024-11-08 08:32:51'),
 (125, 24, 10, 36, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, 'J2EI0EP1S', 'PUTIH', '9', '10', '2024-11-08 08:33:17', '2024-11-08 08:33:17'),
-(126, 24, 5, 9, 55, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'UNGU', NULL, NULL, '2024-11-10 00:34:32', '2024-11-10 00:34:32');
+(126, 24, 5, 9, 55, 1, 1, NULL, NULL, NULL, NULL, NULL, 'ABCD09', 'UNGU', NULL, NULL, '2024-11-10 00:34:32', '2024-11-10 00:34:32'),
+(127, 17, 10, 42, NULL, NULL, 4, 2, NULL, NULL, NULL, NULL, 'JFQ0WFJ', 'PUTIH', NULL, NULL, '2024-11-12 04:09:08', '2024-11-12 04:09:08'),
+(128, 1, 10, 47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'JDWQD0QW', 'HIJAU', NULL, NULL, '2024-11-12 06:33:55', '2024-11-12 06:33:55'),
+(129, 11, 10, 52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'JJ09WEFFC', 'HITAM', NULL, NULL, '2024-11-14 03:09:32', '2024-11-14 03:09:32'),
+(130, 25, 10, 52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D0WFIEW1A', 'MERAH', NULL, NULL, '2024-11-14 03:15:58', '2024-11-14 03:15:58');
 
 -- --------------------------------------------------------
 
@@ -439,14 +473,14 @@ INSERT INTO `product_submissions` (`id`, `product_id`, `brand`, `category`, `sub
 (77, 77, 'CHANGHONG', 'AC', 'SPLIT STANDARD', 'ABCD09', 'MERAH', '0,75 PK', NULL, NULL, NULL, NULL, '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', NULL, ' x ', '1', '<1', '<1', NULL, '1', '2', '3', '', '', '', '1730078608_60fc8860690082794285.png', '1730078608_85bc4383f384abf12e41.png', '1730078608_f8b5bc7dbc4a1e263789.png', '1730078608_4f4c0ea18a9c06daaea6.png', '1730078608_06ba7f22e505294a8d27.png', '1730078608_b1ddff2963258452219d.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-28 01:23:28', NULL, NULL, '2024-10-28 01:19:37', '2024-10-28 01:23:28'),
 (78, 78, 'BEKO', 'AC', 'SPLIT STANDARD', 'ABCD09', 'MERAH', '0,5 PK', NULL, NULL, NULL, NULL, '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', NULL, ' x ', '1', '<1', '<1', NULL, '1', '2', '3', '', '', '', '1730078772_2078c4220ac99ec3e554.png', '1730078772_65ea157ee029df0b967b.png', '1730078772_82a087777f6f6318ac06.png', '1730078772_5532d03843b3879e4e9b.png', '1730078772_69db91660ddd793cf86b.png', '1730078772_d671c235a7e122f56abd.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-28 01:26:13', NULL, NULL, '2024-10-28 01:26:13', '2024-10-28 01:26:13'),
 (79, 80, 'ADVAN', 'AC', 'SPLIT STANDARD', 'ABCD09', 'MERAH', '0,5 PK', NULL, NULL, NULL, NULL, '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', 'R-22', NULL, ' x ', '1', '<1', '<1', NULL, '1', '2', '3', '', '', '', '1730080882_fdb6f6562f4184499199.png', '1730080882_e5ce7f5e2096fbc00645.png', '1730080882_ec43bb6116ddee831fda.png', '1730080882_80d5ccec55a19e81b1c2.png', '1730080882_bd564f4d54ab71c1b379.png', '1730080882_5a83b3c99eb94aaa29c6.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-28 02:01:22', NULL, NULL, '2024-10-28 02:01:22', '2024-10-28 02:01:22'),
-(80, 82, 'ARTUGO', 'TV', 'ANALOG', 'ABCD09', 'X', '', NULL, NULL, NULL, NULL, '24 INCH', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', '1 x 1 x 1 cm', '2 x 2', NULL, '', '<1', NULL, '11', '2', '3', '', '', '', '1730084986_a70d59874d394cd72958.png', '1730084986_6f1835ccc8fb0bee9434.png', '1730084986_c91212f22505df7ef920.png', '1730084986_7eeca5a9a4e3ae61ba2a.png', '1730084986_a5e7a33e906b29e02091.png', '1730084986_c8acde9bcfde71a1d016.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'cipto', '2024-11-05 07:05:01', '2024-11-04 04:11:14', NULL, '2024-10-28 03:09:46', '2024-11-05 07:05:01'),
+(80, 82, 'ARTUGO', 'TV', 'ANALOG', 'ABCD09', 'X', '', NULL, NULL, '1', NULL, '24 INCH', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', '1 x 1 x 1 cm', '2 x 2', NULL, '', '<1', NULL, '11', '2', '3', '', '', '', '1730084986_a70d59874d394cd72958.png', '1730084986_6f1835ccc8fb0bee9434.png', '1730084986_c91212f22505df7ef920.png', '1730084986_7eeca5a9a4e3ae61ba2a.png', '1730084986_a5e7a33e906b29e02091.png', '1730084986_c8acde9bcfde71a1d016.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'cipto', '2024-11-12 08:28:52', '2024-11-04 04:11:14', NULL, '2024-10-28 03:09:46', '2024-11-12 08:28:52'),
 (81, 83, 'BEKO', 'FREEZER', 'CHEST FREEZER 1 PINTU', 'ABCD09', 'MERAH', '42 L', NULL, NULL, NULL, NULL, '', '', '', 1.00, '11 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', NULL, ' x ', NULL, '<1', '<1', NULL, '1', '2', '3', '', '', '', '1730086384_73d779181ed615312773.png', '1730086384_8fee6b3e567c39f870dc.png', '1730086384_e1472cc5225122ab5bc5.png', '1730086384_8bc3b71e13b640576c26.png', '1730086384_d1643a3ed983d7b96d24.png', '1730086384_a44030cf61f9c8379248.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-28 03:33:04', NULL, NULL, '2024-10-28 03:33:04', '2024-10-28 03:33:04'),
 (82, 84, 'HISENSE', 'AC', 'SPLIT STANDARD', 'EFGH78', 'MERAH', '0,5 PK', NULL, NULL, NULL, NULL, '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', 'R-32', NULL, ' x ', '2', '<1', '<1', 4.30, '1', '2', '3', '', '', '', '1730096229_6a6524bb3ed3a965943d.png', '1730096229_f222315a3f990d127593.png', '1730096229_e8f2b7e25a847cbd0bee.png', '1730096229_0fbe8577c941b5eb8445.png', '1730096229_60033b9343b7c2bb6ef0.png', '1730096229_7c48e93939c95833523d.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'cipto', '2024-11-06 05:55:38', '2024-10-30 03:20:28', NULL, '2024-10-28 06:17:10', '2024-11-06 05:55:38'),
-(83, 85, 'BEKO', 'KULKAS', 'KULKAS PORTABLE', 'ABCD09', 'MERAH', '47 L', NULL, NULL, NULL, NULL, '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', NULL, ' x ', NULL, '1', '<1', NULL, '1', '2', '3', '', '', '', '1730104248_84a546cc1e634e7592c5.png', '1730104248_ecee0caffd927295be4b.png', '1730104248_f068b490480ae0e116c4.png', '1730104248_ec2aada8c57fbed814e2.png', '1730104248_2d7bf1172708542434bf.png', '1730104248_f175bbf46f9b702d48f8.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-28 09:57:13', NULL, NULL, '2024-10-28 08:30:48', '2024-10-28 09:57:13'),
+(83, 85, 'BEKO', 'KULKAS', 'PORTABLE', 'ABCD09', 'MERAH', '47 L', NULL, NULL, NULL, NULL, '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', NULL, ' x ', NULL, '1', '<1', NULL, '1', '2', '3', '', '', '', '1730104248_84a546cc1e634e7592c5.png', '1730104248_ecee0caffd927295be4b.png', '1730104248_f068b490480ae0e116c4.png', '1730104248_ec2aada8c57fbed814e2.png', '1730104248_2d7bf1172708542434bf.png', '1730104248_f175bbf46f9b702d48f8.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-11-14 06:29:04', NULL, NULL, '2024-10-28 08:30:48', '2024-11-14 06:29:04'),
 (84, 86, 'ELECTROLUX', 'AC', 'SPLIT STANDARD', 'ABCD09', 'PUTIH', '1 PK', NULL, NULL, NULL, NULL, 'Unknown', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', 'R-410 A', NULL, ' x ', '1', '<1', '<1', NULL, '1', '2', '3', '', '', '', '1730164668_9705a4a14e245791ff14.png', '1730164668_624afe2b9c54a4656087.png', '1730164668_ac41cdcb0ee03f187be4.png', '1730164668_81d9364e2a117a15b183.png', '1730164668_53a233931409c2a57fd7.png', '1730164668_e8a475206dc717e000c2.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-29 02:35:20', NULL, NULL, '2024-10-29 01:17:48', '2024-10-29 02:35:20'),
-(86, 94, 'BEKO', 'TV', 'ANDROID', 'ABCD09', 'BIRU', '', '', '', '<1', '', '40 INC', '', '', 3.14, '2 x 2 x 2 cm', '2 x 2 x 2 cm', 1.00, 'CHINA', '', '1 x 1 x 1 cm', '1 x 1', '', '', '2', 0.00, '1', '2', '3', '', '', '', '1730281659_11d9280ed09db2b0b3f9.png', '1730281659_8425beeb490787f9c568.png', '1730281659_dbd1bfd8a7b5967256fb.png', '1730281659_63a25eea985929ad224d.png', '1730281659_0f032cea4ba262c6cebd.png', '1730281659_05042f804e3ce65ac322.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'superadmin', '2024-11-06 02:52:10', '2024-11-06 02:52:10', NULL, '2024-10-30 09:47:40', '2024-11-06 02:52:10'),
+(86, 94, 'BEKO', 'TV', 'ANDROID', 'ABCD09', 'BIRU', '', '', '', '<1', '', '40 INCH', '', '', 3.14, '2 x 2 x 2 cm', '2 x 2 x 2 cm', 1.00, 'CHINA', '', '1 x 1 x 1 cm', '1 x 1', '', '', '2', 0.00, '1', '2', '3', '', '', '', '1730281659_11d9280ed09db2b0b3f9.png', '1730281659_8425beeb490787f9c568.png', '1730281659_dbd1bfd8a7b5967256fb.png', '1730281659_63a25eea985929ad224d.png', '1730281659_0f032cea4ba262c6cebd.png', '1730281659_05042f804e3ce65ac322.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'superadmin', '2024-11-12 08:28:16', '2024-11-06 02:52:10', NULL, '2024-10-30 09:47:40', '2024-11-12 08:28:16'),
 (88, 96, 'DAIKIN', 'FREEZER', 'CHEST FREEZER 1 PINTU', 'AB091', 'HIJAU', '42 L', '', '', '', '', '', '', '', 123.45, '123 x 123 x 123 cm', '100 x 100 x 100 cm', 123.45, 'UK', '', '', '', '', '3', '3', 0.00, '1', '2', '3', '4', '5', '', '1730346278_8bf1aae5c580ad3fe533.png', '1730346278_48504c0bbd1d6a97fe72.png', '1730346278_44078201a8c2d8ceaeea.png', '1730346278_6726dd3d6b421e17a6d5.png', '1730346278_13c590061d187c866e8d.png', '1730346278_2bea85d0e738332a25a0.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'Aoz0raSenpai', '2024-11-04 03:58:24', '2024-10-31 03:45:24', NULL, '2024-10-31 03:44:39', '2024-11-04 03:58:24'),
-(89, 97, 'ELECTROLUX', 'KULKAS', 'KULKAS PORTABLE', 'ZHL019', 'HITAM', '42 L', '', '', '', '', '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', '', '', '', '3', '2', 0.00, '1', '2', '3', '', '', '', '1730360126_14cff9c23225585f8b0e.png', '1730360126_a61f6148dcde7e86ee05.png', '1730360126_f254de4a5b457d9c1e93.png', '1730360126_a2fa6aa2339c25e663bb.png', '1730360126_4e7f608afb1a89ec96b9.png', '1730360126_99fce0b15f61a1c49d29.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'Aoz0raSenpai', '2024-11-06 05:56:15', '2024-11-05 06:54:57', NULL, '2024-10-31 07:35:27', '2024-11-06 05:56:15'),
+(89, 97, 'ELECTROLUX', 'KULKAS', 'PORTABLE', 'ZHL019', 'HITAM', '42 L', '', '', '', '', '', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', '', '', '', '3', '2', 0.00, '1', '2', '3', '', '', '', '1730360126_14cff9c23225585f8b0e.png', '1730360126_a61f6148dcde7e86ee05.png', '1730360126_f254de4a5b457d9c1e93.png', '1730360126_a2fa6aa2339c25e663bb.png', '1730360126_4e7f608afb1a89ec96b9.png', '1730360126_99fce0b15f61a1c49d29.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'Aoz0raSenpai', '2024-11-14 06:29:20', '2024-11-05 06:54:57', NULL, '2024-10-31 07:35:27', '2024-11-14 06:29:20'),
 (90, 108, 'ADVAN', 'TV', 'ANDROID', 'ABCD09', 'HIJAU', '', NULL, NULL, NULL, NULL, '40 INCH', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', NULL, '1 x 1', '1', '', '1', NULL, '1', '2', '334', '', '', '', '1730367638_175f12d05ccab6b00760.png', '1730367638_88cdd0f213d27668f52d.png', '1730367638_1f651c8b3153f68bccdc.png', '1730367638_fe1838ee0f235f303c9d.png', '1730367638_3a31d72d8f2098172e1d.png', '1730367638_d8ed7345430e6704f49e.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'pending', 'cipto', '2024-10-31 09:42:59', NULL, NULL, '2024-10-31 09:26:49', '2024-10-31 09:42:59'),
 (91, 109, 'CHANGHONG', 'MESIN CUCI', 'MESIN CUCI PORTABLE', 'ABCD09', 'HITAM', '6,5 Kg', '', '<1', '', '', '', '', '', 10.00, '10 x 10 x 10 cm', '10 x 10 x 10 cm', 10.00, '10', '', '', '', '', '', '2', 0.00, '1', '2', '3', '4', '5', '', '1730370135_b02de051e122dac89be7.png', '', '', '', '', '', '', '', 'rejected', 'cipto', '2024-11-01 09:41:35', NULL, '2024-11-01 09:41:35', '2024-10-31 10:22:15', '2024-11-01 09:41:35'),
 (92, 110, 'BERVIN', 'SMALL APPLIANCES', 'DISPENSER GALON BAWAH', 'ABCD09', 'HIJAU', '', '', '', '', '', '', '9', '10', 2.00, '2 x 2 x 2 cm', '2 x 2 x 2 cm', 2.00, 'CHINA', '', '', '', '', '2', '', 0.00, '1', '2', '3', '', '', '', '1730700690_4f5799f7a5c7ec16966b.png', '', '', '', '', '', '', 'Rp 2.000.000,00', 'approved', 'Aoz0raSenpai', '2024-11-11 01:40:38', '2024-11-04 06:12:09', NULL, '2024-11-04 06:11:31', '2024-11-11 01:40:38'),
@@ -458,7 +492,11 @@ INSERT INTO `product_submissions` (`id`, `product_id`, `brand`, `category`, `sub
 (98, 122, 'ELECTROLUX', 'SMALL APPLIANCES', 'SPEAKER', 'ABCD09', 'KUNING', '', '', '', '', '1', 'Besar', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', '', '', '', '', '2', 0.00, '1', '2', '3', '', '', '', '1731054566_a33afd8e61dda6b2a9b0.png', '1731054566_a96e590806f099068b5e.png', '', '', '', '1731054566_a29597ed1345d2440c51.png', '', '', 'pending', 'cipto', '2024-11-08 08:29:26', NULL, NULL, '2024-11-08 08:29:26', '2024-11-08 08:29:26'),
 (99, 123, 'ELECTROLUX', 'SMALL APPLIANCES', 'SPEAKER', 'ABCD09', 'KUNING', '', '', '', '', '2', 'Besar', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'CHINA', '', '', '', '', '', '2', 0.00, '1', '2', '3', '', '', '', '1731054626_d4cade1e49edf94cf7f0.png', '1731054626_4b843e4a87bb2c18e198.png', '', '', '', '1731054626_197885da8e63648ad079.png', '', '', 'approved', 'cipto', '2024-11-08 08:34:25', '2024-11-08 08:34:25', NULL, '2024-11-08 08:30:26', '2024-11-08 08:34:25'),
 (100, 125, 'LG', 'SMALL APPLIANCES', 'DISPENSER GALON BAWAH', 'J2EI0EP1S', 'PUTIH', '', '', '', '', '', '', '9', '10', 1.00, '1 x 2 x 3 cm', '2 x 3 x 4 cm', 1.00, 'INDIA', '', '', '', '', '2', '', 0.00, '1', '2', '3', '', '', '', '1731054835_e7e451d60f468fb73c9f.png', '', '', '', '1731054835_24765437e60493b9c25b.png', '1731054835_d5fc0fa9fcfcd1d165f0.png', '', '', 'approved', 'Rizal F', '2024-11-08 08:34:38', '2024-11-08 08:34:38', NULL, '2024-11-08 08:33:56', '2024-11-08 08:34:38'),
-(101, 126, 'LG', 'AC', 'SPLIT STANDARD', 'ABCD09', 'UNGU', '0,75 PK', '', '', '', '', '', '', '', 10.00, '1 x 2 x 3 cm', '1 x 2 x 3 cm', 1.00, 'PRAPATAN CIAMIS', 'R-410 A', '', '', '10', '<1', '<1', 5.00, '1', '2', '3', '', '', '', '1731198942_2e189eea7d2f4c2db788.png', '1731198942_dcab665afb9744dd9561.png', '', '', '', '1731198942_6e326430b68c803c7fba.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'Rizal F', '2024-11-10 00:41:17', '2024-11-10 00:41:17', NULL, '2024-11-10 00:35:43', '2024-11-10 00:41:17');
+(101, 126, 'LG', 'AC', 'SPLIT STANDARD', 'ABCD09', 'UNGU', '0,75 PK', '', '', '', '', '', '', '', 10.00, '1 x 2 x 3 cm', '1 x 2 x 3 cm', 1.00, 'PRAPATAN CIAMIS', 'R-410 A', '', '', '10', '<1', '<1', 5.00, '1', '2', '3', '', '', '', '1731198942_2e189eea7d2f4c2db788.png', '1731198942_dcab665afb9744dd9561.png', '', '', '', '1731198942_6e326430b68c803c7fba.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'Rizal F', '2024-11-10 00:41:17', '2024-11-10 00:41:17', NULL, '2024-11-10 00:35:43', '2024-11-10 00:41:17'),
+(102, 127, 'GEA', 'SMALL APPLIANCES', 'SETRIKA', 'JFQ0WFJ', 'PUTIH', '', '1', '', '', '', '', '', '', 1.00, '1 x 2 x 3 cm', '1 x 2 x 3 cm', 1.00, 'MALAYSIA', '', '', '', '', '', '1', 0.00, '1', '2', '3', '4', '5', '', '1731384621_a5bb38de44df059a1ad3.png', '1731384621_6cddb34a2d1791408f71.png', '', '', '1731384621_341126d3d9cecfbecc79.png', '', 'https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf', '', 'approved', 'Aoz0raSenpai', '2024-11-12 04:13:11', '2024-11-12 04:13:11', NULL, '2024-11-12 04:10:54', '2024-11-12 04:13:11'),
+(103, 128, 'ADVAN', 'SMALL APPLIANCES', 'COOKER HOOD', 'JDWQD0QW', 'HIJAU', '', '', '', '', '1', 'BESAR', '', '', 1.00, '1 x 1 x 1 cm', '1 x 1 x 1 cm', 1.00, 'RUSIA', '', '', '', '', '', '<1', 0.00, '1', '2', '3', '', '', '', '1731393265_5e794b206b0934cea84f.png', '', '', '', '1731393265_216d038a746e37c3e13f.png', '', '', '', 'confirmed', 'Aoz0raSenpai', '2024-11-12 06:34:35', NULL, NULL, '2024-11-12 06:34:26', '2024-11-12 06:34:35'),
+(104, 129, 'BERVIN', 'SMALL APPLIANCES', 'AIR PURIFIER', 'JJ09WEFFC', 'HITAM', '', '', '', '', '1', '', '', '40', 1.00, '1 x 2 x 3 cm', '1 x 2 x 3 cm', 1.00, 'JERMAN', '', '', '', '', '', '', 0.00, '1', '2', '3', '', '', '', '1731553811_e2a7376553e3f46db5b6.png', '1731553811_dc565f424654b84f8770.png', '1731553811_5fc961f03287a2e8a641.png', '1731553811_d4ad9f5af83ffb373b73.png', '', '', 'https://youtu.be/XADWOc8alvw?si=s39H4f7nws8vyouf', '', 'approved', 'Aoz0raSenpai', '2024-11-14 03:10:48', '2024-11-14 03:10:48', NULL, '2024-11-14 03:10:12', '2024-11-14 03:10:48'),
+(105, 130, 'MIDEA', 'SMALL APPLIANCES', 'AIR PURIFIER', 'D0WFIEW1A', 'MERAH', '', '', '', '', '1', '', '', '80', 4.00, '1 x 2 x 3 cm', '1 x 2 x 33 cm', 3.00, 'SWEDIA', '', '', '', '', '', '', 0.00, '1', '2', '3', '', '', '', '1731554190_a45f6101a3b7529e259b.png', '', '', '', '', '1731554190_db0524a452d38950a6e6.png', 'https://www.youtube.com/watch?v=FOaSPfALEHk', '', 'approved', 'Aoz0raSenpai', '2024-11-14 03:16:50', '2024-11-14 03:16:50', NULL, '2024-11-14 03:16:30', '2024-11-14 03:16:50');
 
 -- --------------------------------------------------------
 
@@ -549,16 +587,16 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`) VALUES
 (18, 9, 'SMART'),
 (19, 9, 'GOOGLE'),
 (20, 3, '1 Pintu'),
-(21, 3, 'KULKAS PORTABLE'),
+(21, 3, 'PORTABLE'),
 (22, 3, 'SIDE BY SIDE'),
 (23, 3, 'MULTIDOOR'),
-(24, 6, 'MESIN CUCI PORTABLE'),
+(24, 6, 'PORTABLE'),
 (25, 6, '2 TABUNG'),
 (26, 6, 'TOP LOADING'),
 (27, 6, 'FRONT LOADING'),
 (28, 4, 'CHEST FREEZER 2 PINTU ATAU LEBIH'),
-(29, 7, 'SHOWCASE 1 PINTU'),
-(30, 7, 'SHOWCASE 2 PINTU ATAU LEBIH'),
+(29, 7, '1 PINTU'),
+(30, 7, '2 PINTU ATAU LEBIH'),
 (31, 10, 'SPEAKER'),
 (32, 10, 'KIPAS ANGIN'),
 (33, 10, 'MAGIC COM'),
@@ -566,7 +604,21 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`) VALUES
 (35, 10, 'DISPENSER GALON ATAS'),
 (36, 10, 'DISPENSER GALON BAWAH'),
 (37, 10, 'WATER HEATER'),
-(38, 10, 'COFFEE MAKER');
+(38, 10, 'COFFEE MAKER'),
+(41, 10, 'MICROWAVE'),
+(42, 10, 'SETRIKA'),
+(43, 10, 'VACUUM CLEANER'),
+(44, 10, 'OVEN'),
+(45, 10, 'KOMPOR TUNGKU'),
+(46, 10, 'KOMPOR TANAM'),
+(47, 10, 'COOKER HOOD'),
+(48, 10, 'TOASTER'),
+(49, 10, 'BLENDER'),
+(50, 10, 'AIR COOLER'),
+(51, 10, 'AIR CURTAIN'),
+(52, 10, 'AIR PURIFIER'),
+(53, 10, 'JUICER'),
+(54, 10, 'AIR FRYER');
 
 -- --------------------------------------------------------
 
@@ -596,7 +648,11 @@ INSERT INTO `ukuran_tv` (`id`, `subcategory_id`, `size`) VALUES
 (9, 32, '8 INCH'),
 (10, 32, '9 INCH'),
 (11, 32, '10 INCH'),
-(12, 16, '40 INCH');
+(12, 16, '40 INCH'),
+(13, 17, '50 INCH'),
+(15, 47, 'BESAR'),
+(16, 50, 'KECIL'),
+(17, 51, 'SEDANG');
 
 -- --------------------------------------------------------
 
@@ -610,10 +666,10 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `brand` varchar(255) NOT NULL,
+  `brand` varchar(255) DEFAULT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `role` enum('user','admin','superadmin','') NOT NULL DEFAULT 'user'
+  `role` enum('user','admin','superadmin','visitor') NOT NULL DEFAULT 'visitor'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -625,7 +681,9 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `email`, `brand`, `ph
 (2, 'cipto', 'cipto21', '$2y$10$qN6cvIz761ZKsoOJCly0bOcNUBJGUjv/To4RJc9KgpaRG9SF2.UfK', 'cipto21@gmail.com', 'AQUA', '089212290090', 'jl. e No.90', 'user'),
 (3, 'superadmin', 'superadmin_1', '$2y$10$9ZkjqWA5LPB2VD3fJRzVKOetFCDUSWBsTKXE.JlaSyMKGggpRwKUe', 'superadmin1@gmail.com', 'superadmin', '088888888888', 'jl. superadmin no.1', 'superadmin'),
 (4, 'citra', 'citra89', '$2y$10$O3KIb0FEqP2l91DmD6dpfOBOSX7cLVBakcKfzPi5sjb3q93.kDdaS', 'citra89@gmail.com', 'POLYTRON', '087199990999', 'jl. a No.7', 'user'),
-(6, 'Aoz0raSenpai', 'steven0099', '$2a$12$oWgTdCgkw3eKFUdJZM/rFOFVAJ1VyIahUTJ.oNZ0VpqZUUWQmSnde', 'sgamess0099@gmail.com', '-', '087822297790', '-', 'superadmin');
+(6, 'Aoz0raSenpai', 'steven0099', '$2a$12$oWgTdCgkw3eKFUdJZM/rFOFVAJ1VyIahUTJ.oNZ0VpqZUUWQmSnde', 'sgamess0099@gmail.com', '-', '087822297790', '-', 'superadmin'),
+(7, 'visitor', 'visitor1', '$2y$10$zwc800xCQrFH5FKkzvbn2uwPMA5bQmCfm8bUXoF7fPt3fJeDLou5u', 'visitor@gmail.com', '-', '088810102020', '-', 'visitor'),
+(8, 'Bambang Sumanto', 'bambang12', '$2y$10$Tz7YiFlJljob1L3VwNxX3eBuocah3k/gTvcLrUoWvf5kdNde0CZRi', 'bambang177@gmail.com', NULL, '087199990999', '-', 'visitor');
 
 --
 -- Indexes for dumped tables
@@ -678,6 +736,12 @@ ALTER TABLE `garansi_panel`
 -- Indexes for table `garansi_semua_service`
 --
 ALTER TABLE `garansi_semua_service`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `marketplaces`
+--
+ALTER TABLE `marketplaces`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -769,7 +833,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `capacities`
 --
 ALTER TABLE `capacities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -808,10 +872,16 @@ ALTER TABLE `garansi_semua_service`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `marketplaces`
+--
+ALTER TABLE `marketplaces`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `product_advantages`
@@ -829,7 +899,7 @@ ALTER TABLE `product_specifications`
 -- AUTO_INCREMENT for table `product_submissions`
 --
 ALTER TABLE `product_submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `product_uploads`
@@ -853,19 +923,19 @@ ALTER TABLE `sparepart_warranties`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `ukuran_tv`
 --
 ALTER TABLE `ukuran_tv`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

@@ -4,6 +4,45 @@
 Rincian Produk
 <?= $this->endSection() ?>
 
+<?= $this->section('css') ?>
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 400px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<?= $this->endSection();?>
 <?= $this->section('breadcumb') ?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -14,7 +53,7 @@ Rincian Produk
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/superadmin/dashboard">Home</a></li>
                     <li class="breadcrumb-item active">Rincian Produk</li>
                 </ol>
             </div><!-- /.col -->
@@ -26,8 +65,6 @@ Rincian Produk
 
 <?= $this->section('content') ?>
 <section class="content">
-<a href="/superadmin/dashboard" style="margin-left:20px">← Kembali Ke Dashboard</i>
-</a>
     <div class="container-fluid">
         <table class="table">
             <tr>
@@ -49,6 +86,32 @@ Rincian Produk
                 <td><button onclick="openProductTypeModal()" class="btn btn-sm btn-primary">Edit</button></td>
                 <?php endif; ?>
             </tr>
+
+            <!--<?php if ($product['status'] == 'approved'): ?>
+            <tr>
+                <th>Harga</th>
+                <?php if ($product['harga'] != null): ?>
+                <td><?= esc($product['harga'] ?? '') ?></td>
+                <?php elseif ($product['harga'] == null): ?>
+                <td>Belum Ditentukan</td>
+                <?php endif; ?>
+                <td><button onclick="openHargaModal()" class="btn btn-sm btn-primary">Edit</button></td>
+            </tr>
+            <?php endif; ?>-->
+
+
+            <!--<?php if ($product['status'] == 'approved'): ?>
+            <tr>
+                <th>Harga</th>
+                <?php if ($product['harga'] != null): ?>
+                <td><?= esc($product['harga'] ?? '') ?></td>
+                <?php elseif ($product['harga'] == null): ?>
+                <td>Belum Ditentukan</td>
+                <?php endif; ?>
+                <td><button onclick="openHargaModal()" class="btn btn-sm btn-primary">Edit</button></td>
+            </tr>
+            <?php endif; ?>-->
+
             <tr>
                 <th>Warna</th>
                 <td><?= esc($product['color']) ?></td>
@@ -180,6 +243,14 @@ Rincian Produk
                 <th>Garansi Panel</th>
                 <td><?= esc($product['garansi_panel']) ?> Tahun</td>
             </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+            </tr>
             <?php endif; ?>
 
             <?php if ($product['category'] == 'AC'): ?>
@@ -205,14 +276,28 @@ Rincian Produk
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
-                <td><?= esc($product['compressor_warranty']) ?> Tahun</td>
-            <tr>
-                <th>CSPF Rating</th>
-                <td><?= esc($product['cspf']) ?>/5</td>
-                <?php if ($product['status'] == 'approved'): ?>
-                <td><button onclick="opencspfModal()" class="btn btn-sm btn-primary">Edit</button></td>
-                <?php endif; ?>
-            </tr>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+                <tr>
+    <th>CSPF Rating</th>
+    <td>
+        <?= esc($product['cspf']) ?>/5
+        <?php if ($product['cspf'] == 5): ?>
+            <img src="<?= base_url('/images/5stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 4.00 && $product['cspf'] < 5): ?>
+            <img src="<?= base_url('/images/4stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 3.00 && $product['cspf'] < 4.00): ?>
+            <img src="<?= base_url('/images/3stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 2.00 && $product['cspf'] < 3.00): ?>
+            <img src="<?= base_url('/images/2stars.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php elseif ($product['cspf'] >= 1.00 && $product['cspf'] < 2.00): ?>
+            <img src="<?= base_url('/images/1star.png') ?>" alt="cspf-star" style="height:35px; padding: 5px">
+        <?php endif; ?>
+    </td>
+    <?php if ($product['status'] == 'approved'): ?>
+        <td><button onclick="opencspfModal()" class="btn btn-sm btn-primary">Edit</button></td>
+    <?php endif; ?>
+</tr>
+
             <?php endif; ?>
 
             <?php if ($product['category'] == 'KULKAS' || $product['category'] == 'FREEZER' || $product['category'] == 'SHOWCASE' ): ?>
@@ -230,7 +315,7 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['category'] == 'MESIN CUCI'): ?>
+            <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER' || $product['subcategory'] == 'JUICER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -288,20 +373,199 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+            <?php if ($product['subcategory'] == 'VACUUM CLEANER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
             </tr>
             <tr>
                 <th>Garansi Elemen Panas</th>
-                <td><?= esc($product['garansi_elemen_panas']) ?></td>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'TOASTER'): ?>
+        <tr>
+            <th>Kapasitas</th>
+            <td><?= esc($product['capacity']) ?></td>
+        </tr>    
+        <tr>
+            <th>Garansi Elemen Panas</th>
+            <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+        </tr>
+        <tr>
+            <th>Garansi Sparepart</th>
+            <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+        </tr>
+        
+        <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Elemen Panas</th>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'SETRIKA'): ?>
+            <tr>
+                <th>Garansi Elemen Panas</th>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+
+            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+            <tr>
+                <th>Ukuran</th>
+                <td><?= esc($product['ukuran']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['kapasitas_air_dingin']) ?> M²</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                <td><button onclick="openColdCapModal()" class="btn btn-sm btn-primary">Edit</button></td>
+                <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart & Jasa Service</th>
-                <td><?= esc($product['sparepart_warranty'])?></td>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'TOASTER'): ?>
+        <tr>
+            <th>Kapasitas</th>
+            <td><?= esc($product['capacity']) ?></td>
+        </tr>    
+        <tr>
+            <th>Garansi Elemen Panas</th>
+            <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+        </tr>
+        <tr>
+            <th>Garansi Sparepart</th>
+            <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+        </tr>
+        
+        <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Elemen Panas</th>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
             </tr>
 
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'SETRIKA'): ?>
+            <tr>
+                <th>Garansi Elemen Panas</th>
+                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+
+            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+            <tr>
+                <th>Ukuran</th>
+                <td><?= esc($product['ukuran']) ?></td>
+            </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
+            <tr>
+                <th>Kapasitas</th>
+                <td><?= esc($product['kapasitas_air_dingin']) ?> M²</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                <td><button onclick="openColdCapModal()" class="btn btn-sm btn-primary">Edit</button></td>
+                <?php endif; ?>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart & Jasa Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
             <?php endif; ?>
 
             <?php if ($product['status'] == 'approved'): ?>
@@ -430,7 +694,8 @@ Rincian Produk
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas Air Dingin</h5>
+                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas</h5>
+                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -438,13 +703,64 @@ Rincian Produk
                     <div class="modal-body">
                         <input type="text" id="coldcapInput" class="form-control"
                             value="<?= esc($product['kapasitas_air_dingin']) ?>"
-                            placeholder="Kapasitas Air Dingin (Liter)">
+                            placeholder="Kapasitas">
+                            placeholder="Kapasitas">
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                         <!-- Include CSRF Token -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateColdCap()">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="hargaModal" tabindex="-1" role="dialog" aria-labelledby="hargaModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hargaModalLabel">Tentukan Harga</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="hargaInput" class="form-control" value="<?= esc($product['harga']) ?>"
+                            placeholder="Harga (Angka Saja)">
+                        <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
+                        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
+                        <!-- Include CSRF Token -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="updateHarga()">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="hargaModal" tabindex="-1" role="dialog" aria-labelledby="hargaModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hargaModalLabel">Tentukan Harga</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="hargaInput" class="form-control" value="<?= esc($product['harga']) ?>"
+                            placeholder="Harga (Angka Saja)">
+                        <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
+                        <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
+                        <!-- Include CSRF Token -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="updateHarga()">Update</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -773,16 +1089,16 @@ Rincian Produk
     </div>
 
     <div id="deleteModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Are you sure you want to delete this product?</p>
-        <form id="deleteForm" method="POST">
-            <?= csrf_field() ?>
-            <button type="submit" class="btn btn-danger">Delete</button>
-            <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
-        </form>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Hapus Produk Ini?</p>
+            <form id="deleteForm" method="POST">
+                <?= csrf_field() ?>
+                <button type="submit" class="btn btn-danger">Hapus</button>
+                <button type="button" id="cancelDeleteBtn" class="btn btn-secondary">Batal</button>
+            </form>
+        </div>
     </div>
-</div>
 
 </section>
 <?= $this->endSection() ?>
@@ -1026,6 +1342,104 @@ function updateColdCap() {
     $.post("<?= base_url('superadmin/updateColdCap') ?>", {
             id: id,
             kapasitas_air_dingin: coldcap,
+            [csrfTokenName]: csrfTokenValue
+        })
+        .done(function(response) {
+            // Check if the response is in the expected format
+            if (typeof response === "object" && response !== null) {
+                if (response.success) {
+                    alert(response.message); // Show success message
+                    location.reload(); // Reload the page to see the updated color
+                } else {
+                    alert("Error: " + response.message); // Show error message
+                }
+            } else {
+                alert("Unexpected response format.");
+            }
+        })
+        .fail(function(jqXHR) {
+            alert("Request failed: " + jqXHR.statusText);
+        });
+}
+
+function updateHarga() {
+    const hargaInput = document.getElementById('hargaInput');
+    const idInput = document.getElementById('id');
+
+    if (!hargaInput || !idInput) {
+        console.error('One or more elements not found:', {
+            hargaInput: hargaInput,
+            idInput: idInput
+        });
+        alert('Unable to find input fields.');
+        return; // Exit the function early
+    }
+
+    const harga = hargaInput.value; // Get the color input value
+    const id = `<?= $product['id'] ?>`; // Get the product ID
+
+    // Validate the color input
+    if (!harga) {
+        alert("Cold Water Capacity cannot be empty.");
+        return;
+    }
+
+    const csrfTokenName = '<?= csrf_token() ?>';
+    const csrfTokenValue = '<?= csrf_hash() ?>';
+
+    // Send the POST request to update the color
+    $.post("<?= base_url('superadmin/updateHarga') ?>", {
+            id: id,
+            harga: harga,
+            [csrfTokenName]: csrfTokenValue
+        })
+        .done(function(response) {
+            // Check if the response is in the expected format
+            if (typeof response === "object" && response !== null) {
+                if (response.success) {
+                    alert(response.message); // Show success message
+                    location.reload(); // Reload the page to see the updated color
+                } else {
+                    alert("Error: " + response.message); // Show error message
+                }
+            } else {
+                alert("Unexpected response format.");
+            }
+        })
+        .fail(function(jqXHR) {
+            alert("Request failed: " + jqXHR.statusText);
+        });
+}
+
+function updateHarga() {
+    const hargaInput = document.getElementById('hargaInput');
+    const idInput = document.getElementById('id');
+
+    if (!hargaInput || !idInput) {
+        console.error('One or more elements not found:', {
+            hargaInput: hargaInput,
+            idInput: idInput
+        });
+        alert('Unable to find input fields.');
+        return; // Exit the function early
+    }
+
+    const harga = hargaInput.value; // Get the color input value
+    const id = `<?= $product['id'] ?>`; // Get the product ID
+
+    // Validate the color input
+    if (!harga) {
+        alert("Cold Water Capacity cannot be empty.");
+        return;
+    }
+
+    const csrfTokenName = '<?= csrf_token() ?>';
+    const csrfTokenValue = '<?= csrf_hash() ?>';
+
+    // Send the POST request to update the color
+    $.post("<?= base_url('superadmin/updateHarga') ?>", {
+            id: id,
+            harga: harga,
             [csrfTokenName]: csrfTokenValue
         })
         .done(function(response) {
@@ -1521,6 +1935,18 @@ function openColdCapModal(id, coldcap) {
     $('#coldcapModal').modal('show'); // Show the modal
 }
 
+function openHargaModal(id, harga) {
+    document.getElementById('id').value = id; // Set the hidden ID input
+    document.getElementById('hargaInput').value = harga || ''; // Set the power input, default to empty if undefined
+    $('#hargaModal').modal('show'); // Show the modal
+}
+
+function openHargaModal(id, harga) {
+    document.getElementById('id').value = id; // Set the hidden ID input
+    document.getElementById('hargaInput').value = harga || ''; // Set the power input, default to empty if undefined
+    $('#hargaModal').modal('show'); // Show the modal
+}
+
 function openHotCapModal(id, hotcap) {
     document.getElementById('id').value = id; // Set the hidden ID input
     document.getElementById('hotcapInput').value = hotcap || ''; // Set the power input, default to empty if undefined
@@ -1542,14 +1968,16 @@ function opencspfModal(id, cspf) {
 function openProductTypeModal(id, producttype) {
     document.getElementById('id').value = id; // Set the hidden ID input
     document.getElementById('producttypeInput').value = producttype ||
-    ''; // Set the power input, default to empty if undefined
+        ''; // Set the power input, default to empty if undefined
+        ''; // Set the power input, default to empty if undefined
     $('#producttypeModal').modal('show'); // Show the modal
 }
 
 function openManufacturerModal(id, manufacturer) {
     document.getElementById('id').value = id; // Set the hidden ID input
     document.getElementById('manufacturerInput').value = manufacturer ||
-    ''; // Set the power input, default to empty if undefined
+        ''; // Set the power input, default to empty if undefined
+        ''; // Set the power input, default to empty if undefined
     $('#manufacturerModal').modal('show'); // Show the modal
 }
 
@@ -1589,6 +2017,5 @@ window.onclick = function(event) {
         deleteModal.style.display = "none";
     }
 }
-
 </script>
 <?= $this->endSection() ?>

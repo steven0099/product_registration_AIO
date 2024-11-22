@@ -1648,159 +1648,1523 @@ WARNING - 2024-10-29 15:06:06 --> [DEPRECATED] Creation of dynamic property App\
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:10:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:10:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\GaransiKompresorController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+CRITICAL - 2024-10-29 09:37:41 --> CodeIgniter\Cache\Exceptions\CacheException: Cache unable to write to "E:\Magang\product_registration\writable\cache/".
+[Method: GET, Route: /]
+in SYSTEMPATH\Cache\Handlers\FileHandler.php on line 68.
+ 1 SYSTEMPATH\Cache\Handlers\FileHandler.php(68): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('E:\\Magang\\product_registration\\writable\\cache/')
+ 2 SYSTEMPATH\Cache\CacheFactory.php(67): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+ 3 SYSTEMPATH\Config\Services.php(129): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('cache', [...])
+ 6 SYSTEMPATH\Config\Services.php(124): CodeIgniter\Config\BaseService::getSharedInstance('cache', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::cache()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('cache', [])
+ 9 SYSTEMPATH\Config\Services.php(454): CodeIgniter\Config\BaseService::get('cache')
+10 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::responsecache(Object(Config\Cache), null, false)
+11 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('responsecache', [...])
+12 SYSTEMPATH\Config\Services.php(450): CodeIgniter\Config\BaseService::getSharedInstance('responsecache', null, null)
+13 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::responsecache()
+14 SYSTEMPATH\CodeIgniter.php(179): CodeIgniter\Config\BaseService::__callStatic('responsecache', [])
+15 SYSTEMPATH\Config\Services.php(164): CodeIgniter\CodeIgniter->__construct(Object(Config\App))
+16 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::codeigniter(Object(Config\App), false)
+17 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('codeigniter', [...])
+18 SYSTEMPATH\Config\Services.php(159): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', null)
+19 SYSTEMPATH\Boot.php(311): CodeIgniter\Config\Services::codeigniter()
+20 SYSTEMPATH\Boot.php(101): CodeIgniter\Boot::initializeCodeIgniter()
+21 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2024-10-29 09:37:49 --> CodeIgniter\Cache\Exceptions\CacheException: Cache unable to write to "E:\Magang\product_registration\writable\cache/".
+[Method: GET, Route: /]
+in SYSTEMPATH\Cache\Handlers\FileHandler.php on line 68.
+ 1 SYSTEMPATH\Cache\Handlers\FileHandler.php(68): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('E:\\Magang\\product_registration\\writable\\cache/')
+ 2 SYSTEMPATH\Cache\CacheFactory.php(67): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+ 3 SYSTEMPATH\Config\Services.php(129): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('cache', [...])
+ 6 SYSTEMPATH\Config\Services.php(124): CodeIgniter\Config\BaseService::getSharedInstance('cache', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::cache()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('cache', [])
+ 9 SYSTEMPATH\Config\Services.php(454): CodeIgniter\Config\BaseService::get('cache')
+10 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::responsecache(Object(Config\Cache), null, false)
+11 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('responsecache', [...])
+12 SYSTEMPATH\Config\Services.php(450): CodeIgniter\Config\BaseService::getSharedInstance('responsecache', null, null)
+13 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::responsecache()
+14 SYSTEMPATH\CodeIgniter.php(179): CodeIgniter\Config\BaseService::__callStatic('responsecache', [])
+15 SYSTEMPATH\Config\Services.php(164): CodeIgniter\CodeIgniter->__construct(Object(Config\App))
+16 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::codeigniter(Object(Config\App), false)
+17 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('codeigniter', [...])
+18 SYSTEMPATH\Config\Services.php(159): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', null)
+19 SYSTEMPATH\Boot.php(311): CodeIgniter\Config\Services::codeigniter()
+20 SYSTEMPATH\Boot.php(101): CodeIgniter\Boot::initializeCodeIgniter()
+21 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2024-10-29 09:38:06 --> CodeIgniter\Cache\Exceptions\CacheException: Cache unable to write to "E:\Magang\product_registration\writable\cache/".
+[Method: GET, Route: /]
+in SYSTEMPATH\Cache\Handlers\FileHandler.php on line 68.
+ 1 SYSTEMPATH\Cache\Handlers\FileHandler.php(68): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('E:\\Magang\\product_registration\\writable\\cache/')
+ 2 SYSTEMPATH\Cache\CacheFactory.php(67): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+ 3 SYSTEMPATH\Config\Services.php(129): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('cache', [...])
+ 6 SYSTEMPATH\Config\Services.php(124): CodeIgniter\Config\BaseService::getSharedInstance('cache', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::cache()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('cache', [])
+ 9 SYSTEMPATH\Config\Services.php(454): CodeIgniter\Config\BaseService::get('cache')
+10 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::responsecache(Object(Config\Cache), null, false)
+11 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('responsecache', [...])
+12 SYSTEMPATH\Config\Services.php(450): CodeIgniter\Config\BaseService::getSharedInstance('responsecache', null, null)
+13 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::responsecache()
+14 SYSTEMPATH\CodeIgniter.php(179): CodeIgniter\Config\BaseService::__callStatic('responsecache', [])
+15 SYSTEMPATH\Config\Services.php(164): CodeIgniter\CodeIgniter->__construct(Object(Config\App))
+16 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::codeigniter(Object(Config\App), false)
+17 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('codeigniter', [...])
+18 SYSTEMPATH\Config\Services.php(159): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', null)
+19 SYSTEMPATH\Boot.php(311): CodeIgniter\Config\Services::codeigniter()
+20 SYSTEMPATH\Boot.php(101): CodeIgniter\Boot::initializeCodeIgniter()
+21 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2024-10-29 09:38:29 --> CodeIgniter\Cache\Exceptions\CacheException: Cache unable to write to "E:\Magang\product_registration\writable\cache/".
+[Method: GET, Route: /]
+in SYSTEMPATH\Cache\Handlers\FileHandler.php on line 68.
+ 1 SYSTEMPATH\Cache\Handlers\FileHandler.php(68): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('E:\\Magang\\product_registration\\writable\\cache/')
+ 2 SYSTEMPATH\Cache\CacheFactory.php(67): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+ 3 SYSTEMPATH\Config\Services.php(129): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('cache', [...])
+ 6 SYSTEMPATH\Config\Services.php(124): CodeIgniter\Config\BaseService::getSharedInstance('cache', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::cache()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('cache', [])
+ 9 SYSTEMPATH\Config\Services.php(454): CodeIgniter\Config\BaseService::get('cache')
+10 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::responsecache(Object(Config\Cache), null, false)
+11 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('responsecache', [...])
+12 SYSTEMPATH\Config\Services.php(450): CodeIgniter\Config\BaseService::getSharedInstance('responsecache', null, null)
+13 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::responsecache()
+14 SYSTEMPATH\CodeIgniter.php(179): CodeIgniter\Config\BaseService::__callStatic('responsecache', [])
+15 SYSTEMPATH\Config\Services.php(164): CodeIgniter\CodeIgniter->__construct(Object(Config\App))
+16 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::codeigniter(Object(Config\App), false)
+17 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('codeigniter', [...])
+18 SYSTEMPATH\Config\Services.php(159): CodeIgniter\Config\BaseService::getSharedInstance('codeigniter', null)
+19 SYSTEMPATH\Boot.php(311): CodeIgniter\Config\Services::codeigniter()
+20 SYSTEMPATH\Boot.php(101): CodeIgniter\Boot::initializeCodeIgniter()
+21 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+INFO - 2024-10-29 15:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 15:40:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:10:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\AdminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 15:40:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 15:40:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:10:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:10:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\BrandController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 15:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 15:44:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:10:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:10:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\SubkategoriController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:05:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:10:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:10:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Admin\KapasitasController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:05:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:11:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:11:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:05:40 --> CSRF token verified.
+INFO - 2024-10-29 16:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:05:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:11:38 --> CSRF token verified.
-INFO - 2024-10-29 15:11:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:11:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:05:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-INFO - 2024-10-29 15:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$brandModel is deprecated in APPPATH\Controllers\ProductController.php on line 31.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$categoryModel is deprecated in APPPATH\Controllers\ProductController.php on line 32.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$capacityModel is deprecated in APPPATH\Controllers\ProductController.php on line 33.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$ukuranModel is deprecated in APPPATH\Controllers\ProductController.php on line 34.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$subcategoryModel is deprecated in APPPATH\Controllers\ProductController.php on line 35.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 36.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 37.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 38.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 39.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 40.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 41.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$confirmationModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
- 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
- 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
- 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
- 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-WARNING - 2024-10-29 15:11:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:06:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:06:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\AuthController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
  1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
  2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:06:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:06:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:06:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:07:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:07:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:07:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:07:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:08:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:08:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:08:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:08:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:08:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:09:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:10:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:10:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:11:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:11:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:11:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:11:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:12:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:13:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:13:29 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:13:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:13:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+ERROR - 2024-10-29 16:13:36 --> mysqli_sql_exception: Unknown column 'products.status' in 'where clause' in E:\Magang\product_registration\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\Magang\product_registration\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `product...', 0)
+#1 E:\Magang\product_registration\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 E:\Magang\product_registration\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 E:\Magang\product_registration\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 E:\Magang\product_registration\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Magang\product_registration\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 E:\Magang\product_registration\app\Controllers\ProductController.php(86): CodeIgniter\BaseModel->findAll()
+#7 E:\Magang\product_registration\system\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+#8 E:\Magang\product_registration\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#9 E:\Magang\product_registration\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\Magang\product_registration\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\Magang\product_registration\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\Magang\product_registration\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\Magang\product_registration\system\rewrite.php(44): require_once('E:\\Magang\\produ...')
+#14 {main}
+CRITICAL - 2024-10-29 16:13:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'products.status' in 'where clause'
+[Method: GET, Route: superadmin/product/approved]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = :products.status:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\ProductController.php(86): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:13:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'products.status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'approved\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'approved\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = :products.status:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\ProductController.php(86): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:13:36 --> [Caused by] mysqli_sql_exception: Unknown column 'products.status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'approved\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'approved\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'approved\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = :products.status:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ProductController.php(86): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:13:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:13:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:16:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:16:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:16:10 --> ErrorException: Undefined variable $confirmed_products
+[Method: GET, Route: superadmin/product/approved]
+in APPPATH\Views\product\approved_product.php on line 58.
+ 1 APPPATH\Views\product\approved_product.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $confirmed_products', 'E:\\Magang\\product_registration\\app\\Views\\product\\approved_product.php', 58)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\Magang\\product_registration\\app\\Views\\product\\approved_product.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('product/approved_product', [], true)
+ 5 APPPATH\Controllers\ProductController.php(84): view('product/approved_product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:16:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:16:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:16:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:16:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:16:28 --> ErrorException: Undefined variable $approved_products
+[Method: GET, Route: superadmin/product/approved]
+in APPPATH\Views\product\approved_product.php on line 58.
+ 1 APPPATH\Views\product\approved_product.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $approved_products', 'E:\\Magang\\product_registration\\app\\Views\\product\\approved_product.php', 58)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\Magang\\product_registration\\app\\Views\\product\\approved_product.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('product/approved_product', [], true)
+ 5 APPPATH\Controllers\ProductController.php(84): view('product/approved_product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:16:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:16:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\SuperadminController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:17:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:17:31 --> ErrorException: Undefined variable $approved_products
+[Method: GET, Route: superadmin/product/approved]
+in APPPATH\Views\product\approved_product.php on line 58.
+ 1 APPPATH\Views\product\approved_product.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $approved_products', 'E:\\Magang\\product_registration\\app\\Views\\product\\approved_product.php', 58)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\Magang\\product_registration\\app\\Views\\product\\approved_product.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('product/approved_product', [], true)
+ 5 APPPATH\Controllers\ProductController.php(84): view('product/approved_product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->approved()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:18:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:18:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:21:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:21:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:21:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+ERROR - 2024-10-29 16:21:59 --> mysqli_sql_exception: Unknown column 'products.status' in 'where clause' in E:\Magang\product_registration\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\Magang\product_registration\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `product...', 0)
+#1 E:\Magang\product_registration\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 E:\Magang\product_registration\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 E:\Magang\product_registration\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 E:\Magang\product_registration\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\Magang\product_registration\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 E:\Magang\product_registration\app\Controllers\ProductController.php(103): CodeIgniter\BaseModel->findAll()
+#7 E:\Magang\product_registration\system\CodeIgniter.php(933): App\Controllers\ProductController->rejected()
+#8 E:\Magang\product_registration\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#9 E:\Magang\product_registration\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\Magang\product_registration\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\Magang\product_registration\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\Magang\product_registration\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\Magang\product_registration\system\rewrite.php(44): require_once('E:\\Magang\\produ...')
+#14 {main}
+CRITICAL - 2024-10-29 16:21:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'products.status' in 'where clause'
+[Method: GET, Route: superadmin/product/rejected]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = :products.status:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\ProductController.php(103): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->rejected()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:21:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'products.status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'rejected\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'rejected\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = :products.status:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\ProductController.php(103): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->rejected()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+CRITICAL - 2024-10-29 16:21:59 --> [Caused by] mysqli_sql_exception: Unknown column 'products.status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'rejected\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'rejected\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = \'rejected\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.`id`, `products`.`color`, `products`.`product_type`, `brands`.`name` as `brand_name`, `categories`.`name` as `category_name`, `subcategories`.`name` as `subcategory_name`, `capacities`.`value` as `capacity`, `compressor_warranties`.`value` as `compressor_warranty`, `sparepart_warranties`.`value` as `sparepart_warranty`
+FROM `products`
+JOIN `brands` ON `brands`.`id` = `products`.`brand_id`
+JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+JOIN `subcategories` ON `subcategories`.`id` = `products`.`subcategory_id`
+JOIN `capacities` ON `capacities`.`id` = `products`.`capacity_id`
+JOIN `compressor_warranties` ON `compressor_warranties`.`id` = `products`.`compressor_warranty_id`
+JOIN `sparepart_warranties` ON `sparepart_warranties`.`id` = `products`.`sparepart_warranty_id`
+WHERE `products`.`status` = :products.status:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ProductController.php(103): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->rejected()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:22:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:22:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:23:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:23:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:25:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:28:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+INFO - 2024-10-29 16:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$compressorwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$sparepartwarrantyModel is deprecated in APPPATH\Controllers\ProductController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanasModel is deprecated in APPPATH\Controllers\ProductController.php on line 44.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansimotorModel is deprecated in APPPATH\Controllers\ProductController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansipanelModel is deprecated in APPPATH\Controllers\ProductController.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$garansiserviceModel is deprecated in APPPATH\Controllers\ProductController.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$refrigrantModel is deprecated in APPPATH\Controllers\ProductController.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\ProductController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
+WARNING - 2024-10-29 16:28:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductController::$session is deprecated in APPPATH\Controllers\BaseController.php on line 60.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('E:\\Magang\\product_registration\\public\\index.php')
