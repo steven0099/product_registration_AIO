@@ -19,11 +19,7 @@ Katalog Digital
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
 
    <div class="col-sm-6">
-   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:40px">
-    </div><!-- /.col -->
-
-       <!-- Center section (Logo image) -->
-       <div class="navbar-brand mx-auto" style="position: absolute; left: 40%; transform: translateX(-50%);">
+   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Katalog</a> 
 </div>
 
@@ -49,7 +45,7 @@ Katalog Digital
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-family:Poppins, serif; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-weight:bold; font-family:'Muli', Arial, sans-serif; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
@@ -68,13 +64,13 @@ Katalog Digital
     <!-- Sidebar for Filters -->
 <div class="container-fluid d-flex">
 <div class="row">   
-<div class="col-md-3">
+<div class="col-md-2">
     <!-- Sidebar Filters -->
-    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 5px; margin-right: 5px; max-height: 800px; overflow-y: auto; width:350px">
+    <div id="filters" class="mb-4" style="margin-top: 10px; margin-left: 45px; margin-right: 5px; max-height: 100vh; overflow-y: auto; width:350px;">
         <h4>Filter Produk</h4>
 
         <form id="filterForm" action="" method="GET">
-            <div id="filterSidebar" style="width: 400px; padding: 20px;">
+            <div id="filterSidebar" style="width: 400px; padding: 20px; padding-left:0; max-height:100vh">
 
                 <!-- Category Filter -->
                 <div>
@@ -146,19 +142,19 @@ Katalog Digital
 
 <!-- Main Product Grid (Right side) -->
 <div class="col-md-12">
-    <div class="row" style="margin-top:10px;margin-bottom: 30px">
+    <div class="row" style="margin-top:10px;margin-bottom: 25px; max-width:97.5%">
         <!-- Search field on the leftmost -->
         <div class="col-md-6 d-flex align-items-center">
             <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                <input style="width:250px; margin-left:50px" type="text" id="search" name="search" value="<?= esc($search) ?>"
+                <input style="width:250px; margin-left:60px" type="text" id="search" name="search" value="<?= esc($search) ?>"
                     placeholder="Cari Produk..." class="form-control">
             </form>
         </div>
 
         <!-- Sort dropdown on the rightmost -->
-        <div class="col-md-6 d-flex align-items-center justify-content-end">
-    <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-        <select style="width: 250px" id="sort" name="sort" class="form-control">
+        <div class="col-md-6 d-flex align-items-center">
+            <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
+            <select style="width: 250px;" id="sort" name="sort" class="form-control">
             <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
             <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
             <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
@@ -167,8 +163,8 @@ Katalog Digital
             <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Produk Baru - Lama</option>
         </select>
     </form>
-</div>
     </div>
+</div>
 
 
 

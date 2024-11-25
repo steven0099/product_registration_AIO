@@ -7,29 +7,35 @@
 /* Product grid container */
 #productGrid {
     width: 100%;
-    padding: 0 15px;
+    padding: 0 27px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; /* Space between cards */
 }
 
+.picture-container {
+    background-color:#f4f4f4;
+    height:169px;
+    width:100%;
+    border-bottom: 2px solid #d9d9d9;
+}
 /* Define each product item with fixed width and spacing */
 .product-item {
     flex: 0 0 33.33%; /* 3 items per row */
     width: 33.33%; /* Prevent resizing */
-    margin-bottom: 15px; /* Space between rows */
-    padding: 0 10px; /* Space between columns */
+    margin-bottom: 35px; /* Space between rows */
+    padding: 0 22.5px; /* Space between columns */
     position: relative;
     height: 280px; /* Fixed height for consistent appearance */
-    min-width: 280px; /* Prevent shrinking */
+    width: 295px; /* Prevent shrinking */
 }
 
     /* Ensure product images are responsive and maintain aspect ratio */
     .product-item img {
         width: 100%;
-        height: 150px;
+        height: 169px;
+        background-color:#f4f4f4;
         object-fit: cover;
-        border-radius: 8px;
     }
 
 /* Grid card to ensure height consistency */
@@ -38,9 +44,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #b3b3b3;
+    border: 2px solid #d9d9d9;
 }
 
 .product-placeholder {
@@ -54,17 +58,18 @@
 
     .card-body {
         display: flex;
-        width:280px;
+        width:247px;
         flex-direction: column;
-        justify-content: space-between;
         padding: 15px;
+        padding-top:5px;
+        padding-left:10px;
         overflow: hidden; /* To prevent overflow */
     }
 
     .card-title {
-        font-size: 14px; /* Adjusted for better readability */
-        font-weight: 600;
-        margin-bottom: 1px; /* Increase spacing */
+        font-size: 12px; /* Adjusted for better readability */
+        font-weight: 800;
+        margin-bottom: 3px; /* Increase spacing */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -72,17 +77,27 @@
 
     .card-text {
         font-size: 12px;
+        margin-bottom:3px;
+        color: #222;
+        margin: 0; /* Add some margin for better spacing */
+    }
+
+    .card-subtext {
+        font-size: 12px;
+        margin-bottom:3px;
         color: #666;
-        margin: 1px 0; /* Add some margin for better spacing */
+        margin: 0; /* Add some margin for better spacing */
     }
 
     /* Adjust the button styling */
 /* Button positioned bottom-right */
 .button {
     position: absolute;
-    bottom: 10px;
-    right:20px;  /* Ensure button is in the bottom-right */
-    padding: 5px 20px;
+    bottom: 19px;
+    right:30px;  /* Ensure button is in the bottom-right */
+    width:79px;
+    height:19px;
+    text-align:center;
     font-size: 12px;
     background-color: #fff;
     color: #000;
@@ -96,15 +111,15 @@
     /* Ensure checkbox and label styling */
     .compare-checkbox {
     position: absolute;
-    bottom: 12px; /* Position the checkbox towards the bottom */
-    left: 25px;   /* Position the checkbox towards the left */
+    bottom: 19px; /* Position the checkbox towards the bottom */
+    left: 35px;   /* Position the checkbox towards the left */
     display:none;
 }
 
 
     .compare-label {
-        margin-left: 15px;
-        bottom:0;
+        margin-left: 17px;
+        bottom:8px;
         vertical-align: middle;
         font-size: 14px;
         color: #000;
@@ -135,8 +150,34 @@
             <?php foreach ($products as $product): ?>
                 <div class="product-item">
                     <div class="grid-card">
-                        <img src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top"
-                             alt="<?= esc($product['product_type']) ?>">
+                        <div class="picture-container">
+<!-- untuk sementara, dianggap sama kalau gaada subkategori lain-->
+                        <?php if ($product['category'] == "AC"): ?>
+<img style="margin: 40px auto; display: block; width: 210px; height: 86px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "TV"): ?>
+<img style="margin: 17px auto; display: block; width: 222px; height: 133px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "KULKAS"): ?>
+<img style="margin: 16px auto; display: block; width: 74px; height: 148px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "MESIN CUCI" && $product['subcategory'] == "2 TABUNG" ): ?>
+<img style="margin: 22px auto; display: block; width: 113px; height: 140px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "MESIN CUCI"): ?>
+<img style="margin: 22px auto; display: block; width: 96px; height: 137px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "FREEZER" && $product['subcategory'] == "CHEST FREEZER 2 PINTU" ): ?>
+<img style="margin: 34px auto; display: block; width: 223px; height: 114px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "FREEZER"): ?>
+<img style="margin: 19px auto; display: block; width: 110px; height: 137px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE 1 PINTU" ): ?>
+<img style="margin: 15px auto; display: block; width: 80px; height: 141px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE 2 PINTU" ): ?>
+<img style="margin: 15px auto; display: block; width: 56px; height: 141px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE CAKE" ): ?>
+<img style="margin: 34px auto; display: block; width: 223px; height: 114px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<!-- belum di set -->
+<?php else: ?>
+<img style="width:80%; height:80%; margin: auto 20px" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php endif; ?>
+
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title"><?= esc($product['brand']) ?></h5>
                             <p class="card-text"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>                                 <?php
@@ -149,10 +190,10 @@
                                 } elseif ($product['subcategory'] == 'AIR PURIFIER') {
                                     echo esc($product['kapasitas_air_dingin'] . ' M²');
                                 } else {
-                                    echo 'Tidak Ada Kapasitas / Ukuran';
+                                    echo '';
                                 }
                                 ?></p>
-                            <p class="card-text"> <?= esc($product['product_type']) ?></p>
+                            <p class="card-subtext"> <?= esc($product['product_type']) ?></p>
                             <div class="column">
 <input type="checkbox" class="compare-checkbox" data-product-id="<?= esc($product['id']) ?>"
            data-product-name="<?= esc($product['brand']) ?>"

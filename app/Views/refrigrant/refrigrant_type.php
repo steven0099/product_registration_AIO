@@ -127,8 +127,8 @@ Tipe Refrigerant
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Tipe Refrigrant</label>
-                        <input type="text" class="form-control" name="name" value="<?= esc($ref['type']) ?>"
+                        <label for="type">Tipe Refrigrant</label>
+                        <input type="text" class="form-control" name="type" value="<?= esc($ref['type']) ?>"
                             placeholder="Enter Refrigrant Type">
                     </div>
                     <!-- Categories dropdown -->
@@ -169,8 +169,8 @@ Tipe Refrigerant
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Tipe Refrigrant</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Refrigrant Type"
+                        <label for="type">Tipe Refrigrant</label>
+                        <input type="text" class="form-control" name="type" placeholder="Enter Refrigrant Type"
                             required>
                     </div>
                 </div>

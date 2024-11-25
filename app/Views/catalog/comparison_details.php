@@ -2,9 +2,9 @@
 
 <?= $this->section('css') ?>
 <!-- DataTables -->
-<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
     <style>
@@ -228,14 +228,8 @@ Detail Perbandingan
 <?= $this->section('breadcumb') ?>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
-   <div class="col-sm-6">
-   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:40px">
-
-   </div><!-- /.col -->
-
-
-       <!-- Center section (Logo image) -->
-       <div class="navbar-brand mx-auto" style="position: absolute; left: 40%; transform: translateX(-50%);">
+   <div class="col-sm-8">
+   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Katalog</a>
       <span class="breadcrumb-separator"></span> 
 
@@ -256,8 +250,7 @@ Detail Perbandingan
     </div>
 
 
-   <!-- User Dropdown -->
-   <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
          <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>

@@ -30,6 +30,7 @@ class UkuranController extends BaseController
                 ->orWhereIn('subcategories.id', $selectedSubcategoryIds)
             ->groupEnd()
             ->findAll();
+
     
         // Fetch the capacities (no change here)
         $data['ukuran'] = $this->ukuranModel->getUkuranWithSubcategory();

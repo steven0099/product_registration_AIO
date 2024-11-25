@@ -468,6 +468,52 @@ class ProductController extends BaseController
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
+            // Apply sorting
+    usort($data['brands'], function ($a, $b) {
+        return strcmp($a['name'], $b['name']); // Replace 'name' with the actual column name in your table
+    });
+
+    usort($data['categories'], function ($a, $b) {
+        return strcmp($a['name'], $b['name']); // Replace 'category' with the actual column name in your table
+    });
+
+    usort($data['subcategories'], function ($a, $b) {
+        return strcmp($a['name'], $b['name']); // Replace 'subcategory' with the actual column name in your table
+    });
+
+    usort($data['capacities'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
+    usort($data['ukuran'], function ($a, $b) {
+        return strcmp($a['size'], $b['size']); // Replace 'ukuran' with the actual column name in your table
+    });
+
+    usort($data['compressor_warranties'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
+    usort($data['sparepart_warranties'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
+    usort($data['garansi_motor'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
+    usort($data['garansi_elemen_panas'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
+    usort($data['garansi_panel'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
+
+    usort($data['garansi_semua_service'], function ($a, $b) {
+        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+    });
+
         $data['previousData'] = session()->get('step1');
 //        dd($data);
 
@@ -596,6 +642,10 @@ class ProductController extends BaseController
         $refrigrantModel = new RefrigrantModel();
 
         $data['refrigrant'] = $refrigrantModel->findAll();
+
+        usort($data['refrigrant'], function ($a, $b) {
+            return strcmp($a['type'], $b['type']); // Replace 'capacity' with the actual column name in your table
+        });
         return view('layout/product/product_regis_step2', $data);
     }
 

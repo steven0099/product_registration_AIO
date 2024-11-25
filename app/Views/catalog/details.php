@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
-    <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- iCheck -->
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-
     <style>
     .product-detail-container {
         max-width: 1080px;
@@ -44,8 +42,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: none;
     color: #000;
     cursor: pointer;
@@ -57,24 +55,29 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: none;
     color: #000;
     cursor: pointer;
     z-index: 10;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: #000;
-    border: 1px solid #000;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding: 10px; /* Adjust padding to make the click area larger */
+.carousel-control-prev-icon {
+    background-image: url('/images/prev.png');
+    background-size: contain; /* Ensures the image fits within the button */
+    background-repeat: no-repeat;
+    width: 40px; /* Adjust width to fit your image */
+    height: 40px; /* Adjust height to fit your image */
 }
 
-
+.carousel-control-next-icon {
+    background-image: url('/images/next.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px; /* Adjust width */
+    height: 40px; /* Adjust height */
+}
 
 .carousel-item img, .carousel-item iframe {
     max-width: 495px;
@@ -143,6 +146,7 @@
     .product-specifications {
         margin-top: 30px;
         padding: 10px;
+        position:relative;
     }
 
     .product-specifications table {
@@ -153,6 +157,7 @@
         border-bottom: none;
         border-radius: 0 0 8px 8px;
         table-layout: fixed;
+        z-index:1000;
         /* Force equal column widths */
     }
 
@@ -163,6 +168,7 @@
     padding-left: 5px;
     background-color: rgba(0, 0, 0, 0.1); /* Light gray with 80% opacity */
     text-align: left;
+    z-index:1000;
 }
 
 /* Add a right border only to the cells in the first column */
@@ -205,7 +211,7 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
         gap: 10px;
-        width: 76.5%;
+        width: 100%;
         overflow-y: hidden;
     }
 
@@ -224,6 +230,78 @@
         border: #0d2a46;
         margin-bottom:1px;
     }
+
+    .text-center {
+    position: relative; /* Ensure stacking context for the dropdown */
+}
+
+#floatingWidget {
+    position: fixed; /* Makes it float at a fixed position */
+    bottom: 20px; /* Adjust the vertical position */
+    right: 20px; /* Adjust the horizontal position */
+    z-index: 9999; /* Ensure it's above everything else */
+}
+
+.btn-widget {
+    border-radius: 50%; /* Make the button round */
+    width: 60px; /* Set the width */
+    height: 60px; /* Set the height */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 0; /* Remove any padding */
+}
+
+.btn-widget img {
+    width: 70%; /* Make the logo fill most of the button */
+    height: 70%; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image scales without distortion */
+}
+
+
+.btn-widget::after {
+    display: none !important; /* Hides the caret */
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    bottom: 100%; /* Make the dropdown appear above the button */
+    right: 0; /* Align the dropdown with the button */
+    z-index: 9999;
+    border: none; /* Remove the border */
+    box-shadow: none; /* Remove the shadow */
+    background-color: rgba(255,255,255,0); /* Change the background color */
+    padding: 10px; /* Add spacing around the entire dropdown */
+}
+
+.dropdown-item {
+    margin-bottom: 5px; /* Add spacing between items */
+    padding: 10px 15px; /* Add padding inside the items */
+    background-color: #53a653; /* Set the background color for items */
+    border-radius:25px;
+    color: #fff;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Last item in the dropdown should have no margin-bottom */
+.dropdown-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+    background-color: #5cb85c; /* Highlight color on hover */
+    cursor: pointer;
+}
+
+#locationButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
     .product-item .card img {
         width: 100%;
@@ -244,12 +322,8 @@ Detail Produk
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; display: flex; justify-content: space-between; align-items: center;">
 
    <!-- Left section (Breadcrumb links) -->
-   <div class="col-sm-6 d-flex align-items-center">
-   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:40px">
-   </div>
-
-   <!-- Center section (Logo image) -->
-   <div class="navbar-brand mx-auto" style="position: absolute; left: 40%; transform: translateX(-50%);">
+   <div class="col-sm-8 d-flex align-items-center">
+   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
       <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Katalog</a>
       <span class="breadcrumb-separator"></span> 
       <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kategori</a>
@@ -350,12 +424,12 @@ Detail Produk
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
                     data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </button>
                 
                     <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
                             data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         </button>
                 </div>
 
@@ -429,22 +503,9 @@ Detail Produk
                     <?php endif; ?>
                 </ul>
 
-                <div class="text-center mt-4">
-                    <a id="locationButton"
-                        class="btn btn-success btn-lg dropdown-toggle d-inline-flex align-items-center"
-                        data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp"
-                            style="width: 24px; height: 24px; margin-right: 8px;">
-                        Hubungi Kami
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="locationButton">
-                        <li class="dropdown-item">Pilih Cabang AIO Store:</li>
-                        <?php foreach ($marketplace as $item): ?>
-                        <li><a class="dropdown-item" href="#" data-location="<?= $item['location'] ?>" data-phone="<?= $item['phone'] ?>">AIO Store
-                                <?= $item['location'] ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+</div>
+
+
             </div>
 
             <!-- Tabel Spesifikasi Produk di Bagian Paling Bawah -->
@@ -466,6 +527,10 @@ Detail Produk
                     <tr>
                         <th>Tipe Produk</th>
                         <td><?= esc($product['product_type']) ?></td>
+                    </tr>
+                    <tr>
+                        <th>Warna</th>
+                        <td><?= esc($product['color']) ?></td>
                     </tr>
                     <tr>
                         <?php if ($product['capacity'] != null): ?>
@@ -671,21 +736,22 @@ Detail Produk
                 </table>
             </div>
 
-
+<?php if (count($relatedProducts) > 0): ?>
+    <h3 style="text-align:center" class="col-12">Rekomendasi Untuk Anda</h3>
             <div class="row">
-                <div class="col-md-10 mb-1 mt-4">
-                    <h3 style="text-align:center">Rekomendasi Untuk Anda</h3>
-                </div>
-
+                <div class="col-md-12 mb-1 mt-2">        
                 <div class="recommended-carousel">
     <!-- Left Arrow -->
-    <button class="carousel-control-prev-icon" style="right:5px;" onclick="scrollProductLeft()"></button>
-
+    <?php if (count($relatedProducts) >= 4): ?>
+        <button class="carousel-control-prev" onclick="scrollProductLeft()" type="button">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+</button>
+    <?php endif; ?>
     <!-- Product Container -->
     <div class="product-container">
         <?php foreach ($relatedProducts as $relproduct): ?>
         <a href="<?= base_url('catalog/details/' . esc($relproduct['id'])) ?>" class="product-item" style="text-decoration: none; color: inherit;">
-            <div class="card" style="width: 250px; height: 220px; background-color: rgba(255,255,255,0.2); border: 2px solid rgba(0,0,0,0.4)">
+            <div class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid rgba(0,0,0,0.4)">
                 <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" class="card-img-top" alt="Gambar Produk">
                 <div class="card-body p-2">
                     <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
@@ -705,16 +771,40 @@ Detail Produk
         </a>
         <?php endforeach; ?>
     </div>
+
                         
                         
 
     <!-- Right Arrow -->
-    <button class="carousel-control-next-icon" style="left:5px;" onclick="scrollProductRight()"></button>
+    <?php if (count($relatedProducts) >= 4): ?>
+        <button class="carousel-control-next" style="right:-45px" onclick="scrollProductRight()" type="button">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <?php endif; ?>
 </div>
 
             </div>
-
+    </div>
+    <?php endif; ?>
             </div>
+
+            <div id="floatingWidget" class="dropup" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+    <a id="locationButton"
+       class="btn btn-success btn-widget btn-lg d-inline-flex align-items-center"
+       data-bs-toggle="dropdown" aria-expanded="false" href="#">
+        <img src="<?= base_url('/images/whatsapp-logo.png') ?>" alt="WhatsApp">
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="locationButton">
+        <li class="dropdown-item">Hubungi AIO Store Via WhatsApp:</li>
+        <?php foreach ($marketplace as $item): ?>
+        <li>
+            <a class="dropdown-item" style="margin-bottom: 5px;"href="#" data-location="<?= $item['location'] ?>" data-phone="<?= $item['phone'] ?>">
+                AIO Store <?= $item['location'] ?>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
 <?= $this->endSection() ?>
 
 <?= $this->section('js')?>

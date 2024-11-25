@@ -100,6 +100,8 @@ class CatalogController extends BaseController
         $perPage = 15;
         $currentPage = $this->request->getGet('page') ?? 1;
         $products = $query->paginate($perPage, 'default', $currentPage);
+
+        
     
         // Fetch distinct filter options
         $categories = $this->confirmationModel->distinct()->select('category')->findAll();
@@ -107,6 +109,32 @@ class CatalogController extends BaseController
         $capacities = $this->confirmationModel->distinct()->select('capacity')->findAll();
         $ukuran = $this->confirmationModel->distinct()->select('ukuran')->findAll();
         // Return the view
+        // Sort categories alphabetically
+usort($categories, function ($a, $b) {
+    return strcmp($a['category'], $b['category']);
+});
+
+// Sort subcategories alphabetically
+usort($subcategories, function ($a, $b) {
+    return strcmp($a['subcategory'], $b['subcategory']);
+});
+
+// Sort capacities alphabetically
+usort($capacities, function ($a, $b) {
+    return strcmp($a['capacity'], $b['capacity']);
+});
+
+// Sort ukuran alphabetically
+usort($ukuran, function ($a, $b) {
+    return strcmp($a['ukuran'], $b['ukuran']);
+});
+
+// Pass the sorted arrays to the view
+$data['categories'] = $categories;
+$data['subcategories'] = $subcategories;
+$data['capacities'] = $capacities;
+$data['ukuran'] = $ukuran;
+
 
         log_message('info', 'Category: ' . $category);
 log_message('info', 'Subcategory: ' . $subcategory);
@@ -400,7 +428,7 @@ public function details($id)
 
     // Special logic for 'SMALL APPLIANCES' category to include subcategory in related products
     if ($product['category'] == "SMALL APPLIANCES") {
-        $relatedProducts = $model->getRelatedProducts(
+        $relatedProducts = $model->getRelatedSmallApp(
             $product['subcategory'], // Check by subcategory for this category
             $product['capacity'],
             $product['ukuran'],
@@ -436,6 +464,10 @@ public function details($id)
            $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
        }
    }
+
+   usort($marketplace, function ($a, $b) {
+    return strcmp($a['location'], $b['location']);
+});
    
    // Pass the data to the view
    return view('catalog/details', [
