@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <style>
 
@@ -199,7 +200,7 @@ input.form-control:-webkit-autofill.form-control.valid {
                                     </div>
                                     <div class="col-sm-5 title">
                                         <h3 class=""
-                                            style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">
+                                            style="font-weight: 700;margin-top: 25px;font-family: Poppins, sans-serif;">
                                             Form Registrasi Produk</h3>
                                     </div>
                                 </div>
@@ -519,17 +520,19 @@ input.form-control:-webkit-autofill.form-control.valid {
                 type = 'garansi_panel';
             } else if (categoryId === '6') {
                 type = 'garansi_motor';
-            } else if (subcategoryId === '31' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId ==
+            } else if (subcategoryId == '31' || subcategoryId == '43'  || subcategoryId == '45' || subcategoryId == '46' || subcategoryId ==
                 '47' || subcategoryId == '48' || subcategoryId == '50' || subcategoryId == '51' || subcategoryId ==
-                '52' || subcategoryId == '54') {
+                '52' || subcategoryId == '54' || subcategoryId == '64' || subcategoryId == '65' || subcategoryId ==
+                '68' || subcategoryId == '69' || subcategoryId == '73' || subcategoryId == '74') {
                 type = 'garansi_semua_service';
-            } else if (subcategoryId === '32' || subcategoryId == '49' || subcategoryId == '53') {
+            } else if (subcategoryId === '32' || subcategoryId == '49' || subcategoryId == '53' || subcategoryId == '62'|| subcategoryId == '67'|| subcategoryId == '70') {
                 type = 'garansi_motor';
             } else if (subcategoryId === '35' || subcategoryId === '36') {
                 type = 'garansi_kompresor';
             } else if (subcategoryId == '33' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId ==
-                '38' || subcategoryId == '41' || subcategoryId == '42' || subcategoryId == '43' || subcategoryId == '44'
-            ) {
+                '38' || subcategoryId == '41' || subcategoryId == '42'|| subcategoryId == '44'
+                || subcategoryId == '63' || subcategoryId == '66' || subcategoryId == '71' || subcategoryId == '72'
+                || subcategoryId == '75' || subcategoryId == '76') {
                 type = 'garansi_elemen_panas';
             } else {
                 type = 'garansi_kompresor'; // Default type if no conditions match
@@ -616,7 +619,7 @@ input.form-control:-webkit-autofill.form-control.valid {
             if(`<?= isset(session()->get("step1")["category_id"]) ?>`){
                 $('#compressor_warranty').val(`<?= session()->get("step1")["garansi_panel_id"] ?? null ?>`).change()
             }
-        } else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53') {
+        } else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53' || subcategoryId == '62') {
             compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block';
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name to garansi_motor_id
@@ -626,7 +629,7 @@ input.form-control:-webkit-autofill.form-control.valid {
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Semua Service</option>';
-        } else if (subcategoryId == '32') { // Check for subcategory id 31
+        } else if (subcategoryId == '32' ||subcategoryId == '67' ||subcategoryId == '70') { // Check for subcategory id 31
             compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name for Garansi Semua Service
@@ -636,13 +639,13 @@ input.form-control:-webkit-autofill.form-control.valid {
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
-        } else if (subcategoryId == '33' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41' || subcategoryId == '44') { // Check for subcategory id 31
+        } else if (subcategoryId == '33' || subcategoryId == '63' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41' || subcategoryId == '44' || subcategoryId == '71' || subcategoryId == '72' || subcategoryId == '76') { // Check for subcategory id 31
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        }  else if (subcategoryId == '42' || subcategoryId == '43') { // Check for subcategory id 31
+        }  else if (subcategoryId == '42'|| subcategoryId == '66' || subcategoryId == '75') { // Check for subcategory id 31
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Service (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display =
@@ -650,8 +653,8 @@ input.form-control:-webkit-autofill.form-control.valid {
             document.getElementById('compressor_warranty').setAttribute('name',
                 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        } else if (subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '50' ||
-            subcategoryId == '51' || subcategoryId == '54') { // Check for subcategory id 31
+        } else if (subcategoryId == '43' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '50' ||
+            subcategoryId == '51' || subcategoryId == '54'|| subcategoryId == '64' || subcategoryId == '65'|| subcategoryId == '68' || subcategoryId == '69' || subcategoryId == '73' || subcategoryId == '74') { // Check for subcategory id 31
             compressorWarrantyLabel.innerText = 'Garansi Jasa Service (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
@@ -693,7 +696,7 @@ input.form-control:-webkit-autofill.form-control.valid {
             // Check if the category is "TV" to fetch options for Ukuran TV
             if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
                 showCapacityField(true); // Show dropdown for capacity
-            } else if (subcategoryId == '42' || subcategoryId == '52' || subcategoryId == '35' || subcategoryId == '36') {
+            } else if (subcategoryId == '42' || subcategoryId == '52' || subcategoryId == '35' || subcategoryId == '36' || subcategoryId == '66'|| subcategoryId == '67'|| subcategoryId == '70' || subcategoryId == '73'|| subcategoryId == '74') {
                 hideCapacityField(); // Hide dropdown for capacity
             } else {
                 showCapacityField(false); // Show dropdown for capacity

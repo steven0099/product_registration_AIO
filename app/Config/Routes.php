@@ -92,6 +92,8 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->post('updatePower', 'ProductController::updatePower');
     $routes->post('updateWeight', 'ProductController::updateWeight');
     $routes->post('updateColdCap', 'ProductController::updateColdCap');
+    $routes->post('updatePics', 'ProductController::updatePics');
+    $routes->post('updateVideo', 'ProductController::updateVideo');
     $routes->post('updateHarga', 'ProductController::updateHarga');
     $routes->post('updateHotCap', 'ProductController::updateHotCap');
     $routes->post('updateCooling', 'ProductController::updateCooling');

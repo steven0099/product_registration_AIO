@@ -126,7 +126,7 @@
             <h3><b>AIO STORE</b></h3>
             <ul>
                 <li><a href="https://www.aiostore.co.id/artikel/" target="_self">Artikel</a></li>
-                <li><a href="https://www.aiostore.co.id/kalkulator-pk/" target="_self">Kalkulator PK</a></li>
+                <li><a href="https://www.aiostore.co.id/pk-kalkulator/" target="_self">Kalkulator PK</a></li>
                 <li><a href="https://www.aiostore.co.id/karir/" target="_self">Karir</a></li>
                 <li><a href="/catalog" target="_self">Katalog Digital</a></li>
                 <li><a href="https://www.aiostore.co.id/tentang-kami/" target="_self">Tentang kami</a></li>

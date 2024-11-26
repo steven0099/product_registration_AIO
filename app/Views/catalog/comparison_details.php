@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href="static\plugin\font-awesome\css\fontawesome-all.min.css" rel="stylesheet">
-    <style>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+   <style>
 
 a{
     font-family: Poppins, sans-serif;   
@@ -230,23 +231,23 @@ Detail Perbandingan
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
    <div class="col-sm-8">
    <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
-       <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Katalog</a>
+       <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Beranda</a>
       <span class="breadcrumb-separator"></span> 
 
       <!-- Render category link -->
       <?php if (!empty($products)): ?>
          <?php $product = $products[0]; // Get the first product, assuming all products belong to the same category ?>
          <?php if ($product['category'] == 'SMALL APPLIANCES'): ?>
-            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kategori</a>
+            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
             <span class="breadcrumb-separator"></span> 
             <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Subkategori</a>
          <?php else: ?>
-            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Kategori</a>
+            <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
          <?php endif; ?>
       <?php endif; ?>
 
       <span class="breadcrumb-separator"></span> 
-      <span class="breadcrumb-item" style="font-family: Poppins sans-serif; font-size:18px">Detail Perbandingan</span>
+      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-size:18px">Detail Perbandingan</span>
     </div>
 
 
@@ -490,7 +491,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER'): ?>
+        <?php if ($product['category'] == 'MESIN CUCI'|| $product['subcategory'] == 'CHOPPER' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER'): ?>
         <tr>
             <td>Garansi Motor</td>
             <?php foreach ($products as $product): ?>
@@ -514,7 +515,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KIPAS ANGIN'): ?>
+        <?php if ($product['subcategory'] == 'KIPAS ANGIN' || $product['subcategory'] == 'HAND MIXER' || $product['subcategory'] == 'MIXER'): ?>
         <tr>
             <td>Garansi Motor</td>
             <?php foreach ($products as $product): ?>
@@ -544,7 +545,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER'|| $product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER'|| $product['subcategory'] == 'OVEN'||$product['subcategory'] == 'CUP SEALER'||$product['subcategory'] == 'WATER BOILER'  ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'||$product['subcategory'] == 'PRESSURE COOKER' ||$product['subcategory'] == 'OVEN FRYER'): ?>
         <tr>
             <td>Garansi Elemen Panas</td>
             <?php foreach ($products as $product): ?>
@@ -559,7 +560,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'VACUUM CLEANER'): ?>
+        <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'HAIR DRYER'): ?>
         <tr><td>Garansi Elemen Panas</td>
         <?php foreach ($products as $product): ?>
         <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
@@ -573,7 +574,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'TOASTER'): ?>
+        <?php if ($product['subcategory'] == 'TOASTER' || $product['subcategory'] == 'WAFFLE MAKER'): ?>
         <tr><td>Garansi Elemen Panas</td>
         <?php foreach ($products as $product): ?>
         <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
@@ -587,7 +588,7 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'  || $product['subcategory'] == 'AIR FRYER'): ?>
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'  || $product['subcategory'] == 'AIR FRYER'|| $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER'|| $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK' || $product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
         <tr>
             <td>Garansi Jasa Service</td>
         <?php foreach ($products as $product): ?>
@@ -614,6 +615,22 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
         <td>Garansi Sparepart & Jasa Service</td>
         <?php foreach ($products as $product): ?>
         <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'VACUUM CLEANER'): ?>
+        <tr>
+        <td>Garansi Sparepart</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+        <?php endforeach ; ?>
+        </tr>
+        <tr>
+        <td>Garansi Jasa Service</td>
+        <?php foreach ($products as $product): ?>
+        <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
         <?php endforeach ; ?>
         </tr>
         

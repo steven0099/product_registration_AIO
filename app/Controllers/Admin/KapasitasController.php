@@ -22,7 +22,7 @@ class KapasitasController extends BaseController
     public function index()
     {
         $selectedCategoryIds = [3, 4, 5, 6, 7];
-        $selectedSubcategoryIds = [33, 34, 37, 38, 41, 43, 44, 45, 46, 48, 49, 53, 54];
+        $selectedSubcategoryIds = [33, 34, 37, 38, 41, 43, 44, 45, 46, 48, 49, 53, 54, 62, 63,64,65,68,69,71,72,75,76];
     
         // Modify the query to include category name
         $data['subcategories'] = $this->subcategoryModel

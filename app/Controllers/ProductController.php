@@ -555,7 +555,7 @@ class ProductController extends BaseController
             $validationRules['compressor_warranty_id'] = 'required';  // Corrected field name
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
-        } elseif ($category == '6' || $subcategory == '49') {
+        } elseif ($category == '6' || $subcategory == '49' || $subcategory == '62' || $subcategory == '63') {
             $validationRules['garansi_motor_id'] = 'required'; // Ensure this matches your form
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
@@ -565,6 +565,8 @@ class ProductController extends BaseController
         } elseif ($subcategory == '32') {
             $validationRules['garansi_motor_id'] = 'required';
             $validationRules['ukuran_id'] = 'required';
+        } elseif ($subcategory == '67' || $subcategory == '70') {
+            $validationRules['garansi_motor_id'] = 'required';
         } elseif (in_array($subcategory, ['35', '36'])) {
             // Only validate if these fields should be visible
             if (isset($step1Data['kapasitas_air_panas']) && $step1Data['kapasitas_air_panas'] !== '') {
@@ -574,19 +576,22 @@ class ProductController extends BaseController
                 $validationRules['kapasitas_air_dingin'] = 'required';
             }
             $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
-        } elseif (in_array($subcategory, ['33','34','37','38','41','44'])) {
+        } elseif (in_array($subcategory, ['33','34','37','38','41','44','63','71','72','76'])) {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
-        } elseif ($subcategory == '42') {
+        } elseif ($subcategory == '42' || $subcategory == '66') {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
-        } elseif ($subcategory == '43' || $subcategory == '48') {
+        } elseif ($subcategory == '48' || $subcategory == '75') {
             $validationRules['capacity_id'] = 'required';
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
-        } elseif ($subcategory == '45' || $subcategory == '46') {
+        } elseif ($subcategory == '43' || $subcategory == '45' || $subcategory == '46' || $subcategory == '64' || $subcategory == '65'|| $subcategory == '68' || $subcategory == '69') {
             $validationRules['capacity_id'] = 'required';
+            $validationRules['sparepart_warranty_id'] = 'required';
+            $validationRules['garansi_semua_service_id'] = 'required';
+        } elseif ($subcategory == '73' || $subcategory == '74') {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_semua_service_id'] = 'required';
         } elseif ($subcategory == '47' || $subcategory == '50' || $subcategory == '51') {
@@ -611,18 +616,18 @@ class ProductController extends BaseController
             // Dynamic fields based on conditions
             'ukuran_id' => ($category == '9' || in_array($subcategory, ['31', '32','47','50','51'])) ? $step1Data['ukuran_id'] : null,
             'garansi_panel_id' => ($category == '9') ? $step1Data['garansi_panel_id'] : null,
-            'capacity_id' => (in_array($category, ['3', '4', '5', '6', '7']) || in_array($subcategory, ['33', '34', '37', '38', '41', '43', '44', '45', '46', '48', '49'])) ? $step1Data['capacity_id'] : null,
-            'garansi_motor_id' => ($category == '6' || in_array($subcategory, ['32','49'])) ? $step1Data['garansi_motor_id'] : null,
-            'garansi_semua_service_id' => (in_array($subcategory, ['31', '45', '46','47','50','51'])) ? $step1Data['garansi_semua_service_id'] : null,
+            'capacity_id' => (in_array($category, ['3', '4', '5', '6', '7']) || in_array($subcategory, ['33', '34', '37', '38', '41', '43', '44', '45', '46', '48', '49', '53', '54', '62', '63','64','65','68','69','71','72','75','76'])) ? $step1Data['capacity_id'] : null,
+            'garansi_motor_id' => ($category == '6' || in_array($subcategory, ['32','49','53','62','67','70'])) ? $step1Data['garansi_motor_id'] : null,
+            'garansi_semua_service_id' => (in_array($subcategory, ['31', '43', '45', '46','47','50','51','52','54','64','65','68','69','73','74'])) ? $step1Data['garansi_semua_service_id'] : null,
 
             // Only include air capacities if they are intended to be filled
             'kapasitas_air_panas' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
-            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
+            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36', '52']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
 
             // Extra dynamic warranties or other fields
             'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36'])) ? $step1Data['compressor_warranty_id'] : null,
-            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51'])) ? $step1Data['sparepart_warranty_id'] : null,
-            'garansi_elemen_panas_id' => (in_array($subcategory, ['33','34','37', '38','41','42','43','44','48'])) ? $step1Data['garansi_elemen_panas_id'] : null,
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51','52','53','54','62','63','64','65','66','68','69','71','72','73','74','75','76'])) ? $step1Data['sparepart_warranty_id'] : null,
+            'garansi_elemen_panas_id' => (in_array($subcategory, ['33','34','37', '38','41','42','44','48','66','71','72','75','76'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
 
         // Insert the data into the database
@@ -1145,6 +1150,93 @@ class ProductController extends BaseController
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
         }
     }
+
+    public function updatePics()
+{
+    $productId = $this->request->getPost('product_id');
+    $videoProduk = $this->request->getPost('video_produk');
+
+    // Validate YouTube Link
+    if (!empty($videoProduk)) {
+        $videoId = $this->extractYouTubeId($videoProduk);
+        if ($videoId) {
+            // Save the YouTube video ID instead of the full link
+            $youtubeLink = 'https://www.youtube.com/watch?v=' . $videoId;
+            $this->confirmationModel->update($productId, ['video_produk' => $youtubeLink]);
+        } else {
+            return redirect()->back()->with('error', 'Link YouTube tidak valid!');
+        }
+    }
+
+    // Check if the product exists and is approved
+    $product = $this->confirmationModel->find($productId);
+    if (!$product || $product['status'] !== 'approved') {
+        return redirect()->back()->with('error', 'Cannot edit this product.');
+    }
+
+    // Prepare data for update
+    $updatedData = [];
+
+    // Handle file uploads (for each image field)
+    $fields = ['gambar_depan', 'gambar_belakang', 'gambar_samping_kiri', 'gambar_samping_kanan', 'gambar_atas', 'gambar_bawah']; // Add more fields as needed
+    foreach ($fields as $field) {
+        $file = $this->request->getFile($field);
+
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            // Save the new file
+            $newName = $file->getRandomName();
+            $file->move('uploads', $newName);
+
+            // Add to update data
+            $updatedData[$field] = $newName;
+
+            // Optionally: Delete the old file if it exists
+            if (!empty($product[$field])) {
+                @unlink('uploads/' . $product[$field]);
+            }
+        }
+    }
+
+    // Update only if there is data to update
+    if (!empty($updatedData)) {
+        $this->confirmationModel->update($productId, $updatedData);
+    }
+
+    return redirect()->back()->with('success', 'Product updated successfully.');
+}
+
+public function updateVideo()
+{
+    $productId = $this->request->getPost('product_id');
+    $videoProduk = $this->request->getPost('video_produk');
+
+    // Validate YouTube Link
+    $videoId = $this->extractYouTubeId($videoProduk);
+    if ($videoId) {
+        $youtubeLink = 'https://www.youtube.com/watch?v=' . $videoId;
+        $this->confirmationModel->update($productId, ['video_produk' => $youtubeLink]);
+        return redirect()->back()->with('success', 'Video produk berhasil diperbarui!');
+    } else {
+        return redirect()->back()->with('error', 'Link YouTube tidak valid!');
+    }
+}
+
+private function extractYouTubeId($url)
+{
+    // Regular expressions for YouTube links
+    $patterns = [
+        '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)/',  // Matches youtube.com/watch?v=xxxxx
+        '/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([^?]+)/'              // Matches youtu.be/xxxxx
+    ];
+
+    foreach ($patterns as $pattern) {
+        if (preg_match($pattern, $url, $matches)) {
+            return $matches[1]; // Return the video ID
+        }
+    }
+
+    return false; // No valid match
+}
 
     public function updateCooling()
     {

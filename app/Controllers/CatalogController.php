@@ -356,7 +356,7 @@ public function getCapacities()
         $filterType = $this->getFilterType($categoryId, $subcategoryId);
 
         // Determine if the capacity dropdown should be shown
-        $showCapacity = !in_array($subcategoryId, [35, 36,42,52]);
+        $showCapacity = !in_array($subcategoryId, [35,36,42,52,66,67,70,73,74]);
 
         if ($filterType === 'capacity') {
             $capacities = $this->capacityModel->where('subcategory_id', $subcategoryId)->findAll();
@@ -436,7 +436,7 @@ public function details($id)
         );
     }
 
-    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA" || $product['subcategory'] == "AIR PURIFIER" ) {
+    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA" || $product['subcategory'] == "AIR PURIFIER" || $product['subcategory'] == "HAIR DRYER"|| $product['subcategory'] == "HAND MIXER"|| $product['subcategory'] == "MIXER"|| $product['subcategory'] == "SMART DOOR LOCK"|| $product['subcategory'] == "SMART LED") {
         $relatedProducts = $model->getRelatedProductsBySubcategoryOnly(
             $product['subcategory'], // Check by subcategory for this category
             $id // Pass only the product ID to exclude the current product

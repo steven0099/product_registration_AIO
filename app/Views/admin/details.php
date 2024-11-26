@@ -116,7 +116,7 @@
         <?php endif; ?>
 
         
-        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER'): ?>
+        <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER'  || $product['subcategory'] == 'JUICER' || $product['subcategory'] == 'CHOPPER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <tr><th>Garansi Motor</th><td><?= esc($product['garansi_motor']) ?> Tahun</td></tr>
@@ -132,13 +132,29 @@
         <tr><th>Garansi Motor</th><td><?= esc($product['garansi_motor']) ?> Tahun</td></tr>
         <?php endif; ?>
 
+        <?php if ($product['subcategory'] == 'MIXER' || $product['subcategory'] == 'HAND MIXER'): ?>
+        <tr><th>Garansi Motor</th><td><?= esc($product['garansi_motor']) ?> Tahun</td></tr>
+        <?php endif; ?>
+
         <?php if ($product['subcategory'] == 'DISPENSER GALON ATAS' || $product['subcategory'] == 'DISPENSER GALON BAWAH'): ?>
         <tr><th>Kapasitas Air Dingin</th><td><?= esc($product['kapasitas_air_dingin']) ?> Liter</td></tr>
         <tr><th>Kapasitas Air Panas</th><td><?= esc($product['kapasitas_air_panas']) ?> Liter</td></tr>
         <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty'])?> Tahun</td></tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+        <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'HAIR DRYER'): ?>
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'TOASTER' || $product['subcategory'] == 'WAFFLE MAKER'): ?>
+        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>    
+        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'PRESSURE COOKER' ||$product['subcategory'] == 'OVEN FRYER'||$product['subcategory'] == 'CUP SEALER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' ||$product['subcategory'] == 'WATER BOILER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
         <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
@@ -147,54 +163,19 @@
 
         <?php if ($product['subcategory'] == 'VACUUM CLEANER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
+        <tr><th>Garansi Jasa Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'SETRIKA'): ?>
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'TOASTER'): ?>
-        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>    
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty'])?> Tahun</td></tr>
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'VACUUM CLEANER'): ?>
-        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'SETRIKA'): ?>
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
-        <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'TOASTER'): ?>
-        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>    
-        <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
+        <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
-        <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
+        <?php if ($product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
         <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         

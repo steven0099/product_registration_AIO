@@ -5,6 +5,7 @@ Rincian Produk
 <?= $this->endSection() ?>
 
 <?= $this->section('css') ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
     .modal {
         display: none;
@@ -201,6 +202,11 @@ Rincian Produk
                         Samping Kanan</a><br>
                     <?php endif; ?>
                 </td>
+                <?php if ($product['status'] === 'approved'): ?>
+                    <td>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editPicsModal<?= $product['id'] ?>">Edit</button>
+                </td>
+            <?php endif; ?>
             </tr>
             <?php if (!empty($product['video_produk'])): ?>
             <tr>
@@ -208,6 +214,12 @@ Rincian Produk
                 <td>
                     <a href="<?= esc($product['video_produk'] ?? '')?>" target="_blank">Video Produk</a>
                 </td>
+                <td>
+                <?php if ($product['status'] == 'approved'): ?>
+<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editVideoModal">Edit</button>
+<?php endif; ?>
+                </td>
+
             </tr>
             <?php endif; ?>
             <tr>
@@ -242,10 +254,6 @@ Rincian Produk
             <tr>
                 <th>Garansi Panel</th>
                 <td><?= esc($product['garansi_panel']) ?> Tahun</td>
-            </tr>
-            <tr>
-                <th>Garansi Sparepart</th>
-                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
@@ -315,7 +323,7 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['category'] == 'MESIN CUCI' || $product['subcategory'] == 'BLENDER' || $product['subcategory'] == 'JUICER'): ?>
+            <?php if ($product['category'] == 'MESIN CUCI'|| $product['subcategory'] == 'CHOPPER' || $product['subcategory'] == 'BLENDER' || $product['subcategory'] == 'JUICER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -352,6 +360,13 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
+            <?php if ($product['subcategory'] == 'MIXER' || $product['subcategory'] == 'HAND MIXER'): ?>
+            <tr>
+                <th>Garansi Motor</th>
+                <td><?= esc($product['garansi_motor']) ?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
             <?php if ($product['subcategory'] == 'DISPENSER GALON ATAS' || $product['subcategory'] == 'DISPENSER GALON BAWAH'): ?>
             <tr>
                 <th>Kapasitas Air Dingin</th>
@@ -379,20 +394,17 @@ Rincian Produk
                 <td><?= esc($product['capacity']) ?></td>
             </tr>
             <tr>
-                <th>Garansi Elemen Panas</th>
-                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
-                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
             </tr>
             <tr>
-                <th>Garansi Service</th>
-                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
-                <th>Garansi Service</th>
+                <th>Garansi Jasa Service</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
             </tr>
 
             <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'TOASTER'): ?>
+            <?php if ($product['subcategory'] == 'TOASTER' || $product['subcategory'] == 'WAFFLE MAKER'): ?>
         <tr>
             <th>Kapasitas</th>
             <td><?= esc($product['capacity']) ?></td>
@@ -408,7 +420,7 @@ Rincian Produk
         
         <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
+            <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN'||$product['subcategory'] == 'WATER BOILER'  ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'||$product['subcategory'] == 'CUP SEALER'||$product['subcategory'] == 'PRESSURE COOKER' ||$product['subcategory'] == 'OVEN FRYER'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -424,7 +436,7 @@ Rincian Produk
 
             <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'SETRIKA'): ?>
+            <?php if ($product['subcategory'] == 'SETRIKA'|| $product['subcategory'] == 'HAIR DRYER'): ?>
             <tr>
                 <th>Garansi Elemen Panas</th>
                 <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
@@ -436,11 +448,22 @@ Rincian Produk
             <?php endif; ?>
 
 
-            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
+            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'|| $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER'|| $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
             </tr>
+            <tr>
+                <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
             <tr>
                 <th>Garansi Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
@@ -477,65 +500,6 @@ Rincian Produk
             <tr>
                 <th>Garansi Sparepart & Jasa Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
-            </tr>
-            <?php endif; ?>
-
-            <?php if ($product['subcategory'] == 'TOASTER'): ?>
-        <tr>
-            <th>Kapasitas</th>
-            <td><?= esc($product['capacity']) ?></td>
-        </tr>    
-        <tr>
-            <th>Garansi Elemen Panas</th>
-            <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
-        </tr>
-        <tr>
-            <th>Garansi Sparepart</th>
-            <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
-        </tr>
-        
-        <?php endif; ?>
-
-            <?php if ($product['subcategory'] == 'MICROWAVE' ||$product['subcategory'] == 'MAGIC COM' ||$product['subcategory'] == 'RICE COOKER' ||$product['subcategory'] == 'OVEN' ||$product['subcategory'] == 'WATER HEATER' || $product['subcategory'] == 'COFFEE MAKER'): ?>
-            <tr>
-                <th>Kapasitas</th>
-                <td><?= esc($product['capacity']) ?></td>
-            </tr>
-            <tr>
-                <th>Garansi Elemen Panas</th>
-                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
-            </tr>
-            <tr>
-                <th>Garansi Service</th>
-                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
-            </tr>
-
-            <?php endif; ?>
-
-            <?php if ($product['subcategory'] == 'SETRIKA'): ?>
-            <tr>
-                <th>Garansi Elemen Panas</th>
-                <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
-            </tr>
-            <tr>
-                <th>Garansi Service</th>
-                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
-            </tr>
-            <?php endif; ?>
-
-
-            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'): ?>
-            <tr>
-                <th>Kapasitas</th>
-                <td><?= esc($product['capacity']) ?></td>
-            </tr>
-            <tr>
-                <th>Garansi Service</th>
-                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
-            </tr>
-            <tr>
-                <th>Garansi Sparepart</th>
-                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
             </tr>
             <?php endif; ?>
 
@@ -695,7 +659,6 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas</h5>
-                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -703,7 +666,6 @@ Rincian Produk
                     <div class="modal-body">
                         <input type="text" id="coldcapInput" class="form-control"
                             value="<?= esc($product['kapasitas_air_dingin']) ?>"
-                            placeholder="Kapasitas">
                             placeholder="Kapasitas">
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
@@ -716,6 +678,130 @@ Rincian Produk
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="editPicsModal<?= $product['id'] ?>" tabindex="-1" aria-labelledby="editPicsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; height:630px;">
+            <form action="<?= base_url('superadmin/updatePics') ?>" method="post" enctype="multipart/form-data">
+                <?= csrf_field() ?>
+                <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPicsModalLabel">Edit Foto Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Gambar Depan -->
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Gambar Depan</label><br>
+                        <?php if (!empty($product['gambar_depan'])): ?>
+                            <a href="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>" target="_blank">Lihat Gambar Depan</a><br>
+                        <?php else: ?>
+                            <span class="text-muted">Belum ada gambar</span><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control mt-2" name="gambar_depan">
+                    </div>
+
+                    <!-- Gambar Belakang -->
+                    <div class="col-md-6">
+                        <label class="form-label">Gambar Belakang</label><br>
+                        <?php if (!empty($product['gambar_belakang'])): ?>
+                            <a href="<?= base_url('uploads/' . esc($product['gambar_belakang'])) ?>" target="_blank">Lihat Gambar Belakang</a><br>
+                        <?php else: ?>
+                            <span class="text-muted">Belum ada gambar</span><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control mt-2" name="gambar_belakang">
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Gambar Kiri</label><br>
+                        <?php if (!empty($product['gambar_samping_kiri'])): ?>
+                            <a href="<?= base_url('uploads/' . esc($product['gambar_samping_kiri'])) ?>" target="_blank">Lihat Gambar Kiri</a><br>
+                        <?php else: ?>
+                            <span class="text-muted">Belum ada gambar</span><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control mt-2" name="gambar_samping_kiri">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Gambar Kanan</label><br>
+                        <?php if (!empty($product['gambar_samping_kanan'])): ?>
+                            <a href="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'])) ?>" target="_blank">Lihat Gambar Kanan</a><br>
+                        <?php else: ?>
+                            <span class="text-muted">Belum ada gambar</span><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control mt-2" name="gambar_samping_kanan">
+                    </div>
+                        </div>
+<div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label">Gambar Atas</label><br>
+                        <?php if (!empty($product['gambar_atas'])): ?>
+                            <a href="<?= base_url('uploads/' . esc($product['gambar_atas'])) ?>" target="_blank">Lihat Gambar Atas</a><br>
+                        <?php else: ?>
+                            <span class="text-muted">Belum ada gambar</span><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control mt-2" name="gambar_atas">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Gambar Bawah</label><br>
+                        <?php if (!empty($product['gambar_bawah'])): ?>
+                            <a href="<?= base_url('uploads/' . esc($product['gambar_bawah'])) ?>" target="_blank">Lihat Gambar Bawah</a><br>
+                        <?php else: ?>
+                            <span class="text-muted">Belum ada gambar</span><br>
+                        <?php endif; ?>
+                        <input type="file" class="form-control mt-2" name="gambar_bawah">
+                    </div>
+                        </div>
+
+                                            <!-- Video Produk Section -->
+                    <?php if (empty($product['video_produk'])): ?>
+                    <hr>
+                    <div class="mb-3">
+                    <h6>Video Produk (YouTube)</h6>
+                        <input type="url" class="form-control" name="video_produk" placeholder="Masukkan YouTube Link">
+                        <small class="text-muted">Pastikan link valid (YouTube)</small>
+                    </div>
+                    <?php endif; ?>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editVideoModal" tabindex="-1" aria-labelledby="editVideoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="<?= base_url('superadmin/updateVideo') ?>" method="post">
+                <?= csrf_field() ?>
+                <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editVideoModalLabel">Edit Video Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">YouTube Link</label><br>
+                        <a href="<?= esc($product['video_produk'] ?? '')?>" target="_blank">Tonton Video Produk</a>
+                        <input type="url" class="form-control" name="video_produk" value="" placeholder="Link YouTube">
+                        <small class="text-muted">Pastikan link valid (YouTube)</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
         <div class="modal fade" id="hargaModal" tabindex="-1" role="dialog" aria-labelledby="hargaModalLabel"
             aria-hidden="true">
@@ -1104,6 +1190,8 @@ Rincian Produk
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 $.ajaxSetup({
     headers: {

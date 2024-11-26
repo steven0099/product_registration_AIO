@@ -101,6 +101,7 @@
     font-size: 12px;
     background-color: #fff;
     color: #000;
+    font-size:11px;
     border: 1px solid #000;
     border-radius: 4px;
     cursor: pointer;
@@ -174,7 +175,7 @@
 <img style="margin: 34px auto; display: block; width: 223px; height: 114px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <!-- belum di set -->
 <?php else: ?>
-<img style="width:80%; height:80%; margin: auto 20px" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<img style="width:80%; height:80%; margin: 10px 20px" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php endif; ?>
 
                         </div>
