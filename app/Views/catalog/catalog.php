@@ -30,7 +30,7 @@ Katalog Digital
     </div>
 
     <div class="col-sm-6 text-left" style="margin-left: 200px;">
-        <a href="/catalog" class="breadcrumb-link" style="font-family: 'Poppins'; font-size:18px; color: #0D2A46;">Beranda</a>
+        <a href="/catalog" class="breadcrumb-link" style="font-family: 'Poppins'; font-weight:bold; font-size:18px; color: #0D2A46;">Beranda</a>
     </div>
 
     <!-- User Dropdown -->

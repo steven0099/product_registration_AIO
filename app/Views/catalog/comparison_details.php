@@ -22,6 +22,8 @@ a{
 .breadcrumb-separator {
     font-family: FontAwesome; /* This will ensure the separator uses Poppins as well */
     font-size:12px;
+    margin-left:4px;
+    margin-right:4px;
 }
 
 /* Product grid styling */
@@ -229,7 +231,7 @@ Detail Perbandingan
 <?= $this->section('breadcumb') ?>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
-   <div class="col-sm-8">
+   <div class="col-sm-9">
    <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Beranda</a>
       <span class="breadcrumb-separator"></span> 
@@ -247,7 +249,7 @@ Detail Perbandingan
       <?php endif; ?>
 
       <span class="breadcrumb-separator"></span> 
-      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-size:18px">Detail Perbandingan</span>
+      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:18px">Detail Perbandingan</span>
     </div>
 
 
@@ -541,6 +543,27 @@ class="btn-custom btn-custom-primary">Lihat Detail</a>
             <td>Kapasitas Air Panas</td>
             <?php foreach ($products as $product): ?>
             <td><?= esc($product['kapasitas_air_panas']) ?> Liter</td>
+            <?php endforeach ; ?>
+        </tr>
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+        <tr>
+            <td>Garansi Sparepart</td>
+            <?php foreach ($products as $product): ?>
+            <td><?= esc($product['compressor_warranty']) ?> Tahun</td>
+            <?php endforeach ; ?>
+        </tr>
+        <tr>
+            <td>Kecepatan Maksimal</td>
+            <?php foreach ($products as $product): ?>
+            <td><?= esc($product['kapasitas_air_dingin']) ?> Km/Jam</td>
+            <?php endforeach ; ?>
+        </tr>
+        <tr>
+            <td>Jarak Tempuh</td>
+            <?php foreach ($products as $product): ?>
+            <td><?= esc($product['kapasitas_air_panas']) ?> Km</td>
             <?php endforeach ; ?>
         </tr>
         <?php endif; ?>

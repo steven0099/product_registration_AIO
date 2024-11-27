@@ -576,7 +576,17 @@ class ProductController extends BaseController
                 $validationRules['kapasitas_air_dingin'] = 'required';
             }
             $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
-        } elseif (in_array($subcategory, ['33','34','37','38','41','44','63','71','72','76'])) {
+    } elseif (in_array($subcategory, ['78'])) {
+        // Only validate if these fields should be visible
+        if (isset($step1Data['kapasitas_air_panas']) && $step1Data['kapasitas_air_panas'] !== '') {
+            $validationRules['kapasitas_air_panas'] = 'required';
+        }
+        if (isset($step1Data['kapasitas_air_dingin']) && $step1Data['kapasitas_air_dingin'] !== '') {
+            $validationRules['kapasitas_air_dingin'] = 'required';
+        }
+        $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
+        $validationRules['capacity_id'] = 'required'; // Assuming you still want this
+    } elseif (in_array($subcategory, ['33','34','37','38','41','44','63','71','72','76'])) {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
@@ -621,11 +631,11 @@ class ProductController extends BaseController
             'garansi_semua_service_id' => (in_array($subcategory, ['31', '43', '45', '46','47','50','51','52','54','64','65','68','69','73','74'])) ? $step1Data['garansi_semua_service_id'] : null,
 
             // Only include air capacities if they are intended to be filled
-            'kapasitas_air_panas' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
-            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36', '52']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
+            'kapasitas_air_panas' => in_array($subcategory, ['35', '36','78']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
+            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36', '52','78']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
 
             // Extra dynamic warranties or other fields
-            'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36'])) ? $step1Data['compressor_warranty_id'] : null,
+            'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36', '78'])) ? $step1Data['compressor_warranty_id'] : null,
             'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51','52','53','54','62','63','64','65','66','68','69','71','72','73','74','75','76'])) ? $step1Data['sparepart_warranty_id'] : null,
             'garansi_elemen_panas_id' => (in_array($subcategory, ['33','34','37', '38','41','42','44','48','66','71','72','75','76'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
@@ -1127,7 +1137,7 @@ class ProductController extends BaseController
 
         // Update the database
         if ($this->confirmationModel->update($id, ['kapasitas_air_dingin' => $coldcap])) {
-            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Dingin Berhasil Diubah.']);
+            return $this->response->setJSON(['success' => true, 'message' => 'Data Berhasil Diubah.']);
         } else {
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
         }
@@ -1145,7 +1155,7 @@ class ProductController extends BaseController
 
         // Update the database
         if ($this->confirmationModel->update($id, ['kapasitas_air_panas' => $hotcap])) {
-            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Panas Berhasil Diubah.']);
+            return $this->response->setJSON(['success' => true, 'message' => 'Data Berhasil Diubah.']);
         } else {
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
         }

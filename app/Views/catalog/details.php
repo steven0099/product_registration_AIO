@@ -117,6 +117,8 @@
 .breadcrumb-separator {
         font-family: FontAwesome;
         font-size:14px;
+        margin-left:7px;
+        margin-right:7px;
     }
 
     .product-description {
@@ -326,7 +328,7 @@ Detail Produk
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; display: flex; justify-content: space-between; align-items: center;">
 
    <!-- Left section (Breadcrumb links) -->
-   <div class="col-sm-9 d-flex align-items-center">
+   <div class="col-sm-10 d-flex align-items-center">
    <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
       <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Beranda</a>
       <span class="breadcrumb-separator"></span> 
@@ -341,7 +343,7 @@ Detail Produk
          <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&ukuran=<?= esc($product['ukuran'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Ukuran</a>
       <?php endif; ?>
       <span class="breadcrumb-separator"></span>
-      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-size:18px">Detail Produk</span>
+      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:18px">Detail Produk</span>
    </div>
 
    <!-- Right section (User Dropdown) -->
@@ -367,7 +369,7 @@ Detail Produk
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog <br> Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-family: Poppins, sans-serif; font-size: 100px; font-weight: bold;">Katalog <br> Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
@@ -539,7 +541,7 @@ Detail Produk
                     <tr>
                         <?php if ($product['capacity'] != null): ?>
                     <tr>
-                        <th>Kapasitas</th>
+                        <th>Kapasitas <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?> Baterai <?php endif ?></th>
                         <td><?= esc($product['capacity']) ?></td>
                     </tr>
                     <?php endif ?>
@@ -557,6 +559,16 @@ Detail Produk
                     <tr>
                         <th>Kapasitas Air Panas</th>
                         <td><?= esc($product['kapasitas_air_panas']) ?> Liter</td>
+                    </tr>
+                    <?php endif ?>
+                    <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+                    <tr>
+                        <th>Kecepatan Maksimal</th>
+                        <td><?= esc($product['kapasitas_air_dingin']) ?> Km/Jam</td>
+                    </tr>
+                    <tr>
+                        <th>Jarak Tempuh</th>
+                        <td><?= esc($product['kapasitas_air_panas']) ?> Km</td>
                     </tr>
                     <?php endif ?>
                     <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
@@ -682,6 +694,13 @@ Detail Produk
                     <?php if ($product['subcategory'] == 'DISPENSER GALON ATAS' || $product['subcategory'] == 'DISPENSER GALON BAWAH'): ?>
                     <tr>
                         <th>Garansi Kompresor</th>
+                        <td><?= esc($product['compressor_warranty'])?> Tahun</td>
+                    </tr>
+                    <?php endif; ?>
+
+                    <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+                    <tr>
+                        <th>Garansi Sparepart</th>
                         <td><?= esc($product['compressor_warranty'])?> Tahun</td>
                     </tr>
                     <?php endif; ?>

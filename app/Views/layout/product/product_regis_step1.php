@@ -404,7 +404,7 @@ input.form-control:-webkit-autofill.form-control.valid {
                                         <div class="col-sm-6" id="kapasitas-air-panas" style="display:none;">
                                             <div class="form-group">
 
-                                                <label for="kapasitas_air_panas">Kapasitas Air Panas (Liter)</label>
+                                                <label for="kapasitas_air_panas" id="kapasitas-air-panas-label">Kapasitas Air Panas (Liter)</label>
                                                 <input type="number" class="form-control" id="kapasitas_air_panas"
                                                     name="kapasitas_air_panas" placeholder="Kapasitas Air Panas">
 
@@ -605,9 +605,11 @@ input.form-control:-webkit-autofill.form-control.valid {
         const compressorWarrantyLabel = document.getElementById('compressor-warranty-label');
         const sparepartWarrantyLabel = document.getElementById('sparepart-warranty-label');
         const airdinginLabel = document.getElementById('kapasitas-air-dingin-label');
+        const airpanasLabel = document.getElementById('kapasitas-air-panas-label');
         const airdinginSatuan = document.getElementById('air-dingin-satuan');
         const capacityLabel = document.getElementById('capacity-label');
         const airdinginField = document.getElementById('kapasitas_air_dingin');
+        const airpanasField = document.getElementById('kapasitas_air_panas');
         const warrantyDropdown = document.getElementById('compressor_warranty');
         const sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
         // Update compressor warranty field based on category
@@ -685,11 +687,14 @@ input.form-control:-webkit-autofill.form-control.valid {
             capacityLabel.innerText = 'Ukuran'; // You may want to handle each subcategory separately for clarity
             document.getElementById('capacity').setAttribute('name', 'ukuran_id'); // Change name of the select element
             fetchOptions('ukuran', subcategoryId);
+        } else if (subcategoryId == '78') {
+            capacityLabel.innerText = 'Kapasitas Baterai'; // You may want to handle each subcategory separately for clarity
+            document.getElementById('capacity').setAttribute('name', 'capacity_id'); // Change name of the select element
+            fetchOptions('kapasitas', subcategoryId); 
         } else {
             capacityLabel.innerText = 'Kapasitas';
             document.getElementById('capacity').setAttribute('name', 'capacity_id'); // Change back if not TV
             fetchOptions('kapasitas', subcategoryId);
-
         }
 
         function handleCategoryChange(categoryId, subcategoryId) {
@@ -714,6 +719,20 @@ input.form-control:-webkit-autofill.form-control.valid {
             compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
             airdinginLabel.innerText = 'Kapasitas Air Dingin (Liter)';
             airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
+        } else if (subcategoryId == 78) {
+            // Hide "kapasitas" and "garansi sparepart"
+            document.getElementById('capacity-group').style.display = 'block';
+            document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+            // Show "kapasitas air dingin" and "kapasitas air panas"
+            document.getElementById('kapasitas-air-dingin').style.display = 'block';
+            document.getElementById('kapasitas-air-panas').style.display = 'block';
+            compressorWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Sparepart</option>';
+            airdinginLabel.innerText = 'Kecepatan Maksimal (Km/Jam)';
+            airdinginField.placeholder = 'Kecepatan Maksimal (Km/Jam)';
+            airpanasLabel.innerText = 'Jarak Tempuh (km)';
+            airpanasField.placeholder = 'Jarak Tempuh (km)';
         } else if (subcategoryId == 42) {
             document.getElementById('capacity-group').style.display = 'none';
             document.getElementById('warranty-sparepart-group').style.display = 'block';
@@ -749,7 +768,7 @@ input.form-control:-webkit-autofill.form-control.valid {
         const sparepartWarrantyGroup = document.getElementById('warranty-sparepart-group');
         const sparepartWarrantyField = document.getElementById('sparepart_warranty');
 
-        if ([31, 32, 35, 36].includes(Number(subcategoryId))) {
+        if ([31, 32, 35, 36, 67, 70, 78].includes(Number(subcategoryId))) {
             sparepartWarrantyGroup.style.display = 'none';
             sparepartWarrantyField.removeAttribute('required');
         } else {

@@ -384,7 +384,32 @@ Rincian Produk
             </tr>
             <tr>
                 <th>Garansi Kompresor</th>
-                <td><?= esc($product['compressor_warranty'])?></td>
+                <td><?= esc($product['compressor_warranty'])?> Tahun</td>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+            <tr>
+                <th>Kapasitas Baterai</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>    
+            <tr>
+                <th>Kecepatan Maksimal</th>
+                <td><?= esc($product['kapasitas_air_dingin']) ?> Km/Jam</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                <td><button onclick="openColdCapModal()" class="btn btn-sm btn-primary">Edit</button></td>
+                <?php endif; ?>
+            </tr>
+            <tr>
+                <th>Jarak Tempuh</th>
+                <td><?= esc($product['kapasitas_air_panas']) ?> Km</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                <td><button onclick="openHotCapModal()" class="btn btn-sm btn-primary">Edit</button></td>
+                <?php endif; ?>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['compressor_warranty'])?> Tahun</td>
             </tr>
             <?php endif; ?>
 
@@ -658,7 +683,7 @@ Rincian Produk
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="coldcapModalLabel">Edit Kapasitas</h5>
+                        <h5 class="modal-title" id="coldcapModalLabel">Edit Data</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -666,7 +691,7 @@ Rincian Produk
                     <div class="modal-body">
                         <input type="text" id="coldcapInput" class="form-control"
                             value="<?= esc($product['kapasitas_air_dingin']) ?>"
-                            placeholder="Kapasitas">
+                            >
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                         <!-- Include CSRF Token -->
@@ -858,7 +883,7 @@ Rincian Produk
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="hotcapModalLabel">Edit Kapasitas Air Panas</h5>
+                        <h5 class="modal-title" id="hotcapModalLabel">Edit Data</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -866,7 +891,7 @@ Rincian Produk
                     <div class="modal-body">
                         <input type="text" id="hotcapInput" class="form-control"
                             value="<?= esc($product['kapasitas_air_panas']) ?>"
-                            placeholder="Kapasitas Air Panas (Liter)">
+                            >
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                         <!-- Include CSRF Token -->

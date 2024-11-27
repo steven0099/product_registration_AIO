@@ -17,7 +17,7 @@
     background-color:#f4f4f4;
     height:169px;
     width:100%;
-    border-bottom: 2px solid #d9d9d9;
+    border-bottom: 2px solid #F4F4F4;
 }
 /* Define each product item with fixed width and spacing */
 .product-item {
@@ -26,7 +26,7 @@
     margin-bottom: 35px; /* Space between rows */
     padding: 0 22.5px; /* Space between columns */
     position: relative;
-    height: 280px; /* Fixed height for consistent appearance */
+    height: 300px; /* Fixed height for consistent appearance */
     width: 295px; /* Prevent shrinking */
 }
 
@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border: 2px solid #d9d9d9;
+    border: 2px solid #F4F4F4;
 }
 
 .product-placeholder {
@@ -153,9 +153,9 @@
                     <div class="grid-card">
                         <div class="picture-container">
 <!-- untuk sementara, dianggap sama kalau gaada subkategori lain-->
-                        <?php if ($product['category'] == "AC"): ?>
+<?php if ($product['category'] == "AC"): ?>
 <img style="margin: 40px auto; display: block; width: 210px; height: 86px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
-<?php elseif ($product['category'] == "TV"): ?>
+<?php elseif ($product['category'] == "TV" || $product['subcategory'] == "MOTOR LISTRIK"): ?>
 <img style="margin: 17px auto; display: block; width: 222px; height: 133px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['category'] == "KULKAS"): ?>
 <img style="margin: 16px auto; display: block; width: 74px; height: 148px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
@@ -165,7 +165,7 @@
 <img style="margin: 22px auto; display: block; width: 96px; height: 137px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['category'] == "FREEZER" && $product['subcategory'] == "CHEST FREEZER 2 PINTU" ): ?>
 <img style="margin: 34px auto; display: block; width: 223px; height: 114px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
-<?php elseif ($product['category'] == "FREEZER"): ?>
+<?php elseif ($product['category'] == "FREEZER" || $product['subcategory'] == "KOMPOR GAS OVEN"): ?>
 <img style="margin: 19px auto; display: block; width: 110px; height: 137px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE 1 PINTU" ): ?>
 <img style="margin: 15px auto; display: block; width: 80px; height: 141px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
@@ -173,6 +173,28 @@
 <img style="margin: 15px auto; display: block; width: 56px; height: 141px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE CAKE" ): ?>
 <img style="margin: 34px auto; display: block; width: 223px; height: 114px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "AIR FRYER" || $product['subcategory'] == "COFFEE MAKER"): ?>
+<img style="margin: 22px auto; display: block; width: 108px; height: 131px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "KIPAS ANGIN"): ?>
+<img style="margin: 17px auto; display: block; width: 137px; height: 97px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "RICE COOKER"): ?>
+<img style="margin: 17px auto; display: block; width: 124px; height: 138px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "WATER HEATER"): ?>
+<img style="margin: 30px auto; display: block; width: 198px; height: 113px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "DISPENSER GALON ATAS"): ?>
+<img style="margin: 9px auto; display: block; width: 44px; height: 154px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "SPEAKER"): ?>
+<img style="margin: 15px auto; display: block; width: 112px; height: 145px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "MICROWAVE" || $product['subcategory'] == "OVEN" || $product['subcategory'] == "OVEN FRYER"): ?>
+<img style="margin: 33px auto; display: block; width: 196px; height: 113px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "KOMPOR LISTRIK" || $product['subcategory'] == "KOMPOR TUNGKU" ||$product['subcategory'] == "KOMPOR TANAM"): ?>
+<img style="margin: 30px auto; display: block; width: 193px; height: 115px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "AIR PURIFIER" || $product['subcategory'] == "COOKER HOOD"): ?>
+<img style="margin: 14px auto; display: block; width: 86px; height: 138px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "VACUUM CLEANER"): ?>
+<img style="margin: 7px auto; display: block; width: 39px; height: 157px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<?php elseif ($product['subcategory'] == "SETRIKA"): ?>
+<img style="margin: 20px auto; display: block; width: 176px; height: 123px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <!-- belum di set -->
 <?php else: ?>
 <img style="width:80%; height:80%; margin: 10px 20px" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">

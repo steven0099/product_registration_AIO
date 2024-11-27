@@ -142,6 +142,13 @@
         <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty'])?> Tahun</td></tr>
         <?php endif; ?>
 
+        <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+        <tr><th>Kapasitas Baterai</th><td><?= esc($product['capacity']) ?></td></tr>    
+        <tr><th>Kecepatan Maksimal</th><td><?= esc($product['kapasitas_air_dingin']) ?> Km/Jam</td></tr>
+        <tr><th>Jarak Tempuh</th><td><?= esc($product['kapasitas_air_panas']) ?> Km</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['compressor_warranty'])?> Tahun</td></tr>
+        <?php endif; ?>
+
         <?php if ($product['subcategory'] == 'SETRIKA' || $product['subcategory'] == 'HAIR DRYER'): ?>
         <tr><th>Garansi Elemen Panas</th><td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td></tr>
         <tr><th>Garansi Service</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
