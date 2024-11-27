@@ -1,174 +1,180 @@
-<style>
-.footer {
-    background-color: #0d2a46; /* Bright blue */
-    color: #FFFFFF;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: center; /* Center all footer content horizontally */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    font-family: 'Poppins', sans-serif;
-}
+<html lang="en">
 
-.footer-container {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    justify-content: space-between; /* Distribute space evenly */
-    align-items: flex-start; /* Align sections at the top */
-    flex-wrap: wrap; /* Wrap content on smaller screens */
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .footer {
+            background-color: #0d2a46;
+            color: #FFFFFF;
+            padding: 40px 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-family: 'Poppins', sans-serif;
+        }
 
-.footer-logo {
-    flex: 1;
-    max-width: 200px;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin-top:60px;
-    margin-left:100px;
-    margin-right:150px;
-    margin-bottom: 20px; /* Add spacing below the logo on smaller screens */
-}
+        .footer-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
 
-.footer-logo .logo {
-    width: 200px; /* Adjust as needed */
-}
+        .footer-logo {
+            flex: 1;
+            max-width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 70px 120px 70px 77px;
+        }
 
-.footer-section {
-    flex: 1;
-    max-width: 250px;
-    margin: 0 50px; /* Add spacing between sections */
-    text-align: left; /* Align text to the left */
-}
+        .footer-logo .logo {
+            width: 200px;
+            height: 91.5px;
+        }
 
-.footer-section h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    text-align: left; /* Align section titles */
-}
+        .footer-section {
+            flex: 1;
+            max-width: 250px;
+            margin: 0 58.5px;
+            text-align: left;
+        }
 
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-.footer-section ul li {
-    margin-bottom: 10px;
-    display: flex; /* Ensure inline alignment of links */
-    align-items: center; /* Center icons and text */
-}
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.footer-section ul li a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 16px;
-    margin-left: 0px; /* Add space between icon and text */
-}
+        .footer-section ul li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
 
-.footer-section ul li a:hover {
-    text-decoration: underline;
-}
+        .footer-section ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 12px;
+        }
 
-/* Social links alignment */
-.social-links li {
-    display: flex;
-    align-items: center; /* Align icons and text */
-    margin-bottom: 10px;
-}
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
 
-.social-links li i {
-    font-size: 1.6rem; /* Adjust icon size */
-    margin-right: 10px; /* Space between icon and label */
-}
+        .social-links li {
+            display: flex;
+            align-items: start;
+            margin-bottom: 10px;
+        }
 
-.social-links li a {
-    font-size: 14px;
-    color: #FFFFFF;
-    text-decoration: none;
-    display: flex;
-    align-items: center; /* Align text with the icon */
-}
+        .social-links li i {
+            font-size: 1.6rem;
+            margin-right: 10px;
+        }
 
-.social-links li a:hover {
-    text-decoration: underline;
-}
+        .social-links li a {
+            font-size: 14px;
+            color: #FFFFFF;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center; /* Center all content on smaller screens */
-    }
+        .social-links li a:hover {
+            text-decoration: underline;
+        }
 
-    .footer-section {
-        text-align: center; /* Center-align sections */
-        margin-bottom: 20px;
-    }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .footer-logo {
-        margin-bottom: 20px; /* Add spacing below the logo */
-    }
-}
+            .footer-section {
+                text-align: center;
+                margin-bottom: 20px;
+            }
 
-</style>
+            .footer-logo {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
 
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Footer Logo -->
-        <div class="footer-logo">
-            <img src="/images/aio-white.png" alt="AIO Logo" class="logo">
+<body>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Footer Logo -->
+            <div class="footer-logo">
+                <img src="/images/aio-white.png" alt="AIO Logo" class="logo">
+            </div>
+
+            <!-- Footer Section 1 -->
+            <div class="footer-section">
+                <h3>AIO STORE</h3>
+                <ul>
+                    <li><a href="https://www.aiostore.co.id/artikel/" target="_self">Artikel</a></li>
+                    <li><a href="https://www.aiostore.co.id/pk-kalkulator/" target="_self">Kalkulator PK</a></li>
+                    <li><a href="https://www.aiostore.co.id/karir/" target="_self">Karir</a></li>
+                    <li><a href="/catalog" target="_self">Katalog Digital</a></li>
+                    <li><a href="https://www.aiostore.co.id/tentang-kami/" target="_self">Tentang kami</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Section 2 -->
+            <div class="footer-section">
+                <h3>INFORMASI</h3>
+                <ul>
+                    <li><a href="https://www.aiostore.co.id/belanja-online/" target="_self">Belanja Online</a></li>
+                    <li><a href="https://www.aiostore.co.id/hubungi-kami/" target="_self">Hubungi Kami</a></li>
+                    <li><a href="https://www.aiostore.co.id/lokasi-toko/" target="_self">Lokasi Toko</a></li>
+                    <li><a href="https://www.aiostore.co.id/promo-toko/" target="_self">Promo Toko</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Section 3 -->
+            <div class="footer-section">
+                <h3>IKUTI KAMI</h3>
+                <ul class="social-links">
+                    <li>
+                        <a href="https://instagram.com/aiostore.co.id" target="_self">
+                            <i class="fab fa-instagram"></i> aiostore.co.id
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tiktok.com/@aiostore.co.id" target="_self">
+                            <i class="fab fa-tiktok"></i> aiostore.co.id
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/aiostore.elektronik" target="_self">
+                            <i class="fab fa-facebook"></i> AIO Store
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@aiochannel8395" target="_self">
+                            <i class="fab fa-youtube"></i> AIO Channel
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </footer>
+</body>
 
-        <!-- Footer Section 1 -->
-        <div class="footer-section">
-            <h3><b>AIO STORE</b></h3>
-            <ul>
-                <li><a href="https://www.aiostore.co.id/artikel/" target="_self">Artikel</a></li>
-                <li><a href="https://www.aiostore.co.id/pk-kalkulator/" target="_self">Kalkulator PK</a></li>
-                <li><a href="https://www.aiostore.co.id/karir/" target="_self">Karir</a></li>
-                <li><a href="/catalog" target="_self">Katalog Digital</a></li>
-                <li><a href="https://www.aiostore.co.id/tentang-kami/" target="_self">Tentang kami</a></li>
-            </ul>
-        </div>
-
-        <!-- Footer Section 2 -->
-        <div class="footer-section">
-            <h3><b>INFORMASI</b></h3>
-            <ul>
-                <li><a href="https://www.aiostore.co.id/belanja-online/" target="_self">Belanja Online</a></li>
-                <li><a href="https://www.aiostore.co.id/hubungi-kami/" target="_self">Hubungi Kami</a></li>
-                <li><a href="https://www.aiostore.co.id/lokasi-toko/" target="_self">Lokasi Toko</a></li>
-                <li><a href="https://www.aiostore.co.id/promo-toko/" target="_self">Promo Toko</a></li>
-            </ul>
-        </div>
-
-        <!-- Footer Section 3 -->
-        <div class="footer-section">
-            <h3><b>IKUTI KAMI</b></h3>
-            <ul class="social-links">
-                <li>
-                    <a href="https://instagram.com/aiostore.co.id" target="_self">
-                        <i class="fab fa-instagram"></i> aiostore.co.id
-                    </a>
-                </li>
-                <li>
-                    <a href="https://tiktok.com/@aiostore.co.id" target="_self">
-                        <i class="fab fa-tiktok"></i> aiostore.co.id
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/aiostore.elektronik" target="_self">
-                        <i class="fab fa-facebook"></i>AIO Store
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/@aiochannel8395" target="_self">
-                        <i class="fab fa-youtube"></i> AIO Channel
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</footer>
+</html>
