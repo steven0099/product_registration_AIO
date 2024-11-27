@@ -176,7 +176,7 @@
 <?php elseif ($product['subcategory'] == "AIR FRYER" || $product['subcategory'] == "COFFEE MAKER"): ?>
 <img style="margin: 22px auto; display: block; width: 108px; height: 131px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['subcategory'] == "KIPAS ANGIN"): ?>
-<img style="margin: 17px auto; display: block; width: 137px; height: 97px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
+<img style="margin: 17px auto; display: block; width: 97px; height: 137px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['subcategory'] == "RICE COOKER"): ?>
 <img style="margin: 17px auto; display: block; width: 124px; height: 138px;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['subcategory'] == "WATER HEATER"): ?>
