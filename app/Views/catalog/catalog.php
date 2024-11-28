@@ -14,6 +14,13 @@
         font-family: 'Poppins';
         font-size: 16px;
     }
+    .breadcrumb-separator {
+    font-family: FontAwesome; /* This will ensure the separator uses Poppins as well */
+    font-size:12px;
+    margin-left:4px;
+    margin-right:4px;
+}
+
 </style>
 <?= $this->endSection() ?>
 
@@ -30,8 +37,12 @@ Katalog Digital
     </div>
 
     <div class="col-sm-6 text-left" style="margin-left: 200px;">
-        <a href="/catalog" class="breadcrumb-link" style="font-family: 'Poppins'; font-weight:bold; font-size:18px; color: #0D2A46;">Beranda</a>
+    <a href="/catalog" class="breadcrumb-link" style="font-family: 'Poppins'; font-weight: bold; font-size: 18px; color: #0D2A46;">Beranda</a>
+    <div id="filterLinks" style="display: inline-block;">
+        <!-- Links will be dynamically generated here -->
     </div>
+</div>
+
 
     <!-- User Dropdown -->
     <ul class="navbar-nav ml-auto">
@@ -61,7 +72,7 @@ Katalog Digital
         </li>
     </ul>
 </nav>
-<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; border-radius: 8px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #0daff0; padding: 20px; border-radius: 8px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
@@ -172,7 +183,8 @@ Katalog Digital
                     <!-- Sort dropdown on the rightmost -->
                     <div class="col-md-6 d-flex align-items-center justify-content-end" style="margin-top: 12px;">
                         <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                            <select style="width: 250px" id="sort" name="sort" class="form-control">
+                            <select style="width: 250px;" id="sort" name="sort" class="form-control">
+                                <option value="" <?= $sort == '' ? 'selected' : '' ?>>Urutkan Berdasarkan...</option>
                                 <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
                                 <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
                                 <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
@@ -190,9 +202,10 @@ Katalog Digital
                 <div id="productGrid" style="flex:1; max-width:75%; margin-top: 25px;" class="row">
                     <!-- Content loaded from partials/product_grid -->
                     <?= view('partials/product_grid') ?>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="pagination d-flex justify-content-center mt-4">
+                                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                        <div class="pagination d-flex justify-content-center mt-4" style="width: 75%">
                                 <?php if ($pager->getPageCount() > 1): ?>
                                     <?= $pager->links() ?>
                                 <?php endif; ?>
@@ -200,7 +213,7 @@ Katalog Digital
                         </div>
                     </div>
 
-                </div>
+                
             </div>
         </div>
     </div>
@@ -233,6 +246,75 @@ Katalog Digital
 
 <?= $this->section('js') ?>
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('filterForm');
+    const filterLinks = document.getElementById('filterLinks');
+
+    function updateLinks() {
+        // Get selected filter values
+        const formData = new FormData(form);
+        const category = formData.get('category') || '';
+        const subcategory = formData.get('subcategory') || '';
+        const capacityOrUkuran = formData.get('capacity') || ''; // Handle both capacity and ukuran
+
+        // Determine whether to use 'capacity' or 'ukuran' based on selected filters
+        const usesUkuran = ['TV'].includes(category.toUpperCase()) || 
+        ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR COOLER', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
+        // Clear existing links
+        filterLinks.innerHTML = '';
+
+        // Create base URL
+        let baseUrl = '/catalog?';
+        let separator = '<span class="breadcrumb-separator" style="margin: 0 8px;"></span>';
+
+        // Add category link if selected
+        if (category) {
+            const categoryLink = document.createElement('a');
+            categoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}`;
+            categoryLink.textContent = `${category}`;
+            categoryLink.className = 'breadcrumb-link';
+            categoryLink.style.fontFamily = 'Poppins';
+            categoryLink.style.fontWeight = 'bold';
+            categoryLink.style.color = '#0D2A46';
+            filterLinks.innerHTML += separator; // Add separator before link
+            filterLinks.appendChild(categoryLink);
+        }
+
+        // Add subcategory link if selected
+        if (subcategory) {
+            const subcategoryLink = document.createElement('a');
+            subcategoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}`;
+            subcategoryLink.textContent = `${subcategory}`;
+            subcategoryLink.className = 'breadcrumb-link';
+            subcategoryLink.style.fontFamily = 'Poppins';
+            subcategoryLink.style.fontWeight = 'bold';
+            subcategoryLink.style.color = '#0D2A46';
+            filterLinks.innerHTML += separator; // Add separator before link
+            filterLinks.appendChild(subcategoryLink);
+        }
+
+        // Add capacity/ukuran link if selected
+        if (capacityOrUkuran) {
+            const capacityLink = document.createElement('a');
+            const parameterName = usesUkuran ? 'ukuran' : 'capacity';
+            capacityLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}&${parameterName}=${encodeURIComponent(capacityOrUkuran).replace(/%20/g, '+')}`;
+            capacityLink.textContent = `${capacityOrUkuran}`;
+            capacityLink.className = 'breadcrumb-link';
+            capacityLink.style.fontFamily = 'Poppins';
+            capacityLink.style.fontWeight = 'bold';
+            capacityLink.style.color = '#0D2A46';
+            filterLinks.innerHTML += separator; // Add separator before link
+            filterLinks.appendChild(capacityLink);
+        }
+    }
+
+    // Add event listeners to filter inputs
+    form.addEventListener('change', updateLinks);
+
+    // Initialize links on page load
+    updateLinks();
+});
+
     $(document).ready(function() {
         // Trigger filtering on any change in dropdowns
         $('#category, #subcategory, #capacity, #sort').on('change', function() {
@@ -472,10 +554,8 @@ Katalog Digital
 
             // Rotate the arrow inside the title
             if (target.classList.contains('show')) {
-                title.style.setProperty('background-color', '#d4d4d4');
                 title.style.setProperty('--arrow-rotate', '90deg');
             } else {
-                title.style.setProperty('background-color', '#f9f9f9');
                 title.style.setProperty('--arrow-rotate', '0deg');
             }
         });
@@ -737,7 +817,9 @@ Katalog Digital
         const sortDropdown = document.getElementById("sort");
         const searchInput = document.getElementById("search");
         const filterInputs = document.querySelectorAll("input[name='category'], input[name='subcategory'], input[name='capacity']");
-
+        const form = document.getElementById('filterForm');
+        const filterLinks = document.getElementById('filterLinks');
+        
         // Helper function to update the URL with current filters, search, and sorting
         const updateUrlWithFilters = () => {
             const url = new URL(window.location.href);
@@ -1003,6 +1085,64 @@ Katalog Digital
             $('#capacityContainer').html('');
         }
 
+        function updateLinks() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get category, subcategory, and capacity/ukuran values from URL
+    const category = urlParams.get('category');
+    const subcategory = urlParams.get('subcategory');
+    const capacityOrUkuran = urlParams.get('capacity') || urlParams.get('ukuran'); // Fetch from URL directly
+
+    // Clear existing links
+    filterLinks.innerHTML = '';
+
+    // Create base URL
+    let baseUrl = '/catalog?';
+    let separator = '<span class="breadcrumb-separator" style="margin: 0 8px;"></span>';
+
+    // Add category link if selected
+    if (category) {
+        const categoryLink = document.createElement('a');
+        categoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}`;
+        categoryLink.textContent = `${category}`;
+        categoryLink.className = 'breadcrumb-link';
+        categoryLink.style.fontFamily = 'Poppins';
+        categoryLink.style.fontWeight = 'bold';
+        categoryLink.style.color = '#0D2A46';
+        filterLinks.innerHTML += separator; // Add separator before link
+        filterLinks.appendChild(categoryLink);
+    }
+
+    // Add subcategory link if selected
+    if (subcategory) {
+        const subcategoryLink = document.createElement('a');
+        subcategoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}`;
+        subcategoryLink.textContent = `${subcategory}`;
+        subcategoryLink.className = 'breadcrumb-link';
+        subcategoryLink.style.fontFamily = 'Poppins';
+        subcategoryLink.style.fontWeight = 'bold';
+        subcategoryLink.style.color = '#0D2A46';
+        filterLinks.innerHTML += separator; // Add separator before link
+        filterLinks.appendChild(subcategoryLink);
+    }
+
+    // Add capacity/ukuran link if selected
+    if (capacityOrUkuran) {
+        const parameterName = urlParams.has('ukuran') ? 'ukuran' : 'capacity'; // Determine parameter name
+        const capacityLink = document.createElement('a');
+        capacityLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}&${parameterName}=${encodeURIComponent(capacityOrUkuran).replace(/%20/g, '+')}`;
+        capacityLink.textContent = `${capacityOrUkuran}`;
+        capacityLink.className = 'breadcrumb-link';
+        capacityLink.style.fontFamily = 'Poppins';
+        capacityLink.style.fontWeight = 'bold';
+        capacityLink.style.color = '#0D2A46';
+        filterLinks.innerHTML += separator; // Add separator before link
+        filterLinks.appendChild(capacityLink);
+    }
+}
+
+
+
         // Apply filters from URL on page load
         function applyFiltersFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -1031,10 +1171,14 @@ Katalog Digital
             if (sort) {
                 $('#sort').val(sort); // Set the sort dropdown
             }
+
+            // Call updateLinks to update the breadcrumb dynamically
+            updateLinks();
         }
 
         // Trigger the filter re-application on page load
         applyFiltersFromUrl();
+
     });
 </script>
 <?= $this->endSection() ?>

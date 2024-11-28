@@ -169,6 +169,10 @@ label {
     border-bottom: 5px solid #fff;
 }
 
+.breadcrumb-link {
+        color: #0d2a46;
+    }
+
 .comparison-table-head th:last-child {
     border-right: 1px solid #fff;
 }
@@ -270,11 +274,11 @@ Detail Perbandingan
       </li>
    </ul>
 </nav>
-<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #0daff0; padding: 20px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Detail Perbandingan</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">

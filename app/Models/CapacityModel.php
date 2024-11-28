@@ -21,11 +21,9 @@ class CapacityModel extends Model
 
         public function getBySubcategory($subcategoryId)
         {
-            // Example query
-            $this->db->where('subcategory_id', $subcategoryId);
-            $query = $this->db->get('capacities'); // Ensure the table name is correct
-    
-            return $query->result(); // This returns an array of objects
+            $result = $this->where('subcategory_id', $subcategoryId)->findAll();
+            log_message('debug', 'Filtered capacities: ' . print_r($result, true));
+            return $result;
         }
     
 }

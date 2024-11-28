@@ -49,27 +49,6 @@ form input {
     transition: border-color 0.3s;
 }
 
-/* Dropdown specific styles */
-form         select {
-    border: 2px solid #00BFFF !important;
-    /* Warna biru */
-    border-radius: 5px;
-    padding: 10px;
-    padding-right: 40px;
-    /* Tambahkan jarak untuk icon custom */
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
-    /* Menambahkan efek bayangan */
-    appearance: none;
-    /* Menghilangkan default arrow */
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
-    background-color: white;
-    /* Warna latar belakang */
-    background-size: 20px;
-    /* Ukuran icon */
-    cursor: pointer;
-}
-
 select:focus {
     border-color: #1E90FF;
     /* Warna biru yang lebih tua saat difokuskan */
@@ -133,26 +112,6 @@ form button:hover {
     }
 }
 
-/* Custom dropdown styles */
-form         select {
-    border: 2px solid #00BFFF !important;
-    /* Warna biru */
-    border-radius: 5px;
-    padding: 10px;
-    padding-right: 40px;
-    /* Tambahkan jarak untuk icon custom */
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
-    /* Menambahkan efek bayangan */
-    appearance: none;
-    /* Menghilangkan default arrow */
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%2300BFFF"/></svg>') no-repeat right 10px center !important;
-    background-color: white;
-    /* Warna latar belakang */
-    background-size: 20px;
-    /* Ukuran icon */
-    cursor: pointer;
-}
 
 select:focus {
     border-color: #1E90FF;
@@ -393,8 +352,31 @@ form select::after {
 #searchAndSortForm .form-control {
     width: 100%; /* Make it responsive to the container */
     max-width: 250px; /* Limit the width of the search bar and select box */
+    border: 2px solid #f4f4f4;
+    font-family: Poppins, sans-serif;
+    font-size: 12px;
+    font-style:italic;
 }
 
+#sort .form-control{
+    width:100%;
+    border: 2px solid #f4f4f4;
+    /* Warna biru */
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 40px;
+    /* Tambahkan jarak untuk icon custom */
+    outline: none;
+    /* Menambahkan efek bayangan */
+    appearance: none;
+    /* Menghilangkan default arrow */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="70,100 100,40 40,40" style="fill:%23f4f4f4"/></svg>') no-repeat right 10px center;
+    background-color: white;
+    /* Warna latar belakang */
+    background-size: 20px;
+    /* Ukuran icon */
+    cursor: pointer;
+}
 /* Style the button */
 #searchAndSortForm button {
     font-size: 14px; /* Adjust button font size */
@@ -551,10 +533,6 @@ form select::after {
     padding: 5px;
     border-radius: 4px;
     transition: background-color 0.2s ease;
-}
-
-.filter-option.selected {
-    background-color: #d9d9d9; /* Darker background color for selected option */
 }
 
 .filter-option:hover {

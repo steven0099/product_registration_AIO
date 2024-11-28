@@ -190,7 +190,8 @@ $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1
 $routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
 $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions');
-
+$routes->get('getOptions', 'ProductController::getOptions');
+$routes->post('updateProductField', 'ProductController::updateProductField');
 
 
 

@@ -1,6 +1,6 @@
 <style>
 .footer {
-    background-color: #0d2a46; /* Bright blue */
+    background: linear-gradient(to top, #0d2a46, #020020); /* Fades from your blue to black */
     color: #FFFFFF;
     padding: 20px 40px;
     display: flex;
@@ -25,14 +25,15 @@
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    margin-top:60px;
+    margin-top:53.5px;
     margin-left:100px;
     margin-right:150px;
-    margin-bottom: 20px; /* Add spacing below the logo on smaller screens */
+    margin-bottom: 53.5px; /* Add spacing below the logo on smaller screens */
 }
 
 .footer-logo .logo {
     width: 200px; /* Adjust as needed */
+    height:91.5px
 }
 
 .footer-section {
@@ -43,8 +44,8 @@
 }
 
 .footer-section h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
     text-align: left; /* Align section titles */
 }
 
@@ -63,7 +64,7 @@
 .footer-section ul li a {
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 12px;
     margin-left: 0px; /* Add space between icon and text */
 }
 
@@ -108,7 +109,7 @@
     }
 
     .footer-logo {
-        margin-bottom: 20px; /* Add spacing below the logo */
+        margin-bottom: 55px; /* Add spacing below the logo */
     }
 }
 

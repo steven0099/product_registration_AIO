@@ -83,7 +83,6 @@
         <tr><th>Resolusi Panel</th><td><?= esc($product['panel_resolution']) ?> Pixel</td></tr>
         <tr><th>Garansi Panel</th><td><?= esc($product['garansi_panel']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
-        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <?php endif; ?>
 
         <?php if ($product['category'] == 'AC'): ?>
@@ -92,7 +91,6 @@
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
         <tr><th>Garansi Kompresor</th><td><?= esc($product['compressor_warranty']) ?> Tahun</td></tr>
         <tr><th>Tipe Refrigerant</th><td><?= esc($product['refrigrant']) ?></td></tr>
-        <tr><th>Garansi Sparepart</th><td><?= esc($product['compressor_warranty']) ?> Tahun</td>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty']) ?> Tahun</td></tr>
         <tr><th>CSPF Rating</th>    <td>
         <?= esc($product['cspf']) ?>/5
@@ -197,22 +195,8 @@
 
         <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['kapasitas_air_dingin']) ?> M²</td></tr>
-        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
-        <tr><th>Ukuran</th><td><?= esc($product['ukuran']) ?></td></tr>
-        <tr><th>Garansi Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
-        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
-        
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
-        <tr><th>Kapasitas</th><td><?= esc($product['kapasitas_air_dingin']) ?> M²</td></tr>
-        <tr><th>Garansi Sparepart & Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         
         <?php endif; ?>
 

@@ -117,6 +117,8 @@ class ProductController extends BaseController
         // Fetch product details based on productId
         $product = $this->confirmationModel->find($productId);
 
+        $product['subcategory_id'] = $this->getSubcategoryIdByName($product['subcategory']);
+
         if (!$product) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException("Product with ID $productId not found");
         }
@@ -1161,6 +1163,84 @@ class ProductController extends BaseController
         }
     }
 
+
+    public function getOptions()
+    {
+        $field = $this->request->getGet('field');
+        $subcategoryId = $this->request->getGet('subcategory_id');
+        $options = [];
+
+        switch ($field) {
+            case 'ukuran':
+                $options = $this->ukuranModel->getBySubcategory($subcategoryId);
+                break;
+            case 'capacity':
+                $options = $this->capacityModel->getBySubcategory($subcategoryId);
+                break;
+            case 'brand':
+                $options = $this->brandModel->findAll();
+                break;
+            case 'refrigrant':
+                $options = $this->refrigrantModel->findAll();
+                break;
+            case 'compressor_warranty':
+                $options = $this->compressorwarrantyModel->findAll();
+                break;
+            case 'sparepart_warranty':
+                $options = $this->sparepartwarrantyModel->findAll();
+                break;
+            case 'garansi_elemen_panas':
+                $options = $this->garansipanasModel->findAll();
+                break;  
+            case 'garansi_panel':
+                $options = $this->garansipanelModel->findAll();
+                break;
+            case 'garansi_semua_service':
+                $options = $this->garansiserviceModel->findAll();
+                break;
+            case 'garansi_motor':
+                $options = $this->garansimotorModel->findAll();
+                break;    
+            // Add cases for other fields
+        }
+    
+        return $this->response->setJSON(['options' => $options]);
+    }
+
+    private function getSubcategoryIdByName($subcategoryName)
+{
+    $subcategory = $this->subcategoryModel->where('name', $subcategoryName)->first();
+    return $subcategory ? $subcategory['id'] : null;
+}
+
+    public function updateProductField()
+    {
+        $productId = $this->request->getPost('product_id');
+        $fieldName = $this->request->getPost('field_name');
+        $fieldValue = $this->request->getPost('field_value');
+        $csrfToken = $this->request->getPost('csrf_token'); // Check the CSRF token
+        
+        // Log the received data
+        log_message('debug', 'Product ID: ' . $productId);
+        log_message('debug', 'Field Name: ' . $fieldName);
+        log_message('debug', 'Field Value: ' . $fieldValue);
+        log_message('debug', 'CSRF Token: ' . $csrfToken);
+        
+        $updateData = [$fieldName => $fieldValue];
+        
+        if ($this->confirmationModel->update($productId, $updateData)) {
+            log_message('debug', 'Update successful!');
+            return $this->response->setJSON([
+                'success' => true,
+                csrf_token() => csrf_hash()
+            ]);
+        }
+    
+        log_message('debug', 'Update failed!');
+        return $this->response->setJSON(['success' => false]);
+    }
+    
+    
     public function updatePics()
 {
     $productId = $this->request->getPost('product_id');

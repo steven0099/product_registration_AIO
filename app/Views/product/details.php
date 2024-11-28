@@ -45,6 +45,8 @@ Rincian Produk
 </style>
 <?= $this->endSection();?>
 <?= $this->section('breadcumb') ?>
+<meta name="csrf-token" content="<?= csrf_hash() ?>">
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -71,6 +73,12 @@ Rincian Produk
             <tr>
                 <th>Brand</th>
                 <td><?= esc($product['brand']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('brand', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Kategori</th>
@@ -243,6 +251,12 @@ Rincian Produk
             <tr>
                 <th>Ukuran</th>
                 <td><?= esc($product['ukuran']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('ukuran', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Resolusi Panel</th>
@@ -254,10 +268,22 @@ Rincian Produk
             <tr>
                 <th>Garansi Panel</th>
                 <td><?= esc($product['garansi_panel']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_panel', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -273,18 +299,42 @@ Rincian Produk
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Kompresor</th>
                 <td><?= esc($product['compressor_warranty']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('compressor_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Tipe Refrigerant</th>
                 <td><?= esc($product['refrigrant']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('refrigrant', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
                 <tr>
     <th>CSPF Rating</th>
     <td>
@@ -316,10 +366,22 @@ Rincian Produk
             <tr>
                 <th>Garansi Kompresor</th>
                 <td><?= esc($product['compressor_warranty']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('compressor_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -327,14 +389,32 @@ Rincian Produk
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Motor</th>
                 <td><?= esc($product['garansi_motor']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_motor', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -342,10 +422,22 @@ Rincian Produk
             <tr>
                 <th>Ukuran</th>
                 <td><?= esc($product['ukuran']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('ukuran', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Semua Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -353,10 +445,22 @@ Rincian Produk
             <tr>
                 <th>Ukuran</th>
                 <td><?= esc($product['ukuran']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('ukuran', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Motor</th>
                 <td><?= esc($product['garansi_motor']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_motor', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -364,6 +468,12 @@ Rincian Produk
             <tr>
                 <th>Garansi Motor</th>
                 <td><?= esc($product['garansi_motor']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_motor', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -385,6 +495,12 @@ Rincian Produk
             <tr>
                 <th>Garansi Kompresor</th>
                 <td><?= esc($product['compressor_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('compressor_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -392,6 +508,12 @@ Rincian Produk
             <tr>
                 <th>Kapasitas Baterai</th>
                 <td><?= esc($product['capacity']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>    
             <tr>
                 <th>Kecepatan Maksimal</th>
@@ -410,6 +532,12 @@ Rincian Produk
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['compressor_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -417,14 +545,32 @@ Rincian Produk
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Jasa Service</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
 
             <?php endif; ?>
@@ -433,14 +579,32 @@ Rincian Produk
         <tr>
             <th>Kapasitas</th>
             <td><?= esc($product['capacity']) ?></td>
+            <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
         </tr>    
         <tr>
             <th>Garansi Elemen Panas</th>
             <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+            <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_elemen_panas', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
         </tr>
         <tr>
             <th>Garansi Sparepart</th>
             <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+            <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
         </tr>
         
         <?php endif; ?>
@@ -449,14 +613,32 @@ Rincian Produk
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Elemen Panas</th>
                 <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_elemen_panas', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Service</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
 
             <?php endif; ?>
@@ -465,10 +647,22 @@ Rincian Produk
             <tr>
                 <th>Garansi Elemen Panas</th>
                 <td><?= esc($product['garansi_elemen_panas']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_elemen_panas', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Service</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -477,14 +671,32 @@ Rincian Produk
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('capacity', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -492,10 +704,22 @@ Rincian Produk
             <tr>
                 <th>Garansi Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -503,14 +727,32 @@ Rincian Produk
             <tr>
                 <th>Ukuran</th>
                 <td><?= esc($product['ukuran']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('ukuran', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <tr>
                 <th>Garansi Sparepart</th>
                 <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -525,35 +767,12 @@ Rincian Produk
             <tr>
                 <th>Garansi Sparepart & Jasa Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
-            </tr>
-            <?php endif; ?>
-
-            <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
-            <tr>
-                <th>Ukuran</th>
-                <td><?= esc($product['ukuran']) ?></td>
-            </tr>
-            <tr>
-                <th>Garansi Service</th>
-                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
-            </tr>
-            <tr>
-                <th>Garansi Sparepart</th>
-                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
-            </tr>
-            <?php endif; ?>
-
-            <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
-            <tr>
-                <th>Kapasitas</th>
-                <td><?= esc($product['kapasitas_air_dingin']) ?> M²</td>
                 <?php if ($product['status'] == 'approved'): ?>
-                <td><button onclick="openColdCapModal()" class="btn btn-sm btn-primary">Edit</button></td>
-                <?php endif; ?>
-            </tr>
-            <tr>
-                <th>Garansi Sparepart & Jasa Service</th>
-                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
             </tr>
             <?php endif; ?>
 
@@ -579,11 +798,13 @@ Rincian Produk
                     <form id="editForm">
                         <div class="modal-header">
                             <h5 class="modal-title" id="editModalLabel">Edit <span id="modalFieldLabel"></span></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"  onclick="closeModal()" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <input type="hidden" id="productId" name="product_id">
+                            <input type="hidden" id="subcategoryId" name="subcategory_id">
                             <input type="hidden" id="fieldName" name="field_name">
+                            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                             <div class="form-group">
                                 <label for="fieldValue">Select New Value</label>
                                 <select id="fieldValue" name="field_value" class="form-control">
@@ -592,7 +813,7 @@ Rincian Produk
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()" data-bs-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
@@ -1238,6 +1459,11 @@ function openProductDimensionsModal() {
     $('#productDimensionsModal').modal('show');
 }
 
+function closeModal() {
+        const modalInstance = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+        modalInstance.hide();
+    }
+
 function openStandDimensionsModal() {
     // Get the existing product dimensions value
     const sdimensions = document.getElementById('standDimensionsValue').innerText.replace(' cm', '');
@@ -1264,6 +1490,62 @@ function openResolutionModal() {
     // Show the modal
     $('#resolutionModal').modal('show');
 }
+
+function openEditModal(field, productId, subcategoryId) {
+    // Set product ID and field name in the modal's hidden inputs
+    document.getElementById('productId').value = productId;
+    document.getElementById('subcategoryId').value = subcategoryId;
+    document.getElementById('fieldName').value = field;
+    document.getElementById('modalFieldLabel').innerText = field.charAt(0).toUpperCase() + field.slice(1);
+
+    // Clear previous options
+    document.getElementById('fieldValue').innerHTML = '';
+
+    // Fetch options for the field, filtered by subcategory_id
+    fetch(`/getOptions?field=${field}&subcategory_id=${subcategoryId}`)
+        .then(response => response.json())
+        .then(data => {
+            data.options.forEach(option => {
+                let optionElement = document.createElement('option');
+                optionElement.value = option.name || option.value || option.type || option.size; // Assuming 'name' holds the value
+                optionElement.text = option.name || option.value || option.type || option.size;
+                document.getElementById('fieldValue').appendChild(optionElement);
+            });
+            // Open the modal after loading options
+            new bootstrap.Modal(document.getElementById('editModal')).show();
+        })
+        .catch(error => console.error('Error fetching options:', error));
+}
+
+document.getElementById('editForm').addEventListener('submit', function (event) {
+
+    // Get the form data
+    const formData = new FormData(document.getElementById('editForm'));
+    formData.append('csrf_token', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+
+    // Send data via AJAX
+    fetch('/updateProductField', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Handle success (e.g., show a success message, close the modal, etc.)
+            alert('Field updated successfully!');
+            // Optionally close the modal
+            let modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
+            modal.hide();
+        } else {
+            // Handle failure
+            alert('Failed to update field.');
+        }
+    })
+    .catch(error => {
+        console.error('Error updating product field:', error);
+        alert('There was an error updating the field.');
+    });
+});
 
 function openPackagingDimensionsModal() {
     // Get the existing product dimensions value
