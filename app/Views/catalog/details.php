@@ -126,6 +126,9 @@
     .breadcrumb-separator {
         font-family: FontAwesome;
         font-size: 14px;
+        margin-left: 7px;
+        margin-right: 7px;
+        color: #f4f4f4;
     }
 
     .product-description {
@@ -356,8 +359,6 @@
         justify-content: center;
     }
 
-
-
     .product-item .card img {
         width: 100%;
         padding: 5px;
@@ -377,26 +378,8 @@ Detail Produk
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.01);">
 
-    <!-- Left section (Breadcrumb links) -->
-    <div class="col-sm-9 d-flex align-items-center">
-        <div class="navbar-brand" style="float: left; margin-left: 65px;">
-            <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 40px;">
-        </div>
-
-        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;margin-left: 200px;">Beranda</a>
-        <span class="breadcrumb-separator" style="margin-left: 3px;">  </span>
-        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Kategori</a>
-        <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
-        <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Subkategori</a>
-        <?php if ($product['capacity'] != null): ?>
-            <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
-            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&capacity=<?= esc($product['capacity']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Kapasitas</a>
-        <?php elseif ($product['ukuran'] != null): ?>
-            <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
-            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&ukuran=<?= esc($product['ukuran']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Ukuran</a>
-        <?php endif; ?>
-        <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
-        <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-size:18px;font-weight: 500;">Detail Produk</span>
+    <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
+        <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
     </div>
 
     <!-- Right section (User Dropdown) -->
@@ -433,8 +416,26 @@ Detail Produk
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="container product-detail-container">
+<div class="container product-detail-container" style="margin-bottom: 105px;">
+    <div style="margin-bottom: 60px;">
+        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Beranda</a>
+        <span class="breadcrumb-separator"></span>
+        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Kategori</a>
+        <span class="breadcrumb-separator"></span>
+        <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Sub Kategori</a>
+        <?php if ($product['capacity'] != null): ?>
+            <span class="breadcrumb-separator"></span>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&capacity=<?= esc($product['capacity']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Kapasitas</a>
+        <?php elseif ($product['ukuran'] != null): ?>
+            <span class="breadcrumb-separator"></span>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&ukuran=<?= esc($product['ukuran']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Ukuran</a>
+        <?php endif; ?>
+        <span class="breadcrumb-separator"></span>
+        <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:13px"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>-<?= esc($product['product_type']) ?></span>
+    </div>
     <div class="row">
+
+
         <!-- Carousel Gambar Produk -->
         <div class="col-md-6">
             <div id="productCarousel" class="carousel slide">
