@@ -192,7 +192,7 @@ $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
 $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions');
 $routes->get('getOptions', 'ProductController::getOptions');
 $routes->post('updateProductField', 'ProductController::updateProductField');
-
+$routes->get('clear-subcategory-id', 'ProductController::clearSubcategoryId');
 
 
 $routes->get('no-access', 'AuthController::NoAccess');

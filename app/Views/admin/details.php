@@ -186,9 +186,16 @@
         
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+        <?php if ($product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
         <tr><th>Ukuran</th><td><?= esc($product['ukuran']) ?></td></tr>
         <tr><th>Garansi Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
+        <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
+        
+        <?php endif; ?>
+
+        <?php if ($product['subcategory'] == 'COOKER HOOD'): ?>
+        <tr><th>Ukuran</th><td><?= esc($product['ukuran']) ?></td></tr>
+        <tr><th>Garansi Motor</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
         
         <?php endif; ?>

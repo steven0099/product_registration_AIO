@@ -21,6 +21,17 @@
     margin-right:4px;
 }
 
+
+    input::placeholder {
+        color: #d9d9d9 !important; /* Change this to your desired color */
+        font-style: italic; /* Optional: make it italic */
+    }
+
+    input:focus::placeholder {
+        color: #d9d9d9; /* Optional: change color when input is focused */
+    }
+
+
 </style>
 <?= $this->endSection() ?>
 
@@ -175,22 +186,22 @@ Katalog Digital
                     <!-- Search field on the leftmost -->
                     <div class="col-md-6 d-flex align-items-center" style="margin-top: 12px;">
                         <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                            <input style="width:250px; margin-left:60px" type="text" id="search" name="search" value="<?= esc($search) ?>"
+                            <input style="margin-left:60px; color:#000" type="text" id="search" name="search" value="<?= esc($search) ?>"
                                 placeholder="Cari Produk..." class="form-control">
                         </form>
                     </div>
 
                     <!-- Sort dropdown on the rightmost -->
-                    <div class="col-md-6 d-flex align-items-center justify-content-end" style="margin-top: 12px;">
-                        <form id="searchAndSortForm" action="" method="GET" class="d-flex w-100">
-                            <select style="width: 250px;" id="sort" name="sort" class="form-control">
+                    <div class="col-md-6 d-flex align-items-center justify-content-end" style="margin-top: 12px; right:10px">
+                        <form id="SortForm" action="" method="GET" class="d-flex w-100" >
+                            <select id="sort" name="sort" class="form-control">
                                 <option value="" <?= $sort == '' ? 'selected' : '' ?>>Urutkan Berdasarkan...</option>
-                                <option value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
-                                <option value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
-                                <option value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
-                                <option value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
-                                <option value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>Produk Lama - Baru</option>
-                                <option value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Produk Baru - Lama</option>
+                                <option style="color:#000; font-style: normal" value="name_asc" <?= $sort == 'name_asc' ? 'selected' : '' ?>>Tipe Produk A-Z</option>
+                                <option style="color:#000; font-style: normal" value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
+                                <option style="color:#000; font-style: normal" value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
+                                <option style="color:#000; font-style: normal" value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
+                                <option style="color:#000; font-style: normal" value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>Produk Lama - Baru</option>
+                                <option style="color:#000; font-style: normal" value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Produk Baru - Lama</option>
                             </select>
                         </form>
                     </div>
@@ -271,10 +282,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (category) {
             const categoryLink = document.createElement('a');
             categoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}`;
-            categoryLink.textContent = `${category}`;
+            categoryLink.textContent = `Kategori`;
             categoryLink.className = 'breadcrumb-link';
             categoryLink.style.fontFamily = 'Poppins';
             categoryLink.style.fontWeight = 'bold';
+            categoryLink.style.fontSize = '18px';
             categoryLink.style.color = '#0D2A46';
             filterLinks.innerHTML += separator; // Add separator before link
             filterLinks.appendChild(categoryLink);
@@ -284,10 +296,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (subcategory) {
             const subcategoryLink = document.createElement('a');
             subcategoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}`;
-            subcategoryLink.textContent = `${subcategory}`;
+            subcategoryLink.textContent = `Subkategori`;
             subcategoryLink.className = 'breadcrumb-link';
             subcategoryLink.style.fontFamily = 'Poppins';
             subcategoryLink.style.fontWeight = 'bold';
+            subcategoryLink.style.fontSize = '18px';
             subcategoryLink.style.color = '#0D2A46';
             filterLinks.innerHTML += separator; // Add separator before link
             filterLinks.appendChild(subcategoryLink);
@@ -295,17 +308,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add capacity/ukuran link if selected
         if (capacityOrUkuran) {
-            const capacityLink = document.createElement('a');
-            const parameterName = usesUkuran ? 'ukuran' : 'capacity';
-            capacityLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}&${parameterName}=${encodeURIComponent(capacityOrUkuran).replace(/%20/g, '+')}`;
-            capacityLink.textContent = `${capacityOrUkuran}`;
-            capacityLink.className = 'breadcrumb-link';
-            capacityLink.style.fontFamily = 'Poppins';
-            capacityLink.style.fontWeight = 'bold';
-            capacityLink.style.color = '#0D2A46';
-            filterLinks.innerHTML += separator; // Add separator before link
-            filterLinks.appendChild(capacityLink);
-        }
+    const capacityLink = document.createElement('a');
+    const parameterName = usesUkuran ? 'ukuran' : 'capacity';
+    
+    // Set the href as before
+    capacityLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}&${parameterName}=${encodeURIComponent(capacityOrUkuran).replace(/%20/g, '+')}`;
+    
+    // Use "Kapasitas" or "Ukuran" as the text content
+    capacityLink.textContent = usesUkuran ? 'Ukuran' : 'Kapasitas';
+    
+    capacityLink.className = 'breadcrumb-link';
+    capacityLink.style.fontFamily = 'Poppins';
+    capacityLink.style.fontWeight = 'bold';
+    capacityLink.style.color = '#0D2A46';
+    capacityLink.style.fontSize = '18px';
+    
+    filterLinks.innerHTML += separator; // Add separator before link
+    filterLinks.appendChild(capacityLink);
+}
+
     }
 
     // Add event listeners to filter inputs
@@ -1093,8 +1114,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const subcategory = urlParams.get('subcategory');
     const capacityOrUkuran = urlParams.get('capacity') || urlParams.get('ukuran'); // Fetch from URL directly
 
-    // Clear existing links
-    filterLinks.innerHTML = '';
+        // Determine whether to use 'capacity' or 'ukuran' based on selected filters
+        const usesUkuran = ['TV'].includes(category.toUpperCase()) || 
+        ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR COOLER', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
+        // Clear existing links
+        filterLinks.innerHTML = '';
 
     // Create base URL
     let baseUrl = '/catalog?';
@@ -1104,10 +1128,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (category) {
         const categoryLink = document.createElement('a');
         categoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}`;
-        categoryLink.textContent = `${category}`;
+        categoryLink.textContent = 'Kategori';
         categoryLink.className = 'breadcrumb-link';
         categoryLink.style.fontFamily = 'Poppins';
         categoryLink.style.fontWeight = 'bold';
+        categoryLink.style.fontSize = '18px';
         categoryLink.style.color = '#0D2A46';
         filterLinks.innerHTML += separator; // Add separator before link
         filterLinks.appendChild(categoryLink);
@@ -1117,10 +1142,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (subcategory) {
         const subcategoryLink = document.createElement('a');
         subcategoryLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}`;
-        subcategoryLink.textContent = `${subcategory}`;
+        subcategoryLink.textContent = `Subkategori`;
         subcategoryLink.className = 'breadcrumb-link';
         subcategoryLink.style.fontFamily = 'Poppins';
         subcategoryLink.style.fontWeight = 'bold';
+        subcategoryLink.style.fontSize = '18px';
         subcategoryLink.style.color = '#0D2A46';
         filterLinks.innerHTML += separator; // Add separator before link
         filterLinks.appendChild(subcategoryLink);
@@ -1128,17 +1154,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add capacity/ukuran link if selected
     if (capacityOrUkuran) {
-        const parameterName = urlParams.has('ukuran') ? 'ukuran' : 'capacity'; // Determine parameter name
-        const capacityLink = document.createElement('a');
-        capacityLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}&${parameterName}=${encodeURIComponent(capacityOrUkuran).replace(/%20/g, '+')}`;
-        capacityLink.textContent = `${capacityOrUkuran}`;
-        capacityLink.className = 'breadcrumb-link';
-        capacityLink.style.fontFamily = 'Poppins';
-        capacityLink.style.fontWeight = 'bold';
-        capacityLink.style.color = '#0D2A46';
-        filterLinks.innerHTML += separator; // Add separator before link
-        filterLinks.appendChild(capacityLink);
-    }
+    const capacityLink = document.createElement('a');
+    const parameterName = usesUkuran ? 'ukuran' : 'capacity';
+    
+    // Set the href as before
+    capacityLink.href = `${baseUrl}category=${encodeURIComponent(category).replace(/%20/g, '+')}&subcategory=${encodeURIComponent(subcategory).replace(/%20/g, '+')}&${parameterName}=${encodeURIComponent(capacityOrUkuran).replace(/%20/g, '+')}`;
+    
+    // Use "Kapasitas" or "Ukuran" as the text content
+    capacityLink.textContent = usesUkuran ? 'Ukuran' : 'Kapasitas';
+    
+    capacityLink.className = 'breadcrumb-link';
+    capacityLink.style.fontFamily = 'Poppins';
+    capacityLink.style.fontSize = '18px';
+    capacityLink.style.fontWeight = 'bold';
+    capacityLink.style.color = '#0D2A46';
+    
+    filterLinks.innerHTML += separator; // Add separator before link
+    filterLinks.appendChild(capacityLink);
+}
+
 }
 
 

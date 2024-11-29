@@ -468,6 +468,22 @@
                                                     </tr>
                                                 <?php endif; ?>
 
+                                                <?php if ($data['subcategory_id'] == '47'): ?>
+                                                    <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
+                                                    <tr>
+                                                        <td><b>Ukuran</b></td>
+                                                        <td><?= esc($data['ukuran_size']) ?></td>
+                                                        <td><b>Garansi Motor</b></td>
+                                                        <td><?= esc($data['garansi_semua_service_value']) ?> Tahun</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Garansi Sparepart</b></td>
+                                                        <td><?= esc($data['sparepart_warranty_value']) ?> Tahun</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                <?php endif; ?>
+
                                                 <?php if ($data['subcategory_id'] == '48' || $data['subcategory_id'] == '75'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>

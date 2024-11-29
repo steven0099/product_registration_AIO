@@ -312,6 +312,9 @@ class ProductController extends BaseController
 
         // Fetch subcategories based on categoryId
         $subcategories = $subcategoryModel->where('category_id', $categoryId)->findAll();
+        usort($subcategories, function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Replace 'subcategory' with the actual column name in your table
+        });
 
         // Return as JSON
         return $this->response->setJSON($subcategories);
@@ -323,15 +326,54 @@ class ProductController extends BaseController
         // Fetch the data based on the subcategory ID
         $ukuran = $ukuranModel->where('subcategory_id', $subcategoryId)->findAll();
 
-        // Log the received data
-        log_message('info', 'getUkuranTv called with ID: ' . $subcategoryId . ' - Result: ' . json_encode($ukuran));
+        $sizeOrder = ['kecil', 'sedang', 'besar']; // Define size priority
 
-        if ($ukuran) {
-            return $this->response->setJSON($ukuran);
-        } else {
-            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND)
-                ->setBody('No data found');
-        }
+        $ukuran = array_values(array_filter($ukuran, fn($item) => isset($item['size']))); // Ensure valid entries
+        
+        usort($ukuran, function ($a, $b) use ($sizeOrder) {
+            // Extract numbers
+            preg_match('/^\d+/', $a['size'], $aMatches);
+            preg_match('/^\d+/', $b['size'], $bMatches);
+        
+            // If both have numbers, sort numerically
+            if (!empty($aMatches) && !empty($bMatches)) {
+                return (int)$aMatches[0] <=> (int)$bMatches[0];
+            }
+        
+            // If one has a number and the other doesn't, prioritize the one with a number
+            if (!empty($aMatches)) {
+                return -1;
+            }
+            if (!empty($bMatches)) {
+                return 1;
+            }
+        
+            // Check for size categories (kecil, sedang, besar)
+            $aIndex = array_search(strtolower($a['size']), $sizeOrder);
+            $bIndex = array_search(strtolower($b['size']), $sizeOrder);
+        
+            // If both are size categories, sort by predefined size order
+            if ($aIndex !== false && $bIndex !== false) {
+                return $aIndex <=> $bIndex;
+            }
+        
+            // If one is a size category and the other isn't, prioritize size categories
+            if ($aIndex !== false) {
+                return -1;
+            }
+            if ($bIndex !== false) {
+                return 1;
+            }
+        
+            // Fallback to natural string comparison if neither is numeric or size category
+            return strcmp($a['size'], $b['size']);
+        });
+        
+        // Log the sorted results for debugging
+        log_message('info', 'Sorted Ukuran Data: ' . json_encode($ukuran));
+        
+        return $this->response->setJSON($ukuran);
+        
     }
 
     public function getCompressorWarranties()
@@ -379,11 +421,13 @@ class ProductController extends BaseController
         return $this->response->setJSON($warranties);
     }
 
+
+    
     public function fetchWarrantyOptions()
     {
         $type = $this->request->getGet('type');
         log_message('info', 'fetchWarrantyOptions type: ' . $type); // Debug log
-
+    
         $model = null;
         switch ($type) {
             case 'garansi_panel':
@@ -404,32 +448,72 @@ class ProductController extends BaseController
             default:
                 return $this->response->setJSON(['error' => 'Invalid warranty type']);
         }
-
+    
         if ($model) {
             $warranties = $model->findAll();
+    
+            // Sort the warranties
+            usort($warranties, function ($a, $b) {
+                // Handle "<1" as a special case
+                if ($a['value'] === '<1') return -1;
+                if ($b['value'] === '<1') return 1;
+    
+                // Extract numbers and sort numerically
+                $aNumber = (float) filter_var($a['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                $bNumber = (float) filter_var($b['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    
+                return $aNumber <=> $bNumber;
+            });
+    
+            // Log the sorted results
+            log_message('info', 'Sorted Warranty Options: ' . json_encode($warranties));
+    
             return $this->response->setJSON($warranties);
         } else {
             return $this->response->setJSON(['error' => 'Model not found']);
         }
     }
+    
 
 
     public function getCapacities($subcategoryId)
     {
-        log_message('info', 'getCapacities called with ID: ' . $subcategoryId);
+        $capacityModel = new CapacityModel();
+        $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
 
-        try {
-            $capacityModel = new CapacityModel();
-            $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
-
-            // Log the retrieved capacities
-            log_message('info', 'Capacities fetched: ' . json_encode($capacities));
-
-            return $this->response->setJSON($capacities);
-        } catch (\Exception $e) {
-            log_message('error', 'Error in getCapacities: ' . $e->getMessage());
-            return $this->response->setJSON(['error' => 'An error occurred: ' . $e->getMessage()])->setStatusCode(500);
-        }
+        // Custom sort function
+        usort($capacities, function ($a, $b) {
+            // Extract the numeric value from the front of the string
+            preg_match('/^\d+/', $a['value'], $aMatches);
+            preg_match('/^\d+/', $b['value'], $bMatches);
+        
+            // Check if either value is "-"
+            if ($a['value'] === "-") {
+                return -1; // Prioritize "-"
+            }
+            if ($b['value'] === "-") {
+                return 1; // Prioritize "-"
+            }
+        
+            // Compare numeric values if both have numbers
+            if (!empty($aMatches) && !empty($bMatches)) {
+                return (int)$aMatches[0] <=> (int)$bMatches[0];
+            }
+        
+            // If one has a number and the other doesn't, prioritize the one with a number
+            if (!empty($aMatches)) {
+                return -1;
+            }
+            if (!empty($bMatches)) {
+                return 1;
+            }
+        
+            // Otherwise, fallback to natural order
+            return strcmp($a['value'], $b['value']);
+        });
+        
+        return $this->response->setJSON($capacities);
+        
     }
 
     public function fetchBrands()
@@ -496,8 +580,18 @@ class ProductController extends BaseController
     });
 
     usort($data['sparepart_warranties'], function ($a, $b) {
-        return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        // Prioritize "<1"
+        if ($a['value'] === '<1') return -1;
+        if ($b['value'] === '<1') return 1;
+    
+        // Extract numeric values (allow fractions)
+        $aNumber = (float) filter_var($a['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $bNumber = (float) filter_var($b['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    
+        // Compare numerically
+        return $aNumber <=> $bNumber;
     });
+    
 
     usort($data['garansi_motor'], function ($a, $b) {
         return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
@@ -517,8 +611,29 @@ class ProductController extends BaseController
     });
 
         $data['previousData'] = session()->get('step1');
-//        dd($data);
 
+        $warrantyTypes = [
+            'garansi_panel' => $this->garansipanelModel,
+            'garansi_motor' => $this->garansimotorModel,
+            'compressor_warranty' => $this->compressorwarrantyModel,
+            'garansi_elemen_panas' => $this->garansipanasModel,
+            'garansi_semua_service' => $this->garansiserviceModel,
+        ];
+        
+        $warrantyValues = []; // To hold the results for each warranty type
+        
+        foreach ($warrantyTypes as $key => $model) {
+            $warrantyId = session()->get("step1")["{$key}_id"] ?? null; // Get the warranty ID from session
+            if ($warrantyId) {
+                $warrantyRow = $model->getGaransiValueById($warrantyId); // Adjust the function name if needed
+                $warrantyValues["{$key}_value"] = $warrantyRow['value'] ?? null; // Use the correct key format
+            } else {
+                $warrantyValues["{$key}_value"] = null; // No ID, set value to null
+            }
+        }
+        
+        // Pass the warranty values to the view
+        $data = array_merge($data, $warrantyValues);
         return view('layout/product/product_regis_step1', $data);
         //return view('product/product_registration', $data);
         //        $data['previousData'] = session()->get('step1');

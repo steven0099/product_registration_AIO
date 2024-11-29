@@ -82,11 +82,11 @@ Rincian Produk
             </tr>
             <tr>
                 <th>Kategori</th>
-                <td><?= esc($product['category']) ?></td>
+                <td><?= esc($product['category']) ?></td><td></td>
             </tr>
             <tr>
                 <th>Subkategori</th>
-                <td><?= esc($product['subcategory']) ?></td>
+                <td><?= esc($product['subcategory']) ?></td><td></td>
             </tr>
             <tr>
                 <th>Tipe Produk</th>
@@ -232,11 +232,11 @@ Rincian Produk
             <?php endif; ?>
             <tr>
                 <th>Diajukan Oleh</th>
-                <td><?= esc($product['submitted_by']) ?></td>
+                <td><?= esc($product['submitted_by']) ?></td><td></td>
             </tr>
             <tr>
                 <th>Tanggal Diajukan</th>
-                <td><?= esc($product['confirmed_at']) ?></td>
+                <td><?= esc($product['confirmed_at']) ?></td><td></td>
             </tr>
             <!-- Conditional Fields -->
             <?php if ($product['category'] == 'TV'): ?>
@@ -723,7 +723,7 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+            <?php if ($product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
             <tr>
                 <th>Ukuran</th>
                 <td><?= esc($product['ukuran']) ?></td>
@@ -736,6 +736,39 @@ Rincian Produk
             </tr>
             <tr>
                 <th>Garansi Service</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('garansi_semua_service', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty'])?> Tahun</td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('sparepart_warranty', <?= esc($product['id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
+            </tr>
+            <?php endif; ?>
+
+            <?php if ($product['subcategory'] == 'COOKER HOOD'): ?>
+            <tr>
+                <th>Ukuran</th>
+                <td><?= esc($product['ukuran']) ?></td>
+                <?php if ($product['status'] == 'approved'): ?>
+                    <td><button type="button" class="btn btn-primary btn-sm"
+                        onclick="openEditModal('ukuran', <?= esc($product['id']) ?>, <?= esc($product['subcategory_id']) ?>)">
+                        Edit
+                    </button></td>
+                    <?php endif; ?>
+            </tr>
+            <tr>
+                <th>Garansi Motor</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
                 <?php if ($product['status'] == 'approved'): ?>
                     <td><button type="button" class="btn btn-primary btn-sm"
@@ -779,14 +812,14 @@ Rincian Produk
             <?php if ($product['status'] == 'approved'): ?>
             <tr>
                 <th>Tanggal Disetujui</th>
-                <td><?= esc($product['approved_at']) ?></td>
+                <td><?= esc($product['approved_at']) ?></td><td></td>
             </tr>
             <?php endif; ?>
 
             <?php if ($product['status'] == 'rejected'): ?>
             <tr>
                 <th>Tanggal Ditolak</th>
-                <td><?= esc($product['rejected_at']) ?></td>
+                <td><?= esc($product['rejected_at']) ?></td><td></td>
             </tr>
             <?php endif; ?>
         </table>
@@ -828,20 +861,17 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="colorModalLabel">Edit Warna</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="colorInput" class="form-control" value="<?= esc($product['color']) ?>"
-                            placeholder="Enter color">
+                            placeholder="Masukan Warna">
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                         <!-- Include CSRF Token -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateColor()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -854,9 +884,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="powerModalLabel">Edit Konsumsi Daya</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="powerInput" class="form-control" value="<?= esc($product['daya']) ?>"
@@ -867,7 +895,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updatePower()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -880,9 +908,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="weightModalLabel">Edit Berat Produk</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="weightInput" class="form-control" value="<?= esc($product['berat']) ?>"
@@ -893,7 +919,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateWeight()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -905,9 +931,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="coldcapModalLabel">Edit Data</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="coldcapInput" class="form-control"
@@ -919,7 +943,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateColdCap()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1055,9 +1079,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="hargaModalLabel">Tentukan Harga</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="hargaInput" class="form-control" value="<?= esc($product['harga']) ?>"
@@ -1068,7 +1090,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateHarga()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1080,9 +1102,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="hargaModalLabel">Tentukan Harga</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="hargaInput" class="form-control" value="<?= esc($product['harga']) ?>"
@@ -1093,7 +1113,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateHarga()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1105,9 +1125,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="hotcapModalLabel">Edit Data</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="hotcapInput" class="form-control"
@@ -1119,7 +1137,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateHotCap()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1132,9 +1150,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="coolingModalLabel">Edit Kapasitas Pendinginan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="number" id="ccInput" class="form-control"
@@ -1146,7 +1162,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateCooling()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1159,9 +1175,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="cspfModalLabel">CSPF Rating</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="number" id="cspfInput" class="form-control" value="<?= esc($product['cspf']) ?>"
@@ -1172,7 +1186,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateCspf()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1185,9 +1199,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="manufacturerModalLabel">Edit Negara Pembuat</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <input type="text" id="manufacturerInput" class="form-control"
@@ -1198,7 +1210,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateManufacturer()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1211,20 +1223,23 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="producttypeModalLabel">Edit Tipe Produk</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
-                        <input type="text" id="producttypeInput" class="form-control"
-                            value="<?= esc($product['product_type']) ?>" placeholder="Tipe Produk">
+                        <input type="text" id="producttypeInput"
+                        value="<?= esc($product['product_type']) ?>"
+                        class="form-control"
+                        placeholder="Masukan Tipe Produk" pattern="^[a-zA-Z0-9\s]+$"
+                        title="Only alphanumeric characters are allowed."
+                        style="text-transform: uppercase;" required
+                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
                         <input type="hidden" id="id" value="<?= esc($product['id']) ?>"> <!-- Include Product ID -->
                         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                         <!-- Include CSRF Token -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateProductType()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1237,9 +1252,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="productDimensionsModalLabel">Edit Dimensi Produk</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <label for="lengthInput">Panjang (cm)</label>
@@ -1258,7 +1271,7 @@ Rincian Produk
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary"
                             onclick="updateProductDimensions()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1271,9 +1284,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="packagingDimensionsModalLabel">Edit Dimensi Kemasan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <label for="plengthInput">Panjang (cm)</label>
@@ -1292,7 +1303,7 @@ Rincian Produk
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary"
                             onclick="updatePackagingDimensions()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1305,9 +1316,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="standDimensionsModalLabel">Edit Dimensi Produk (Dengan Stand)</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <label for="slengthInput">Panjang (cm)</label>
@@ -1325,7 +1334,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateStandDimensions()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1338,9 +1347,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="resolutionModalLabel">Edit Resolusi Panel</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <label for="xresolInput">X (Pixel)</label>
@@ -1355,7 +1362,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateResolution()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -1367,9 +1374,7 @@ Rincian Produk
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="advantagesModalLabel">Edit Keunggulan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
                     <div class="modal-body">
                         <label>Keunggulan*</label>
@@ -1395,7 +1400,7 @@ Rincian Produk
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="updateAdvantages()">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
@@ -2306,84 +2311,58 @@ function updateResolution() {
     });
 }
 // Function to dynamically open and populate the modal
-function setColorModalData(id, color) {
+function setColorModalData(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('colorInput').value = color; // Set the color input
     $('#colorModal').modal('show'); // Show the modal
 }
 
-function openPowerModal(id, power) {
+function openPowerModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('powerInput').value = power || ''; // Set the power input, default to empty if undefined
     $('#powerModal').modal('show'); // Show the modal
 }
 
-function openWeightModal(id, weight) {
+function openWeightModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('weightInput').value = weight || ''; // Set the power input, default to empty if undefined
     $('#weightModal').modal('show'); // Show the modal
 }
 
-function openColdCapModal(id, coldcap) {
+function openColdCapModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('coldcapInput').value = coldcap || ''; // Set the power input, default to empty if undefined
     $('#coldcapModal').modal('show'); // Show the modal
 }
 
-function openHargaModal(id, harga) {
+function openHargaModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('hargaInput').value = harga || ''; // Set the power input, default to empty if undefined
     $('#hargaModal').modal('show'); // Show the modal
 }
 
-function openHargaModal(id, harga) {
+function openHotCapModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('hargaInput').value = harga || ''; // Set the power input, default to empty if undefined
-    $('#hargaModal').modal('show'); // Show the modal
-}
-
-function openHotCapModal(id, hotcap) {
-    document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('hotcapInput').value = hotcap || ''; // Set the power input, default to empty if undefined
     $('#hotcapModal').modal('show'); // Show the modal
 }
 
-function openCoolingModal(id, cooling) {
+function openCoolingModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('ccInput').value = cooling || ''; // Set the power input, default to empty if undefined
     $('#coolingModal').modal('show'); // Show the modal
 }
 
-function opencspfModal(id, cspf) {
+function opencspfModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('cspfInput').value = cspf || ''; // Set the power input, default to empty if undefined
     $('#cspfModal').modal('show'); // Show the modal
 }
 
-function openProductTypeModal(id, producttype) {
+function openProductTypeModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('producttypeInput').value = producttype ||
-        ''; // Set the power input, default to empty if undefined
-        ''; // Set the power input, default to empty if undefined
     $('#producttypeModal').modal('show'); // Show the modal
 }
 
-function openManufacturerModal(id, manufacturer) {
+function openManufacturerModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('manufacturerInput').value = manufacturer ||
-        ''; // Set the power input, default to empty if undefined
-        ''; // Set the power input, default to empty if undefined
     $('#manufacturerModal').modal('show'); // Show the modal
 }
 
-function openAdvantagesModal(id, adv1, adv2, adv3, adv4, adv5, adv6) {
+function openAdvantagesModal(id) {
     document.getElementById('id').value = id; // Set the hidden ID input
-    document.getElementById('adv1Input').value = adv1 || ''; // Set the power input, default to empty if undefined
-    document.getElementById('adv2Input').value = adv2 || '';
-    document.getElementById('adv3Input').value = adv3 || '';
-    document.getElementById('adv4Input').value = adv4 || '';
-    document.getElementById('adv5Input').value = adv5 || '';
-    document.getElementById('adv6Input').value = adv6 || '';
     $('#advantagesModal').modal('show'); // Show the modal
 }
 

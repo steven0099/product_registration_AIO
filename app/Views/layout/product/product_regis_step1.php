@@ -470,41 +470,49 @@ input.form-control:-webkit-autofill.form-control.valid {
 <script>
     $(document).ready(function(){
         $('#category').on('change', function() {
-            const categoryId = this.value;
-            const subcategoryDropdown = document.getElementById('subcategory');
+    const categoryId = this.value;
+    const subcategoryDropdown = document.getElementById('subcategory');
 
-            // Clear the current options and disable the dropdown
-            subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
-            subcategoryDropdown.disabled = true; // Disable until we load new options
+    // Clear the current options and disable the dropdown
+    subcategoryDropdown.innerHTML = '<option value="" disabled selected>Loading...</option>';
+    subcategoryDropdown.disabled = true; // Disable until we load new options
 
-            // Fetch subcategories via AJAX
-            fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
-                .then(response => {
-                    console.log('Response:', response); // Log the response object
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Data:', data);
-                    subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
-                    if (data.length > 0) {
-                        data.forEach(subcategory => {
-                            subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
-                        });
-                        subcategoryDropdown.disabled = false; // Enable dropdown after loading options
-                        if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
-                            $('#subcategory').val(`<?= session()->get("step1")["subcategory_id"] ?? null ?>`).change()
-                        }
-                    } else {
-                        subcategoryDropdown.innerHTML = '<option value="" disabled selected>No Subcategories Available</option>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching subcategories:', error);
-                });
-
+    fetch(`<?= base_url('get-subcategories') ?>/${categoryId}`)
+    .then(response => response.json())
+    .then(data => {
+        const subcategoryDropdown = document.getElementById('subcategory');
+        subcategoryDropdown.innerHTML = '';  // Clear existing options
+        
+        // Check if any subcategories were fetched
+        if (data.length > 0) {
+            subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
+            // Populate the dropdown with the fetched subcategories
+            data.forEach(subcategory => {
+                subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
+            });
+            subcategoryDropdown.disabled = false;
+            
+            // If the previous session value matches one of the subcategories, select it
+            const previousSubcategoryId = `<?= session()->get("step1")["subcategory_id"] ?? null ?>`;
+            if (previousSubcategoryId && data.some(subcategory => subcategory.id == previousSubcategoryId)) {
+                $('#subcategory').val(previousSubcategoryId).change();
+            } else {
+                // Reset to placeholder if no match
+                subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
+                data.forEach(subcategory => {
+                subcategoryDropdown.innerHTML += `<option value="${subcategory.id}">${subcategory.name}</option>`;
+            });
+                subcategoryDropdown.disabled = false;
+            }
+        } else {
+            // If no subcategories, show the placeholder
+            subcategoryDropdown.innerHTML = '<option value="" disabled selected>Pilih Subkategori</option>';
+            subcategoryDropdown.disabled = true;  // Disable dropdown if no subcategories are available
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching subcategories:', error);
+    });
         });
 
         $('#subcategory').on('change', function() {
@@ -545,7 +553,6 @@ input.form-control:-webkit-autofill.form-control.valid {
         if(`<?= isset(session()->get("step1")["category_id"]) ?>`){
             $('#brand').val(`<?= session()->get("step1")["brand_id"] ?? null ?>`).change()
             $('#category').val(`<?= session()->get("step1")["category_id"] ?? null ?>`).change()
-            $('#capacity').val(`<?= session()->get("step1")["capacity_id"] ?? null ?>`).change()
             $('#sparepart_warranty').val(`<?= session()->get("step1")["sparepart_warranty_id"] ?? null ?>`).change()
         }
     });
@@ -574,15 +581,9 @@ input.form-control:-webkit-autofill.form-control.valid {
                     if (type == 'ukuran') {
                         url = `<?= base_url('get-ukuran-tv') ?>/${subcategoryId}`;
                         capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Ukuran</option>'; // Clear existing options
-                        if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
-                            $('#compressor_warranty').val(`<?= session()->get("step1")["garansi_panel_id"]  ?? null ?>`).change()
-                        }
                     } else if (type == 'kapasitas') {
                         url = `<?= base_url('get-capacities') ?>/${subcategoryId}`;
                         capacityDropdown.innerHTML = '<option value="" disabled selected>Pilih Kapasitas</option>'; // Clear existing options
-                        if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
-                            $('#compressor_warranty').val(`<?= session()->get("step1")["compressor_warranty_id"]  ?? null ?>`).change()
-                        }
                     }
                 } else {
                     console.error('Unexpected data format:', data);
@@ -614,40 +615,130 @@ input.form-control:-webkit-autofill.form-control.valid {
         const sparepartwarrantyDropdown = document.getElementById('sparepart_warranty');
         // Update compressor warranty field based on category
         if (categoryId === '9') { // Category is for Garansi Panel
-            compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)';
-            document.getElementById('warranty-sparepart-group').style.display = 'block';
-            document.getElementById('compressor_warranty').setAttribute('name', 'garansi_panel_id'); // Change name to garansi_panel_id
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Panel</option>';
-            if(`<?= isset(session()->get("step1")["category_id"]) ?>`){
-                $('#compressor_warranty').val(`<?= session()->get("step1")["garansi_panel_id"] ?? null ?>`).change()
-            }
-        } else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53' || subcategoryId == '62') {
+            const previousValue = `<?= session()->get("step1")["garansi_panel_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_panel_value) ?? '' ?>`;
+
+    compressorWarrantyLabel.innerText = 'Garansi Panel (Tahun)';
+    document.getElementById('warranty-sparepart-group').style.display = 'block';
+
+    // Change the name attribute to 'garansi_panel_id'
+    warrantyDropdown.setAttribute('name', 'garansi_panel_id');
+    
+    // Set the dropdown options
+    warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Panel</option>';
+    
+    // Set the value from the session if available
+    if (previousValue) {
+        // Ensure the dropdown has the value as an option
+        if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_panel_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+    }
+} 
+} else if (categoryId == '6' || subcategoryId == '49' || subcategoryId == '53' || subcategoryId == '62') {
+            const previousValue = `<?= session()->get("step1")["garansi_motor_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_motor_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block';
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name to garansi_motor_id
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
+            if (previousValue) {
+        // Ensure the dropdown has the value as an option
+        if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_motor_id"]) ?>`) {
+        // Set the selected value
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+    }
+}
         } else if (subcategoryId == '31') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_semua_service_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_semua_service_value) ?? ''?>`;
             compressorWarrantyLabel.innerText = 'Garansi Semua Service (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_semua_service_id'); // Change name for Garansi Semua Service
-            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Semua Service</option>';
-        } else if (subcategoryId == '32' ||subcategoryId == '67' ||subcategoryId == '70') { // Check for subcategory id 31
+            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Semua Service</option>'
+        // Ensure the dropdown has the value as an option
+        if (previousValue) {
+        if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }   
+        // Set the selected value
+        if(`<?= isset(session()->get("step1")["garansi_semua_service_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+            }
+    } 
+}else if (subcategoryId == '32' ||subcategoryId == '67' ||subcategoryId == '70') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_motor_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_motor_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_motor_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
-        } else if (subcategoryId == '35' || subcategoryId == '36') { // Check for subcategory id 31
+        // Ensure the dropdown has the value as an option
+        if (previousValue) {
+        if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_motor_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        } 
+    }
+}else if (subcategoryId == '35' || subcategoryId == '36') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["compressor_warranty_id"] ?? '' ?>`;
+            const previousName = `<?= esc($compressor_warranty_value) ?? ''?>`;
             compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
-        } else if (subcategoryId == '33' || subcategoryId == '63' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41' || subcategoryId == '44' || subcategoryId == '71' || subcategoryId == '72' || subcategoryId == '76') { // Check for subcategory id 31
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["compressor_warranty_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        }    
+    } 
+}else if (subcategoryId == '33' || subcategoryId == '63' || subcategoryId == '34' || subcategoryId == '37' || subcategoryId == '38' || subcategoryId == '41' || subcategoryId == '44' || subcategoryId == '71' || subcategoryId == '72' || subcategoryId == '76') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_elemen_panas_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_elemen_panas_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name', 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        }  else if (subcategoryId == '42'|| subcategoryId == '66' || subcategoryId == '75') { // Check for subcategory id 31
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_elemen_panas_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;   
+    }  
+} 
+}else if (subcategoryId == '42'|| subcategoryId == '66' || subcategoryId == '75') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_elemen_panas_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_elemen_panas_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Service (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display =
@@ -655,32 +746,114 @@ input.form-control:-webkit-autofill.form-control.valid {
             document.getElementById('compressor_warranty').setAttribute('name',
                 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        } else if (subcategoryId == '43' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '47' || subcategoryId == '50' ||
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_elemen_panas_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        } 
+    }
+}else if (subcategoryId == '43' || subcategoryId == '45' || subcategoryId == '46' || subcategoryId == '50' ||
             subcategoryId == '51' || subcategoryId == '54'|| subcategoryId == '64' || subcategoryId == '65'|| subcategoryId == '68' || subcategoryId == '69' || subcategoryId == '73' || subcategoryId == '74') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_semua_service_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_semua_service_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Jasa Service (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name','garansi_semua_service_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Service</option>';
-        } else if (subcategoryId == '48') { // Check for subcategory id 31
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_semua_service_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        } 
+    } 
+}else if (subcategoryId == '47') {
+            const previousValue = `<?= session()->get("step1")["garansi_semua_service_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_semua_service_value) ?? '' ?>`;
+            compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+            sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
+            document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
+            document.getElementById('compressor_warranty').setAttribute('name','garansi_semua_service_id'); // Change name for Garansi Semua Service
+            warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Motor</option>';
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_semua_service_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        } 
+    } 
+}else if (subcategoryId == '48') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_elemen_panas_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_elemen_panas_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'block'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name',
                 'garansi_elemen_panas_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Elemen Panas</option>';
-        } else if (subcategoryId == '52') { // Check for subcategory id 31
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_elemen_panas_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        } 
+    }
+}else if (subcategoryId == '52') { // Check for subcategory id 31
+            const previousValue = `<?= session()->get("step1")["garansi_semua_service_id"] ?? '' ?>`;
+            const previousName = `<?= esc($garansi_semua_service_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Sparepart & Jasa Service (Tahun)';
             document.getElementById('warranty-sparepart-group').style.display = 'none'; // Hide the sparepart warranty group
             document.getElementById('compressor_warranty').setAttribute('name','garansi_semua_service_id'); // Change name for Garansi Semua Service
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Sparepart & Jasa Service</option>';
-        } else {
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
+        }
+        if(`<?= isset(session()->get("step1")["garansi_semua_service_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        }    
+    } 
+}else {
+            const previousValue = `<?= session()->get("step1")["compressor_warranty_id"] ?? '' ?>`;
+            const previousName = `<?= esc($compressor_warranty_value) ?? '' ?>`;
             compressorWarrantyLabel.innerText = 'Garansi Kompresor';
             sparepartWarrantyLabel.innerText = 'Garansi Sparepart';
             document.getElementById('warranty-sparepart-group').style.display = 'block'; // Ensure the group is visible
             document.getElementById('compressor_warranty').setAttribute('name', 'compressor_warranty_id'); // Change name back to compressor_warranty_id
             warrantyDropdown.innerHTML = '<option value="" disabled selected>Pilih Garansi Kompresor</option>';
+            if (previousValue) {
+            if (!Array.from(warrantyDropdown.options).some(option => option.value === previousValue)) {
+            const option = document.createElement('option');
+            option.value = previousValue;
+            option.text = `${previousName} Tahun`;
+            warrantyDropdown.appendChild(option); // Append the option to the dropdown
         }
+        if(`<?= isset(session()->get("step1")["compressor_warranty_id"]) ?>`) {
+        warrantyDropdown.innerHTML = `<option value="${previousValue}" selected>${previousName} Tahun</option>`;
+        }
+    }
+}
 
         // Change capacity to ukuran_size if category is TV
         if (categoryId === '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
@@ -848,16 +1021,40 @@ input.form-control:-webkit-autofill.form-control.valid {
                         }
                     });
                     if (type == 'ukuran') {
-                        if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
-                            $('#capacity').val(`<?= session()->get("step1")["ukuran_id"] ?? null ?>`).change()
-                            $('#compressor_warranty').val(`<?= session()->get("step1")["garansi_panel_id"]  ?? null ?>`).change()
-                        }
-                    } else if (type == 'kapasitas') {
-                        if(`<?= isset(session()->get("step1")["category_id"]) ?>`) {
-                            $('#capacity').val(`<?= session()->get("step1")["capacity_id"] ?? null ?>`).change()
-                            $('#compressor_warranty').val(`<?= session()->get("step1")["compressor_warranty_id"]  ?? null ?>`).change()
-                        }
-                    }
+    const previousUkuranId = `<?= session()->get("step1")["ukuran_id"] ?? null ?>`;
+    const ukuranDropdown = $('#capacity'); // Assuming this dropdown is for 'ukuran'
+
+    // Check if there's any previous value and if it matches an option in the dropdown
+    if (`<?= isset(session()->get("step1")["category_id"]) ?>` && previousUkuranId) {
+        // Check if the previous value exists in the dropdown options
+        if ($('#capacity option[value="' + previousUkuranId + '"]').length > 0) {
+            ukuranDropdown.val(previousUkuranId).change(); // Set the value if valid
+        } else {
+            // Reset to placeholder if no match
+            ukuranDropdown.val('').change();  // Reset to empty (placeholder)
+        }
+    } else {
+        // Set to placeholder if no session data
+        ukuranDropdown.val('').change();  // Reset to empty (placeholder)
+    }
+} else if (type == 'kapasitas') {
+    const previousKapasitasId = `<?= session()->get("step1")["capacity_id"] ?? null ?>`;
+    const kapasitasDropdown = $('#capacity'); // Assuming this dropdown is for 'kapasitas'
+
+    // Check if there's any previous value and if it matches an option in the dropdown
+    if (`<?= isset(session()->get("step1")["category_id"]) ?>` && previousKapasitasId) {
+        // Check if the previous value exists in the dropdown options
+        if ($('#capacity option[value="' + previousKapasitasId + '"]').length > 0) {
+            kapasitasDropdown.val(previousKapasitasId).change(); // Set the value if valid
+        } else {
+            // Reset to placeholder if no match
+            kapasitasDropdown.val('').change();  // Reset to empty (placeholder)
+        }
+    } else {
+        // Set to placeholder if no session data
+        kapasitasDropdown.val('').change();  // Reset to empty (placeholder)
+    }
+}
                 } else {
                     console.error('Data format is not as expected:', data);
                     alert('Failed to load options. Please try again.');
