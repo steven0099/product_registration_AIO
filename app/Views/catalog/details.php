@@ -90,6 +90,7 @@
 
     .carousel-item img,
     .carousel-item iframe {
+        object-fit: contain;
         max-width: 495px;
         height: 350px;
         border-radius: 10px;
@@ -129,7 +130,7 @@
 
     .product-description {
         padding-left: 50px;
-        padding-top: 25px;
+        padding-top: 10px;
         padding-right: 25px;
         padding-bottom: 25px;
     }
@@ -374,25 +375,28 @@ Detail Produk
 
 <?= $this->section('breadcumb') ?>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; display: flex; justify-content: space-between; align-items: center;">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.01);">
 
     <!-- Left section (Breadcrumb links) -->
     <div class="col-sm-9 d-flex align-items-center">
-        <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
-        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;color: ;">Beranda</a>
-        <span class="breadcrumb-separator" style="margin-left: 2px;">  </span>
-        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
-        <span class="breadcrumb-separator" style="margin-left: 2px;"></span>
+        <div class="navbar-brand" style="float: left; margin-left: 65px;">
+            <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 40px;">
+        </div>
+
+        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;margin-left: 200px;">Beranda</a>
+        <span class="breadcrumb-separator" style="margin-left: 3px;">  </span>
+        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Kategori</a>
+        <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
         <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Subkategori</a>
         <?php if ($product['capacity'] != null): ?>
-            <span class="breadcrumb-separator" style="margin-left: 2px;"></span>
+            <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
             <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&capacity=<?= esc($product['capacity']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Kapasitas</a>
         <?php elseif ($product['ukuran'] != null): ?>
-            <span class="breadcrumb-separator" style="margin-left: 2px;"></span>
+            <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
             <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&ukuran=<?= esc($product['ukuran']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px;">Ukuran</a>
         <?php endif; ?>
-        <span class="breadcrumb-separator" style="margin-left: 2px;"></span>
-        <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-size:18px;">Detail Produk</span>
+        <span class="breadcrumb-separator" style="margin-left: 3px;"></span>
+        <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-size:18px;font-weight: 500;">Detail Produk</span>
     </div>
 
     <!-- Right section (User Dropdown) -->
@@ -437,35 +441,41 @@ Detail Produk
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>"
+                            onerror="this.src='/images/image-placeholder.png';"
                             class="d-block w-100" alt="Gambar Depan">
                     </div>
                     <?php if ($product['gambar_belakang'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_belakang'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Belakang">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_samping_kiri'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kiri'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Kiri">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_samping_kanan'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Kanan">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_atas'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_atas'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Atas">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_bawah'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_bawah'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Bawah">
                         </div>
                     <?php endif; ?>
@@ -490,34 +500,41 @@ Detail Produk
 
             <!-- Thumbnail Gambar Produk -->
             <div class="thumbnail-images">
-                <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>" class="active"
+                <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>"
+                    onerror="this.src='/images/image-placeholder.png';" class="active"
                     data-bs-target="#productCarousel" data-bs-slide-to="0" alt="Thumbnail Depan">
                 <?php if ($product['gambar_belakang'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_belakang'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="1" alt="Thumbnail Belakang">
                 <?php endif; ?>
                 <?php if ($product['gambar_samping_kiri'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kiri'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="2" alt="Thumbnail Kiri">
                 <?php endif; ?>
                 <?php if ($product['gambar_samping_kanan'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="3" alt="Thumbnail Kanan">
                 <?php endif; ?>
                 <?php if ($product['gambar_atas'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_atas'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="4" alt="Thumbnail Atas">
                 <?php endif; ?>
                 <?php if ($product['gambar_bawah'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_bawah'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="5" alt="Thumbnail Bawah">
                 <?php endif; ?>
                 <?php if ($product['video_produk']): ?>
-                    <img src="<?= esc($thumbnailUrl) ?>" data-bs-target="#productCarousel" data-bs-slide-to="6"
-                        alt="Video Thumbnail">
+                    <img src="<?= esc($thumbnailUrl) ?>" onerror="this.src='/images/image-placeholder.png';"
+                        data-bs-target="#productCarousel" data-bs-slide-to="6" alt="Video Thumbnail">
                 <?php endif; ?>
             </div>
         </div>
+
 
 
         <!-- Deskripsi Produk -->
@@ -544,7 +561,7 @@ Detail Produk
                 <p class="product-subtitle"><strong>Harga Belum Ditentukan</strong></p>
                 <?php endif; ?>
                 -->
-            <ul class="product-details" style="margin-left: 10px; font-size: 12px;">
+            <ul class="product-details" style="margin-left: 10px;margin-top: 20px; font-size: 12px;">
                 <li><?= esc($product['advantage1']) ?></li>
                 <li><?= esc($product['advantage2']) ?></li>
                 <li><?= esc($product['advantage3']) ?></li>

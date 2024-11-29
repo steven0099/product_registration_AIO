@@ -40,15 +40,15 @@ Katalog Digital
                 <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <?php if (session()->get('role') == 'superadmin'): ?>
-                <a href="/superadmin/dashboard" class="dropdown-item">
-                    <i class="fas fa-home mr-2"></i> Dashboard
-                </a>
+                <?php if (session()->get('role') == 'superadmin'): ?>
+                    <a href="/superadmin/dashboard" class="dropdown-item">
+                        <i class="fas fa-home mr-2"></i> Dashboard
+                    </a>
                 <?php elseif (session()->get('role') == 'admin'): ?>
-                <a href="/admin/dashboard" class="dropdown-item">
-                    <i class="fas fa-home mr-2"></i> Dashboard
-                </a>
-            <?php endif; ?>        
+                    <a href="/admin/dashboard" class="dropdown-item">
+                        <i class="fas fa-home mr-2"></i> Dashboard
+                    </a>
+                <?php endif; ?>
                 <div class="dropdown-divider"></div>
                 <a href="/reset/reset-password" class="dropdown-item">
                     <i class="fas fa-key mr-2"></i> Ganti Password
