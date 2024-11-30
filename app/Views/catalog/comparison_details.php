@@ -52,7 +52,7 @@ a{
 .comparison-product-card .product-image {
     width: 100%;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 4px;
     margin-bottom: 10px;
 }
@@ -64,16 +64,16 @@ a{
 .comparison-product-card .product-title {
     font-size: 15px;
     font-weight: bold;
-    margin: 5px 0;
+    margin: 3px 0;
 }
 
 .comparison-product-card .product-category,
 .comparison-product-card .product-subcategory,
 .comparison-product-card .product-capacity,
 .comparison-product-card .product-harga {
-    font-size: 14px;
+    font-size: 12px;
     color: #555;
-    margin: 3px 0;
+    margin: 2px 0;
 }
 
 /* Dynamic column styling for table */
@@ -96,13 +96,15 @@ label {
     text-align: center;
     background-color: #0daff0;
     color: #fff;
-    display: block;
-    height: 25px;
+    display: inline-block;
+    padding-bottom: 3px;
+    height: 35px; /* Increased height to fit new padding */
+    line-height: 32px; /* Adjusted for vertical centering */
     font-family: Poppins;
     font-size: 18px;
     width: 95%; /* Make label match the table width */
-    margin: 0 auto; /* Center horizontally */ /* Optional: add shadow for consistency */
 }
+
 
 /* Comparison table styles */
 .comparison-table {
@@ -111,7 +113,7 @@ label {
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
     font-family: Poppins;
-    margin: 5px auto; /* Center horizontally with some space above */
+
 }
 
 .comparison-table td,
@@ -246,7 +248,7 @@ Detail Perbandingan
          <?php if ($product['category'] == 'SMALL APPLIANCES'): ?>
             <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
             <span class="breadcrumb-separator"></span> 
-            <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: Poppins sans-serif; font-size:18px">Subkategori</a>
+            <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Subkategori</a>
          <?php else: ?>
             <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
          <?php endif; ?>
@@ -298,26 +300,25 @@ Detail Perbandingan
             class="product-image">
         <div class="product-info">
             <h5 class="product-title"><?= esc($product['brand']) ?></h5>
-            <p class="product-category"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>                 <?= 
-    !empty($product['capacity']) ? esc($product['capacity']) : 
-    (!empty($product['ukuran']) ? esc($product['ukuran']) : 
-    (!empty($product['kapasitas_air_dingin']) && !empty($product['kapasitas_air_panas']) ? 
-        esc($product['kapasitas_air_dingin']) . 'L' . '/' . esc($product['kapasitas_air_panas']) . 'L': 
-        ''))
-?>
-<?php if  ($product['subcategory'] == 'AIR PURIFIER'): ?>
-    <?= esc($product['kapasitas_air_dingin']) . ' M²'?>
-<?php endif; ?></p>
+            <p class="product-category"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>                  
             <!-- harga
              <p class="product-harga">
              <?php if ($product['harga'] != null): ?>
                 <?= esc($product['harga'] ?? '') ?>
                 <?php elseif ($product['harga'] == null): ?>
                     Harga Belum Ditentukan
-                </p> -->
-<?php endif;?>
-            <p class="product-capacity">
-<?= esc($product['product_type']) ?>
+                </p> 
+<?php endif;?>-->
+<p class="product-capacity">
+<?php if  ($product['capacity'] != null): ?>
+    <?= esc($product['capacity']) ?>
+<?php elseif ($product['ukuran'] != null): ?>
+    <?= esc($product['capacity']) ?>
+    <?php elseif  ($product['subcategory'] == 'DISPENSER GALON ATAS' ||$product['subcategory'] == 'DISPENSER GALON BAWAH' ): ?>
+        <?= esc($product['kapasitas_air_panas'] . 'L'. '/' .$product['kapasitas_air_dingin']) . 'L'?>
+<?php elseif  ($product['subcategory'] == 'AIR PURIFIER'): ?>
+    <?= esc($product['kapasitas_air_dingin']) . ' M²'?>
+<?php endif; ?> | <?= esc($product['product_type']) ?>
 </p>
 <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
 class="btn-custom btn-custom-primary">Lihat Detail</a>

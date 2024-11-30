@@ -90,6 +90,7 @@
 
     .carousel-item img,
     .carousel-item iframe {
+        object-fit: contain;
         max-width: 495px;
         height: 350px;
         border-radius: 10px;
@@ -124,14 +125,15 @@
 
     .breadcrumb-separator {
         font-family: FontAwesome;
-        font-size:14px;
-        margin-left:7px;
-        margin-right:7px;
+        font-size: 14px;
+        margin-left: 7px;
+        margin-right: 7px;
+        color: #f4f4f4;
     }
 
     .product-description {
         padding-left: 50px;
-        padding-top: 25px;
+        padding-top: 10px;
         padding-right: 25px;
         padding-bottom: 25px;
     }
@@ -171,7 +173,6 @@
         margin-top: 30px;
         padding: 10px;
         position: relative;
-        margin-bottom:90px;
     }
 
     .product-specifications table {
@@ -358,10 +359,6 @@
         justify-content: center;
     }
 
-    .breadcrumb-link {
-        color: #0d2a46;
-    }
-
     .product-item .card img {
         width: 100%;
         padding: 5px;
@@ -379,51 +376,36 @@ Detail Produk
 
 <?= $this->section('breadcumb') ?>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; display: flex; justify-content: space-between; align-items: center;">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.01);">
 
-   <!-- Left section (Breadcrumb links) -->
-   <div class="col-sm-10 d-flex align-items-center">
-   <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
-      <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Beranda</a>
-      <span class="breadcrumb-separator"></span> 
-      <a href="/catalog?category=<?= esc($product['category'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
-      <span class="breadcrumb-separator"></span> 
-      <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Subkategori</a>
-      <?php if ($product['capacity'] != null): ?>
-         <span class="breadcrumb-separator"></span> 
-         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&capacity=<?= esc($product['capacity'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kapasitas</a>
-      <?php elseif ($product['ukuran'] != null): ?>
-         <span class="breadcrumb-separator"></span> 
-         <a href="/catalog?category=<?= esc($product['category'])?>&subcategory=<?= esc($product['subcategory'])?>&ukuran=<?= esc($product['ukuran'])?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Ukuran</a>
-      <?php endif; ?>
-      <span class="breadcrumb-separator"></span>
-      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:18px">Detail Produk</span>
-   </div>
+    <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
+        <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+    </div>
 
-   <!-- Right section (User Dropdown) -->
-   <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
-         </a>
-         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a href="/reset/reset-password" class="dropdown-item">
-               <i class="fas fa-key mr-2"></i> Ganti Password
+    <!-- Right section (User Dropdown) -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
             </a>
-            <div class="dropdown-divider"></div>
-            <a href="/logout" class="dropdown-item">
-               <i class="fas fa-sign-out-alt mr-2"></i> Log Out
-            </a>
-         </div>
-      </li>
-   </ul>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a href="/reset/reset-password" class="dropdown-item">
+                    <i class="fas fa-key mr-2"></i> Ganti Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="/logout" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+                </a>
+            </div>
+        </li>
+    </ul>
 </nav>
 
-<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #0daff0; padding: 20px; color: white;">
+<div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #009fe3; padding: 20px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-family: Poppins, sans-serif; font-size: 100px; font-weight: bold;">Detail <br> Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog <br> Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
@@ -434,43 +416,67 @@ Detail Produk
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="container product-detail-container">
+<div class="container product-detail-container" style="margin-bottom: 105px;">
+    <div style="margin-bottom: 60px;">
+        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Beranda</a>
+        <span class="breadcrumb-separator"></span>
+        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Kategori</a>
+        <span class="breadcrumb-separator"></span>
+        <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Sub Kategori</a>
+        <?php if ($product['capacity'] != null): ?>
+            <span class="breadcrumb-separator"></span>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&capacity=<?= esc($product['capacity']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Kapasitas</a>
+        <?php elseif ($product['ukuran'] != null): ?>
+            <span class="breadcrumb-separator"></span>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&ukuran=<?= esc($product['ukuran']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Ukuran</a>
+        <?php endif; ?>
+        <span class="breadcrumb-separator"></span>
+        <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:13px"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>-<?= esc($product['product_type']) ?></span>
+    </div>
     <div class="row">
+
+
         <!-- Carousel Gambar Produk -->
         <div class="col-md-6">
             <div id="productCarousel" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>"
+                            onerror="this.src='/images/image-placeholder.png';"
                             class="d-block w-100" alt="Gambar Depan">
                     </div>
                     <?php if ($product['gambar_belakang'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_belakang'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Belakang">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_samping_kiri'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kiri'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Kiri">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_samping_kanan'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Kanan">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_atas'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_atas'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Atas">
                         </div>
                     <?php endif; ?>
                     <?php if ($product['gambar_bawah'] != null): ?>
                         <div class="carousel-item">
                             <img src="<?= base_url('uploads/' . esc($product['gambar_bawah'] ?? '')) ?>"
+                                onerror="this.src='/images/image-placeholder.png';"
                                 class="d-block w-100" alt="Gambar Bawah">
                         </div>
                     <?php endif; ?>
@@ -495,34 +501,41 @@ Detail Produk
 
             <!-- Thumbnail Gambar Produk -->
             <div class="thumbnail-images">
-                <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>" class="active"
+                <img src="<?= base_url('uploads/' . esc($product['gambar_depan'] ?? '')) ?>"
+                    onerror="this.src='/images/image-placeholder.png';" class="active"
                     data-bs-target="#productCarousel" data-bs-slide-to="0" alt="Thumbnail Depan">
                 <?php if ($product['gambar_belakang'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_belakang'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="1" alt="Thumbnail Belakang">
                 <?php endif; ?>
                 <?php if ($product['gambar_samping_kiri'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kiri'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="2" alt="Thumbnail Kiri">
                 <?php endif; ?>
                 <?php if ($product['gambar_samping_kanan'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_samping_kanan'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="3" alt="Thumbnail Kanan">
                 <?php endif; ?>
                 <?php if ($product['gambar_atas'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_atas'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="4" alt="Thumbnail Atas">
                 <?php endif; ?>
                 <?php if ($product['gambar_bawah'] != null): ?>
                     <img src="<?= base_url('uploads/' . esc($product['gambar_bawah'] ?? '')) ?>"
+                        onerror="this.src='/images/image-placeholder.png';"
                         data-bs-target="#productCarousel" data-bs-slide-to="5" alt="Thumbnail Bawah">
                 <?php endif; ?>
                 <?php if ($product['video_produk']): ?>
-                    <img src="<?= esc($thumbnailUrl) ?>" data-bs-target="#productCarousel" data-bs-slide-to="6"
-                        alt="Video Thumbnail">
+                    <img src="<?= esc($thumbnailUrl) ?>" onerror="this.src='/images/image-placeholder.png';"
+                        data-bs-target="#productCarousel" data-bs-slide-to="6" alt="Video Thumbnail">
                 <?php endif; ?>
             </div>
         </div>
+
 
 
         <!-- Deskripsi Produk -->
@@ -549,7 +562,7 @@ Detail Produk
                 <p class="product-subtitle"><strong>Harga Belum Ditentukan</strong></p>
                 <?php endif; ?>
                 -->
-            <ul class="product-details" style="margin-left: 10px; font-size: 12px;">
+            <ul class="product-details" style="margin-left: 10px;margin-top: 20px; font-size: 12px;">
                 <li><?= esc($product['advantage1']) ?></li>
                 <li><?= esc($product['advantage2']) ?></li>
                 <li><?= esc($product['advantage3']) ?></li>
@@ -776,20 +789,9 @@ Detail Produk
             </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN' || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK' || $product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN' || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK' || $product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
             <tr>
                 <th>Garansi Jasa Service</th>
-                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
-            </tr>
-            <tr>
-                <th>Garansi Sparepart</th>
-                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
-            </tr>
-        <?php endif; ?>
-
-        <?php if ($product['subcategory'] == 'COOKER HOOD'): ?>
-            <tr>
-                <th>Garansi Motor</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
             </tr>
             <tr>
@@ -820,9 +822,9 @@ Detail Produk
     </div>
 
     <?php if (count($relatedProducts) > 0): ?>
-        <h3 style="text-align:center" class="col-12 mb-3 mt-2">Rekomendasi Untuk Anda</h3>
+        <h3 style="text-align:center" class="col-12">Rekomendasi Untuk Anda</h3>
         <div class="row">
-            <div class="col-md-12 mt-2 mb-4">
+            <div class="col-md-12 mb-1 mt-2">
                 <div class="recommended-carousel">
                     <!-- Left Arrow -->
                     <?php if (count($relatedProducts) > 4): ?>
@@ -834,9 +836,9 @@ Detail Produk
                     <div class="product-container">
                         <?php foreach ($relatedProducts as $relproduct): ?>
                             <a href="<?= base_url('catalog/details/' . esc($relproduct['id'])) ?>" class="product-item" style="text-decoration: none; color: inherit;">
-                                <div class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid rgba(0,0,0,0.4)">
-                                    <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" class="card-img-top" alt="Gambar Produk">
-                                    <div class="card-body p-2">
+                                <div class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4; background-color:f4f4f4">
+                                    <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" style="object-fit: contain; border-bottom:2px solid #f4f4f4;" class="card-img-top" alt="Gambar Produk">
+                                    <div class="card-body p-2" style="border-top:2px solid #f4f4f4;">
                                         <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
                                         <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?></p>
                                         <p class="card-text">
