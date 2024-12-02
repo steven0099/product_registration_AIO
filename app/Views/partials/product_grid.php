@@ -172,7 +172,7 @@
 <img style="margin: 19px auto; display: block; width: 95%; height: 137px; object-fit: contain;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE 1 PINTU" ): ?>
 <img style="margin: 15px auto; display: block; width: 95%; height: 141px; object-fit: contain;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
-<?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE 2 PINTU" ): ?>
+<?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE 2 PINTU" || $product['subcategory'] == "SHOWCASE 2 PINTU ATAU LEBIH" ): ?>
 <img style="margin: 15px auto; display: block; width: 95%; height: 141px; object-fit: contain;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
 <?php elseif ($product['category'] == "SHOWCASE" && $product['subcategory'] == "SHOWCASE CAKE" ): ?>
 <img style="margin: 34px auto; display: block; width: 95%; height: 114px; object-fit: contain;" src="<?= base_url('uploads/'. esc($product['gambar_depan'])) ?>" class="card-img-top" alt="<?= esc($product['product_type']) ?>">
@@ -262,4 +262,5 @@
         <?php endif; ?>
     </div>
 </div>
+
 

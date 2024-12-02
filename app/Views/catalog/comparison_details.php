@@ -231,7 +231,7 @@ td {
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
-Detail Perbandingan
+Bandingkan Produk
 <?= $this->endSection() ?>
 
 <?= $this->section('breadcumb') ?>
@@ -255,32 +255,51 @@ Detail Perbandingan
       <?php endif; ?>
 
       <span class="breadcrumb-separator"></span> 
-      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:18px">Detail Perbandingan</span>
+      <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:18px">Bandingkan Produk</span>
     </div>
 
 
+    <!-- User Dropdown -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
-         </a>
-         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a href="/reset/reset-password" class="dropdown-item">
-               <i class="fas fa-key mr-2"></i> Ganti Password
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
             </a>
-            <div class="dropdown-divider"></div>
-            <a href="/logout" class="dropdown-item">
-               <i class="fas fa-sign-out-alt mr-2"></i> Log Out
-            </a>
-         </div>
-      </li>
-   </ul>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <?php if (session()->get('role') == 'superadmin'): ?>
+                <a href="/superadmin/dashboard" class="dropdown-item">
+                    <i class="fas fa-home mr-2"></i> Dashboard
+                </a>
+                <?php elseif (session()->get('role') == 'admin'): ?>
+                <a href="/admin/dashboard" class="dropdown-item">
+                    <i class="fas fa-home mr-2"></i> Dashboard
+                </a>
+            <?php endif; ?>
+            <?php if (session()->get('name') != null): ?>        
+                <div class="dropdown-divider"></div>
+                <a href="/reset/reset-password" class="dropdown-item">
+                    <i class="fas fa-key mr-2"></i> Ganti Password
+                </a>
+            <?php endif; ?>    
+            <?php if (session()->get('name') == null): ?>        
+                <div class="dropdown-divider"></div>
+                <a href="/register" class="dropdown-item">
+                    <i class="fas fa-key mr-2"></i> Daftar
+                </a>
+            <?php endif; ?>  
+                <div class="dropdown-divider"></div>
+                <a href="/logout" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+                </a>
+            </div>
+        </li>
+    </ul>
 </nav>
 <div class="content-header" style="margin-top: 60px; margin-bottom: 30px; background-color: #0daff0; padding: 20px; color: white;">
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Detail Perbandingan</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Bandingkan Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">

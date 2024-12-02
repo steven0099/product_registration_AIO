@@ -54,7 +54,7 @@
     }
 
     .carousel-control-next {
-        right: -20px;
+        right: -43px;
         /* Move the button to the right of the carousel */
         position: absolute;
         top: 50%;
@@ -91,8 +91,8 @@
     .carousel-item img,
     .carousel-item iframe {
         object-fit: contain;
-        max-width: 495px;
-        height: 350px;
+        mwidth: 495px;
+        height: 400px;
         border-radius: 10px;
     }
 
@@ -379,19 +379,40 @@ Detail Produk
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.01);">
 
     <div class="navbar-brand mx-auto" style="position: absolute; left: 50%; transform: translateX(-50%);">
-        <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+    <a href="/catalog">    
+    <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 50px;">
+    </a>
     </div>
 
     <!-- Right section (User Dropdown) -->
+    <!-- User Dropdown -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <?php if (session()->get('role') == 'superadmin'): ?>
+                <a href="/superadmin/dashboard" class="dropdown-item">
+                    <i class="fas fa-home mr-2"></i> Dashboard
+                </a>
+                <?php elseif (session()->get('role') == 'admin'): ?>
+                <a href="/admin/dashboard" class="dropdown-item">
+                    <i class="fas fa-home mr-2"></i> Dashboard
+                </a>
+            <?php endif; ?>
+            <?php if (session()->get('name') != null): ?>        
+                <div class="dropdown-divider"></div>
                 <a href="/reset/reset-password" class="dropdown-item">
                     <i class="fas fa-key mr-2"></i> Ganti Password
                 </a>
+            <?php endif; ?>    
+            <?php if (session()->get('name') == null): ?>        
+                <div class="dropdown-divider"></div>
+                <a href="/register" class="dropdown-item">
+                    <i class="fas fa-key mr-2"></i> Daftar
+                </a>
+            <?php endif; ?>  
                 <div class="dropdown-divider"></div>
                 <a href="/logout" class="dropdown-item">
                     <i class="fas fa-sign-out-alt mr-2"></i> Log Out
@@ -417,18 +438,18 @@ Detail Produk
 
 <?= $this->section('content') ?>
 <div class="container product-detail-container" style="margin-bottom: 105px;">
-    <div style="margin-bottom: 60px;">
-        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Beranda</a>
+    <div class="details-breadcrumb" style="margin-bottom: 60px">
+        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Beranda</a>
         <span class="breadcrumb-separator"></span>
-        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Kategori</a>
+        <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Kategori</a>
         <span class="breadcrumb-separator"></span>
-        <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Sub Kategori</a>
+        <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Sub Kategori</a>
         <?php if ($product['capacity'] != null): ?>
             <span class="breadcrumb-separator"></span>
-            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&capacity=<?= esc($product['capacity']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Kapasitas</a>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&capacity=<?= esc($product['capacity']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Kapasitas</a>
         <?php elseif ($product['ukuran'] != null): ?>
             <span class="breadcrumb-separator"></span>
-            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&ukuran=<?= esc($product['ukuran']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #f4f4f4;">Ukuran</a>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>&ukuran=<?= esc($product['ukuran']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Ukuran</a>
         <?php endif; ?>
         <span class="breadcrumb-separator"></span>
         <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:13px"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>-<?= esc($product['product_type']) ?></span>
@@ -607,7 +628,7 @@ Detail Produk
                 <td><?= esc($product['color']) ?></td>
             </tr>
             <tr>
-                <?php if ($product['capacity'] != null): ?>
+                <?php if ($product['capacity'] != null && $product['subcategory'] != 'MOTOR LISTRIK'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -615,7 +636,7 @@ Detail Produk
         <?php endif ?>
         <?php if ($product['ukuran'] != null): ?>
             <tr>
-                <th>Ukuran</th>
+                <th>Ukuran <?php if ($product['category'] == 'TV'): ?> Layar <?php endif; ?></th>
                 <td><?= esc($product['ukuran']) ?></td>
             </tr>
         <?php endif ?>
@@ -635,6 +656,22 @@ Detail Produk
                 <td><?= esc($product['kapasitas_air_dingin']) ?> M²</td>
             </tr>
         <?php endif ?>
+
+        <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+            <tr>
+                <th>Kapasitas Baterai</th>
+                <td><?= esc($product['capacity']) ?></td>
+            </tr>
+            <tr>
+                <th>Kecepatan Maksimal</th>
+                <td><?= esc($product['kapasitas_air_dingin']) ?> Km/Jam</td>
+            </tr>
+            <tr>
+                <th>Jarak Tempuh</th>
+                <td><?= esc($product['kapasitas_air_panas']) ?> Km</td>
+            </tr>
+        <?php endif ?>
+
         <tr>
             <th>Dimensi Produk</th>
             <td><?= esc($product['product_dimensions']) ?></td>
@@ -789,6 +826,13 @@ Detail Produk
             </tr>
         <?php endif; ?>
 
+        <?php if ($product['subcategory'] == 'MOTOR LISTRIK'): ?>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['compressor_warranty']) ?> Tahun</td>
+            </tr>
+        <?php endif; ?>
+
         <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN' || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK' || $product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
             <tr>
                 <th>Garansi Jasa Service</th>
@@ -827,7 +871,7 @@ Detail Produk
             <div class="col-md-12 mb-1 mt-2">
                 <div class="recommended-carousel">
                     <!-- Left Arrow -->
-                    <?php if (count($relatedProducts) > 4): ?>
+                    <?php if (count($relatedProducts) >= 4): ?>
                         <button class="carousel-control-prev" onclick="scrollProductLeft()" type="button">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </button>
@@ -836,8 +880,10 @@ Detail Produk
                     <div class="product-container">
                         <?php foreach ($relatedProducts as $relproduct): ?>
                             <a href="<?= base_url('catalog/details/' . esc($relproduct['id'])) ?>" class="product-item" style="text-decoration: none; color: inherit;">
-                                <div class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4; background-color:f4f4f4">
+                                <div class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4;">
+                                    <div class="recommend-picture" style="background-color:#f4f4f4;">
                                     <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" style="object-fit: contain; border-bottom:2px solid #f4f4f4;" class="card-img-top" alt="Gambar Produk">
+                        </div>
                                     <div class="card-body p-2" style="border-top:2px solid #f4f4f4;">
                                         <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
                                         <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?></p>

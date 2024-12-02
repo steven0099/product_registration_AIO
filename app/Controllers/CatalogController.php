@@ -135,7 +135,6 @@ $data['subcategories'] = $subcategories;
 $data['capacities'] = $capacities;
 $data['ukuran'] = $ukuran;
 
-
         log_message('info', 'Category: ' . $category);
 log_message('info', 'Subcategory: ' . $subcategory);
 log_message('info', 'Capacity: ' . $capacity);
@@ -182,44 +181,44 @@ public function filterProducts()
     $subcategoryId = $subcategoryName ? $this->getSubcategoryIdByName($subcategoryName) : null;
 
     // Build the query
-    $query = $this->confirmationModel->where('status', 'approved');
+// Build the query
+$query = $this->confirmationModel->where('status', 'approved');
 
-    // Apply category filter
-    if (!empty($categoryName)) {
-        $query->where('category', $categoryName);
+// Apply category filter
+if (!empty($categoryName)) {
+    $query->where('category', $categoryName);
+}
+
+// Apply subcategory filter
+if (!empty($subcategoryName)) {
+    $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
+}
+
+// Apply capacity or ukuran filter
+if (!empty($capacity)) {
+    // Determine filter type based on category and subcategory
+    $filterType = $this->getFilterType($categoryId, $subcategoryId);
+
+    log_message('debug', 'Filter Type: ' . $filterType);
+
+    if ($filterType === 'capacity') {
+        $query->where('capacity', $capacity);
+    } elseif ($filterType === 'ukuran') {
+        $query->where('ukuran', $capacity); // Compare ukuran directly as a string
     }
+}
 
-    // Apply subcategory filter
-    if (!empty($subcategoryName)) {
-        $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
-    }
-
-    // Apply capacity or ukuran filter
-    if (!empty($capacity)) {
-        // Determine filter type based on category and subcategory
-        $filterType = $this->getFilterType($categoryId, $subcategoryId);
-
-        log_message('debug', 'Filter Type: ' . $filterType);
-
-        if ($filterType === 'capacity') {
-            $query->where('capacity', $capacity);
-        } elseif ($filterType === 'ukuran') {
-            $query->where('ukuran', $capacity);  // Compare ukuran directly as a string
-        }
-    }
-
-    // Apply search filter (search across multiple fields)
-    if (!empty($search)) {
-        $query->groupStart()
-            ->like('product_type', $search)
-            ->orLike('brand', $search)
-            ->orLike('category', $search)
-            ->orLike('subcategory', $search)
-            ->orLike('capacity', $search)
-            ->orLike('ukuran', $search)
-            ->groupEnd();
-    }
-
+// Apply search filter (respecting existing filters)
+if (!empty($search)) {
+    $query->groupStart()
+        ->like('product_type', $search)
+        ->orLike('brand', $search)
+        ->orLike('category', $search)
+        ->orLike('subcategory', $search)
+        ->orLike('capacity', $search)
+        ->orLike('ukuran', $search)
+        ->groupEnd();
+}
     // Apply sorting based on the selected sort option
     switch ($sort) {
         case 'name_asc':

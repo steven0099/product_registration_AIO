@@ -70,11 +70,19 @@ Katalog Digital
                 <a href="/admin/dashboard" class="dropdown-item">
                     <i class="fas fa-home mr-2"></i> Dashboard
                 </a>
-            <?php endif; ?>        
+            <?php endif; ?>
+            <?php if (session()->get('name') != null): ?>        
                 <div class="dropdown-divider"></div>
                 <a href="/reset/reset-password" class="dropdown-item">
                     <i class="fas fa-key mr-2"></i> Ganti Password
                 </a>
+            <?php endif; ?>    
+            <?php if (session()->get('name') == null): ?>        
+                <div class="dropdown-divider"></div>
+                <a href="/register" class="dropdown-item">
+                    <i class="fas fa-key mr-2"></i> Daftar
+                </a>
+            <?php endif; ?>  
                 <div class="dropdown-divider"></div>
                 <a href="/logout" class="dropdown-item">
                     <i class="fas fa-sign-out-alt mr-2"></i> Log Out
@@ -213,7 +221,7 @@ Katalog Digital
                 <div id="productGrid" style="flex:1; max-width:75%; margin-top: 25px;" class="row">
                     <!-- Content loaded from partials/product_grid -->
                     <?= view('partials/product_grid') ?>
-                                    </div>
+                </div>
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                         <div class="pagination d-flex justify-content-center mt-4" style="width: 75%">
@@ -225,9 +233,6 @@ Katalog Digital
                     </div>
 
                 
-            </div>
-        </div>
-    </div>
 
 
     <!-- Comparison Bar -->
@@ -269,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const capacityOrUkuran = formData.get('capacity') || ''; // Handle both capacity and ukuran
 
         // Determine whether to use 'capacity' or 'ukuran' based on selected filters
-        const usesUkuran = ['TV'].includes(category.toUpperCase()) || 
+        const usesUkuran = ['TV'].includes(category) || 
         ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR COOLER', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
         // Clear existing links
         filterLinks.innerHTML = '';
@@ -816,9 +821,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show/hide checkboxes and labels based on the current filters
         evaluateFilterVisibility(category, subcategory, capacity);
 
-        // Optionally, trigger the initial filtering here
-        filterProducts();
-
         function evaluateFilterVisibility(category, subcategory, capacity) {
             console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
 
@@ -862,15 +864,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Manually handle filter inputs (checkboxes, radio buttons, and text inputs)
             filterInputs.forEach((input) => {
-                // For checkboxes and radio buttons: include the parameter if it's checked
-                if ((input.type === "checkbox" || input.type === "radio") && input.checked) {
-                    url.searchParams.set(input.name, input.value);
-                }
-                // For text inputs, include the parameter when the field is not empty
-                if (input.type === "text" && input.value) {
-                    url.searchParams.set(input.name, input.value);
-                }
-            });
+    if ((input.type == "checkbox" || input.type == "radio") && input.checked) {
+        url.searchParams.set(input.name, input.value);
+    }
+    if (input.type == "text" && input.value) {
+        url.searchParams.set(input.name, input.value);
+    }
+});
+
 
             return url;
         };
@@ -888,29 +889,29 @@ document.addEventListener('DOMContentLoaded', function () {
         if (searchInput) {
             searchInput.addEventListener("change", function(event) {
                 event.preventDefault();
-                const updatedUrl = updateUrlWithFilters();
+                const updatedUrl = updateUrlWithFilters('search', searchInput.value);
                 history.pushState(null, '', updatedUrl.toString());
                 filterProducts(); // Trigger filtering
             });
 
             searchInput.addEventListener("keydown", function(event) {
                 if (event.key === "Enter") {
-                    event.preventDefault();
-                    const updatedUrl = updateUrlWithFilters();
+                    const updatedUrl = updateUrlWithFilters('search', searchInput.value);
                     history.pushState(null, '', updatedUrl.toString());
                     filterProducts(); // Trigger filtering
                 }
             });
-        }
 
-        // Event listeners for filter inputs (checkboxes and radios)
-        filterInputs.forEach((input) => {
+            filterInputs.forEach((input) => {
             input.addEventListener("change", function() {
                 const updatedUrl = updateUrlWithFilters();
                 history.pushState(null, '', updatedUrl.toString()); // Update URL without reloading page
                 filterProducts(); // Trigger filtering
             });
         });
+        }
+
+        // Event listeners for filter inputs (checkboxes and radios)
 
         function evaluateFilterVisibility(category, subcategory, capacity) {
             console.log("Evaluating visibility with filters - Category:", category, "Subcategory:", subcategory, "Capacity:", capacity);
