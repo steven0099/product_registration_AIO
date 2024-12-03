@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Determine whether to use 'capacity' or 'ukuran' based on selected filters
         const usesUkuran = ['TV'].includes(category) || 
-        ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR COOLER', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
+        ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
         // Clear existing links
         filterLinks.innerHTML = '';
 
@@ -1117,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Determine whether to use 'capacity' or 'ukuran' based on selected filters
         const usesUkuran = ['TV'].includes(category.toUpperCase()) || 
-        ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR COOLER', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
+        ['SPEAKER', 'KIPAS ANGIN', 'COOKER HOOD', 'AIR CURTAIN'].includes(subcategory.toUpperCase());
         // Clear existing links
         filterLinks.innerHTML = '';
 

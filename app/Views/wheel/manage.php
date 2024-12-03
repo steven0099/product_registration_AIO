@@ -45,7 +45,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
-Wheel Management
+Manajemen Roda
 <?= $this->endSection() ?>
 
 <?= $this->section('breadcumb') ?>
@@ -58,7 +58,7 @@ Wheel Management
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="/#">Home</a></li>
-                    <li class="breadcrumb-item active">Wheel Management</li>
+                    <li class="breadcrumb-item active">Manajemen Roda</li>
                 </ol>
             </div>
         </div>
@@ -73,9 +73,9 @@ Wheel Management
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">Manage Wheel Segments</h3>
+                        <h3 class="card-title">Pengaturan Roda</h3>
                         <button class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addSegmentModal">+
-                            Add Segment
+                            Tambah Segmen
                         </button>
                     </div>
                     <div class="card-body">
@@ -83,9 +83,10 @@ Wheel Management
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Segment Name</th>
-                                    <th>Odds</th>
-                                    <th>Options</th>
+                                    <th>Foto</thh>
+                                    <th>Nama Segmen</th>
+                                    <th>Kesempatan (%)</th>
+                                    <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,6 +94,11 @@ Wheel Management
                                 <?php foreach ($segments as $segment): ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
+                                        <td>
+                                            <?php if ($segment['image'] != null): ?>
+    <img src="<?= base_url('uploads/images/' . esc($segment['image'])) ?>" alt="Image" style="width: 50px; height: 50px;">
+</td>
+<?php endif; ?>
                                         <td><?= esc($segment['label']) ?></td>
                                         <td><?= esc($segment['odds']) ?>%</td>
                                         <td>
@@ -100,9 +106,11 @@ Wheel Management
                                                 data-target="#editSegmentModal<?= esc($segment['id']) ?>">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </button>
-                                            <button class="btn-danger btn btn-delete" data-id="<?= esc($segment['id']) ?>">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
+                                            <button class="btn-danger btn btn-delete" data-id="<?= esc($segment['id']) ?>" data-toggle="modal" data-target="#deleteModal">
+    <i class="fas fa-trash"></i>
+</button>
+
+
                                         </td>
                                     </tr>
 
@@ -112,34 +120,38 @@ Wheel Management
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="editSegmentModalLabel">Edit Segment</h5>
+                                                    <h5 class="modal-title" id="editSegmentModalLabel">Edit Segmen</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form method="post"
-                                                    action="<?= base_url('/admin/wheel/updateSegment/' . esc($segment['id'])) ?>"
-                                                    enctype="multipart/form-data">
-                                                    <?= csrf_field(); ?>
-                                                    <div class="modal-body">
-                                                        <div class="form-group">
-                                                            <label for="label">Segment Name</label>
-                                                            <input type="text" class="form-control" name="label"
-                                                                value="<?= esc($segment['label']) ?>" required>
-                                                        </div>
-                                                        <div class="form-group">
-    <label for="odds">Odds (%)</label>
-    <input type="number" class="form-control" name="odds" placeholder="Enter Odds Percentage"
-        min="0" max="100" step="0.01" required>
-</div>
+                                                <form method="post" action="<?= base_url('/admin/wheel/updateSegment/' . esc($segment['id'])) ?>" enctype="multipart/form-data">
+    <?= csrf_field(); ?>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="label">Nama Segmen</label>
+            <input type="text" class="form-control" name="label" value="<?= esc($segment['label']) ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="odds">Kesempatan (%)</label>
+            <input type="number" class="form-control" name="odds" placeholder="Enter Odds Percentage" min="0" max="100" step="0.01" value="<?= esc($segment['odds']) ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Gambar Segmen</label>
+            <div>
+                <img src="<?= base_url('uploads/images/' . esc($segment['image'])) ?>" alt="Image" style="width: 100px; height: 100px;">
+            </div>
+            <input type="file" class="form-control" name="image" accept="image/*">
 
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Update</button>
-                                                    </div>
-                                                </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -159,40 +171,92 @@ Wheel Management
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addSegmentModalLabel">Add Segment</h5>
+                <h5 class="modal-title" id="addSegmentModalLabel">Tambah Segmen</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form method="post" action="<?= base_url('/admin/wheel/saveSegment') ?>" enctype="multipart/form-data">
-                <?= csrf_field(); ?>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="label">Segment Name</label>
-                        <input type="text" class="form-control" name="label" placeholder="Enter Segment Name" required>
-                    </div>
-                    <div class="form-group">
-    <label for="odds">Odds (%)</label>
-    <input type="number" class="form-control" name="odds" placeholder="Enter Odds Percentage"
-        min="0" max="100" step="0.01" required>
-</div>
+    <?= csrf_field(); ?>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="label">Nama Segmen</label>
+            <input type="text" class="form-control" name="label" placeholder="Enter Segment Name" required>
+        </div>
+        <div class="form-group">
+            <label for="odds">Kesempatan (%)</label>
+            <input type="number" class="form-control" name="odds" placeholder="Enter Odds Percentage" min="0" max="100" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Gambar Segmen</label>
+            <input type="file" class="form-control" name="image" accept="image/*" required>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+<!-- Delete Segment Modal -->
+<!-- Delete Segment Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Hapus Segmen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus segmen ini?</p>
+                <p id="deleteSegmentName"></p> <!-- Display the segment name dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <form id="deleteForm" method="post" action="<?= base_url('/admin/wheel/deleteSegment') ?>">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="segment_id" id="deleteSegmentId">
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
+<?= $this->endSection() ?>
+<?= $this->section('js') ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#wheelTable').DataTable({
-            responsive: true
-        });
+
+
+$(document).ready(function() {
+    // When a delete button is clicked
+    $('.btn-delete').on('click', function() {
+        var segmentId = $(this).data('id'); // Get the segment ID
+        var segmentName = $(this).closest('tr').find('td:eq(2)').text(); // Get the segment name from the row
+
+        // Set the ID and the segment name in the modal
+        $('#deleteSegmentId').val(segmentId);
+        $('#deleteSegmentName').text('Segmen: ' + segmentName); // Optionally display the segment name in the modal
+        
+        // Manually show the modal
+        $('#deleteModal').modal('show');
     });
+
+    $('#wheelTable').DataTable({
+        responsive: true
+    });
+});
+
+
 </script>
 
 <?= $this->endSection() ?>

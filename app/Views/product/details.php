@@ -667,7 +667,7 @@ Rincian Produk
             <?php endif; ?>
 
 
-            <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'|| $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER'|| $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK'): ?>
+            <?php if ($product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER'|| $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER'|| $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK'): ?>
             <tr>
                 <th>Kapasitas</th>
                 <td><?= esc($product['capacity']) ?></td>
@@ -723,7 +723,7 @@ Rincian Produk
             </tr>
             <?php endif; ?>
 
-            <?php if ($product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+            <?php if ($product['subcategory'] == 'AIR CURTAIN'): ?>
             <tr>
                 <th>Ukuran</th>
                 <td><?= esc($product['ukuran']) ?></td>

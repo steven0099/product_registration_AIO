@@ -856,7 +856,7 @@ input.form-control:-webkit-autofill.form-control.valid {
 }
 
         // Change capacity to ukuran_size if category is TV
-        if (categoryId === '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
+        if (categoryId === '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '51') {
             capacityLabel.innerText = 'Ukuran'; // You may want to handle each subcategory separately for clarity
             document.getElementById('capacity').setAttribute('name', 'ukuran_id'); // Change name of the select element
             fetchOptions('ukuran', subcategoryId);
@@ -872,7 +872,7 @@ input.form-control:-webkit-autofill.form-control.valid {
 
         function handleCategoryChange(categoryId, subcategoryId) {
             // Check if the category is "TV" to fetch options for Ukuran TV
-            if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '50' || subcategoryId == '51') {
+            if (categoryId == '9' || subcategoryId == '31' || subcategoryId == '32' || subcategoryId == '47' || subcategoryId == '51') {
                 showCapacityField(true); // Show dropdown for capacity
             } else if (subcategoryId == '42' || subcategoryId == '52' || subcategoryId == '35' || subcategoryId == '36' || subcategoryId == '66'|| subcategoryId == '67'|| subcategoryId == '70' || subcategoryId == '73'|| subcategoryId == '74') {
                 hideCapacityField(); // Hide dropdown for capacity

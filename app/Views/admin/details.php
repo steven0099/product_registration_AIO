@@ -173,7 +173,7 @@
         
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK'): ?>
+        <?php if ($product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM'  || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK'): ?>
         <tr><th>Kapasitas</th><td><?= esc($product['capacity']) ?></td></tr>
         <tr><th>Garansi Jasa Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>
@@ -186,7 +186,7 @@
         
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN'): ?>
+        <?php if ($product['subcategory'] == 'AIR CURTAIN'): ?>
         <tr><th>Ukuran</th><td><?= esc($product['ukuran']) ?></td></tr>
         <tr><th>Garansi Service</th><td><?= esc($product['garansi_semua_service']) ?> Tahun</td></tr>
         <tr><th>Garansi Sparepart</th><td><?= esc($product['sparepart_warranty'])?> Tahun</td></tr>

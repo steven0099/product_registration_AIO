@@ -455,8 +455,8 @@
                                                 <?php if ($data['subcategory_id'] == '47' || $data['subcategory_id'] == '50' || $data['subcategory_id'] == '51'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
-                                                        <td><b>Ukuran</b></td>
-                                                        <td><?= esc($data['ukuran_size']) ?></td>
+                                                        <td><b>Kapasitas</b></td>
+                                                        <td><?= esc($data['capacity_value']) ?></td>
                                                         <td><b>Garansi Service</b></td>
                                                         <td><?= esc($data['garansi_semua_service_value']) ?> Tahun</td>
                                                     </tr>
