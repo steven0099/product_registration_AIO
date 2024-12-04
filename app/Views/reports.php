@@ -6,6 +6,7 @@
     .form-group {
         margin-bottom: 1rem;
         /* Jarak bawah untuk elemen form */
+        cursor: pointer;
     }
 
     .form-label {
@@ -15,6 +16,12 @@
         /* Jarak bawah label */
         display: block;
         /* Menampilkan label sebagai blok */
+    }
+
+
+    .form-group input {
+        pointer-events: none;
+        /* Agar klik div tidak langsung fokus ke input */
     }
 
     .form-select {
@@ -124,12 +131,12 @@ Laporan
                 </div>
 
                 <!-- Date Filter -->
-                <div class="form-group">
+                <div class="form-group" onclick="focusInput('start_date')">
                     <label for="start_date" class="form-label">Tanggal Awal:</label>
                     <input type="date" name="start_date" id="start_date" required class="form-control">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" onclick="focusInput('end_date')">
                     <label for="end_date" class="form-label">Tanggal Akhir:</label>
                     <input type="date" name="end_date" id="end_date" required class="form-control">
                 </div>
@@ -145,4 +152,22 @@ Laporan
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function focusInput(inputId) {
+        document.getElementById(inputId).focus();
+    }
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '<?= session()->getFlashdata('error'); ?>',
+            timer: 3000, // Durasi toast (ms)
+            showConfirmButton: false,
+            toast: true,
+            position: 'top-end'
+        });
+    <?php endif; ?>
+</script>
 <?= $this->endSection() ?>

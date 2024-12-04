@@ -259,7 +259,6 @@ if (!empty($search)) {
 }
 
     
-// For dynamically updating subcategory options
 public function getSubcategories()
 {
     $categoryName = $this->request->getGet('category');  // Get category name from the filter
@@ -268,8 +267,11 @@ public function getSubcategories()
     $categoryId = $this->getCategoryIdByName($categoryName);
 
     if ($categoryId) {
-        // Fetch subcategories that belong to this category_id
-        $subcategories = $this->subcategoryModel->where('category_id', $categoryId)->findAll();
+        // Fetch subcategories that belong to this category_id and sort them alphabetically by name
+        $subcategories = $this->subcategoryModel
+            ->where('category_id', $categoryId)
+            ->orderBy('name', 'ASC')  // Replace 'name' with the actual field used for subcategory names
+            ->findAll();
         
         // Prepare the response format expected by the JavaScript
         $response = [];
@@ -286,6 +288,7 @@ public function getSubcategories()
         return $this->response->setJSON([]);
     }
 }
+
 
 private function getCategoryIdByName($categoryName)
 {
@@ -341,11 +344,8 @@ private function getFilterType($categoryId, $subcategoryId = null)
 public function getCapacities()
 {
     $subcategoryName = $this->request->getGet('subcategory');
-    
-    // Log the received subcategory for debugging
     log_message('debug', 'Received Subcategory Name: ' . $subcategoryName);
 
-    // Retrieve subcategory ID from name
     $subcategoryId = $this->getSubcategoryIdByName($subcategoryName);
 
     if ($subcategoryId) {
@@ -354,29 +354,74 @@ public function getCapacities()
         $categoryId = $this->getCategoryIdBySubcategoryId($subcategoryId);
         $filterType = $this->getFilterType($categoryId, $subcategoryId);
 
-        // Determine if the capacity dropdown should be shown
-        $showCapacity = !in_array($subcategoryId, [35,36,42,52,66,67,70,73,74]);
+        $showCapacity = !in_array($subcategoryId, [35, 36, 42, 52, 66, 67, 70, 73, 74]);
 
         if ($filterType === 'capacity') {
             $capacities = $this->capacityModel->where('subcategory_id', $subcategoryId)->findAll();
-            log_message('debug', 'Capacities Retrieved from Capacity Model: ' . print_r($capacities, true));
         } elseif ($filterType === 'ukuran') {
             $capacities = $this->ukuranModel->where('subcategory_id', $subcategoryId)->findAll();
-            log_message('debug', 'Capacities Retrieved from Ukuran Model: ' . print_r($capacities, true));
         } else {
             $capacities = [];
-            log_message('debug', 'No valid filter type found, returning empty capacities.');
         }
 
-        // Return the response including the showCapacity flag
-        return $this->response->setJSON(['capacities' => $capacities, 'showCapacity' => $showCapacity]);
+        log_message('debug', 'Capacities Retrieved: ' . print_r($capacities, true));
+
+        // Sort the capacities
+        $sortedCapacities = $this->sortCapacities($capacities);
+
+        return $this->response->setJSON(['capacities' => $sortedCapacities, 'showCapacity' => $showCapacity]);
     } else {
         log_message('debug', 'No valid subcategory ID found for subcategory: ' . $subcategoryName);
-        $capacities = [];
-        return $this->response->setJSON(['capacities' => $capacities, 'showCapacity' => false]);
+        return $this->response->setJSON(['capacities' => [], 'showCapacity' => false]);
     }
 }
 
+private function sortCapacities($capacities)
+{
+    // Predefined order for descriptive sizes
+    $sizeOrder = ['-', 'kecil', 'sedang', 'besar'];
+
+    usort($capacities, function ($a, $b) use ($sizeOrder) {
+        // Check for the correct key (value or size)
+        $aValue = strtolower($a['value'] ?? $a['size']); // Use 'size' if 'value' doesn't exist
+        $bValue = strtolower($b['value'] ?? $b['size']);
+
+        // Rule 1: Place "-" at the top
+        if ($aValue === '-') return -1;
+        if ($bValue === '-') return 1;
+
+        // Rule 2: Check for predefined descriptive sizes
+        $aIndex = array_search($aValue, $sizeOrder);
+        $bIndex = array_search($bValue, $sizeOrder);
+
+        if ($aIndex !== false && $bIndex !== false) {
+            return $aIndex <=> $bIndex;
+        }
+
+        // Rule 3: Sort numeric values with units
+        $aNumeric = $this->extractNumericValue($aValue);
+        $bNumeric = $this->extractNumericValue($bValue);
+
+        if ($aNumeric !== null && $bNumeric !== null) {
+            return $aNumeric <=> $bNumeric;
+        }
+
+        // Rule 4: Default to alphabetical order
+        return strcmp($aValue, $bValue);
+    });
+
+    return $capacities;
+}
+
+
+private function extractNumericValue($value)
+{
+    // Extract the numeric part from a string (e.g., "10 L" -> 10)
+    if (preg_match('/^\d+/', $value, $matches)) {
+        return (int)$matches[0];
+    }
+    return null; // Return null if no numeric value is found
+}
 
 
 

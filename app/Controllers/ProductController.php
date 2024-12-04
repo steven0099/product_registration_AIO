@@ -183,6 +183,13 @@ class ProductController extends BaseController
 
         $products = $builder->get()->getResultArray();
 
+        // Check if no data found
+        if (empty($products)) {
+            // Set flashdata untuk pesan error
+            session()->setFlashdata('error', 'Tidak ada data yang ditemukan sesuai filter yang Anda masukkan.');
+            return redirect()->back();
+        }
+
         // Initialize Spreadsheet
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -190,18 +197,49 @@ class ProductController extends BaseController
 
         // Define ordered headers
         $headers = [
-            'A' => 'Brand', 'B' => 'Kategori', 'C' => 'Subkategori', 'D' => 'Tipe Produk', 'E' => 'Warna',
-            'F' => 'Garansi Motor', 'G' => 'Garansi Semua Service', 'H' => 'Garansi Elemen Panas',
-            'I' => 'Garansi Panel', 'J' => 'Garansi Kompresor ', 'K' => 'Garansi Sparepart',
-            'L' => 'Capacity', 'M' => 'Ukuran', 'N' => 'Kapasitas Air Panas', 'O' => 'Kapasitas Air Dingin',
-            'P' => 'Dimensi Produk', 'Q' => 'Dimensi Kemasan', 'R' => 'Konsumsi Daya', 'S' => 'Berat Produk',
-            'T' => 'Negara Pembuat', 'U' => 'Dimensi Produk Dengan Stand', 'V' => 'Resolusi Panel',
-            'W' => 'Kapasitas Pendinginan', 'X' => 'CSPF', 'Y' => 'Tipe Refrigrant', 'Z' => 'Keunggulan 1',
-            'AA' => 'Keunggulan 2', 'AB' => 'Keunggulan 3', 'AC' => 'Keunggulan 4', 'AD' => 'Keunggulan 5', 'AE' => 'Keunggulan 6',
-            'AF' => 'Gambar Depan', 'AG' => 'Gambar Belakang', 'AH' => 'Gambar Samping Kiri',
-            'AI' => 'Gambar Samping Kanan', 'AJ' => 'Gambar Atas', 'AK' => 'Gambar Bawah',
-            'AL' => 'Link Video Produk', 'AM' => 'Diajukan Oleh', 'AN' => 'Status', 'AO' => 'Tanggal Disetujui',
-            'AP' => 'Tanggal Ditolak', 'AQ' => 'Tanggal Pengajuan'
+            'A' => 'Brand',
+            'B' => 'Kategori',
+            'C' => 'Subkategori',
+            'D' => 'Tipe Produk',
+            'E' => 'Warna',
+            'F' => 'Garansi Motor',
+            'G' => 'Garansi Semua Service',
+            'H' => 'Garansi Elemen Panas',
+            'I' => 'Garansi Panel',
+            'J' => 'Garansi Kompresor ',
+            'K' => 'Garansi Sparepart',
+            'L' => 'Capacity',
+            'M' => 'Ukuran',
+            'N' => 'Kapasitas Air Panas',
+            'O' => 'Kapasitas Air Dingin',
+            'P' => 'Dimensi Produk',
+            'Q' => 'Dimensi Kemasan',
+            'R' => 'Konsumsi Daya',
+            'S' => 'Berat Produk',
+            'T' => 'Negara Pembuat',
+            'U' => 'Dimensi Produk Dengan Stand',
+            'V' => 'Resolusi Panel',
+            'W' => 'Kapasitas Pendinginan',
+            'X' => 'CSPF',
+            'Y' => 'Tipe Refrigrant',
+            'Z' => 'Keunggulan 1',
+            'AA' => 'Keunggulan 2',
+            'AB' => 'Keunggulan 3',
+            'AC' => 'Keunggulan 4',
+            'AD' => 'Keunggulan 5',
+            'AE' => 'Keunggulan 6',
+            'AF' => 'Gambar Depan',
+            'AG' => 'Gambar Belakang',
+            'AH' => 'Gambar Samping Kiri',
+            'AI' => 'Gambar Samping Kanan',
+            'AJ' => 'Gambar Atas',
+            'AK' => 'Gambar Bawah',
+            'AL' => 'Link Video Produk',
+            'AM' => 'Diajukan Oleh',
+            'AN' => 'Status',
+            'AO' => 'Tanggal Disetujui',
+            'AP' => 'Tanggal Ditolak',
+            'AQ' => 'Tanggal Pengajuan'
         ];
 
         // Set headers
@@ -284,7 +322,7 @@ class ProductController extends BaseController
                 $sheet->getColumnDimension($col)->setVisible(false);
             }
         }
-// Apply autoSize to non-image columns only
+        // Apply autoSize to non-image columns only
         foreach (array_keys($headers) as $col) {
             if (!in_array($col, ['AC', 'AD', 'AE', 'AF', 'AG', 'AH'])) { // Non-image columns
                 $sheet->getColumnDimension($col)->setAutoSize(true);
@@ -753,7 +791,7 @@ class ProductController extends BaseController
 
             // Extra dynamic warranties or other fields
             'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36', '78'])) ? $step1Data['compressor_warranty_id'] : null,
-            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51','52','53','54','62','63','64','65','66','68','69','71','72','73','74','75','76'])) ? $step1Data['sparepart_warranty_id'] : null,
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51','53','54','62','63','64','65','66','68','69','71','72','73','74','75','76'])) ? $step1Data['sparepart_warranty_id'] : null,
             'garansi_elemen_panas_id' => (in_array($subcategory, ['33','34','37', '38','41','42','44','48','66','71','72','75','76'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
 
@@ -869,49 +907,71 @@ class ProductController extends BaseController
         $gambarSampingKananName = null;
         $videoProdukLink = null;
 
+        
+
         // Handle Gambar Tampak Depan
         $gambarDepan = $this->request->getFile('gambar_depan');
         if ($gambarDepan && $gambarDepan->isValid()) {
             $gambarDepanName = $gambarDepan->getRandomName();
             $gambarDepan->move($uploadPath, $gambarDepanName);
+            $data['gambar_depan'] = $gambarDepanName;
         } else {
-            return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
+            $data['gambar_depan'] = $this->request->getPost('gambar_depan_existing') ?? null;
+            if (empty($data['gambar_depan'])) {
+                return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
+            }
         }
-
+    
         // Handle Gambar Tampak Belakang
         $gambarBelakang = $this->request->getFile('gambar_belakang');
         if ($gambarBelakang && $gambarBelakang->isValid()) {
             $gambarBelakangName = $gambarBelakang->getRandomName();
             $gambarBelakang->move($uploadPath, $gambarBelakangName);
+            $data['gambar_belakang'] = $gambarBelakangName;
+        } else {
+            $data['gambar_belakang'] = $this->request->getPost('gambar_belakang_existing') ?? null;
         }
-
+    
         // Handle Gambar Tampak Atas
         $gambarAtas = $this->request->getFile('gambar_atas');
         if ($gambarAtas && $gambarAtas->isValid()) {
             $gambarAtasName = $gambarAtas->getRandomName();
             $gambarAtas->move($uploadPath, $gambarAtasName);
+            $data['gambar_atas'] = $gambarAtasName;
+        } else {
+            $data['gambar_atas'] = $this->request->getPost('gambar_atas_existing') ?? null;
         }
-
+    
         // Handle Gambar Tampak Bawah
         $gambarBawah = $this->request->getFile('gambar_bawah');
         if ($gambarBawah && $gambarBawah->isValid()) {
             $gambarBawahName = $gambarBawah->getRandomName();
             $gambarBawah->move($uploadPath, $gambarBawahName);
+            $data['gambar_bawah'] = $gambarBawahName;
+        } else {
+            $data['gambar_bawah'] = $this->request->getPost('gambar_bawah_existing') ?? null;
         }
-
+    
         // Handle Gambar Samping Kiri
         $gambarSampingKiri = $this->request->getFile('gambar_samping_kiri');
         if ($gambarSampingKiri && $gambarSampingKiri->isValid()) {
             $gambarSampingKiriName = $gambarSampingKiri->getRandomName();
             $gambarSampingKiri->move($uploadPath, $gambarSampingKiriName);
+            $data['gambar_samping_kiri'] = $gambarSampingKiriName;
+        } else {
+            $data['gambar_samping_kiri'] = $this->request->getPost('gambar_samping_kiri_existing') ?? null;
         }
-
+    
         // Handle Gambar Samping Kanan
         $gambarSampingKanan = $this->request->getFile('gambar_samping_kanan');
         if ($gambarSampingKanan && $gambarSampingKanan->isValid()) {
             $gambarSampingKananName = $gambarSampingKanan->getRandomName();
             $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
+            $data['gambar_samping_kanan'] = $gambarSampingKananName;
+        } else {
+            $data['gambar_samping_kanan'] = $this->request->getPost('gambar_samping_kanan_existing') ?? null;
         }
+    
 
         // Handle Video Produk (YouTube link, optional)
         $videoProduk = $this->request->getPost('video_produk');

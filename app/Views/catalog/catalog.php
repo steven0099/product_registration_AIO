@@ -896,6 +896,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             searchInput.addEventListener("keydown", function(event) {
                 if (event.key === "Enter") {
+                    event.preventDefault();
                     const updatedUrl = updateUrlWithFilters('search', searchInput.value);
                     history.pushState(null, '', updatedUrl.toString());
                     filterProducts(); // Trigger filtering

@@ -426,7 +426,7 @@ Detail Produk
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Katalog <br> Produk</h1>
+            <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-family: Poppins, sans-serif; font-weight: bold;">Katalog <br> Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
         <div class="breadcrumb-image">
@@ -833,7 +833,7 @@ Detail Produk
             </tr>
         <?php endif; ?>
 
-        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'COOKER HOOD' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN' || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK' || $product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
+        <?php if ($product['subcategory'] == 'KOMPOR TUNGKU' || $product['subcategory'] == 'KOMPOR TANAM' || $product['subcategory'] == 'AIR COOLER' || $product['subcategory'] == 'AIR CURTAIN' || $product['subcategory'] == 'AIR FRYER' || $product['subcategory'] == 'FREE STANDING GAS COOKER' || $product['subcategory'] == 'GRILLER' || $product['subcategory'] == 'KOMPOR GAS OVEN' || $product['subcategory'] == 'KOMPOR LISTRIK' || $product['subcategory'] == 'SMART DOOR LOCK' || $product['subcategory'] == 'SMART LED'): ?>
             <tr>
                 <th>Garansi Jasa Service</th>
                 <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
@@ -844,6 +844,16 @@ Detail Produk
             </tr>
         <?php endif; ?>
 
+        <?php if ($product['subcategory'] == 'COOKER HOOD'): ?>
+            <tr>
+                <th>Garansi Motor</th>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
+            </tr>
+            <tr>
+                <th>Garansi Sparepart</th>
+                <td><?= esc($product['sparepart_warranty']) ?> Tahun</td>
+            </tr>
+        <?php endif; ?>
         <?php if ($product['subcategory'] == 'AIR PURIFIER'): ?>
             <tr>
                 <th>Garansi Sparepart & Jasa Service</th>
@@ -885,15 +895,14 @@ Detail Produk
                                     <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" style="object-fit: contain; border-bottom:2px solid #f4f4f4;" class="card-img-top" alt="Gambar Produk">
                         </div>
                                     <div class="card-body p-2" style="border-top:2px solid #f4f4f4;">
-                                        <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?> | <?= esc($product['product_type']) ?></strong></h5>
-                                        <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?></p>
-                                        <p class="card-text">
-                                            <?= !empty($relproduct['capacity']) ? esc($relproduct['capacity']) : (!empty($relproduct['ukuran']) ? esc($relproduct['ukuran']) : (!empty($relproduct['kapasitas_air_dingin']) && !empty($relproduct['kapasitas_air_panas']) ?
+                                        <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?></strong></h5>
+                                        <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?>                                             <?= !empty($relproduct['capacity']) ? esc($relproduct['capacity']) : (!empty($relproduct['ukuran']) ? esc($relproduct['ukuran']) : (!empty($relproduct['kapasitas_air_dingin']) && !empty($relproduct['kapasitas_air_panas']) ?
                                                 esc($relproduct['kapasitas_air_dingin']) . '/' . esc($relproduct['kapasitas_air_panas'] . ' Liter') :
                                                 null)) ?>
                                             <?php if ($relproduct['subcategory'] == 'AIR PURIFIER'): ?>
                                                 <?= esc($relproduct['kapasitas_air_dingin']) . ' M²' ?>
-                                            <?php endif; ?>
+                                            <?php endif; ?>  </p>
+                                        <p class="card-text"><?= esc($product['product_type']) ?>
                                         </p>
                                     </div>
                                 </div>
