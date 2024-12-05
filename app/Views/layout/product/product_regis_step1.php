@@ -892,6 +892,15 @@ input.form-control:-webkit-autofill.form-control.valid {
             compressorWarrantyLabel.innerText = 'Garansi Kompresor (Tahun)';
             airdinginLabel.innerText = 'Kapasitas Air Dingin (Liter)';
             airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
+        }  if (subcategoryId == 67 || subcategoryId == 70) {
+            // Hide "kapasitas" and "garansi sparepart"
+            document.getElementById('capacity-group').style.display = 'none';
+            document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+            // Show "kapasitas air dingin" and "kapasitas air panas"
+            document.getElementById('kapasitas-air-dingin').style.display = 'none';
+            document.getElementById('kapasitas-air-panas').style.display = 'none';
+            compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
         } else if (subcategoryId == 78) {
             // Hide "kapasitas" and "garansi sparepart"
             document.getElementById('capacity-group').style.display = 'block';
@@ -906,7 +915,7 @@ input.form-control:-webkit-autofill.form-control.valid {
             airdinginField.placeholder = 'Kecepatan Maksimal (Km/Jam)';
             airpanasLabel.innerText = 'Jarak Tempuh (km)';
             airpanasField.placeholder = 'Jarak Tempuh (km)';
-        } else if (subcategoryId == 42) {
+        } else if (subcategoryId == 42 || subcategoryId == 66) {
             document.getElementById('capacity-group').style.display = 'none';
             document.getElementById('warranty-sparepart-group').style.display = 'block';
 
@@ -914,6 +923,15 @@ input.form-control:-webkit-autofill.form-control.valid {
             document.getElementById('kapasitas-air-dingin').style.display = 'none';
             document.getElementById('kapasitas-air-panas').style.display = 'none';
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+
+        }   else if (subcategoryId == 73 || subcategoryId == 74) {
+            document.getElementById('capacity-group').style.display = 'none';
+            document.getElementById('warranty-sparepart-group').style.display = 'block';
+
+            // Show "kapasitas air dingin" and "kapasitas air panas"
+            document.getElementById('kapasitas-air-dingin').style.display = 'none';
+            document.getElementById('kapasitas-air-panas').style.display = 'none';
+            compressorWarrantyLabel.innerText = 'Garansi Jasa Service (Tahun)';
 
         } else if (subcategoryId == 52) {
             document.getElementById('capacity-group').style.display = 'none';
