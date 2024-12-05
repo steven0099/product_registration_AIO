@@ -875,7 +875,7 @@ Detail Produk
     </div>
 
     <?php if (count($relatedProducts) > 0): ?>
-        <h3 style="text-align:center" class="col-12">Rekomendasi Untuk Anda</h3>
+        <h3 style="text-align:center; margin-bottom: 40px;" class="col-12">Rekomendasi Untuk Anda</h3>
         <div class="row">
             <div class="col-md-12 mb-1 mt-2">
                 <div class="recommended-carousel">
