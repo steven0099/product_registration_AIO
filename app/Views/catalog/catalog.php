@@ -203,7 +203,7 @@ Katalog Digital
                     </div>
 
                     <!-- Sort dropdown on the rightmost -->
-                    <div class="col-md-6 d-flex align-items-center justify-content-end" style="margin-top: 12px; right:10px">
+                    <div class="col-md-6 d-flex align-items-center justify-content-end" style="margin-top: 12px; right:10px;left: 6px;">
                         <form id="SortForm" action="" method="GET" class="d-flex w-100">
                             <select id="sort" name="sort" class="form-control">
                                 <option value="" <?= $sort == '' ? 'selected' : '' ?>>Urutkan Berdasarkan...</option>

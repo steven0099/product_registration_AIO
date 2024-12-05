@@ -273,27 +273,11 @@ Bandingkan Produk
 
 <?= $this->section('breadcumb') ?>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030;">
-    <div class="col-sm-9">
-        <img src="/images/aio-new.png" alt="Logo" style="max-width: 150px; height: 50px; margin-left:65px; margin-right:200px">
-        <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Beranda</a>
-        <span class="breadcrumb-separator"></span>
-
-        <!-- Render category link -->
-        <?php if (!empty($products)): ?>
-            <?php $product = $products[0]; // Get the first product, assuming all products belong to the same category 
-            ?>
-            <?php if ($product['category'] == 'SMALL APPLIANCES'): ?>
-                <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
-                <span class="breadcrumb-separator"></span>
-                <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Subkategori</a>
-            <?php else: ?>
-                <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:18px">Kategori</a>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <span class="breadcrumb-separator"></span>
-        <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:18px">Bandingkan Produk</span>
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.01);">
+    <div class="navbar-brand" style="float: left; margin-left: 47%;">
+        <a href="/catalog">
+            <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 40px;">
+        </a>
     </div>
 
 
@@ -350,7 +334,30 @@ Bandingkan Produk
 <?= $this->section('content') ?>
 
 <!-- Product Grid Display for Selected Products -->
+<div class="comparison-breadcrumb" style="margin-bottom: 60px;margin-left: 170px;">
+    <a href="/catalog" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Beranda</a>
+    <span class="breadcrumb-separator" style="color: #d9d9d9;"></span>
+
+    <!-- Render category link -->
+    <?php if (!empty($products)): ?>
+        <?php $product = $products[0]; // Get the first product, assuming all products belong to the same category 
+        ?>
+        <?php if ($product['category'] == 'SMALL APPLIANCES'): ?>
+            <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Kategori</a>
+            <span class="breadcrumb-separator" style="color: #d9d9d9;"></span>
+            <a href="/catalog?category=<?= esc($product['category']) ?>&subcategory=<?= esc($product['subcategory']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Subkategori</a>
+        <?php else: ?>
+            <a href="/catalog?category=<?= esc($product['category']) ?>" class="breadcrumb-link" style="font-family: Poppins, sans-serif; font-size:13px;color: #d9d9d9;">Kategori</a>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <span class="breadcrumb-separator" style="color: #d9d9d9;"></span>
+    <span class="breadcrumb-item" style="font-family: Poppins, sans-serif; font-weight:bold; font-size:13px">Bandingkan Produk</span>
+
+</div>
 <div class="comparison-product-grid">
+
+
     <?php foreach ($products as $product): ?>
         <div class="comparison-product-card" class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4;">
             <div class="recommend-picture" style="background-color:#f4f4f4;">
@@ -367,7 +374,7 @@ Bandingkan Produk
                 <?php elseif ($product['harga'] == null): ?>
                     Harga Belum Ditentukan
                 </p> 
-<?php endif; ?>-->
+            <?php endif; ?>-->
                 <p class="product-capacity">
                     <?php if ($product['capacity'] != null): ?>
                         <?= esc($product['capacity']) ?>
@@ -384,6 +391,9 @@ Bandingkan Produk
             </div>
         </div>
     <?php endforeach; ?>
+
+
+
 </div>
 
 
