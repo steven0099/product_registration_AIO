@@ -88,6 +88,18 @@
         margin-bottom: 20px;
     }
 
+    .td-title {
+        font-size: 13px;
+        font-weight: normal;
+        text-align: left;
+    }
+
+    .comparison-table td.td-title {
+        padding-left: 30px;
+        /* Jarak dari kiri sebesar 25px */
+        vertical-align: middle;
+    }
+
     /* Container for centering */
     .center-container {
         display: flex;
@@ -127,7 +139,7 @@
         font-family: Poppins;
         font-size: 14px;
         font-weight: 700;
-
+        padding-left: 25px;
     }
 
     .comparison-table td,
@@ -140,6 +152,7 @@
         padding: 10px;
         border-bottom: 3px solid #fff;
         text-align: left;
+        vertical-align: top;
     }
 
     .comparison-table th:first-child,
@@ -155,13 +168,7 @@
         /* White with 80% opacity */
     }
 
-    .td-title {
-        font-size: 13px;
-        font-weight: normal;
-        text-align: left;
-        /* Tambahan jika teks harus rata kiri */
-        left: 20px;
-    }
+
 
     .comparison-table-head {
         width: 100%;
@@ -402,7 +409,7 @@ Bandingkan Produk
 <table class="comparison-table-head">
     <thead>
         <tr>
-            <th style="font-size: 12px;">Bandingkan Produk</th>
+            <th style="font-size: 15px;">Bandingkan Produk</th>
             <?php foreach ($products as $product): ?>
                 <th><?= esc($product['brand']) ?> <?= esc($product['product_type']) ?><br>
                     <?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>
