@@ -142,6 +142,7 @@
     let spinDuration = 10000;
     let totalOdds = 0;
     let flashSegmentIndex = -1;  // Index of the segment that's flashing
+    
 
     const canvas = document.getElementById('wheelCanvas');
     const ctx = canvas.getContext('2d');
@@ -189,10 +190,12 @@
     }
 
 // Alternate colors for segments
+// Alternate colors for segments (Red, Orange, Yellow)
 function getSegmentColor(index) {
-    const colors = ['#f4f4f4', '#0daff0']; // Alternate between these colors
+    const colors = ['#ff0000', '#ff7f00', '#ffff00']; // Red, Orange, Yellow
     return colors[index % colors.length]; // Alternate based on index
 }
+
 
 // Draw the wheel and highlight the flashing segment
 // Draw the wheel and highlight the flashing segment
@@ -228,8 +231,8 @@ function drawWheel() {
 
         // Set fill color based on conditions
         if (isFlashing) {
-            ctx.fillStyle = '#0d2a46'; // Flashing color
-        } else if (index === targetSegmentIndex) {
+            ctx.fillStyle = '#fff'; // Flashing color
+        }else if (index === targetSegmentIndex) {
             ctx.fillStyle = '#0000ff'; // Selected segment color (blue)
         } else {
             ctx.fillStyle = getSegmentColor(index); // Alternate color
@@ -259,6 +262,7 @@ function drawWheel() {
 }
 
 
+
     // Preload sound files
     const spinSound = new Audio('/audio/spin-sfx.mp3');
     const prizeSound = new Audio('/audio/prize-sfx.mp3');
@@ -273,7 +277,6 @@ function drawWheel() {
         prizeSound.play();
     }
 
-    // Function to smoothly spin the wheel
     function smoothSpin() {
         if (!isSpinning) return;
 
@@ -302,11 +305,13 @@ function drawWheel() {
             flashSegmentIndex = findClosestSegment(angleOffset, anglePerSegment);
 
             if (progress < 1) {
-                requestAnimationFrame(animate); // Continue animation if not finished
-            } else {
-                isSpinning = false; // Mark as finished
-                targetSegmentIndex = selectedSegment; // Set the target segment
-                drawWheel(); // Draw the final state
+    requestAnimationFrame(animate); // Continue animation if not finished
+} else {
+    isSpinning = false;
+    rotationAngle = selectedSegment * anglePerSegment + anglePerSegment / 2; // Snap to exact segment
+    flashSegmentIndex = selectedSegment; // Ensure consistent flashing
+    drawWheel();
+
 
                 // Delay showing the modal and playing the prize sound
                 setTimeout(() => {
@@ -318,29 +323,29 @@ function drawWheel() {
 
         requestAnimationFrame(animate); // Start the animation loop
     }
+function findClosestSegment(angleOffset, anglePerSegment) {
+    let closestSegment = 0;
+    let closestAngleDiff = Infinity;
 
-    // Function to find the closest segment to the current angle
-    function findClosestSegment(angleOffset, anglePerSegment) {
-        let closestSegment = -1;
-        let minDistance = Infinity;
+    segments.forEach((segment, index) => {
+        const startAngle = index * anglePerSegment;
+        const endAngle = startAngle + anglePerSegment;
 
-        segments.forEach((segment, index) => {
-            const startAngle = index * anglePerSegment;
-            const endAngle = startAngle + anglePerSegment;
+        // Calculate the angular difference for both wrapping cases
+        let angleDiff = Math.abs(angleOffset - startAngle);
+        if (angleDiff > Math.PI) {
+            angleDiff = 2 * Math.PI - angleDiff; // Handle wrapping around
+        }
 
-            const distanceToSegmentStart = Math.abs((startAngle - angleOffset + 2 * Math.PI) % (2 * Math.PI));
-            const distanceToSegmentEnd = Math.abs((endAngle - angleOffset + 2 * Math.PI) % (2 * Math.PI));
+        if (angleDiff < closestAngleDiff) {
+            closestAngleDiff = angleDiff;
+            closestSegment = index;
+        }
+    });
 
-            const distance = Math.min(distanceToSegmentStart, distanceToSegmentEnd);
+    return closestSegment;
+}
 
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestSegment = index;
-            }
-        });
-
-        return closestSegment;
-    }
 
     // Function to select a segment based on odds
     function selectSegmentBasedOnOdds() {
