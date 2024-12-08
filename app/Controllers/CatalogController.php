@@ -100,6 +100,8 @@ class CatalogController extends BaseController
         $perPage = 15;
         $currentPage = $this->request->getGet('page') ?? 1;
         $products = $query->paginate($perPage, 'default', $currentPage);
+
+        
     
         // Fetch distinct filter options
         $categories = $this->confirmationModel->distinct()->select('category')->findAll();
@@ -107,6 +109,31 @@ class CatalogController extends BaseController
         $capacities = $this->confirmationModel->distinct()->select('capacity')->findAll();
         $ukuran = $this->confirmationModel->distinct()->select('ukuran')->findAll();
         // Return the view
+        // Sort categories alphabetically
+usort($categories, function ($a, $b) {
+    return strcmp($a['category'], $b['category']);
+});
+
+// Sort subcategories alphabetically
+usort($subcategories, function ($a, $b) {
+    return strcmp($a['subcategory'], $b['subcategory']);
+});
+
+// Sort capacities alphabetically
+usort($capacities, function ($a, $b) {
+    return strcmp($a['capacity'], $b['capacity']);
+});
+
+// Sort ukuran alphabetically
+usort($ukuran, function ($a, $b) {
+    return strcmp($a['ukuran'], $b['ukuran']);
+});
+
+// Pass the sorted arrays to the view
+$data['categories'] = $categories;
+$data['subcategories'] = $subcategories;
+$data['capacities'] = $capacities;
+$data['ukuran'] = $ukuran;
 
         log_message('info', 'Category: ' . $category);
 log_message('info', 'Subcategory: ' . $subcategory);
@@ -154,44 +181,44 @@ public function filterProducts()
     $subcategoryId = $subcategoryName ? $this->getSubcategoryIdByName($subcategoryName) : null;
 
     // Build the query
-    $query = $this->confirmationModel->where('status', 'approved');
+// Build the query
+$query = $this->confirmationModel->where('status', 'approved');
 
-    // Apply category filter
-    if (!empty($categoryName)) {
-        $query->where('category', $categoryName);
+// Apply category filter
+if (!empty($categoryName)) {
+    $query->where('category', $categoryName);
+}
+
+// Apply subcategory filter
+if (!empty($subcategoryName)) {
+    $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
+}
+
+// Apply capacity or ukuran filter
+if (!empty($capacity)) {
+    // Determine filter type based on category and subcategory
+    $filterType = $this->getFilterType($categoryId, $subcategoryId);
+
+    log_message('debug', 'Filter Type: ' . $filterType);
+
+    if ($filterType === 'capacity') {
+        $query->where('capacity', $capacity);
+    } elseif ($filterType === 'ukuran') {
+        $query->where('ukuran', $capacity); // Compare ukuran directly as a string
     }
+}
 
-    // Apply subcategory filter
-    if (!empty($subcategoryName)) {
-        $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
-    }
-
-    // Apply capacity or ukuran filter
-    if (!empty($capacity)) {
-        // Determine filter type based on category and subcategory
-        $filterType = $this->getFilterType($categoryId, $subcategoryId);
-
-        log_message('debug', 'Filter Type: ' . $filterType);
-
-        if ($filterType === 'capacity') {
-            $query->where('capacity', $capacity);
-        } elseif ($filterType === 'ukuran') {
-            $query->where('ukuran', $capacity);  // Compare ukuran directly as a string
-        }
-    }
-
-    // Apply search filter (search across multiple fields)
-    if (!empty($search)) {
-        $query->groupStart()
-            ->like('product_type', $search)
-            ->orLike('brand', $search)
-            ->orLike('category', $search)
-            ->orLike('subcategory', $search)
-            ->orLike('capacity', $search)
-            ->orLike('ukuran', $search)
-            ->groupEnd();
-    }
-
+// Apply search filter (respecting existing filters)
+if (!empty($search)) {
+    $query->groupStart()
+        ->like('product_type', $search)
+        ->orLike('brand', $search)
+        ->orLike('category', $search)
+        ->orLike('subcategory', $search)
+        ->orLike('capacity', $search)
+        ->orLike('ukuran', $search)
+        ->groupEnd();
+}
     // Apply sorting based on the selected sort option
     switch ($sort) {
         case 'name_asc':
@@ -232,7 +259,6 @@ public function filterProducts()
 }
 
     
-// For dynamically updating subcategory options
 public function getSubcategories()
 {
     $categoryName = $this->request->getGet('category');  // Get category name from the filter
@@ -241,8 +267,11 @@ public function getSubcategories()
     $categoryId = $this->getCategoryIdByName($categoryName);
 
     if ($categoryId) {
-        // Fetch subcategories that belong to this category_id
-        $subcategories = $this->subcategoryModel->where('category_id', $categoryId)->findAll();
+        // Fetch subcategories that belong to this category_id and sort them alphabetically by name
+        $subcategories = $this->subcategoryModel
+            ->where('category_id', $categoryId)
+            ->orderBy('name', 'ASC')  // Replace 'name' with the actual field used for subcategory names
+            ->findAll();
         
         // Prepare the response format expected by the JavaScript
         $response = [];
@@ -259,6 +288,7 @@ public function getSubcategories()
         return $this->response->setJSON([]);
     }
 }
+
 
 private function getCategoryIdByName($categoryName)
 {
@@ -314,11 +344,8 @@ private function getFilterType($categoryId, $subcategoryId = null)
 public function getCapacities()
 {
     $subcategoryName = $this->request->getGet('subcategory');
-    
-    // Log the received subcategory for debugging
     log_message('debug', 'Received Subcategory Name: ' . $subcategoryName);
 
-    // Retrieve subcategory ID from name
     $subcategoryId = $this->getSubcategoryIdByName($subcategoryName);
 
     if ($subcategoryId) {
@@ -327,29 +354,74 @@ public function getCapacities()
         $categoryId = $this->getCategoryIdBySubcategoryId($subcategoryId);
         $filterType = $this->getFilterType($categoryId, $subcategoryId);
 
-        // Determine if the capacity dropdown should be shown
-        $showCapacity = !in_array($subcategoryId, [35, 36,42,52]);
+        $showCapacity = !in_array($subcategoryId, [35, 36, 42, 52, 66, 67, 70, 73, 74]);
 
         if ($filterType === 'capacity') {
             $capacities = $this->capacityModel->where('subcategory_id', $subcategoryId)->findAll();
-            log_message('debug', 'Capacities Retrieved from Capacity Model: ' . print_r($capacities, true));
         } elseif ($filterType === 'ukuran') {
             $capacities = $this->ukuranModel->where('subcategory_id', $subcategoryId)->findAll();
-            log_message('debug', 'Capacities Retrieved from Ukuran Model: ' . print_r($capacities, true));
         } else {
             $capacities = [];
-            log_message('debug', 'No valid filter type found, returning empty capacities.');
         }
 
-        // Return the response including the showCapacity flag
-        return $this->response->setJSON(['capacities' => $capacities, 'showCapacity' => $showCapacity]);
+        log_message('debug', 'Capacities Retrieved: ' . print_r($capacities, true));
+
+        // Sort the capacities
+        $sortedCapacities = $this->sortCapacities($capacities);
+
+        return $this->response->setJSON(['capacities' => $sortedCapacities, 'showCapacity' => $showCapacity]);
     } else {
         log_message('debug', 'No valid subcategory ID found for subcategory: ' . $subcategoryName);
-        $capacities = [];
-        return $this->response->setJSON(['capacities' => $capacities, 'showCapacity' => false]);
+        return $this->response->setJSON(['capacities' => [], 'showCapacity' => false]);
     }
 }
 
+private function sortCapacities($capacities)
+{
+    // Predefined order for descriptive sizes
+    $sizeOrder = ['-', 'kecil', 'sedang', 'besar'];
+
+    usort($capacities, function ($a, $b) use ($sizeOrder) {
+        // Check for the correct key (value or size)
+        $aValue = strtolower($a['value'] ?? $a['size']); // Use 'size' if 'value' doesn't exist
+        $bValue = strtolower($b['value'] ?? $b['size']);
+
+        // Rule 1: Place "-" at the top
+        if ($aValue === '-') return -1;
+        if ($bValue === '-') return 1;
+
+        // Rule 2: Check for predefined descriptive sizes
+        $aIndex = array_search($aValue, $sizeOrder);
+        $bIndex = array_search($bValue, $sizeOrder);
+
+        if ($aIndex !== false && $bIndex !== false) {
+            return $aIndex <=> $bIndex;
+        }
+
+        // Rule 3: Sort numeric values with units
+        $aNumeric = $this->extractNumericValue($aValue);
+        $bNumeric = $this->extractNumericValue($bValue);
+
+        if ($aNumeric !== null && $bNumeric !== null) {
+            return $aNumeric <=> $bNumeric;
+        }
+
+        // Rule 4: Default to alphabetical order
+        return strcmp($aValue, $bValue);
+    });
+
+    return $capacities;
+}
+
+
+private function extractNumericValue($value)
+{
+    // Extract the numeric part from a string (e.g., "10 L" -> 10)
+    if (preg_match('/^\d+/', $value, $matches)) {
+        return (int)$matches[0];
+    }
+    return null; // Return null if no numeric value is found
+}
 
 
 
@@ -400,7 +472,7 @@ public function details($id)
 
     // Special logic for 'SMALL APPLIANCES' category to include subcategory in related products
     if ($product['category'] == "SMALL APPLIANCES") {
-        $relatedProducts = $model->getRelatedProducts(
+        $relatedProducts = $model->getRelatedSmallApp(
             $product['subcategory'], // Check by subcategory for this category
             $product['capacity'],
             $product['ukuran'],
@@ -408,7 +480,7 @@ public function details($id)
         );
     }
 
-    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA" || $product['subcategory'] == "AIR PURIFIER" ) {
+    if ($product['subcategory'] == "DISPENSER GALON ATAS" || $product['subcategory'] == "DISPENSER GALON BAWAH" || $product['subcategory'] == "SETRIKA" || $product['subcategory'] == "AIR PURIFIER" || $product['subcategory'] == "HAIR DRYER"|| $product['subcategory'] == "HAND MIXER"|| $product['subcategory'] == "MIXER"|| $product['subcategory'] == "SMART DOOR LOCK"|| $product['subcategory'] == "SMART LED") {
         $relatedProducts = $model->getRelatedProductsBySubcategoryOnly(
             $product['subcategory'], // Check by subcategory for this category
             $id // Pass only the product ID to exclude the current product
@@ -436,6 +508,10 @@ public function details($id)
            $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
        }
    }
+
+   usort($marketplace, function ($a, $b) {
+    return strcmp($a['location'], $b['location']);
+});
    
    // Pass the data to the view
    return view('catalog/details', [

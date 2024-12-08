@@ -12,8 +12,8 @@ use App\Models\SparepartwarrantyModel;
 use App\Models\SpecificationModel;  // Add Specification model for step 2
 use App\Models\ProsModel;
 use App\Models\UploadsModel;  // Add Pros model for step 3
-use App\Models\ConfirmationModel; 
-use App\Models\UkuranModel; 
+use App\Models\ConfirmationModel;
+use App\Models\UkuranModel;
 use App\Models\GaransiPanelModel;
 use App\Models\GaransiMotorModel;
 use App\Models\GaransiSemuaServiceModel;
@@ -96,7 +96,8 @@ class ProductController extends BaseController
         return view('product/approved_product', $data);
     }
 
-    public function rejected(){
+    public function rejected()
+    {
         // Check if the user has the required role (admin or superadmin)
         if (session()->get('role') !== 'superadmin') {
             return redirect()->to('/no-access'); // Redirect if unauthorized
@@ -116,6 +117,8 @@ class ProductController extends BaseController
     {
         // Fetch product details based on productId
         $product = $this->confirmationModel->find($productId);
+
+        $product['subcategory_id'] = $this->getSubcategoryIdByName($product['subcategory']);
 
         if (!$product) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException("Product with ID $productId not found");
@@ -181,6 +184,13 @@ class ProductController extends BaseController
 
         $products = $builder->get()->getResultArray();
 
+        // Check if no data found
+        if (empty($products)) {
+            // Set flashdata untuk pesan error
+            session()->setFlashdata('error', 'Tidak ada data yang ditemukan sesuai filter yang Anda masukkan.');
+            return redirect()->back();
+        }
+
         // Initialize Spreadsheet
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -188,18 +198,49 @@ class ProductController extends BaseController
 
         // Define ordered headers
         $headers = [
-            'A' => 'Brand', 'B' => 'Kategori', 'C' => 'Subkategori', 'D' => 'Tipe Produk', 'E' => 'Warna',
-            'F' => 'Garansi Motor', 'G' => 'Garansi Semua Service', 'H' => 'Garansi Elemen Panas',
-            'I' => 'Garansi Panel', 'J' => 'Garansi Kompresor ', 'K' => 'Garansi Sparepart',
-            'L' => 'Capacity', 'M' => 'Ukuran', 'N' => 'Kapasitas Air Panas', 'O' => 'Kapasitas Air Dingin',
-            'P' => 'Dimensi Produk', 'Q' => 'Dimensi Kemasan', 'R' => 'Konsumsi Daya', 'S' => 'Berat Produk',
-            'T' => 'Negara Pembuat', 'U' => 'Dimensi Produk Dengan Stand', 'V' => 'Resolusi Panel',
-            'W' => 'Kapasitas Pendinginan', 'X' => 'CSPF', 'Y' => 'Tipe Refrigrant', 'Z' => 'Keunggulan 1',
-            'AA' => 'Keunggulan 2', 'AB' => 'Keunggulan 3', 'AC' => 'Keunggulan 4', 'AD' => 'Keunggulan 5', 'AE' => 'Keunggulan 6',
-            'AF' => 'Gambar Depan', 'AG' => 'Gambar Belakang', 'AH' => 'Gambar Samping Kiri',
-            'AI' => 'Gambar Samping Kanan', 'AJ' => 'Gambar Atas', 'AK' => 'Gambar Bawah',
-            'AL' => 'Link Video Produk', 'AM' => 'Diajukan Oleh', 'AN' => 'Status', 'AO' => 'Tanggal Disetujui',
-            'AP' => 'Tanggal Ditolak', 'AQ' => 'Tanggal Pengajuan'
+            'A' => 'Brand',
+            'B' => 'Kategori',
+            'C' => 'Subkategori',
+            'D' => 'Tipe Produk',
+            'E' => 'Warna',
+            'F' => 'Garansi Motor',
+            'G' => 'Garansi Semua Service',
+            'H' => 'Garansi Elemen Panas',
+            'I' => 'Garansi Panel',
+            'J' => 'Garansi Kompresor ',
+            'K' => 'Garansi Sparepart',
+            'L' => 'Capacity',
+            'M' => 'Ukuran',
+            'N' => 'Kapasitas Air Panas',
+            'O' => 'Kapasitas Air Dingin',
+            'P' => 'Dimensi Produk',
+            'Q' => 'Dimensi Kemasan',
+            'R' => 'Konsumsi Daya',
+            'S' => 'Berat Produk',
+            'T' => 'Negara Pembuat',
+            'U' => 'Dimensi Produk Dengan Stand',
+            'V' => 'Resolusi Panel',
+            'W' => 'Kapasitas Pendinginan',
+            'X' => 'CSPF',
+            'Y' => 'Tipe Refrigrant',
+            'Z' => 'Keunggulan 1',
+            'AA' => 'Keunggulan 2',
+            'AB' => 'Keunggulan 3',
+            'AC' => 'Keunggulan 4',
+            'AD' => 'Keunggulan 5',
+            'AE' => 'Keunggulan 6',
+            'AF' => 'Gambar Depan',
+            'AG' => 'Gambar Belakang',
+            'AH' => 'Gambar Samping Kiri',
+            'AI' => 'Gambar Samping Kanan',
+            'AJ' => 'Gambar Atas',
+            'AK' => 'Gambar Bawah',
+            'AL' => 'Link Video Produk',
+            'AM' => 'Diajukan Oleh',
+            'AN' => 'Status',
+            'AO' => 'Tanggal Disetujui',
+            'AP' => 'Tanggal Ditolak',
+            'AQ' => 'Tanggal Pengajuan'
         ];
 
         // Set headers
@@ -282,7 +323,7 @@ class ProductController extends BaseController
                 $sheet->getColumnDimension($col)->setVisible(false);
             }
         }
-// Apply autoSize to non-image columns only
+        // Apply autoSize to non-image columns only
         foreach (array_keys($headers) as $col) {
             if (!in_array($col, ['AC', 'AD', 'AE', 'AF', 'AG', 'AH'])) { // Non-image columns
                 $sheet->getColumnDimension($col)->setAutoSize(true);
@@ -310,26 +351,68 @@ class ProductController extends BaseController
 
         // Fetch subcategories based on categoryId
         $subcategories = $subcategoryModel->where('category_id', $categoryId)->findAll();
+        usort($subcategories, function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Replace 'subcategory' with the actual column name in your table
+        });
 
         // Return as JSON
         return $this->response->setJSON($subcategories);
     }
 
-    public function getUkuranTv($subcategoryId) {
+    public function getUkuranTv($subcategoryId)
+    {
         $ukuranModel = new UkuranModel();
 
         // Fetch the data based on the subcategory ID
         $ukuran = $ukuranModel->where('subcategory_id', $subcategoryId)->findAll();
 
-        // Log the received data
-        log_message('info', 'getUkuranTv called with ID: ' . $subcategoryId . ' - Result: ' . json_encode($ukuran));
+        $sizeOrder = ['kecil', 'sedang', 'besar']; // Define size priority
 
-        if ($ukuran) {
-            return $this->response->setJSON($ukuran);
-        } else {
-            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND)
-                ->setBody('No data found');
-        }
+        $ukuran = array_values(array_filter($ukuran, fn($item) => isset($item['size']))); // Ensure valid entries
+
+        usort($ukuran, function ($a, $b) use ($sizeOrder) {
+            // Extract numbers
+            preg_match('/^\d+/', $a['size'], $aMatches);
+            preg_match('/^\d+/', $b['size'], $bMatches);
+
+            // If both have numbers, sort numerically
+            if (!empty($aMatches) && !empty($bMatches)) {
+                return (int)$aMatches[0] <=> (int)$bMatches[0];
+            }
+
+            // If one has a number and the other doesn't, prioritize the one with a number
+            if (!empty($aMatches)) {
+                return -1;
+            }
+            if (!empty($bMatches)) {
+                return 1;
+            }
+
+            // Check for size categories (kecil, sedang, besar)
+            $aIndex = array_search(strtolower($a['size']), $sizeOrder);
+            $bIndex = array_search(strtolower($b['size']), $sizeOrder);
+
+            // If both are size categories, sort by predefined size order
+            if ($aIndex !== false && $bIndex !== false) {
+                return $aIndex <=> $bIndex;
+            }
+
+            // If one is a size category and the other isn't, prioritize size categories
+            if ($aIndex !== false) {
+                return -1;
+            }
+            if ($bIndex !== false) {
+                return 1;
+            }
+
+            // Fallback to natural string comparison if neither is numeric or size category
+            return strcmp($a['size'], $b['size']);
+        });
+
+        // Log the sorted results for debugging
+        log_message('info', 'Sorted Ukuran Data: ' . json_encode($ukuran));
+
+        return $this->response->setJSON($ukuran);
     }
 
     public function getCompressorWarranties()
@@ -377,6 +460,8 @@ class ProductController extends BaseController
         return $this->response->setJSON($warranties);
     }
 
+
+
     public function fetchWarrantyOptions()
     {
         $type = $this->request->getGet('type');
@@ -405,6 +490,23 @@ class ProductController extends BaseController
 
         if ($model) {
             $warranties = $model->findAll();
+
+            // Sort the warranties
+            usort($warranties, function ($a, $b) {
+                // Handle "<1" as a special case
+                if ($a['value'] === '<1') return -1;
+                if ($b['value'] === '<1') return 1;
+
+                // Extract numbers and sort numerically
+                $aNumber = (float) filter_var($a['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                $bNumber = (float) filter_var($b['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+
+                return $aNumber <=> $bNumber;
+            });
+
+            // Log the sorted results
+            log_message('info', 'Sorted Warranty Options: ' . json_encode($warranties));
+
             return $this->response->setJSON($warranties);
         } else {
             return $this->response->setJSON(['error' => 'Model not found']);
@@ -412,22 +514,44 @@ class ProductController extends BaseController
     }
 
 
+
     public function getCapacities($subcategoryId)
     {
-        log_message('info', 'getCapacities called with ID: ' . $subcategoryId);
+        $capacityModel = new CapacityModel();
+        $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
 
-        try {
-            $capacityModel = new CapacityModel();
-            $capacities = $capacityModel->where('subcategory_id', $subcategoryId)->findAll();
+        // Custom sort function
+        usort($capacities, function ($a, $b) {
+            // Extract the numeric value from the front of the string
+            preg_match('/^\d+/', $a['value'], $aMatches);
+            preg_match('/^\d+/', $b['value'], $bMatches);
 
-            // Log the retrieved capacities
-            log_message('info', 'Capacities fetched: ' . json_encode($capacities));
+            // Check if either value is "-"
+            if ($a['value'] === "-") {
+                return -1; // Prioritize "-"
+            }
+            if ($b['value'] === "-") {
+                return 1; // Prioritize "-"
+            }
 
-            return $this->response->setJSON($capacities);
-        } catch (\Exception $e) {
-            log_message('error', 'Error in getCapacities: ' . $e->getMessage());
-            return $this->response->setJSON(['error' => 'An error occurred: ' . $e->getMessage()])->setStatusCode(500);
-        }
+            // Compare numeric values if both have numbers
+            if (!empty($aMatches) && !empty($bMatches)) {
+                return (int)$aMatches[0] <=> (int)$bMatches[0];
+            }
+
+            // If one has a number and the other doesn't, prioritize the one with a number
+            if (!empty($aMatches)) {
+                return -1;
+            }
+            if (!empty($bMatches)) {
+                return 1;
+            }
+
+            // Otherwise, fallback to natural order
+            return strcmp($a['value'], $b['value']);
+        });
+
+        return $this->response->setJSON($capacities);
     }
 
     public function fetchBrands()
@@ -468,9 +592,86 @@ class ProductController extends BaseController
         $data['garansi_semua_service'] = $garansiserviceModel->findAll();
         $data['ukuran'] = $ukuranModel->findAll();
 
-        $data['previousData'] = session()->get('step1');
-//        dd($data);
+        // Apply sorting
+        usort($data['brands'], function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Replace 'name' with the actual column name in your table
+        });
 
+        usort($data['categories'], function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Replace 'category' with the actual column name in your table
+        });
+
+        usort($data['subcategories'], function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Replace 'subcategory' with the actual column name in your table
+        });
+
+        usort($data['capacities'], function ($a, $b) {
+            return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        });
+
+        usort($data['ukuran'], function ($a, $b) {
+            return strcmp($a['size'], $b['size']); // Replace 'ukuran' with the actual column name in your table
+        });
+
+        usort($data['compressor_warranties'], function ($a, $b) {
+            return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        });
+
+        usort($data['sparepart_warranties'], function ($a, $b) {
+            // Prioritize "<1"
+            if ($a['value'] === '<1') return -1;
+            if ($b['value'] === '<1') return 1;
+
+            // Extract numeric values (allow fractions)
+            $aNumber = (float) filter_var($a['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $bNumber = (float) filter_var($b['value'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+
+            // Compare numerically
+            return $aNumber <=> $bNumber;
+        });
+
+
+        usort($data['garansi_motor'], function ($a, $b) {
+            return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        });
+
+        usort($data['garansi_elemen_panas'], function ($a, $b) {
+            return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        });
+
+        usort($data['garansi_panel'], function ($a, $b) {
+            return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        });
+
+
+        usort($data['garansi_semua_service'], function ($a, $b) {
+            return strcmp($a['value'], $b['value']); // Replace 'capacity' with the actual column name in your table
+        });
+
+        $data['previousData'] = session()->get('step1');
+
+        $warrantyTypes = [
+            'garansi_panel' => $this->garansipanelModel,
+            'garansi_motor' => $this->garansimotorModel,
+            'compressor_warranty' => $this->compressorwarrantyModel,
+            'garansi_elemen_panas' => $this->garansipanasModel,
+            'garansi_semua_service' => $this->garansiserviceModel,
+        ];
+
+        $warrantyValues = []; // To hold the results for each warranty type
+
+        foreach ($warrantyTypes as $key => $model) {
+            $warrantyId = session()->get("step1")["{$key}_id"] ?? null; // Get the warranty ID from session
+            if ($warrantyId) {
+                $warrantyRow = $model->getGaransiValueById($warrantyId); // Adjust the function name if needed
+                $warrantyValues["{$key}_value"] = $warrantyRow['value'] ?? null; // Use the correct key format
+            } else {
+                $warrantyValues["{$key}_value"] = null; // No ID, set value to null
+            }
+        }
+
+        // Pass the warranty values to the view
+        $data = array_merge($data, $warrantyValues);
         return view('layout/product/product_regis_step1', $data);
         //return view('product/product_registration', $data);
         //        $data['previousData'] = session()->get('step1');
@@ -509,7 +710,7 @@ class ProductController extends BaseController
             $validationRules['compressor_warranty_id'] = 'required';  // Corrected field name
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
-        } elseif ($category == '6' || $subcategory == '49') {
+        } elseif ($category == '6' || $subcategory == '49' || $subcategory == '62' || $subcategory == '63') {
             $validationRules['garansi_motor_id'] = 'required'; // Ensure this matches your form
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
@@ -519,6 +720,8 @@ class ProductController extends BaseController
         } elseif ($subcategory == '32') {
             $validationRules['garansi_motor_id'] = 'required';
             $validationRules['ukuran_id'] = 'required';
+        } elseif ($subcategory == '67' || $subcategory == '70') {
+            $validationRules['garansi_motor_id'] = 'required';
         } elseif (in_array($subcategory, ['35', '36'])) {
             // Only validate if these fields should be visible
             if (isset($step1Data['kapasitas_air_panas']) && $step1Data['kapasitas_air_panas'] !== '') {
@@ -528,22 +731,35 @@ class ProductController extends BaseController
                 $validationRules['kapasitas_air_dingin'] = 'required';
             }
             $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
-        } elseif (in_array($subcategory, ['33','34','37','38','41','44'])) {
+        } elseif (in_array($subcategory, ['78'])) {
+            // Only validate if these fields should be visible
+            if (isset($step1Data['kapasitas_air_panas']) && $step1Data['kapasitas_air_panas'] !== '') {
+                $validationRules['kapasitas_air_panas'] = 'required';
+            }
+            if (isset($step1Data['kapasitas_air_dingin']) && $step1Data['kapasitas_air_dingin'] !== '') {
+                $validationRules['kapasitas_air_dingin'] = 'required';
+            }
+            $validationRules['compressor_warranty_id'] = 'required'; // Assuming you still want this
+            $validationRules['capacity_id'] = 'required'; // Assuming you still want this
+        } elseif (in_array($subcategory, ['33', '34', '37', '38', '41', '44', '63', '71', '72', '76'])) {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
-        } elseif ($subcategory == '42') {
+        } elseif ($subcategory == '42' || $subcategory == '66') {
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
-        } elseif ($subcategory == '43' || $subcategory == '48') {
+        } elseif ($subcategory == '48' || $subcategory == '75') {
             $validationRules['capacity_id'] = 'required';
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_elemen_panas_id'] = 'required';
-        } elseif ($subcategory == '45' || $subcategory == '46') {
+        } elseif ($subcategory == '43' || $subcategory == '50'  || $subcategory == '45' || $subcategory == '46' || $subcategory == '64' || $subcategory == '65' || $subcategory == '68' || $subcategory == '69') {
             $validationRules['capacity_id'] = 'required';
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_semua_service_id'] = 'required';
-        } elseif ($subcategory == '47' || $subcategory == '50' || $subcategory == '51') {
+        } elseif ($subcategory == '73' || $subcategory == '74') {
+            $validationRules['sparepart_warranty_id'] = 'required';
+            $validationRules['garansi_semua_service_id'] = 'required';
+        } elseif ($subcategory == '47' || $subcategory == '51') {
             $validationRules['ukuran_id'] = 'required';
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['garansi_semua_service_id'] = 'required';
@@ -563,20 +779,20 @@ class ProductController extends BaseController
             'color' => $step1Data['color'], // Corrected from 'warna'
 
             // Dynamic fields based on conditions
-            'ukuran_id' => ($category == '9' || in_array($subcategory, ['31', '32','47','50','51'])) ? $step1Data['ukuran_id'] : null,
+            'ukuran_id' => ($category == '9' || in_array($subcategory, ['31', '32', '47', '51'])) ? $step1Data['ukuran_id'] : null,
             'garansi_panel_id' => ($category == '9') ? $step1Data['garansi_panel_id'] : null,
-            'capacity_id' => (in_array($category, ['3', '4', '5', '6', '7']) || in_array($subcategory, ['33', '34', '37', '38', '41', '43', '44', '45', '46', '48', '49'])) ? $step1Data['capacity_id'] : null,
-            'garansi_motor_id' => ($category == '6' || in_array($subcategory, ['32','49'])) ? $step1Data['garansi_motor_id'] : null,
-            'garansi_semua_service_id' => (in_array($subcategory, ['31', '45', '46','47','50','51'])) ? $step1Data['garansi_semua_service_id'] : null,
+            'capacity_id' => (in_array($category, ['3', '4', '5', '6', '7']) || in_array($subcategory, ['33', '34', '37', '38', '41', '43', '44', '45', '46', '48', '49', '50', '53', '54', '62', '63', '64', '65', '68', '69', '71', '72', '75', '76'])) ? $step1Data['capacity_id'] : null,
+            'garansi_motor_id' => ($category == '6' || in_array($subcategory, ['32', '49', '53', '62', '67', '70'])) ? $step1Data['garansi_motor_id'] : null,
+            'garansi_semua_service_id' => (in_array($subcategory, ['31', '43', '45', '46', '47', '50', '51', '52', '54', '64', '65', '68', '69', '73', '74'])) ? $step1Data['garansi_semua_service_id'] : null,
 
             // Only include air capacities if they are intended to be filled
-            'kapasitas_air_panas' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
-            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
+            'kapasitas_air_panas' => in_array($subcategory, ['35', '36', '78']) && !empty($step1Data['kapasitas_air_panas']) ? $step1Data['kapasitas_air_panas'] : null,
+            'kapasitas_air_dingin' => in_array($subcategory, ['35', '36', '52', '78']) && !empty($step1Data['kapasitas_air_dingin']) ? $step1Data['kapasitas_air_dingin'] : null,
 
             // Extra dynamic warranties or other fields
-            'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36'])) ? $step1Data['compressor_warranty_id'] : null,
-            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33','34','37', '38','41','42','43','44','45','46','47','48', '49','50','51'])) ? $step1Data['sparepart_warranty_id'] : null,
-            'garansi_elemen_panas_id' => (in_array($subcategory, ['33','34','37', '38','41','42','43','44','48'])) ? $step1Data['garansi_elemen_panas_id'] : null,
+            'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36', '78'])) ? $step1Data['compressor_warranty_id'] : null,
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33', '34', '37', '38', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '62', '63', '64', '65', '66', '68', '69', '71', '72', '73', '74', '75', '76'])) ? $step1Data['sparepart_warranty_id'] : null,
+            'garansi_elemen_panas_id' => (in_array($subcategory, ['33', '34', '37', '38', '41', '42', '44', '48', '66', '71', '72', '75', '76'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
 
         // Insert the data into the database
@@ -596,6 +812,10 @@ class ProductController extends BaseController
         $refrigrantModel = new RefrigrantModel();
 
         $data['refrigrant'] = $refrigrantModel->findAll();
+
+        usort($data['refrigrant'], function ($a, $b) {
+            return strcmp($a['type'], $b['type']); // Replace 'capacity' with the actual column name in your table
+        });
         return view('layout/product/product_regis_step2', $data);
     }
 
@@ -687,49 +907,71 @@ class ProductController extends BaseController
         $gambarSampingKananName = null;
         $videoProdukLink = null;
 
+        
+
         // Handle Gambar Tampak Depan
         $gambarDepan = $this->request->getFile('gambar_depan');
         if ($gambarDepan && $gambarDepan->isValid()) {
             $gambarDepanName = $gambarDepan->getRandomName();
             $gambarDepan->move($uploadPath, $gambarDepanName);
+            $data['gambar_depan'] = $gambarDepanName;
         } else {
-            return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
+            $data['gambar_depan'] = $this->request->getPost('gambar_depan_existing') ?? null;
+            if (empty($data['gambar_depan'])) {
+                return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
+            }
         }
-
+    
         // Handle Gambar Tampak Belakang
         $gambarBelakang = $this->request->getFile('gambar_belakang');
         if ($gambarBelakang && $gambarBelakang->isValid()) {
             $gambarBelakangName = $gambarBelakang->getRandomName();
             $gambarBelakang->move($uploadPath, $gambarBelakangName);
+            $data['gambar_belakang'] = $gambarBelakangName;
+        } else {
+            $data['gambar_belakang'] = $this->request->getPost('gambar_belakang_existing') ?? null;
         }
-
+    
         // Handle Gambar Tampak Atas
         $gambarAtas = $this->request->getFile('gambar_atas');
         if ($gambarAtas && $gambarAtas->isValid()) {
             $gambarAtasName = $gambarAtas->getRandomName();
             $gambarAtas->move($uploadPath, $gambarAtasName);
+            $data['gambar_atas'] = $gambarAtasName;
+        } else {
+            $data['gambar_atas'] = $this->request->getPost('gambar_atas_existing') ?? null;
         }
-
+    
         // Handle Gambar Tampak Bawah
         $gambarBawah = $this->request->getFile('gambar_bawah');
         if ($gambarBawah && $gambarBawah->isValid()) {
             $gambarBawahName = $gambarBawah->getRandomName();
             $gambarBawah->move($uploadPath, $gambarBawahName);
+            $data['gambar_bawah'] = $gambarBawahName;
+        } else {
+            $data['gambar_bawah'] = $this->request->getPost('gambar_bawah_existing') ?? null;
         }
-
+    
         // Handle Gambar Samping Kiri
         $gambarSampingKiri = $this->request->getFile('gambar_samping_kiri');
         if ($gambarSampingKiri && $gambarSampingKiri->isValid()) {
             $gambarSampingKiriName = $gambarSampingKiri->getRandomName();
             $gambarSampingKiri->move($uploadPath, $gambarSampingKiriName);
+            $data['gambar_samping_kiri'] = $gambarSampingKiriName;
+        } else {
+            $data['gambar_samping_kiri'] = $this->request->getPost('gambar_samping_kiri_existing') ?? null;
         }
-
+    
         // Handle Gambar Samping Kanan
         $gambarSampingKanan = $this->request->getFile('gambar_samping_kanan');
         if ($gambarSampingKanan && $gambarSampingKanan->isValid()) {
             $gambarSampingKananName = $gambarSampingKanan->getRandomName();
             $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
+            $data['gambar_samping_kanan'] = $gambarSampingKananName;
+        } else {
+            $data['gambar_samping_kanan'] = $this->request->getPost('gambar_samping_kanan_existing') ?? null;
         }
+    
 
         // Handle Video Produk (YouTube link, optional)
         $videoProduk = $this->request->getPost('video_produk');
@@ -799,32 +1041,32 @@ class ProductController extends BaseController
             'category_name' => $this->getNameById($this->categoryModel, $finalData['category_id'], 'name', 'Unknown Category'),
             'subcategory_name' => $this->getNameById($this->subcategoryModel, $finalData['subcategory_id'], 'name', 'Unknown Subcategory'),
             'capacity_value' => isset($finalData['capacity_id'])
-            ? $this->getNameById($this->capacityModel, $finalData['capacity_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->capacityModel, $finalData['capacity_id'], 'value', 'Unknown')
+                : '',
             'ukuran_size' => isset($finalData['ukuran_id'])
-            ? $this->getNameById($this->ukuranModel, $finalData['ukuran_id'], 'size', 'Unknown')
-            : '',
+                ? $this->getNameById($this->ukuranModel, $finalData['ukuran_id'], 'size', 'Unknown')
+                : '',
             'refrigrant_type' => isset($finalData['refrigrant_id'])
-            ? $this->getNameById($this->refrigrantModel, $finalData['refrigrant_id'], 'type', 'Unknown')
-            : '',
+                ? $this->getNameById($this->refrigrantModel, $finalData['refrigrant_id'], 'type', 'Unknown')
+                : '',
             'compressor_warranty_value' => isset($finalData['compressor_warranty_id'])
-            ? $this->getNameById($this->compressorwarrantyModel, $finalData['compressor_warranty_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->compressorwarrantyModel, $finalData['compressor_warranty_id'], 'value', 'Unknown')
+                : '',
             'sparepart_warranty_value' => isset($finalData['sparepart_warranty_id'])
-            ? $this->getNameById($this->sparepartwarrantyModel, $finalData['sparepart_warranty_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->sparepartwarrantyModel, $finalData['sparepart_warranty_id'], 'value', 'Unknown')
+                : '',
             'garansi_elemen_panas_value' => isset($finalData['garansi_elemen_panas_id'])
-            ? $this->getNameById($this->garansipanasModel, $finalData['garansi_elemen_panas_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->garansipanasModel, $finalData['garansi_elemen_panas_id'], 'value', 'Unknown')
+                : '',
             'garansi_motor_value' => isset($finalData['garansi_motor_id'])
-            ? $this->getNameById($this->garansimotorModel, $finalData['garansi_motor_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->garansimotorModel, $finalData['garansi_motor_id'], 'value', 'Unknown')
+                : '',
             'garansi_panel_value' => isset($finalData['garansi_panel_id'])
-            ? $this->getNameById($this->garansipanelModel, $finalData['garansi_panel_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->garansipanelModel, $finalData['garansi_panel_id'], 'value', 'Unknown')
+                : '',
             'garansi_semua_service_value' => isset($finalData['garansi_semua_service_id'])
-            ? $this->getNameById($this->garansiserviceModel, $finalData['garansi_semua_service_id'], 'value', 'Unknown')
-            : '',
+                ? $this->getNameById($this->garansiserviceModel, $finalData['garansi_semua_service_id'], 'value', 'Unknown')
+                : '',
         ]);
 
         // Group dimensions and panel resolution
@@ -1072,7 +1314,7 @@ class ProductController extends BaseController
 
         // Update the database
         if ($this->confirmationModel->update($id, ['kapasitas_air_dingin' => $coldcap])) {
-            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Dingin Berhasil Diubah.']);
+            return $this->response->setJSON(['success' => true, 'message' => 'Data Berhasil Diubah.']);
         } else {
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
         }
@@ -1090,10 +1332,175 @@ class ProductController extends BaseController
 
         // Update the database
         if ($this->confirmationModel->update($id, ['kapasitas_air_panas' => $hotcap])) {
-            return $this->response->setJSON(['success' => true, 'message' => 'Kapasitas Air Panas Berhasil Diubah.']);
+            return $this->response->setJSON(['success' => true, 'message' => 'Data Berhasil Diubah.']);
         } else {
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to update color.']);
         }
+    }
+
+
+    public function getOptions()
+    {
+        $field = $this->request->getGet('field');
+        $subcategoryId = $this->request->getGet('subcategory_id');
+        $options = [];
+
+        switch ($field) {
+            case 'ukuran':
+                $options = $this->ukuranModel->getBySubcategory($subcategoryId);
+                break;
+            case 'capacity':
+                $options = $this->capacityModel->getBySubcategory($subcategoryId);
+                break;
+            case 'brand':
+                $options = $this->brandModel->findAll();
+                break;
+            case 'refrigrant':
+                $options = $this->refrigrantModel->findAll();
+                break;
+            case 'compressor_warranty':
+                $options = $this->compressorwarrantyModel->findAll();
+                break;
+            case 'sparepart_warranty':
+                $options = $this->sparepartwarrantyModel->findAll();
+                break;
+            case 'garansi_elemen_panas':
+                $options = $this->garansipanasModel->findAll();
+                break;
+            case 'garansi_panel':
+                $options = $this->garansipanelModel->findAll();
+                break;
+            case 'garansi_semua_service':
+                $options = $this->garansiserviceModel->findAll();
+                break;
+            case 'garansi_motor':
+                $options = $this->garansimotorModel->findAll();
+                break;
+                // Add cases for other fields
+        }
+
+        return $this->response->setJSON(['options' => $options]);
+    }
+
+    private function getSubcategoryIdByName($subcategoryName)
+    {
+        $subcategory = $this->subcategoryModel->where('name', $subcategoryName)->first();
+        return $subcategory ? $subcategory['id'] : null;
+    }
+
+    public function updateProductField()
+    {
+        $productId = $this->request->getPost('product_id');
+        $fieldName = $this->request->getPost('field_name');
+        $fieldValue = $this->request->getPost('field_value');
+        $csrfToken = $this->request->getPost('csrf_token'); // Check the CSRF token
+
+        // Log the received data
+        log_message('debug', 'Product ID: ' . $productId);
+        log_message('debug', 'Field Name: ' . $fieldName);
+        log_message('debug', 'Field Value: ' . $fieldValue);
+        log_message('debug', 'CSRF Token: ' . $csrfToken);
+
+        $updateData = [$fieldName => $fieldValue];
+
+        if ($this->confirmationModel->update($productId, $updateData)) {
+            log_message('debug', 'Update successful!');
+            return $this->response->setJSON([
+                'success' => true,
+                csrf_token() => csrf_hash()
+            ]);
+        }
+
+        log_message('debug', 'Update failed!');
+        return $this->response->setJSON(['success' => false]);
+    }
+
+
+    public function updatePics()
+    {
+        $productId = $this->request->getPost('product_id');
+        $videoProduk = $this->request->getPost('video_produk');
+
+        // Validate YouTube Link
+        if (!empty($videoProduk)) {
+            $videoId = $this->extractYouTubeId($videoProduk);
+            if ($videoId) {
+                // Save the YouTube video ID instead of the full link
+                $youtubeLink = 'https://www.youtube.com/watch?v=' . $videoId;
+                $this->confirmationModel->update($productId, ['video_produk' => $youtubeLink]);
+            } else {
+                return redirect()->back()->with('error', 'Link YouTube tidak valid!');
+            }
+        }
+
+        // Check if the product exists and is approved
+        $product = $this->confirmationModel->find($productId);
+        if (!$product || $product['status'] !== 'approved') {
+            return redirect()->back()->with('error', 'Cannot edit this product.');
+        }
+
+        // Prepare data for update
+        $updatedData = [];
+
+        // Handle file uploads (for each image field)
+        $fields = ['gambar_depan', 'gambar_belakang', 'gambar_samping_kiri', 'gambar_samping_kanan', 'gambar_atas', 'gambar_bawah']; // Add more fields as needed
+        foreach ($fields as $field) {
+            $file = $this->request->getFile($field);
+
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                // Save the new file
+                $newName = $file->getRandomName();
+                $file->move('uploads', $newName);
+
+                // Add to update data
+                $updatedData[$field] = $newName;
+
+                // Optionally: Delete the old file if it exists
+                if (!empty($product[$field])) {
+                    @unlink('uploads/' . $product[$field]);
+                }
+            }
+        }
+
+        // Update only if there is data to update
+        if (!empty($updatedData)) {
+            $this->confirmationModel->update($productId, $updatedData);
+        }
+
+        return redirect()->back()->with('success', 'Product updated successfully.');
+    }
+
+    public function updateVideo()
+    {
+        $productId = $this->request->getPost('product_id');
+        $videoProduk = $this->request->getPost('video_produk');
+
+        // Validate YouTube Link
+        $videoId = $this->extractYouTubeId($videoProduk);
+        if ($videoId) {
+            $youtubeLink = 'https://www.youtube.com/watch?v=' . $videoId;
+            $this->confirmationModel->update($productId, ['video_produk' => $youtubeLink]);
+            return redirect()->back()->with('success', 'Video produk berhasil diperbarui!');
+        } else {
+            return redirect()->back()->with('error', 'Link YouTube tidak valid!');
+        }
+    }
+
+    private function extractYouTubeId($url)
+    {
+        // Regular expressions for YouTube links
+        $patterns = [
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)/',  // Matches youtube.com/watch?v=xxxxx
+            '/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([^?]+)/'              // Matches youtu.be/xxxxx
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $matches)) {
+                return $matches[1]; // Return the video ID
+            }
+        }
+
+        return false; // No valid match
     }
 
     public function updateCooling()

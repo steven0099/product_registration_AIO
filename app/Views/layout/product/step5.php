@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
-    <title><?= $this->renderSection('title') ?> - AIO</title>
+    <title>Konfirmasi Produk - AIO</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -17,6 +17,7 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <style>
         input[type="text"],
@@ -160,7 +161,7 @@
                             <div class="wizard-header" style="text-align: center;weight: 7000;">
                                 <div class="row" style=" height: 135px; align-content: center">
                                     <div class="col-sm-5 col-sm-offset-1 logo">
-                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                        <img src="<?= base_url('images/aio-new.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
                                         <h3 class=""
@@ -301,7 +302,7 @@
                                                     </tr>
 
                                                 <?php endif; ?>
-                                                <?php if ($data['category_id'] == '6' || $data['subcategory_id'] == '49' || $data['subcategory_id'] == '53'): ?>
+                                                <?php if ($data['category_id'] == '6' || $data['subcategory_id'] == '49' || $data['subcategory_id'] == '53' || $data['subcategory_id'] == '62'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
                                                         <td><b>Kapasitas</b></td>
@@ -332,15 +333,27 @@
                                                     <tr>
                                                         <td><b>Ukuran</b></td>
                                                         <td><?= esc($data['ukuran_size']) ?></td>
-                                                        <td><b>Kapasitas Air Dingin</b>Garansi Motor</td>
+                                                        <td><b>Garansi Motor</b></td>
                                                         <td><?= esc($data['garansi_motor_value']) ?> Tahun</td>
                                                     </tr>
 
                                                 <?php endif; ?>
+
+                                                <?php if ($data['subcategory_id'] == '67' || $data['subcategory_id'] == '70'): ?>
+                                                    <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
+                                                    <tr>
+                                                        <td><b>Garansi Motor</b></td>
+                                                        <td><?= esc($data['garansi_motor_value']) ?> Tahun</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                <?php endif; ?>
+
                                                 <?php if ($data['subcategory_id'] == '35' || $data['subcategory_id'] == '36'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
-                                                        <td><b></b></td>
+                                                        <td><b>Kapasitas Air Dingin</b></td>
                                                         <td><?= esc($data['kapasitas_air_dingin']) ?> Liter</td>
                                                         <td><b>Kapasitas Air Panas</b></td>
                                                         <td><?= esc($data['kapasitas_air_panas']) ?> Liter</td>
@@ -353,7 +366,24 @@
                                                     </tr>
 
                                                 <?php endif; ?>
-                                                <?php if ($data['subcategory_id'] == '33' || $data['subcategory_id'] == '34' || $data['subcategory_id'] == '37' || $data['subcategory_id'] == '38' || $data['subcategory_id'] == '41' || $data['subcategory_id'] == '44'): ?>
+
+                                                <?php if ($data['subcategory_id'] == '78'): ?>
+                                                    <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
+                                                    <tr>
+                                                        <td><b>Kapasitas Baterai</b></td>
+                                                        <td><?= esc($data['capacity_value']) ?></td>
+                                                        <td><b>Garansi Sparepart</b></td>
+                                                        <td><?= esc($data['compressor_warranty_value']) ?> Tahun</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Kecepatan Maksimal</b></td>
+                                                        <td><?= esc($data['kapasitas_air_dingin']) ?> Km/Jam</td>
+                                                        <td><b>Jarak Tempuh</b></td>
+                                                        <td><?= esc($data['kapasitas_air_panas']) ?> Km</td>
+                                                    </tr>
+                                                <?php endif; ?>
+
+                                                <?php if ($data['subcategory_id'] == '33' || $data['subcategory_id'] == '34' || $data['subcategory_id'] == '37' || $data['subcategory_id'] == '38' || $data['subcategory_id'] == '41' || $data['subcategory_id'] == '44' || $data['subcategory_id'] == '63' || $data['subcategory_id'] == '71' || $data['subcategory_id'] == '72' || $data['subcategory_id'] == '76'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
                                                         <td><b>Kapasitas</b></td>
@@ -370,7 +400,7 @@
 
                                                 <?php endif; ?>
 
-                                                <?php if ($data['subcategory_id'] == '42'): ?>
+                                                <?php if ($data['subcategory_id'] == '42' || $data['subcategory_id'] == '66'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
                                                         <td><b>Garansi Elemen Panas</b></td>
@@ -385,18 +415,18 @@
                                                     <tr>
                                                         <td><b>Kapasitas</b></td>
                                                         <td><?= esc($data['capacity_value']) ?></td>
-                                                        <td><b>Garansi Elemen Panas</b></td>
-                                                        <td><?= esc($data['garansi_elemen_panas_value']) ?> Tahun</td>
+                                                        <td><b>Garansi Sparepart</b></td>
+                                                        <td><?= esc($data['garansi_semua_service_value']) ?> Tahun</td>
                                                     </tr>
                                                     <tr>
-                                                        <td><b>Garansi Service</b></td>
+                                                        <td><b>Garansi Jasa Service</b></td>
                                                         <td><?= esc($data['sparepart_warranty_value']) ?> Tahun</td>
                                                         <td></td>
                                                         <td></td>
                                                     </tr>
                                                 <?php endif; ?>
 
-                                                <?php if ($data['subcategory_id'] == '45' || $data['subcategory_id'] == '46' || $data['subcategory_id'] == '54'): ?>
+                                                <?php if ($data['subcategory_id'] == '45' || $data['subcategory_id'] == '46' || $data['subcategory_id'] == '54' || $data['subcategory_id'] == '64'|| $data['subcategory_id'] == '65' || $data['subcategory_id'] == '68'|| $data['subcategory_id'] == '69'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
                                                         <td><b>Kapasitas</b></td>
@@ -412,11 +442,21 @@
                                                     </tr>
                                                 <?php endif; ?>
 
+                                                <?php if ($data['subcategory_id'] == '73' || $data['subcategory_id'] == '74'): ?>
+                                                    <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
+                                                    <tr>
+                                                        <td><b>Garansi Jasa Service</b></td>
+                                                        <td><?= esc($data['garansi_semua_service_value']) ?> Tahun</td>
+                                                        <td><b>Garansi Sparepart</b></td>
+                                                        <td><?= esc($data['sparepart_warranty_value']) ?> Tahun</td>
+                                                    </tr>
+                                                <?php endif; ?>
+
                                                 <?php if ($data['subcategory_id'] == '47' || $data['subcategory_id'] == '50' || $data['subcategory_id'] == '51'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
-                                                        <td><b>Ukuran</b></td>
-                                                        <td><?= esc($data['ukuran_size']) ?></td>
+                                                        <td><b>Kapasitas</b></td>
+                                                        <td><?= esc($data['capacity_value']) ?></td>
                                                         <td><b>Garansi Service</b></td>
                                                         <td><?= esc($data['garansi_semua_service_value']) ?> Tahun</td>
                                                     </tr>
@@ -428,7 +468,23 @@
                                                     </tr>
                                                 <?php endif; ?>
 
-                                                <?php if ($data['subcategory_id'] == '48'): ?>
+                                                <?php if ($data['subcategory_id'] == '47'): ?>
+                                                    <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
+                                                    <tr>
+                                                        <td><b>Ukuran</b></td>
+                                                        <td><?= esc($data['ukuran_size']) ?></td>
+                                                        <td><b>Garansi Motor</b></td>
+                                                        <td><?= esc($data['garansi_semua_service_value']) ?> Tahun</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Garansi Sparepart</b></td>
+                                                        <td><?= esc($data['sparepart_warranty_value']) ?> Tahun</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                <?php endif; ?>
+
+                                                <?php if ($data['subcategory_id'] == '48' || $data['subcategory_id'] == '75'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
                                                         <td><b>Kapasitas</b></td>

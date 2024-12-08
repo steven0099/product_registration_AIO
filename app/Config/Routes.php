@@ -92,6 +92,8 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->post('updatePower', 'ProductController::updatePower');
     $routes->post('updateWeight', 'ProductController::updateWeight');
     $routes->post('updateColdCap', 'ProductController::updateColdCap');
+    $routes->post('updatePics', 'ProductController::updatePics');
+    $routes->post('updateVideo', 'ProductController::updateVideo');
     $routes->post('updateHarga', 'ProductController::updateHarga');
     $routes->post('updateHotCap', 'ProductController::updateHotCap');
     $routes->post('updateCooling', 'ProductController::updateCooling');
@@ -115,6 +117,11 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('details/(:num)', 'AdminController::productDetails/$1');
     $routes->get('reports', 'ProductController::reports');
     $routes->post('generateReport', 'ProductController::generateReport');
+
+    $routes->get('wheel', 'WheelController::index'); // Management page
+    $routes->post('wheel/saveSegment', 'WheelController::saveSegment'); // Save a segment
+    $routes->post('wheel/updateSegment/(:num)', 'WheelController::updateSegment/$1'); // Save a segment
+    $routes->get('wheel/deleteSegment/(:num)', 'WheelController::deleteSegment/$1'); // Delete a segment
   
     // Brand Management
     $routes->get('brand', 'Admin\BrandController::index');
@@ -188,8 +195,12 @@ $routes->get('get-subcategories/(:num)', 'ProductController::getSubcategories/$1
 $routes->get('get-capacities/(:num)', 'ProductController::getCapacities/$1');
 $routes->get('get-ukuran-tv/(:num)', 'ProductController::getUkuranTv/$1');
 $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions');
-
-
+$routes->get('getOptions', 'ProductController::getOptions');
+$routes->post('updateProductField', 'ProductController::updateProductField');
+$routes->get('clear-subcategory-id', 'ProductController::clearSubcategoryId');
+$routes->get('/spinwheel', 'WheelController::wheel'); // Spin the wheel
+$routes->get('/wheel/getSegments', 'WheelController::getSegments'); // Spin the wheel
+$routes->get('/spinwheel/spin', 'WheelController::spinWheel'); // Spin the wheel
 
 
 $routes->get('no-access', 'AuthController::NoAccess');

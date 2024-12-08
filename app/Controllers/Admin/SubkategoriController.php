@@ -30,6 +30,10 @@ class SubkategoriController extends BaseController
         $data['selected_category_id'] = $selected_category_id; // Pass the selected category ID to the view
         $data['subcategoryId'] = $subcategoryId;
 
+        usort($data['categories'], function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Replace 'category' with the actual column name in your table
+        });
+
         return view('subkategori/subkategori', $data); // Pass the data to the view
     }
     

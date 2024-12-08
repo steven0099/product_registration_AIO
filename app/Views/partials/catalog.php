@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
     <?= $this->renderSection('css') ?>
 </head>
@@ -26,7 +27,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="/images/aio-logo-circle.png" alt="Logo" height="200" width="200">
+        <img class="animation__shake" src="/images/logo-aio.png" alt="Logo" height="150" width="150">
     </div>
 
     <!-- Content Wrapper. Contains page content -->
@@ -37,13 +38,11 @@
         <?= $this->renderSection('content') ?>
         <!-- /.content -->
 </div>
+<?= $this->include('partials/footer')?>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main-footer" style="margin-left:500px">
         <strong>Copyright &copy; 2024 AIO.</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
-        </div>
     </footer>
     </div>
 
@@ -81,6 +80,7 @@
 <script src="/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.js"></script>

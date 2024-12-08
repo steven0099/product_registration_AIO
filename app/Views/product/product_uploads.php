@@ -10,7 +10,7 @@
     <div class="container">
         <!-- Header Section -->
         <div class="form-header">
-            <img src="/images/logo.png" alt="AIO Logo" class="logo">
+            <img src="/images/aio-new.png" alt="AIO Logo" class="logo">
             <h2>Form Registrasi Produk</h2>
         </div>
 

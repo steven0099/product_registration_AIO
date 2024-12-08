@@ -27,12 +27,6 @@ class ConfirmationModel extends Model
         $builder->where('category', $category);
         $builder->where('capacity', $capacity);
         $builder->where('ukuran', $ukuran);
-        
-        // If the category is 'SMALL APPLIANCES', also filter by subcategory
-        if ($category == 'SMALL APPLIANCES') {
-            $builder->where('subcategory', $category); // Match products within the same subcategory
-        }
-        
         // Exclude the current product
         if ($excludeId) {
             $builder->where('id !=', $excludeId);
@@ -45,6 +39,24 @@ class ConfirmationModel extends Model
         return $builder->get()->getResultArray();
     }
     
+    public function getRelatedSmallApp($subcategory, $capacity, $ukuran, $excludeId = null)
+    {
+        $builder = $this->db->table('product_submissions');
+        
+            $builder->where('subcategory', $subcategory); // Match products within the same subcategory
+            $builder->where('capacity', $capacity);
+            $builder->where('ukuran', $ukuran);
+
+            if ($excludeId) {
+                $builder->where('id !=', $excludeId);
+            }
+        
+            // Filter by 'approved' status (assuming the status column exists and stores the approval status)
+            $builder->where('status', 'approved');
+            
+            // Fetch the related products
+            return $builder->get()->getResultArray();
+        }
     
     public function getRelatedProductsBySubcategoryOnly($subcategory, $excludeId = null)
     {

@@ -63,9 +63,13 @@
                 <td><?= esc($products['submitted_by']) ?></td> <!-- Display Subcategory Name -->
                 <td><?= esc($products['confirmed_at']) ?></td>
                 <td>
-                <button class="button btn btn-success" onclick="location.href='/superadmin/details/<?= esc($products['id']) ?>'"><i class="fas fa-eye"></i></button>
-                </button>
-                </td>
+    <button class="btn btn-success" 
+            onclick="window.open('/superadmin/details/<?= esc($products['id']) ?>', '_blank'); return false;" 
+            oncontextmenu="window.location='/superadmin/details/<?= esc($products['id']) ?>'; return false;" 
+            title="View Details">
+        <i class="fas fa-eye"></i>
+    </button>
+</td>
             </tr>
         <?php endforeach; ?>
     </tbody>

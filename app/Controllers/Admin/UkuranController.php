@@ -20,7 +20,7 @@ class UkuranController extends BaseController
     {
         // Define the list of category IDs and subcategory IDs you want to fetch
         $selectedCategoryIds = [9]; 
-        $selectedSubcategoryIds = [31,32,47,50,51]; 
+        $selectedSubcategoryIds = [31,32,47,51]; 
     
         $data['subcategories'] = $this->subcategoryModel
             ->select('subcategories.*, categories.name AS category_name') // Select subcategory and category name
@@ -30,6 +30,7 @@ class UkuranController extends BaseController
                 ->orWhereIn('subcategories.id', $selectedSubcategoryIds)
             ->groupEnd()
             ->findAll();
+
     
         // Fetch the capacities (no change here)
         $data['ukuran'] = $this->ukuranModel->getUkuranWithSubcategory();

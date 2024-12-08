@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
-    <title><?= $this->renderSection('title') ?> - AIO</title>
+    <title>Keunggulan Produk - AIO</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -17,6 +17,7 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="/product-asset/assets/css/themify-icons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <style>
 input.form-control:-webkit-autofill {
@@ -162,7 +163,7 @@ input.form-control:-webkit-autofill:focus {
                             <div class="wizard-header" style="text-align: center;weight: 7000;">
                                 <div class="row" style=" height: 135px; align-content: center">
                                     <div class="col-sm-5 col-sm-offset-1 logo">
-                                        <img src="<?= base_url('images/logo.png') ?>" style="max-height: 70px;">
+                                        <img src="<?= base_url('images/aio-new.png') ?>" style="max-height: 70px;">
                                     </div>
                                     <div class="col-sm-5 title">
                                         <h3 class="" style="font-weight: 700;margin-top: 25px;font-family: 'Poppins', sans-serif;">Form Registrasi Produk</h3>

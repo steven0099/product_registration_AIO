@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <div class="form-header">
-        <img src="<?= base_url('images/logo.png') ?>" alt="AIO Logo" class="logo">
+        <img src="<?= base_url('images/aio-new.png') ?>" alt="AIO Logo" class="logo">
             <h2>Form Registrasi Produk - Spesifikasi Produk</h2>
         </div>
         <div class="progress-bar">
