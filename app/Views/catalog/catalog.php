@@ -886,6 +886,14 @@ Katalog Digital
                         filterProducts(); // Trigger filtering (reapply filters including sort)
                     });
                 }
+            searchInput.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    const updatedUrl = updateUrlWithFilters('search', searchInput.value);
+                    history.pushState(null, '', updatedUrl.toString());
+                    filterProducts(); // Trigger filtering
+
+                }
 
                 // Event listener for search input
                 if (searchInput) {

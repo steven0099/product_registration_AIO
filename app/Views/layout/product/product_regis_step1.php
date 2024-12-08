@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
-    <title><?= $this->renderSection('title') ?> - AIO</title>
+    <title>Informasi Umum Produk - AIO</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -908,6 +908,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             airdinginField.placeholder = 'Kapasitas Air Dingin (Liter)';
             airpanasLabel.innerText = 'Kapasitas Air Panas (Liter)';
             airpanasField.placeholder = 'Kapasitas Air Panas (Liter)';
+
+        }  if (subcategoryId == 67 || subcategoryId == 70) {
+            // Hide "kapasitas" and "garansi sparepart"
+            document.getElementById('capacity-group').style.display = 'none';
+            document.getElementById('warranty-sparepart-group').style.display = 'none';
+
+            // Show "kapasitas air dingin" and "kapasitas air panas"
+            document.getElementById('kapasitas-air-dingin').style.display = 'none';
+            document.getElementById('kapasitas-air-panas').style.display = 'none';
+            compressorWarrantyLabel.innerText = 'Garansi Motor (Tahun)';
+
         } else if (subcategoryId == 78) {
             // Hide "kapasitas" and "garansi sparepart"
             document.getElementById('capacity-group').style.display = 'block';
@@ -922,7 +933,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             airdinginField.placeholder = 'Kecepatan Maksimal (Km/Jam)';
             airpanasLabel.innerText = 'Jarak Tempuh (km)';
             airpanasField.placeholder = 'Jarak Tempuh (km)';
-        } else if (subcategoryId == 42) {
+        } else if (subcategoryId == 42 || subcategoryId == 66) {
             document.getElementById('capacity-group').style.display = 'none';
             document.getElementById('warranty-sparepart-group').style.display = 'block';
 
@@ -930,6 +941,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             document.getElementById('kapasitas-air-dingin').style.display = 'none';
             document.getElementById('kapasitas-air-panas').style.display = 'none';
             compressorWarrantyLabel.innerText = 'Garansi Elemen Panas (Tahun)';
+
+        }   else if (subcategoryId == 73 || subcategoryId == 74) {
+            document.getElementById('capacity-group').style.display = 'none';
+            document.getElementById('warranty-sparepart-group').style.display = 'block';
+
+            // Show "kapasitas air dingin" and "kapasitas air panas"
+            document.getElementById('kapasitas-air-dingin').style.display = 'none';
+            document.getElementById('kapasitas-air-panas').style.display = 'none';
+            compressorWarrantyLabel.innerText = 'Garansi Jasa Service (Tahun)';
 
         } else if (subcategoryId == 52) {
             document.getElementById('capacity-group').style.display = 'none';

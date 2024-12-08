@@ -907,49 +907,71 @@ class ProductController extends BaseController
         $gambarSampingKananName = null;
         $videoProdukLink = null;
 
+        
+
         // Handle Gambar Tampak Depan
         $gambarDepan = $this->request->getFile('gambar_depan');
         if ($gambarDepan && $gambarDepan->isValid()) {
             $gambarDepanName = $gambarDepan->getRandomName();
             $gambarDepan->move($uploadPath, $gambarDepanName);
+            $data['gambar_depan'] = $gambarDepanName;
         } else {
-            return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
+            $data['gambar_depan'] = $this->request->getPost('gambar_depan_existing') ?? null;
+            if (empty($data['gambar_depan'])) {
+                return redirect()->back()->with('error', 'Gambar Tampak Depan is required.');
+            }
         }
-
+    
         // Handle Gambar Tampak Belakang
         $gambarBelakang = $this->request->getFile('gambar_belakang');
         if ($gambarBelakang && $gambarBelakang->isValid()) {
             $gambarBelakangName = $gambarBelakang->getRandomName();
             $gambarBelakang->move($uploadPath, $gambarBelakangName);
+            $data['gambar_belakang'] = $gambarBelakangName;
+        } else {
+            $data['gambar_belakang'] = $this->request->getPost('gambar_belakang_existing') ?? null;
         }
-
+    
         // Handle Gambar Tampak Atas
         $gambarAtas = $this->request->getFile('gambar_atas');
         if ($gambarAtas && $gambarAtas->isValid()) {
             $gambarAtasName = $gambarAtas->getRandomName();
             $gambarAtas->move($uploadPath, $gambarAtasName);
+            $data['gambar_atas'] = $gambarAtasName;
+        } else {
+            $data['gambar_atas'] = $this->request->getPost('gambar_atas_existing') ?? null;
         }
-
+    
         // Handle Gambar Tampak Bawah
         $gambarBawah = $this->request->getFile('gambar_bawah');
         if ($gambarBawah && $gambarBawah->isValid()) {
             $gambarBawahName = $gambarBawah->getRandomName();
             $gambarBawah->move($uploadPath, $gambarBawahName);
+            $data['gambar_bawah'] = $gambarBawahName;
+        } else {
+            $data['gambar_bawah'] = $this->request->getPost('gambar_bawah_existing') ?? null;
         }
-
+    
         // Handle Gambar Samping Kiri
         $gambarSampingKiri = $this->request->getFile('gambar_samping_kiri');
         if ($gambarSampingKiri && $gambarSampingKiri->isValid()) {
             $gambarSampingKiriName = $gambarSampingKiri->getRandomName();
             $gambarSampingKiri->move($uploadPath, $gambarSampingKiriName);
+            $data['gambar_samping_kiri'] = $gambarSampingKiriName;
+        } else {
+            $data['gambar_samping_kiri'] = $this->request->getPost('gambar_samping_kiri_existing') ?? null;
         }
-
+    
         // Handle Gambar Samping Kanan
         $gambarSampingKanan = $this->request->getFile('gambar_samping_kanan');
         if ($gambarSampingKanan && $gambarSampingKanan->isValid()) {
             $gambarSampingKananName = $gambarSampingKanan->getRandomName();
             $gambarSampingKanan->move($uploadPath, $gambarSampingKananName);
+            $data['gambar_samping_kanan'] = $gambarSampingKananName;
+        } else {
+            $data['gambar_samping_kanan'] = $this->request->getPost('gambar_samping_kanan_existing') ?? null;
         }
+    
 
         // Handle Video Produk (YouTube link, optional)
         $videoProduk = $this->request->getPost('video_produk');
