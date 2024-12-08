@@ -10,9 +10,10 @@
             background: linear-gradient(to top, #0d2a46, #020020);
             /* Fades from your blue to black */
             color: #FFFFFF;
-            padding: 40px 40px;
+            padding: 20px;
             display: flex;
             justify-content: center;
+            margin-top: 105px;
             flex-wrap: wrap;
             font-family: 'Poppins', sans-serif;
         }
@@ -22,7 +23,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            justify-content: space-between;
+
             align-items: flex-start;
             flex-wrap: wrap;
         }
@@ -45,12 +46,15 @@
             flex: 1;
             max-width: 250px;
             margin: 0 58.5px;
+            align-items: center;
+            margin-top: 30px;
             text-align: left;
         }
 
         .footer-section h3 {
             font-size: 18px;
             font-weight: bold;
+
             margin-bottom: 20px;
         }
 
@@ -61,9 +65,10 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
+            text-align: center;
         }
 
         .footer-section ul li a {
