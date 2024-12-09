@@ -69,7 +69,7 @@
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
 </head>
 
-<body style="background-color: #00aff0">
+<body style="background-color: #00aff0; overflow-y: hidden">
     <div class="header-container" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
         <img src="/images/spin-head.jpeg" alt="Header" style="height:100px; width:500px;">
     </div>
@@ -98,13 +98,18 @@
 
     <!-- Prize sound -->
     <audio id="prizeSound" src="/audio/prize-sfx.mp3"></audio>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script>
+            let csrfName = '<?= csrf_token() ?>'; // The CSRF token name
+            let csrfHash = '<?= csrf_hash() ?>'; // The CSRF token value
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
         const resultDisplay = document.getElementById('result');
         const spinSound = document.getElementById('spinSound');
         const prizeSound = document.getElementById('prizeSound');
+        const centerImageElement = new Image();
+        centerImageElement.src = '/images/centerpiece.png'; // Replace with your PNG path
 
         let isSpinning = false;
         let rotationAngle = 0;
@@ -113,12 +118,23 @@
         let totalOdds = 0;
         let equalAngle = 2 * Math.PI / segments.length; // Angle per segment, defined globally
 
+        function refreshCsrfToken() {
+    fetch('/wheel/getCsrfToken')
+        .then(response => response.json())
+        .then(data => {
+            csrfName = data.csrfName;
+            csrfHash = data.csrfHash;
+        })
+        .catch(error => console.error('Failed to refresh CSRF token:', error));
+}
+
+
         // Draw the wheel with proportional segments
         function drawWheel() {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const radius = Math.min(centerX, centerY) - 10; // Adjust radius for spacing
-    const outerRadius = radius - 30; // Outer radius for image placement
+    const outerRadius = radius - 50; // Outer radius for image placement
     const equalAngle = 2 * Math.PI / segments.length; // Each segment gets an equal angle
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redrawing
@@ -126,29 +142,29 @@
     let currentAngle = rotationAngle; // Start at the current rotation angle
 
     // Add shadow to the border
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color (black with transparency)
-    ctx.shadowBlur = 10; // Blur effect for the shadow
-    ctx.shadowOffsetX = 3; // Horizontal offset of the shadow
-    ctx.shadowOffsetY = 3; // Vertical offset of the shadow
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = 3;
+    ctx.shadowOffsetY = 3;
 
     // Draw the white border around the wheel
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius + 1, 0, 2 * Math.PI); // Outer circle (border)
-    ctx.lineWidth = 10; // Set line width for the border
-    ctx.strokeStyle = '#fff'; // Set border color to white
+    ctx.lineWidth = 10; // Border width
+    ctx.strokeStyle = '#fff'; // Border color
     ctx.stroke();
-    ctx.lineWidth = 1; // Reset line width for subsequent drawings
+    ctx.lineWidth = 1; // Reset line width
 
-    // Remove shadow after border
-    ctx.shadowColor = 'transparent'; 
+    // Remove shadow for inner drawings
+    ctx.shadowColor = 'transparent';
 
     segments.forEach((segment, index) => {
-        // For the first segment, choose a random color between blue and #fdce26
+        // Define the segment color dynamically
         let color;
-        if (index === 0) {
-            color = 'blue'; // Randomly pick between blue and #fdce26
+        if (index === 0 && segments.length % 3 != 0) {
+            color = '#0daff0'; // First segment special color
         } else {
-            // Default color assignment for the rest of the segments
+            // Alternating colors for the rest
             switch (index % 3) {
                 case 0:
                     color = '#fd2654'; // Red
@@ -157,52 +173,53 @@
                     color = '#fdce26'; // Yellow
                     break;
                 case 2:
-                    color = 'blue'; // Blue
+                    color = '#0daff0'; // Blue
                     break;
             }
         }
 
-        // Draw the segment with the determined color
+        // Draw the segment
         ctx.beginPath();
-        ctx.moveTo(centerX, centerY); // Move to the center
-        ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + equalAngle); // Draw the segment
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + equalAngle);
         ctx.closePath();
 
-        ctx.fillStyle = color; // Set the color dynamically
-        ctx.fill(); // Fill the segment
-        ctx.stroke(); // Outline the segment
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.stroke();
 
-        // If there's an image, draw it as a circle at the outer tip of the segment
+        // Draw the image for the segment (if available)
         if (segment.imgElement) {
-            const imgSize = 40; // Size of the image (adjustable)
+            const imgSize = 80; // Image size
             const imgX = centerX + Math.cos(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
             const imgY = centerY + Math.sin(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
 
-            // Draw the image at the outer tip of the segment
             ctx.save();
-            // Clip the image into a circle
             ctx.beginPath();
             ctx.arc(imgX + imgSize / 2, imgY + imgSize / 2, imgSize / 2, 0, 2 * Math.PI);
-            ctx.clip(); // Clip to circular area
-
+            ctx.clip(); // Clip image to a circular area
             ctx.drawImage(segment.imgElement, imgX, imgY, imgSize, imgSize);
             ctx.restore();
         }
 
-        currentAngle += equalAngle; // Update angle for the next segment
+        currentAngle += equalAngle; // Move to the next segment
     });
 
-    // Draw the small center circle (for placing an image later)
-    const centerCircleRadius = 30; // Adjust size of the center circle
+    // Draw the center circle (placeholder for an image)
+    const centerCircleRadius = 45; // Size of the center circle
     ctx.beginPath();
-    ctx.arc(centerX, centerY, centerCircleRadius, 0, 2 * Math.PI); // Draw the circle at the center
-    ctx.fillStyle = '#fff'; // Fill with white (or any color)
+    ctx.arc(centerX, centerY, centerCircleRadius, 0, 2 * Math.PI);
+    ctx.fillStyle = '#fff'; // White center circle
     ctx.fill();
     ctx.lineWidth = 3; // Border thickness
-    ctx.stroke(); // Draw the border for the circle
+    ctx.stroke();
 
-    drawPointer(); // Draw the pointer after drawing segments
+    drawCenterImage(); // Draw the center image here
+
+    // Draw the pointer on top
+    drawPointer();
 }
+
 
 function drawPointer() {
     const centerX = canvas.width / 2;
@@ -278,9 +295,11 @@ function drawPointer() {
 
         function loadSegments(newSegments) {
             segments = newSegments.map(segment => ({
+                id: segment.id,
                 label: segment.label,
                 odds: parseFloat(segment.odds),
-                image: segment.image
+                image: segment.image,
+                stock: segment.stock
             }));
 
             totalOdds = segments.reduce((sum, segment) => sum + segment.odds, 0);
@@ -297,43 +316,46 @@ function drawPointer() {
         }
 
         // Spin the wheel with fixed duration of 10 seconds
-// Spin the wheel with fixed duration of 5 seconds (faster)
-function spinWheel() {
+        function spinWheel() {
     if (isSpinning) return;
     isSpinning = true;
 
     spinSound.play();
 
-    const duration = 10000; // Spin for 5 seconds
-    const randomExtraRotation = Math.random() * 2 * Math.PI; // Randomize final position
-    const totalRotation = 10 * 2 * Math.PI + randomExtraRotation; // 10 full spins + random
+    console.log("Picking segment..."); // Debugging log
+
+    const selectedSegment = pickSegmentByOdds();
+    console.log("Selected Segment:", selectedSegment); // Debugging log
+
+    const targetAngle = getTargetAngle(selectedSegment);
+    const finalAngle = targetAngle; // No extra rotations
+    const totalRotation = (2 * Math.PI * 20) + (-(targetAngle + 1/2*Math.PI));
+    const duration= 10000;
     const startTime = Date.now();
-
     function animate() {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1); // Clamp progress to [0, 1]
+        const elapsed = Date.now() - startTime; // Calculate elapsed time
+        const progress = Math.min(elapsed / duration, 1); // Normalize progress between 0 and 1
 
-        // Apply an "ease-out" effect for smooth deceleration
-        const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease-out cubic function
-        rotationAngle = easedProgress * totalRotation;
+        // Easing for smooth animation
+        const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease-out cubic
 
-        drawWheel();
+        // Calculate current rotation angle based on easing progress
+        rotationAngle = (easedProgress * totalRotation) % (2 * Math.PI); // Normalize to [0, 2π]
+
+        drawWheel(); // Draw the wheel with the new rotation
 
         if (progress < 1) {
-            requestAnimationFrame(animate);
+            requestAnimationFrame(animate); // Continue animation if not finished
         } else {
             isSpinning = false;
-            rotationAngle = (rotationAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI); // Normalize angle
-            drawWheel();
-            playPrizeSound();
-            displayResult();
+            rotationAngle = totalRotation % (2 * Math.PI); // Finalize the rotation angle within range
+            drawWheel(); // Draw the final position of the wheel
+            displayResult(selectedSegment); // Display the result (the segment the wheel landed on)
         }
     }
 
-    animate();
+    animate(); // Start the animation loop
 }
-
-
         // Play the prize sound when the wheel stops
         function playPrizeSound() {
             prizeSound.play();
@@ -341,38 +363,35 @@ function spinWheel() {
 
         // Display the selected result after the wheel stops
 // Display result in the modal
-function displayResult() {
-    const selectedSegment = getSelectedSegment();
+function displayResult(selectedSegment) {
     const modal = document.getElementById('resultModal');
     const modalPrize = document.getElementById('modalPrize');
 
-    if (selectedSegment) {
-        modalPrize.textContent = `Selamat, Anda Mendapatkan ${selectedSegment.label}!`;
-    } else {
-        modalPrize.textContent = "No segments selected";
-    }
-
-    modal.style.display = 'flex';  // Show the modal
+    modalPrize.textContent = `Selamat, Anda Mendapatkan ${selectedSegment.label}!`;
+    modal.style.display = 'flex'; // Show the modal
+    playPrizeSound();
+    triggerConfetti();
+    handlePrizeRoll(selectedSegment);
 }
 
-        function getSelectedSegment() {
+
+function getSelectedSegment() {
     // Normalize the rotation angle to [0, 2π)
     const normalizedAngle = (-(rotationAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI));  // Ensure positive angle
     const pointerOffset = -(Math.PI) / 2; // Pointer offset to start at the top (0 degrees)
     let adjustedAngle = (normalizedAngle + pointerOffset + 2 * Math.PI) % (2 * Math.PI);
-
-    // Calculate cumulative angular ranges for each segment
-    let cumulativeAngles = [];
-    let totalAngle = 0;
 
     if (adjustedAngle < 0) {
         adjustedAngle += 2 * Math.PI;
     } else if (adjustedAngle >= 2 * Math.PI) {
         adjustedAngle -= 2 * Math.PI;
     }
-    // Debugging: show the segment distribution for better understanding
     console.log(`Adjusted Angle: ${adjustedAngle}`);
 
+    let cumulativeAngles = [];
+    let totalAngle = 0;
+
+    // Calculate and log the cumulative angles for each segment
     for (let i = 0; i < segments.length; i++) {
         const segment = segments[i];
         const segmentAngle = segment.angle || (2 * Math.PI / segments.length); // Default to equal angles if not defined
@@ -383,7 +402,7 @@ function displayResult() {
         console.log(`Segment ${i}: Angle = ${segmentAngle}, Cumulative Angle = ${totalAngle}`);
     }
 
-    // Debug output: checking cumulative angle calculation
+    // Debugging: Output the cumulative angle array
     console.log(`Cumulative Angles: ${cumulativeAngles}`);
 
     // Determine the segment by finding where the adjusted angle falls
@@ -395,15 +414,57 @@ function displayResult() {
         }
     }
 
-    // Debugging outputs
     console.log(`Selected Index: ${selectedIndex}`);
     console.log(`Selected Segment: ${segments[selectedIndex]?.label || "Invalid"}`);
 
     return segments[selectedIndex];
 }
+function pickSegmentByOdds() {
+    const random = Math.random(); // Random value between 0 and 1
+    console.log('Random value:', random); // Log random value for debugging
+
+    let cumulativeOdds = 0;
+
+    console.log('Segments available:', segments);
+    for (const segment of segments) {
+        // Ensure odds is treated as a number
+        const odds = parseFloat(segment.odds); 
+        cumulativeOdds += odds / 100; // Accumulate odds
+        console.log(`Cumulative odds: ${cumulativeOdds}, Segment odds: ${odds}`); // Log cumulative odds for each segment
+
+        if (random < cumulativeOdds) {
+            console.log(`Picked segment: ${segment.label}, ID: ${segment.id}`); // Log the picked segment with ID
+            return segment;
+        }
+    }
+
+    // If no segment is picked, return the last segment as fallback
+    console.log('Fallback to last segment');
+    return segments[segments.length - 1];
+}
 
 
+function getTargetAngle(segment) {
+    const segmentIndex = segments.indexOf(segment); // Find the index of the segment
+    if (segmentIndex === -1) {
+        console.error("Segment not found:", segment);
+        return 0; // Fallback in case the segment is not found
+    }
 
+    const equalAngle = 2 * Math.PI / segments.length; // Angle for each segment
+    return segmentIndex * equalAngle + equalAngle / 2; // Target angle for the center of the segment
+}
+function drawCenterImage() {
+    const imgSize = 60; // Adjust size as needed
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const imgX = centerX - imgSize / 2;
+    const imgY = centerY - imgSize / 2;
+
+    if (centerImageElement) {
+        ctx.drawImage(centerImageElement, imgX, imgY, imgSize, imgSize);
+    }
+}
 
         // Fetch segments from the backend
         fetch('/wheel/getSegments')
@@ -421,23 +482,95 @@ function displayResult() {
             });
 
             // Trigger spin on "Enter" key
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' && !isSpinning) {  // Check if the Enter key is pressed and not spinning
+            document.addEventListener('keydown', (event) => {
+    if ((event.key === ' ' || event.key === 'Spacebar') && !isSpinning) {  // Check if Spacebar (or ' ') is pressed and not spinning
+        event.preventDefault();  // Prevent default Spacebar action (e.g., scrolling)
         spinWheel();  // Start spinning
     }
 });
 
 // Close modal on "Esc" key
+
+// Close modal on "Esc" key and refresh the page or content
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {  // Check if the Escape key is pressed
         closeModal();  // Close the modal
+        console.log("Modal closed, triggering refresh...");
+        
+        // Delay refresh to ensure modal close completes
+        setTimeout(refreshPage, 100);  // Delay by 500ms
     }
 });
 
-// Function to close the modal
+
+// Trigger a confetti burst when needed
+function triggerConfetti() {
+    const confettiSettings = {
+        particleCount: 300,
+        spread: 90, // Narrow spread for sides
+        gravity: 1,
+        decay:0.95,
+        colors: ['#0daff0', '#fdce26', '#fd2654'],
+        shapes: ['square', 'circle'],
+    };
+
+    // Burst from the leftmost part
+    confetti({
+        ...confettiSettings,
+        origin: { x: 0, y: 1 }, // Left center of the screen
+        angle: 45, // Upward direction
+    });
+
+    // Burst from the rightmost part
+    confetti({
+        ...confettiSettings,
+        origin: { x: 1, y: 1 }, // Right center of the screen
+        angle: 135, // Upward direction
+    });
+
+
+}
+function handlePrizeRoll(selectedSegment) {
+    // Ensure the CSRF token is refreshed before making the request
+    refreshCsrfToken();
+
+    fetch(`/wheel/rollPrize/${selectedSegment.id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            [csrfName]: csrfHash, // Add the CSRF token to the request body
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Prize Rolled:', data.segment.label);
+        } else {
+            console.error('Error:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('API Request Failed:', error);
+    });
+}
+
 function closeModal() {
     const modal = document.getElementById('resultModal');
     modal.style.display = 'none';  // Hide the modal
+    console.log("Modal hidden");
+}
+
+function refreshPage() {
+    // Option 1: Reload the entire page
+    console.log("Refreshing the page...");
+    location.reload();  // This reloads the entire page
+
+    // Option 2: Reload only the modal content (if you don't want a full page reload)
+    // const modalContent = document.getElementById('modalContent');
+    // modalContent.innerHTML = '';  // Clear the existing content
+    // loadModalContent();  // Call a function to reload the content (if necessary)
 }
     </script>
 </body>

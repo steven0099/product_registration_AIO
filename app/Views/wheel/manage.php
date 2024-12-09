@@ -86,6 +86,7 @@ Manajemen Roda
                                     <th>Foto</thh>
                                     <th>Nama Segmen</th>
                                     <th>Kesempatan (%)</th>
+                                    <th>Stok Hadiah</th>
                                     <th>Opsi</th>
                                 </tr>
                             </thead>
@@ -102,6 +103,7 @@ Manajemen Roda
                                     <?php endif; ?>
                                     <td><?= esc($segment['label']) ?></td>
                                     <td><?= esc($segment['odds']) ?>%</td>
+                                    <td><?= esc($segment['stock']) ?></td>
                                     <td>
                                         <button class="btn-primary btn btn-edit" data-toggle="modal"
                                             data-target="#editSegmentModal<?= esc($segment['id']) ?>">
@@ -140,6 +142,12 @@ Manajemen Roda
                                                         <input type="number" class="form-control" name="odds"
                                                             placeholder="Enter Odds Percentage" min="0" max="100"
                                                             step="0.01" value="<?= esc($segment['odds']) ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="stock">Stok Hadiah</label>
+                                                        <input type="number" class="form-control" name="stock"
+                                                            placeholder="Enter Stock" min="0"
+                                                            step="1" value="<?= esc($segment['stock']) ?>" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="image">Gambar Segmen</label>
@@ -194,6 +202,12 @@ Manajemen Roda
                                                 placeholder="Enter Odds Percentage" min="0" max="100" step="0.01"
                                                 required>
                                         </div>
+                                        <div class="form-group">
+                                                        <label for="stock">Stok Hadiah</label>
+                                                        <input type="number" class="form-control" name="stock"
+                                                            placeholder="Enter Stock" min="0"
+                                                            step="1" required>
+                                                    </div>
                                         <div class="form-group">
                                             <label for="image">Gambar Segmen</label>
                                             <input type="file" class="form-control" name="image" accept="image/*"

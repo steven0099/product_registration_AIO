@@ -200,7 +200,10 @@ $routes->post('updateProductField', 'ProductController::updateProductField');
 $routes->get('clear-subcategory-id', 'ProductController::clearSubcategoryId');
 $routes->get('/spinwheel', 'WheelController::wheel'); // Spin the wheel
 $routes->get('/wheel/getSegments', 'WheelController::getSegments'); // Spin the wheel
+$routes->post('/wheel/rollPrize/(:num)', 'WheelController::rollPrize/$1'); // Spin the wheel
 $routes->get('/spinwheel/spin', 'WheelController::spinWheel'); // Spin the wheel
+$routes->get('/wheel/getCsrfToken', 'WheelController::getCsrfToken');
+
 
 
 $routes->get('no-access', 'AuthController::NoAccess');

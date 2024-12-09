@@ -24,7 +24,7 @@ class WheelController extends BaseController
     public function getSegments()
     {
         // Fetch segments from the model
-        $segments = $this->wheelModel->findAll();
+        $segments = $this->wheelModel->where('stock >', 0)->findAll();;
         
         // Log the fetched segments for debugging
         log_message('debug', 'Fetched Segments: ' . print_r($segments, true));
@@ -38,7 +38,37 @@ class WheelController extends BaseController
         return $this->response->setJSON($segments);
     }
     
-
+    public function rollPrize($id)
+    {
+        // Fetch the segment by ID
+        $segment = $this->wheelModel->find($id);
+    
+        // Check if segment exists and if stock is greater than 0
+        if ($segment && $segment['stock'] > 0) {
+            // Decrease the stock by 1
+            $segment['stock'] -= 1;
+    
+            // Update the segment in the database
+            $this->wheelModel->update($id, ['stock' => $segment['stock']]);
+    
+            // Log the updated stock for debugging
+            log_message('debug', 'Updated Stock for Segment ID ' . $id . ': ' . $segment['stock']);
+            
+            // Return a success response with the updated segment data
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Prize Rolled',
+                'segment' => $segment
+            ]);
+        } else {
+            // Return an error response if segment doesn't exist or is out of stock
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Segment not found or out of stock'
+            ]);
+        }
+    }
+    
     // Add or Update a Segment
     public function saveSegment()
     {
@@ -51,6 +81,7 @@ class WheelController extends BaseController
         $data = [
             'label' => $this->request->getPost('label'),
             'odds' => $this->request->getPost('odds'),
+            'stock' => $this->request->getPost('stock'),
             'image' => isset($newName) ? $newName : '', // Store the image filename
         ];
     
@@ -65,32 +96,44 @@ class WheelController extends BaseController
     public function updateSegment($id)
     {
         $image = $this->request->getFile('image');
+        
+        // Check if a new image was uploaded
         if ($image->isValid() && !$image->hasMoved()) {
             $newName = $image->getRandomName();
             $image->move('uploads/images', $newName);
-    
-          // Optionally, delete the old image if updating
-$segment = $this->wheelModel->find($id);
-$imagePath = 'uploads/images/' . $segment['image'];
-
-// Check if the file exists and is a file (not a directory)
-if (file_exists($imagePath) && is_file($imagePath)) {
-    unlink($imagePath);
-}
-
+        
+            // Optionally, delete the old image if updating
+            $segment = $this->wheelModel->find($id);
+            $imagePath = 'uploads/images/' . $segment['image'];
+        
+            // Check if the file exists and is a file (not a directory)
+            if (file_exists($imagePath) && is_file($imagePath)) {
+                unlink($imagePath); // Delete the old image
+            }
+        
+            // Set the new image name
+            $imageName = $newName;
+        } else {
+            // Use the existing image name if no new image is uploaded
+            $segment = $this->wheelModel->find($id);
+            $imageName = $segment['image'];  // Keep the existing image name
         }
-    
+        
+        // Prepare the data for updating the segment
         $data = [
             'label' => $this->request->getPost('label'),
             'odds' => $this->request->getPost('odds'),
-            'image' => isset($newName) ? $newName : $this->request->getPost('existing_image'),
+            'stock' => $this->request->getPost('stock'),
+            'image' => $imageName,  // Use either new image or existing image
         ];
-    
+        
         // Update in the database
         $this->wheelModel->update($id, $data);
-    
+        
+        // Redirect to the wheel page
         return redirect()->to('/admin/wheel');
     }
+    
     
     // Delete a Segment
     public function deleteSegment($id)
@@ -123,6 +166,20 @@ if (file_exists($imagePath) && is_file($imagePath)) {
     // Render Spin the Wheel View
     public function wheel()
     {
-        return view('wheel/spin');
+        $segments = $this->wheelModel->findAll();
+        return view('wheel/spin-1', ['segments' => $segments]);
     }
+
+    public function getCsrfToken()
+    {
+        $csrfName = csrf_token();
+        $csrfHash = csrf_hash();
+    
+        return $this->response->setJSON([
+            'csrfName' => $csrfName,
+            'csrfHash' => $csrfHash,
+        ]);
+    }
+    
+
 }
