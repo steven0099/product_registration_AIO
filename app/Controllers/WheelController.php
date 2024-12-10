@@ -77,18 +77,25 @@ class WheelController extends BaseController
             $newName = $image->getRandomName();
             $image->move('uploads/images', $newName);
         }
+
+        $modal_img = $this->request->getFile('modal_img');
+        if ($modal_img->isValid() && !$modal_img->hasMoved()) {
+            $newName = $modal_img->getRandomName();
+            $modal_img->move('uploads/images', $newName);
+        }
     
         $data = [
             'label' => $this->request->getPost('label'),
             'odds' => $this->request->getPost('odds'),
             'stock' => $this->request->getPost('stock'),
             'image' => isset($newName) ? $newName : '', // Store the image filename
+            'modal_img' => isset($newName) ? $newName : '', // Store the image filename
         ];
     
         // Save to the database
         $this->wheelModel->insert($data);
     
-        return redirect()->to('/admin/wheel');
+        return redirect()->to('/superadmin/wheel');
     }
     
 
@@ -96,6 +103,7 @@ class WheelController extends BaseController
     public function updateSegment($id)
     {
         $image = $this->request->getFile('image');
+        $modal_img = $this->request->getFile('modal_img');
         
         // Check if a new image was uploaded
         if ($image->isValid() && !$image->hasMoved()) {
@@ -119,19 +127,40 @@ class WheelController extends BaseController
             $imageName = $segment['image'];  // Keep the existing image name
         }
         
+        if ($modal_img->isValid() && !$modal_img->hasMoved()) {
+            $newName = $modal_img->getRandomName();
+            $modal_img->move('uploads/images', $newName);
+        
+            // Optionally, delete the old image if updating
+            $segment = $this->wheelModel->find($id);
+            $imagePath = 'uploads/images/' . $segment['modal_img'];
+        
+            // Check if the file exists and is a file (not a directory)
+            if (file_exists($imagePath) && is_file($imagePath)) {
+                unlink($imagePath); // Delete the old image
+            }
+        
+            // Set the new image name
+            $modalImgName = $newName;
+        } else {
+            // Use the existing image name if no new image is uploaded
+            $segment = $this->wheelModel->find($id);
+            $modalImgName = $segment['modal_img'];  // Keep the existing image name
+        }
         // Prepare the data for updating the segment
         $data = [
             'label' => $this->request->getPost('label'),
             'odds' => $this->request->getPost('odds'),
             'stock' => $this->request->getPost('stock'),
             'image' => $imageName,  // Use either new image or existing image
+            'modal_img' => $modalImgName,
         ];
         
         // Update in the database
         $this->wheelModel->update($id, $data);
         
         // Redirect to the wheel page
-        return redirect()->to('/admin/wheel');
+        return redirect()->to('/superadmin/wheel');
     }
     
     
@@ -139,7 +168,7 @@ class WheelController extends BaseController
     public function deleteSegment($id)
     {
         $this->wheelModel->delete($id);
-        return redirect()->to('/admin/wheel');
+        return redirect()->to('/superadmin/wheel');
     }
 
     // Spin the Wheel (API)
@@ -172,12 +201,9 @@ class WheelController extends BaseController
 
     public function getCsrfToken()
     {
-        $csrfName = csrf_token();
-        $csrfHash = csrf_hash();
-    
         return $this->response->setJSON([
-            'csrfName' => $csrfName,
-            'csrfHash' => $csrfHash,
+            'csrfName' => csrf_token(),
+            'csrfHash' => csrf_hash(),
         ]);
     }
     

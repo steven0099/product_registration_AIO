@@ -83,7 +83,8 @@ Manajemen Roda
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Foto</thh>
+                                    <th>Foto</th>
+                                    <th>Foto (Modal)</th>
                                     <th>Nama Segmen</th>
                                     <th>Kesempatan (%)</th>
                                     <th>Stok Hadiah</th>
@@ -99,6 +100,12 @@ Manajemen Roda
                                         <?php if ($segment['image'] != null): ?>
                                         <img src="<?= base_url('uploads/images/' . esc($segment['image'])) ?>"
                                             alt="Image" style="width: 50px; height: 50px;">
+                                    </td>
+                                    <?php endif; ?>
+                                    <td>
+                                        <?php if ($segment['modal_img'] != null): ?>
+                                        <img src="<?= base_url('uploads/images/' . esc($segment['modal_img'])) ?>"
+                                            alt="Modal Image" style="width: 50px; height: 50px;">
                                     </td>
                                     <?php endif; ?>
                                     <td><?= esc($segment['label']) ?></td>
@@ -128,7 +135,7 @@ Manajemen Roda
                                                 </button>
                                             </div>
                                             <form method="post"
-                                                action="<?= base_url('/admin/wheel/updateSegment/' . esc($segment['id'])) ?>"
+                                                action="<?= base_url('/superadmin/wheel/updateSegment/' . esc($segment['id'])) ?>"
                                                 enctype="multipart/form-data">
                                                 <?= csrf_field(); ?>
                                                 <div class="modal-body">
@@ -156,6 +163,16 @@ Manajemen Roda
                                                                 alt="Image" style="width: 100px; height: 100px;">
                                                         </div>
                                                         <input type="file" class="form-control" name="image"
+                                                            accept="image/*">
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="modal_img">Gambar Modal</label>
+                                                        <div>
+                                                            <img src="<?= base_url('uploads/images/' . esc($segment['modal_img'])) ?>"
+                                                                alt="Image" style="width: 100px; height: 100px;">
+                                                        </div>
+                                                        <input type="file" class="form-control" name="modal_img"
                                                             accept="image/*">
 
                                                     </div>
@@ -187,7 +204,7 @@ Manajemen Roda
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="post" action="<?= base_url('/admin/wheel/saveSegment') ?>"
+                                <form method="post" action="<?= base_url('/superadmin/wheel/saveSegment') ?>"
                                     enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <div class="modal-body">
@@ -211,6 +228,11 @@ Manajemen Roda
                                         <div class="form-group">
                                             <label for="image">Gambar Segmen</label>
                                             <input type="file" class="form-control" name="image" accept="image/*"
+                                                required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="modal_img">Gambar Modal</label>
+                                            <input type="file" class="form-control" name="modal_img" accept="image/*"
                                                 required>
                                         </div>
                                     </div>

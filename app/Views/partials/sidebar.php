@@ -231,9 +231,9 @@
             </li>
         <?php endif; ?>
       </ul>
-      <?php if (session()->get('role') == 'superadmin' || session()->get('role') == 'admin'): ?>
-        <li class="nav-item <?= (uri_string() == 'admin/wheel') ? 'menu-open' : '' ?>" style="width: 99%">
-            <a href="#" class="nav-link <?= (uri_string() == 'admin/wheel') ? 'active' : '' ?>">
+      <?php if (session()->get('role') == 'superadmin'): ?>
+        <li class="nav-item <?= (uri_string() == 'superadmin/wheel') ? 'menu-open' : '' ?>" style="width: 99%">
+            <a href="#" class="nav-link <?= (uri_string() == 'superadmin/wheel') ? 'active' : '' ?>">
             <i class="fas fa-scroll nav-icon"></i>
               <p>
                 Manajemen Spin Wheel
@@ -242,7 +242,7 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/wheel" class="nav-link <?= (uri_string() == 'admin/wheel') ? 'active' : '' ?>">
+              <a href="/superadmin/wheel" class="nav-link <?= (uri_string() == 'superadmin/wheel') ? 'active' : '' ?>">
               <i class="fas fa-tools nav-icon"></i>
                 <p>Manajemen Roda</p>
               </a>

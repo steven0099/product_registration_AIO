@@ -72,6 +72,10 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->get('reject/(:num)', 'ProductController::rejectProduct/$1');
 
     
+    $routes->get('wheel', 'WheelController::index'); // Management page
+    $routes->post('wheel/saveSegment', 'WheelController::saveSegment'); // Save a segment
+    $routes->post('wheel/updateSegment/(:num)', 'WheelController::updateSegment/$1'); // Save a segment
+    $routes->get('wheel/deleteSegment/(:num)', 'WheelController::deleteSegment/$1'); // Delete a segment
     // User management routes for superadmin
     $routes->get('user', 'Superadmin\UserController::index'); // This should match your directory structure
     $routes->get('user/addUser', 'Superadmin\UserController::addUser');
@@ -117,11 +121,6 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->get('details/(:num)', 'AdminController::productDetails/$1');
     $routes->get('reports', 'ProductController::reports');
     $routes->post('generateReport', 'ProductController::generateReport');
-
-    $routes->get('wheel', 'WheelController::index'); // Management page
-    $routes->post('wheel/saveSegment', 'WheelController::saveSegment'); // Save a segment
-    $routes->post('wheel/updateSegment/(:num)', 'WheelController::updateSegment/$1'); // Save a segment
-    $routes->get('wheel/deleteSegment/(:num)', 'WheelController::deleteSegment/$1'); // Delete a segment
   
     // Brand Management
     $routes->get('brand', 'Admin\BrandController::index');

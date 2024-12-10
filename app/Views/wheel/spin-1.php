@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spin the Wheel - AIO</title>
+    <title>Spin Now! - AIO</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
         canvas {
             display: block;
@@ -43,6 +44,7 @@
             border-radius: 10px;
             text-align: center;
             width: 80%;
+            font-family: Poppins, sans-serif;
             max-width: 400px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
@@ -65,28 +67,35 @@
         #modalContent button:hover {
             background-color: #007bbd;
         }
+
+        #modalPrizeImage{
+    display: contain;
+    margin: 0 auto; /* Center the image */
+    width: 80%; /* Scale the image proportionally */
+    height: 80%;
+}
+
     </style>
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
 </head>
 
 <body style="background-color: #00aff0; overflow-y: hidden">
-    <div class="header-container" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
-        <img src="/images/spin-head.jpeg" alt="Header" style="height:100px; width:500px;">
-    </div>
 
-    <div class="wheel-container" style="display: flex; justify-content: center; align-items: center; position: relative;">
+    <div class="wheel-container" style="margin-top:70px; display: flex; justify-content: center; align-items: center; position: relative;">
         <!-- Left Image -->
-        <img src="/images/afe-3.png" alt="Left Image" class="side-image" style="position: absolute; left: 100px; height: 40px; width: 200px;">
+        <img src="/images/display-2.png" alt="Left Image" class="side-image" style="position: absolute; left: 20px; height: 400px; width: 400px;">
 
         <!-- Wheel Canvas -->
         <canvas id="wheelCanvas" width="500" height="525"></canvas>
 
         <!-- Right Image -->
-        <img src="/images/afe-3.png" alt="Right Image" class="side-image" style="position: absolute; right: 100px; height: 40px; width: 200px;">
+        <img src="/images/display-1.png" alt="Right Image" class="side-image" style="position: absolute; right: 20px; height: 400px; width: 400px;">
     </div>
 
     <div id="resultModal">
         <div id="modalContent">
+        <h2 id="modalMsg"></h2>
+        <img id="modalPrizeImage" alt="Prize Image">
             <h2 id="modalPrize"></h2>
         </div>
     </div>
@@ -101,8 +110,8 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script>
-            let csrfName = '<?= csrf_token() ?>'; // The CSRF token name
-            let csrfHash = '<?= csrf_hash() ?>'; // The CSRF token value
+            let csrfName = ''; // The CSRF token name
+            let csrfHash = ''; // The CSRF token value
         const canvas = document.getElementById('wheelCanvas');
         const ctx = canvas.getContext('2d');
         const resultDisplay = document.getElementById('result');
@@ -110,6 +119,8 @@
         const prizeSound = document.getElementById('prizeSound');
         const centerImageElement = new Image();
         centerImageElement.src = '/images/centerpiece.png'; // Replace with your PNG path
+        const csrfRefreshUrl = '<?= base_url('wheel/getCsrfToken') ?>';
+
 
         let isSpinning = false;
         let rotationAngle = 0;
@@ -117,16 +128,27 @@
         let segments = [];
         let totalOdds = 0;
         let equalAngle = 2 * Math.PI / segments.length; // Angle per segment, defined globally
+        let idleRotationAngle = 0; // For slow rotation during idle state
+        let isIdle = ''; // Flag to track idle state
 
         function refreshCsrfToken() {
-    fetch('/wheel/getCsrfToken')
-        .then(response => response.json())
-        .then(data => {
-            csrfName = data.csrfName;
-            csrfHash = data.csrfHash;
-        })
-        .catch(error => console.error('Failed to refresh CSRF token:', error));
+    return fetch('/wheel/getCsrfToken', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update the global CSRF variables
+        csrfName = data.csrfName;
+        csrfHash = data.csrfHash;
+    })
+    .catch(error => {
+        console.error('Failed to refresh CSRF token:', error);
+    });
 }
+
 
 
         // Draw the wheel with proportional segments
@@ -134,7 +156,7 @@
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const radius = Math.min(centerX, centerY) - 10; // Adjust radius for spacing
-    const outerRadius = radius - 50; // Outer radius for image placement
+    const outerRadius = radius - 55; // Outer radius for image placement
     const equalAngle = 2 * Math.PI / segments.length; // Each segment gets an equal angle
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redrawing
@@ -186,44 +208,56 @@
 
         ctx.fillStyle = color;
         ctx.fill();
-        ctx.stroke();
+        
 
         // Draw the image for the segment (if available)
         if (segment.imgElement) {
-            const imgSize = 80; // Image size
+            const imgSize = 90; // Image size
             const imgX = centerX + Math.cos(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
             const imgY = centerY + Math.sin(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
 
             ctx.save();
             ctx.beginPath();
             ctx.arc(imgX + imgSize / 2, imgY + imgSize / 2, imgSize / 2, 0, 2 * Math.PI);
-            ctx.clip(); // Clip image to a circular area
             ctx.drawImage(segment.imgElement, imgX, imgY, imgSize, imgSize);
-            ctx.restore();
+
         }
 
         currentAngle += equalAngle; // Move to the next segment
     });
 
     // Draw the center circle (placeholder for an image)
-    const centerCircleRadius = 45; // Size of the center circle
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, centerCircleRadius, 0, 2 * Math.PI);
-    ctx.fillStyle = '#fff'; // White center circle
-    ctx.fill();
-    ctx.lineWidth = 3; // Border thickness
-    ctx.stroke();
+// Draw the center circle (placeholder for an image)
+const centerCircleRadius = 45; // Size of the center circle
+ctx.save(); // Save the current context state
 
-    drawCenterImage(); // Draw the center image here
+// Add shadow to the center circle (push it outward)
+ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color
+ctx.shadowBlur = 50; // Increase blur to make the shadow larger
+ctx.shadowOffsetX = 0; // Horizontal shadow offset (pushes the shadow to the right)
+ctx.shadowOffsetY = 0; // Vertical shadow offset (pushes the shadow downward)
 
-    // Draw the pointer on top
-    drawPointer();
+// Draw the white center circle with the shadow
+ctx.beginPath();
+ctx.arc(centerX, centerY, centerCircleRadius, 0, 2 * Math.PI);
+ctx.fillStyle = '#fff'; // White center circle
+ctx.fill();
+ctx.lineWidth = 3; // Border thickness
+ctx.stroke();
+
+ctx.restore(); // Restore the context state to remove the shadow
+
+// Draw the center image (without shadow)
+drawCenterImage(); // Your function to draw the center image
+
+// Draw the pointer on top
+drawPointer();
 }
 
 
 function drawPointer() {
     const centerX = canvas.width / 2;
-    const pointerHeight = 20;
+    const pointerHeight = 22;
     const pointerOffset =  5; // Distance the pointer is placed outside the wheel
     const borderThickness = 5; // Thicker border
 
@@ -299,6 +333,7 @@ function drawPointer() {
                 label: segment.label,
                 odds: parseFloat(segment.odds),
                 image: segment.image,
+                modal_img: segment.modal_img,
                 stock: segment.stock
             }));
 
@@ -312,6 +347,8 @@ function drawPointer() {
             preloadImages(segments, () => {
                 console.log("All images preloaded. Drawing the wheel.");
                 drawWheel();
+                startIdleAnimation();
+                isIdle = true;
             });
         }
 
@@ -319,6 +356,8 @@ function drawPointer() {
         function spinWheel() {
     if (isSpinning) return;
     isSpinning = true;
+    isIdle = false; // Stop idle animation
+    stopIdleAnimation();
 
     spinSound.play();
 
@@ -344,10 +383,11 @@ function drawPointer() {
 
         drawWheel(); // Draw the wheel with the new rotation
 
-        if (progress < 1) {
+        if (isSpinning && progress < 1) {
             requestAnimationFrame(animate); // Continue animation if not finished
         } else {
             isSpinning = false;
+            startIdleAnimation();
             rotationAngle = totalRotation % (2 * Math.PI); // Finalize the rotation angle within range
             drawWheel(); // Draw the final position of the wheel
             displayResult(selectedSegment); // Display the result (the segment the wheel landed on)
@@ -365,15 +405,26 @@ function drawPointer() {
 // Display result in the modal
 function displayResult(selectedSegment) {
     const modal = document.getElementById('resultModal');
+    const modalMsg = document.getElementById('modalMsg');
     const modalPrize = document.getElementById('modalPrize');
+    const modalPrizeImage = document.getElementById('modalPrizeImage'); // Get the image element
 
-    modalPrize.textContent = `Selamat, Anda Mendapatkan ${selectedSegment.label}!`;
+    modalMsg.textContent = `Selamat! Anda Mendapatkan`;
+    modalPrize.textContent = `${selectedSegment.label}!`;
+
+    // Set the prize image if available
+    if (selectedSegment.modal_img) {
+        modalPrizeImage.src = `uploads/images/${selectedSegment.modal_img}`; // Path to the prize image
+        modalPrizeImage.style.display = 'block'; // Ensure the image is visible
+    } else {
+        modalPrizeImage.style.display = 'none'; // Hide the image if not available
+    }
+
     modal.style.display = 'flex'; // Show the modal
     playPrizeSound();
     triggerConfetti();
     handlePrizeRoll(selectedSegment);
 }
-
 
 function getSelectedSegment() {
     // Normalize the rotation angle to [0, 2π)
@@ -420,15 +471,15 @@ function getSelectedSegment() {
     return segments[selectedIndex];
 }
 function pickSegmentByOdds() {
-    const random = Math.random(); // Random value between 0 and 1
+    const totalOdds = segments.reduce((sum, segment) => sum + parseFloat(segment.odds), 0); // Calculate total cumulative odds
+    const random = Math.random() * (totalOdds / 100); // Scale random value to the total odds
     console.log('Random value:', random); // Log random value for debugging
 
     let cumulativeOdds = 0;
 
     console.log('Segments available:', segments);
     for (const segment of segments) {
-        // Ensure odds is treated as a number
-        const odds = parseFloat(segment.odds); 
+        const odds = parseFloat(segment.odds); // Ensure odds is treated as a number
         cumulativeOdds += odds / 100; // Accumulate odds
         console.log(`Cumulative odds: ${cumulativeOdds}, Segment odds: ${odds}`); // Log cumulative odds for each segment
 
@@ -442,6 +493,7 @@ function pickSegmentByOdds() {
     console.log('Fallback to last segment');
     return segments[segments.length - 1];
 }
+
 
 
 function getTargetAngle(segment) {
@@ -462,7 +514,7 @@ function drawCenterImage() {
     const imgY = centerY - imgSize / 2;
 
     if (centerImageElement) {
-        ctx.drawImage(centerImageElement, imgX, imgY, imgSize, imgSize);
+        ctx.drawImage(centerImageElement, imgX, imgY+10, imgSize, (imgSize - 20));
     }
 }
 
@@ -495,10 +547,6 @@ function drawCenterImage() {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {  // Check if the Escape key is pressed
         closeModal();  // Close the modal
-        console.log("Modal closed, triggering refresh...");
-        
-        // Delay refresh to ensure modal close completes
-        setTimeout(refreshPage, 100);  // Delay by 500ms
     }
 });
 
@@ -530,9 +578,9 @@ function triggerConfetti() {
 
 
 }
-function handlePrizeRoll(selectedSegment) {
-    // Ensure the CSRF token is refreshed before making the request
-    refreshCsrfToken();
+async function handlePrizeRoll(selectedSegment) {
+    // Refresh CSRF token before making the request
+    await refreshCsrfToken();
 
     fetch(`/wheel/rollPrize/${selectedSegment.id}`, {
         method: 'POST',
@@ -540,13 +588,24 @@ function handlePrizeRoll(selectedSegment) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            [csrfName]: csrfHash, // Add the CSRF token to the request body
+            [csrfName]: csrfHash, // Add the refreshed CSRF token to the request body
         }),
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             console.log('Prize Rolled:', data.segment.label);
+
+            // Check if stock hits 0
+            if (data.segment.stock === 0) {
+                console.log(`Removing segment: ${selectedSegment.label} (stock: 0)`);
+
+                // Remove the segment from the segments array
+                segments = segments.filter(segment => segment.id !== selectedSegment.id);
+
+                // Redraw the wheel without the removed segment
+                drawWheel();
+            }
         } else {
             console.error('Error:', data.message);
         }
@@ -562,15 +621,25 @@ function closeModal() {
     console.log("Modal hidden");
 }
 
-function refreshPage() {
-    // Option 1: Reload the entire page
-    console.log("Refreshing the page...");
-    location.reload();  // This reloads the entire page
+function startIdleAnimation() {
+    console.log('Idle animation triggered');
+    function idleAnimate() {
+        if (isIdle) return; // Stop the idle animation if the flag is false
+        console.log('Animating idle...');
 
-    // Option 2: Reload only the modal content (if you don't want a full page reload)
-    // const modalContent = document.getElementById('modalContent');
-    // modalContent.innerHTML = '';  // Clear the existing content
-    // loadModalContent();  // Call a function to reload the content (if necessary)
+        idleRotationAngle += 0.01; // Adjust for slower rotation
+        rotationAngle = idleRotationAngle % (2 * Math.PI); // Keep the angle within 0-2π
+
+        drawWheel(); // Redraw the wheel with the new idle rotation angle
+
+        requestAnimationFrame(idleAnimate); // Continue the animation
+    }
+
+    idleAnimate(); // Start the idle animation loop
+}
+
+function stopIdleAnimation() {
+    isIdle = false; // Stop the idle animation
 }
     </script>
 </body>
