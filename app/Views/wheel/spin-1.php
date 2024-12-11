@@ -252,6 +252,7 @@ drawCenterImage(); // Your function to draw the center image
 
 // Draw the pointer on top
 drawPointer();
+
 }
 
 
@@ -347,8 +348,7 @@ function drawPointer() {
             preloadImages(segments, () => {
                 console.log("All images preloaded. Drawing the wheel.");
                 drawWheel();
-                startIdleAnimation();
-                isIdle = true;
+                setTimeout(() => {startIdleAnimation();}, 0);
             });
         }
 
@@ -622,12 +622,11 @@ function closeModal() {
 }
 
 function startIdleAnimation() {
-    console.log('Idle animation triggered');
+
     function idleAnimate() {
         if (isIdle) return; // Stop the idle animation if the flag is false
-        console.log('Animating idle...');
 
-        idleRotationAngle += 0.01; // Adjust for slower rotation
+        idleRotationAngle += 0.005; // Adjust for slower rotation
         rotationAngle = idleRotationAngle % (2 * Math.PI); // Keep the angle within 0-2π
 
         drawWheel(); // Redraw the wheel with the new idle rotation angle
