@@ -397,7 +397,7 @@ Detail Produk
     <!-- User Dropdown -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="nav-link dropdown-toggle" id="userDropdown" style="font-family: Poppins;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?= session()->get('name') ? esc(session()->get('name')) : 'Guest'; ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -435,7 +435,7 @@ Detail Produk
     <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between;">
         <!-- Breadcrumb Text -->
         <div class="breadcrumb-text">
-<!--             <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Detail <br> Produk</h1> -->
+            <!--             <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-weight: bold;">Detail <br> Produk</h1> -->
             <h1 style="margin: 0; margin-left:80px; font-size: 100px; font-family: Poppins, sans-serif; font-weight: bold;">Katalog <br> Produk</h1>
         </div>
         <!-- Breadcrumb Image -->
@@ -906,12 +906,12 @@ Detail Produk
                                     </div>
                                     <div class="card-body p-2" style="border-top:2px solid #f4f4f4;">
                                         <h5 class="card-title"><strong><?= esc($relproduct['brand']) ?></strong></h5>
-                                        <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?>                                             <?= !empty($relproduct['capacity']) ? esc($relproduct['capacity']) : (!empty($relproduct['ukuran']) ? esc($relproduct['ukuran']) : (!empty($relproduct['kapasitas_air_dingin']) && !empty($relproduct['kapasitas_air_panas']) ?
-                                                esc($relproduct['kapasitas_air_dingin']) . '/' . esc($relproduct['kapasitas_air_panas'] . ' Liter') :
-                                                null)) ?>
+                                        <p class="card-text" style="margin-bottom:2px;"><?= esc($relproduct['category']) ?> <?= esc($relproduct['subcategory']) ?> <?= !empty($relproduct['capacity']) ? esc($relproduct['capacity']) : (!empty($relproduct['ukuran']) ? esc($relproduct['ukuran']) : (!empty($relproduct['kapasitas_air_dingin']) && !empty($relproduct['kapasitas_air_panas']) ?
+                                                                                                                                                                        esc($relproduct['kapasitas_air_dingin']) . '/' . esc($relproduct['kapasitas_air_panas'] . ' Liter') :
+                                                                                                                                                                        null)) ?>
                                             <?php if ($relproduct['subcategory'] == 'AIR PURIFIER'): ?>
                                                 <?= esc($relproduct['kapasitas_air_dingin']) . ' M²' ?>
-                                            <?php endif; ?>  </p>
+                                            <?php endif; ?> </p>
                                         <p class="card-text"><?= esc($product['product_type']) ?>
                                         </p>
                                     </div>
@@ -925,7 +925,7 @@ Detail Produk
 
                     <!-- Right Arrow -->
                     <?php if (count($relatedProducts) >= 4): ?>
-                        <button class="carousel-control-next" style="right:-45px" onclick="scrollProductRight()" type="button">
+                        <button class="carousel-control-next" style="right:45px" onclick="scrollProductRight()" type="button">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <?php endif; ?>
                 </div>
