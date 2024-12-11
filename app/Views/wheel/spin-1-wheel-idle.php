@@ -121,7 +121,7 @@
         centerImageElement.src = '/images/centerpiece.png'; // Replace with your PNG path
         const csrfRefreshUrl = '<?= base_url('wheel/getCsrfToken') ?>';
 
-        let imgRotationAngle = 0;
+
         let isSpinning = false;
         let rotationAngle = 0;
         let spinVelocity = 0;
@@ -507,28 +507,17 @@ function getTargetAngle(segment) {
     return segmentIndex * equalAngle + equalAngle / 2; // Target angle for the center of the segment
 }
 function drawCenterImage() {
+    const imgSize = 60; // Adjust size as needed
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const imgSize = 60; // Adjust size for the center image
+    const imgX = centerX - imgSize / 2;
+    const imgY = centerY - imgSize / 2;
 
     if (centerImageElement) {
-        ctx.save(); // Save the current context state
-
-        // Rotate the canvas around the center for the idle animation
-        if(!isSpinning){
-        ctx.translate(centerX, centerY);
-        ctx.rotate(idleRotationAngle); // Rotate by the idle angle
-        ctx.translate(-centerX, -centerY);
-        };
-
-        // Draw the center image (rotating)
-        const imgX = centerX - imgSize / 2;
-        const imgY = centerY - imgSize / 2;
         ctx.drawImage(centerImageElement, imgX, imgY+10, imgSize, (imgSize - 20));
-
-        ctx.restore(); // Restore the context state
     }
 }
+
         // Fetch segments from the backend
         fetch('/wheel/getSegments')
             .then(response => response.json())
@@ -638,7 +627,7 @@ function startIdleAnimation() {
         if (isIdle) return; // Stop the idle animation if the flag is false
 
         idleRotationAngle += 0.005; // Adjust for slower rotation
-        imgRotationAngle = idleRotationAngle % (2 * Math.PI); // Keep the angle within 0-2π
+        rotationAngle = idleRotationAngle % (2 * Math.PI); // Keep the angle within 0-2π
 
         drawWheel(); // Redraw the wheel with the new idle rotation angle
 
