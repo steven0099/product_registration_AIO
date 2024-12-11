@@ -909,7 +909,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             airpanasLabel.innerText = 'Kapasitas Air Panas (Liter)';
             airpanasField.placeholder = 'Kapasitas Air Panas (Liter)';
 
-        }  if (subcategoryId == 67 || subcategoryId == 70) {
+        } else if (subcategoryId == 67 || subcategoryId == 70) {
             // Hide "kapasitas" and "garansi sparepart"
             document.getElementById('capacity-group').style.display = 'none';
             document.getElementById('warranty-sparepart-group').style.display = 'none';

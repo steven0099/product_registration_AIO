@@ -71,8 +71,8 @@
         #modalPrizeImage{
     display: contain;
     margin: 0 auto; /* Center the image */
-    width: 80%; /* Scale the image proportionally */
-    height: 80%;
+    width: 60%; /* Scale the image proportionally */
+    height: 60%;
 }
 
     </style>
@@ -637,7 +637,7 @@ function startIdleAnimation() {
     function idleAnimate() {
         if (isIdle) return; // Stop the idle animation if the flag is false
 
-        idleRotationAngle += 0.005; // Adjust for slower rotation
+        idleRotationAngle += 0.01; // Adjust for slower rotation
         imgRotationAngle = idleRotationAngle % (2 * Math.PI); // Keep the angle within 0-2π
 
         drawWheel(); // Redraw the wheel with the new idle rotation angle

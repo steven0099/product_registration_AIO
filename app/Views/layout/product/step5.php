@@ -452,7 +452,7 @@
                                                     </tr>
                                                 <?php endif; ?>
 
-                                                <?php if ($data['subcategory_id'] == '47' || $data['subcategory_id'] == '50' || $data['subcategory_id'] == '51'): ?>
+                                                <?php if ($data['subcategory_id'] == '50' || $data['subcategory_id'] == '51'): ?>
                                                     <!-- For category AC (ID 3): Display "kapasitas pendinginan", "cspf rating", "tipe refrigerant" -->
                                                     <tr>
                                                         <td><b>Kapasitas</b></td>

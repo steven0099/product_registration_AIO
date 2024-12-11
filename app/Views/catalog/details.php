@@ -705,7 +705,7 @@ Detail Produk
         <?php if ($product['subcategory'] == 'SPEAKER'): ?>
             <tr>
                 <th>Garansi Semua Service</th>
-                <td><?= esc($product['garansi_semua_service']) ?></td>
+                <td><?= esc($product['garansi_semua_service']) ?> Tahun</td>
             </tr>
         <?php endif; ?>
         <?php if ($product['category'] == 'TV'): ?>
