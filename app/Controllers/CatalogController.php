@@ -97,11 +97,9 @@ class CatalogController extends BaseController
         }
     
         // Pagination
-        $perPage = 15;
+        $perPage = 3;
         $currentPage = $this->request->getGet('page') ?? 1;
         $products = $query->paginate($perPage, 'default', $currentPage);
-
-        
     
         // Fetch distinct filter options
         $categories = $this->confirmationModel->distinct()->select('category')->findAll();

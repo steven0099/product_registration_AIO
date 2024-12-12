@@ -309,7 +309,7 @@ input.form-control:-webkit-autofill.form-control.valid {
                                     <div class="clearfix"></div>
                                 </div>
                             </form>
-                            <p class="form-note" style="margin-left: 46px;"><span style="color: red;">*</span>Harap diisi dengan benar</p>
+                            <p class="form-note" style="margin-left: 46px;"><span style="color: red;">*</span>Gambar Depan Wajib Diisi</p>
 
                         </div>
                     </div> <!-- wizard container -->
