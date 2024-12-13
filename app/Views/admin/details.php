@@ -44,22 +44,22 @@ Rincian Produk
                 <th>Tipe Produk</th>
                 <td><?= esc($product['product_type']) ?></td>
             </tr>
-            <!--harga <?php if ($product['status'] == 'approved'): ?>
+            <?php if ($product['status'] == 'approved'): ?>
                     <tr><th>Harga</th>
                     <?php if ($product['harga'] != null): ?>
         <td><?= esc($product['harga']) ?></td></tr>
         <?php elseif ($product['harga'] == null): ?>
         <td>Belum Ditentukan</td></tr>
         <?php endif; ?>
-        <?php endif; ?>-->
-            <!--harga <?php if ($product['status'] == 'approved'): ?>
+        <?php endif; ?>
+             <?php if ($product['status'] == 'approved'): ?>
                     <tr><th>Harga</th>
                     <?php if ($product['harga'] != null): ?>
         <td><?= esc($product['harga']) ?></td></tr>
         <?php elseif ($product['harga'] == null): ?>
         <td>Belum Ditentukan</td></tr>
         <?php endif; ?>
-        <?php endif; ?>-->
+        <?php endif; ?>
             <tr>
                 <th>Warna</th>
                 <td><?= esc($product['color']) ?></td>

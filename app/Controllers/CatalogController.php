@@ -97,7 +97,7 @@ class CatalogController extends BaseController
         }
     
         // Pagination
-        $perPage = 3;
+        $perPage = 15;
         $currentPage = $this->request->getGet('page') ?? 1;
         $products = $query->paginate($perPage, 'default', $currentPage);
     

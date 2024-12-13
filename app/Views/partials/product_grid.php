@@ -226,6 +226,7 @@
                                 }
                                 ?></p>
                             <p class="card-subtext"> <?= esc($product['product_type']) ?></p>
+                            <p class="card-text"> <?= esc($product['harga']) ?></p>
                             <div class="column">
 <input type="checkbox" class="compare-checkbox" data-product-id="<?= esc($product['id']) ?>"
            data-product-name="<?= esc($product['brand']) ?>"
@@ -244,7 +245,8 @@
         echo ' ';
     }
     ?> | <?= esc($product['product_type']) ?>"
-           data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>">
+           data-product-image="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>"
+           data-product-harga="<?= esc($product['harga']) ?>">
     <label class="compare-label" style="font-size:14px">Bandingkan</label>
 <button class="button" onclick="location.href='/catalog/details/<?= esc($product['id']) ?>'">Lihat Detail</button>
 </div>

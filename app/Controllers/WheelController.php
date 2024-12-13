@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\WheelModel;
+use App\Models\WheelFXModel;
 
 class WheelController extends BaseController
 {
@@ -11,6 +12,7 @@ class WheelController extends BaseController
     public function __construct()
     {
         $this->wheelModel = new WheelModel();
+        $this->wheelFXModel = new WheelFXModel();
     }
 
     // Load Wheel Management Page
@@ -88,6 +90,7 @@ class WheelController extends BaseController
             'label' => $this->request->getPost('label'),
             'odds' => $this->request->getPost('odds'),
             'stock' => $this->request->getPost('stock'),
+            'jackpot' => $this->request->getPost('jackpot'),
             'image' => isset($newName) ? $newName : '', // Store the image filename
             'modal_img' => isset($newName) ? $newName : '', // Store the image filename
         ];
@@ -95,7 +98,7 @@ class WheelController extends BaseController
         // Save to the database
         $this->wheelModel->insert($data);
     
-        return redirect()->to('/superadmin/wheel');
+        return redirect()->to('/admin/wheel');
     }
     
 
@@ -152,6 +155,7 @@ class WheelController extends BaseController
             'label' => $this->request->getPost('label'),
             'odds' => $this->request->getPost('odds'),
             'stock' => $this->request->getPost('stock'),
+            'jackpot' => $this->request->getPost('jackpot'),
             'image' => $imageName,  // Use either new image or existing image
             'modal_img' => $modalImgName,
         ];
@@ -160,7 +164,7 @@ class WheelController extends BaseController
         $this->wheelModel->update($id, $data);
         
         // Redirect to the wheel page
-        return redirect()->to('/superadmin/wheel');
+        return redirect()->to('/admin/wheel');
     }
     
     
@@ -168,7 +172,7 @@ class WheelController extends BaseController
     public function deleteSegment($id)
     {
         $this->wheelModel->delete($id);
-        return redirect()->to('/superadmin/wheel');
+        return redirect()->to('/admin/wheel');
     }
 
     // Spin the Wheel (API)
@@ -207,5 +211,80 @@ class WheelController extends BaseController
         ]);
     }
     
+    public function Setting()
+    {
+        $settings = $this->wheelFXModel->findAll(); // Assuming ID 1 for settings
+        return view('wheel/settings', ['settings' => $settings]);
+    }   
+
+    public function getSettings()
+    {
+        $settings = $this->wheelFXModel->find(1); // Assuming ID 1 for settings
+        return $this->response->setJSON($settings);
+    }
+
+    public function UpdateSettings($id)
+    {
+        $fileSpinSFX = $this->request->getFile('spin_sfx');
+        $filePrizeSFX = $this->request->getFile('prize_sfx');
+        $fileJackpotVid = $this->request->getFile('jackpot_vid');
+        
+        // Retrieve the current settings from the database
+        $currentSettings = $this->wheelFXModel->find($id);
+    
+        // Handle spin_sfx file
+        if ($fileSpinSFX && $fileSpinSFX->isValid() && !$fileSpinSFX->hasMoved()) {
+            // Check if the file already exists and delete it if so
+            $existingFile = FCPATH . 'audio/' . $currentSettings['spin_sfx'];
+            if (file_exists($existingFile)) {
+                unlink($existingFile); // Delete the old file
+            }
+    
+            // Move the new file and set the value
+            $fileSpinSFX->move(FCPATH . 'audio/', $fileSpinSFX->getName());
+            $data['spin_sfx'] = $fileSpinSFX->getName();  // Update the spin_sfx with new file name
+        } else {
+            // Keep the existing spin_sfx if no new file is provided
+            $data['spin_sfx'] = $currentSettings['spin_sfx'];
+        }
+    
+        // Handle prize_sfx file
+        if ($filePrizeSFX && $filePrizeSFX->isValid() && !$filePrizeSFX->hasMoved()) {
+            // Check if the file already exists and delete it if so
+            $existingFile = FCPATH . 'audio/' . $currentSettings['prize_sfx'];
+            if (file_exists($existingFile)) {
+                unlink($existingFile); // Delete the old file
+            }
+    
+            // Move the new file and set the value
+            $filePrizeSFX->move(FCPATH . 'audio/', $filePrizeSFX->getName());
+            $data['prize_sfx'] = $filePrizeSFX->getName();  // Update the prize_sfx with new file name
+        } else {
+            // Keep the existing prize_sfx if no new file is provided
+            $data['prize_sfx'] = $currentSettings['prize_sfx'];
+        }
+    
+        // Handle jackpot_vid file
+        if ($fileJackpotVid && $fileJackpotVid->isValid() && !$fileJackpotVid->hasMoved()) {
+            // Check if the file already exists and delete it if so
+            $existingFile = FCPATH . 'video/' . $currentSettings['jackpot_vid'];
+            if (file_exists($existingFile)) {
+                unlink($existingFile); // Delete the old file
+            }
+    
+            // Move the new file and set the value
+            $fileJackpotVid->move(FCPATH . 'video/', $fileJackpotVid->getName());
+            $data['jackpot_vid'] = $fileJackpotVid->getName();  // Update the jackpot_vid with new file name
+        } else {
+            // Keep the existing jackpot_vid if no new file is provided
+            $data['jackpot_vid'] = $currentSettings['jackpot_vid'];
+        }
+    
+        // Update the database with the new values
+        $this->wheelFXModel->update($id, $data);
+        
+        // Redirect back with a success message
+        return redirect()->to('/admin/wheel/setting')->with('status', 'Settings updated successfully.');
+    }    
 
 }

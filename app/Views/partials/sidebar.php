@@ -253,8 +253,8 @@
         <?php endif; ?>
       </ul>
       <?php if (session()->get('role') == 'superadmin'): ?>
-        <li class="nav-item <?= (uri_string() == 'superadmin/wheel') ? 'menu-open' : '' ?>" style="width: 99%">
-            <a href="#" class="nav-link <?= (uri_string() == 'superadmin/wheel') ? 'active' : '' ?>">
+        <li class="nav-item <?= (uri_string() == 'admin/wheel' || uri_string() == 'admin/spinwheel' || uri_string() == 'admin/wheel/setting') ? 'menu-open' : '' ?>" style="width: 99%">
+            <a href="#" class="nav-link <?= uri_string() == 'admin/wheel' || (uri_string() == 'admin/spinwheel' || uri_string() == 'admin/wheel/setting') ? 'active' : '' ?>">
             <i class="fas fa-dharmachakra nav-icon"></i>
               <p>
                 Manajemen Spin Wheel
@@ -263,9 +263,21 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/superadmin/wheel" class="nav-link <?= (uri_string() == 'superadmin/wheel') ? 'active' : '' ?>">
+              <a href="/admin/wheel" class="nav-link <?= (uri_string() == 'admin/wheel') ? 'active' : '' ?>">
               <i class="fas fa-cogs nav-icon"></i>
                 <p>Manajemen Roda</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/wheel/setting" class="nav-link <?= (uri_string() == 'admin/wheel/setting') ? 'active' : '' ?>">
+              <i class="fas fa-volume-up nav-icon"></i>
+                <p>Manajemen Efek Suara Roda</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/spinwheel" class="nav-link <?= (uri_string() == 'admin/spinwheel') ? 'active' : '' ?>">
+              <i class="fas fa-play nav-icon"></i>
+                <p>Spin Wheel</p>
               </a>
             </li>
             <?php endif; ?>

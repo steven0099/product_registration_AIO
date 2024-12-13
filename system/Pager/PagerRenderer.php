@@ -166,7 +166,7 @@ class PagerRenderer
      * "last" page.
      *
      * @return string|null
-     */
+.     */
     public function getNext()
     {
         if (! $this->hasNext()) {

@@ -98,7 +98,7 @@ Rincian Produk
                 <?php endif; ?>
             </tr>
 
-            <!--<?php if ($product['status'] == 'approved'): ?>
+            <?php if ($product['status'] == 'approved'): ?>
             <tr>
                 <th>Harga</th>
                 <?php if ($product['harga'] != null): ?>
@@ -108,7 +108,7 @@ Rincian Produk
                 <?php endif; ?>
                 <td><button onclick="openHargaModal()" class="btn btn-sm btn-primary">Edit</button></td>
             </tr>
-            <?php endif; ?>-->
+            <?php endif; ?>
 
 
             <!--<?php if ($product['status'] == 'approved'): ?>

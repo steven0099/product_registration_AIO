@@ -71,11 +71,7 @@ $routes->group('superadmin', ['filter' => 'role:superadmin'], function($routes) 
     $routes->get('approve/(:num)', 'ProductController::approveProduct/$1');
     $routes->get('reject/(:num)', 'ProductController::rejectProduct/$1');
 
-    
-    $routes->get('wheel', 'WheelController::index'); // Management page
-    $routes->post('wheel/saveSegment', 'WheelController::saveSegment'); // Save a segment
-    $routes->post('wheel/updateSegment/(:num)', 'WheelController::updateSegment/$1'); // Save a segment
-    $routes->get('wheel/deleteSegment/(:num)', 'WheelController::deleteSegment/$1'); // Delete a segment
+
     // User management routes for superadmin
     $routes->get('user', 'Superadmin\UserController::index'); // This should match your directory structure
     $routes->get('user/addUser', 'Superadmin\UserController::addUser');
@@ -187,6 +183,15 @@ $routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes)
     $routes->post('garansi_elemen_panas/saveGaransiElemenPanas', 'Admin\GaransiElemenPanasController::saveGaransiElemenPanas');
     $routes->post('garansi_elemen_panas/updateGaransiElemenPanas/(:num)', 'Admin\GaransiElemenPanasController::updateGaransiElemenPanas/$1');
     $routes->post('garansi_elemen_panas/deleteGaransiElemenPanas/(:num)', 'Admin\GaransiElemenPanasController::deleteGaransiElemenPanas/$1');
+
+    $routes->get('spinwheel', 'WheelController::wheel'); // Spin the wheel
+    $routes->get('wheel', 'WheelController::index'); // Management page
+    $routes->post('wheel/saveSegment', 'WheelController::saveSegment'); // Save a segment
+    $routes->post('wheel/updateSegment/(:num)', 'WheelController::updateSegment/$1'); // Save a segment
+    $routes->get('wheel/deleteSegment/(:num)', 'WheelController::deleteSegment/$1'); // Delete a segment
+
+    $routes->get('wheel/setting', 'WheelController::Setting'); // Management page
+    $routes->post('update-wheel-settings/(:num)', 'WheelController::UpdateSettings/$1');
 });
 
 // Public Routes (no authentication required)
@@ -197,11 +202,11 @@ $routes->get('fetch-warranty-options', 'ProductController::fetchWarrantyOptions'
 $routes->get('getOptions', 'ProductController::getOptions');
 $routes->post('updateProductField', 'ProductController::updateProductField');
 $routes->get('clear-subcategory-id', 'ProductController::clearSubcategoryId');
-$routes->get('/spinwheel', 'WheelController::wheel'); // Spin the wheel
 $routes->get('/wheel/getSegments', 'WheelController::getSegments'); // Spin the wheel
 $routes->post('/wheel/rollPrize/(:num)', 'WheelController::rollPrize/$1'); // Spin the wheel
 $routes->get('/spinwheel/spin', 'WheelController::spinWheel'); // Spin the wheel
 $routes->get('/wheel/getCsrfToken', 'WheelController::getCsrfToken');
+$routes->get('wheel-settings', 'WheelController::getSettings');
 
 
 

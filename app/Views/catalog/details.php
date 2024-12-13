@@ -586,13 +586,11 @@ Detail Produk
                 <?php endif ?>
                 | <?= esc($product['product_type']) ?>
             </h3>
-            <!-- harga 
                 <?php if ($product['harga'] != null): ?>
                 <p class="product-subtitle"><strong><?= esc($product['harga']) ?></strong></p>
                 <?php elseif ($product['harga'] == null): ?>
                 <p class="product-subtitle"><strong>Harga Belum Ditentukan</strong></p>
                 <?php endif; ?>
-                -->
             <ul class="product-details" style="margin-left: 10px;margin-top: 20px; font-size: 12px;">
                 <li><?= esc($product['advantage1']) ?></li>
                 <li><?= esc($product['advantage2']) ?></li>
@@ -900,7 +898,7 @@ Detail Produk
                     <div class="product-container">
                         <?php foreach ($relatedProducts as $relproduct): ?>
                             <a href="<?= base_url('catalog/details/' . esc($relproduct['id'])) ?>" class="product-item" style="text-decoration: none; color: inherit;">
-                                <div class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4;">
+                                <div class="card" style="width: 260px; height: 280px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4;">
                                     <div class="recommend-picture" style="background-color:#f4f4f4;">
                                         <img src="<?= base_url('uploads/' . esc($relproduct['gambar_depan'] ?? '')) ?>" style="object-fit: contain; border-bottom:2px solid #f4f4f4;" class="card-img-top" alt="Gambar Produk">
                                     </div>
@@ -912,7 +910,9 @@ Detail Produk
                                             <?php if ($relproduct['subcategory'] == 'AIR PURIFIER'): ?>
                                                 <?= esc($relproduct['kapasitas_air_dingin']) . ' M²' ?>
                                             <?php endif; ?>  </p>
-                                        <p class="card-text"><?= esc($product['product_type']) ?>
+                                        <p class="card-text"><?= esc($relproduct['product_type']) ?>
+                                        </p>
+                                        <p class="card-text" style="margin-top:0"><?= esc($relproduct['harga'] ?? 'belum ditentukan') ?>
                                         </p>
                                     </div>
                                 </div>

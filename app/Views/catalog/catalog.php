@@ -669,7 +669,7 @@ Katalog Digital
 
     // Function to add a product to the comparison widget
     // Function to add a product to the comparison widget
-    function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity) { //productHarga,  {
+    function addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity, productHarga)  {
         const comparisonContent = document.querySelector('.comparison-content');
         const existingItem = document.getElementById(`compare-item-${productId}`);
         // Rest of your function here
@@ -684,10 +684,9 @@ Katalog Digital
             <span>${productName}<br>
             ${productCategory} ${productSubcategory}<br>
             ${productCapacity}<br>
+            <strong>${productHarga}</strong>
             </span>
         `;
-            //pindahkan keatas kalau butuh
-            //<strong>${productHarga}</strong>
             comparisonContent.appendChild(comparisonItem);
         }
 
@@ -738,7 +737,7 @@ Katalog Digital
             const productSubcategory = this.getAttribute('data-product-subcategory');
             const productCapacity = this.getAttribute('data-product-capacity');
             const selectedCount = document.querySelectorAll('.compare-checkbox:checked').length;
-            // const productHarga = this.getAttribute('data-product-harga');
+            const productHarga = this.getAttribute('data-product-harga');
             if (selectedCount > 3) {
                 alert("You can only compare up to 3 products.");
                 this.checked = false; // Uncheck if more than 3
@@ -752,14 +751,14 @@ Katalog Digital
                     if (productCategory === "SMALL APPLIANCES") {
                         comparisonSubcategory = productSubcategory;
                     }
-                    addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity, ); //productHarga);
+                    addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity, productHarga); 
                 } else {
                     // Check if the selected product’s category matches the initial category
                     if (productCategory === comparisonCategory &&
                         (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory ===
                             comparisonSubcategory)) {
                         addToComparison(productId, productName, productImage, productCategory,
-                            productSubcategory, productCapacity); //productHarga,) 
+                            productSubcategory, productCapacity, productHarga);  
                     } else {
                         alert(
                             "Hanya bisa membandingkan produk dengan kategori yang sama (untuk kategori SMALL APPLIANCES, sub kategori juga harus sama)");
@@ -781,20 +780,19 @@ Katalog Digital
                 const productCategory = this.getAttribute('data-product-category');
                 const productSubcategory = this.getAttribute('data-product-subcategory');
                 const productCapacity = this.getAttribute('data-product-capacity');
+                const productHarga = this.getAttribute('data-product-harga');
 
-
-                //const productHarga = this.getAttribute('data-product-harga');
                 if (this.checked) {
                     if (!comparisonCategory) {
                         comparisonCategory = productCategory;
                         if (productCategory === "SMALL APPLIANCES") {
                             comparisonSubcategory = productSubcategory;
                         }
-                        addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity); //productHarga);
+                        addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity, productHarga);
                     } else {
                         if (productCategory === comparisonCategory &&
                             (comparisonCategory !== "SMALL APPLIANCES" || productSubcategory == comparisonSubcategory)) {
-                            addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity); //productHarga); 
+                            addToComparison(productId, productName, productImage, productCategory, productSubcategory, productCapacity, productHarga); 
                         } else {
                             alert("Comparison can only include products from the same category. For SMALL APPLIANCES, subcategories must also match.");
                             this.checked = false; // Uncheck the box

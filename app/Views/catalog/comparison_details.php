@@ -366,7 +366,7 @@ Bandingkan Produk
 
 
     <?php foreach ($products as $product): ?>
-        <div class="comparison-product-card" class="card" style="width: 260px; height: 230px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4;">
+        <div class="comparison-product-card" class="card" style="width: 260px; height: 240px; background-color: rgba(255,255,255,0.2); border: 2px solid #f4f4f4;">
             <div class="recommend-picture" style="background-color:#f4f4f4;">
                 <img src="<?= base_url('uploads/' . esc($product['gambar_depan'])) ?>" alt="<?= esc($product['product_type']) ?>"
                     class="product-image">
@@ -374,14 +374,6 @@ Bandingkan Produk
             <div class="product-info">
                 <h5 class="product-title"><?= esc($product['brand']) ?></h5>
                 <p class="product-category"><?= esc($product['category']) ?> <?= esc($product['subcategory']) ?>
-                    <!-- harga
-             <p class="product-harga">
-             <?php if ($product['harga'] != null): ?>
-                <?= esc($product['harga'] ?? '') ?>
-                <?php elseif ($product['harga'] == null): ?>
-                    Harga Belum Ditentukan
-                </p> 
-            <?php endif; ?>-->
                 <p class="product-capacity">
                     <?php if ($product['capacity'] != null): ?>
                         <?= esc($product['capacity']) ?>
@@ -393,6 +385,13 @@ Bandingkan Produk
                         <?= esc($product['kapasitas_air_dingin']) . ' M²' ?>
                     <?php endif; ?> | <?= esc($product['product_type']) ?>
                 </p>
+                <p class="product-harga">
+             <?php if ($product['harga'] != null): ?>
+                <?= esc($product['harga'] ?? '') ?>
+                <?php elseif ($product['harga'] == null): ?>
+                    Harga Belum Ditentukan
+                </p> 
+            <?php endif; ?>
                 <!-- <a href="<?= base_url('catalog/details/' . esc($product['id'])) ?>"
                     class="btn-custom btn-custom-primary">Lihat Detail</a> -->
             </div>

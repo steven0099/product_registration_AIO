@@ -88,6 +88,7 @@ Manajemen Roda
                                     <th>Nama Segmen</th>
                                     <th>Kesempatan (%)</th>
                                     <th>Stok Hadiah</th>
+                                    <th>Jackpot?</th>
                                     <th>Opsi</th>
                                 </tr>
                             </thead>
@@ -111,6 +112,7 @@ Manajemen Roda
                                     <td><?= esc($segment['label']) ?></td>
                                     <td><?= esc($segment['odds']) ?>%</td>
                                     <td><?= esc($segment['stock']) ?></td>
+                                    <td><?= esc($segment['jackpot']) ?></td>
                                     <td>
                                         <button class="btn-primary btn btn-edit" data-toggle="modal"
                                             data-target="#editSegmentModal<?= esc($segment['id']) ?>">
@@ -135,7 +137,7 @@ Manajemen Roda
                                                 </button>
                                             </div>
                                             <form method="post"
-                                                action="<?= base_url('/superadmin/wheel/updateSegment/' . esc($segment['id'])) ?>"
+                                                action="<?= base_url('/admin/wheel/updateSegment/' . esc($segment['id'])) ?>"
                                                 enctype="multipart/form-data">
                                                 <?= csrf_field(); ?>
                                                 <div class="modal-body">
@@ -156,6 +158,13 @@ Manajemen Roda
                                                             placeholder="Enter Stock" min="0"
                                                             step="1" value="<?= esc($segment['stock']) ?>" required>
                                                     </div>
+                                                    <div class="form-group">
+                    <label for="jackpot">Jackpot?</label>
+                    <select name="jackpot" id="jackpot" class="form-control" value="<?= esc($segment['jackpot']) ?>" required>
+                    <option value="no" <?= $segment['jackpot'] === 'no' ? 'selected' : '' ?>>No</option>
+                        <option value="yes" <?= $segment['jackpot'] === 'yes' ? 'selected' : '' ?>>Yes</option>
+                    </select>
+                </div>
                                                     <div class="form-group">
                                                         <label for="image">Gambar Segmen</label>
                                                         <div>
@@ -204,7 +213,7 @@ Manajemen Roda
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="post" action="<?= base_url('/superadmin/wheel/saveSegment') ?>"
+                                <form method="post" action="<?= base_url('/admin/wheel/saveSegment') ?>"
                                     enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <div class="modal-body">
@@ -225,6 +234,12 @@ Manajemen Roda
                                                             placeholder="Enter Stock" min="0"
                                                             step="1" required>
                                                     </div>
+                                                    <label for="jackpot">Jackpot?</label>
+                    <select name="jackpot" id="jackpot" class="form-control" required>
+                    <option value="no" <?= $segment['jackpot'] === 'no' ? 'selected' : '' ?>>No</option>
+                    <option value="yes" <?= $segment['jackpot'] === 'yes' ? 'selected' : '' ?>>Yes</option>
+                    </select>
+                </div>
                                         <div class="form-group">
                                             <label for="image">Gambar Segmen</label>
                                             <input type="file" class="form-control" name="image" accept="image/*"

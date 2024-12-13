@@ -9,7 +9,9 @@
     <style>
         canvas {
             display: block;
-            margin: 20px auto;
+            margin: 5px auto;
+            margin-bottom:5px;
+            position:absolute;
         }
 
         button {
@@ -26,7 +28,7 @@
             margin-top: 20px;
         }
 
-        #resultModal {
+        #resultModal, #jackpotModal {
             display: none;
             position: fixed;
             top: 0;
@@ -75,22 +77,103 @@
     height: 60%;
 }
 
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 600px; /* Adjust as needed */
+    background-color: #209dd8;
+    position: relative;
+    right:470px;
+}
+
+.upper-half {
+    flex: 1 1 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #209dd8; /* Optional background for better visibility */
+}
+
+.prize-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.bottom-half {
+    flex: 1 1 66%;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #209dd8; /* Optional background */
+}
+
+.prize-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.prize-list li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: #fff;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.pointer-canvas {
+    position: absolute;
+    left: -20px; /* Position the pointer outside the box */
+    top: 50%;
+    transform: translateY(-65%) rotate(270deg); /* Rotate pointer to point right */
+}
+
     </style>
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
 </head>
 
-<body style="background-color: #00aff0; overflow-y: hidden">
+<body style="background-color: #209dd8; overflow-y: hidden">
 
-    <div class="wheel-container" style="margin-top:70px; display: flex; justify-content: center; align-items: center; position: relative;">
-        <!-- Left Image -->
-        <img src="/images/display-2.png" alt="Left Image" class="side-image" style="position: absolute; left: 20px; height: 400px; width: 400px;">
+    <div class="wheel-container" style="margin-top:30px; display: flex; justify-content: center; align-items: center; position: relative;">
+    <div class="left-column">
+    <!-- Upper Half: Image -->
+    <div class="upper-half">
+        <img src="/images/spin-banner.png" alt="Prize Display" class="prize-image" style="width:90%">
+    </div>
+
+    <!-- Bottom Half: Prize List -->
+    <div class="bottom-half">
+        <ul id="prizeList" class="prize-list"></ul>
+    </div>
+</div>
+
 
         <!-- Wheel Canvas -->
         <canvas id="wheelCanvas" width="500" height="525"></canvas>
 
         <!-- Right Image -->
-        <img src="/images/display-1.png" alt="Right Image" class="side-image" style="position: absolute; right: 20px; height: 400px; width: 400px;">
-    </div>
+        <img src="../images/banner-eco.png" alt="Right Image" class="side-image" style="position: absolute; right: 20px; height: 95%; width: 400px;">
 
     <div id="resultModal">
         <div id="modalContent">
@@ -99,14 +182,23 @@
             <h2 id="modalPrize"></h2>
         </div>
     </div>
+
+    <div id="jackpotModal" class="modal">
+    <div class="modal-content">
+        <!-- Content will be dynamically injected here -->
+    </div>
+</div>
+</div>
+<img src="/images/brand-footer.png" alt="Footer" style="position: absolute; bottom: 0; height: 60px; width: 100%; left:0">
 </body>
 
 
     <!-- Spin sound -->
-    <audio id="spinSound" src="/audio/spin-sfx.mp3"></audio>
+    <audio id="spinSound"></audio>
 
     <!-- Prize sound -->
-    <audio id="prizeSound" src="/audio/prize-sfx.mp3"></audio>
+    <audio id="prizeSound"></audio>
+    <video id="jackpotVideo" autoplay controls style="width: 100%; display: none"></video>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -118,7 +210,7 @@
         const spinSound = document.getElementById('spinSound');
         const prizeSound = document.getElementById('prizeSound');
         const centerImageElement = new Image();
-        centerImageElement.src = '/images/centerpiece.png'; // Replace with your PNG path
+        centerImageElement.src = '/images/eco-head.png'; // Replace with your PNG path
         const csrfRefreshUrl = '<?= base_url('wheel/getCsrfToken') ?>';
 
         let imgRotationAngle = 0;
@@ -226,27 +318,6 @@
         currentAngle += equalAngle; // Move to the next segment
     });
 
-    // Draw the center circle (placeholder for an image)
-// Draw the center circle (placeholder for an image)
-const centerCircleRadius = 45; // Size of the center circle
-ctx.save(); // Save the current context state
-
-// Add shadow to the center circle (push it outward)
-ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color
-ctx.shadowBlur = 50; // Increase blur to make the shadow larger
-ctx.shadowOffsetX = 0; // Horizontal shadow offset (pushes the shadow to the right)
-ctx.shadowOffsetY = 0; // Vertical shadow offset (pushes the shadow downward)
-
-// Draw the white center circle with the shadow
-ctx.beginPath();
-ctx.arc(centerX, centerY, centerCircleRadius, 0, 2 * Math.PI);
-ctx.fillStyle = '#fff'; // White center circle
-ctx.fill();
-ctx.lineWidth = 3; // Border thickness
-ctx.stroke();
-
-ctx.restore(); // Restore the context state to remove the shadow
-
 // Draw the center image (without shadow)
 drawCenterImage(); // Your function to draw the center image
 
@@ -335,7 +406,8 @@ function drawPointer() {
                 odds: parseFloat(segment.odds),
                 image: segment.image,
                 modal_img: segment.modal_img,
-                stock: segment.stock
+                stock: segment.stock,
+                jackpot: segment.jackpot
             }));
 
             totalOdds = segments.reduce((sum, segment) => sum + segment.odds, 0);
@@ -367,9 +439,9 @@ function drawPointer() {
     console.log("Selected Segment:", selectedSegment); // Debugging log
 
     const targetAngle = getTargetAngle(selectedSegment);
-    const finalAngle = targetAngle; // No extra rotations
-    const totalRotation = (2 * Math.PI * 20) + (-(targetAngle + 1/2*Math.PI));
-    const duration= 10000;
+    const totalRotation = (2 * Math.PI * 20) + (-(targetAngle + 1 / 2 * Math.PI)); // Add extra rotations
+    const duration = 10000; // Spin duration (10 seconds)
+
     const startTime = Date.now();
     function animate() {
         const elapsed = Date.now() - startTime; // Calculate elapsed time
@@ -390,11 +462,116 @@ function drawPointer() {
             startIdleAnimation();
             rotationAngle = totalRotation % (2 * Math.PI); // Finalize the rotation angle within range
             drawWheel(); // Draw the final position of the wheel
-            displayResult(selectedSegment); // Display the result (the segment the wheel landed on)
+
+            if (selectedSegment.jackpot == 'Yes') {
+                displayJackpotResult(selectedSegment); // Unique behavior for jackpot
+                handlePrizeRoll(selectedSegment);
+            } else {
+                displayResult(selectedSegment); // Regular behavior for other prizes
+            }
         }
     }
 
     animate(); // Start the animation loop
+}
+
+function displayJackpotResult(segment) {
+    const modal = document.getElementById('jackpotModal'); // Reference to the modal
+    const modalContent = modal.querySelector('.modal-content'); // Modal content container
+
+    // Clear existing content
+    modalContent.innerHTML = '';
+
+    // Show "Get Ready" message
+    const countdownText = document.createElement('div');
+    countdownText.textContent = 'Bersiap...';
+    countdownText.style.fontSize = '2rem';
+    countdownText.style.textAlign = 'center';
+    modalContent.appendChild(countdownText);
+
+    let countdown = 4; // 3-second countdown
+    const countdownInterval = setInterval(() => {
+        countdown -= 1;
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+
+            // Replace with jackpot video
+            showJackpotVideo(segment, modalContent);
+        } else {
+            countdownText.textContent = `Bersiap... (${countdown})`;
+        }
+    }, 1000);
+
+    modal.style.display = 'block'; // Show the modal
+}
+
+function showJackpotVideo(segment, modalContent) {
+    // Clear existing content
+    modalContent.innerHTML = '';
+
+    const jackpotTitle = document.createElement('div');
+    jackpotTitle.style.fontSize = '1.5rem';
+    jackpotTitle.style.textAlign = 'center';
+    jackpotTitle.style.marginTop = '20px';
+    modalContent.appendChild(jackpotTitle);
+
+    // Add title for jackpot prize
+    jackpotTitle.textContent = `Selamat! Anda Mendapatkan ${segment.label}!`;
+
+    // Update the video source using settings
+    updateJackpotVideo(modalContent);  // Call the function that updates the video source
+
+    // Add a 5-minute countdown
+    const countdownTimer = document.createElement('div');
+    countdownTimer.style.fontSize = '1.5rem';
+    countdownTimer.style.textAlign = 'center';
+    countdownTimer.style.marginTop = '20px';
+    modalContent.appendChild(countdownTimer);
+
+    let timeRemaining = 5 * 60; // 5 minutes in seconds
+    const countdownInterval = setInterval(() => {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        countdownTimer.textContent = `Waktu Tersisa: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        if (timeRemaining <= 0) {
+            clearInterval(countdownInterval);
+            modalContent.innerHTML = '<div style="text-align:center;">Waktu Habis! Selamat!</div>';
+            setTimeout(() => { closeJackpotModal(); }, 5000);
+        } else {
+            timeRemaining -= 1;
+        }
+    }, 1000);
+}
+
+// Function to dynamically update the video source
+function updateJackpotVideo(modalContent) {
+    // Ensure the video element exists in the modal
+    let video = modalContent.querySelector('video');
+    if (!video) {
+        // Create the video element if it doesn't exist
+        video = document.createElement('video');
+        video.autoplay = true;
+        video.controls = true;
+        video.style.display = 'block';
+        video.style.width = '100%';
+        modalContent.appendChild(video);
+    }
+
+    // Update the video source dynamically using the settings
+    fetch('/wheel-settings') // Call your endpoint
+        .then(response => response.json())
+        .then(settings => {
+            if (settings && settings.jackpot_vid) {
+                video.src = `/video/${settings.jackpot_vid}`; // Update with the actual video file path
+            }
+        })
+        .catch(error => console.error('Error fetching settings:', error));
+}
+
+function closeJackpotModal(){
+    const modal = document.getElementById('jackpotModal');
+    modal.style.display = 'none';  // Hide the modal
+    console.log("Modal hidden");
 }
         // Play the prize sound when the wheel stops
         function playPrizeSound() {
@@ -414,7 +591,7 @@ function displayResult(selectedSegment) {
 
     // Set the prize image if available
     if (selectedSegment.modal_img) {
-        modalPrizeImage.src = `uploads/images/${selectedSegment.modal_img}`; // Path to the prize image
+        modalPrizeImage.src = `../uploads/images/${selectedSegment.modal_img}`; // Path to the prize image
         modalPrizeImage.style.display = 'block'; // Ensure the image is visible
     } else {
         modalPrizeImage.style.display = 'none'; // Hide the image if not available
@@ -509,50 +686,113 @@ function getTargetAngle(segment) {
 function drawCenterImage() {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const imgSize = 60; // Adjust size for the center image
+    const imgSize = 80; // Adjust size for the center image
 
     if (centerImageElement) {
         ctx.save(); // Save the current context state
 
         // Rotate the canvas around the center for the idle animation
-        if(!isSpinning){
-        ctx.translate(centerX, centerY);
-        ctx.rotate(idleRotationAngle); // Rotate by the idle angle
-        ctx.translate(-centerX, -centerY);
-        };
+        
+        // in case idle animation needed
+        // ctx.translate(centerX, centerY);
+        // ctx.rotate(idleRotationAngle); // Rotate by the idle angle
+        // ctx.translate(-centerX, -centerY);
+        
 
         // Draw the center image (rotating)
         const imgX = centerX - imgSize / 2;
         const imgY = centerY - imgSize / 2;
-        ctx.drawImage(centerImageElement, imgX, imgY+10, imgSize, (imgSize - 20));
+        ctx.drawImage(centerImageElement, imgX, imgY, imgSize, (imgSize - 10));
 
         ctx.restore(); // Restore the context state
     }
 }
         // Fetch segments from the backend
-        fetch('/wheel/getSegments')
-            .then(response => response.json())
-            .then(data => {
-                console.log("Fetched segments data:", data);
-                if (data && Array.isArray(data)) {
-                    loadSegments(data);
-                } else {
-                    console.error("Failed to load segments: Invalid format or empty data");
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching segments:", error);
-            });
+        document.addEventListener("DOMContentLoaded", function () {
+    // Fetch segments from the backend
+    fetch('/wheel/getSegments')
+        .then(response => response.json())
+        .then(data => {
+            console.log("Fetched segments data:", data);
+            if (data && Array.isArray(data)) {
+                populatePrizeList(data);
+                loadSegments(data);
+            } else {
+                console.error("Failed to load segments: Invalid format or empty data");
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching segments:", error);
+        });
 
-            // Trigger spin on "Enter" key
-            document.addEventListener('keydown', (event) => {
+});
+function populatePrizeList(segments) {
+    const prizeList = document.getElementById('prizeList');
+
+    // Clear any existing list items
+    prizeList.innerHTML = '';
+
+    // Create and append list items for each segment
+    segments.forEach(segment => {
+        const listItem = document.createElement('li');
+
+        // Add data-id for unique identification
+        listItem.setAttribute('data-id', segment.id);
+
+        // Create a canvas for the pointer
+        const canvas = document.createElement('canvas');
+        canvas.width = 40; // Adjust size as needed
+        canvas.height = 40;
+        canvas.classList.add('pointer-canvas');
+
+        // Draw the pointer on the canvas
+        drawPointerOnCanvas(canvas);
+
+        // Append the pointer and label to the list item
+        listItem.appendChild(canvas);
+        listItem.appendChild(document.createTextNode(segment.label || 'Unnamed Prize'));
+        prizeList.appendChild(listItem);
+    });
+}
+
+
+function drawPointerOnCanvas(canvas) {
+    const ctx = canvas.getContext('2d');
+    const centerX = canvas.height / 2;
+    const pointerHeight = 15;
+    const pointerOffset = 10;
+    const borderThickness = 1;
+
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color (black with transparency)
+    ctx.shadowBlur = 6; // Blur effect for the shadow
+    ctx.shadowOffsetX = 0; // Horizontal offset of the shadow
+    ctx.shadowOffsetY = 0; // Vertical offset of the shadow
+    // Draw the white border
+    ctx.beginPath();
+    ctx.moveTo(centerX - pointerHeight - borderThickness+5, pointerOffset - borderThickness);
+    ctx.lineTo(centerX + pointerHeight + borderThickness-5, pointerOffset - borderThickness);
+    ctx.lineTo(centerX, pointerHeight + pointerOffset + borderThickness);
+    ctx.closePath();
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+
+    // Draw the red pointer
+    ctx.beginPath();
+    ctx.moveTo(centerX - pointerHeight+6, pointerOffset);
+    ctx.lineTo(centerX + pointerHeight-6, pointerOffset);
+    ctx.lineTo(centerX, pointerHeight-2 + pointerOffset);
+    ctx.closePath();
+    ctx.fillStyle = '#fd2654';
+    ctx.fill();
+    ctx.shadowColor = 'transparent';
+}
+// Close modal on "Esc" key
+document.addEventListener('keydown', (event) => {
     if ((event.key === ' ' || event.key === 'Spacebar') && !isSpinning) {  // Check if Spacebar (or ' ') is pressed and not spinning
         event.preventDefault();  // Prevent default Spacebar action (e.g., scrolling)
         spinWheel();  // Start spinning
     }
 });
-
-// Close modal on "Esc" key
 
 // Close modal on "Esc" key and refresh the page or content
 document.addEventListener('keydown', (event) => {
@@ -614,6 +854,9 @@ async function handlePrizeRoll(selectedSegment) {
                 // Remove the segment from the segments array
                 segments = segments.filter(segment => segment.id !== selectedSegment.id);
 
+                // Remove the segment from the prize list
+                removePrizeFromList(selectedSegment.id);
+
                 // Redraw the wheel without the removed segment
                 drawWheel();
             }
@@ -624,6 +867,18 @@ async function handlePrizeRoll(selectedSegment) {
     .catch(error => {
         console.error('API Request Failed:', error);
     });
+}
+
+function removePrizeFromList(segmentId) {
+    const prizeList = document.getElementById('prizeList');
+    
+    // Find the list item with the matching data-id
+    const listItem = prizeList.querySelector(`li[data-id="${segmentId}"]`);
+    if (listItem) {
+        prizeList.removeChild(listItem); // Remove the matched list item
+    } else {
+        console.error(`List item with segmentId ${segmentId} not found.`);
+    }
 }
 
 function closeModal() {
@@ -651,6 +906,28 @@ function startIdleAnimation() {
 function stopIdleAnimation() {
     isIdle = false; // Stop the idle animation
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/wheel-settings') // Call your endpoint
+        .then(response => response.json())
+        .then(settings => {
+            if (settings) {
+                // Update the media sources dynamically for audio
+                const spinSound = document.getElementById('spinSound');
+                const prizeSound = document.getElementById('prizeSound');
+                spinSound.src = `../audio/${settings.spin_sfx}`;
+                prizeSound.src = `../audio/${settings.prize_sfx}`;
+
+                // Update the video dynamically
+                const jackpotVideo = document.getElementById('jackpotVideo'); // Assuming you have a <video> element with id 'jackpotVideo'
+                if (jackpotVideo) {
+                    jackpotVideo.src = `../video/${settings.jackpot_vid}`; // Dynamically set the video source
+                }
+            }
+        })
+        .catch(error => console.error('Error fetching settings:', error));
+});
+
     </script>
 </body>
 
