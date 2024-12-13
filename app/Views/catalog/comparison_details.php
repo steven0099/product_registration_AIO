@@ -13,6 +13,13 @@
         font-family: Poppins, sans-serif;
     }
 
+    #header-fixed {
+        position: fixed;
+        top: 65px;
+        display: none;
+        background-color: white;
+    }
+
     .breadcrumb-link,
     .breadcrumb-product {
         display: inline;
@@ -406,7 +413,7 @@ Bandingkan Produk
 
 <!-- Comparison Table -->
 
-<table class="comparison-table-head">
+<table class="comparison-table-head" id="table-1">
     <thead>
         <tr>
             <th style="font-size: 15px;">Bandingkan Produk</th>
@@ -896,12 +903,28 @@ Bandingkan Produk
             </tr>
         </tbody>
     </table>
+    <table id="header-fixed"></table>
 </div>
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
 <!-- jQuery -->
 <script src="<?= base_url('plugins/jquery/jquery.min.js') ?>"></script>
+<script>
+    var tableOffset = $("#table-1").offset().top;
+    var $header = $("#table-1 > thead").clone();
+    var $fixedHeader = $("#header-fixed").append($header);
+
+    $(window).bind("scroll", function() {
+        var offset = $(this).scrollTop();
+
+        if (offset >= tableOffset && $fixedHeader.is(":hidden")) {
+            $fixedHeader.show();
+        } else if (offset < tableOffset) {
+            $fixedHeader.hide();
+        }
+    });
+</script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <?= $this->endSection() ?>
