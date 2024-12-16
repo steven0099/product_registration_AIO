@@ -9,7 +9,7 @@
     <style>
         canvas {
             display: block;
-            margin: 5px auto;
+            margin: 1px auto;
             margin-bottom:5px;
             position:absolute;
         }
@@ -36,6 +36,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
+            font-family: Poppins, sans-serif;
             justify-content: center;
             align-items: center;
         }
@@ -92,15 +93,16 @@
 .left-column {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 300px;
     height: 600px; /* Adjust as needed */
     background-color: #209dd8;
+    margin-top:20px;
     position: relative;
-    right:470px;
+    right:500px;
 }
 
 .upper-half {
-    flex: 1 1 34%;
+    flex: 1 1 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,7 +116,7 @@
 }
 
 .bottom-half {
-    flex: 1 1 66%;
+    flex: 1 1 55%;
     padding: 15px;
     overflow-y: auto;
     background-color: #209dd8; /* Optional background */
@@ -127,39 +129,47 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center; /* Center the items horizontally */
 }
 
 .prize-list li {
     display: flex;
-    align-items: center;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
     position: relative;
-    padding: 5px;
+    font-weight: bold;
+    padding: 8px; /* Adjust padding for consistent size */
     border: 1px solid #ddd;
     border-radius: 20px;
     background-color: #fff;
     font-family: Poppins, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
+    text-align: center;
     color: #333;
+    width: 100%; /* Ensures equal width for all items */
+    max-width: 400px; /* Optional: set a max width to control size */
+    box-sizing: border-box; /* Ensure padding doesn't affect box size */
 }
+
 
 .pointer-canvas {
     position: absolute;
     left: -20px; /* Position the pointer outside the box */
     top: 50%;
-    transform: translateY(-65%) rotate(270deg); /* Rotate pointer to point right */
+    transform: translateY(-50%) rotate(270deg); /* Rotate pointer to point right */
 }
 
     </style>
     <link rel="icon" type="image/png" href="/product-asset/assets/img/icon.png" />
 </head>
 
-<body style="background-color: #209dd8; overflow-y: hidden">
+<body style="background-color: #209dd8; overflow-y: hidden; overflow-x: hidden">
 
-    <div class="wheel-container" style="margin-top:30px; display: flex; justify-content: center; align-items: center; position: relative;">
+    <div class="wheel-container" style="margin-top:10px; display: flex; justify-content: center; align-items: center; position: relative;">
     <div class="left-column">
     <!-- Upper Half: Image -->
     <div class="upper-half">
-        <img src="/images/spin-banner.png" alt="Prize Display" class="prize-image" style="width:90%">
+        <img src="/images/spin-banner.png" alt="Prize Display" class="prize-image" style="width:80%">
     </div>
 
     <!-- Bottom Half: Prize List -->
@@ -170,10 +180,10 @@
 
 
         <!-- Wheel Canvas -->
-        <canvas id="wheelCanvas" width="500" height="525"></canvas>
+        <canvas id="wheelCanvas" width="550" height="575"></canvas>
 
         <!-- Right Image -->
-        <img src="../images/banner-eco.png" alt="Right Image" class="side-image" style="position: absolute; right: 20px; height: 95%; width: 400px;">
+        <img src="../images/banner-eco.png" alt="Right Image" class="side-image" style="position: absolute; right: -10px; height: 90%; width: 400px;">
 
     <div id="resultModal">
         <div id="modalContent">
@@ -198,7 +208,7 @@
 
     <!-- Prize sound -->
     <audio id="prizeSound"></audio>
-    <video id="jackpotVideo" autoplay controls style="width: 100%; display: none"></video>
+    <video id="jackpotVideo" controls style="width: 100%; display: none"></video>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -210,10 +220,11 @@
         const spinSound = document.getElementById('spinSound');
         const prizeSound = document.getElementById('prizeSound');
         const centerImageElement = new Image();
-        centerImageElement.src = '/images/eco-head.png'; // Replace with your PNG path
+        centerImageElement.src = '/images/e_Happy.png'; // Replace with your PNG path
         const csrfRefreshUrl = '<?= base_url('wheel/getCsrfToken') ?>';
 
         let imgRotationAngle = 0;
+        let jackpotTexture = '';
         let isSpinning = false;
         let rotationAngle = 0;
         let spinVelocity = 0;
@@ -222,6 +233,11 @@
         let equalAngle = 2 * Math.PI / segments.length; // Angle per segment, defined globally
         let idleRotationAngle = 0; // For slow rotation during idle state
         let isIdle = ''; // Flag to track idle state
+        let scaleFactor = 1; // Initial scale factor (no scaling)
+let scalingDirection = 1; // 1 for expanding, -1 for contracting
+const scaleSpeed = 0.003; // Speed of scaling (adjust as needed)
+const scaleMax = 1.2; // Maximum scale factor (when the image is expanded)
+const scaleMin = 1; // Minimum scale factor (original size)
 
         function refreshCsrfToken() {
     return fetch('/wheel/getCsrfToken', {
@@ -248,7 +264,7 @@
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const radius = Math.min(centerX, centerY) - 10; // Adjust radius for spacing
-    const outerRadius = radius - 55; // Outer radius for image placement
+    const outerRadius = radius - 80; // Outer radius for image placement
     const equalAngle = 2 * Math.PI / segments.length; // Each segment gets an equal angle
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redrawing
@@ -277,11 +293,13 @@
         let color;
         if (index === 0 && segments.length % 3 != 0) {
             color = '#0daff0'; // First segment special color
+        } else if (segment.jackpot == "Yes") {
+            color = '#e61e25';
         } else {
             // Alternating colors for the rest
             switch (index % 3) {
                 case 0:
-                    color = '#fd2654'; // Red
+                    color = '#26fd54'; // Green
                     break;
                 case 1:
                     color = '#fdce26'; // Yellow
@@ -298,32 +316,67 @@
         ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + equalAngle);
         ctx.closePath();
 
-        ctx.fillStyle = color;
-        ctx.fill();
-        
+        if (segment.jackpot === "Yes" && jackpotTexture) {
+            ctx.fillStyle = color; // Set the base color
+            ctx.fill();
 
-        // Draw the image for the segment (if available)
-        if (segment.imgElement) {
-            const imgSize = 90; // Image size
-            const imgX = centerX + Math.cos(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
-            const imgY = centerY + Math.sin(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
+            ctx.save(); // Save the current context state
+            ctx.translate(centerX+30, centerY+100); // Move to the center of the wheel
+            ctx.rotate(rotationAngle); // Rotate the texture with the wheel
+            ctx.translate(-centerX, -centerY); // Move back to the original position
 
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(imgX + imgSize / 2, imgY + imgSize / 2, imgSize / 2, 0, 2 * Math.PI);
-            ctx.drawImage(segment.imgElement, imgX, imgY, imgSize, imgSize);
-
+            let pattern = ctx.createPattern(jackpotTexture, 'repeat');
+            ctx.fillStyle = pattern; // Set the pattern as the fill style
+            ctx.scale(0.1, 0.1); // Scale the pattern (50% smaller)
+            ctx.clip(); // Clip the segment area
+            ctx.fill(); // Fill the clipped area with the rotated pattern
+            ctx.restore(); // Restore the canvas state
+        } else {
+            ctx.fillStyle = color;
+            ctx.fill();
         }
+
+        if (segment.imgElement) {
+    const imgSize = 120; // Image size
+    const imgX = centerX + Math.cos(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
+    const imgY = centerY + Math.sin(currentAngle + equalAngle / 2) * outerRadius - imgSize / 2;
+    const backgroundImgElement = new Image();
+backgroundImgElement.src = '/images/sunray.png'; // Replace with your PNG path
+
+backgroundImgElement.onload = () => {
+    // Draw the background when the image is loaded
+    if (segment.jackpot === 'Yes') {
+        ctx.save();
+        ctx.beginPath();
+        ctx.drawImage(backgroundImgElement, imgX, imgY, imgSize, imgSize);
+        ctx.restore();
+    }
+};
+
+    // Draw background image first (static)
+    if (backgroundImgElement && segment.jackpot == 'Yes') {
+        ctx.save();
+        ctx.beginPath();
+        ctx.drawImage(backgroundImgElement, imgX, imgY, imgSize, imgSize);
+        ctx.restore();
+    }
+
+    // Draw the segment image on top of the background
+    ctx.save();
+    ctx.beginPath();
+    ctx.drawImage(segment.imgElement, imgX, imgY, imgSize, imgSize);
+    ctx.restore();
+}
+
 
         currentAngle += equalAngle; // Move to the next segment
     });
 
-// Draw the center image (without shadow)
-drawCenterImage(); // Your function to draw the center image
+    // Draw the center image (without shadow)
+    drawCenterImage(); // Your function to draw the center image
 
-// Draw the pointer on top
-drawPointer();
-
+    // Draw the pointer on top
+    drawPointer();
 }
 
 
@@ -536,6 +589,8 @@ function showJackpotVideo(segment, modalContent) {
         if (timeRemaining <= 0) {
             clearInterval(countdownInterval);
             modalContent.innerHTML = '<div style="text-align:center;">Waktu Habis! Selamat!</div>';
+            playPrizeSound();
+            triggerConfetti();
             setTimeout(() => { closeJackpotModal(); }, 5000);
         } else {
             timeRemaining -= 1;
@@ -694,19 +749,26 @@ function drawCenterImage() {
         // Rotate the canvas around the center for the idle animation
         
         // in case idle animation needed
-        // ctx.translate(centerX, centerY);
-        // ctx.rotate(idleRotationAngle); // Rotate by the idle angle
-        // ctx.translate(-centerX, -centerY);
+        ctx.translate(centerX, centerY); // Move to center
+        ctx.scale(scaleFactor, scaleFactor); // Scale the image
         
 
         // Draw the center image (rotating)
-        const imgX = centerX - imgSize / 2;
-        const imgY = centerY - imgSize / 2;
+        const imgX = -imgSize / 2;
+        const imgY = -imgSize / 2;
         ctx.drawImage(centerImageElement, imgX, imgY, imgSize, (imgSize - 10));
 
         ctx.restore(); // Restore the context state
+        scaleFactor += scalingDirection * scaleSpeed; // Increase or decrease the factor
+
+        // Reverse scaling direction when reaching max or min
+        if (scaleFactor >= scaleMax || scaleFactor <= scaleMin) {
+            scalingDirection *= -1; // Reverse the direction
+        }
     }
 }
+
+
         // Fetch segments from the backend
         document.addEventListener("DOMContentLoaded", function () {
     // Fetch segments from the backend
@@ -921,7 +983,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update the video dynamically
                 const jackpotVideo = document.getElementById('jackpotVideo'); // Assuming you have a <video> element with id 'jackpotVideo'
                 if (jackpotVideo) {
-                    jackpotVideo.src = `../video/${settings.jackpot_vid}`; // Dynamically set the video source
+                    jackpotVideo.src = `../video/${settings.jackpot_vid}`;
+                }
+
+                // Fetch and preload the jackpot texture
+                if (settings.jackpot_bg) {
+                    const jackpotTextureImg = new Image();
+                    jackpotTextureImg.src = `../images/${settings.jackpot_bg}`; // Dynamically set the texture source
+                    jackpotTextureImg.onload = () => {
+                        jackpotTexture = jackpotTextureImg; // Assign to the global variable
+                        console.log('Jackpot texture loaded.');
+                        drawWheel(); // Redraw the wheel after the texture is loaded
+                    };
                 }
             }
         })

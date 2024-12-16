@@ -252,7 +252,7 @@
             </li>
         <?php endif; ?>
       </ul>
-      <?php if (session()->get('role') == 'superadmin'): ?>
+      <?php if (session()->get('role') == 'superadmin' || session()->get('role') == 'admin  '): ?>
         <li class="nav-item <?= (uri_string() == 'admin/wheel' || uri_string() == 'admin/spinwheel' || uri_string() == 'admin/wheel/setting') ? 'menu-open' : '' ?>" style="width: 99%">
             <a href="#" class="nav-link <?= uri_string() == 'admin/wheel' || (uri_string() == 'admin/spinwheel' || uri_string() == 'admin/wheel/setting') ? 'active' : '' ?>">
             <i class="fas fa-dharmachakra nav-icon"></i>

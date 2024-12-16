@@ -1828,55 +1828,6 @@ function updateHarga() {
         });
 }
 
-function updateHarga() {
-    const hargaInput = document.getElementById('hargaInput');
-    const idInput = document.getElementById('id');
-
-    if (!hargaInput || !idInput) {
-        console.error('One or more elements not found:', {
-            hargaInput: hargaInput,
-            idInput: idInput
-        });
-        alert('Unable to find input fields.');
-        return; // Exit the function early
-    }
-
-    const harga = hargaInput.value; // Get the color input value
-    const id = `<?= $product['id'] ?>`; // Get the product ID
-
-    // Validate the color input
-    if (!harga) {
-        alert("Cold Water Capacity cannot be empty.");
-        return;
-    }
-
-    const csrfTokenName = '<?= csrf_token() ?>';
-    const csrfTokenValue = '<?= csrf_hash() ?>';
-
-    // Send the POST request to update the color
-    $.post("<?= base_url('superadmin/updateHarga') ?>", {
-            id: id,
-            harga: harga,
-            [csrfTokenName]: csrfTokenValue
-        })
-        .done(function(response) {
-            // Check if the response is in the expected format
-            if (typeof response === "object" && response !== null) {
-                if (response.success) {
-                    alert(response.message); // Show success message
-                    location.reload(); // Reload the page to see the updated color
-                } else {
-                    alert("Error: " + response.message); // Show error message
-                }
-            } else {
-                alert("Unexpected response format.");
-            }
-        })
-        .fail(function(jqXHR) {
-            alert("Request failed: " + jqXHR.statusText);
-        });
-}
-
 function updateHotCap() {
     const hotcapInput = document.getElementById('hotcapInput');
     const idInput = document.getElementById('id');

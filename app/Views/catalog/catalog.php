@@ -211,6 +211,8 @@ Katalog Digital
                                 <option style="color:#000; font-style: normal" value="name_desc" <?= $sort == 'name_desc' ? 'selected' : '' ?>>Tipe Produk Z-A</option>
                                 <option style="color:#000; font-style: normal" value="capacity_asc" <?= $sort == 'capacity_asc' ? 'selected' : '' ?>>Kapasitas Rendah - Tinggi</option>
                                 <option style="color:#000; font-style: normal" value="capacity_desc" <?= $sort == 'capacity_desc' ? 'selected' : '' ?>>Kapasitas Tinggi - Rendah</option>
+                                <!--<option style="color:#000; font-style: normal" value="harga_asc" <?= $sort == 'harga_asc' ? 'selected' : '' ?>>Harga Rendah - Tinggi</option>
+                                <option style="color:#000; font-style: normal" value="harga_desc" <?= $sort == 'harga_desc' ? 'selected' : '' ?>>Harga Tinggi - Rendah</option>-->
                                 <option style="color:#000; font-style: normal" value="date_asc" <?= $sort == 'date_asc' ? 'selected' : '' ?>>Produk Lama - Baru</option>
                                 <option style="color:#000; font-style: normal" value="date_desc" <?= $sort == 'date_desc' ? 'selected' : '' ?>>Produk Baru - Lama</option>
                             </select>

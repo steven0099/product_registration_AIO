@@ -11,6 +11,6 @@ class WheelFXModel extends Model
     
     // Sesuaikan dengan field pada tabel gambar
     protected $allowedFields = [
-        'spin_sfx', 'prize_sfx', 'jackpot_vid'
+        'spin_sfx', 'prize_sfx', 'jackpot_vid', 'jackpot_bg'
     ];
 }

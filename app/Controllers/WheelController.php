@@ -228,6 +228,7 @@ class WheelController extends BaseController
         $fileSpinSFX = $this->request->getFile('spin_sfx');
         $filePrizeSFX = $this->request->getFile('prize_sfx');
         $fileJackpotVid = $this->request->getFile('jackpot_vid');
+        $fileJackpotBG = $this->request->getFile('jackpot_bg');
         
         // Retrieve the current settings from the database
         $currentSettings = $this->wheelFXModel->find($id);
@@ -280,6 +281,22 @@ class WheelController extends BaseController
             $data['jackpot_vid'] = $currentSettings['jackpot_vid'];
         }
     
+                // Handle jackpot_vid file
+                if ($fileJackpotBG && $fileJackpotBG->isValid() && !$fileJackpotBG->hasMoved()) {
+                    // Check if the file already exists and delete it if so
+                    $existingFile = FCPATH . 'images/' . $currentSettings['jackpot_bg'];
+                    if (file_exists($existingFile)) {
+                        unlink($existingFile); // Delete the old file
+                    }
+            
+                    // Move the new file and set the value
+                    $fileJackpotBG->move(FCPATH . 'images/', $fileJackpotBG->getName());
+                    $data['jackpot_bg'] = $fileJackpotBG->getName();  // Update the jackpot_vid with new file name
+                } else {
+                    // Keep the existing jackpot_vid if no new file is provided
+                    $data['jackpot_bg'] = $currentSettings['jackpot_bg'];
+                }
+            
         // Update the database with the new values
         $this->wheelFXModel->update($id, $data);
         

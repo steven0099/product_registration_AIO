@@ -127,6 +127,18 @@ usort($ukuran, function ($a, $b) {
     return strcmp($a['ukuran'], $b['ukuran']);
 });
 
+// Format the 'harga' field to remove ",00" if it's a whole number
+// Format the 'harga' field to remove ",00" if it's a whole number
+// Format the 'harga' field to remove ",00" at the end
+foreach ($products as &$product) {
+    // Check if the price ends with ',00'
+    if (substr($product['harga'], -3) === ',00') {
+        // Remove ',00' only from the end of the string
+        $product['harga'] = substr($product['harga'], 0, -3);
+    }
+}
+
+
 // Pass the sorted arrays to the view
 $data['categories'] = $categories;
 $data['subcategories'] = $subcategories;
@@ -162,99 +174,116 @@ log_message('info', 'Sort: ' . $sort);
         }
     
         $products = $this->confirmationModel->whereIn('id', $productIds)->findAll();
+        foreach ($products as &$product) {
+            // Check if the price ends with ',00'
+            if (substr($product['harga'], -3) === ',00') {
+                // Remove ',00' only from the end of the string
+                $product['harga'] = substr($product['harga'], 0, -3);
+            }
+        }
         return view('catalog/comparison_details', ['products' => $products]);
     }
 
-public function filterProducts()
-{
-    // Get all query parameters
-    $categoryName = $this->request->getGet('category');
-    $subcategoryName = $this->request->getGet('subcategory');
-    $capacity = $this->request->getGet('capacity');
-    $search = $this->request->getGet('search') ?? '';  // Default to empty if no search
-    $sort = $this->request->getGet('sort') ?? 'id_asc'; // Default to 'id_asc' if no sort
-
-    // Map category and subcategory names to IDs (optional, if required)
-    $categoryId = $categoryName ? $this->getCategoryIdByName($categoryName) : null;
-    $subcategoryId = $subcategoryName ? $this->getSubcategoryIdByName($subcategoryName) : null;
-
-    // Build the query
-// Build the query
-$query = $this->confirmationModel->where('status', 'approved');
-
-// Apply category filter
-if (!empty($categoryName)) {
-    $query->where('category', $categoryName);
-}
-
-// Apply subcategory filter
-if (!empty($subcategoryName)) {
-    $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
-}
-
-// Apply capacity or ukuran filter
-if (!empty($capacity)) {
-    // Determine filter type based on category and subcategory
-    $filterType = $this->getFilterType($categoryId, $subcategoryId);
-
-    log_message('debug', 'Filter Type: ' . $filterType);
-
-    if ($filterType === 'capacity') {
-        $query->where('capacity', $capacity);
-    } elseif ($filterType === 'ukuran') {
-        $query->where('ukuran', $capacity); // Compare ukuran directly as a string
-    }
-}
-
-// Apply search filter (respecting existing filters)
-if (!empty($search)) {
-    $query->groupStart()
-        ->like('product_type', $search)
-        ->orLike('brand', $search)
-        ->orLike('category', $search)
-        ->orLike('subcategory', $search)
-        ->orLike('capacity', $search)
-        ->orLike('ukuran', $search)
-        ->groupEnd();
-}
-    // Apply sorting based on the selected sort option
-    switch ($sort) {
-        case 'name_asc':
-            $query->orderBy('product_type', 'ASC');
-            break;
-        case 'name_desc':
-            $query->orderBy('product_type', 'DESC');
-            break;
-        case 'capacity_asc':
-            $query->orderBy('capacity', 'ASC');
-            break;
-        case 'capacity_desc':
-            $query->orderBy('capacity', 'DESC');
-            break;
+    public function filterProducts()
+    {
+        // Get all query parameters
+        $categoryName = $this->request->getGet('category');
+        $subcategoryName = $this->request->getGet('subcategory');
+        $capacity = $this->request->getGet('capacity');
+        $search = $this->request->getGet('search') ?? '';  // Default to empty if no search
+        $sort = $this->request->getGet('sort') ?? 'id_asc'; // Default to 'id_asc' if no sort
+    
+        // Map category and subcategory names to IDs (optional, if required)
+        $categoryId = $categoryName ? $this->getCategoryIdByName($categoryName) : null;
+        $subcategoryId = $subcategoryName ? $this->getSubcategoryIdByName($subcategoryName) : null;
+    
+        // Build the query
+        $query = $this->confirmationModel->where('status', 'approved');
+    
+        // Apply category filter
+        if (!empty($categoryName)) {
+            $query->where('category', $categoryName);
+        }
+    
+        // Apply subcategory filter
+        if (!empty($subcategoryName)) {
+            $query->where('subcategory', $subcategoryName); // Use subcategory_id if needed
+        }
+    
+        // Apply capacity or ukuran filter
+        if (!empty($capacity)) {
+            // Determine filter type based on category and subcategory
+            $filterType = $this->getFilterType($categoryId, $subcategoryId);
+    
+            log_message('debug', 'Filter Type: ' . $filterType);
+    
+            if ($filterType === 'capacity') {
+                $query->where('capacity', $capacity);
+            } elseif ($filterType === 'ukuran') {
+                $query->where('ukuran', $capacity); // Compare ukuran directly as a string
+            }
+        }
+    
+        // Apply search filter (respecting existing filters)
+        if (!empty($search)) {
+            $query->groupStart()
+                ->like('product_type', $search)
+                ->orLike('brand', $search)
+                ->orLike('category', $search)
+                ->orLike('subcategory', $search)
+                ->orLike('capacity', $search)
+                ->orLike('ukuran', $search)
+                ->groupEnd();
+        }
+    
+        // Apply sorting based on the selected sort option
+        switch ($sort) {
+            case 'name_asc':
+                $query->orderBy('product_type', 'ASC');
+                break;
+            case 'name_desc':
+                $query->orderBy('product_type', 'DESC');
+                break;
+            case 'capacity_asc':
+                $query->orderBy('capacity', 'ASC');
+                break;
+            case 'capacity_desc':
+                $query->orderBy('capacity', 'DESC');
+                break;
             case 'date_asc':
                 $query->orderBy('approved_at', 'ASC');
                 break;
             case 'date_desc':
                 $query->orderBy('approved_at', 'DESC');
                 break;
-        default:
-            $query->orderBy('id', 'ASC'); // Default sorting
-            break;
+            default:
+                $query->orderBy('id', 'ASC'); // Default sorting
+                break;
+        }
+    
+        // Fetch the filtered products
+        $data['products'] = $query->findAll();
+    
+        // Apply 'harga' deformatting
+        foreach ($data['products'] as &$product) {
+            // Check if the 'harga' value is in the correct format, like 'Rp. 2.000.000,00'
+            if (isset($product['harga']) && is_string($product['harga'])) {
+                // Remove the currency symbol 'Rp. ' and any commas or periods
+                $product['harga'] = str_replace([',00'], [''], $product['harga']);
+            }
+        }
+    
+        // Log the filter values and the resulting query data
+        log_message('debug', 'Filter - Category: ' . $categoryName);
+        log_message('debug', 'Filter - Subcategory: ' . $subcategoryName);
+        log_message('debug', 'Filter - Capacity/Ukuran: ' . $capacity);
+        log_message('debug', 'Filter - Search: ' . $search);
+        log_message('debug', 'Query Result: ' . print_r($data['products'], true));
+    
+        // Return the view with filtered products
+        return view('partials/product_grid', $data);
     }
-
-    // Fetch the filtered products
-    $data['products'] = $query->findAll();
-
-    // Log the filter values and the resulting query data
-    log_message('debug', 'Filter - Category: ' . $categoryName);
-    log_message('debug', 'Filter - Subcategory: ' . $subcategoryName);
-    log_message('debug', 'Filter - Capacity/Ukuran: ' . $capacity);
-    log_message('debug', 'Filter - Search: ' . $search);
-    log_message('debug', 'Query Result: ' . print_r($data['products'], true));
-
-    // Return the view with filtered products
-    return view('partials/product_grid', $data);
-}
+    
 
     
 public function getSubcategories()
@@ -499,6 +528,12 @@ public function details($id)
        if (preg_match('/(?:youtube\.com\/.*v=|youtu\.be\/)([^&?]+)/', $product['video_produk'], $matches)) {
            $videoId = $matches[1];
        }
+
+
+        if (isset($product['harga']) && substr($product['harga'], -3) === ',00') {
+            // Remove ',00' only from the end of the string
+            $product['harga'] = substr($product['harga'], 0, -3);
+        }
    
        if ($videoId) {
            // Create YouTube embed and thumbnail URLs
