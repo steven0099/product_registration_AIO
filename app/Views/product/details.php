@@ -1432,7 +1432,7 @@ Rincian Produk
         </div>
         <?php endif; ?>
 
-        <?php if ($product['status'] == 'rejected'): ?>
+        <?php if ($product['status'] == 'rejected' || $product['status'] == 'approved'): ?>
         <div class="mt-4">
             <button data-id="<?= esc($product['id']) ?>" class="btn-delete btn btn-danger">
                 Hapus Produk

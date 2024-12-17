@@ -568,6 +568,9 @@
                                                         <?php endforeach; ?>
                                                 </tr>
                                                 <tr>
+                                                    <td><b>Tipe Produk</b></td>
+                                                    <td>
+                                                    <?= esc($data['product_type']) ?>
                                                     </td>
                                                     <?php if (!empty($data['video_produk'])): ?>
                                                         <td><b>Video Produk</b></td>
