@@ -20,31 +20,44 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <style>
+        input.form-control:-webkit-autofill {
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important;
+            /* White background for content */
+            -webkit-text-fill-color: #000 !important;
+            /* Default text color */
+            border: 2px solid #00bfff;
+            /* Blue border */
+            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+            /* Smooth transition */
+        }
 
-input.form-control:-webkit-autofill {
-    box-shadow:  0 0 8px rgba(30, 144, 255, 0.7),
-                0 0 0 30px white inset !important; /* White background for content */
-    -webkit-text-fill-color: #000 !important; /* Default text color */
-    border: 2px solid #00bfff; /* Blue border */
-    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
-}
+        input.form-control:-webkit-autofill:focus {
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.7),
+                0 0 0 30px white inset !important;
+            /* White background for content */
+            -webkit-text-fill-color: #000 !important;
+            /* Default text color */
+            border: 2px solid #00bfff;
+            /* Blue border */
+            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+            /* Smooth transition */
+        }
 
-input.form-control:-webkit-autofill:focus {
-    box-shadow: 0 0 8px rgba(30, 144, 255, 0.7),
-                0 0 0 30px white inset !important; /* White background for content */
-    -webkit-text-fill-color: #000 !important; /* Default text color */
-    border: 2px solid #00bfff; /* Blue border */
-    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
-}
-/* For valid autofill (if manually validated with Bootstrap classes) */
-input.form-control:-webkit-autofill.form-control.valid {
-    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5),
-                0 0 0 30px white inset !important; /* White background for content */
-    -webkit-text-fill-color: #000 !important; /* Default text color */
-    border: 2px solid rgba(0, 191, 255, 0.8); /* Blue border */
-    border-color: #00bfff;
-    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition */
-}
+        /* For valid autofill (if manually validated with Bootstrap classes) */
+        input.form-control:-webkit-autofill.form-control.valid {
+            box-shadow: 0 0 5px rgba(0, 191, 255, 0.5),
+                0 0 0 30px white inset !important;
+            /* White background for content */
+            -webkit-text-fill-color: #000 !important;
+            /* Default text color */
+            border: 2px solid rgba(0, 191, 255, 0.8);
+            /* Blue border */
+            border-color: #00bfff;
+            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+            /* Smooth transition */
+        }
+
         input[type="text"],
         input[type="file"],
         input[type="number"],
@@ -58,8 +71,8 @@ input.form-control:-webkit-autofill.form-control.valid {
             outline: none;
             /* Menghilangkan outline default */
             box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
-            background-color:#fff;
-            color:#000;
+            background-color: #fff;
+            color: #000;
             /* Menambahkan efek bayangan */
         }
 
@@ -252,17 +265,17 @@ input.form-control:-webkit-autofill.form-control.valid {
 
                                                 <div class="form-group">
                                                     <label for="gambar_depan">Gambar Tampak Depan</label>
-                                                    <input type="file" id="gambar_depan" name="gambar_depan" value="<?= session()->get("step4")["gambar_depan"] ?? '' ?>" class="form-control" required>
+                                                    <input type="file" id="gambar_depan" name="gambar_depan" accept="image/png, image/gif, image/jpeg" value="<?= session()->get("step4")["gambar_depan"] ?? '' ?>" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kanan">Gambar Tampak Samping Kanan</label>
-                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" value="<?= session()->get("step4")["gambar_samping_kanan"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_samping_kanan" name="gambar_samping_kanan" accept="image/png, image/gif, image/jpeg" value="<?= session()->get("step4")["gambar_samping_kanan"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_atas">Gambar Tampak Atas</label>
-                                                    <input type="file" id="gambar_atas" name="gambar_atas" value="<?= session()->get("step4")["gambar_atas"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_atas" name="gambar_atas" accept="image/png, image/gif, image/jpeg" value="<?= session()->get("step4")["gambar_atas"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
@@ -277,17 +290,17 @@ input.form-control:-webkit-autofill.form-control.valid {
 
                                                 <div class="form-group">
                                                     <label for="gambar_belakang">Gambar Tampak Belakang</label>
-                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_belakang" name="gambar_belakang" accept="image/png, image/gif, image/jpeg" value="<?= session()->get("step4")["gambar_belakang"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_samping_kiri">Gambar Tampak Samping Kiri</label>
-                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_samping_kiri" name="gambar_samping_kiri" accept="image/png, image/gif, image/jpeg" value="<?= session()->get("step4")["gambar_samping_kiri"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="gambar_bawah">Gambar Tampak Bawah</label>
-                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
+                                                    <input type="file" id="gambar_bawah" name="gambar_bawah" accept="image/png, image/gif, image/jpeg" value="<?= session()->get("step4")["gambar_bawah"] ?? '' ?>" class="form-control">
                                                 </div>
 
                                             </div>
@@ -352,8 +365,10 @@ input.form-control:-webkit-autofill.form-control.valid {
         $('a[href="#photos"]').tab('show'); // Activate the upload photos tab
     });
 
+
     document.querySelector('form').addEventListener('submit', function() {
         const fileInput = document.querySelector('input[type="file"]');
+
         if (fileInput.files.length > 0) {
             fileInput.classList.add('image-uploaded'); // Tambahkan kelas untuk menandai bahwa gambar telah di-upload
         }
