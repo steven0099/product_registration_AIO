@@ -273,8 +273,8 @@ const scaleMin = 1; // Minimum scale factor (original size)
 
     // Add shadow to the border
     ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-    ctx.shadowBlur = 10;
-    ctx.shadowOffsetX = 3;
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 3;
 
     // Draw the white border around the wheel
@@ -321,13 +321,13 @@ const scaleMin = 1; // Minimum scale factor (original size)
             ctx.fill();
 
             ctx.save(); // Save the current context state
-            ctx.translate(centerX+30, centerY+100); // Move to the center of the wheel
+            ctx.translate(centerX, centerY+80); // Move to the center of the wheel
             ctx.rotate(rotationAngle); // Rotate the texture with the wheel
             ctx.translate(-centerX, -centerY); // Move back to the original position
 
             let pattern = ctx.createPattern(jackpotTexture, 'repeat');
             ctx.fillStyle = pattern; // Set the pattern as the fill style
-            ctx.scale(0.1, 0.1); // Scale the pattern (50% smaller)
+            ctx.scale(0.12, 0.12); // Scale the pattern (50% smaller)
             ctx.clip(); // Clip the segment area
             ctx.fill(); // Fill the clipped area with the rotated pattern
             ctx.restore(); // Restore the canvas state

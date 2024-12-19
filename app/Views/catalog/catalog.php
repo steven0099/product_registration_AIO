@@ -47,7 +47,9 @@ Katalog Digital
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left:auto; width:100%; position: fixed; top: 0; z-index: 1030; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.01);">
 
     <div class="navbar-brand" style="float: left; margin-left: 65px;">
-        <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 40px;">
+    <a href="https://www.aiostore.co.id/">
+            <img src="/images/logo.png" alt="Logo" style="max-width: 150px; height: 40px;">
+        </a>
     </div>
 
     <div class="col-sm-6 text-left" style="margin-left: 200px;">
