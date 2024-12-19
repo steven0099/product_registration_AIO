@@ -529,12 +529,6 @@ public function details($id)
            $videoId = $matches[1];
        }
 
-
-        if (isset($product['harga']) && substr($product['harga'], -3) === ',00') {
-            // Remove ',00' only from the end of the string
-            $product['harga'] = substr($product['harga'], 0, -3);
-        }
-   
        if ($videoId) {
            // Create YouTube embed and thumbnail URLs
            $embedUrl = "https://www.youtube.com/embed/{$videoId}";
@@ -545,7 +539,12 @@ public function details($id)
    usort($marketplace, function ($a, $b) {
     return strcmp($a['location'], $b['location']);
 });
-   
+
+if (isset($product['harga']) && substr($product['harga'], -3) === ',00') {
+    // Remove ',00' only from the end of the string
+    $product['harga'] = substr($product['harga'], 0, -3);
+}
+
    // Pass the data to the view
    return view('catalog/details', [
        'product' => $product,

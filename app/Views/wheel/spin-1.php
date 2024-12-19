@@ -226,6 +226,7 @@
         let imgRotationAngle = 0;
         let jackpotTexture = '';
         let isSpinning = false;
+        let isPrize = false;
         let rotationAngle = 0;
         let spinVelocity = 0;
         let segments = [];
@@ -317,7 +318,7 @@ const scaleMin = 1; // Minimum scale factor (original size)
         ctx.closePath();
 
         if (segment.jackpot === "Yes" && jackpotTexture) {
-            ctx.fillStyle = color; // Set the base color
+            ctx.fillStyle = '#e61e25';; // Set the base color
             ctx.fill();
 
             ctx.save(); // Save the current context state
@@ -519,8 +520,10 @@ function drawPointer() {
             if (selectedSegment.jackpot == 'Yes') {
                 displayJackpotResult(selectedSegment); // Unique behavior for jackpot
                 handlePrizeRoll(selectedSegment);
+                isPrize = true;
             } else {
                 displayResult(selectedSegment); // Regular behavior for other prizes
+                isPrize = true;
             }
         }
     }
@@ -535,25 +538,46 @@ function displayJackpotResult(segment) {
     // Clear existing content
     modalContent.innerHTML = '';
 
-    // Show "Get Ready" message
-    const countdownText = document.createElement('div');
-    countdownText.textContent = 'Bersiap...';
-    countdownText.style.fontSize = '2rem';
-    countdownText.style.textAlign = 'center';
-    modalContent.appendChild(countdownText);
+    // Show initial "Press Enter to Start" message
+    const startText = document.createElement('div');
+    startText.textContent = `Selamat! Anda Mendapatkan Hadiah Jackpot ${segment.label}, Silahkan Dibelanjakan dalam waktu 5 Menit`;
+    startText.style.fontSize = '2rem';
+    startText.style.textAlign = 'center';
+    modalContent.appendChild(startText);
 
-    let countdown = 4; // 3-second countdown
-    const countdownInterval = setInterval(() => {
-        countdown -= 1;
-        if (countdown <= 0) {
-            clearInterval(countdownInterval);
+    let countdown = 10; // 10-second countdown
+    let countdownInterval; // To store the interval reference
 
-            // Replace with jackpot video
-            showJackpotVideo(segment, modalContent);
-        } else {
-            countdownText.textContent = `Bersiap... (${countdown})`;
+    // Function to start the countdown
+    function startCountdown() {
+        // Replace the "Press Enter" message with the countdown
+        startText.textContent = `Bersiap... (${countdown})`;
+
+        countdownInterval = setInterval(() => {
+            countdown -= 1;
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+
+                // Replace with jackpot video
+                showJackpotVideo(segment, modalContent);
+            } else {
+                startText.textContent = `Bersiap... (${countdown})`;
+            }
+        }, 1000);
+
+        // Remove the keydown event listener after starting the countdown
+        document.removeEventListener('keydown', handleKeydown);
+    }
+
+    // Keydown event handler to check for "Enter" key
+    function handleKeydown(event) {
+        if (event.key === ' ' || event.key === 'Spacebar') {
+            startCountdown(); // Start the countdown when "Enter" is pressed
         }
-    }, 1000);
+    }
+
+    // Add the keydown event listener
+    document.addEventListener('keydown', handleKeydown);
 
     modal.style.display = 'block'; // Show the modal
 }
@@ -572,7 +596,7 @@ function showJackpotVideo(segment, modalContent) {
     jackpotTitle.textContent = `Selamat! Anda Mendapatkan ${segment.label}!`;
 
     // Update the video source using settings
-    updateJackpotVideo(modalContent);  // Call the function that updates the video source
+    updateJackpotVideo(modalContent); // Call the function that updates the video source
 
     // Add a 5-minute countdown
     const countdownTimer = document.createElement('div');
@@ -581,21 +605,39 @@ function showJackpotVideo(segment, modalContent) {
     countdownTimer.style.marginTop = '20px';
     modalContent.appendChild(countdownTimer);
 
-    let timeRemaining = 5 * 60; // 5 minutes in seconds
+    let timeRemaining = 5 * 1; // 5 minutes in seconds
+    let isTimeUp = false; // Flag to track when the time is up
+
     const countdownInterval = setInterval(() => {
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
         countdownTimer.textContent = `Waktu Tersisa: ${minutes}:${seconds.toString().padStart(2, '0')}`;
         if (timeRemaining <= 0) {
             clearInterval(countdownInterval);
-            modalContent.innerHTML = '<div style="text-align:center;">Waktu Habis! Selamat!</div>';
+            isTimeUp = true; // Set the flag when time is up
+            modalContent.innerHTML = '<div style="text-align:center; margin-top: 20px;">Waktu Habis! Selamat!</div>';
             playPrizeSound();
             triggerConfetti();
-            setTimeout(() => { closeJackpotModal(); }, 5000);
         } else {
             timeRemaining -= 1;
         }
     }, 1000);
+
+    // Add Esc key listener
+    document.addEventListener('keydown', function handleEscKey(event) {
+        if (event.key === 'Escape' && isTimeUp) {
+            closeJackpotModal();
+            document.removeEventListener('keydown', handleEscKey); // Remove listener after modal is closed
+        }
+    });
+}
+
+// Function to close the jackpot modal
+function closeJackpotModal() {
+    const modal = document.getElementById('jackpotModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // Function to dynamically update the video source
@@ -606,7 +648,7 @@ function updateJackpotVideo(modalContent) {
         // Create the video element if it doesn't exist
         video = document.createElement('video');
         video.autoplay = true;
-        video.controls = true;
+        video.controls = false;
         video.style.display = 'block';
         video.style.width = '100%';
         modalContent.appendChild(video);
@@ -627,6 +669,7 @@ function closeJackpotModal(){
     const modal = document.getElementById('jackpotModal');
     modal.style.display = 'none';  // Hide the modal
     console.log("Modal hidden");
+    isPrize = false;
 }
         // Play the prize sound when the wheel stops
         function playPrizeSound() {
@@ -850,7 +893,7 @@ function drawPointerOnCanvas(canvas) {
 }
 // Close modal on "Esc" key
 document.addEventListener('keydown', (event) => {
-    if ((event.key === ' ' || event.key === 'Spacebar') && !isSpinning) {  // Check if Spacebar (or ' ') is pressed and not spinning
+    if ((event.key === 'Enter') && !isSpinning && !isPrize) {  // Check if Spacebar (or ' ') is pressed and not spinning
         event.preventDefault();  // Prevent default Spacebar action (e.g., scrolling)
         spinWheel();  // Start spinning
     }
@@ -947,6 +990,7 @@ function closeModal() {
     const modal = document.getElementById('resultModal');
     modal.style.display = 'none';  // Hide the modal
     console.log("Modal hidden");
+    isPrize = false;
 }
 
 function startIdleAnimation() {

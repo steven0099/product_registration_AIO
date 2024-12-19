@@ -912,8 +912,10 @@ Detail Produk
                                             <?php endif; ?>  </p>
                                         <p class="card-text"><?= esc($relproduct['product_type']) ?>
                                         </p>
-                                        <p class="card-text" style="margin-top:0"><?= esc($relproduct['harga'] ?? 'belum ditentukan') ?>
-                                        </p>
+                                        <p class="card-text" style="margin-top:0">
+    <?= esc(isset($relproduct['harga']) ? substr($relproduct['harga'], 0, -3) : 'belum ditentukan') ?>
+</p>
+
                                     </div>
                                 </div>
                             </a>
