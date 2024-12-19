@@ -143,7 +143,7 @@
     border-radius: 20px;
     background-color: #fff;
     font-family: Poppins, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     color: #333;
     width: 100%; /* Ensures equal width for all items */
@@ -322,13 +322,13 @@ const scaleMin = 1; // Minimum scale factor (original size)
             ctx.fill();
 
             ctx.save(); // Save the current context state
-            ctx.translate(centerX, centerY+80); // Move to the center of the wheel
+            ctx.translate(centerX+180, centerY+200); // Move to the center of the wheel
             ctx.rotate(rotationAngle); // Rotate the texture with the wheel
             ctx.translate(-centerX, -centerY); // Move back to the original position
 
             let pattern = ctx.createPattern(jackpotTexture, 'repeat');
             ctx.fillStyle = pattern; // Set the pattern as the fill style
-            ctx.scale(0.12, 0.12); // Scale the pattern (50% smaller)
+            ctx.scale(0.25, 0.25); // Scale the pattern (50% smaller)
             ctx.clip(); // Clip the segment area
             ctx.fill(); // Fill the clipped area with the rotated pattern
             ctx.restore(); // Restore the canvas state
@@ -349,18 +349,11 @@ backgroundImgElement.onload = () => {
     if (segment.jackpot === 'Yes') {
         ctx.save();
         ctx.beginPath();
-        ctx.drawImage(backgroundImgElement, imgX, imgY, imgSize, imgSize);
+        ctx.drawImage(imgX, imgY, imgSize, imgSize);
         ctx.restore();
     }
 };
 
-    // Draw background image first (static)
-    if (backgroundImgElement && segment.jackpot == 'Yes') {
-        ctx.save();
-        ctx.beginPath();
-        ctx.drawImage(backgroundImgElement, imgX, imgY, imgSize, imgSize);
-        ctx.restore();
-    }
 
     // Draw the segment image on top of the background
     ctx.save();
@@ -540,18 +533,37 @@ function displayJackpotResult(segment) {
 
     // Show initial "Press Enter to Start" message
     const startText = document.createElement('div');
-    startText.textContent = `Selamat! Anda Mendapatkan Hadiah Jackpot ${segment.label}, Silahkan Dibelanjakan dalam waktu 5 Menit`;
+    startText.textContent = `Selamat! Anda Mendapatkan Hadiah Jackpot`;
     startText.style.fontSize = '2rem';
     startText.style.textAlign = 'center';
     modalContent.appendChild(startText);
 
-    let countdown = 10; // 10-second countdown
+    // Create and append the prize image
+    const startImg = document.createElement('img'); // Use 'img' instead of 'div'
+    startImg.src = `../uploads/images/${segment.modal_img}`; // Path to the prize image
+    startImg.style.display = 'block';
+    startImg.style.margin = '20px auto'; // Center the image
+    startImg.style.maxWidth = '60%'; // Ensure it scales within the modal
+    startImg.style.maxHeight = '60%'; // Ensure it scales within the modal
+    modalContent.appendChild(startImg);
+
+    // Create and append the prize label
+    const startPrize = document.createElement('div');
+    startPrize.textContent = `${segment.label}`;
+    startPrize.style.fontSize = '2rem';
+    startPrize.style.textAlign = 'center';
+    startPrize.style.marginTop = '10px';
+    modalContent.appendChild(startPrize);
+
+    let countdown = 10; // 3-second countdown
     let countdownInterval; // To store the interval reference
 
     // Function to start the countdown
     function startCountdown() {
         // Replace the "Press Enter" message with the countdown
         startText.textContent = `Bersiap... (${countdown})`;
+        startImg.style.display = 'none';
+        startPrize.textContent = ``;
 
         countdownInterval = setInterval(() => {
             countdown -= 1;
@@ -589,11 +601,11 @@ function showJackpotVideo(segment, modalContent) {
     const jackpotTitle = document.createElement('div');
     jackpotTitle.style.fontSize = '1.5rem';
     jackpotTitle.style.textAlign = 'center';
-    jackpotTitle.style.marginTop = '20px';
+    jackpotTitle.style.marginBottom = '30px';
     modalContent.appendChild(jackpotTitle);
 
     // Add title for jackpot prize
-    jackpotTitle.textContent = `Selamat! Anda Mendapatkan ${segment.label}!`;
+    jackpotTitle.textContent = `Waktu Berjalan:`;
 
     // Update the video source using settings
     updateJackpotVideo(modalContent); // Call the function that updates the video source
@@ -605,17 +617,17 @@ function showJackpotVideo(segment, modalContent) {
     countdownTimer.style.marginTop = '20px';
     modalContent.appendChild(countdownTimer);
 
-    let timeRemaining = 5 * 60; // 5 minutes in seconds
+    let timeRemaining = 5 * 1; // 5 minutes in seconds
     let isTimeUp = false; // Flag to track when the time is up
 
     const countdownInterval = setInterval(() => {
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
-        countdownTimer.textContent = `Waktu Tersisa: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        countdownTimer.textContent = ``;
         if (timeRemaining <= 0) {
             clearInterval(countdownInterval);
             isTimeUp = true; // Set the flag when time is up
-            modalContent.innerHTML = '<div style="text-align:center; margin-top: 20px;">Waktu Habis! Selamat!</div>';
+            modalContent.innerHTML = '<div style="text-align:center; font-size:40px; margin-top: 20px;">Waktu Habis! Selamat!</div>';
             playPrizeSound();
             triggerConfetti();
         } else {
@@ -631,7 +643,6 @@ function showJackpotVideo(segment, modalContent) {
         }
     });
 }
-
 // Function to close the jackpot modal
 function closeJackpotModal() {
     const modal = document.getElementById('jackpotModal');
