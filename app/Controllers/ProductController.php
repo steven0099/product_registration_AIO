@@ -710,7 +710,7 @@ class ProductController extends BaseController
             $validationRules['compressor_warranty_id'] = 'required';  // Corrected field name
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
-        } elseif ($category == '6' || $subcategory == '49' || $subcategory == '62' || $subcategory == '63') {
+        } elseif ($category == '6' || $subcategory == '49' || $subcategory == '62') {
             $validationRules['garansi_motor_id'] = 'required'; // Ensure this matches your form
             $validationRules['sparepart_warranty_id'] = 'required';
             $validationRules['capacity_id'] = 'required';
@@ -791,8 +791,8 @@ class ProductController extends BaseController
 
             // Extra dynamic warranties or other fields
             'compressor_warranty_id' => (in_array($category, ['3', '4', '5', '7']) || in_array($subcategory, ['35', '36', '78'])) ? $step1Data['compressor_warranty_id'] : null,
-            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33', '34', '37', '38', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '62', '63', '64', '65', '66', '68', '69', '71', '72', '73', '74', '75', '76'])) ? $step1Data['sparepart_warranty_id'] : null,
-            'garansi_elemen_panas_id' => (in_array($subcategory, ['33', '34', '37', '38', '41', '42', '44', '48', '66', '71', '72', '75', '76'])) ? $step1Data['garansi_elemen_panas_id'] : null,
+            'sparepart_warranty_id' => (in_array($category, ['3', '4', '5', '6', '7', '9']) || in_array($subcategory, ['33', '34', '37', '38', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '53', '54', '62', '63', '64', '65', '66', '68', '69', '71', '72', '73', '74', '75', '76'])) ? $step1Data['sparepart_warranty_id'] : null,
+            'garansi_elemen_panas_id' => (in_array($subcategory, ['33', '34', '37', '38', '41', '42', '44', '48', '66', '63', '71', '72', '75', '76'])) ? $step1Data['garansi_elemen_panas_id'] : null,
         ];
 
         // Insert the data into the database
