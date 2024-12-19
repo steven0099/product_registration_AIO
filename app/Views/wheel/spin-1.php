@@ -605,7 +605,7 @@ function showJackpotVideo(segment, modalContent) {
     countdownTimer.style.marginTop = '20px';
     modalContent.appendChild(countdownTimer);
 
-    let timeRemaining = 5 * 1; // 5 minutes in seconds
+    let timeRemaining = 5 * 60; // 5 minutes in seconds
     let isTimeUp = false; // Flag to track when the time is up
 
     const countdownInterval = setInterval(() => {
