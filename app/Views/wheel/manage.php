@@ -234,6 +234,7 @@ Manajemen Roda
                                                             placeholder="Enter Stock" min="0"
                                                             step="1" required>
                                                     </div>
+                                                    <div class="form-group">
                                                     <label for="jackpot">Jackpot?</label>
                     <select name="jackpot" id="jackpot" class="form-control" required>
                     <option value="no" <?= $segment['jackpot'] === 'no' ? 'selected' : '' ?>>No</option>
