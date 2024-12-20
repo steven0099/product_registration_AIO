@@ -80,8 +80,10 @@ Manajemen Roda
                             <tr>
                                 <th>SFX Spin</th>
                                 <th>SFX Hadiah</th>
+                                <th>SFX Jackpot</th>
                                 <th>Video Jackpot</th>
                                 <th>Background Jackpot</th>
+                                <th>Countdown SFX</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
@@ -103,6 +105,13 @@ Manajemen Roda
                                     </audio>
                                 </td>
                                 <td>
+                                    <audio controls>
+                                        <source src="<?= base_url('audio/' . esc($setting['jp_sfx'])) ?>"
+                                            type="audio/mpeg">
+                                        Your browser does not support the audio tag.
+                                    </audio>
+                                </td>
+                                <td>
                                     <video controls width="200" height="200">
                                         <source src="<?= base_url('video/' . esc($setting['jackpot_vid'])) ?>"
                                             type="video/mp4">
@@ -115,6 +124,13 @@ Manajemen Roda
                                         alt="Jackpot BG" style="width: 50px; height: 50px;">
                                 </td>
                                 <?php endif; ?>
+                                <td>
+                                    <audio controls>
+                                        <source src="<?= base_url('audio/' . esc($setting['cd_sfx'])) ?>"
+                                            type="audio/mpeg">
+                                        Your browser does not support the audio tag.
+                                    </audio>
+                                </td>
                                 <td>
                                     <button class="btn btn-primary btn-edit" data-toggle="modal"
                                         data-target="#settingsModal<?= esc($setting['id']) ?>">
@@ -151,6 +167,11 @@ Manajemen Roda
                                                 class="form-control" accept=".mp3">
                                         </div>
                                         <div class="form-group">
+                                            <label for="JPSFX<?= esc($setting['id']) ?>">Jackpot Sound</label>
+                                            <input type="file" id="JPSFX<?= esc($setting['id']) ?>" name="jp_sfx"
+                                                class="form-control" accept=".mp3">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="jackpotVideo<?= esc($setting['id']) ?>">Jackpot Video</label>
                                             <input type="file" id="jackpotVideo<?= esc($setting['id']) ?>"
                                                 name="jackpot_vid" class="form-control" accept=".mp4">
@@ -163,6 +184,11 @@ Manajemen Roda
                                             </div>
                                             <input type="file" class="form-control" name="jackpot_bg" accept="image/*">
 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="CDSFX<?= esc($setting['id']) ?>">Countdown Sound</label>
+                                            <input type="file" id="CDSFX<?= esc($setting['id']) ?>" name="cd_sfx"
+                                                class="form-control" accept=".mp3">
                                         </div>
                                     </div>
                                     <div class="modal-footer">

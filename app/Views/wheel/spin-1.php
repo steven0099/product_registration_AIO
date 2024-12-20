@@ -208,6 +208,11 @@
 
     <!-- Prize sound -->
     <audio id="prizeSound"></audio>
+
+    <audio id="CDSound"></audio>
+
+    <audio id="JPSound"></audio>
+
     <video id="jackpotVideo" controls style="width: 100%; display: none"></video>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
@@ -219,6 +224,8 @@
         const resultDisplay = document.getElementById('result');
         const spinSound = document.getElementById('spinSound');
         const prizeSound = document.getElementById('prizeSound');
+        const CDSound = document.getElementById('CDSound');
+        const JPSound = document.getElementById('JPSound');
         const centerImageElement = new Image();
         centerImageElement.src = '/images/e_Happy.png'; // Replace with your PNG path
         const csrfRefreshUrl = '<?= base_url('wheel/getCsrfToken') ?>';
@@ -555,6 +562,7 @@ function displayJackpotResult(segment) {
     startPrize.style.marginTop = '10px';
     modalContent.appendChild(startPrize);
     triggerConfetti();
+    playJPSound();
 
     let countdown = 5; // 3-second countdown
     let countdownInterval; // To store the interval reference
@@ -575,6 +583,7 @@ function displayJackpotResult(segment) {
                 showJackpotVideo(segment, modalContent);
             } else {
                 startText.textContent = `Bersiap... (${countdown})`;
+                playCDSound();
             }
         }, 1000);
 
@@ -630,7 +639,6 @@ function showJackpotVideo(segment, modalContent) {
             isTimeUp = true; // Set the flag when time is up
             modalContent.innerHTML = '<div style="text-align:center; font-size:40px;">Waktu Habis! Selamat!</div>';
             playPrizeSound();
-            triggerConfetti();
         } else {
             timeRemaining -= 1;
         }
@@ -686,6 +694,14 @@ function closeJackpotModal(){
         // Play the prize sound when the wheel stops
         function playPrizeSound() {
             prizeSound.play();
+        }
+
+        function playCDSound() {
+            CDSound.play();
+        }
+
+        function playJPSound() {
+            JPSound.play();
         }
 
         // Display the selected result after the wheel stops
@@ -1033,8 +1049,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update the media sources dynamically for audio
                 const spinSound = document.getElementById('spinSound');
                 const prizeSound = document.getElementById('prizeSound');
+                const CDSound = document.getElementById('CDSound');
                 spinSound.src = `../audio/${settings.spin_sfx}`;
                 prizeSound.src = `../audio/${settings.prize_sfx}`;
+                CDSound.src = `../audio/${settings.cd_sfx}`;
+                JPSound.src = `../audio/${settings.jp_sfx}`;
 
                 // Update the video dynamically
                 const jackpotVideo = document.getElementById('jackpotVideo'); // Assuming you have a <video> element with id 'jackpotVideo'

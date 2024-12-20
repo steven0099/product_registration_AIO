@@ -227,6 +227,8 @@ class WheelController extends BaseController
     {
         $fileSpinSFX = $this->request->getFile('spin_sfx');
         $filePrizeSFX = $this->request->getFile('prize_sfx');
+        $fileJPSFX = $this->request->getFile('jp_sfx');
+        $fileCDSFX = $this->request->getFile('cd_sfx');
         $fileJackpotVid = $this->request->getFile('jackpot_vid');
         $fileJackpotBG = $this->request->getFile('jackpot_bg');
         
@@ -264,7 +266,36 @@ class WheelController extends BaseController
             // Keep the existing prize_sfx if no new file is provided
             $data['prize_sfx'] = $currentSettings['prize_sfx'];
         }
+
+        if ($fileJPSFX && $fileJPSFX->isValid() && !$fileJPSFX->hasMoved()) {
+            // Check if the file already exists and delete it if so
+            $existingFile = FCPATH . 'audio/' . $currentSettings['jp_sfx'];
+            if (file_exists($existingFile)) {
+                unlink($existingFile); // Delete the old file
+            }
     
+            // Move the new file and set the value
+            $fileJPSFX->move(FCPATH . 'audio/', $fileJPSFX->getName());
+            $data['jp_sfx'] = $filePrizeSFX->getName();  // Update the prize_sfx with new file name
+        } else {
+            // Keep the existing prize_sfx if no new file is provided
+            $data['jp_sfx'] = $currentSettings['jp_sfx'];
+        }
+    
+        if ($fileCDSFX && $fileCDSFX->isValid() && !$fileCDSFX->hasMoved()) {
+            // Check if the file already exists and delete it if so
+            $existingFile = FCPATH . 'audio/' . $currentSettings['cd_sfx'];
+            if (file_exists($existingFile)) {
+                unlink($existingFile); // Delete the old file
+            }
+    
+            // Move the new file and set the value
+            $fileCDSFX->move(FCPATH . 'audio/', $fileCDSFX->getName());
+            $data['cd_sfx'] = $fileCDSFX->getName();  // Update the prize_sfx with new file name
+        } else {
+            // Keep the existing prize_sfx if no new file is provided
+            $data['cd_sfx'] = $currentSettings['cd_sfx'];
+        }
         // Handle jackpot_vid file
         if ($fileJackpotVid && $fileJackpotVid->isValid() && !$fileJackpotVid->hasMoved()) {
             // Check if the file already exists and delete it if so
