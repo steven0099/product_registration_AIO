@@ -555,7 +555,7 @@ function displayJackpotResult(segment) {
     startPrize.style.marginTop = '10px';
     modalContent.appendChild(startPrize);
 
-    let countdown = 10; // 3-second countdown
+    let countdown = 5; // 3-second countdown
     let countdownInterval; // To store the interval reference
 
     // Function to start the countdown
@@ -617,7 +617,7 @@ function showJackpotVideo(segment, modalContent) {
     countdownTimer.style.marginTop = '20px';
     modalContent.appendChild(countdownTimer);
 
-    let timeRemaining = 5 * 1; // 5 minutes in seconds
+    let timeRemaining = 5 * 60; // 5 minutes in seconds
     let isTimeUp = false; // Flag to track when the time is up
 
     const countdownInterval = setInterval(() => {
@@ -627,7 +627,7 @@ function showJackpotVideo(segment, modalContent) {
         if (timeRemaining <= 0) {
             clearInterval(countdownInterval);
             isTimeUp = true; // Set the flag when time is up
-            modalContent.innerHTML = '<div style="text-align:center; font-size:40px; margin-top: 20px;">Waktu Habis! Selamat!</div>';
+            modalContent.innerHTML = '<div style="text-align:center; font-size:40px;">Waktu Habis! Selamat!</div>';
             playPrizeSound();
             triggerConfetti();
         } else {
