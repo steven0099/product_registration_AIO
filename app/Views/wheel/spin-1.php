@@ -554,6 +554,7 @@ function displayJackpotResult(segment) {
     startPrize.style.textAlign = 'center';
     startPrize.style.marginTop = '10px';
     modalContent.appendChild(startPrize);
+    triggerConfetti();
 
     let countdown = 5; // 3-second countdown
     let countdownInterval; // To store the interval reference
